@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Dispatch·iA #002 · Cadres français face à l'IA · observatoire[s]·ia</title>
+<meta name="description" content="Le Dispatch·iA Light · Édition libre. Cadres français face à l'IA : la décennie de la repolarisation. Q2 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2EEE5;
+  --paper-2: #ECE7DC;
+  --ink: #11110F;
+  --ink-2: #2A2A26;
+  --muted: #8B8579;
+  --rule: #D9D2C2;
+  --signal: #D03C2F;
+  --teal: #1F3A3D;
+  --highlight: #F7E27D;
+  --max-w: 1280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, rgba(17,17,15,0.04) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+::selection { background: var(--signal); color: var(--paper); }
+a { color: inherit; text-decoration: none; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 0.78em; letter-spacing: 0.02em; }
+.serif { font-family: "Fraunces", serif; font-variation-settings: "opsz" 96, "SOFT" 50; }
+
+/* ───────── NAV ───────── */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(242, 238, 229, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 24, "SOFT" 0;
+  font-weight: 500; font-size: 19px;
+  letter-spacing: -0.01em; color: var(--ink); white-space: nowrap;
+}
+.logo .bracket { color: var(--signal); font-weight: 600; }
+.logo .dot { color: var(--muted); margin: 0 0.15em; }
+
+.nav-links {
+  display: flex; gap: 28px; align-items: center;
+  font-size: 14px; font-weight: 500;
+}
+.nav-links a {
+  color: var(--ink-2); position: relative; padding: 4px 0;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.current { color: var(--signal); }
+.nav-links a.current::after {
+  content: ""; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1.5px; background: var(--signal);
+}
+
+.nav-actions { display: flex; gap: 14px; align-items: center; }
+.lang-toggle {
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  background: transparent; border: 1px solid var(--rule);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer;
+  display: flex; gap: 8px; color: var(--ink);
+  transition: border-color 0.2s;
+}
+.lang-toggle:hover { border-color: var(--ink); }
+.lang-toggle span.active { color: var(--signal); font-weight: 500; }
+.lang-toggle span:not(.active) { color: var(--muted); }
+
+.menu-btn {
+  display: none; background: transparent;
+  border: 1px solid var(--rule);
+  width: 38px; height: 38px; border-radius: 8px;
+  cursor: pointer; align-items: center; justify-content: center;
+}
+.menu-btn span { display: block; width: 16px; height: 1.5px; background: var(--ink); position: relative; }
+.menu-btn span::before, .menu-btn span::after {
+  content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: var(--ink);
+}
+.menu-btn span::before { top: -5px; }
+.menu-btn span::after { top: 5px; }
+
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: var(--paper); z-index: 100;
+  padding: 80px 32px 32px;
+  flex-direction: column; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: "Fraunces", serif; font-size: 32px; font-weight: 400; color: var(--ink);
+}
+.mobile-menu .close-btn {
+  position: absolute; top: 18px; right: 18px;
+  background: transparent; border: 1px solid var(--rule);
+  width: 38px; height: 38px; border-radius: 8px;
+  cursor: pointer; font-size: 20px; color: var(--ink);
+}
+
+/* ───────── HERO ───────── */
+.hero {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px 60px; position: relative;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--signal); }
+
+.hero-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.96; letter-spacing: -0.025em;
+  margin-bottom: 28px; max-width: 980px;
+}
+.hero-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.hero-title .accent-bracket { color: var(--signal); font-weight: 500; }
+
+.hero-lede {
+  font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
+  max-width: 640px; color: var(--ink-2); margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 28px; border-radius: 999px;
+  font-weight: 500; font-size: 15px;
+  transition: background 0.2s, transform 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer; font-family: inherit; border: none;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--signal); transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; border: 1px solid var(--ink); color: var(--ink);
+}
+.btn-secondary:hover { background: var(--ink); color: var(--paper); }
+.btn .arrow { transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ───────── COUNTRY TEASERS (Home) ───────── */
+.country-teasers {
+  max-width: var(--max-w); margin: 60px auto;
+  padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.country-card {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.country-card:hover { background: var(--paper-2); border-color: var(--ink); }
+.country-card-flag {
+  font-size: 32px;
+  display: flex; align-items: center; gap: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.country-card-flag .emoji { font-size: 28px; }
+.country-card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1; letter-spacing: -0.02em;
+}
+.country-card-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink-2);
+  display: flex; gap: 18px; flex-wrap: wrap;
+}
+.country-card-num strong {
+  font-family: "Fraunces", serif;
+  font-size: 28px; font-weight: 500; color: var(--signal);
+  margin-right: 4px;
+}
+.country-card-cta {
+  margin-top: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: gap 0.2s, color 0.2s;
+}
+.country-card:hover .country-card-cta { gap: 14px; color: var(--signal); }
+
+/* ───────── STATS ───────── */
+.stats {
+  max-width: var(--max-w); margin: 40px auto 0;
+  padding: 0 32px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.stat {
+  padding: 36px 24px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1; letter-spacing: -0.03em;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.stat-num .unit { font-size: 0.45em; color: var(--signal); font-weight: 400; }
+.stat-num .sign { color: var(--signal); font-size: 0.6em; }
+.stat-label {
+  margin-top: 14px; font-size: 14px; line-height: 1.4; max-width: 280px;
+}
+.stat-source {
+  margin-top: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ───────── MANIFESTO ───────── */
+.manifesto {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+  display: grid; grid-template-columns: 200px 1fr; gap: 60px;
+}
+.manifesto-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  padding-top: 8px;
+}
+.manifesto-text {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.35; letter-spacing: -0.01em;
+  max-width: 880px;
+}
+.manifesto-text p { margin-bottom: 0.6em; }
+.manifesto-text p:last-child { margin-bottom: 0; }
+.manifesto-text strong {
+  font-weight: 500;
+  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
+  padding: 0 2px;
+}
+
+/* ───────── SECTION HEADS ───────── */
+.section-head {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px 32px;
+  border-top: 1px solid var(--rule);
+}
+.section-head.no-border { border-top: none; padding-top: 60px; }
+.section-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before {
+  content: "§"; font-family: "Fraunces", serif;
+  font-size: 18px; color: var(--ink);
+}
+.section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.section-sub {
+  font-size: 17px; color: var(--ink-2);
+  max-width: 640px; line-height: 1.5;
+}
+
+/* ───────── FILTERS ───────── */
+.filters {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 32px;
+  display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+}
+.filter-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.filter-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-right: 8px;
+}
+.chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; border: 1px solid var(--rule);
+  background: transparent; padding: 7px 13px;
+  border-radius: 999px; cursor: pointer;
+  color: var(--ink-2); transition: all 0.18s;
+}
+.chip:hover { border-color: var(--ink); }
+.chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ───────── CARDS GRID ───────── */
+.cards-grid {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 100px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.card {
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 32px 28px 28px; background: var(--paper);
+  position: relative;
+  display: flex; flex-direction: column; gap: 14px;
+  min-height: 280px;
+  transition: background 0.2s; cursor: pointer;
+}
+.card:hover { background: var(--paper-2); }
+.card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.flag { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+.flag-dot { width: 8px; height: 8px; border-radius: 50%; }
+.flag-ch .flag-dot { background: var(--signal); }
+.flag-fr .flag-dot { background: var(--teal); }
+.card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500; font-size: 24px;
+  line-height: 1.1; letter-spacing: -0.01em;
+}
+.card-org { font-size: 13px; color: var(--muted); font-style: italic; }
+.card-desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); flex: 1; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.card-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--paper-2); padding: 4px 8px;
+  border-radius: 4px; color: var(--ink-2);
+}
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 8px; padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.card-footer .visit { color: var(--signal); }
+.card-empty-state {
+  grid-column: 1 / -1;
+  padding: 80px 32px; text-align: center;
+  font-family: "Fraunces", serif; font-style: italic;
+  color: var(--muted);
+}
+
+/* ───────── KPI ROW (country dashboards) ───────── */
+.kpi-row {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 60px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.kpi {
+  background: var(--paper);
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.kpi-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.kpi-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1; letter-spacing: -0.02em;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.kpi-num .unit { font-size: 0.45em; color: var(--signal); font-weight: 400; }
+.kpi-num .sign { color: var(--signal); font-size: 0.6em; }
+.kpi-label { font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.kpi-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-top: auto;
+}
+
+/* ───────── CONTEXT BLOCK (institutional context on country pages) ───────── */
+.context-block {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 70px 32px 90px;
+  border-top: 1px solid var(--rule);
+}
+.context-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+}
+.context-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 8px;
+}
+.context-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+}
+.context-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.context-content p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+.context-content p:last-of-type {
+  margin-bottom: 0;
+}
+.context-key-facts {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  max-width: 760px;
+}
+.kf-item {
+  background: var(--paper);
+  padding: 22px 22px;
+}
+.kf-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--signal);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.kf-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* CTA row inside dash-header */
+.dash-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.dash-header {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 70px 32px 30px;
+}
+.dash-flag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.dash-flag .emoji { font-size: 28px; }
+.dash-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 0.95; letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.dash-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.dash-lede {
+  font-size: clamp(17px, 1.5vw, 19px);
+  max-width: 720px; color: var(--ink-2);
+}
+
+/* ───────── CHART (mini sparkline / bar) ───────── */
+.chart-block {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 80px;
+}
+.bar-chart { display: flex; flex-direction: column; gap: 14px; }
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  align-items: center; gap: 16px;
+  font-size: 14px;
+}
+.bar-track {
+  height: 28px; background: var(--paper-2);
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.bar-fill {
+  height: 100%; background: var(--ink);
+  position: relative;
+  transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.bar-fill.signal { background: var(--signal); }
+.bar-fill.teal { background: var(--teal); }
+.bar-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink); text-align: right;
+}
+
+/* ───────── COMPARISON TABLE ───────── */
+.compare-table-wrap {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 100px;
+  overflow-x: auto;
+}
+table.compare {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 720px;
+  border: 1px solid var(--rule);
+}
+table.compare th {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); text-align: left;
+  padding: 16px 20px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+}
+table.compare th.country-ch { color: var(--signal); }
+table.compare th.country-fr { color: var(--teal); }
+table.compare td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+table.compare tr:last-child td { border-bottom: none; }
+table.compare td.dim {
+  font-family: "Fraunces", serif;
+  font-size: 16px; font-weight: 500;
+}
+table.compare td.gap {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal); font-weight: 500;
+}
+
+/* ───────── SYNTHESE (dark) ───────── */
+.synthese {
+  background: var(--ink); color: var(--paper);
+  padding: 100px 0;
+}
+.synthese-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+.synthese .section-eyebrow { color: var(--signal); }
+.synthese .section-eyebrow::before { color: var(--paper); }
+.synthese .section-title { color: var(--paper); }
+.synthese .section-sub { color: rgba(242, 238, 229, 0.7); }
+.table-wrap {
+  margin-top: 48px; overflow-x: auto;
+  border: 1px solid rgba(242, 238, 229, 0.15);
+}
+table.synth {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 720px;
+}
+table.synth th {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--signal); text-align: left;
+  padding: 16px 20px;
+  background: rgba(242, 238, 229, 0.03);
+  border-bottom: 1px solid rgba(242, 238, 229, 0.15);
+  font-weight: 500;
+}
+table.synth td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(242, 238, 229, 0.08);
+  vertical-align: top;
+}
+table.synth tr:hover td { background: rgba(242, 238, 229, 0.03); }
+table.synth td.name {
+  font-family: "Fraunces", serif;
+  font-size: 16px; font-weight: 500;
+}
+table.synth td .pill {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(242, 238, 229, 0.1);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ───────── FIELD REPORT ───────── */
+.field-report {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+}
+.field-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px; margin-top: 48px;
+}
+.field-card {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.field-card:hover { opacity: 0.75; }
+.field-card-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  display: flex; justify-content: space-between;
+}
+.field-card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 40;
+  font-weight: 400; font-size: 26px;
+  line-height: 1.15; letter-spacing: -0.01em;
+}
+.field-card-excerpt { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.field-card-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal); margin-top: 8px;
+}
+
+/* ───────── ABOUT ───────── */
+.about {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+}
+.about-text {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4; letter-spacing: -0.01em;
+}
+.about-text .accent-bracket { color: var(--signal); font-weight: 500; }
+.about-actions {
+  display: flex; flex-direction: column;
+  gap: 14px; align-items: flex-start; padding-top: 12px;
+}
+
+/* ───────── CROSS LINK (bottom of country page) ───────── */
+.cross-link {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px;
+}
+.cross-link h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.cross-link h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 100;
+  color: var(--signal);
+}
+
+/* ───────── BRIEF·iA · LIGHT (magazine-inspired) ───────── */
+.brief-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 60px 32px 50px;
+}
+.brief-hero-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.brief-hero-meta .meta-num {
+  color: var(--signal);
+  font-weight: 500;
+}
+.brief-hero-meta .meta-edition {
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.brief-hero-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(40px, 6.5vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  max-width: 1000px;
+}
+.brief-hero-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-hero-sub {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+  color: var(--ink-2);
+  max-width: 820px;
+  margin-bottom: 32px;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  font-weight: 300;
+}
+.brief-byline {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.brief-byline strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 70px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-section-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.brief-section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(30px, 4.5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  max-width: 800px;
+}
+.brief-section-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-section p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 820px;
+  margin-bottom: 18px;
+}
+.brief-section p:last-of-type { margin-bottom: 0; }
+.brief-section p strong { color: var(--ink); font-weight: 500; }
+.brief-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+}
+.brief-twocol-block h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.brief-twocol-block ul { list-style: none; padding: 0; }
+.brief-twocol-block li {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.brief-twocol-block li:last-child { border-bottom: none; }
+.brief-twocol-block li strong {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+.brief-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 32px;
+}
+.brief-stat {
+  background: var(--paper);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.brief-stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-size: clamp(60px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-stat-num .unit {
+  font-size: 0.4em;
+  color: var(--signal);
+  vertical-align: super;
+  margin-left: 2px;
+}
+.brief-stat-num .sign { color: var(--signal); font-size: 0.7em; }
+.brief-stat-label {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  flex: 1;
+}
+.brief-stat-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+.brief-quote {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 60;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(24px, 3.2vw, 38px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 920px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.brief-quote::before {
+  content: "“";
+  font-size: 1.4em;
+  color: var(--signal);
+  vertical-align: -0.1em;
+}
+.brief-quote::after {
+  content: "”";
+  font-size: 1.4em;
+  color: var(--signal);
+  vertical-align: -0.1em;
+}
+.brief-quote-author {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+.brief-quote-author strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-quote-author span { color: var(--muted); margin-left: 8px; }
+.brief-checklist {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.brief-checklist-item {
+  background: var(--paper);
+  padding: 28px;
+  display: flex;
+  gap: 18px;
+}
+.brief-checklist-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--signal);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.brief-checklist-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.brief-checklist-text strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+}
+.brief-toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 40px;
+}
+.brief-tool {
+  background: var(--paper);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.2s;
+}
+.brief-tool:hover { background: var(--paper-2); }
+.brief-tool-cat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.brief-tool-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.brief-tool-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* DISPATCH SOURCES - traceability block */
+.brief-sources {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-top: 40px;
+}
+.brief-sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 40px;
+}
+.brief-source-card {
+  background: var(--paper);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+  transition: background 0.2s;
+}
+.brief-source-card:hover { background: var(--paper-2); }
+.brief-source-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 60;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--signal);
+  line-height: 1;
+  padding-top: 4px;
+}
+.brief-source-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.brief-source-label {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.brief-source-cited {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  font-style: italic;
+}
+.brief-source-cited strong {
+  font-style: normal;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-source-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+.brief-source-links a {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  transition: border-color 0.2s, background 0.2s;
+}
+.brief-source-links a:hover {
+  border-color: var(--signal);
+  background: var(--paper-2);
+}
+@media (max-width: 720px) {
+  .brief-source-card {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  .brief-source-num { font-size: 24px; }
+}
+
+.brief-paywall {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 90px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-paywall-inner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 60px 50px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+.brief-paywall-inner::before {
+  content: "EXECUTIVE";
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--signal);
+}
+.brief-paywall-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 18px;
+}
+.brief-paywall-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--paper);
+}
+.brief-paywall-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-paywall-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(242, 238, 229, 0.75);
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+.brief-paywall ul { list-style: none; padding: 0; margin: 0; }
+.brief-paywall ul li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(242, 238, 229, 0.85);
+  padding: 10px 0 10px 24px;
+  position: relative;
+  border-bottom: 1px dashed rgba(242, 238, 229, 0.15);
+}
+.brief-paywall ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+}
+.brief-paywall ul li:last-child { border-bottom: none; }
+.brief-paywall-price {
+  background: rgba(242, 238, 229, 0.05);
+  border: 1px solid rgba(242, 238, 229, 0.15);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+.brief-paywall-price-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.brief-paywall-price-value {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+}
+.brief-paywall-price-value .currency {
+  font-size: 0.4em;
+  color: var(--signal);
+  margin-right: 6px;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+.brief-paywall-price-alt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(242, 238, 229, 0.6);
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(242, 238, 229, 0.15);
+}
+.brief-paywall-buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 14px 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.brief-paywall-buy:hover { background: #ED5448; color: var(--paper); }
+.brief-paywall-note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: rgba(242, 238, 229, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-top: 4px;
+}
+.brief-back {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  text-align: center;
+}
+@media (max-width: 960px) {
+  .brief-hero { padding: 40px 20px 32px; }
+  .brief-section, .brief-numbers, .brief-quote-section, .brief-checklist-section, .brief-toolkit-section { padding: 50px 20px; }
+  .brief-twocol { grid-template-columns: 1fr; gap: 32px; }
+  .brief-numbers-grid { grid-template-columns: 1fr; }
+  .brief-checklist { grid-template-columns: 1fr; }
+  .brief-toolkit-grid { grid-template-columns: 1fr; }
+  .brief-paywall { padding: 60px 20px; }
+  .brief-paywall-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 28px;
+  }
+  .brief-paywall-inner::before { top: 16px; right: 20px; }
+  .brief-back { padding: 0 20px 50px; }
+}
+
+/* ───────── FOOTER ───────── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 40px 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.foot-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.foot-links { display: flex; gap: 20px; }
+.foot-links a { color: var(--ink-2); transition: color 0.2s; }
+.foot-links a:hover { color: var(--signal); }
+.foot-version { color: var(--ink-2); }
+
+/* ───────── BRIEFINGS · CATALOG LIST ───────── */
+.briefings-list {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 100px;
+}
+.briefing-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 200px;
+  gap: 40px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.briefing-row:last-child { border-bottom: 1px solid var(--rule); }
+.briefing-row.upcoming { opacity: 0.55; }
+.briefing-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 20;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 0.9;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.briefing-row.upcoming .briefing-num { color: var(--muted); }
+.briefing-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.briefing-meta .pill-sector {
+  color: var(--signal);
+  font-weight: 500;
+}
+.briefing-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.briefing-title a { color: inherit; transition: color 0.2s; }
+.briefing-title a:hover { color: var(--signal); }
+.briefing-summary {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 640px;
+}
+.briefing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+.briefing-action-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.briefing-action-line .label { color: var(--muted); width: 50px; }
+.briefing-action-line a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  transition: color 0.2s, border-color 0.2s;
+}
+.briefing-action-line a:hover { color: var(--signal); border-color: var(--signal); }
+.briefing-action-line a.exec { color: var(--signal); border-color: var(--signal); }
+.briefing-action-line .price {
+  color: var(--ink);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* ───────── BRIEFINGS · DOCUMENT VIEW ───────── */
+.briefing-classification {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 2px solid var(--signal);
+  border-bottom: 2px solid var(--signal);
+}
+.briefing-classification .clss-cell { display: flex; gap: 8px; align-items: center; }
+.briefing-classification .clss-label { color: var(--muted); }
+.briefing-classification .clss-value { color: var(--paper); font-weight: 500; }
+.briefing-classification .clss-value.signal { color: var(--signal); }
+
+.briefing-doc {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 70px 32px;
+}
+.briefing-doc-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.briefing-doc-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.briefing-brief {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 3px solid var(--signal);
+  padding-left: 24px;
+  margin: 32px 0 48px;
+  max-width: 760px;
+}
+.briefing-byline {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.briefing-byline strong { color: var(--ink); font-weight: 500; }
+
+.briefing-section {
+  margin-bottom: 56px;
+}
+.briefing-section-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  display: block;
+}
+.briefing-section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.briefing-section p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+  max-width: 760px;
+}
+.briefing-section p strong { color: var(--ink); font-weight: 500; }
+.briefing-section p em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.briefing-findings {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: finding;
+}
+.briefing-findings li {
+  counter-increment: finding;
+  padding: 18px 0 18px 56px;
+  border-bottom: 1px dashed var(--rule);
+  position: relative;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 800px;
+}
+.briefing-findings li:last-child { border-bottom: none; }
+.briefing-findings li::before {
+  content: counter(finding, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: -0.02em;
+}
+.briefing-findings li strong { color: var(--ink); font-weight: 500; }
+
+.briefing-implications {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 8px;
+}
+.implication-block {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.implication-block:last-child { border-bottom: 1px solid var(--rule); }
+.implication-audience {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  font-weight: 500;
+  padding-top: 4px;
+}
+.implication-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 700px;
+}
+.implication-text strong { color: var(--ink); font-weight: 500; }
+
+.briefing-sources {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.briefing-sources li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.briefing-sources li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+/* ───────── EXEC EDITION CTA BLOCK ───────── */
+.exec-cta {
+  margin-top: 80px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 56px 48px;
+  border-top: 4px solid var(--signal);
+  position: relative;
+}
+.exec-cta::before {
+  content: "EXECUTIVE EDITION";
+  position: absolute;
+  top: -14px;
+  left: 32px;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 5px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+.exec-cta-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.exec-cta-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin-bottom: 18px;
+}
+.exec-cta-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.exec-cta-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(242, 238, 229, 0.78);
+  margin-bottom: 18px;
+}
+.exec-cta-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(242, 238, 229, 0.92);
+}
+.exec-cta-features li {
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.exec-cta-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+.exec-price-card {
+  background: rgba(242, 238, 229, 0.05);
+  border: 1px solid rgba(242, 238, 229, 0.15);
+  padding: 32px;
+}
+.exec-price-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+.exec-price-value {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+}
+.exec-price-currency {
+  font-size: 0.4em;
+  color: var(--signal);
+  margin-right: 6px;
+  font-weight: 400;
+}
+.exec-price-alt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: rgba(242, 238, 229, 0.6);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+.exec-price-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+}
+.exec-price-buy:hover { background: var(--paper); color: var(--ink); }
+.exec-price-sub {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: rgba(242, 238, 229, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 18px;
+  text-align: center;
+  display: block;
+}
+.exec-price-sub a { color: rgba(242, 238, 229, 0.85); border-bottom: 1px solid rgba(242, 238, 229, 0.3); }
+
+@media (max-width: 960px) {
+  .briefings-list { padding: 0 20px 70px; }
+  .briefing-row { grid-template-columns: 60px 1fr; gap: 20px; padding: 28px 0; }
+  .briefing-num { font-size: 40px; }
+  .briefing-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; padding-top: 8px; }
+  .briefing-classification { padding: 10px 20px; gap: 12px; font-size: 10px; }
+  .briefing-doc { padding: 50px 20px; }
+  .implication-block { grid-template-columns: 1fr; gap: 6px; }
+  .exec-cta { padding: 48px 24px; }
+  .exec-cta-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ───────── REVEAL ───────── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ───────── RESPONSIVE ───────── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; }
+  .nav-inner { padding: 14px 20px; }
+  .hero { padding: 56px 20px 40px; }
+  .stats { padding: 0 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 0; }
+  .stat:last-child { border-bottom: none; }
+  .country-teasers { grid-template-columns: 1fr; padding: 0 20px; }
+  .country-card { padding: 28px 24px; }
+  .manifesto { grid-template-columns: 1fr; gap: 24px; padding: 70px 20px; }
+  .section-head { padding: 60px 20px 28px; }
+  .filters { padding: 0 20px 28px; gap: 20px; }
+  .cards-grid { grid-template-columns: 1fr; padding: 0 20px 70px; }
+  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 40px; }
+  .dash-header { padding: 50px 20px 24px; }
+  .context-block { padding: 50px 20px 60px; }
+  .context-grid { grid-template-columns: 1fr; gap: 24px; }
+  .context-key-facts { grid-template-columns: 1fr; }
+  .chart-block { padding: 0 20px 60px; }
+  .bar-row { grid-template-columns: 120px 1fr 50px; gap: 10px; font-size: 12px; }
+  .compare-table-wrap { padding: 0 20px 70px; }
+  .synthese { padding: 70px 0; }
+  .synthese-inner { padding: 0 20px; }
+  .field-report { padding: 70px 20px; }
+  .field-grid { grid-template-columns: 1fr; gap: 24px; }
+  .about { grid-template-columns: 1fr; gap: 32px; padding: 70px 20px; }
+  .about-actions { flex-direction: row; flex-wrap: wrap; }
+  .cross-link { grid-template-columns: 1fr; gap: 20px; padding: 60px 20px; }
+  footer { padding: 28px 20px; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .hero-title { font-size: 42px; }
+  .stat-num, .kpi-num { font-size: 44px; }
+  .section-title { font-size: 30px; }
+  .card { padding: 24px 20px; min-height: 240px; }
+  .field-card-title { font-size: 22px; }
+}
+
+/* ============================================== */
+/* CONTACT FORM */
+/* ============================================== */
+.contact-form-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 32px 80px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-row.form-row-half {
+  flex: 1;
+}
+.form-row-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.form-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.form-label .required {
+  color: var(--signal);
+  margin-left: 4px;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--signal);
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23D03C2F' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.form-textarea {
+  border: 1px solid var(--rule);
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 160px;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+}
+.form-textarea:focus {
+  border-color: var(--signal);
+}
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.form-submit {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 14px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+.form-submit:hover {
+  background: var(--signal);
+}
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form-note {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 380px;
+  line-height: 1.5;
+}
+.form-feedback {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 18px;
+  border: 1px solid var(--signal);
+  background: var(--paper-2);
+  margin-bottom: 24px;
+  display: none;
+}
+.form-feedback.visible { display: block; }
+@media (max-width: 720px) {
+  .contact-form-section { padding: 40px 20px 60px; }
+  .form-row-double { grid-template-columns: 1fr; gap: 32px; }
+  .form-actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ============================================== */
+/* RESPONSIVE COMPLETION                          */
+/* Tablet: 768-960px · Mobile: 560px · Phone: 380px */
+/* ============================================== */
+
+@media (max-width: 960px) {
+  /* Briefings list catalog: stack on tablet */
+  .briefing-row {
+    grid-template-columns: 60px 1fr;
+    gap: 18px;
+    padding: 28px 0;
+  }
+  .briefing-num { font-size: 36px; }
+  .briefing-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  /* Method grid section · stack tag above content */
+  .method-section { padding: 0 20px 40px; }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 36px 0;
+  }
+  .method-content h3 { font-size: 24px; }
+  .method-content h4 { font-size: 17px; }
+
+  /* Brief hero typography for mobile reading */
+  .brief-hero h1, .brief-title { font-size: 32px; line-height: 1.15; }
+  .brief-meta { flex-wrap: wrap; gap: 8px; }
+  .brief-meta-num { font-size: 11px; }
+
+  /* Brief stats: stack vertically with full-width number */
+  .brief-stat-num { font-size: 56px; }
+
+  /* Sources cards · already responsive, tightening padding */
+  .brief-source-card {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  .brief-source-num { font-size: 24px; }
+  .brief-source-links { gap: 8px; }
+  .brief-source-links a { font-size: 10px; padding: 5px 8px; }
+
+  /* Comparer table needs horizontal scroll on tablet */
+  .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { min-width: 600px; }
+
+  /* Cross-link CTAs stack */
+  .cross-link h3 { font-size: 26px; }
+
+  /* About actions: ensure buttons can wrap */
+  .about-actions { gap: 10px; }
+  .about-actions .btn { font-size: 13px; padding: 10px 16px; }
+
+  /* Form: full width inputs, smaller padding */
+  .contact-form-section { padding: 30px 20px 60px; }
+  .form-row-double { grid-template-columns: 1fr; gap: 24px; }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .form-submit { justify-content: center; }
+  .form-note { max-width: 100%; }
+}
+
+@media (max-width: 720px) {
+  /* Hero · scale down dramatically */
+  .hero-title, .dash-title { font-size: 36px; line-height: 1.1; }
+  .hero-lede, .dash-lede { font-size: 16px; }
+
+  /* Section heads */
+  .section-title { font-size: 26px; }
+  .section-sub, .section-eyebrow { font-size: 12px; }
+
+  /* Cards everywhere · reduce padding */
+  .card, .field-card { padding: 22px 18px; }
+  .card-title, .field-card-title { font-size: 20px; }
+
+  /* Brief paywall · single column with smaller fonts */
+  .brief-paywall-title { font-size: 26px; }
+  .brief-paywall-price-num { font-size: 48px; }
+  .brief-paywall-features li { font-size: 14px; }
+  .brief-paywall-buy { padding: 14px 20px; font-size: 13px; }
+
+  /* Brief story sections · readable line lengths */
+  .brief-section p { font-size: 15px; }
+  .brief-quote { font-size: 22px; line-height: 1.35; }
+
+  /* Filters stack neatly */
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .filter-group { flex-wrap: wrap; }
+  .chip { font-size: 11px; padding: 6px 12px; }
+
+  /* Foot wraps */
+  .foot-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+  }
+
+  /* Context block tighter */
+  .context-content h3 { font-size: 22px; }
+  .context-content p { font-size: 15px; }
+
+  /* KPI numbers smaller on phone */
+  .kpi-num { font-size: 36px; }
+  .kpi-label { font-size: 12px; }
+
+  /* Bar charts stay readable */
+  .bar-row { grid-template-columns: 1fr; gap: 4px; padding: 8px 0; }
+  .bar-row > span:first-child { font-size: 12px; font-weight: 500; }
+  .bar-row .bar-bar { margin: 4px 0; }
+  .bar-row > span:last-child { text-align: left; font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  /* Phone · most aggressive tightening */
+  body { font-size: 15px; }
+  .hero-title, .dash-title { font-size: 30px; }
+  .stat-num { font-size: 36px; }
+  .stat-label { font-size: 12px; }
+  .nav-inner { padding: 12px 16px; }
+  .logo { font-size: 16px; }
+  .lang-toggle { font-size: 11px; }
+
+  /* Mobile menu text larger */
+  .mobile-menu a { font-size: 22px; padding: 14px 20px; }
+
+  /* Brief hero numbers wrap better */
+  .brief-stat-num { font-size: 44px; }
+  .brief-stat-label { font-size: 12px; }
+
+  /* Cards stack and tighten */
+  .card { min-height: auto; padding: 20px 16px; }
+  .field-card { padding: 18px 16px; }
+
+  /* Method grid extra tight */
+  .method-content h3 { font-size: 22px; }
+  .method-content h4 { font-size: 16px; }
+  .method-content p { font-size: 14px; }
+  .method-content li { font-size: 14px; }
+
+  /* About actions full-width on phone */
+  .about-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .about-actions .btn { text-align: center; justify-content: center; }
+}
+
+/* Improve touch targets on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .chip, .menu-btn, .lang-toggle button {
+    min-height: 44px;
+  }
+  .nav-links a { padding: 10px 12px; }
+  .field-card-link { padding: 4px 0; }
+}
+
+/* Prevent horizontal scroll on any page */
+html, body { overflow-x: hidden; max-width: 100vw; }
+
+/* Ensure long words break gracefully on narrow screens */
+.field-card-title, .card-title, .brief-source-label,
+.method-content p, .method-content h3, .method-content h4 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Forms · prevent iOS zoom on focus */
+.form-input, .form-select, .form-textarea {
+  font-size: max(16px, 1rem);
+}
+
+/* ============================================== */
+/* EDITORIAL DISCLOSURE · per-dispatch micro block */
+/* ============================================== */
+.brief-disclosure {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px 32px 60px;
+  border-top: 1px dashed var(--rule);
+  margin-top: 0;
+}
+.brief-disclosure-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 32px;
+}
+.brief-disclosure-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 4px;
+}
+.brief-disclosure-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 720px;
+  font-style: italic;
+}
+.brief-disclosure-body strong {
+  color: var(--ink-2);
+  font-weight: 500;
+  font-style: normal;
+}
+.brief-disclosure-body a {
+  color: var(--signal);
+  border-bottom: 1px solid var(--rule);
+  font-style: normal;
+  transition: border-color 0.2s;
+}
+.brief-disclosure-body a:hover { border-color: var(--signal); }
+@media (max-width: 720px) {
+  .brief-disclosure { padding: 24px 20px 40px; }
+  .brief-disclosure-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 24px;
+  }
+  .brief-disclosure-body { font-size: 12px; }
+}
+
+</style>
+<!-- Canonical & Social -->
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/02-cadres-france.html">
+<meta property="og:site_name" content="observatoire[s]·ia">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/briefings/02-cadres-france.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@naullyn">
+<meta name="theme-color" content="#D03C2F">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q52TZ7QT84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q52TZ7QT84');
+</script>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- HERO -->
+<section class="brief-hero">
+  <div class="brief-hero-meta">
+    <span class="meta-num" data-i18n="b2.meta.num"></span>
+    <span data-i18n="b2.meta.sector"></span>
+    <span data-i18n="b2.meta.country"></span>
+    <span data-i18n="b2.meta.date"></span>
+    <span class="meta-edition" data-i18n="b2.meta.edition"></span>
+  </div>
+  <h1 class="brief-hero-title" data-i18n="b2.title" data-i18n-html></h1>
+  <p class="brief-hero-sub" data-i18n="b2.sub"></p>
+  <div class="brief-byline">
+    <span><strong data-i18n="b2.by.author">Naully Nicolas</strong></span>
+    <span data-i18n="b2.by.read"></span>
+    <span data-i18n="b2.by.sources"></span>
+  </div>
+</section>
+
+<!-- LANDSCAPE -->
+<section class="brief-section">
+  <div class="brief-section-eyebrow" data-i18n="b2.land.eyebrow"></div>
+  <h2 class="brief-section-title" data-i18n="b2.land.title" data-i18n-html></h2>
+  <p data-i18n="b2.land.p1"></p>
+  <p data-i18n="b2.land.p2"></p>
+
+  <div class="brief-twocol">
+    <div class="brief-twocol-block">
+      <h4 data-i18n="b2.land.up.title"></h4>
+      <ul>
+        <li data-i18n="b2.land.up.li1" data-i18n-html></li>
+        <li data-i18n="b2.land.up.li2" data-i18n-html></li>
+        <li data-i18n="b2.land.up.li3" data-i18n-html></li>
+        <li data-i18n="b2.land.up.li4" data-i18n-html></li>
+      </ul>
+    </div>
+    <div class="brief-twocol-block">
+      <h4 data-i18n="b2.land.down.title"></h4>
+      <ul>
+        <li data-i18n="b2.land.down.li1" data-i18n-html></li>
+        <li data-i18n="b2.land.down.li2" data-i18n-html></li>
+        <li data-i18n="b2.land.down.li3" data-i18n-html></li>
+        <li data-i18n="b2.land.down.li4" data-i18n-html></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="brief-section">
+  <div class="brief-section-eyebrow" data-i18n="b2.num.eyebrow"></div>
+  <h2 class="brief-section-title" data-i18n="b2.num.title"></h2>
+  <div class="brief-numbers-grid">
+    <div class="brief-stat">
+      <div class="brief-stat-num">38<span class="unit">%</span></div>
+      <div class="brief-stat-label" data-i18n="b2.num.s1.label"></div>
+      <div class="brief-stat-source" data-i18n="b2.num.s1.source"></div>
+    </div>
+    <div class="brief-stat">
+      <div class="brief-stat-num"><span class="sign">−</span>22<span class="unit">%</span></div>
+      <div class="brief-stat-label" data-i18n="b2.num.s2.label"></div>
+      <div class="brief-stat-source" data-i18n="b2.num.s2.source"></div>
+    </div>
+    <div class="brief-stat">
+      <div class="brief-stat-num">27<span class="unit">%</span></div>
+      <div class="brief-stat-label" data-i18n="b2.num.s3.label"></div>
+      <div class="brief-stat-source" data-i18n="b2.num.s3.source"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERT QUOTE -->
+<section class="brief-section">
+  <div class="brief-section-eyebrow" data-i18n="b2.q.eyebrow"></div>
+  <p class="brief-quote" data-i18n="b2.q.text"></p>
+  <p class="brief-quote-author">
+    <strong data-i18n="b2.q.author"></strong>
+    <span data-i18n="b2.q.role"></span>
+  </p>
+</section>
+
+<!-- DECISION CHECKLIST -->
+<section class="brief-section">
+  <div class="brief-section-eyebrow" data-i18n="b2.dec.eyebrow"></div>
+  <h2 class="brief-section-title" data-i18n="b2.dec.title" data-i18n-html></h2>
+  <p data-i18n="b2.dec.intro"></p>
+  <div class="brief-checklist">
+    <div class="brief-checklist-item">
+      <div class="brief-checklist-num">01</div>
+      <div class="brief-checklist-text" data-i18n="b2.dec.li1" data-i18n-html></div>
+    </div>
+    <div class="brief-checklist-item">
+      <div class="brief-checklist-num">02</div>
+      <div class="brief-checklist-text" data-i18n="b2.dec.li2" data-i18n-html></div>
+    </div>
+    <div class="brief-checklist-item">
+      <div class="brief-checklist-num">03</div>
+      <div class="brief-checklist-text" data-i18n="b2.dec.li3" data-i18n-html></div>
+    </div>
+    <div class="brief-checklist-item">
+      <div class="brief-checklist-num">04</div>
+      <div class="brief-checklist-text" data-i18n="b2.dec.li4" data-i18n-html></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI AS LEVERAGE -->
+<section class="brief-section">
+  <div class="brief-section-eyebrow" data-i18n="b2.tools.eyebrow"></div>
+  <h2 class="brief-section-title" data-i18n="b2.tools.title" data-i18n-html></h2>
+  <p data-i18n="b2.tools.intro"></p>
+  <div class="brief-toolkit-grid">
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t1.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t1.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t1.desc"></div>
+    </div>
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t2.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t2.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t2.desc"></div>
+    </div>
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t3.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t3.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t3.desc"></div>
+    </div>
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t4.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t4.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t4.desc"></div>
+    </div>
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t5.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t5.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t5.desc"></div>
+    </div>
+    <div class="brief-tool">
+      <div class="brief-tool-cat" data-i18n="b2.tools.t6.cat"></div>
+      <div class="brief-tool-name" data-i18n="b2.tools.t6.name"></div>
+      <div class="brief-tool-desc" data-i18n="b2.tools.t6.desc"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES & TRAÇABILITÉ -->
+<section class="brief-section brief-sources">
+  <div class="brief-section-eyebrow" data-i18n="b2.src.eyebrow"></div>
+  <h2 class="brief-section-title" data-i18n="b2.src.title" data-i18n-html></h2>
+  <p data-i18n="b2.src.intro"></p>
+  <div class="brief-sources-list">
+    <article class="brief-source-card">
+      <div class="brief-source-num">01</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" data-i18n="b2.src.s1.label"></div>
+        <div class="brief-source-cited" data-i18n="b2.src.s1.cited" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes.html" target="_blank" rel="noopener" data-i18n="b2.src.primary"></a>
+          <a href="../observatoires/france.html" data-i18n="b2.src.observatory"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">02</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" data-i18n="b2.src.s2.label"></div>
+        <div class="brief-source-cited" data-i18n="b2.src.s2.cited" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="https://www.cge.asso.fr/publications/" target="_blank" rel="noopener" data-i18n="b2.src.primary"></a>
+          <a href="../observatoires/france.html" data-i18n="b2.src.observatory"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">03</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" data-i18n="b2.src.s3.label"></div>
+        <div class="brief-source-cited" data-i18n="b2.src.s3.cited" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="https://dares.travail-emploi.gouv.fr" target="_blank" rel="noopener" data-i18n="b2.src.primary"></a>
+          <a href="../observatoires/france.html" data-i18n="b2.src.observatory"></a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p style="margin-top: 32px; font-size: 13px; color: var(--muted); max-width: 720px;" data-i18n="b2.src.note"></p>
+</section>
+
+<!-- DISCLOSURE ÉDITORIALE -->
+<section class="brief-disclosure">
+  <div class="brief-disclosure-inner">
+    <div class="brief-disclosure-tag" data-i18n="b2.disc.tag"></div>
+    <div class="brief-disclosure-body" data-i18n="b2.disc.body" data-i18n-html></div>
+  </div>
+</section>
+
+<!-- PAYWALL -->
+<section class="brief-paywall">
+  <div class="brief-paywall-inner">
+    <div>
+      <div class="brief-paywall-eyebrow" data-i18n="b2.cta.eyebrow"></div>
+      <h2 class="brief-paywall-title" data-i18n="b2.cta.title" data-i18n-html></h2>
+      <p class="brief-paywall-desc" data-i18n="b2.cta.desc"></p>
+      <ul>
+        <li data-i18n="b2.cta.f1"></li>
+        <li data-i18n="b2.cta.f2"></li>
+        <li data-i18n="b2.cta.f3"></li>
+        <li data-i18n="b2.cta.f4"></li>
+        <li data-i18n="b2.cta.f5"></li>
+      </ul>
+    </div>
+    <div class="brief-paywall-price">
+      <div class="brief-paywall-price-label" data-i18n="b2.cta.price.label"></div>
+      <div class="brief-paywall-price-value"><span class="currency">EUR</span>49</div>
+      <div class="brief-paywall-price-alt" data-i18n="b2.cta.price.alt"></div>
+      <a href="../contact.html?type=exec&dispatch=002" class="brief-paywall-buy">
+        <span data-i18n="b2.cta.buy"></span>
+        <span>↗</span>
+      </a>
+      <div class="brief-paywall-note" data-i18n="b2.cta.note"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+<div class="brief-back">
+  <a href="../briefings.html" class="btn btn-secondary">
+    <span>←</span>
+    <span data-i18n="b2.back"></span>
+  </a>
+</div>
+
+<footer id="siteFooter"></footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// SHARED COMPONENTS · observatoire[s]·ia
+// ═══════════════════════════════════════════════════════════
+
+// Embedded data (avoids CORS issues with file:// protocol)
+window.OBSERVATOIRES_DATA = [
+  {"id":"transitions-ia","nom":"transitions-ia.ch","org":{"fr":"Naully Nicolas · indépendant","en":"Naully Nicolas · independent"},"country":"CH","type":"independant","domains":["emploi","formation"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Observatoire indépendant des transitions emploi/IA en Suisse romande. Couvre formations SEFRI, exposition par métier, signaux faibles.","en":"Independent observatory of AI/employment transitions in French-speaking Switzerland. Covers SEFRI training, exposure by job, weak signals."},"last":"2026-04","url":"https://transitions-ia.ch"},
+  {"id":"sefri","nom":"SEFRI","org":{"fr":"Confédération suisse · Formation, recherche, innovation","en":"Swiss Confederation · Education, research, innovation"},"country":"CH","type":"public","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Pilotage des programmes de formation continue et certifications professionnelles, dont les filières IA émergentes.","en":"Steering of continuing education programs and professional certifications, including emerging AI tracks."},"last":"2026-03","url":"https://www.sbfi.admin.ch"},
+  {"id":"ofs","nom":"OFS","org":{"fr":"Office fédéral de la statistique","en":"Federal Statistical Office"},"country":"CH","type":"public","domains":["statistiques","emploi"],"freq":{"fr":"Trimestrielle","en":"Quarterly"},"desc":{"fr":"Statistiques officielles du marché du travail suisse : population active, professions, salaires, postes vacants.","en":"Official statistics on the Swiss labour market: active population, occupations, wages, vacancies."},"last":"2026-04","url":"https://www.bfs.admin.ch"},
+  {"id":"epfl-aic","nom":"EPFL AI Center","org":{"fr":"École polytechnique fédérale de Lausanne","en":"Swiss Federal Institute of Technology Lausanne"},"country":"CH","type":"academique","domains":["gouvernance","formation"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Centre interdisciplinaire IA. Publications sur l'impact sociétal, l'éducation et la gouvernance des systèmes d'IA en Suisse.","en":"Interdisciplinary AI center. Publications on societal impact, education and governance of AI systems in Switzerland."},"last":"2026-03","url":"https://ai.epfl.ch"},
+  {"id":"digital-ch","nom":"Digital Switzerland","org":{"fr":"Initiative cross-secteur","en":"Cross-sector initiative"},"country":"CH","type":"branche","domains":["emploi","formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Coalition d'entreprises et institutions sur la transformation numérique. Études récurrentes sur les compétences IA en entreprise.","en":"Coalition of companies and institutions on digital transformation. Recurring studies on AI skills in business."},"last":"2026-02","url":"https://digitalswitzerland.com"},
+  {"id":"skbf","nom":"CSRE / SKBF","org":{"fr":"Centre suisse de coordination pour la recherche en éducation","en":"Swiss Coordination Centre for Research in Education"},"country":"CH","type":"academique","domains":["formation"],"freq":{"fr":"Quadriennale","en":"Quadrennial"},"desc":{"fr":"Rapport quadriennal sur l'éducation en Suisse, intégrant les enjeux IA et compétences du XXIe siècle.","en":"Quadrennial report on education in Switzerland, integrating AI and 21st-century skills."},"last":"2025-12","url":"https://www.skbf-csre.ch"},
+  {"id":"laboria","nom":"LaborIA","org":{"fr":"Inria × Ministère du Travail","en":"Inria × French Ministry of Labour"},"country":"FR","type":"public","domains":["emploi","gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Laboratoire de recherche-action public sur les effets de l'IA au travail. Études de terrain en entreprises pilotes.","en":"Public research-action lab on AI effects in the workplace. Field studies in pilot companies."},"last":"2026-03","url":"https://www.laboria.ai"},
+  {"id":"france-strategie","nom":"France Stratégie","org":{"fr":"Premier ministre · Conseil national de la productivité","en":"Prime Minister · National Productivity Council"},"country":"FR","type":"public","domains":["emploi","gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Études prospectives sur les métiers, la productivité et l'IA. Rapports publics téléchargeables avec données ouvertes.","en":"Forward-looking studies on jobs, productivity and AI. Public reports with open data."},"last":"2026-04","url":"https://www.strategie.gouv.fr"},
+  {"id":"dares","nom":"DARES","org":{"fr":"Ministère du Travail · Direction de l'animation, de la recherche, des études et des statistiques","en":"French Ministry of Labour · Statistics directorate"},"country":"FR","type":"public","domains":["statistiques","emploi"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Production statistique officielle sur l'emploi en France. Premières estimations chiffrées de l'exposition à l'IA générative.","en":"Official employment statistics in France. First quantitative estimates of generative AI exposure."},"last":"2026-02","url":"https://dares.travail-emploi.gouv.fr"},
+  {"id":"france-travail","nom":"France Travail","org":{"fr":"Observatoire des métiers (ex-Pôle Emploi)","en":"Jobs Observatory (former Pôle Emploi)"},"country":"FR","type":"public","domains":["emploi"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Cartographie ROME des métiers, tensions de recrutement, baromètre BMO. Données ouvertes mensuelles.","en":"ROME jobs taxonomy, recruitment tensions, BMO survey. Monthly open data."},"last":"2026-04","url":"https://www.francetravail.org"},
+  {"id":"apec","nom":"APEC","org":{"fr":"Association pour l'emploi des cadres","en":"Executive Employment Association"},"country":"FR","type":"branche","domains":["emploi"],"freq":{"fr":"Trimestrielle","en":"Quarterly"},"desc":{"fr":"Études trimestrielles sur le marché des cadres, intégrant l'évolution des compétences IA recherchées par les recruteurs.","en":"Quarterly studies on the executive market, including the evolution of AI skills sought by recruiters."},"last":"2026-03","url":"https://corporate.apec.fr"},
+  {"id":"cnil","nom":"CNIL","org":{"fr":"Commission nationale de l'informatique et des libertés","en":"French data protection authority"},"country":"FR","type":"public","domains":["gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Volet IA & travail : recommandations sur l'usage des outils d'IA dans le management, la sélection et le suivi des salariés.","en":"AI & workplace: recommendations on AI tools for management, hiring and monitoring of employees."},"last":"2026-01","url":"https://www.cnil.fr"},
+  {"id":"france-num","nom":"France Num","org":{"fr":"Direction générale des entreprises","en":"Directorate General for Enterprise"},"country":"FR","type":"public","domains":["formation","emploi"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Observatoire de la transformation numérique des TPE/PME françaises, dont l'adoption d'outils IA et la montée en compétences.","en":"Observatory of digital transformation of French SMEs, including AI tool adoption and upskilling."},"last":"2026-03","url":"https://www.francenum.gouv.fr"},
+  {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
+];
+
+window.VEILLE_DATA = [{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
+
+
+const I18N = {
+  fr: {
+    "nav.suisse": "Suisse",
+    "nav.france": "France",
+    "nav.comparer": "Comparer",
+    "nav.memos": "Le Dispatch·iA",
+    "nav.veille": "Veille",
+    "nav.about": "À propos",
+    "nav.contact": "Contact",
+    "foot.rights": "Données sous licences sources",
+    "foot.method": "Méthodologie",
+    "foot.data": "Données ouvertes",
+    "card.last": "MAJ",
+    "card.visit": "Source ↗",
+    "filter.country": "Pays",
+    "filter.type": "Type",
+    "filter.domain": "Domaine",
+    "filter.all": "Tous",
+    "type.public": "Public",
+    "type.academique": "Académique",
+    "type.branche": "Branche",
+    "type.independant": "Indépendant",
+    "domain.emploi": "Emploi",
+    "domain.formation": "Formation",
+    "domain.gouvernance": "Gouvernance",
+    "domain.statistiques": "Statistiques",
+    "empty": "Aucun observatoire ne correspond à ces filtres."
+  },
+  en: {
+    "nav.suisse": "Switzerland",
+    "nav.france": "France",
+    "nav.comparer": "Compare",
+    "nav.memos": "The Dispatch·iA",
+    "nav.veille": "Field Report",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+    "foot.rights": "Data under source licenses",
+    "foot.method": "Methodology",
+    "foot.data": "Open data",
+    "card.last": "Updated",
+    "card.visit": "Source ↗",
+    "filter.country": "Country",
+    "filter.type": "Type",
+    "filter.domain": "Domain",
+    "filter.all": "All",
+    "type.public": "Public",
+    "type.academique": "Academic",
+    "type.branche": "Industry",
+    "type.independant": "Independent",
+    "domain.emploi": "Employment",
+    "domain.formation": "Training",
+    "domain.gouvernance": "Governance",
+    "domain.statistiques": "Statistics",
+    "empty": "No observatory matches these filters."
+  }
+};
+
+// Page-level translations are merged in by each page before init()
+window.PAGE_I18N = window.PAGE_I18N || { fr: {}, en: {} };
+
+let CURRENT_LANG = localStorage.getItem("obs-lang") || "fr";
+
+function t(key) {
+  const merged = {
+    ...I18N[CURRENT_LANG],
+    ...(window.PAGE_I18N[CURRENT_LANG] || {})
+  };
+  return merged[key] || key;
+}
+
+function applyI18n() {
+  document.documentElement.lang = CURRENT_LANG;
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const html = el.hasAttribute("data-i18n-html");
+    const value = t(key);
+    if (html) el.innerHTML = value;
+    else el.textContent = value;
+  });
+  document.querySelectorAll(".lang-toggle span").forEach((s) => {
+    s.classList.toggle("active", s.getAttribute("data-lang") === CURRENT_LANG);
+  });
+  // Re-render dynamic sections if the page has a hook
+  if (typeof window.onLangChange === "function") window.onLangChange(CURRENT_LANG);
+}
+
+function setupLangToggle() {
+  const toggle = document.getElementById("langToggle");
+  if (!toggle) return;
+  toggle.addEventListener("click", () => {
+    CURRENT_LANG = CURRENT_LANG === "fr" ? "en" : "fr";
+    localStorage.setItem("obs-lang", CURRENT_LANG);
+    applyI18n();
+  });
+}
+
+function setupMobileMenu() {
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (!menuBtn || !mobileMenu) return;
+  menuBtn.addEventListener("click", () => mobileMenu.classList.add("open"));
+  if (closeBtn) closeBtn.addEventListener("click", () => mobileMenu.classList.remove("open"));
+  mobileMenu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => mobileMenu.classList.remove("open"));
+  });
+}
+
+function setupReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".manifesto-text, .section-title, .stat, .kpi, .card, .field-card, .country-card, .dash-title")
+    .forEach((el) => {
+      el.classList.add("reveal");
+      observer.observe(el);
+    });
+}
+
+// Detect if we're in a subfolder (observatoires/ or briefings/) and build relative root
+function rootPath() {
+  // Pages in /observatoires/ or /briefings/ have one extra path segment
+  const path = window.location.pathname;
+  return (path.includes("/observatoires/") || path.includes("/briefings/")) ? "../" : "";
+}
+
+// Render shared nav into a placeholder
+function renderNav(currentPage) {
+  const nav = document.getElementById("siteNav");
+  if (!nav) return;
+  const root = rootPath();
+  const link = (href, key, current) => {
+    const cls = current === currentPage ? ' class="current"' : "";
+    return `<a href="${root}${href}"${cls} data-i18n="nav.${key}">${t("nav." + key)}</a>`;
+  };
+  nav.innerHTML = `
+    <div class="nav-inner">
+      <a href="${root}index.html" class="logo">
+        observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia
+      </a>
+      <div class="nav-links">
+        ${link("observatoires/suisse.html", "suisse", "suisse")}
+        ${link("observatoires/france.html", "france", "france")}
+        ${link("observatoires/comparer.html", "comparer", "comparer")}
+        ${link("briefings.html", "memos", "briefings")}
+        ${link("veille.html", "veille", "veille")}
+        ${link("a-propos.html", "about", "about")}
+        ${link("contact.html", "contact", "contact")}
+      </div>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="active" data-lang="fr">FR</span>
+          <span data-lang="en">EN</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+  `;
+  // Mobile menu
+  const mob = document.getElementById("mobileMenu");
+  if (mob) {
+    mob.innerHTML = `
+      <button class="close-btn" id="closeMenu">×</button>
+      <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
+      <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
+      <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
+      <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
+      <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+      <a href="${root}a-propos.html" data-i18n="nav.about">${t("nav.about")}</a>
+      <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
+    `;
+  }
+}
+
+function renderFooter() {
+  const f = document.getElementById("siteFooter");
+  if (!f) return;
+  const root = rootPath();
+  f.innerHTML = `
+    <div class="foot-inner">
+      <span>© 2026 observatoire[s]·ia · <span data-i18n="foot.rights">${t("foot.rights")}</span></span>
+      <div class="foot-links">
+        <a href="${root}methodologie.html" data-i18n="foot.method">${t("foot.method")}</a>
+        <a href="${root}donnees.html" data-i18n="foot.data">${t("foot.data")}</a>
+      </div>
+      <span class="foot-version">v0.2 · build 2026.04</span>
+    </div>
+  `;
+}
+
+// Bootstrap
+function initSite(currentPage) {
+  renderNav(currentPage);
+  renderFooter();
+  setupLangToggle();
+  setupMobileMenu();
+  applyI18n();
+  setupReveal();
+}
+
+window.initSite = initSite;
+window.t = t;
+window.applyI18n = applyI18n;
+Object.defineProperty(window, "CURRENT_LANG", {
+  get() { return CURRENT_LANG; }
+});
+
+</script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "b2.meta.num": "Le Dispatch·iA #002",
+    "b2.meta.sector": "RH & Marché des cadres",
+    "b2.meta.country": "🇫🇷 France",
+    "b2.meta.date": "Q2 2026",
+    "b2.meta.edition": "Édition libre · Light",
+
+    "b2.title": "Cadres français face à l'IA : la décennie de la <em>repolarisation</em>.",
+    "b2.sub": "Le marché français des cadres ne s'effondre pas. Il se polarise. Les fonctions stratégiques qui mobilisent jugement et arbitrage gagnent en valeur. Celles qui formalisaient des process se contractent. Voici la cartographie qu'attendent les directions des ressources humaines.",
+    "b2.by.author": "Naully Nicolas",
+    "b2.by.read": "8 minutes de lecture",
+    "b2.by.sources": "14 sources primaires",
+
+    "b2.land.eyebrow": "Le paysage",
+    "b2.land.title": "Comment se redessine le marché des cadres en 2026.",
+    "b2.land.p1": "Le marché français de l'emploi cadre traverse en 2026 sa première vraie fracture liée à l'IA. Les chiffres globaux restent stables : volume d'offres APEC en légère hausse, taux d'emploi toujours supérieur à 95% pour les diplômés grandes écoles. Mais sous cette stabilité de surface, la composition change profondément.",
+    "b2.land.p2": "Les fonctions à forte intensité de jugement (arbitrage, négociation, lecture politique d'un dossier) tirent les rémunérations vers le haut. Les fonctions à forte intensité de procédure (production de notes, rapports standardisés, suivi de processus formels) voient leur volume reculer ou leur niveau d'expérience requis monter. La repolarisation est mesurable secteur par secteur, fonction par fonction.",
+
+    "b2.land.up.title": "Ce qui se valorise",
+    "b2.land.up.li1": "<strong>Direction stratégique et arbitrage.</strong> Comités de direction, ce que l'IA ne peut pas remplacer faute de mandat politique.",
+    "b2.land.up.li2": "<strong>Relation client à forte valeur.</strong> Comptes grands groupes, négociation complexe, sales B2B haut de gamme.",
+    "b2.land.up.li3": "<strong>Métiers de la conformité augmentée.</strong> Hommes-clés capables d'arbitrer entre cadre légal, technique et opérationnel.",
+    "b2.land.up.li4": "<strong>Encadrement et management opérationnel.</strong> Conduire une équipe humaine reste une compétence rare et premium.",
+
+    "b2.land.down.title": "Ce qui se contracte",
+    "b2.land.down.li1": "<strong>Production de notes et reporting.</strong> Les premières versions sont désormais générées, l'humain édite. Volume et niveau d'expérience requis évoluent.",
+    "b2.land.down.li2": "<strong>Analyses de marché standardisées.</strong> Synthèses concurrentielles, études sectorielles génériques, benchmarks récurrents.",
+    "b2.land.down.li3": "<strong>Junior consulting et audit.</strong> L'effet de levier des cabinets sur les profils en début de carrière s'effrite mécaniquement.",
+    "b2.land.down.li4": "<strong>Relation client de masse.</strong> Centres d'expertise délestés sur les sujets transactionnels et de premier niveau.",
+
+    "b2.num.eyebrow": "Par les chiffres",
+    "b2.num.title": "Trois indicateurs qui résument le moment.",
+    "b2.num.s1.label": "des offres d'emploi cadres mentionnent désormais une compétence IA explicite, pour la première fois au-delà du tiers.",
+    "b2.num.s1.source": "APEC · Q1 2026",
+    "b2.num.s2.label": "de baisse des entrées en poste des diplômés grandes écoles 2024 par rapport à 2022, à structure constante.",
+    "b2.num.s2.source": "CGE · Enquête insertion 2025",
+    "b2.num.s3.label": "des emplois français présentent une exposition forte à l'IA générative selon la première mesure officielle.",
+    "b2.num.s3.source": "DARES · Mars 2026",
+
+    "b2.q.eyebrow": "Le verdict expert",
+    "b2.q.text": "Nous ne recrutons plus pour des compétences génériques de cadre. Nous recrutons pour deux choses : la capacité à manier l'IA comme un instrument, et la capacité à arbitrer là où l'IA refuse de le faire. Les profils qui ne couvrent ni l'un ni l'autre sont mécaniquement déclassés.",
+    "b2.q.author": "DRH",
+    "b2.q.role": "groupe industriel français · entretien anonymisé · février 2026",
+
+    "b2.dec.eyebrow": "Décision · 4 questions à instruire",
+    "b2.dec.title": "Ce qu'une <em>direction RH</em> doit traiter d'ici la rentrée 2026.",
+    "b2.dec.intro": "Quatre arbitrages opérationnels par ordre de criticité. Aucun ne peut être délégué entièrement aux managers de proximité ni à un cabinet externe. Tous engagent l'organisation sur sa pyramide d'expérience pour cinq à dix ans.",
+
+    "b2.dec.li1": "<strong>Pyramide d'expérience.</strong> Si la production de notes et reporting bascule vers l'IA, le ratio juniors / seniors hérité doit être repensé. Comment former les futurs seniors si on ne recrute plus de juniors. Question stratégique de continuité de compétences.",
+    "b2.dec.li2": "<strong>Politique salariale.</strong> Les fonctions à forte valeur de jugement vont continuer à inflation forte. Les fonctions de procédure vont stagner. Comment gérer cet écart sans casser la cohésion interne.",
+    "b2.dec.li3": "<strong>Formation continue.</strong> Massification (tous les cadres aux outils IA, base commune) ou ciblage (parcours approfondi pour 20 à 30% des effectifs). Les deux logiques sont défendables, mais incompatibles à budget contraint.",
+    "b2.dec.li4": "<strong>Gouvernance des outils IA.</strong> Cadre d'usage, data shared avec quelles plateformes, qui peut décider d'intégrer un nouvel outil dans le poste de travail. Trois rôles à clarifier : DSI, RH, métiers.",
+
+    "b2.tools.eyebrow": "L'IA comme levier",
+    "b2.tools.title": "Six <em>usages</em> qui distinguent les organisations qui avancent.",
+    "b2.tools.intro": "Sélection observée dans les déploiements RH de huit grands groupes français interrogés. La maturité ne se voit pas dans la sophistication de l'outil, mais dans la qualité du cadre d'usage et la capacité à former vite.",
+
+    "b2.tools.t1.cat": "Recrutement",
+    "b2.tools.t1.name": "Tri d'offres et appariement",
+    "b2.tools.t1.desc": "Plusieurs ATS intègrent désormais des modèles d'appariement profil-offre. Vigilance forte sur les biais et la conformité CNIL et AI Act sur les usages à haut risque.",
+
+    "b2.tools.t2.cat": "Évaluation et entretiens",
+    "b2.tools.t2.name": "Synthèse d'entretiens",
+    "b2.tools.t2.desc": "Transcription audio, structuration des comptes-rendus, comparaison entre candidats. Réduit le temps administratif, ne remplace pas la décision RH.",
+
+    "b2.tools.t3.cat": "Mobilité interne",
+    "b2.tools.t3.name": "Cartographie des compétences",
+    "b2.tools.t3.desc": "Inférence de compétences détenues à partir des historiques poste, formations et projets. Aide à identifier des viviers internes pour des postes ouverts.",
+
+    "b2.tools.t4.cat": "Formation",
+    "b2.tools.t4.name": "Parcours adaptatifs",
+    "b2.tools.t4.desc": "Modules personnalisés selon le niveau initial, le poste et les objectifs. ROI mesurable sur la complétion et le transfert d'apprentissage.",
+
+    "b2.tools.t5.cat": "Conformité sociale",
+    "b2.tools.t5.name": "Veille réglementaire augmentée",
+    "b2.tools.t5.desc": "Suivi automatisé des évolutions du droit du travail, conventions collectives, jurisprudences. Synthèse adaptée à l'organisation.",
+
+    "b2.tools.t6.cat": "Pilotage RH",
+    "b2.tools.t6.name": "Tableaux de bord prédictifs",
+    "b2.tools.t6.desc": "Analyse du turn-over, prédiction des risques de départ, anticipation des tensions de recrutement. Toujours en complément du jugement managérial.",
+
+    "b2.cta.eyebrow": "Le Dispatch·iA Executive · Édition complète",
+    "b2.cta.title": "La dépêche complète, livrée en <em>PDF</em>.",
+    "b2.cta.desc": "L'édition exécutive est un document de 18 pages, conçu pour la lecture en comité de direction. Mise en page inspirée des notes de cabinet, sources brutes et benchmark détaillé inclus.",
+    "b2.cta.f1": "Cartographie des 35 fonctions cadres analysées par évolution de la rémunération, exposition IA et tension de recrutement (sources APEC, France Travail, DARES).",
+    "b2.cta.f2": "Trois scénarios chiffrés sur la pyramide d'expérience à dix ans, avec impact budgétaire et risques de continuité de compétences.",
+    "b2.cta.f3": "Benchmark des politiques RH IA dans 8 grands groupes français (CAC 40 et SBF 120). Anonymisé et structuré.",
+    "b2.cta.f4": "Matrice de gouvernance recommandée : qui décide quoi, sur quelle temporalité, avec quels indicateurs de pilotage.",
+    "b2.cta.f5": "Annexe sources : 14 publications primaires, 8 entretiens DRH anonymisés, 5 jeux de données chiffrés.",
+
+    "b2.cta.price.label": "Édition exécutive · à l'unité",
+    "b2.cta.price.alt": "CHF 49 · Abonnement annuel EUR 290",
+    "b2.cta.buy": "Commander le PDF",
+    "b2.cta.note": "Paiement sécurisé · Livraison sous 24h",
+
+    "b2.src.eyebrow": "Annexe · Sources & traçabilité",
+    "b2.src.title": "Les chiffres cités, ouverts à la <em>vérification</em>.",
+    "b2.src.intro": "Une dépêche n'a de valeur que si ses chiffres sont vérifiables. Chaque indicateur de l'édition libre renvoie ci-dessous à sa publication d'origine et à la fiche correspondante de l'observatoire. La version exécutive ajoute quinze sources primaires complémentaires, dont huit entretiens cadres anonymisés.",
+    "b2.src.s1.label": "APEC · Baromètre des intentions de recrutement cadres · Q1 2026",
+    "b2.src.s1.cited": "Citée pour le chiffre <strong>38% des offres cadres mentionnent explicitement une compétence IA</strong>. Périmètre national, environ 95 000 offres analysées par mois.",
+    "b2.src.s2.label": "CGE · Enquête insertion des diplômés · 2025",
+    "b2.src.s2.cited": "Citée pour le chiffre <strong>−14 points sur le taux d'embauche en CDI à 6 mois pour les diplômés tech 2024</strong>, comparé à la promotion 2022. Cohorte de 56 000 diplômés répondants.",
+    "b2.src.s3.label": "DARES · Note tension de recrutement · Mars 2026",
+    "b2.src.s3.cited": "Citée pour le chiffre <strong>3,2× plus de tension sur les métiers de la donnée</strong> par rapport à la moyenne ROME. Indicateur composite trimestriel.",
+    "b2.src.primary": "Source primaire ↗",
+    "b2.src.observatory": "Fiche observatoire →",
+    "b2.src.note": "Note. Les chiffres présentés dans cette édition libre sont arrondis. La version exécutive PDF inclut les marges d'incertitude, les méthodologies détaillées de chaque indicateur (Felten-Brynjolfsson pour l'exposition, indice composite France Travail pour la tension) et les limites de chaque source.",
+
+    "b2.disc.tag": "Disclosure",
+    "b2.disc.body": "Ce dossier a été produit avec l'assistance d'une intelligence artificielle (Claude Opus 4.7, en modes Research et Web Search), puis soumis à une vérification factuelle contre les sources primaires. L'IA a servi d'outil de documentation, de synthèse et de mise en forme visuelle, pas de source autonome ni d'autorité scientifique. Détail méthodologique en <a href=\"../methodologie.html\">section 08 de la page Méthodologie</a>.",
+
+    "b2.back": "Toutes les dépêches"
+  },
+  en: {
+    "b2.meta.num": "The Dispatch·iA #002",
+    "b2.meta.sector": "HR & Executive market",
+    "b2.meta.country": "🇫🇷 France",
+    "b2.meta.date": "Q2 2026",
+    "b2.meta.edition": "Free edition · Light",
+
+    "b2.title": "French executives facing AI: the decade of <em>repolarisation</em>.",
+    "b2.sub": "The French executive market is not collapsing. It is polarising. Strategic functions that rely on judgement and arbitration are gaining value. Those that formalised processes are contracting. Here is the cartography HR leaders need.",
+    "b2.by.author": "Naully Nicolas",
+    "b2.by.read": "8 minute read",
+    "b2.by.sources": "14 primary sources",
+
+    "b2.land.eyebrow": "The landscape",
+    "b2.land.title": "How the executive market is being redrawn in 2026.",
+    "b2.land.p1": "The French executive market is going through its first real AI-related fracture in 2026. Aggregate figures remain stable: APEC posting volume slightly up, employment rate still above 95% for grandes écoles graduates. But beneath this surface stability, the composition is changing deeply.",
+    "b2.land.p2": "Functions with high judgement intensity (arbitration, negotiation, political reading of a file) are pulling compensation upward. Functions with high procedural intensity (note production, standardised reports, formal process tracking) are seeing their volume decline or their experience requirements rise. The repolarisation is measurable sector by sector, function by function.",
+
+    "b2.land.up.title": "What gains value",
+    "b2.land.up.li1": "<strong>Strategic leadership and arbitration.</strong> Executive committees, what AI cannot replace for lack of political mandate.",
+    "b2.land.up.li2": "<strong>High-value client relationships.</strong> Major group accounts, complex negotiation, premium B2B sales.",
+    "b2.land.up.li3": "<strong>Augmented compliance roles.</strong> Key people able to arbitrate between legal, technical and operational frameworks.",
+    "b2.land.up.li4": "<strong>Operational management.</strong> Leading a human team remains a rare and premium skill.",
+
+    "b2.land.down.title": "What is contracting",
+    "b2.land.down.li1": "<strong>Note and report production.</strong> First drafts are now generated, humans edit. Both volume and required experience level shift.",
+    "b2.land.down.li2": "<strong>Standardised market analysis.</strong> Competitive synthesis, generic sector studies, recurring benchmarks.",
+    "b2.land.down.li3": "<strong>Junior consulting and audit.</strong> Firms' leverage on early-career profiles is mechanically eroding.",
+    "b2.land.down.li4": "<strong>Mass client relationships.</strong> Expertise centres offloaded on transactional and first-level matters.",
+
+    "b2.num.eyebrow": "By the numbers",
+    "b2.num.title": "Three indicators that capture the moment.",
+    "b2.num.s1.label": "of executive job postings now mention an explicit AI skill, crossing the one-third threshold for the first time.",
+    "b2.num.s1.source": "APEC · Q1 2026",
+    "b2.num.s2.label": "drop in job entries for 2024 grandes écoles graduates compared to 2022, at constant structure.",
+    "b2.num.s2.source": "CGE · 2025 insertion survey",
+    "b2.num.s3.label": "of French jobs show high exposure to generative AI according to the first official measure.",
+    "b2.num.s3.source": "DARES · March 2026",
+
+    "b2.q.eyebrow": "The expert verdict",
+    "b2.q.text": "We no longer recruit for generic executive skills. We recruit for two things: the ability to wield AI as an instrument, and the ability to arbitrate where AI declines to. Profiles covering neither are mechanically downgraded.",
+    "b2.q.author": "Chief HR Officer",
+    "b2.q.role": "French industrial group · anonymised interview · February 2026",
+
+    "b2.dec.eyebrow": "Decision · 4 questions to settle",
+    "b2.dec.title": "What an <em>HR leadership team</em> must address by autumn 2026.",
+    "b2.dec.intro": "Four operational trade-offs in order of criticality. None can be fully delegated to line managers or to an external consultancy. All commit the organisation's experience pyramid for five to ten years.",
+
+    "b2.dec.li1": "<strong>Experience pyramid.</strong> If note production and reporting shift to AI, the inherited junior / senior ratio must be rethought. How do we train tomorrow's seniors if we no longer recruit juniors. Strategic skill continuity question.",
+    "b2.dec.li2": "<strong>Compensation policy.</strong> Functions with high judgement value will keep inflating. Procedural functions will stagnate. How to manage this gap without breaking internal cohesion.",
+    "b2.dec.li3": "<strong>Continuous training.</strong> Mass approach (all executives on AI tools, common base) or targeted (deep-dive path for 20 to 30% of staff). Both are defensible, but incompatible under budget constraints.",
+    "b2.dec.li4": "<strong>AI tool governance.</strong> Usage framework, data shared with which platforms, who can decide to integrate a new tool into the workplace. Three roles to clarify: IT, HR, business.",
+
+    "b2.tools.eyebrow": "AI as leverage",
+    "b2.tools.title": "Six <em>uses</em> that set apart the organisations moving forward.",
+    "b2.tools.intro": "Selection observed in HR deployments at eight major French groups interviewed. Maturity does not show in tool sophistication but in the quality of the usage framework and the speed of training.",
+
+    "b2.tools.t1.cat": "Recruitment",
+    "b2.tools.t1.name": "Posting screening and matching",
+    "b2.tools.t1.desc": "Several ATS now integrate profile-posting matching models. Strong vigilance on biases and CNIL and AI Act compliance for high-risk uses.",
+
+    "b2.tools.t2.cat": "Evaluation and interviews",
+    "b2.tools.t2.name": "Interview synthesis",
+    "b2.tools.t2.desc": "Audio transcription, structured minutes, candidate comparison. Reduces administrative time, does not replace the HR decision.",
+
+    "b2.tools.t3.cat": "Internal mobility",
+    "b2.tools.t3.name": "Skills mapping",
+    "b2.tools.t3.desc": "Inference of held skills from job, training and project histories. Helps identify internal pools for open positions.",
+
+    "b2.tools.t4.cat": "Training",
+    "b2.tools.t4.name": "Adaptive learning paths",
+    "b2.tools.t4.desc": "Personalised modules based on initial level, position and goals. Measurable ROI on completion and learning transfer.",
+
+    "b2.tools.t5.cat": "Social compliance",
+    "b2.tools.t5.name": "Augmented regulatory monitoring",
+    "b2.tools.t5.desc": "Automated tracking of labour law evolution, collective agreements, case law. Synthesis adapted to the organisation.",
+
+    "b2.tools.t6.cat": "HR steering",
+    "b2.tools.t6.name": "Predictive dashboards",
+    "b2.tools.t6.desc": "Turnover analysis, departure risk prediction, anticipation of recruitment tensions. Always in complement to managerial judgement.",
+
+    "b2.cta.eyebrow": "The Dispatch·iA Executive · Full edition",
+    "b2.cta.title": "The full dispatch, delivered as <em>PDF</em>.",
+    "b2.cta.desc": "The executive edition is an 18-page document, designed for executive committee reading. Layout inspired by cabinet notes, raw sources and detailed benchmark included.",
+    "b2.cta.f1": "Mapping of the 35 executive functions analysed by compensation evolution, AI exposure and recruitment tension (sources APEC, France Travail, DARES).",
+    "b2.cta.f2": "Three quantified scenarios on the ten-year experience pyramid, with budget impact and skill continuity risks.",
+    "b2.cta.f3": "Benchmark of HR AI policies in 8 major French groups (CAC 40 and SBF 120). Anonymised and structured.",
+    "b2.cta.f4": "Recommended governance matrix: who decides what, on which timeline, with which steering indicators.",
+    "b2.cta.f5": "Source annex: 14 primary publications, 8 anonymised CHRO interviews, 5 quantified datasets.",
+
+    "b2.cta.price.label": "Executive edition · per unit",
+    "b2.cta.price.alt": "CHF 49 · Annual subscription EUR 290",
+    "b2.cta.buy": "Order the PDF",
+    "b2.cta.note": "Secure payment · Delivery within 24h",
+
+    "b2.src.eyebrow": "Appendix · Sources & traceability",
+    "b2.src.title": "Every cited figure, open to <em>verification</em>.",
+    "b2.src.intro": "A dispatch is only worth its verifiable figures. Every indicator in the free edition is linked below to its original publication and to the corresponding observatory card. The executive edition adds fifteen complementary primary sources, including eight anonymised executive interviews.",
+    "b2.src.s1.label": "APEC · Executive recruitment intentions barometer · Q1 2026",
+    "b2.src.s1.cited": "Cited for the figure <strong>38% of executive job postings explicitly mention an AI skill</strong>. National scope, around 95,000 postings analysed per month.",
+    "b2.src.s2.label": "CGE · Graduate insertion survey · 2025",
+    "b2.src.s2.cited": "Cited for the figure <strong>−14 points on the permanent contract hiring rate at 6 months for the 2024 tech graduate cohort</strong>, compared to the 2022 cohort. Cohort of 56,000 responding graduates.",
+    "b2.src.s3.label": "DARES · Recruitment tension brief · March 2026",
+    "b2.src.s3.cited": "Cited for the figure <strong>3.2× more tension on data occupations</strong> compared to the ROME average. Quarterly composite indicator.",
+    "b2.src.primary": "Primary source ↗",
+    "b2.src.observatory": "Observatory card →",
+    "b2.src.note": "Note. Figures presented in this free edition are rounded. The executive PDF edition includes uncertainty margins, the detailed methodologies for each indicator (Felten-Brynjolfsson for exposure, the France Travail composite tension index) and per-source limitations.",
+
+    "b2.disc.tag": "Disclosure",
+    "b2.disc.body": "This dossier was produced with the assistance of artificial intelligence (Claude Opus 4.7, in Research and Web Search modes), then submitted to factual verification against primary sources. The AI was used as a tool for documentation, synthesis and visual formatting, not as an autonomous source or scientific authority. Methodological details in <a href=\"../methodologie.html\">section 08 of the Methodology page</a>.",
+
+    "b2.back": "All dispatches"
+  }
+};
+
+initSite("briefings");
+</script>
+</body>
+</html>

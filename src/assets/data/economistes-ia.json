@@ -1,0 +1,157 @@
+{
+  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/economistes-ia.schema.json",
+  "version": "0.3.0",
+  "compiled_at": "2026-04-26",
+  "scope": "Économistes & chercheurs référencés · positions sur scénarios IA",
+  "license": "CC BY 4.0",
+  "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
+  "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
+  "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
+  "count": 12,
+  "economists": [
+    {
+      "name": "Philippe Aghion",
+      "institution": "Collège de France",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 25,
+        "Accélération IA": 40,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Gilbert Cette",
+      "institution": "Banque de France",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 32,
+        "Accélération IA": 38,
+        "Transformation majeure": 17,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Yann LeCun",
+      "institution": "Meta AI / NYU",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 15,
+        "Accélération IA": 30,
+        "Transformation majeure": 35,
+        "Rupture technologique": 15
+      },
+      "most_likely_scenario": "Transformation majeure"
+    },
+    {
+      "name": "Cédric Villani",
+      "institution": "Institut Henri Poincaré",
+      "scenario_distribution_pct": {
+        "Stagnation": 12,
+        "Croissance modérée": 28,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Olivier Blanchard",
+      "institution": "MIT / PIIE",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 30,
+        "Accélération IA": 35,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Anne-Laure Delatte",
+      "institution": "CNRS / CEPII",
+      "scenario_distribution_pct": {
+        "Stagnation": 18,
+        "Croissance modérée": 32,
+        "Accélération IA": 32,
+        "Transformation majeure": 14,
+        "Rupture technologique": 4
+      },
+      "most_likely_scenario": "Croissance modérée"
+    },
+    {
+      "name": "Daron Acemoglu",
+      "institution": "MIT",
+      "scenario_distribution_pct": {
+        "Stagnation": 20,
+        "Croissance modérée": 35,
+        "Accélération IA": 30,
+        "Transformation majeure": 12,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée"
+    },
+    {
+      "name": "Erik Brynjolfsson",
+      "institution": "Stanford",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 20,
+        "Accélération IA": 35,
+        "Transformation majeure": 30,
+        "Rupture technologique": 10
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "McKinsey MGI",
+      "institution": "Agents, Robots & Us · nov. 2025",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 22,
+        "Accélération IA": 40,
+        "Transformation majeure": 22,
+        "Rupture technologique": 8
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Anu Madgavkar & Lareina Yee",
+      "institution": "McKinsey · Skill Change Index",
+      "scenario_distribution_pct": {
+        "Stagnation": 7,
+        "Croissance modérée": 20,
+        "Accélération IA": 42,
+        "Transformation majeure": 24,
+        "Rupture technologique": 7
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Erik Brynjolfsson (J-curve)",
+      "institution": "Stanford HAI · Productivity 2.7% US 2025 · ADP data",
+      "scenario_distribution_pct": {
+        "Stagnation": 3,
+        "Croissance modérée": 12,
+        "Accélération IA": 38,
+        "Transformation majeure": 32,
+        "Rupture technologique": 15
+      },
+      "most_likely_scenario": "Accélération IA"
+    },
+    {
+      "name": "Alex Imas & Kristof Madarasz",
+      "institution": "Chicago Booth · 'What will be scarce?' avr. 2026 · secteur relationnel post-commodité",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 15,
+        "Accélération IA": 30,
+        "Transformation majeure": 32,
+        "Rupture technologique": 18
+      },
+      "most_likely_scenario": "Transformation majeure"
+    }
+  ]
+}

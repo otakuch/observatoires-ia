@@ -1,0 +1,212 @@
+[
+  {
+    "id": "transitions-ia",
+    "nom": "transitions-ia.ch",
+    "org": { "fr": "Naully Nicolas · indépendant", "en": "Naully Nicolas · independent" },
+    "country": "CH",
+    "type": "independant",
+    "domains": ["emploi", "formation"],
+    "freq": { "fr": "Mensuelle", "en": "Monthly" },
+    "desc": {
+      "fr": "Observatoire indépendant des transitions emploi/IA en Suisse romande. Couvre formations SEFRI, exposition par métier, signaux faibles.",
+      "en": "Independent observatory of AI/employment transitions in French-speaking Switzerland. Covers SEFRI training, exposure by job, weak signals."
+    },
+    "last": "2026-04",
+    "url": "https://transitions-ia.ch"
+  },
+  {
+    "id": "sefri",
+    "nom": "SEFRI",
+    "org": { "fr": "Confédération suisse · Formation, recherche, innovation", "en": "Swiss Confederation · Education, research, innovation" },
+    "country": "CH",
+    "type": "public",
+    "domains": ["formation"],
+    "freq": { "fr": "Annuelle", "en": "Yearly" },
+    "desc": {
+      "fr": "Pilotage des programmes de formation continue et certifications professionnelles, dont les filières IA émergentes.",
+      "en": "Steering of continuing education programs and professional certifications, including emerging AI tracks."
+    },
+    "last": "2026-03",
+    "url": "https://www.sbfi.admin.ch"
+  },
+  {
+    "id": "ofs",
+    "nom": "OFS",
+    "org": { "fr": "Office fédéral de la statistique", "en": "Federal Statistical Office" },
+    "country": "CH",
+    "type": "public",
+    "domains": ["statistiques", "emploi"],
+    "freq": { "fr": "Trimestrielle", "en": "Quarterly" },
+    "desc": {
+      "fr": "Statistiques officielles du marché du travail suisse : population active, professions, salaires, postes vacants.",
+      "en": "Official statistics on the Swiss labour market: active population, occupations, wages, vacancies."
+    },
+    "last": "2026-04",
+    "url": "https://www.bfs.admin.ch"
+  },
+  {
+    "id": "epfl-aic",
+    "nom": "EPFL AI Center",
+    "org": { "fr": "École polytechnique fédérale de Lausanne", "en": "Swiss Federal Institute of Technology Lausanne" },
+    "country": "CH",
+    "type": "academique",
+    "domains": ["gouvernance", "formation"],
+    "freq": { "fr": "Variable", "en": "Variable" },
+    "desc": {
+      "fr": "Centre interdisciplinaire IA. Publications sur l'impact sociétal, l'éducation et la gouvernance des systèmes d'IA en Suisse.",
+      "en": "Interdisciplinary AI center. Publications on societal impact, education and governance of AI systems in Switzerland."
+    },
+    "last": "2026-03",
+    "url": "https://ai.epfl.ch"
+  },
+  {
+    "id": "digital-ch",
+    "nom": "Digital Switzerland",
+    "org": { "fr": "Initiative cross-secteur", "en": "Cross-sector initiative" },
+    "country": "CH",
+    "type": "branche",
+    "domains": ["emploi", "formation"],
+    "freq": { "fr": "Annuelle", "en": "Yearly" },
+    "desc": {
+      "fr": "Coalition d'entreprises et institutions sur la transformation numérique. Études récurrentes sur les compétences IA en entreprise.",
+      "en": "Coalition of companies and institutions on digital transformation. Recurring studies on AI skills in business."
+    },
+    "last": "2026-02",
+    "url": "https://digitalswitzerland.com"
+  },
+  {
+    "id": "skbf",
+    "nom": "CSRE / SKBF",
+    "org": { "fr": "Centre suisse de coordination pour la recherche en éducation", "en": "Swiss Coordination Centre for Research in Education" },
+    "country": "CH",
+    "type": "academique",
+    "domains": ["formation"],
+    "freq": { "fr": "Quadriennale", "en": "Quadrennial" },
+    "desc": {
+      "fr": "Rapport quadriennal sur l'éducation en Suisse, intégrant les enjeux IA et compétences du XXIe siècle.",
+      "en": "Quadrennial report on education in Switzerland, integrating AI and 21st-century skills."
+    },
+    "last": "2025-12",
+    "url": "https://www.skbf-csre.ch"
+  },
+  {
+    "id": "laboria",
+    "nom": "LaborIA",
+    "org": { "fr": "Inria × Ministère du Travail", "en": "Inria × French Ministry of Labour" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["emploi", "gouvernance"],
+    "freq": { "fr": "Variable", "en": "Variable" },
+    "desc": {
+      "fr": "Laboratoire de recherche-action public sur les effets de l'IA au travail. Études de terrain en entreprises pilotes.",
+      "en": "Public research-action lab on AI effects in the workplace. Field studies in pilot companies."
+    },
+    "last": "2026-03",
+    "url": "https://www.laboria.ai"
+  },
+  {
+    "id": "france-strategie",
+    "nom": "France Stratégie",
+    "org": { "fr": "Premier ministre · Conseil national de la productivité", "en": "Prime Minister · National Productivity Council" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["emploi", "gouvernance"],
+    "freq": { "fr": "Variable", "en": "Variable" },
+    "desc": {
+      "fr": "Études prospectives sur les métiers, la productivité et l'IA. Rapports publics téléchargeables avec données ouvertes.",
+      "en": "Forward-looking studies on jobs, productivity and AI. Public reports with open data."
+    },
+    "last": "2026-04",
+    "url": "https://www.strategie.gouv.fr"
+  },
+  {
+    "id": "dares",
+    "nom": "DARES",
+    "org": { "fr": "Ministère du Travail · Direction de l'animation, de la recherche, des études et des statistiques", "en": "French Ministry of Labour · Statistics directorate" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["statistiques", "emploi"],
+    "freq": { "fr": "Mensuelle", "en": "Monthly" },
+    "desc": {
+      "fr": "Production statistique officielle sur l'emploi en France. Premières estimations chiffrées de l'exposition à l'IA générative.",
+      "en": "Official employment statistics in France. First quantitative estimates of generative AI exposure."
+    },
+    "last": "2026-02",
+    "url": "https://dares.travail-emploi.gouv.fr"
+  },
+  {
+    "id": "france-travail",
+    "nom": "France Travail",
+    "org": { "fr": "Observatoire des métiers (ex-Pôle Emploi)", "en": "Jobs Observatory (former Pôle Emploi)" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["emploi"],
+    "freq": { "fr": "Mensuelle", "en": "Monthly" },
+    "desc": {
+      "fr": "Cartographie ROME des métiers, tensions de recrutement, baromètre BMO. Données ouvertes mensuelles.",
+      "en": "ROME jobs taxonomy, recruitment tensions, BMO survey. Monthly open data."
+    },
+    "last": "2026-04",
+    "url": "https://www.francetravail.org"
+  },
+  {
+    "id": "apec",
+    "nom": "APEC",
+    "org": { "fr": "Association pour l'emploi des cadres", "en": "Executive Employment Association" },
+    "country": "FR",
+    "type": "branche",
+    "domains": ["emploi"],
+    "freq": { "fr": "Trimestrielle", "en": "Quarterly" },
+    "desc": {
+      "fr": "Études trimestrielles sur le marché des cadres, intégrant l'évolution des compétences IA recherchées par les recruteurs.",
+      "en": "Quarterly studies on the executive market, including the evolution of AI skills sought by recruiters."
+    },
+    "last": "2026-03",
+    "url": "https://corporate.apec.fr"
+  },
+  {
+    "id": "cnil",
+    "nom": "CNIL",
+    "org": { "fr": "Commission nationale de l'informatique et des libertés", "en": "French data protection authority" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["gouvernance"],
+    "freq": { "fr": "Variable", "en": "Variable" },
+    "desc": {
+      "fr": "Volet IA & travail : recommandations sur l'usage des outils d'IA dans le management, la sélection et le suivi des salariés.",
+      "en": "AI & workplace: recommendations on AI tools for management, hiring and monitoring of employees."
+    },
+    "last": "2026-01",
+    "url": "https://www.cnil.fr"
+  },
+  {
+    "id": "france-num",
+    "nom": "France Num",
+    "org": { "fr": "Direction générale des entreprises", "en": "Directorate General for Enterprise" },
+    "country": "FR",
+    "type": "public",
+    "domains": ["formation", "emploi"],
+    "freq": { "fr": "Annuelle", "en": "Yearly" },
+    "desc": {
+      "fr": "Observatoire de la transformation numérique des TPE/PME françaises, dont l'adoption d'outils IA et la montée en compétences.",
+      "en": "Observatory of digital transformation of French SMEs, including AI tool adoption and upskilling."
+    },
+    "last": "2026-03",
+    "url": "https://www.francenum.gouv.fr"
+  },
+  {
+    "id": "cge",
+    "nom": "CGE",
+    "org": { "fr": "Conférence des Grandes Écoles · Observatoire", "en": "Conference of Grandes Écoles · Observatory" },
+    "country": "FR",
+    "type": "academique",
+    "domains": ["formation"],
+    "freq": { "fr": "Annuelle", "en": "Yearly" },
+    "desc": {
+      "fr": "Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.",
+      "en": "Annual graduate insertion survey. First signal on AI impact on junior job entries."
+    },
+    "last": "2025-11",
+    "url": "https://www.cge.asso.fr"
+  }
+]

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veille · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono"><span data-i18n="vl.tag"></span></div>
+  <h1 class="dash-title" data-i18n="vl.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="vl.lede"></p>
+</section>
+
+<div class="filters" style="border-top: 1px solid var(--rule); padding-top: 32px;">
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="filter.country"></span>
+    <button class="chip active" data-filter="country" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="country" data-value="CH">🇨🇭</button>
+    <button class="chip" data-filter="country" data-value="FR">🇫🇷</button>
+    <button class="chip" data-filter="country" data-value="INT" data-i18n="vl.int"></button>
+  </div>
+</div>
+
+<section class="field-report" style="padding-top: 0;">
+  <div class="field-grid" id="fieldGrid"></div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "vl.tag": "Veille · 30 derniers jours",
+    "vl.title": "Les rapports à lire <em>ce mois-ci</em>.",
+    "vl.lede": "Sélection des publications les plus structurantes des 30 derniers jours sur l'IA et l'emploi. Sources primaires uniquement, vérifiées et liées vers leur publication d'origine.",
+    "vl.int": "International",
+    "vl.read": "Lire le rapport →"
+  },
+  en: {
+    "vl.tag": "Field report · last 30 days",
+    "vl.title": "Reports to read <em>this month</em>.",
+    "vl.lede": "Selection of the most structuring publications from the last 30 days on AI and employment. Primary sources only, verified and linked to their original publication.",
+    "vl.int": "International",
+    "vl.read": "Read the report →"
+  }
+};
+
+let veilleData = [];
+let activeCountry = "all";
+
+async function loadData() {
+  veilleData = window.VEILLE_DATA;
+  renderVeille();
+}
+
+function renderVeille() {
+  const grid = document.getElementById("fieldGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  const filtered = veilleData.filter((v) => activeCountry === "all" || v.country === activeCountry);
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "card-empty-state";
+    empty.style.gridColumn = "1 / -1";
+    empty.textContent = window.t("empty");
+    grid.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach((v) => {
+    const card = document.createElement("a");
+    card.className = "field-card";
+    card.href = v.url;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+    card.style.textDecoration = "none";
+    card.style.color = "inherit";
+    card.style.display = "block";
+
+    const meta = document.createElement("div");
+    meta.className = "field-card-meta";
+    const dateSpan = document.createElement("span");
+    const flag = v.country === "CH" ? "🇨🇭" : v.country === "FR" ? "🇫🇷" : "🌍";
+    dateSpan.textContent = flag + " · " + v.date;
+    meta.appendChild(dateSpan);
+    const sourceSpan = document.createElement("span");
+    sourceSpan.textContent = v.source;
+    meta.appendChild(sourceSpan);
+    card.appendChild(meta);
+
+    const title = document.createElement("h3");
+    title.className = "field-card-title";
+    title.textContent = v.title[lang];
+    card.appendChild(title);
+
+    const excerpt = document.createElement("p");
+    excerpt.className = "field-card-excerpt";
+    excerpt.textContent = v.excerpt[lang];
+    card.appendChild(excerpt);
+
+    // AI type badge if present
+    if (v.ai_type && v.ai_type !== "unspecified") {
+      const aiBadge = document.createElement("div");
+      aiBadge.className = "mono";
+      aiBadge.style.fontSize = "10px";
+      aiBadge.style.color = "var(--signal)";
+      aiBadge.style.textTransform = "uppercase";
+      aiBadge.style.letterSpacing = "0.1em";
+      aiBadge.style.marginTop = "12px";
+      const labels = {
+        "generative": { fr: "IA générative", en: "Generative AI" },
+        "agentic": { fr: "IA agentique", en: "Agentic AI" },
+        "automation_broad": { fr: "Automatisation (large)", en: "Automation (broad)" }
+      };
+      const lbl = labels[v.ai_type];
+      aiBadge.textContent = lbl ? lbl[lang] : v.ai_type;
+      card.appendChild(aiBadge);
+    }
+
+    const link = document.createElement("span");
+    link.className = "field-card-link mono";
+    link.textContent = window.t("vl.read");
+    card.appendChild(link);
+
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    activeCountry = chip.getAttribute("data-value");
+    document.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    renderVeille();
+  });
+});
+
+window.onLangChange = renderVeille;
+
+initSite("veille");
+loadData();
+</script>
+</body>
+</html>

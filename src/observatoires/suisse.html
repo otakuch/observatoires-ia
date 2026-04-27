@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Suisse · observatoire[s]·ia</title>
+<meta name="description" content="Cartographie des observatoires emploi & IA en Suisse : OFS, SEFRI, EPFL, Digital Switzerland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- DASHBOARD HEADER -->
+<section class="dash-header">
+  <div class="dash-flag mono">
+    <span class="emoji">🇨🇭</span>
+    <span data-i18n="ch.flag"></span>
+  </div>
+  <h1 class="dash-title" data-i18n="ch.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="ch.lede"></p>
+  <div class="cta-row" style="margin-top: 28px;">
+    <a href="https://observatoire.naullynicolas.ch/ch/" class="btn btn-primary" target="_blank" rel="noopener">
+      <span data-i18n="ch.cta.full"></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a href="france.html" class="btn btn-secondary">
+      <span data-i18n="ch.cta.compare"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- COUNTRY CONTEXT -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="ch.context.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="ch.context.title" data-i18n-html></h3>
+      <div data-i18n="ch.context.text" data-i18n-html></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">26<span style="color: var(--ink); font-size: 0.6em;">+1</span></div>
+          <div class="kf-label" data-i18n="ch.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">4</div>
+          <div class="kf-label" data-i18n="ch.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;" data-i18n="ch.kf3.num"></div>
+          <div class="kf-label" data-i18n="ch.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI ROW -->
+<section class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-tag mono" data-i18n="ch.kpi1.tag"></div>
+    <div class="kpi-num">42<span class="unit">%</span></div>
+    <div class="kpi-label" data-i18n="ch.kpi1.label"></div>
+    <div class="kpi-source" data-i18n="ch.kpi1.source"></div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-tag mono" data-i18n="ch.kpi2.tag"></div>
+    <div class="kpi-num">18</div>
+    <div class="kpi-label" data-i18n="ch.kpi2.label"></div>
+    <div class="kpi-source" data-i18n="ch.kpi2.source"></div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-tag mono" data-i18n="ch.kpi3.tag"></div>
+    <div class="kpi-num"><span class="sign">−</span>9<span class="unit">%</span></div>
+    <div class="kpi-label" data-i18n="ch.kpi3.label"></div>
+    <div class="kpi-source" data-i18n="ch.kpi3.source"></div>
+  </div>
+</section>
+
+<!-- MINI CHART : adoption IA par secteur -->
+<div class="section-head no-border">
+  <div class="section-eyebrow mono" data-i18n="ch.chart.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ch.chart.title"></h2>
+  <p class="section-sub" data-i18n="ch.chart.sub"></p>
+</div>
+
+<div class="chart-block">
+  <div class="bar-chart" id="chBarChart"></div>
+</div>
+
+<!-- OBSERVATORIES -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="ch.obs.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ch.obs.title"></h2>
+  <p class="section-sub" data-i18n="ch.obs.sub"></p>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="filter.type"></span>
+    <button class="chip active" data-filter="type" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="type" data-value="public" data-i18n="type.public"></button>
+    <button class="chip" data-filter="type" data-value="academique" data-i18n="type.academique"></button>
+    <button class="chip" data-filter="type" data-value="branche" data-i18n="type.branche"></button>
+    <button class="chip" data-filter="type" data-value="independant" data-i18n="type.independant"></button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="filter.domain"></span>
+    <button class="chip active" data-filter="domain" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="domain" data-value="emploi" data-i18n="domain.emploi"></button>
+    <button class="chip" data-filter="domain" data-value="formation" data-i18n="domain.formation"></button>
+    <button class="chip" data-filter="domain" data-value="gouvernance" data-i18n="domain.gouvernance"></button>
+    <button class="chip" data-filter="domain" data-value="statistiques" data-i18n="domain.statistiques"></button>
+  </div>
+</div>
+
+<div class="cards-grid" id="cardsGrid"></div>
+
+<!-- CROSS LINK -->
+<section class="cross-link">
+  <h3 data-i18n="ch.cross.text" data-i18n-html></h3>
+  <div class="cta-row">
+    <a href="france.html" class="btn btn-primary">
+      <span data-i18n="ch.cross.cta"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://observatoire.naullynicolas.ch/ch/" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span data-i18n="ch.cross.full"></span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="../assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "ch.flag": "Suisse · Confédération",
+    "ch.title": "Le paysage suisse, en <em>un dashboard</em>.",
+    "ch.lede": "Six observatoires institutionnels, académiques, sectoriels et indépendants. Une langue commune : la donnée publique.",
+    "ch.cta.full": "Dashboard détaillé",
+    "ch.cta.compare": "Comparer avec la France",
+    "ch.kpi1.tag": "01 · Adoption IA · PME",
+    "ch.kpi1.label": "des PME suisses utilisent au moins un outil d'IA générative régulièrement.",
+    "ch.kpi1.source": "Digital Switzerland · 2025",
+    "ch.kpi2.tag": "02 · Formations IA",
+    "ch.kpi2.label": "filières IA reconnues SEFRI (CFC, brevet fédéral, diplôme).",
+    "ch.kpi2.source": "SEFRI · Q1 2026",
+    "ch.kpi3.tag": "03 · Postes vacants tech",
+    "ch.kpi3.label": "de baisse des offres tech au Q1 2026 par rapport à Q1 2025.",
+    "ch.kpi3.source": "OFS · STATEM Q1 2026",
+    "ch.chart.eyebrow": "Adoption IA · par secteur",
+    "ch.chart.title": "Où l'IA s'installe vraiment.",
+    "ch.chart.sub": "Part des entreprises ayant déployé au moins un outil d'IA en production. Échantillon Digital Switzerland 2025.",
+    "ch.obs.eyebrow": "Observatoires CH · 6 sources",
+    "ch.obs.title": "Qui observe quoi, en Suisse.",
+    "ch.obs.sub": "Filtrez par type d'institution et domaine d'observation. Chaque fiche renvoie à la source primaire.",
+    "ch.cross.text": "Et de l'autre côté du Jura ? La <em>France</em> a fait le choix inverse : un État central qui produit la statistique nationale, mais une moindre granularité territoriale.",
+    "ch.cross.cta": "Dashboard France",
+    "ch.cross.full": "Aller plus loin sur la Suisse",
+    "ch.context.tag": "Le contexte",
+    "ch.context.title": "Une <em>confédération</em>, plusieurs lectures.",
+    "ch.kf1": "Cantons souverains + Confédération",
+    "ch.kf2": "Langues nationales (DE, FR, IT, RM)",
+    "ch.kf3.num": "Système dual",
+    "ch.kf3": "Voie académique + voie professionnelle",
+    "ch.context.text": "<p>La Suisse n'a pas d'État central au sens français du terme. Trois niveaux de gouvernement coexistent : la Confédération, vingt-six cantons souverains et près de deux mille communes. Chacun produit ses propres données, ses propres normes, ses propres temporalités. Comprendre l'impact de l'IA sur le travail suisse implique donc de naviguer entre l'Office fédéral de la statistique, qui agrège au sommet, et les services cantonaux de l'emploi, qui observent au plus près du terrain.</p><p>À cette architecture politique s'ajoute une réalité linguistique. <strong>Quatre langues nationales</strong> structurent la production statistique : l'allemand domine quantitativement, le français anime le débat romand, l'italien couvre le Tessin, le romanche persiste dans quelques vallées grisonnes. Les sources alémaniques (KOF Konjunkturforschungsstelle, BAK Economics) circulent peu en Suisse romande et inversement. Cette cartographie reconnaît ce biais et travaille à le corriger version après version.</p><p>Le système de formation suisse repose enfin sur la coexistence d'une voie académique et d'une voie professionnelle duale. Le SEFRI pilote au niveau fédéral les certifications professionnelles, dont les filières IA émergentes. Cette particularité façonne la manière dont la reconversion s'organise : <em>moins par diplômes universitaires que par brevets fédéraux et certifications continues</em>. Sur le plan réglementaire, la Suisse n'a pas adopté de loi spécifique à l'IA en 2026 et privilégie l'adaptation sectorielle des cadres existants.</p>",
+  },
+  en: {
+    "ch.flag": "Switzerland · Confederation",
+    "ch.title": "The Swiss landscape, in <em>one dashboard</em>.",
+    "ch.lede": "Six institutional, academic, sectoral and independent observatories. One common language: public data.",
+    "ch.cta.full": "Detailed dashboard",
+    "ch.cta.compare": "Compare with France",
+    "ch.kpi1.tag": "01 · AI adoption · SMEs",
+    "ch.kpi1.label": "of Swiss SMEs regularly use at least one generative AI tool.",
+    "ch.kpi1.source": "Digital Switzerland · 2025",
+    "ch.kpi2.tag": "02 · AI training tracks",
+    "ch.kpi2.label": "AI-related programs recognised by SERI (CFC, federal certificate, diploma).",
+    "ch.kpi2.source": "SERI · Q1 2026",
+    "ch.kpi3.tag": "03 · Tech vacancies",
+    "ch.kpi3.label": "drop in tech postings in Q1 2026 vs. Q1 2025.",
+    "ch.kpi3.source": "FSO · STATEM Q1 2026",
+    "ch.chart.eyebrow": "AI adoption · by sector",
+    "ch.chart.title": "Where AI is actually settling in.",
+    "ch.chart.sub": "Share of companies that have deployed at least one AI tool in production. Digital Switzerland 2025 sample.",
+    "ch.obs.eyebrow": "CH observatories · 6 sources",
+    "ch.obs.title": "Who observes what, in Switzerland.",
+    "ch.obs.sub": "Filter by institution type and observation domain. Each card links to the primary source.",
+    "ch.cross.text": "And across the border? <em>France</em> took the opposite path: a centralised state producing national statistics, but with a lower territorial granularity.",
+    "ch.cross.cta": "France dashboard",
+    "ch.cross.full": "Dive deeper into Switzerland",
+    "ch.context.tag": "The context",
+    "ch.context.title": "One <em>confederation</em>, many readings.",
+    "ch.kf1": "Sovereign cantons + Confederation",
+    "ch.kf2": "National languages (DE, FR, IT, RM)",
+    "ch.kf3.num": "Dual system",
+    "ch.kf3": "Academic + vocational tracks",
+    "ch.context.text": "<p>Switzerland has no central state in the French sense of the term. Three levels of government coexist: the Confederation, twenty-six sovereign cantons, and nearly two thousand municipalities. Each produces its own data, its own rules, its own timelines. Understanding AI's impact on Swiss work therefore means navigating between the Federal Statistical Office, which aggregates at the top, and the cantonal employment services, which observe closest to the ground.</p><p>On top of this political architecture sits a linguistic reality. <strong>Four national languages</strong> structure statistical production: German dominates quantitatively, French animates the western Swiss debate, Italian covers Ticino, Romansh persists in a few Grison valleys. German-speaking sources (KOF Konjunkturforschungsstelle, BAK Economics) circulate little in French-speaking Switzerland and vice versa. This cartography acknowledges that bias and works to correct it, version after version.</p><p>The Swiss training system finally rests on the coexistence of an academic track and a dual vocational one. SERI steers federal-level professional certifications, including emerging AI tracks. This particularity shapes how reskilling organises itself: <em>less through university degrees than through federal certificates and continuing education credentials</em>. On the regulatory side, Switzerland has not adopted AI-specific legislation in 2026 and favours sectoral adaptation of existing frameworks.</p>",
+  }
+};
+
+const SECTOR_ADOPTION = [
+  { fr: "Finance & Banque", en: "Finance & Banking", value: 68 },
+  { fr: "Conseil & Services", en: "Consulting & Services", value: 54 },
+  { fr: "Industrie pharma", en: "Pharma industry", value: 49 },
+  { fr: "Horlogerie & Luxe", en: "Watchmaking & Luxury", value: 31 },
+  { fr: "Construction", en: "Construction", value: 18 },
+  { fr: "Hôtellerie", en: "Hospitality", value: 12 }
+];
+
+let observatoires = [];
+let activeFilters = { type: "all", domain: "all" };
+
+async function loadData() {
+  observatoires = window.OBSERVATOIRES_DATA.filter((o) => o.country === "CH");
+  renderCards();
+  renderChart();
+}
+
+function renderCards() {
+  const grid = document.getElementById("cardsGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+
+  const filtered = observatoires.filter((o) => {
+    const ty = activeFilters.type === "all" || o.type === activeFilters.type;
+    const d = activeFilters.domain === "all" || o.domains.includes(activeFilters.domain);
+    return ty && d;
+  });
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "card-empty-state";
+    empty.textContent = window.t("empty");
+    grid.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach((o) => {
+    const card = document.createElement("a");
+    card.className = "card";
+    card.href = o.url;
+    card.target = "_blank";
+    card.rel = "noopener";
+
+    const meta = document.createElement("div");
+    meta.className = "card-meta mono";
+    const flag = document.createElement("span");
+    flag.className = "flag flag-ch";
+    const dot = document.createElement("span");
+    dot.className = "flag-dot";
+    flag.appendChild(dot);
+    flag.appendChild(document.createTextNode("Suisse"));
+    meta.appendChild(flag);
+    const typeSpan = document.createElement("span");
+    typeSpan.textContent = window.t("type." + o.type);
+    meta.appendChild(typeSpan);
+    card.appendChild(meta);
+
+    const title = document.createElement("h3");
+    title.className = "card-title";
+    title.textContent = o.nom;
+    card.appendChild(title);
+
+    const org = document.createElement("div");
+    org.className = "card-org";
+    org.textContent = o.org[lang];
+    card.appendChild(org);
+
+    const desc = document.createElement("p");
+    desc.className = "card-desc";
+    desc.textContent = o.desc[lang];
+    card.appendChild(desc);
+
+    const tags = document.createElement("div");
+    tags.className = "card-tags";
+    o.domains.forEach((d) => {
+      const tag = document.createElement("span");
+      tag.className = "card-tag";
+      tag.textContent = window.t("domain." + d);
+      tags.appendChild(tag);
+    });
+    card.appendChild(tags);
+
+    const footer = document.createElement("div");
+    footer.className = "card-footer";
+    const lastSpan = document.createElement("span");
+    lastSpan.textContent = window.t("card.last") + " · " + o.last;
+    footer.appendChild(lastSpan);
+    const linkSpan = document.createElement("span");
+    linkSpan.className = "visit";
+    linkSpan.textContent = window.t("card.visit");
+    footer.appendChild(linkSpan);
+    card.appendChild(footer);
+
+    grid.appendChild(card);
+  });
+}
+
+function renderChart() {
+  const chart = document.getElementById("chBarChart");
+  if (!chart) return;
+  chart.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  const max = 100;
+
+  SECTOR_ADOPTION.forEach((s, i) => {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+
+    const label = document.createElement("div");
+    label.textContent = s[lang];
+    row.appendChild(label);
+
+    const track = document.createElement("div");
+    track.className = "bar-track";
+    const fill = document.createElement("div");
+    fill.className = "bar-fill" + (i < 2 ? " signal" : "");
+    fill.style.width = "0%";
+    track.appendChild(fill);
+    row.appendChild(track);
+
+    const value = document.createElement("div");
+    value.className = "bar-value";
+    value.textContent = s.value + "%";
+    row.appendChild(value);
+
+    chart.appendChild(row);
+
+    // Animate after a tick
+    setTimeout(() => {
+      fill.style.width = (s.value / max * 100) + "%";
+    }, 100 + i * 80);
+  });
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    const filter = chip.getAttribute("data-filter");
+    const value = chip.getAttribute("data-value");
+    activeFilters[filter] = value;
+    document.querySelectorAll(".chip[data-filter=\"" + filter + "\"]").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    renderCards();
+  });
+});
+
+window.onLangChange = function() {
+  renderCards();
+  renderChart();
+};
+
+initSite("suisse");
+loadData();
+</script>
+</body>
+</html>

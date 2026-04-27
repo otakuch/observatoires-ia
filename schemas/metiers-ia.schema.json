@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/metiers-ia.schema.json",
+  "title": "Métiers IA · schéma commun FR (ROME) et CH (NP 2010)",
+  "description": "Cartographie des métiers face à l'IA. Le champ rome_domain ou np_domain permet de distinguer FR/CH.",
+  "type": "object",
+  "required": ["version", "compiled_at", "country", "license", "metiers"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Version semver du dataset"
+    },
+    "compiled_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Date de compilation ISO 8601"
+    },
+    "country": {
+      "type": "string",
+      "enum": ["FR", "CH"],
+      "description": "Pays concerné"
+    },
+    "nomenclature": {
+      "type": "string",
+      "description": "Nomenclature professionnelle utilisée (ROME 4.0 ou NP 2010)"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Périmètre du dataset"
+    },
+    "license": {
+      "type": "string",
+      "const": "CC BY 4.0"
+    },
+    "source_aggregator": {
+      "type": "string"
+    },
+    "documentation_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "underlying_dashboard": {
+      "type": "string",
+      "format": "uri",
+      "description": "(CH only) URL du dashboard interactif sous-jacent"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "metiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "sources"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Nom du métier en français"
+          },
+          "rome_domain": {
+            "type": "string",
+            "pattern": "^[A-Z]$",
+            "description": "(FR only) Domaine ROME (lettre A-Z)"
+          },
+          "np_domain": {
+            "type": "string",
+            "pattern": "^[A-Z]$",
+            "description": "(CH only) Domaine NP 2010 (lettre A-Z)"
+          },
+          "rome_domain_label": {
+            "type": "string"
+          },
+          "np_domain_label": {
+            "type": "string"
+          },
+          "fap_code": {
+            "type": ["string", "null"],
+            "description": "Code FAP (Famille d'Activités Professionnelles)"
+          },
+          "median_salary_eur_month": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "description": "(FR only) Salaire médian mensuel en EUR"
+          },
+          "median_salary_chf_month": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "description": "(CH only) Salaire médian mensuel en CHF"
+          },
+          "headcount_fr_2024": {
+            "type": ["integer", "null"],
+            "minimum": 0,
+            "description": "(FR only) Effectif national 2024"
+          },
+          "headcount_ch_2024": {
+            "type": ["integer", "null"],
+            "minimum": 0,
+            "description": "(CH only) Effectif national 2024"
+          },
+          "applicable_regulations": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "(FR) Réglementations spécifiques applicables"
+          },
+          "exposure_score_primary": {
+            "type": ["number", "null"],
+            "description": "Score d'exposition de la source primaire la plus récente / mieux notée"
+          },
+          "exposure_score_avg": {
+            "type": ["number", "null"],
+            "description": "Moyenne pondérée des scores de toutes les sources"
+          },
+          "exposure_scale": {
+            "type": "string",
+            "description": "Description de l'échelle utilisée (0-10 vs 0-100)"
+          },
+          "impact_pattern": {
+            "type": ["string", "null"],
+            "enum": ["pol", "vol", null],
+            "description": "(FR) pol = polarisation, vol = volume"
+          },
+          "openai_archetype": {
+            "type": ["string", "null"],
+            "description": "(FR) Archetype OpenAI Jobs Transition Framework"
+          },
+          "rationale_fr": {
+            "type": ["string", "null"]
+          },
+          "reconversion_paths": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["role"],
+              "properties": {
+                "role": { "type": "string" },
+                "explanation_fr": { "type": "string" }
+              }
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["tier", "exposure_score", "year", "citation", "ai_type"],
+              "properties": {
+                "tier": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4,
+                  "description": "1=académique peer-reviewed, 2=institutionnel, 3=presse, 4=expert"
+                },
+                "exposure_score": {
+                  "type": ["number", "null"],
+                  "description": "Valeur d'exposition (échelle dépend de la source)"
+                },
+                "year": {
+                  "type": "integer",
+                  "minimum": 2010,
+                  "maximum": 2030
+                },
+                "citation": {
+                  "type": "string",
+                  "description": "Citation textuelle de la source primaire"
+                },
+                "ai_type": {
+                  "type": "string",
+                  "enum": ["generative", "agentic", "automation_broad", "unspecified"],
+                  "description": "Famille d'IA dont parle la source"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/scenarios-ia.schema.json",
+  "title": "Scénarios prospectifs productivité IA",
+  "type": "object",
+  "required": ["version", "compiled_at", "country", "license", "scenarios"],
+  "properties": {
+    "version": { "type": "string" },
+    "compiled_at": { "type": "string", "format": "date" },
+    "country": { "type": "string", "enum": ["FR", "CH"] },
+    "scope": { "type": "string" },
+    "license": { "type": "string", "const": "CC BY 4.0" },
+    "method_note": { "type": "string" },
+    "count": { "type": "integer", "minimum": 0 },
+    "scenarios": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["name", "annual_productivity_growth_range", "probability_pct", "color_hex"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "Stagnation",
+              "Croissance modérée",
+              "Accélération IA",
+              "Transformation majeure",
+              "Rupture technologique"
+            ]
+          },
+          "annual_productivity_growth_range": { "type": "string" },
+          "probability_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+          "color_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+        }
+      }
+    }
+  }
+}

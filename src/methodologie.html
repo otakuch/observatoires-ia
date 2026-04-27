@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Méthodologie · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.method-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+}
+.method-grid:last-child { border-bottom: 1px solid var(--rule); }
+.method-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  padding-top: 6px;
+}
+.method-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500; font-size: 28px;
+  line-height: 1.15; letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+.method-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 100;
+  color: var(--signal);
+}
+.method-content h4 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 20;
+  font-weight: 500; font-size: 19px;
+  line-height: 1.25; letter-spacing: -0.005em;
+  margin-top: 32px; margin-bottom: 10px;
+  color: var(--ink);
+}
+.method-content h4:first-of-type { margin-top: 24px; }
+.method-content p {
+  font-size: 16px; line-height: 1.65;
+  color: var(--ink-2); max-width: 760px;
+  margin-bottom: 14px;
+}
+.method-content p.method-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px; margin-top: 0;
+}
+.method-content p.method-caveat {
+  font-size: 14px;
+  color: var(--muted);
+  border-left: 2px solid var(--rule);
+  padding-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 1.55;
+  max-width: 720px;
+}
+.method-content p.method-caveat strong {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.method-content ul {
+  list-style: none; padding: 0;
+  margin-top: 14px; margin-bottom: 14px;
+}
+.method-content li {
+  font-size: 15px; line-height: 1.55;
+  color: var(--ink-2); padding-left: 24px;
+  position: relative; margin-bottom: 12px;
+  max-width: 760px;
+}
+.method-content li::before {
+  content: "→"; position: absolute;
+  left: 0; color: var(--signal); font-weight: 500;
+}
+.method-content li strong {
+  color: var(--ink); font-weight: 500;
+}
+.bias-block {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px dashed var(--rule);
+}
+.bias-block:first-of-type { border-top: none; padding-top: 0; margin-top: 16px; }
+.bias-block.major {
+  background: var(--paper-2);
+  padding: 28px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--signal);
+  border-top: 1px solid var(--rule);
+  margin-top: 24px;
+}
+.bias-block.major h4 { margin-top: 0; }
+@media (max-width: 960px) {
+  .method-section { padding: 0 20px 40px; }
+  .method-grid { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .bias-block.major { padding: 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono"><span data-i18n="me.tag"></span></div>
+  <h1 class="dash-title" data-i18n="me.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="me.lede"></p>
+</section>
+
+<!-- METHOD CONTEXT -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="me.context.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="me.context.title" data-i18n-html></h3>
+      <div data-i18n="me.context.text" data-i18n-html></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">9</div>
+          <div class="kf-label" data-i18n="me.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">5</div>
+          <div class="kf-label" data-i18n="me.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">8</div>
+          <div class="kf-label" data-i18n="me.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="method-section">
+
+  <!-- 01 · CRITÈRES D'INCLUSION -->
+  <div class="method-grid">
+    <div class="method-tag">01 · <span data-i18n="me.crit.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.crit.title"></h3>
+      <p data-i18n="me.crit.p1"></p>
+      <ul>
+        <li data-i18n="me.crit.li1"></li>
+        <li data-i18n="me.crit.li2"></li>
+        <li data-i18n="me.crit.li3"></li>
+        <li data-i18n="me.crit.li4"></li>
+      </ul>
+      <p data-i18n="me.crit.exclude"></p>
+    </div>
+  </div>
+
+  <!-- 02 · MÉTHODES DE CALCUL -->
+  <div class="method-grid">
+    <div class="method-tag">02 · <span data-i18n="me.calc.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.calc.title" data-i18n-html></h3>
+      <p data-i18n="me.calc.intro"></p>
+
+      <h4 data-i18n="me.calc.a.title"></h4>
+      <p class="method-source" data-i18n="me.calc.a.source"></p>
+      <p data-i18n="me.calc.a.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.a.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.b.title"></h4>
+      <p class="method-source" data-i18n="me.calc.b.source"></p>
+      <p data-i18n="me.calc.b.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.b.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.c.title"></h4>
+      <p class="method-source" data-i18n="me.calc.c.source"></p>
+      <p data-i18n="me.calc.c.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.c.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.d.title"></h4>
+      <p class="method-source" data-i18n="me.calc.d.source"></p>
+      <p data-i18n="me.calc.d.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.d.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.e.title"></h4>
+      <p class="method-source" data-i18n="me.calc.e.source"></p>
+      <p data-i18n="me.calc.e.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.e.caveat" data-i18n-html></p>
+    </div>
+  </div>
+
+  <!-- 03 · TYPES D'IA · NOUVELLE SECTION -->
+  <div class="method-grid">
+    <div class="method-tag">03 · <span data-i18n="me.aitype.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.aitype.title" data-i18n-html></h3>
+      <p data-i18n="me.aitype.intro"></p>
+
+      <h4 data-i18n="me.aitype.a.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.a.source"></p>
+      <p data-i18n="me.aitype.a.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.a.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.b.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.b.source"></p>
+      <p data-i18n="me.aitype.b.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.b.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.c.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.c.source"></p>
+      <p data-i18n="me.aitype.c.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.c.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.d.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.d.source"></p>
+      <p data-i18n="me.aitype.d.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.d.who" data-i18n-html></p>
+
+      <p data-i18n="me.aitype.consequence" data-i18n-html style="margin-top: 28px;"></p>
+    </div>
+  </div>
+
+  <!-- 04 · TAXONOMIES (ex 03) -->
+  <div class="method-grid">
+    <div class="method-tag">04 · <span data-i18n="me.taxo.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.taxo.title"></h3>
+      <p data-i18n="me.taxo.p1"></p>
+      <ul>
+        <li data-i18n="me.taxo.li1" data-i18n-html></li>
+        <li data-i18n="me.taxo.li2" data-i18n-html></li>
+        <li data-i18n="me.taxo.li3" data-i18n-html></li>
+        <li data-i18n="me.taxo.li4" data-i18n-html></li>
+      </ul>
+      <p data-i18n="me.taxo.implication" data-i18n-html></p>
+    </div>
+  </div>
+
+  <!-- 05 · TRIANGULATION -->
+  <div class="method-grid">
+    <div class="method-tag">05 · <span data-i18n="me.triang.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.triang.title"></h3>
+      <p data-i18n="me.triang.p1"></p>
+      <ul>
+        <li data-i18n="me.triang.li1" data-i18n-html></li>
+        <li data-i18n="me.triang.li2" data-i18n-html></li>
+        <li data-i18n="me.triang.li3" data-i18n-html></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 06 · BIAIS RECONNUS -->
+  <div class="method-grid">
+    <div class="method-tag">06 · <span data-i18n="me.bias.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.bias.title"></h3>
+      <p data-i18n="me.bias.intro"></p>
+
+      <div class="bias-block major">
+        <h4 data-i18n="me.bias.us.title" data-i18n-html></h4>
+        <p data-i18n="me.bias.us.p1"></p>
+        <ul>
+          <li data-i18n="me.bias.us.li1" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li2" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li3" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li4" data-i18n-html></li>
+        </ul>
+        <p data-i18n="me.bias.us.consequence"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.lang.title"></h4>
+        <p data-i18n="me.bias.lang.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.inst.title"></h4>
+        <p data-i18n="me.bias.inst.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.sect.title"></h4>
+        <p data-i18n="me.bias.sect.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.temp.title"></h4>
+        <p data-i18n="me.bias.temp.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.desir.title"></h4>
+        <p data-i18n="me.bias.desir.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.pub.title"></h4>
+        <p data-i18n="me.bias.pub.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.surv.title"></h4>
+        <p data-i18n="me.bias.surv.body"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 · FRÉQUENCE -->
+  <div class="method-grid">
+    <div class="method-tag">07 · <span data-i18n="me.update.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.update.title"></h3>
+      <p data-i18n="me.update.p1"></p>
+      <p data-i18n="me.update.p2"></p>
+    </div>
+  </div>
+
+  <!-- 08 · DISCLOSURE ÉDITORIALE -->
+  <div class="method-grid">
+    <div class="method-tag">08 · <span data-i18n="me.disc.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.disc.title" data-i18n-html></h3>
+      <p data-i18n="me.disc.p1"></p>
+      <p data-i18n="me.disc.p2"></p>
+      <p data-i18n="me.disc.p3"></p>
+    </div>
+  </div>
+
+  <!-- 09 · CONTRIBUER -->
+  <div class="method-grid">
+    <div class="method-tag">09 · <span data-i18n="me.contrib.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.contrib.title"></h3>
+      <p data-i18n="me.contrib.p1" data-i18n-html></p>
+    </div>
+  </div>
+
+</section>
+
+<section class="cross-link">
+  <h3 data-i18n="me.cta.text" data-i18n-html></h3>
+  <a href="donnees.html" class="btn btn-primary">
+    <span data-i18n="me.cta.btn"></span>
+    <span class="arrow">→</span>
+  </a>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "me.tag": "Méthodologie · v0.2",
+    "me.title": "Comment <em>on cartographie</em>.",
+    "me.lede": "Toute cartographie repose sur des choix invisibles, qui finissent par déterminer ce que l'on voit. Cette page expose les nôtres en clair : critères de sélection des observatoires, méthodes de calcul des indicateurs, nomenclatures nationales mobilisées, biais structurels reconnus. Lire un dashboard sans connaître sa méthode revient à lire un thermomètre sans en connaître l'échelle.",
+    "me.context.tag": "Le cadre",
+    "me.context.title": "Une cartographie qui assume sa <em>fabrique</em>.",
+    "me.context.text": "<p>Mesurer l'impact de l'IA sur le travail mobilise une boîte à outils méthodologique encore jeune et largement importée. Les méthodes de référence proviennent en majorité de la recherche américaine, les nomenclatures changent d'un pays à l'autre, les fréquences de mise à jour sont irrégulières, et la presse confond souvent corrélation et causalité. Cette page documente comment nous traversons cette zone d'incertitude.</p><p>Trois principes guident le travail. Premièrement, ne jamais recalculer un indicateur publié par une institution officielle : nous le rapportons fidèlement avec ses caveats originaux. Deuxièmement, ne pas masquer les écarts méthodologiques entre sources : quand deux observatoires divergent, les deux chiffres apparaissent. Troisièmement, signaler explicitement chaque biais identifié, plutôt que prétendre à une neutralité impossible.</p><p>Cette méthodologie évoluera avec les versions. Les retours de chercheurs, statisticiens et praticiens sont activement souhaités. La cartographie est un travail collectif, jamais achevé.</p>",
+    "me.kf1": "Sections méthodologiques détaillées",
+    "me.kf2": "Méthodes de calcul exposées",
+    "me.kf3": "Biais structurels reconnus",
+
+    "me.crit.tag": "Critères d'inclusion",
+    "me.crit.title": "Quels observatoires entrent dans la carte.",
+    "me.crit.p1": "Un observatoire est inclus s'il satisfait simultanément aux quatre critères suivants :",
+    "me.crit.li1": "Produit des données ou analyses régulières (au moins une publication par an) sur l'emploi, la formation, la gouvernance ou les statistiques liées à l'IA.",
+    "me.crit.li2": "Émet depuis ou couvre principalement la Suisse ou la France. Les sources internationales (Stanford HAI, OCDE, OIT) apparaissent uniquement dans la veille, jamais dans la carte principale.",
+    "me.crit.li3": "Publie ses sources et sa méthodologie de manière vérifiable. Pas de boîte noire propriétaire, pas d'estimation sans note méthodologique.",
+    "me.crit.li4": "Reste accessible publiquement, sans paywall systématique. Les données fermées par défaut mais ouvertes sur demande sont admises avec une note explicite.",
+    "me.crit.exclude": "Sont à l'inverse exclues les sources d'opinion sans donnée mesurable (tribunes, entretiens, livres blancs commerciaux), les indicateurs construits sur moins de 100 répondants ou sur des fenêtres temporelles inférieures à un trimestre, et les agrégateurs qui se contentent de reformuler des sources primaires sans valeur ajoutée méthodologique.",
+
+    "me.calc.tag": "Méthodes de calcul",
+    "me.calc.title": "Comment chaque <em>chiffre</em> est obtenu.",
+    "me.calc.intro": "Cette section expose les méthodes de calcul mobilisées par les sources affichées dans les dashboards CH et FR. Nous ne recalculons pas ces chiffres. Nous les reportons fidèlement avec leurs caveats. Comprendre comment chaque indicateur est construit permet d'en saisir la portée réelle et les limites.",
+
+    "me.calc.a.title": "a. Score d'exposition à l'IA",
+    "me.calc.a.source": "Source · Felten, Raj & Seamans (2018, 2021) ; Eloundou et al., OpenAI (2023)",
+    "me.calc.a.body": "On associe à chaque métier une liste de tâches élémentaires (issues de la base O*NET aux États-Unis, de ROME en France, de NSP en Suisse), puis on évalue dans quelle mesure chacune de ces tâches peut être automatisée ou augmentée par les capacités actuelles d'IA générative. Le score d'exposition par métier est la moyenne pondérée de ces évaluations par tâche, ramenée sur une échelle de 0 à 1.",
+    "me.calc.a.caveat": "<strong>Limitations.</strong> La méthode mesure une exposition théorique, pas un déplacement effectif d'emploi. Une tâche exposable n'est pas une tâche déplacée. La traduction de la nomenclature O*NET vers ROME ou NSP introduit également une marge d'erreur de l'ordre de 5 à 10%, par perte de granularité ou décalage de définition entre catégories voisines.",
+
+    "me.calc.b.title": "b. Indice de tension de recrutement",
+    "me.calc.b.source": "Source · France Travail · indicateur composite trimestriel",
+    "me.calc.b.body": "Combinaison pondérée de plusieurs sous-indicateurs : durée moyenne des offres avant pourvoi, rapport entre les offres et les demandeurs d'emploi inscrits sur un métier donné, part des entreprises déclarant à l'INSEE des difficultés de recrutement sur ce métier, et taux de sortie vers l'emploi. L'indice est publié par fiche ROME, à l'échelle nationale et régionale.",
+    "me.calc.b.caveat": "<strong>Limitations.</strong> L'indice mesure la difficulté à pourvoir un poste, pas la pénurie absolue de la compétence. Une tension forte peut traduire trois réalités différentes : une pénurie réelle (data scientists), un mauvais appariement géographique (aides-soignantes en zones rurales), ou des conditions salariales inadaptées au marché. L'indice ne distingue pas ces trois cas.",
+
+    "me.calc.c.title": "c. Taux d'adoption en entreprise",
+    "me.calc.c.source": "Source · Digital Switzerland, France Num, OFS (TIC dans les entreprises)",
+    "me.calc.c.body": "Calculé par sondage sur un échantillon stratifié d'entreprises : nombre d'entreprises répondant positivement à la question d'adoption, divisé par le total des répondants. Le résultat est généralement segmenté par taille (TPE, PME, ETI, grandes entreprises) et par secteur d'activité (NOGA en Suisse, NAF en France).",
+    "me.calc.c.caveat": "<strong>Limitations.</strong> La définition de l'adoption varie fortement d'une enquête à l'autre. \"Utiliser un outil d'IA\" peut signifier l'usage individuel par un salarié de ChatGPT depuis son navigateur, ou le déploiement industriel d'un système de recommandation client. La comparabilité entre enquêtes est faible si le libellé exact n'est pas explicité. Lire la note méthodologique de l'enquête source est ici indispensable.",
+
+    "me.calc.d.title": "d. Mention IA dans les offres d'emploi",
+    "me.calc.d.source": "Source · APEC, France Travail, plateformes privées (LinkedIn Economic Graph)",
+    "me.calc.d.body": "Détection par mots-clés et expressions régulières dans les corpus d'offres : \"IA\", \"intelligence artificielle\", \"machine learning\", \"deep learning\", \"LLM\", \"prompt engineering\", noms d'outils spécifiques. Les approches récentes affinent par embeddings sémantiques pour limiter les faux positifs.",
+    "me.calc.d.caveat": "<strong>Limitations.</strong> Faux positifs fréquents (\"AI\" abrégé pour Assurance Individuelle, automatisation industrielle classique sans IA). Les compétences IA implicites (par exemple \"expérience en analyse de données avancées\") sont sous-comptées. Les offres mentionnant explicitement \"IA\" peuvent par ailleurs refléter un effet de signalement plus qu'un besoin opérationnel : afficher la compétence IA est devenu un marqueur d'attractivité pour les recruteurs.",
+
+    "me.calc.e.title": "e. Taux d'insertion des diplômés",
+    "me.calc.e.source": "Source · CGE (France), enquêtes des hautes écoles suisses, OFS",
+    "me.calc.e.body": "Cohorte suivie 6, 18 ou 30 mois après l'obtention du diplôme. Les indicateurs distinguent type de contrat (CDI/CDD), salaire d'embauche, adéquation à la formation reçue, et délai entre diplôme et premier poste. Pour la France, l'enquête CGE est annuelle et porte sur environ 200 grandes écoles.",
+    "me.calc.e.caveat": "<strong>Limitations.</strong> L'enquête CGE a un taux de réponse autour de 50 à 60%, biaisé en faveur des diplômés en emploi (biais de réponse classique). Les diplômés en thèse, en année sabbatique ou en mobilité internationale faussent les comparaisons inter-promotions. Le millésime 2024 doit en particulier être lu avec prudence : il agrège des effets sectoriels (recrutement tech ralenti) et des effets cohorte (génération diplômée pendant la pandémie).",
+
+    "me.aitype.tag": "Distinguer les types d'IA",
+    "me.aitype.title": "Une étiquette, quatre <em>réalités techniques</em> distinctes.",
+    "me.aitype.intro": "Le mot « IA » recouvre des familles technologiques très différentes, qui ne touchent pas les mêmes métiers ni au même rythme. Une comptable, un agriculteur, un radiologue et un développeur ne sont pas exposés à la même IA. Confondre ces familles produit des chiffres globaux trompeurs. Cette section distingue les quatre formes pertinentes pour l'analyse emploi, et précise pour chacune quels métiers sont concernés.",
+
+    "me.aitype.a.title": "a. IA discriminative classique (machine learning supervisé)",
+    "me.aitype.a.source": "Famille · scoring, classification, vision par ordinateur, prédiction statistique",
+    "me.aitype.a.body": "L'IA déjà bien installée dans les entreprises depuis quinze ans. Modèles entraînés à reconnaître ou à prédire à partir de données structurées. Pas de génération de contenu, pas de raisonnement libre. C'est cette IA qui filtre vos transactions bancaires, lit votre IRM, propose un produit Netflix ou décide d'accorder un crédit.",
+    "me.aitype.a.who": "<strong>Métiers concernés.</strong> Métiers de l'analyse de risque, du scoring crédit, du contrôle qualité industriel, de la radiologie, de la maintenance prédictive. Effets visibles depuis 2015 environ, courbe d'adoption désormais plate. C'est l'IA dont parlent les rapports OCDE 2019 ou Frey & Osborne 2013, dont les estimations sont aujourd'hui en partie obsolètes.",
+
+    "me.aitype.b.title": "b. IA générative (modèles de langage et multimodaux)",
+    "me.aitype.b.source": "Famille · ChatGPT, Claude, Gemini, Copilot, Mistral, génération texte/image/code",
+    "me.aitype.b.body": "La rupture de 2022. Modèles capables de produire du texte cohérent, du code exécutable, des images, des résumés, des traductions, à partir d'une instruction en langage naturel. Travaille à la tâche, pas au métier. Augmente fortement la productivité individuelle sur les tâches cognitives écrites.",
+    "me.aitype.b.who": "<strong>Métiers concernés.</strong> Tous les métiers à forte composante de production écrite, de code, d'analyse documentaire, de communication : développeurs, juristes, consultants, journalistes, marketing, RH, support client, traduction. Les études de référence sont Eloundou et al. (OpenAI 2023), Brynjolfsson, Noy & Zhang, Stanford HAI 2026, Anthropic 2026. C'est cette IA que la plupart des chiffres récents (Coface 2026, INSEE NDC mars 2026, Stanford HAI) mesurent.",
+
+    "me.aitype.c.title": "c. IA agentique (agents autonomes orchestrés)",
+    "me.aitype.c.source": "Famille · agents capables d'enchaîner des actions, d'utiliser des outils, de planifier",
+    "me.aitype.c.body": "L'horizon 2025-2027. Systèmes qui ne se contentent pas de répondre à une question, mais exécutent une suite de tâches : naviguer sur le web, manipuler des fichiers, appeler des API, prendre des décisions intermédiaires. Encore largement expérimentale début 2026, mais l'adoption suit la trajectoire prédite par OpenAI Richmond.",
+    "me.aitype.c.who": "<strong>Métiers concernés.</strong> Vague différente de la précédente. Touche les métiers d'exécution structurée : back-office bancaire, support client de niveau 1-2, gestion administrative, opérations RH, planification logistique, achats. Coface/OEM avril 2026 chiffre cette vague à 16,3% des emplois français menacés à 2-5 ans, contre 3,8% pour la phase générative actuelle. C'est la rupture qui inquiète aujourd'hui les économistes.",
+
+    "me.aitype.d.title": "d. IA spécialisée scientifique (modèles dédiés à la R&D)",
+    "me.aitype.d.source": "Famille · AlphaFold, modèles de découverte de matériaux, optimisation logistique",
+    "me.aitype.d.body": "Modèles entraînés sur un domaine scientifique précis (biologie structurale, chimie, climat) qui produisent des résultats inaccessibles aux méthodes classiques. Pas un outil grand public. Effet emploi indirect mais structurant à long terme : accélération de la R&D dans la pharma, les matériaux, l'énergie.",
+    "me.aitype.d.who": "<strong>Métiers concernés.</strong> Chercheurs, ingénieurs R&D, biologistes structuraux, chimistes des matériaux, modélisateurs climatiques. Effet plus diffus : raccourcit les cycles d'innovation sans supprimer immédiatement de poste, mais reconfigure les hiérarchies de compétences (le bon expérimentateur compte moins que le bon orchestrateur de modèles).",
+
+    "me.aitype.consequence": "<strong>Conséquence pour la lecture des chiffres.</strong> Quand un rapport annonce « 30% des emplois exposés à l'IA », la première question utile est : <em>de quelle IA parle-t-on</em> ? Frey & Osborne 2013 parlent de l'IA discriminative. Eloundou 2023 et Stanford 2026 parlent de l'IA générative. Coface avril 2026 distingue explicitement la phase Copilot (3,8%) et la phase Special Agent (16,3%). Quand notre cartographie reporte un score d'exposition, le champ <code>ai_type</code> du JSON associé précise la famille technologique de la source. Sans cette distinction, deux chiffres apparemment équivalents peuvent décrire deux phénomènes radicalement différents.",
+
+    "me.taxo.tag": "Sources et taxonomies",
+    "me.taxo.title": "Pourquoi un emploi suisse n'est pas un emploi français.",
+    "me.taxo.p1": "Le travail n'est pas classé de la même façon des deux côtés du Jura. Cette différence de nomenclature complique toute comparaison directe, et impose d'expliciter les correspondances utilisées dans les dashboards.",
+    "me.taxo.li1": "<strong>ROME (France)</strong> · 532 fiches métiers organisées en 14 grands domaines. Géré par France Travail. Mise à jour évolutive, récemment refondu (ROME 4.0) pour intégrer les métiers émergents.",
+    "me.taxo.li2": "<strong>PCS-ESE (France)</strong> · Catégories socioprofessionnelles plus agrégées (environ 487 postes), utilisées par l'INSEE et la DARES pour les statistiques nationales et la mesure d'exposition à l'IA.",
+    "me.taxo.li3": "<strong>NSP / NOGA (Suisse)</strong> · Nomenclature suisse des professions, alignée sur la classification internationale ISCO-08 (OIT). Quatre chiffres pour environ 430 catégories.",
+    "me.taxo.li4": "<strong>ISCO-08 (international)</strong> · Référentiel mondial de l'Organisation internationale du travail. Sert de pivot pour les comparaisons internationales, mais à un niveau d'agrégation supérieur qui efface les spécificités nationales.",
+    "me.taxo.implication": "Concrètement, comparer le métier \"développeur logiciel\" en Suisse et en France implique de croiser ROME M1810 avec NSP 2512. Les libellés sont proches, mais les périmètres incluent des fonctions légèrement différentes : la France classifie les data engineers parmi les développeurs, la Suisse les sépare partiellement. Cet écart, faible, suffit à invalider une comparaison brute des chiffres bruts entre les deux pays sur le seul code métier.",
+
+    "me.triang.tag": "Triangulation",
+    "me.triang.title": "Croiser les sources, traduire sans trahir.",
+    "me.triang.p1": "Quand deux sources mesurent la même réalité avec des résultats divergents, nous appliquons trois règles simples qui guident l'ensemble des contenus du site.",
+    "me.triang.li1": "<strong>Règle 1.</strong> Nous citons les deux et expliquons l'écart, sans trancher. Le débat statistique appartient aux institutions sources, pas à un agrégateur.",
+    "me.triang.li2": "<strong>Règle 2.</strong> Nous privilégions toujours la source primaire (l'institution émettrice du chiffre) sur l'intermédiaire (presse, agrégateur, plateforme). Une statistique reprise d'un communiqué Reuters est moins fiable que la même statistique lue dans le rapport d'origine.",
+    "me.triang.li3": "<strong>Règle 3.</strong> Pour la traduction FR↔EN des notions techniques, nous utilisons les terminologies officielles (ISCO, Eurostat, Eurofound) plutôt que des traductions littérales. \"Tension de recrutement\" devient \"recruitment tension\", pas \"labour shortage\".",
+
+    "me.bias.tag": "Biais reconnus",
+    "me.bias.title": "Ce que cette carte ne peut pas voir.",
+    "me.bias.intro": "Aucune cartographie n'est neutre. Les biais documentés ici ne sont pas exhaustifs, mais ce sont ceux que nous identifions comme structurants. Le premier d'entre eux mérite une attention particulière, car il déborde largement notre cartographie pour conditionner toute la production mondiale sur le sujet.",
+
+    "me.bias.us.title": "<em>Le biais américain</em> · le plus structurant",
+    "me.bias.us.p1": "La recherche académique, les méthodologies de référence et les jeux de données les plus complets sur l'IA et le travail proviennent presque tous des États-Unis. Cette domination épistémique structure le débat européen, souvent à son insu.",
+    "me.bias.us.li1": "<strong>Le Stanford AI Index</strong>, publication annuelle de 423 pages, est devenu la référence mondiale par défaut. Il décrit pourtant avant tout un écosystème américain, et ses extrapolations internationales reposent sur des assumptions implicites qu'il ne discute pas systématiquement.",
+    "me.bias.us.li2": "<strong>La méthodologie d'exposition Felten-Brynjolfsson</strong>, désormais utilisée par la DARES en France et de nombreux chercheurs européens, a été conçue à partir d'O*NET (Bureau of Labor Statistics américain). Sa transposition vers ROME ou NSP introduit une marge d'erreur méthodologique structurelle rarement chiffrée dans les publications dérivées.",
+    "me.bias.us.li3": "<strong>L'estimation Goldman Sachs</strong> de 300 millions d'emplois exposés à l'IA générative, publiée en 2023 et abondamment relayée en Europe, applique implicitement la structure du marché du travail américain au reste du monde. Or la composition sectorielle, la régulation, les conventions collectives et les protections de l'emploi diffèrent radicalement entre les États-Unis, la France et la Suisse.",
+    "me.bias.us.li4": "<strong>Les études MIT, Brookings, Pew Research, NBER</strong> dominent les bibliographies européennes sur le sujet. La recherche francophone et germanophone, même méthodologiquement équivalente ou supérieure (LaborIA, KOF, Inria), circule moins internationalement et reste sous-citée dans la littérature mondiale.",
+    "me.bias.us.consequence": "Conséquence pratique pour cette cartographie : les chiffres que nous reportons en provenance d'institutions européennes (DARES, OFS, EPFL AI Center) restent souvent dérivés ou inspirés de méthodes américaines. Cela ne les invalide pas. Cela rend visible une dépendance épistémique. La construction d'une métrique européenne souveraine sur l'impact emploi de l'IA, fondée sur des nomenclatures propres et des hypothèses adaptées au tissu productif européen, reste à faire.",
+
+    "me.bias.lang.title": "Le biais linguistique interne",
+    "me.bias.lang.body": "À l'intérieur même du périmètre CH+FR, les sources alémaniques (KOF Konjunkturforschungsstelle, BAK Economics, ETH) circulent peu en Suisse romande. Inversement, les enquêtes vaudoises ou genevoises restent peu connues outre-Sarine. Cette cartographie privilégie en version 0.2 les sources francophones et fédérales bilingues, et reconnaît cette restriction comme une limite à corriger en version 0.3.",
+
+    "me.bias.inst.title": "Le biais institutionnel",
+    "me.bias.inst.body": "Un observatoire émanant de l'État ou d'une grande école est plus visible qu'une initiative associative équivalente. Les coopératives, les syndicats, les centres de recherche indépendants produisent parfois des données qui n'apparaissent pas ici, faute de visibilité institutionnelle ou de référencement Google. Cette asymétrie reflète l'architecture de la production statistique, pas la qualité des sources.",
+
+    "me.bias.sect.title": "Le biais sectoriel",
+    "me.bias.sect.body": "Tech, finance et services sont mieux mesurés que la santé, la construction, l'agriculture ou les services à la personne. Cela reflète l'attention médiatique et la disponibilité des données, plus que la réalité du marché du travail. Les métiers manuels et les secteurs essentiels sont sous-cartographiés à l'échelle internationale, et ce déséquilibre se transmet mécaniquement à notre carte.",
+
+    "me.bias.temp.title": "Le biais temporel",
+    "me.bias.temp.body": "Un rapport quadriennal (CSRE en Suisse) reste référencé même quand un travail plus récent existe ailleurs. Le rythme institutionnel ne s'aligne pas sur le rythme technologique. Une donnée de 2022 sur l'adoption de l'IA générative est aujourd'hui largement obsolète, mais peut continuer à structurer le débat public et les décisions politiques pendant plusieurs années après sa péremption effective.",
+
+    "me.bias.desir.title": "Le biais de désirabilité sociale",
+    "me.bias.desir.body": "Les enquêtes par sondage sur l'usage de l'IA sont sensibles à un effet de mode. Les répondants peuvent surestimer leur usage pour ne pas paraître en retard sur leur secteur, ou au contraire le sous-estimer s'ils craignent une perception négative (\"intelligence artificielle = remplacement\"). Les chiffres d'adoption auto-déclarés sont à lire avec une marge d'incertitude qui n'est presque jamais quantifiée dans les publications.",
+
+    "me.bias.pub.title": "Le biais de publication",
+    "me.bias.pub.body": "Les résultats spectaculaires (effondrement, révolution, pénurie massive) sont plus volontiers publiés et relayés que les résultats nuancés ou stables. La littérature accessible donne donc une image plus contrastée que la réalité statistique. Une étude concluant à un impact modéré ou nul de l'IA sur l'emploi a structurellement moins de chances d'être publiée et lue qu'une étude annonçant un choc historique.",
+
+    "me.bias.surv.title": "Le biais de survivance",
+    "me.bias.surv.body": "Les statistiques de l'emploi mesurent ceux qui sont en emploi ou qui en cherchent activement un. Les actifs sortis silencieusement du marché du travail (formation longue subie, retrait précoce, invalidité, économie informelle) échappent largement aux observatoires. Si l'IA produit des sorties de carrière non documentées plutôt que des suppressions de poste visibles, l'effet réel sera systématiquement sous-estimé par les indicateurs actuels.",
+
+    "me.update.tag": "Fréquence de mise à jour",
+    "me.update.title": "Quand la carte bouge.",
+    "me.update.p1": "Les fiches observatoires sont vérifiées et mises à jour mensuellement. La date affichée sur chaque carte (\"MAJ 2026-04\") reflète la dernière publication détectée par cette source, pas la date de notre dernière vérification de la fiche.",
+    "me.update.p2": "La veille (Field Report) est rafraîchie toutes les deux semaines. Une publication n'apparaît dans la veille que si elle apporte une donnée nouvelle ou une méthodologie inédite, pas un simple commentaire ou une reformulation de chiffres existants.",
+
+    "me.disc.tag": "Disclosure éditoriale",
+    "me.disc.title": "Comment ces <em>dossiers</em> sont produits.",
+    "me.disc.p1": "Les dépêches Le Dispatch·iA, les pages thématiques et les analyses publiées sur ce site sont produites avec l'assistance d'une intelligence artificielle (Claude Opus 4.7, en modes Research et Web Search), puis soumises à une vérification factuelle contre les sources primaires citées.",
+    "me.disc.p2": "L'IA a servi d'outil de documentation, de synthèse et de mise en forme visuelle. Elle n'est ni une source autonome, ni une autorité scientifique. Toute donnée chiffrée fait l'objet d'une vérification manuelle contre la publication d'origine, dont le lien apparaît systématiquement dans la section Sources de chaque dossier. Les conclusions interprétatives sont assumées par l'auteur, pas par la machine.",
+    "me.disc.p3": "Cette disclosure est un acte de transparence cohérent avec la posture du site. Travailler sur l'impact de l'IA tout en l'utilisant impose de dire clairement comment. Pour le détail des sources et des méthodes de calcul, voir les sections 02 et 06 de cette même page.",
+
+    "me.contrib.tag": "Contribuer",
+    "me.contrib.title": "Comment proposer un ajout, une correction ou un signalement.",
+    "me.contrib.p1": "Le dépôt GitHub est ouvert. Vous pouvez ouvrir une issue, soumettre une pull request sur le fichier <code>observatoires.json</code>, ou simplement écrire à <a href=\"mailto:sayhi@naullynicolas.ch\" style=\"color: var(--signal);\">sayhi@naullynicolas.ch</a>. Toute contribution acceptée est créditée. Les signalements de biais méthodologiques non documentés ici sont particulièrement bienvenus : cette page est un travail vivant, pas une vérité figée.",
+
+    "me.cta.text": "Vous voulez les <em>données brutes</em> ?",
+    "me.cta.btn": "Données ouvertes"
+  },
+  en: {
+    "me.tag": "Methodology · v0.2",
+    "me.title": "How <em>we map</em>.",
+    "me.lede": "Every cartography rests on invisible choices that ultimately determine what is seen. This page sets ours out plainly: criteria for selecting observatories, methods of computing the indicators, national taxonomies used, and acknowledged structural biases. Reading a dashboard without knowing its method is like reading a thermometer without knowing its scale.",
+    "me.context.tag": "The frame",
+    "me.context.title": "A cartography that owns its <em>making</em>.",
+    "me.context.text": "<p>Measuring AI's impact on work mobilises a methodological toolkit that is still young and largely imported. Reference methods come mostly from American research, classifications differ from one country to the next, update frequencies are uneven, and the press often confuses correlation with causation. This page documents how we navigate that uncertainty zone.</p><p>Three principles guide the work. First, we never recompute an indicator published by an official institution: we report it faithfully with its original caveats. Second, we never hide methodological gaps between sources: when two observatories diverge, both figures appear. Third, we explicitly flag every identified bias rather than claim impossible neutrality.</p><p>This methodology will evolve across versions. Feedback from researchers, statisticians and practitioners is actively sought. Cartography is collective work, never finished.</p>",
+    "me.kf1": "Detailed methodological sections",
+    "me.kf2": "Calculation methods exposed",
+    "me.kf3": "Acknowledged structural biases",
+
+    "me.crit.tag": "Inclusion criteria",
+    "me.crit.title": "Which observatories make it onto the map.",
+    "me.crit.p1": "An observatory is included if it simultaneously meets all four of the following criteria:",
+    "me.crit.li1": "Produces regular data or analysis (at least one publication per year) on employment, training, governance or AI-related statistics.",
+    "me.crit.li2": "Operates from or primarily covers Switzerland or France. International sources (Stanford HAI, OECD, ILO) only appear in the field report, never on the main map.",
+    "me.crit.li3": "Publishes its sources and methodology verifiably. No proprietary black box, no estimate without a methodological note.",
+    "me.crit.li4": "Remains publicly accessible without systematic paywalls. Data closed by default but available on request is admitted with an explicit note.",
+    "me.crit.exclude": "Excluded, conversely, are opinion sources without measurable data (op-eds, interviews, commercial white papers), indicators built on fewer than 100 respondents or on time windows shorter than a quarter, and aggregators that merely reformulate primary sources without methodological added value.",
+
+    "me.calc.tag": "Calculation methods",
+    "me.calc.title": "How each <em>figure</em> is obtained.",
+    "me.calc.intro": "This section sets out the calculation methods used by the sources displayed in the CH and FR dashboards. We do not recompute these figures. We report them faithfully with their caveats. Understanding how each indicator is built reveals its actual scope and limits.",
+
+    "me.calc.a.title": "a. AI exposure score",
+    "me.calc.a.source": "Source · Felten, Raj & Seamans (2018, 2021); Eloundou et al., OpenAI (2023)",
+    "me.calc.a.body": "Each occupation is associated with a list of elementary tasks (drawn from O*NET in the United States, ROME in France, NSP in Switzerland), then each task is evaluated for the extent to which it can be automated or augmented by current generative AI capabilities. The exposure score per occupation is the weighted average of these task-level evaluations, normalised on a 0 to 1 scale.",
+    "me.calc.a.caveat": "<strong>Limitations.</strong> The method measures theoretical exposure, not actual employment displacement. An exposable task is not a displaced task. The translation from the O*NET classification to ROME or NSP also introduces a margin of error of around 5 to 10%, through loss of granularity or definition shifts between neighbouring categories.",
+
+    "me.calc.b.title": "b. Recruitment tension index",
+    "me.calc.b.source": "Source · France Travail · quarterly composite indicator",
+    "me.calc.b.body": "Weighted combination of several sub-indicators: average duration of postings before they are filled, ratio of postings to registered jobseekers per occupation, share of firms reporting recruitment difficulties to INSEE on that occupation, and rate of return to employment. The index is published per ROME card, at national and regional levels.",
+    "me.calc.b.caveat": "<strong>Limitations.</strong> The index measures the difficulty of filling a position, not the absolute scarcity of the skill. High tension can reflect three different realities: a real shortage (data scientists), poor geographic matching (nursing assistants in rural areas), or wage conditions misaligned with the market. The index does not distinguish between these three cases.",
+
+    "me.calc.c.title": "c. Enterprise adoption rate",
+    "me.calc.c.source": "Source · Digital Switzerland, France Num, FSO (ICT in enterprises)",
+    "me.calc.c.body": "Computed by survey on a stratified sample of firms: number of firms answering yes to the adoption question, divided by total respondents. The result is generally segmented by size (micro, SME, mid-cap, large) and by sector (NOGA in Switzerland, NAF in France).",
+    "me.calc.c.caveat": "<strong>Limitations.</strong> The definition of adoption varies considerably from one survey to another. \"Using an AI tool\" can mean an individual employee using ChatGPT in their browser, or the industrial deployment of a customer recommendation system. Comparability between surveys is weak unless the exact wording is made explicit. Reading the source survey's methodological note is essential here.",
+
+    "me.calc.d.title": "d. AI mention in job postings",
+    "me.calc.d.source": "Source · APEC, France Travail, private platforms (LinkedIn Economic Graph)",
+    "me.calc.d.body": "Detection by keywords and regular expressions across job posting corpora: \"AI\", \"artificial intelligence\", \"machine learning\", \"deep learning\", \"LLM\", \"prompt engineering\", names of specific tools. Recent approaches refine detection through semantic embeddings to reduce false positives.",
+    "me.calc.d.caveat": "<strong>Limitations.</strong> Frequent false positives (\"AI\" abbreviated for individual insurance, classical industrial automation without AI). Implicit AI skills (e.g., \"experience with advanced data analysis\") are undercounted. Postings explicitly mentioning \"AI\" may also reflect a signalling effect rather than an operational need: displaying AI competence has become an attractiveness marker for recruiters.",
+
+    "me.calc.e.title": "e. Graduate insertion rate",
+    "me.calc.e.source": "Source · CGE (France), Swiss universities of applied sciences surveys, FSO",
+    "me.calc.e.body": "Cohort tracked 6, 18 or 30 months after graduation. Indicators distinguish contract type (permanent/fixed-term), starting salary, alignment with the training received, and time between graduation and first job. For France, the CGE survey is annual and covers around 200 grandes écoles.",
+    "me.calc.e.caveat": "<strong>Limitations.</strong> The CGE survey has a response rate around 50 to 60%, biased toward graduates in employment (classical response bias). Graduates pursuing a PhD, on a sabbatical, or on international mobility skew cross-cohort comparisons. The 2024 cohort in particular must be read with caution: it aggregates sectoral effects (slowing tech recruitment) and cohort effects (a class graduated during the pandemic).",
+
+    "me.aitype.tag": "AI types disambiguation",
+    "me.aitype.title": "One label, four distinct <em>technical realities</em>.",
+    "me.aitype.intro": "The word \"AI\" covers very different technological families that do not affect the same occupations or at the same pace. An accountant, a farmer, a radiologist and a developer are not exposed to the same AI. Conflating these families produces misleading global figures. This section distinguishes the four forms relevant to employment analysis, and specifies for each which occupations are concerned.",
+
+    "me.aitype.a.title": "a. Classical discriminative AI (supervised machine learning)",
+    "me.aitype.a.source": "Family · scoring, classification, computer vision, statistical prediction",
+    "me.aitype.a.body": "The AI well established in companies for fifteen years. Models trained to recognise or predict from structured data. No content generation, no free reasoning. This is the AI that filters your bank transactions, reads your MRI, suggests a Netflix product or decides on a credit application.",
+    "me.aitype.a.who": "<strong>Occupations concerned.</strong> Risk analysis, credit scoring, industrial quality control, radiology, predictive maintenance. Visible effects since around 2015, adoption curve now flat. This is the AI discussed in OECD 2019 reports or Frey & Osborne 2013, whose estimates are now partly outdated.",
+
+    "me.aitype.b.title": "b. Generative AI (large language and multimodal models)",
+    "me.aitype.b.source": "Family · ChatGPT, Claude, Gemini, Copilot, Mistral, text/image/code generation",
+    "me.aitype.b.body": "The 2022 rupture. Models capable of producing coherent text, executable code, images, summaries, translations from a natural language instruction. Operates at the task level, not the occupation level. Strongly increases individual productivity on cognitive written tasks.",
+    "me.aitype.b.who": "<strong>Occupations concerned.</strong> All occupations with a strong written production, code, document analysis or communication component: developers, lawyers, consultants, journalists, marketing, HR, customer support, translation. Reference studies are Eloundou et al. (OpenAI 2023), Brynjolfsson, Noy & Zhang, Stanford HAI 2026, Anthropic 2026. This is the AI most recent figures (Coface 2026, INSEE NDC March 2026, Stanford HAI) actually measure.",
+
+    "me.aitype.c.title": "c. Agentic AI (orchestrated autonomous agents)",
+    "me.aitype.c.source": "Family · agents capable of chaining actions, using tools, planning",
+    "me.aitype.c.body": "The 2025-2027 horizon. Systems that do not merely answer a question but execute a sequence of tasks: browsing the web, manipulating files, calling APIs, making intermediate decisions. Still largely experimental in early 2026, but adoption follows the trajectory predicted by OpenAI Richmond.",
+    "me.aitype.c.who": "<strong>Occupations concerned.</strong> A different wave from the previous one. Affects structured execution occupations: bank back-office, level 1-2 customer support, administrative management, HR operations, logistics planning, procurement. Coface/OEM April 2026 puts this wave at 16.3% of French jobs threatened within 2-5 years, versus 3.8% for the current generative phase. This is the rupture that worries economists today.",
+
+    "me.aitype.d.title": "d. Specialised scientific AI (R&D-dedicated models)",
+    "me.aitype.d.source": "Family · AlphaFold, materials discovery models, logistics optimisation",
+    "me.aitype.d.body": "Models trained on a specific scientific domain (structural biology, chemistry, climate) that produce results inaccessible to classical methods. Not a consumer tool. Indirect but structuring long-term employment effect: acceleration of R&D in pharma, materials, energy.",
+    "me.aitype.d.who": "<strong>Occupations concerned.</strong> Researchers, R&D engineers, structural biologists, materials chemists, climate modellers. More diffuse effect: shortens innovation cycles without immediately eliminating positions, but reconfigures skill hierarchies (the good experimentalist counts less than the good model orchestrator).",
+
+    "me.aitype.consequence": "<strong>Consequence for reading the figures.</strong> When a report announces \"30% of jobs exposed to AI\", the first useful question is: <em>which AI are we talking about</em>? Frey & Osborne 2013 talk about discriminative AI. Eloundou 2023 and Stanford 2026 talk about generative AI. Coface April 2026 explicitly distinguishes the Copilot phase (3.8%) and the Special Agent phase (16.3%). When our cartography reports an exposure score, the <code>ai_type</code> field in the associated JSON specifies the technological family of the source. Without this distinction, two apparently equivalent figures can describe radically different phenomena.",
+
+    "me.taxo.tag": "Sources and taxonomies",
+    "me.taxo.title": "Why a Swiss job is not a French job.",
+    "me.taxo.p1": "Work is not classified the same way on both sides of the Jura. This difference in nomenclature complicates any direct comparison and forces us to make explicit the correspondences used in the dashboards.",
+    "me.taxo.li1": "<strong>ROME (France)</strong> · 532 occupational cards organised in 14 broad domains. Maintained by France Travail. Continuous updates, recently overhauled (ROME 4.0) to integrate emerging occupations.",
+    "me.taxo.li2": "<strong>PCS-ESE (France)</strong> · More aggregated socio-professional categories (about 487 positions), used by INSEE and DARES for national statistics and AI exposure measurement.",
+    "me.taxo.li3": "<strong>NSP / NOGA (Switzerland)</strong> · Swiss occupation classification, aligned with the international ISCO-08 standard (ILO). Four digits for around 430 categories.",
+    "me.taxo.li4": "<strong>ISCO-08 (international)</strong> · Worldwide reference of the International Labour Organization. Acts as a pivot for international comparisons, but at a higher aggregation level that erases national specificities.",
+    "me.taxo.implication": "Concretely, comparing the occupation \"software developer\" in Switzerland and France means crossing ROME M1810 with NSP 2512. The labels are close, but the perimeters include slightly different functions: France classifies data engineers among developers, Switzerland separates them partially. This small gap is enough to invalidate a raw comparison of headcount figures between the two countries on occupation code alone.",
+
+    "me.triang.tag": "Triangulation",
+    "me.triang.title": "Crossing sources, translating without betraying.",
+    "me.triang.p1": "When two sources measure the same reality with diverging results, we apply three simple rules that guide the entire site's content.",
+    "me.triang.li1": "<strong>Rule 1.</strong> We cite both and explain the gap, without ruling. The statistical debate belongs to the source institutions, not to an aggregator.",
+    "me.triang.li2": "<strong>Rule 2.</strong> We always favour the primary source (the institution issuing the figure) over the intermediary (press, aggregator, platform). A statistic picked up from a Reuters dispatch is less reliable than the same statistic read in the original report.",
+    "me.triang.li3": "<strong>Rule 3.</strong> For FR↔EN translation of technical concepts, we use official terminologies (ISCO, Eurostat, Eurofound) rather than literal translations. \"Tension de recrutement\" becomes \"recruitment tension\", not \"labour shortage\".",
+
+    "me.bias.tag": "Acknowledged biases",
+    "me.bias.title": "What this map cannot see.",
+    "me.bias.intro": "No cartography is neutral. The biases documented here are not exhaustive, but they are the ones we identify as structural. The first deserves particular attention, because it extends well beyond our cartography to condition all global production on the topic.",
+
+    "me.bias.us.title": "<em>The American bias</em> · the most structural one",
+    "me.bias.us.p1": "Academic research, reference methodologies and the most complete datasets on AI and work come almost entirely from the United States. This epistemic dominance shapes the European debate, often unbeknown to its participants.",
+    "me.bias.us.li1": "<strong>The Stanford AI Index</strong>, an annual 423-page publication, has become the global reference by default. It nonetheless describes primarily an American ecosystem, and its international extrapolations rest on implicit assumptions that it does not systematically discuss.",
+    "me.bias.us.li2": "<strong>The Felten-Brynjolfsson exposure methodology</strong>, now used by France's DARES and many European researchers, was designed from O*NET (the American Bureau of Labor Statistics). Its transposition to ROME or NSP introduces a structural methodological margin of error that is rarely quantified in derivative publications.",
+    "me.bias.us.li3": "<strong>The Goldman Sachs estimate</strong> of 300 million jobs exposed to generative AI, published in 2023 and widely relayed in Europe, implicitly applies the structure of the American labour market to the rest of the world. Yet sectoral composition, regulation, collective agreements and employment protections differ radically between the United States, France and Switzerland.",
+    "me.bias.us.li4": "<strong>Studies from MIT, Brookings, Pew Research and NBER</strong> dominate European bibliographies on the topic. Francophone and Germanophone research, even when methodologically equivalent or superior (LaborIA, KOF, Inria), circulates less internationally and remains under-cited in the global literature.",
+    "me.bias.us.consequence": "Practical consequence for this cartography: the figures we report from European institutions (DARES, FSO, EPFL AI Center) often remain derived from or inspired by American methods. This does not invalidate them. It makes an epistemic dependency visible. The construction of a sovereign European metric for the AI employment impact, founded on its own classifications and assumptions adapted to the European productive fabric, remains to be done.",
+
+    "me.bias.lang.title": "The internal linguistic bias",
+    "me.bias.lang.body": "Within the CH+FR perimeter itself, German-speaking sources (KOF Konjunkturforschungsstelle, BAK Economics, ETH) circulate little in French-speaking Switzerland. Conversely, surveys from Vaud or Geneva remain little known east of the Sarine. This cartography in version 0.2 prioritises French-speaking and bilingual federal sources, and acknowledges this restriction as a limit to be corrected in version 0.3.",
+
+    "me.bias.inst.title": "The institutional bias",
+    "me.bias.inst.body": "An observatory backed by the State or a major school is more visible than an equivalent grassroots initiative. Cooperatives, trade unions and independent research centres sometimes produce data that does not appear here, for lack of institutional visibility or Google indexing. This asymmetry reflects the architecture of statistical production, not the quality of sources.",
+
+    "me.bias.sect.title": "The sectoral bias",
+    "me.bias.sect.body": "Tech, finance and services are better measured than healthcare, construction, agriculture or personal services. This reflects media attention and data availability, more than the reality of the labour market. Manual occupations and essential sectors are under-mapped at the international scale, and this imbalance is mechanically transmitted to our map.",
+
+    "me.bias.temp.title": "The temporal bias",
+    "me.bias.temp.body": "A quadrennial report (SCCRE in Switzerland) remains referenced even when more recent work exists elsewhere. The institutional rhythm does not align with the technological one. A 2022 figure on generative AI adoption is now largely obsolete, but may continue to structure public debate and policy decisions for several years after its effective expiration.",
+
+    "me.bias.desir.title": "The social desirability bias",
+    "me.bias.desir.body": "Surveys on AI usage are sensitive to a fashion effect. Respondents may overstate their use to avoid appearing behind their sector, or conversely understate it if they fear a negative perception (\"artificial intelligence equals replacement\"). Self-reported adoption figures should be read with an uncertainty margin that is almost never quantified in publications.",
+
+    "me.bias.pub.title": "The publication bias",
+    "me.bias.pub.body": "Spectacular results (collapse, revolution, massive shortage) are more readily published and relayed than nuanced or stable findings. The accessible literature therefore yields a more contrasted image than statistical reality. A study concluding that AI's impact on employment is moderate or null is structurally less likely to be published and read than one announcing a historic shock.",
+
+    "me.bias.surv.title": "The survivor bias",
+    "me.bias.surv.body": "Employment statistics measure those who are employed or actively seeking employment. Workers who silently exit the labour market (long forced training, early withdrawal, disability, informal economy) largely escape observatories. If AI produces undocumented career exits rather than visible position eliminations, the actual effect will be systematically underestimated by current indicators.",
+
+    "me.update.tag": "Update frequency",
+    "me.update.title": "When the map shifts.",
+    "me.update.p1": "Observatory cards are verified and updated monthly. The date shown on each card (\"Updated 2026-04\") reflects the latest publication detected from that source, not the date of our last card check.",
+    "me.update.p2": "The Field Report is refreshed every two weeks. A publication only appears in the report if it brings new data or an unprecedented methodology, not a mere commentary or a rephrasing of existing figures.",
+
+    "me.disc.tag": "Editorial disclosure",
+    "me.disc.title": "How these <em>dossiers</em> are produced.",
+    "me.disc.p1": "Le Dispatch·iA dispatches, thematic pages and analyses published on this site are produced with the assistance of an artificial intelligence (Claude Opus 4.7, in Research and Web Search modes), then subjected to factual verification against the cited primary sources.",
+    "me.disc.p2": "AI was used as a tool for documentation, synthesis and visual formatting. It is neither an autonomous source nor a scientific authority. Every numerical figure is manually verified against the original publication, whose link systematically appears in the Sources section of each dossier. Interpretive conclusions are owned by the author, not by the machine.",
+    "me.disc.p3": "This disclosure is an act of transparency consistent with the site's posture. Working on the impact of AI while using it requires saying clearly how. For details on sources and calculation methods, see sections 02 and 06 of this same page.",
+
+    "me.contrib.tag": "Contributing",
+    "me.contrib.title": "How to suggest an addition, correction, or flag an issue.",
+    "me.contrib.p1": "The GitHub repo is open. You can open an issue, submit a pull request on the <code>observatoires.json</code> file, or simply write to <a href=\"mailto:sayhi@naullynicolas.ch\" style=\"color: var(--signal);\">sayhi@naullynicolas.ch</a>. Every accepted contribution is credited. Reports of methodological biases not documented here are particularly welcome: this page is living work, not frozen truth.",
+
+    "me.cta.text": "Want the <em>raw data</em>?",
+    "me.cta.btn": "Open data"
+  }
+};
+
+initSite("method");
+</script>
+</body>
+</html>

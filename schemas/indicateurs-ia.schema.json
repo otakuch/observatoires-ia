@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia.schema.json",
+  "title": "Indicateurs prospectifs IA · schéma commun FR et CH",
+  "type": "object",
+  "required": ["version", "compiled_at", "country", "license", "indicators"],
+  "properties": {
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "compiled_at": { "type": "string", "format": "date" },
+    "country": { "type": "string", "enum": ["FR", "CH"] },
+    "scope": { "type": "string" },
+    "license": { "type": "string", "const": "CC BY 4.0" },
+    "source_aggregator": { "type": "string" },
+    "documentation_url": { "type": "string", "format": "uri" },
+    "count": { "type": "integer", "minimum": 0 },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "unit", "sources"],
+        "properties": {
+          "title": { "type": "string" },
+          "unit": { "type": "string" },
+          "n_sources": { "type": "integer" },
+          "value_min": { "type": ["number", "null"] },
+          "value_max": { "type": ["number", "null"] },
+          "value_median": { "type": ["number", "null"] },
+          "summary_fr": { "type": "string" },
+          "description_fr": { "type": "string" },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["tier", "value", "year", "citation", "ai_type"],
+              "properties": {
+                "tier": { "type": "integer", "minimum": 1, "maximum": 4 },
+                "value": { "type": ["number", "null"] },
+                "year": { "type": "integer", "minimum": 2010, "maximum": 2030 },
+                "citation": { "type": "string" },
+                "ai_type": {
+                  "type": "string",
+                  "enum": ["generative", "agentic", "automation_broad", "unspecified"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

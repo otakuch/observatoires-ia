@@ -1,0 +1,46 @@
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+ENV/
+
+# Build outputs (the bundled HTML at root IS committed for GitHub Pages)
+# Only ignore intermediate dev artifacts
+*.bak
+*.tmp
+
+# Node (in case eslint is added later)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Local secrets (just in case)
+.env
+.env.local
+*.key
+*.pem
+
+# Test outputs
+coverage/
+.nyc_output/
+
+# Drafts that shouldn't be committed
+drafts/
+*.draft.md

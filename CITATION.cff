@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this dataset or cartography in academic work, please cite as:"
+title: "observatoire[s]·ia · Cartographie indépendante des observatoires emploi & IA"
+abstract: >
+  A bilingual (FR/EN) cartography of public observatories tracking the
+  impact of artificial intelligence on employment in Switzerland and
+  France. Aggregates 14 observatories, 524 occupations (200 FR ROME +
+  324 CH NP 2010), 25 prospective indicators, 28 milestones 2019-2026,
+  and 30 referenced economists. Released under CC BY 4.0.
+authors:
+  - family-names: Nicolas
+    given-names: Naully
+    email: sayhi@naullynicolas.ch
+    website: https://naullynicolas.ch
+    affiliation: "Independent consultant — AI, governance, cybersecurity"
+type: dataset
+version: "0.2.0"
+date-released: 2026-04-27
+url: "https://observatoire.naullynicolas.ch"
+repository-code: "https://github.com/otakuch/observatoires-ia"
+license: CC-BY-4.0
+keywords:
+  - artificial intelligence
+  - employment
+  - labor economics
+  - generative AI
+  - agentic AI
+  - cartography
+  - open data
+  - Switzerland
+  - France
+  - ROME
+  - NP 2010
+  - DARES
+  - INSEE
+  - OFS
+  - Stanford HAI
+preferred-citation:
+  type: misc
+  authors:
+    - family-names: Nicolas
+      given-names: Naully
+  title: "observatoire[s]·ia v0.2 · Cartographie indépendante des observatoires emploi & IA en Suisse et en France"
+  year: 2026
+  month: 4
+  url: "https://observatoire.naullynicolas.ch"

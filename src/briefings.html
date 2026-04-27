@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Dispatch·iA · Rapports sectoriels stratégiques · observatoire[s]·ia</title>
+<meta name="description" content="Le Dispatch·iA. Dépêches sectorielles d'intelligence stratégique sur l'IA et le travail. Suisse + France. Édition libre HTML, édition exécutive PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono">
+    <span data-i18n="bf.tag"></span>
+  </div>
+  <h1 class="dash-title" data-i18n="bf.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="bf.lede"></p>
+</section>
+
+<!-- LE FORMAT (context block) -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="bf.format.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="bf.format.title" data-i18n-html></h3>
+      <div data-i18n="bf.format.text" data-i18n-html></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;">~1500</div>
+          <div class="kf-label" data-i18n="bf.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">12-18</div>
+          <div class="kf-label" data-i18n="bf.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;" data-i18n="bf.kf3.num"></div>
+          <div class="kf-label" data-i18n="bf.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATASETS · données ouvertes derrière les dépêches -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="bf.data.eyebrow"></div>
+  <h2 class="section-title" data-i18n="bf.data.title" data-i18n-html></h2>
+  <p class="section-sub" data-i18n="bf.data.sub"></p>
+</div>
+
+<section class="brief-section brief-sources">
+  <div class="brief-sources-list">
+    <article class="brief-source-card">
+      <div class="brief-source-num">01</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label">metiers-ia-fr.json · 200 métiers ROME</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d1" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/metiers-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/metiers-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">02</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label">indicateurs-ia-fr.json · 15 indicateurs prospectifs</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d2" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/indicateurs-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/indicateurs-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">03</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label">timeline-ia-emploi.json · 28 jalons 2019-2026</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d3" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/timeline-ia-emploi.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/timeline-ia-emploi.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">04</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label">scenarios-ia-fr.json · 5 scénarios prospectifs</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d4" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/scenarios-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/scenarios-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">05</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label">economistes-ia.json · 12 économistes référencés</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d5" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/economistes-ia.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/economistes-ia.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">06</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 metiers-ia-ch.json · 324 métiers NP 2010</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d6" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/metiers-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/metiers-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">07</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 indicateurs-ia-ch.json · 10 indicateurs prospectifs</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d7" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/indicateurs-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/indicateurs-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">08</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 scenarios-ia-ch.json · 5 scénarios suisses</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d8" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/scenarios-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/scenarios-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+    <article class="brief-source-card">
+      <div class="brief-source-num">09</div>
+      <div class="brief-source-body">
+        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 economistes-ia-ch.json · 18 économistes & institutions</div>
+        <div class="brief-source-cited" data-i18n="bf.data.d9" data-i18n-html></div>
+        <div class="brief-source-links">
+          <a href="assets/data/economistes-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
+          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/economistes-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p style="margin-top: 32px; font-size: 13px; color: var(--muted); max-width: 720px;" data-i18n="bf.data.note" data-i18n-html></p>
+</section>
+
+<!-- FILTERS -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="bf.list.eyebrow"></div>
+  <h2 class="section-title" data-i18n="bf.list.title"></h2>
+  <p class="section-sub" data-i18n="bf.list.sub"></p>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="filter.country"></span>
+    <button class="chip active" data-filter="country" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="country" data-value="CH">🇨🇭 Suisse</button>
+    <button class="chip" data-filter="country" data-value="FR">🇫🇷 France</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="bf.filter.sector"></span>
+    <button class="chip active" data-filter="sector" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="sector" data-value="finance" data-i18n="bf.sector.finance"></button>
+    <button class="chip" data-filter="sector" data-value="public" data-i18n="bf.sector.public"></button>
+    <button class="chip" data-filter="sector" data-value="hr" data-i18n="bf.sector.hr"></button>
+    <button class="chip" data-filter="sector" data-value="industry" data-i18n="bf.sector.industry"></button>
+  </div>
+</div>
+
+<!-- BRIEFINGS LIST -->
+<div class="briefings-list" id="briefingsList"></div>
+
+<!-- SUBSCRIPTION CTA -->
+<section class="cross-link" style="grid-template-columns: 1fr; text-align: center;">
+  <h3 data-i18n="bf.sub.text" data-i18n-html style="max-width: 720px; margin: 0 auto;"></h3>
+  <p style="max-width: 600px; margin: 16px auto 24px; color: var(--ink-2); font-size: 16px;" data-i18n="bf.sub.body"></p>
+  <div class="cta-row" style="justify-content: center; flex-wrap: wrap; gap: 16px;">
+    <a href="contact.html?type=sub" class="btn btn-primary">
+      <span data-i18n="bf.sub.cta"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="mailto:sayhi@naullynicolas.ch?subject=Abonnement%20Le%20Dispatch%C2%B7iA%20-%20observatoire[s]%C2%B7ia" class="btn btn-secondary">
+      <span data-i18n="bf.sub.direct"></span>
+    </a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "bf.tag": "Le Dispatch·iA · Intelligence stratégique · v0.1",
+    "bf.title": "Des <em>dépêches</em> de terrain pour les directions.",
+    "bf.lede": "Les ambassades de la Renaissance envoyaient des dépêches à leurs princes : observation à distance, faits vérifiés, recommandation d'action. Le Dispatch·iA reprend ce format, appliqué à l'IA et au travail. Une dépêche sectorielle par mois, en deux éditions : une synthèse libre en ligne pour cadrer le sujet, une édition exécutive PDF pour les directions qui décident.",
+
+    "bf.format.tag": "Le format",
+    "bf.format.title": "Deux <em>éditions</em>, deux usages.",
+    "bf.format.text": "<p>Chaque dépêche existe en deux éditions distinctes, conçues pour deux moments de lecture différents. La <strong>version libre</strong>, accessible sans inscription, fournit la synthèse, les principaux constats, les chiffres-clés sourcés et les implications stratégiques. Elle se lit en cinq à sept minutes et suffit à cadrer un comité de direction.</p><p>La <strong>version exécutive</strong> est un document PDF de douze à dix-huit pages, livré dans une mise en page inspirée des notes de cabinet et des <em>presidential daily briefings</em> américains. Elle contient les sources brutes, les tableaux de données, les scénarios chiffrés et les recommandations tactiques par segment décisionnel. Elle est payante, vendue à l'unité ou par abonnement.</p><p>La cadence cible est mensuelle. Les sujets sont choisis selon trois critères : un signal observable et mesurable, une matérialité décisionnelle dans les six à douze mois, et au moins une source primaire originale exploitée par mes soins. Toutes les sources citées renvoient à leur publication d'origine et, si elle est dans la cartographie, à la fiche correspondante de l'observatoire.</p>",
+    "bf.kf1": "Mots dans l'édition libre HTML",
+    "bf.kf2": "Pages dans l'édition exécutive PDF",
+    "bf.kf3.num": "Mensuelle",
+    "bf.kf3": "Cadence cible de publication",
+
+    "bf.data.eyebrow": "Le Dispatch·iA · Socle de données",
+    "bf.data.title": "Neuf jeux de données <em>ouverts</em>, derrière chaque dépêche.",
+    "bf.data.sub": "Les dépêches sont écrites depuis cette base de données structurée, mise à jour en continu, publiée en JSON sous licence CC BY 4.0. Cinq jeux pour la France (ROME 4.0), quatre pour la Suisse (NP 2010 · OFS). Téléchargez, forkez sur GitHub, citez dans vos propres travaux. C'est le commun éditorial du projet.",
+
+    "bf.data.d1": "🇫🇷 Score d'exposition à l'IA pour <strong>200 métiers ROME</strong>, avec rationale, parcours de reconversion suggérés, salaire médian, effectif national. Champ <code>ai_type</code> qui précise pour chaque source si elle parle d'IA discriminative, générative ou agentique.",
+    "bf.data.d2": "🇫🇷 <strong>15 indicateurs prospectifs</strong> France : automatisation 2030, adoption générative, prime salariale, gain productivité, exposition agentique. Chaque indicateur agrège jusqu'à 14 sources avec écart-type et médiane.",
+    "bf.data.d3": "<strong>28 jalons</strong> 2019-2026 : ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 chômage, Coface 16,3%. Chronologie de référence pour replacer un débat.",
+    "bf.data.d4": "🇫🇷 <strong>5 scénarios</strong> de croissance de productivité IA France 2025-2030, du « Stagnation 0-0,5%/an » à « Rupture technologique &gt;5%/an », avec probabilités agrégées par 12 économistes.",
+    "bf.data.d5": "<strong>12 économistes référencés</strong> (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) avec leur distribution de probabilité sur les 5 scénarios. Permet de cartographier le débat scientifique au-delà des soundbites de presse.",
+    "bf.data.d6": "🇨🇭 Score d'exposition à l'IA pour <strong>324 métiers NP 2010</strong> (Suisse · OFS), avec salaire CHF, effectif national, parcours de reconversion. Couvre les 19 grands domaines économiques suisses, du céréalier vaudois au data scientist zurichois.",
+    "bf.data.d7": "🇨🇭 <strong>10 indicateurs prospectifs</strong> Suisse : adoption en entreprise, churn occupationnel, exposition par canton, écart Suisse romande / alémanique. Sources OFS, ESPA 2024, ESS 2022, complétées par Stanford HAI et Coface.",
+    "bf.data.d8": "🇨🇭 <strong>5 scénarios</strong> de productivité IA en Suisse 2025-2030, calibrés sur la structure productive suisse (forte part du tertiaire haut de gamme, banque privée, pharma, horlogerie).",
+    "bf.data.d9": "🇨🇭 <strong>18 économistes & institutions</strong> suivis (Avenir Suisse, Economiesuisse, KOF ETH, Université de Zurich, EPFL AI Center…) avec leurs positions sur les 5 scénarios.",
+
+    "bf.data.dl": "Télécharger ↓",
+    "bf.data.gh": "Voir sur GitHub ↗",
+    "bf.data.note": "<strong>Total : 524 métiers (FR + CH), 25 indicateurs, 28 jalons.</strong> Schémas JSON documentés dans le dépôt. Contributions, corrections et signalements de biais bienvenus via Pull Request ou via la <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">page de contact</a>.",
+
+    "bf.list.eyebrow": "Le Dispatch·iA · Catalogue",
+    "bf.list.title": "Toutes les dépêches.",
+    "bf.list.sub": "Filtrez par pays et par secteur. Les dépêches à venir sont signalées en gris.",
+
+    "bf.filter.sector": "Secteur",
+    "bf.sector.finance": "Banque & Finance",
+    "bf.sector.public": "Secteur public",
+    "bf.sector.hr": "RH & Recrutement",
+    "bf.sector.industry": "Industrie",
+
+    "bf.read": "Lire la synthèse",
+    "bf.exec": "Édition exécutive PDF",
+    "bf.upcoming": "À venir",
+    "bf.upcoming.cta": "Être prévenu",
+
+    "bf.sub.text": "Recevoir <em>toutes les dépêches</em>, dès leur parution.",
+    "bf.sub.body": "Abonnement annuel donnant accès à toutes les éditions exécutives publiées dans l'année (cadence mensuelle, soit douze dépêches sectorielles par an), plus les éditions hors-série. CHF 290 ou EUR 290 par an, contre CHF 49 à l'unité.",
+    "bf.sub.cta": "M'abonner ou me contacter",
+    "bf.sub.direct": "Email direct ↗"
+  },
+  en: {
+    "bf.tag": "The Dispatch·iA · Strategic intelligence · v0.1",
+    "bf.title": "Field <em>dispatches</em> for executive teams.",
+    "bf.lede": "Renaissance embassies sent dispatches to their princes: remote observation, verified facts, action recommendation. The Dispatch·iA brings that format back, applied to AI and work. One sectoral dispatch per month, in two editions: a free online digest to frame the topic, an executive PDF edition for the leaders who decide.",
+
+    "bf.format.tag": "The format",
+    "bf.format.title": "Two <em>editions</em>, two uses.",
+    "bf.format.text": "<p>Each dispatch exists in two distinct editions, designed for two different reading moments. The <strong>free edition</strong>, accessible without registration, delivers the synthesis, the main findings, the sourced key figures and the strategic implications. It reads in five to seven minutes and is enough to frame an executive committee.</p><p>The <strong>executive edition</strong> is a twelve to eighteen page PDF document, laid out in the style of cabinet notes and American <em>presidential daily briefings</em>. It contains the raw sources, data tables, quantified scenarios and tactical recommendations per decisional segment. It is paid, sold per unit or by annual subscription.</p><p>The target cadence is monthly. Topics are chosen on three criteria: an observable, measurable signal, decisional materiality within six to twelve months, and at least one original primary source worked by myself. Every cited source links back to its original publication and, if it appears in the cartography, to its corresponding observatory card.</p>",
+    "bf.kf1": "Words in the free HTML edition",
+    "bf.kf2": "Pages in the executive PDF edition",
+    "bf.kf3.num": "Monthly",
+    "bf.kf3": "Target publication cadence",
+
+    "bf.data.eyebrow": "The Dispatch·iA · Data foundation",
+    "bf.data.title": "Nine <em>open</em> datasets, behind every dispatch.",
+    "bf.data.sub": "Dispatches are written from this structured database, continuously updated, published as JSON under CC BY 4.0. Five datasets for France (ROME 4.0), four for Switzerland (NP 2010 · FSO). Download, fork on GitHub, cite in your own work. It is the editorial commons of the project.",
+
+    "bf.data.d1": "🇫🇷 AI exposure score for <strong>200 ROME occupations</strong>, with rationale, suggested reconversion paths, median salary, national headcount. <code>ai_type</code> field that specifies for each source whether it refers to discriminative, generative or agentic AI.",
+    "bf.data.d2": "🇫🇷 <strong>15 prospective indicators</strong> for France: 2030 automation, generative adoption, AI wage premium, productivity gain, agentic exposure. Each indicator aggregates up to 14 sources with standard deviation and median.",
+    "bf.data.d3": "<strong>28 milestones</strong> 2019-2026: ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 unemployment, Coface 16.3%. Reference chronology to anchor a debate.",
+    "bf.data.d4": "🇫🇷 <strong>5 scenarios</strong> of AI productivity growth for France 2025-2030, from \"Stagnation 0-0.5%/year\" to \"Technological rupture &gt;5%/year\", with probabilities aggregated by 12 economists.",
+    "bf.data.d5": "<strong>12 referenced economists</strong> (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) with their probability distribution across the 5 scenarios. Maps the scientific debate beyond press soundbites.",
+    "bf.data.d6": "🇨🇭 AI exposure score for <strong>324 NP 2010 occupations</strong> (Switzerland · FSO), with CHF salary, national headcount, reconversion paths. Covers all 19 main Swiss economic domains, from a Vaud cereal farmer to a Zurich data scientist.",
+    "bf.data.d7": "🇨🇭 <strong>10 prospective indicators</strong> for Switzerland: enterprise adoption, occupational churn, exposure by canton, French- vs German-speaking divide. Sources FSO, ESPA 2024, ESS 2022, complemented by Stanford HAI and Coface.",
+    "bf.data.d8": "🇨🇭 <strong>5 scenarios</strong> of AI productivity in Switzerland 2025-2030, calibrated on the Swiss productive structure (high-end tertiary, private banking, pharma, watchmaking).",
+    "bf.data.d9": "🇨🇭 <strong>18 economists & institutions</strong> tracked (Avenir Suisse, Economiesuisse, KOF ETH, University of Zurich, EPFL AI Center…) with their positions across the 5 scenarios.",
+
+    "bf.data.dl": "Download ↓",
+    "bf.data.gh": "View on GitHub ↗",
+    "bf.data.note": "<strong>Total: 524 occupations (FR + CH), 25 indicators, 28 milestones.</strong> JSON schemas documented in the repo. Contributions, corrections and bias reports welcome via Pull Request or through the <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">contact page</a>.",
+
+    "bf.list.eyebrow": "The Dispatch·iA · Catalog",
+    "bf.list.title": "All dispatches.",
+    "bf.list.sub": "Filter by country and sector. Upcoming dispatches appear in grey.",
+
+    "bf.filter.sector": "Sector",
+    "bf.sector.finance": "Banking & Finance",
+    "bf.sector.public": "Public sector",
+    "bf.sector.hr": "HR & Recruiting",
+    "bf.sector.industry": "Industry",
+
+    "bf.read": "Read the digest",
+    "bf.exec": "Executive PDF edition",
+    "bf.upcoming": "Upcoming",
+    "bf.upcoming.cta": "Notify me",
+
+    "bf.sub.text": "Receive <em>every dispatch</em>, as they are published.",
+    "bf.sub.body": "Annual subscription giving access to every executive edition published during the year (monthly cadence, twelve sectoral dispatches per year), plus special issues. CHF 290 or EUR 290 per year, versus CHF 49 per unit.",
+    "bf.sub.cta": "Subscribe or get in touch",
+    "bf.sub.direct": "Direct email ↗"
+  }
+};
+
+const BRIEFINGS = [
+  {
+    num: "001",
+    slug: "01-banque-suisse",
+    date: "2026-04-15",
+    country: "CH",
+    sector: "finance",
+    title: {
+      fr: "Banques suisses face à l'IA : l'année des choix architecturaux.",
+      en: "Swiss banks facing AI: the year of architectural choices."
+    },
+    summary: {
+      fr: "L'industrie bancaire suisse passe en 2026 d'expérimentations isolées à des décisions d'architecture engageantes pour cinq à dix ans. Trois clivages structurants émergent.",
+      en: "In 2026 the Swiss banking industry shifts from isolated experiments to architectural decisions binding for five to ten years. Three structural divides emerge."
+    },
+    price: { unit: "CHF 49 / EUR 49" },
+    upcoming: false
+  },
+  {
+    num: "002",
+    slug: "02-cadres-france",
+    date: "2026-04-22",
+    country: "FR",
+    sector: "hr",
+    title: {
+      fr: "Cadres français face à l'IA : la déformation cachée du marché.",
+      en: "French executives facing AI: the hidden distortion of the market."
+    },
+    summary: {
+      fr: "Les offres cadres mentionnant l'IA ont décuplé en quatre ans. Mais le taux de transformation effectif s'effondre. Hypothèse : un marché en surenchère de signalement plus qu'en pénurie réelle.",
+      en: "Executive job postings mentioning AI have grown tenfold in four years. But the effective conversion rate is collapsing. Hypothesis: a market driven more by signalling overbid than by actual scarcity."
+    },
+    price: { unit: "CHF 49 / EUR 49" },
+    upcoming: false
+  },
+  {
+    num: "003",
+    date: "2026-05",
+    country: "FR",
+    sector: "public",
+    title: {
+      fr: "L'administration française et l'IA générative : où en est le déploiement réel.",
+      en: "The French administration and generative AI: where is real deployment."
+    },
+    summary: {
+      fr: "La DGFiP, la CAF et les ministères publient des feuilles de route ambitieuses. Le déploiement effectif sur le terrain raconte une autre histoire. Cartographie sans complaisance.",
+      en: "DGFiP, CAF and ministries publish ambitious roadmaps. Actual deployment on the ground tells a different story. An unsparing cartography."
+    },
+    upcoming: true
+  },
+  {
+    num: "004",
+    date: "2026-06",
+    country: "CH",
+    sector: "industry",
+    title: {
+      fr: "Industrie horlogère et IA : entre prestige patrimonial et impératif productif.",
+      en: "Watchmaking industry and AI: between heritage prestige and productive imperative."
+    },
+    summary: {
+      fr: "Le secteur horloger suisse oscille entre une tradition artisanale assumée et la nécessité industrielle d'intégrer l'IA dans la qualité, la traçabilité et la relation client. Quatre maisons étudiées.",
+      en: "The Swiss watch industry oscillates between an assumed artisanal tradition and the industrial necessity of integrating AI into quality, traceability and customer relations. Four houses studied."
+    },
+    upcoming: true
+  }
+];
+
+let activeFilters = { country: "all", sector: "all" };
+
+function renderBriefings() {
+  const list = document.getElementById("briefingsList");
+  if (!list) return;
+  list.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+
+  const filtered = BRIEFINGS.filter((b) => {
+    const c = activeFilters.country === "all" || b.country === activeFilters.country;
+    const s = activeFilters.sector === "all" || b.sector === activeFilters.sector;
+    return c && s;
+  });
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "card-empty-state";
+    empty.style.padding = "60px 0";
+    empty.textContent = window.t("empty");
+    list.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach((b) => {
+    const row = document.createElement("div");
+    row.className = "briefing-row" + (b.upcoming ? " upcoming" : "");
+
+    // Number
+    const num = document.createElement("div");
+    num.className = "briefing-num";
+    num.textContent = "#" + b.num;
+    row.appendChild(num);
+
+    // Body
+    const body = document.createElement("div");
+
+    // Meta
+    const meta = document.createElement("div");
+    meta.className = "briefing-meta";
+    const date = document.createElement("span");
+    date.textContent = b.date;
+    meta.appendChild(date);
+    const flag = document.createElement("span");
+    flag.textContent = b.country === "CH" ? "🇨🇭 Suisse" : "🇫🇷 France";
+    meta.appendChild(flag);
+    const sect = document.createElement("span");
+    sect.className = "pill-sector";
+    sect.textContent = window.t("bf.sector." + b.sector);
+    meta.appendChild(sect);
+    if (b.upcoming) {
+      const u = document.createElement("span");
+      u.textContent = window.t("bf.upcoming");
+      u.style.color = "var(--signal)";
+      meta.appendChild(u);
+    }
+    body.appendChild(meta);
+
+    // Title
+    const title = document.createElement("h3");
+    title.className = "briefing-title";
+    if (b.upcoming) {
+      title.textContent = b.title[lang];
+    } else {
+      const a = document.createElement("a");
+      a.href = "briefings/" + b.slug + ".html";
+      a.textContent = b.title[lang];
+      title.appendChild(a);
+    }
+    body.appendChild(title);
+
+    // Summary
+    const sum = document.createElement("p");
+    sum.className = "briefing-summary";
+    sum.textContent = b.summary[lang];
+    body.appendChild(sum);
+
+    row.appendChild(body);
+
+    // Actions
+    const actions = document.createElement("div");
+    actions.className = "briefing-actions";
+
+    if (b.upcoming) {
+      const upline = document.createElement("a");
+      upline.href = "contact.html?type=notify&dispatch=" + b.num;
+      upline.className = "briefing-action-line";
+      upline.style.color = "var(--signal)";
+      upline.style.borderBottom = "1px solid var(--signal)";
+      upline.style.paddingBottom = "2px";
+      upline.textContent = window.t("bf.upcoming.cta") + " →";
+      actions.appendChild(upline);
+    } else {
+      // Read line
+      const readDiv = document.createElement("div");
+      readDiv.className = "briefing-action-line";
+      const readLabel = document.createElement("span");
+      readLabel.className = "label";
+      readLabel.textContent = lang === "fr" ? "Libre" : "Free";
+      readDiv.appendChild(readLabel);
+      const readLink = document.createElement("a");
+      readLink.href = "briefings/" + b.slug + ".html";
+      readLink.textContent = window.t("bf.read") + " →";
+      readDiv.appendChild(readLink);
+      actions.appendChild(readDiv);
+
+      // Exec line
+      const execDiv = document.createElement("div");
+      execDiv.className = "briefing-action-line";
+      const execLabel = document.createElement("span");
+      execLabel.className = "label";
+      execLabel.textContent = "Exec";
+      execDiv.appendChild(execLabel);
+      const execLink = document.createElement("a");
+      execLink.href = "contact.html?type=exec&dispatch=" + b.num;
+      execLink.className = "exec";
+      execLink.textContent = "PDF ↗";
+      execDiv.appendChild(execLink);
+      const price = document.createElement("span");
+      price.className = "price";
+      price.textContent = b.price.unit;
+      execDiv.appendChild(price);
+      actions.appendChild(execDiv);
+    }
+
+    row.appendChild(actions);
+    list.appendChild(row);
+  });
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    const filter = chip.getAttribute("data-filter");
+    const value = chip.getAttribute("data-value");
+    activeFilters[filter] = value;
+    document.querySelectorAll(".chip[data-filter=\"" + filter + "\"]").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    renderBriefings();
+  });
+});
+
+window.onLangChange = renderBriefings;
+initSite("briefings");
+renderBriefings();
+</script>
+</body>
+</html>

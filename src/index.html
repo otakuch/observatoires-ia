@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>observatoire[s]·ia · Cartographie indépendante des observatoires emploi & IA · CH/FR</title>
+<meta name="description" content="Une cartographie indépendante et bilingue des observatoires de l'emploi face à l'IA en Suisse et en France.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow mono" data-i18n="home.eyebrow"></div>
+  <h1 class="hero-title" data-i18n="home.title" data-i18n-html></h1>
+  <p class="hero-lede" data-i18n="home.lede"></p>
+  <div class="cta-row">
+    <a href="observatoires/suisse.html" class="btn btn-primary">
+      <span data-i18n="home.cta.ch"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="observatoires/france.html" class="btn btn-secondary">
+      <span data-i18n="home.cta.fr"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">71<span class="unit">%</span></div>
+      <div class="stat-label" data-i18n="home.stat1.label"></div>
+      <div class="stat-source mono">Microsoft &amp; LinkedIn · 2024</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="sign">−</span>26<span class="unit">%</span></div>
+      <div class="stat-label" data-i18n="home.stat2.label"></div>
+      <div class="stat-source mono">LinkedIn Economic Graph</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">14</div>
+      <div class="stat-label" data-i18n="home.stat3.label"></div>
+      <div class="stat-source mono" data-i18n="home.stat3.source"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-tag mono" data-i18n="home.manifesto.tag"></div>
+  <div class="manifesto-text" data-i18n="home.manifesto.text" data-i18n-html></div>
+</section>
+
+<!-- COUNTRY TEASERS -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="home.dash.eyebrow"></div>
+  <h2 class="section-title" data-i18n="home.dash.title"></h2>
+  <p class="section-sub" data-i18n="home.dash.sub"></p>
+</div>
+
+<div class="country-teasers">
+  <a href="observatoires/suisse.html" class="country-card">
+    <div class="country-card-flag">
+      <span class="emoji">🇨🇭</span>
+      <span data-i18n="home.ch.flag"></span>
+    </div>
+    <h3 class="country-card-title" data-i18n="home.ch.title"></h3>
+    <div class="country-card-num">
+      <span><strong>6</strong> <span data-i18n="home.ch.obs"></span></span>
+      <span><strong>4</strong> <span data-i18n="home.ch.domains"></span></span>
+    </div>
+    <p data-i18n="home.ch.desc" style="font-size: 15px; line-height: 1.5; color: var(--ink-2);"></p>
+    <span class="country-card-cta">
+      <span data-i18n="home.ch.cta"></span>
+      <span>→</span>
+    </span>
+  </a>
+
+  <a href="observatoires/france.html" class="country-card">
+    <div class="country-card-flag">
+      <span class="emoji">🇫🇷</span>
+      <span data-i18n="home.fr.flag"></span>
+    </div>
+    <h3 class="country-card-title" data-i18n="home.fr.title"></h3>
+    <div class="country-card-num">
+      <span><strong>8</strong> <span data-i18n="home.fr.obs"></span></span>
+      <span><strong>4</strong> <span data-i18n="home.fr.domains"></span></span>
+    </div>
+    <p data-i18n="home.fr.desc" style="font-size: 15px; line-height: 1.5; color: var(--ink-2);"></p>
+    <span class="country-card-cta">
+      <span data-i18n="home.fr.cta"></span>
+      <span>→</span>
+    </span>
+  </a>
+</div>
+
+<!-- LATEST FROM FIELD REPORT -->
+<section class="field-report">
+  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
+  <h2 class="section-title" data-i18n="home.veille.title"></h2>
+  <p class="section-sub" data-i18n="home.veille.sub"></p>
+  <div class="field-grid" id="fieldGrid"></div>
+  <div style="margin-top: 40px;">
+    <a href="veille.html" class="btn btn-secondary">
+      <span data-i18n="home.veille.cta"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "home.eyebrow": "Cartographie indépendante · CH × FR · v0.2",
+    "home.title": "Comprendre comment l'<em>IA</em> redessine le travail<span class=\"accent-bracket\">.</span>",
+    "home.lede": "L'intelligence artificielle ne supprime pas le travail. Elle le déplace, le décompose et le recompose, parfois discrètement, parfois brutalement. En Suisse comme en France, une douzaine d'institutions publiques, académiques et sectorielles tentent de mesurer ces mouvements. Leurs publications existent. Leurs méthodologies divergent. Leurs résultats restent dispersés, en plusieurs langues, sur autant de sites différents. Ce projet rassemble, traduit et compare ces sources pour que les actifs, les responsables RH, les décideurs publics et les chercheurs disposent enfin d'un point d'observation commun.",
+    "home.cta.ch": "Dashboard Suisse",
+    "home.cta.fr": "Dashboard France",
+    "home.stat1.label": "de recruteurs privilégient les compétences IA à l'ancienneté.",
+    "home.stat2.label": "d'offres tech junior entre 2022 et 2024.",
+    "home.stat3.label": "observatoires CH + FR cartographiés. Mise à jour mensuelle.",
+    "home.stat3.source": "Sources publiques · académiques · sectorielles",
+    "home.manifesto.tag": "¶ Manifeste",
+    "home.manifesto.text": "<p>Mesurer l'impact de l'IA sur le travail relève d'un exercice paradoxal. Les chiffres <strong>existent</strong>, dispersés entre une douzaine d'institutions, dans deux pays, sous autant de méthodologies hétérogènes. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement métier par métier. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants helvétiques. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble.</p><p>Cette fragmentation produit un effet politique mesurable. Faute de cadre commun, le débat oscille entre des récits incompatibles. D'un côté, l'effondrement annoncé du marché du travail. De l'autre, la révolution productive promise. Entre les deux, les actifs concernés naviguent dans cette brume statistique <em>sans repère</em> pour décider de leur formation, de leur reconversion, de leur trajectoire.</p><p><em>observatoire[s]·ia</em> ne produit pas de chiffre nouveau. Le projet agrège, traduit, compare et critique ceux qui existent déjà. L'ambition est de redonner aux décideurs publics, aux responsables RH, aux chercheurs et aux actifs un terrain partagé sur lequel raisonner.</p>",
+    "home.dash.eyebrow": "Deux dashboards · une méthodologie",
+    "home.dash.title": "Choisissez votre territoire.",
+    "home.dash.sub": "Chaque pays a sa propre architecture institutionnelle, ses propres taxonomies, ses propres rythmes. Deux dashboards dédiés, plus une vue comparative pour croiser les regards.",
+    "home.ch.flag": "Suisse · CH",
+    "home.ch.title": "Dashboard Suisse",
+    "home.ch.obs": "observatoires",
+    "home.ch.domains": "domaines couverts",
+    "home.ch.desc": "Confédération, OFS, SEFRI, EPFL AI Center, Digital Switzerland. L'écosystème suisse, accessible en un coup d'œil.",
+    "home.ch.cta": "Explorer le dashboard CH",
+    "home.fr.flag": "France · FR",
+    "home.fr.title": "Dashboard France",
+    "home.fr.obs": "observatoires",
+    "home.fr.domains": "domaines couverts",
+    "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. La galaxie française des observatoires emploi et IA.",
+    "home.fr.cta": "Explorer le dashboard FR",
+    "home.veille.eyebrow": "Veille · Avril 2026",
+    "home.veille.title": "Les rapports à lire ce mois-ci.",
+    "home.veille.sub": "Sélection des publications les plus structurantes des 30 derniers jours.",
+    "home.veille.cta": "Voir toute la veille"
+  },
+  en: {
+    "home.eyebrow": "Independent cartography · CH × FR · v0.2",
+    "home.title": "How <em>AI</em> is redrawing the world of work<span class=\"accent-bracket\">.</span>",
+    "home.lede": "Artificial intelligence is not erasing work. It is shifting, decomposing and recomposing it, sometimes quietly, sometimes brutally. In Switzerland as in France, a dozen public, academic and sectoral institutions are attempting to measure these movements. Their publications exist. Their methodologies diverge. Their findings remain scattered across several languages and as many websites. This project gathers, translates and compares these sources so that workers, HR leaders, public decision-makers and researchers finally share a common observation point.",
+    "home.cta.ch": "Switzerland dashboard",
+    "home.cta.fr": "France dashboard",
+    "home.stat1.label": "of recruiters prioritise AI skills over seniority.",
+    "home.stat2.label": "drop in junior tech postings between 2022 and 2024.",
+    "home.stat3.label": "CH + FR observatories mapped. Monthly updates.",
+    "home.stat3.source": "Public · academic · sectoral sources",
+    "home.manifesto.tag": "¶ Manifesto",
+    "home.manifesto.text": "<p>Measuring AI's impact on work is a paradoxical exercise. The figures <strong>do exist</strong>, scattered across a dozen institutions, in two countries, under as many heterogeneous methodologies. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions occupation by occupation. The EPFL AI Center documents adoption in companies. Switzerland's Federal Statistical Office tracks vacancies. No single source, taken in isolation, gives the full picture.</p><p>This fragmentation produces a measurable political effect. Without a shared frame, public debate oscillates between incompatible narratives. On one side, the announced collapse of the labour market. On the other, the promised productivity revolution. In between, the workers concerned navigate this statistical fog <em>without any compass</em> to decide on their training, their career change or their trajectory.</p><p><em>observatoire[s]·ia</em> produces no new figures. The project aggregates, translates, compares and critiques those that already exist. The ambition is to give public decision-makers, HR leaders, researchers and workers a shared ground on which to reason.</p>",
+    "home.dash.eyebrow": "Two dashboards · one methodology",
+    "home.dash.title": "Choose your territory.",
+    "home.dash.sub": "Each country has its own institutional architecture, its own taxonomies, its own rhythms. Two dedicated dashboards, plus a comparative view to cross-reference them.",
+    "home.ch.flag": "Switzerland · CH",
+    "home.ch.title": "Switzerland dashboard",
+    "home.ch.obs": "observatories",
+    "home.ch.domains": "domains covered",
+    "home.ch.desc": "Confederation, FSO, SERI, EPFL AI Center, Digital Switzerland. The Swiss ecosystem at a glance.",
+    "home.ch.cta": "Open CH dashboard",
+    "home.fr.flag": "France · FR",
+    "home.fr.title": "France dashboard",
+    "home.fr.obs": "observatories",
+    "home.fr.domains": "domains covered",
+    "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. The French galaxy of AI and employment observatories.",
+    "home.fr.cta": "Open FR dashboard",
+    "home.veille.eyebrow": "Field report · April 2026",
+    "home.veille.title": "What to read this month.",
+    "home.veille.sub": "A selection of the most structuring publications from the past 30 days.",
+    "home.veille.cta": "See all reports"
+  }
+};
+
+let veilleData = [];
+
+async function loadVeille() {
+  veilleData = window.VEILLE_DATA || [];
+  renderVeille();
+}
+
+function renderVeille() {
+  const grid = document.getElementById("fieldGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  veilleData.slice(0, 4).forEach((v) => {
+    const card = document.createElement("a");
+    card.className = "field-card";
+    card.href = v.url;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+    card.style.textDecoration = "none";
+    card.style.color = "inherit";
+    card.style.display = "block";
+
+    const meta = document.createElement("div");
+    meta.className = "field-card-meta";
+    const dateSpan = document.createElement("span");
+    const flag = v.country === "CH" ? "🇨🇭" : v.country === "FR" ? "🇫🇷" : "🌍";
+    dateSpan.textContent = flag + " · " + v.date;
+    meta.appendChild(dateSpan);
+    const sourceSpan = document.createElement("span");
+    sourceSpan.textContent = v.source;
+    meta.appendChild(sourceSpan);
+    card.appendChild(meta);
+
+    const title = document.createElement("h3");
+    title.className = "field-card-title";
+    title.textContent = v.title[lang];
+    card.appendChild(title);
+
+    const excerpt = document.createElement("p");
+    excerpt.className = "field-card-excerpt";
+    excerpt.textContent = v.excerpt[lang];
+    card.appendChild(excerpt);
+
+    const link = document.createElement("span");
+    link.className = "field-card-link mono";
+    link.textContent = lang === "fr" ? "Lire le rapport →" : "Read the report →";
+    card.appendChild(link);
+
+    grid.appendChild(card);
+  });
+}
+
+window.onLangChange = renderVeille;
+
+initSite("home");
+loadVeille();
+</script>
+</body>
+</html>

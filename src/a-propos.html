@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.method-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+}
+.method-grid:last-child { border-bottom: 1px solid var(--rule); }
+.method-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  padding-top: 6px;
+}
+.method-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500; font-size: 28px;
+  line-height: 1.15; letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+.method-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 100;
+  color: var(--signal);
+}
+.method-content p {
+  font-size: 16px; line-height: 1.65;
+  color: var(--ink-2); max-width: 760px;
+  margin-bottom: 14px;
+}
+.method-content p:last-of-type { margin-bottom: 0; }
+.method-content p strong { color: var(--ink); font-weight: 500; }
+.method-content p a {
+  color: var(--signal);
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.2s;
+}
+.method-content p a:hover { border-color: var(--signal); }
+.method-content ul {
+  list-style: none; padding: 0;
+  margin-top: 16px; margin-bottom: 18px;
+}
+.method-content li {
+  font-size: 15px; line-height: 1.6;
+  color: var(--ink-2); padding-left: 24px;
+  position: relative; margin-bottom: 12px;
+  max-width: 760px;
+}
+.method-content li::before {
+  content: "→"; position: absolute;
+  left: 0; color: var(--signal); font-weight: 500;
+}
+.method-content li strong {
+  color: var(--ink); font-weight: 500;
+}
+.method-content p.punchline {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-top: 32px;
+  letter-spacing: -0.005em;
+  max-width: 720px;
+}
+.method-content p.punchline em {
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 100;
+  color: var(--signal);
+}
+@media (max-width: 960px) {
+  .method-section { padding: 0 20px 40px; }
+  .method-grid { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono"><span data-i18n="ab.tag"></span></div>
+  <h1 class="dash-title" data-i18n="ab.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="ab.lede"></p>
+</section>
+
+<!-- POURQUOI CE PROJET -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="ab.why.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="ab.why.title" data-i18n-html></h3>
+      <div data-i18n="ab.why.text" data-i18n-html></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">0</div>
+          <div class="kf-label" data-i18n="ab.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">14</div>
+          <div class="kf-label" data-i18n="ab.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">2</div>
+          <div class="kf-label" data-i18n="ab.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUI -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="ab.who.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ab.who.title" data-i18n-html></h2>
+  <p class="section-sub" data-i18n="ab.who.sub"></p>
+</div>
+
+<section class="method-section">
+
+  <div class="method-grid">
+    <div class="method-tag">01 · <span data-i18n="ab.who.consult.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.who.consult.title"></h3>
+      <p data-i18n="ab.who.consult.p1"></p>
+      <p data-i18n="ab.who.consult.p2"></p>
+      <p data-i18n="ab.who.consult.p3"></p>
+      <p data-i18n="ab.who.consult.p4"></p>
+      <p data-i18n="ab.who.consult.p5"></p>
+      <p data-i18n="ab.who.consult.p6"></p>
+      <ul>
+        <li data-i18n="ab.who.consult.li1" data-i18n-html></li>
+        <li data-i18n="ab.who.consult.li2" data-i18n-html></li>
+        <li data-i18n="ab.who.consult.li3" data-i18n-html></li>
+      </ul>
+      <p data-i18n="ab.who.consult.p7" data-i18n-html></p>
+      <p class="punchline" data-i18n="ab.who.consult.punch" data-i18n-html></p>
+    </div>
+  </div>
+
+</section>
+
+<!-- TROIS PRINCIPES -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="ab.princ.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ab.princ.title"></h2>
+  <p class="section-sub" data-i18n="ab.princ.sub"></p>
+</div>
+
+<div class="cards-grid" id="princGrid"></div>
+
+<!-- COMMENT CONTRIBUER -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="ab.contrib.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ab.contrib.title" data-i18n-html></h2>
+  <p class="section-sub" data-i18n="ab.contrib.sub"></p>
+</div>
+
+<section class="method-section">
+
+  <div class="method-grid">
+    <div class="method-tag">01 · <span data-i18n="ab.contrib.signal.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.contrib.signal.title"></h3>
+      <p data-i18n="ab.contrib.signal.body"></p>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-tag">02 · <span data-i18n="ab.contrib.fix.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.contrib.fix.title"></h3>
+      <p data-i18n="ab.contrib.fix.body" data-i18n-html></p>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-tag">03 · <span data-i18n="ab.contrib.bias.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.contrib.bias.title"></h3>
+      <p data-i18n="ab.contrib.bias.body"></p>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-tag">04 · <span data-i18n="ab.contrib.translate.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.contrib.translate.title"></h3>
+      <p data-i18n="ab.contrib.translate.body"></p>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="about" style="border-top: none;">
+  <p class="about-text" data-i18n="ab.contact.text" data-i18n-html></p>
+  <div class="about-actions" style="flex-direction: row; flex-wrap: wrap; align-items: center;">
+    <a href="mailto:sayhi@naullynicolas.ch" class="btn btn-primary">
+      <span data-i18n="ab.contact.email"></span> →
+    </a>
+    <a href="https://www.naullynicolas.ch" class="btn btn-secondary" target="_blank" rel="noopener">
+      naullynicolas.ch ↗
+    </a>
+    <a href="https://www.linkedin.com/in/naullynicolas" class="btn btn-secondary" target="_blank" rel="noopener">
+      LinkedIn ↗
+    </a>
+    <a href="https://x.com/naullyn" class="btn btn-secondary" target="_blank" rel="noopener">
+      X · @naullyn ↗
+    </a>
+    <a href="https://github.com/otakuch/observatoires-ia" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span data-i18n="ab.contact.github"></span> ↗
+    </a>
+    <a href="https://transitions-ia.ch" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span data-i18n="ab.contact.transitions"></span> ↗
+    </a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "ab.tag": "À propos · v0.2",
+    "ab.title": "Pourquoi <em>ce</em> projet, par <em>qui</em>, et comment <em>contribuer</em>.",
+    "ab.lede": "Cette page répond à trois questions simples. Pourquoi cette cartographie existe-t-elle. Qui la maintient. Et comment vous pouvez l'enrichir, la corriger ou la critiquer.",
+
+    "ab.why.tag": "Le pourquoi",
+    "ab.why.title": "Une cartographie née d'un <em>trou</em> dans les sources.",
+    "ab.why.text": "<p><em>Cet observatoire est un constat personnel et factuel.</em> Comme consultant en intelligence artificielle, j'opère depuis plusieurs années entre la Suisse et la France auprès de dirigeants, d'équipes RH, de collectivités et de chercheurs. Tous me posent des questions presque identiques : que va devenir tel métier, telle équipe, telle administration ? Faut-il former, recruter, restructurer, et selon quel calendrier ? Les réponses existent. Elles sont produites par l'OFS, la DARES, France Stratégie, l'EPFL, le SEFRI, France Travail, l'APEC, la CNIL, l'Inria. Elles sont précises, sourcées, méthodologiquement rigoureuses. Elles sont surtout dispersées entre une douzaine d'institutions et largement invisibles pour les acteurs qu'elles concernent.</p><p>Aucune cartographie francophone ne rassemblait ces sources de manière cohérente, ne les comparait entre les deux pays, ni ne signalait explicitement leurs biais. Le débat public sur l'IA et le travail naviguait dans un brouillard d'estimations américaines relayées sans contexte, ou de fragments institutionnels lus en isolation. Les actifs concernés, qui sont pourtant les premiers exposés, n'avaient aucun moyen simple d'accéder à cette information.</p><p>Ce projet est ma tentative de combler ce trou. Il ne produit aucun chiffre nouveau. Il agrège, il traduit, il compare, il critique ceux qui existent. Il est gratuit, sans publicité, sans tracker, sous licence ouverte. C'est un bien commun, modestement contribué.</p>",
+    "ab.kf1": "Cartographies francophones préexistantes",
+    "ab.kf2": "Observatoires reliés dans la v0.2",
+    "ab.kf3": "Pays comparés explicitement (CH + FR)",
+
+    "ab.who.eyebrow": "Le qui · Naully Nicolas",
+    "ab.who.title": "Le <em>porteur</em> du projet.",
+    "ab.who.sub": "Le projet est porté par une seule personne. Voici son parcours, sa posture et la méthode qu'il met au service des organisations.",
+
+    "ab.who.consult.tag": "Le consultant",
+    "ab.who.consult.title": "Consultant, conférencier, auteur dans le numérique.",
+    "ab.who.consult.p1": "L'intelligence artificielle n'est pas d'abord un sujet technologique. C'est un sujet de décision, de gouvernance et de survie stratégique.",
+    "ab.who.consult.p2": "Depuis plus de 20 ans, j'évolue au cœur de systèmes complexes : multinationales, institutions internationales, environnements à forte exigence opérationnelle, mais aussi sept années dans l'urgence pré-hospitalière, où une mauvaise décision ne se corrige pas dans un PowerPoint.",
+    "ab.who.consult.p3": "Aujourd'hui, j'accompagne les dirigeants de PME, les organisations publiques et les structures sensibles confrontés à une même difficulté : trop de bruit, trop de promesses, trop peu de méthode.",
+    "ab.who.consult.p4": "Mon rôle n'est pas de vous impressionner avec le futur. Il est de vous aider à reprendre la main sur le présent.",
+    "ab.who.consult.p5": "J'aide les décideurs à cadrer, gouverner et déployer l'intelligence artificielle avec discernement, agilité et maîtrise. Mon approche s'appuie sur deux décennies de terrain numérique, une lecture stratégique des transformations en cours, et une méthode inspirée de l'histoire, de la pensée stratégique et des réalités opérationnelles.",
+    "ab.who.consult.p6": "Concrètement, j'interviens sur trois leviers :",
+    "ab.who.consult.li1": "<strong>Conférences et keynotes.</strong> Pour donner des repères clairs, ouvrir le débat et faire monter le niveau de compréhension sur les enjeux réels de l'IA.",
+    "ab.who.consult.li2": "<strong>Ateliers de direction et workshops.</strong> Pour structurer la gouvernance, identifier les cas d'usage prioritaires, clarifier les risques et transformer les intuitions en décisions concrètes.",
+    "ab.who.consult.li3": "<strong>Accompagnement stratégique.</strong> Pour aider les organisations à adopter l'IA sans perdre la maîtrise de leurs opérations, de leurs données et de leurs arbitrages.",
+    "ab.who.consult.p7": "Je suis également l'auteur de <em>Guérill-IA</em> et <em>Darwinisme numérique</em>, deux travaux consacrés aux transformations stratégiques provoquées par l'intelligence artificielle.",
+    "ab.who.consult.punch": "Le sujet n'est plus de savoir si l'IA va changer les organisations. Le sujet est de savoir <em>lesquelles sauront s'y préparer avec lucidité</em>.",
+
+    "ab.princ.eyebrow": "Trois principes",
+    "ab.princ.title": "Comment on travaille.",
+    "ab.princ.sub": "Trois règles non négociables qui structurent l'ensemble du projet, des choix d'inclusion à la publication des données brutes.",
+
+    "ab.contrib.eyebrow": "Le comment",
+    "ab.contrib.title": "Comment <em>contribuer</em>.",
+    "ab.contrib.sub": "Cette cartographie est un travail vivant. Quatre voies de contribution concrètes, par ordre croissant d'engagement. Toutes sont créditées dans la version suivante.",
+
+    "ab.contrib.signal.tag": "Signaler",
+    "ab.contrib.signal.title": "Signaler un observatoire manquant.",
+    "ab.contrib.signal.body": "Le plus simple. Si vous connaissez un observatoire CH ou FR sur l'emploi, la formation, la gouvernance ou les statistiques liées à l'IA, qui satisfait aux critères d'inclusion (voir Méthodologie 01), envoyez-moi le nom et l'URL par email. Je vérifie, je rédige la fiche, je crédite la contribution. Le tour est joué en moins d'une semaine.",
+
+    "ab.contrib.fix.tag": "Corriger",
+    "ab.contrib.fix.title": "Corriger une donnée ou un libellé.",
+    "ab.contrib.fix.body": "Une date de mise à jour erronée, un libellé d'organisation imprécis, un domaine mal classé, une description obsolète, une URL cassée. Ouvrez une issue sur le dépôt GitHub <a href=\"https://github.com/otakuch/observatoires-ia\" target=\"_blank\" rel=\"noopener\">otakuch/observatoires-ia</a>, ou écrivez à <a href=\"mailto:sayhi@naullynicolas.ch\">sayhi@naullynicolas.ch</a> avec la correction proposée et la source qui la justifie. Les corrections factuelles vérifiables sont toujours appliquées.",
+
+    "ab.contrib.bias.tag": "Documenter un biais",
+    "ab.contrib.bias.title": "Pointer un biais méthodologique.",
+    "ab.contrib.bias.body": "Particulièrement bienvenu. Si vous identifiez un biais méthodologique non documenté dans la page Méthodologie, ou un biais documenté mais sous-estimé, faites-le savoir. La rigueur d'une cartographie se mesure à sa capacité à reconnaître ses propres limites. Toute contribution de cette nature est intégrée dans la version suivante du site avec mention explicite du contributeur, et figure dans le journal des modifications publié sur GitHub.",
+
+    "ab.contrib.translate.tag": "Traduire",
+    "ab.contrib.translate.title": "Améliorer ou compléter la version anglaise.",
+    "ab.contrib.translate.body": "Le site est bilingue par construction, mais la traduction EN reste perfectible, en particulier sur les terminologies institutionnelles spécifiquement suisses ou françaises (ROME, PCS-ESE, NSP, SEFRI, brevet fédéral). Les contributions de relecture, de correction terminologique ou d'ajout de précision sont les bienvenues, particulièrement pour les utilisateurs anglophones travaillant sur les marchés CH et FR.",
+
+    "ab.contact.text": "Une remarque, une contribution, une critique, ou simplement envie d'échanger ? <span class=\"accent-bracket\">[</span>Écrivez-moi<span class=\"accent-bracket\">]</span>.",
+    "ab.contact.email": "sayhi@naullynicolas.ch",
+    "ab.contact.github": "GitHub · otakuch",
+    "ab.contact.transitions": "transitions-ia.ch"
+  },
+  en: {
+    "ab.tag": "About · v0.2",
+    "ab.title": "Why <em>this</em> project, by <em>whom</em>, and how to <em>contribute</em>.",
+    "ab.lede": "This page answers three simple questions. Why this cartography exists. Who maintains it. And how you can enrich, correct or criticise it.",
+
+    "ab.why.tag": "The why",
+    "ab.why.title": "A cartography born from a <em>gap</em> in the sources.",
+    "ab.why.text": "<p><em>This observatory is a personal and factual observation.</em> As an AI consultant, I have been operating between Switzerland and France for several years, working with executives, HR teams, public bodies and researchers. They all ask me almost identical questions: what will become of this occupation, this team, this administration? Should we train, hire, restructure, and on what timeline? The answers exist. They are produced by FSO, DARES, France Stratégie, EPFL, SERI, France Travail, APEC, CNIL, Inria. They are precise, sourced, methodologically rigorous. They are also scattered across a dozen institutions and largely invisible to the actors they concern.</p><p>No French-speaking cartography brought these sources together coherently, compared them across the two countries, or explicitly flagged their biases. Public debate on AI and work was navigating a fog of American estimates relayed without context, or institutional fragments read in isolation. The workers concerned, who are the most exposed, had no simple way to access this information.</p><p>This project is my attempt to fill that gap. It produces no new figures. It aggregates, translates, compares and critiques those that already exist. It is free, ad-free, tracker-free, and openly licensed. It is a modestly contributed common good.</p>",
+    "ab.kf1": "Pre-existing French-language cartographies",
+    "ab.kf2": "Observatories connected in v0.2",
+    "ab.kf3": "Countries explicitly compared (CH + FR)",
+
+    "ab.who.eyebrow": "The who · Naully Nicolas",
+    "ab.who.title": "The <em>person</em> behind the project.",
+    "ab.who.sub": "The project is run by a single person. Here is the path, the stance and the method brought to organisations.",
+
+    "ab.who.consult.tag": "The consultant",
+    "ab.who.consult.title": "Consultant, speaker, digital author.",
+    "ab.who.consult.p1": "Artificial intelligence is not first and foremost a technological topic. It is a topic of decision, governance and strategic survival.",
+    "ab.who.consult.p2": "For over twenty years, I have operated at the heart of complex systems: multinationals, international institutions, environments with high operational demands, as well as seven years in pre-hospital emergency response, where a wrong decision cannot be fixed in a PowerPoint.",
+    "ab.who.consult.p3": "Today, I work with the executives of SMEs, public organisations and sensitive structures facing the same difficulty: too much noise, too many promises, too little method.",
+    "ab.who.consult.p4": "My role is not to impress you with the future. It is to help you regain control over the present.",
+    "ab.who.consult.p5": "I help decision-makers frame, govern and deploy artificial intelligence with discernment, agility and mastery. My approach builds on two decades of digital field experience, a strategic reading of ongoing transformations, and a method inspired by history, strategic thinking and operational realities.",
+    "ab.who.consult.p6": "Concretely, I work along three levers:",
+    "ab.who.consult.li1": "<strong>Conferences and keynotes.</strong> To set clear bearings, open the debate and raise the level of understanding on AI's actual stakes.",
+    "ab.who.consult.li2": "<strong>Executive workshops.</strong> To structure governance, identify priority use cases, clarify risks and turn intuitions into concrete decisions.",
+    "ab.who.consult.li3": "<strong>Strategic accompaniment.</strong> To help organisations adopt AI without losing control over their operations, their data or their judgement calls.",
+    "ab.who.consult.p7": "I am also the author of <em>Guérill-IA</em> and <em>Darwinisme numérique</em>, two works dedicated to the strategic transformations brought about by artificial intelligence.",
+    "ab.who.consult.punch": "The question is no longer whether AI will change organisations. The question is <em>which ones will know how to prepare for it with lucidity</em>.",
+
+    "ab.princ.eyebrow": "Three principles",
+    "ab.princ.title": "How we work.",
+    "ab.princ.sub": "Three non-negotiable rules that structure the entire project, from inclusion choices to the publication of raw data.",
+
+    "ab.contrib.eyebrow": "The how",
+    "ab.contrib.title": "How to <em>contribute</em>.",
+    "ab.contrib.sub": "This cartography is living work. Four concrete contribution paths, in growing order of commitment. All are credited in the next version.",
+
+    "ab.contrib.signal.tag": "Signal",
+    "ab.contrib.signal.title": "Flag a missing observatory.",
+    "ab.contrib.signal.body": "The simplest path. If you know a CH or FR observatory on employment, training, governance or AI-related statistics, that meets the inclusion criteria (see Methodology 01), send me the name and URL by email. I verify, I draft the card, I credit the contribution. Done in under a week.",
+
+    "ab.contrib.fix.tag": "Correct",
+    "ab.contrib.fix.title": "Correct data or wording.",
+    "ab.contrib.fix.body": "A wrong update date, an imprecise organisation label, a misclassified domain, an obsolete description, a broken URL. Open an issue on the GitHub repo <a href=\"https://github.com/otakuch/observatoires-ia\" target=\"_blank\" rel=\"noopener\">otakuch/observatoires-ia</a>, or write to <a href=\"mailto:sayhi@naullynicolas.ch\">sayhi@naullynicolas.ch</a> with the proposed correction and the source justifying it. Verifiable factual corrections are always applied.",
+
+    "ab.contrib.bias.tag": "Flag a bias",
+    "ab.contrib.bias.title": "Point out a methodological bias.",
+    "ab.contrib.bias.body": "Particularly welcome. If you identify a methodological bias not documented on the Methodology page, or a documented bias that we underestimate, let us know. A cartography's rigour is measured by its ability to acknowledge its own limits. Every such contribution is integrated in the next version with explicit credit to the contributor, and appears in the change log published on GitHub.",
+
+    "ab.contrib.translate.tag": "Translate",
+    "ab.contrib.translate.title": "Improve or extend the English version.",
+    "ab.contrib.translate.body": "The site is bilingual by design, but the EN translation remains perfectible, particularly on institutional terminology specific to Switzerland or France (ROME, PCS-ESE, NSP, SEFRI, federal certificate). Contributions for proofreading, terminology corrections or precision additions are welcome, especially from English-speaking users working on the CH and FR markets.",
+
+    "ab.contact.text": "A remark, a contribution, a critique, or simply a wish to exchange? <span class=\"accent-bracket\">[</span>Reach out<span class=\"accent-bracket\">]</span>.",
+    "ab.contact.email": "sayhi@naullynicolas.ch",
+    "ab.contact.github": "GitHub · otakuch",
+    "ab.contact.transitions": "transitions-ia.ch"
+  }
+};
+
+const PRINCIPLES = [
+  {
+    title: { fr: "Sources primaires uniquement", en: "Primary sources only" },
+    desc: {
+      fr: "Chaque observatoire référencé renvoie directement à sa publication officielle. Pas de reformulation, pas d'intermédiaire, pas de SEO.",
+      en: "Every referenced observatory links directly to its official publication. No reformulation, no intermediary, no SEO."
+    }
+  },
+  {
+    title: { fr: "Bilingue dès le premier jour", en: "Bilingual from day one" },
+    desc: {
+      fr: "FR et EN comme citoyens de première classe. Le bilingue n'est pas une option ajoutée à la fin, c'est l'architecture.",
+      en: "FR and EN as first-class citizens. Bilingualism is not an afterthought, it is the architecture."
+    }
+  },
+  {
+    title: { fr: "Données ouvertes", en: "Open data" },
+    desc: {
+      fr: "L'agrégation est publiée en JSON sous licence CC BY. Vous pouvez la copier, la forker, la corriger. Le dépôt GitHub est ouvert.",
+      en: "The aggregation is published as JSON under CC BY. You can copy it, fork it, correct it. The GitHub repo is open."
+    }
+  }
+];
+
+function renderPrinc() {
+  const grid = document.getElementById("princGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  PRINCIPLES.forEach((p, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.cursor = "default";
+
+    const meta = document.createElement("div");
+    meta.className = "card-meta mono";
+    const num = document.createElement("span");
+    num.textContent = String(i + 1).padStart(2, "0");
+    num.style.color = "var(--signal)";
+    num.style.fontFamily = "Fraunces, serif";
+    num.style.fontSize = "20px";
+    meta.appendChild(num);
+    card.appendChild(meta);
+
+    const title = document.createElement("h3");
+    title.className = "card-title";
+    title.textContent = p.title[lang];
+    card.appendChild(title);
+
+    const desc = document.createElement("p");
+    desc.className = "card-desc";
+    desc.textContent = p.desc[lang];
+    card.appendChild(desc);
+
+    grid.appendChild(card);
+  });
+}
+
+window.onLangChange = renderPrinc;
+initSite("about");
+renderPrinc();
+</script>
+</body>
+</html>

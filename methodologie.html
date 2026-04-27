@@ -1,0 +1,3041 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Méthodologie · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2EEE5;
+  --paper-2: #ECE7DC;
+  --ink: #11110F;
+  --ink-2: #2A2A26;
+  --muted: #8B8579;
+  --rule: #D9D2C2;
+  --signal: #D03C2F;
+  --teal: #1F3A3D;
+  --highlight: #F7E27D;
+  --max-w: 1280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, rgba(17,17,15,0.04) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+::selection { background: var(--signal); color: var(--paper); }
+a { color: inherit; text-decoration: none; }
+.mono { font-family: "JetBrains Mono", monospace; font-size: 0.78em; letter-spacing: 0.02em; }
+.serif { font-family: "Fraunces", serif; font-variation-settings: "opsz" 96, "SOFT" 50; }
+
+/* ───────── NAV ───────── */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(242, 238, 229, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 24, "SOFT" 0;
+  font-weight: 500; font-size: 19px;
+  letter-spacing: -0.01em; color: var(--ink); white-space: nowrap;
+}
+.logo .bracket { color: var(--signal); font-weight: 600; }
+.logo .dot { color: var(--muted); margin: 0 0.15em; }
+
+.nav-links {
+  display: flex; gap: 28px; align-items: center;
+  font-size: 14px; font-weight: 500;
+}
+.nav-links a {
+  color: var(--ink-2); position: relative; padding: 4px 0;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.current { color: var(--signal); }
+.nav-links a.current::after {
+  content: ""; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1.5px; background: var(--signal);
+}
+
+.nav-actions { display: flex; gap: 14px; align-items: center; }
+.lang-toggle {
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  background: transparent; border: 1px solid var(--rule);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer;
+  display: flex; gap: 8px; color: var(--ink);
+  transition: border-color 0.2s;
+}
+.lang-toggle:hover { border-color: var(--ink); }
+.lang-toggle span.active { color: var(--signal); font-weight: 500; }
+.lang-toggle span:not(.active) { color: var(--muted); }
+
+.menu-btn {
+  display: none; background: transparent;
+  border: 1px solid var(--rule);
+  width: 38px; height: 38px; border-radius: 8px;
+  cursor: pointer; align-items: center; justify-content: center;
+}
+.menu-btn span { display: block; width: 16px; height: 1.5px; background: var(--ink); position: relative; }
+.menu-btn span::before, .menu-btn span::after {
+  content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: var(--ink);
+}
+.menu-btn span::before { top: -5px; }
+.menu-btn span::after { top: 5px; }
+
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: var(--paper); z-index: 100;
+  padding: 80px 32px 32px;
+  flex-direction: column; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: "Fraunces", serif; font-size: 32px; font-weight: 400; color: var(--ink);
+}
+.mobile-menu .close-btn {
+  position: absolute; top: 18px; right: 18px;
+  background: transparent; border: 1px solid var(--rule);
+  width: 38px; height: 38px; border-radius: 8px;
+  cursor: pointer; font-size: 20px; color: var(--ink);
+}
+
+/* ───────── HERO ───────── */
+.hero {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px 60px; position: relative;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--signal); }
+
+.hero-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.96; letter-spacing: -0.025em;
+  margin-bottom: 28px; max-width: 980px;
+}
+.hero-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.hero-title .accent-bracket { color: var(--signal); font-weight: 500; }
+
+.hero-lede {
+  font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
+  max-width: 640px; color: var(--ink-2); margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 28px; border-radius: 999px;
+  font-weight: 500; font-size: 15px;
+  transition: background 0.2s, transform 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer; font-family: inherit; border: none;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--signal); transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; border: 1px solid var(--ink); color: var(--ink);
+}
+.btn-secondary:hover { background: var(--ink); color: var(--paper); }
+.btn .arrow { transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ───────── COUNTRY TEASERS (Home) ───────── */
+.country-teasers {
+  max-width: var(--max-w); margin: 60px auto;
+  padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.country-card {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.country-card:hover { background: var(--paper-2); border-color: var(--ink); }
+.country-card-flag {
+  font-size: 32px;
+  display: flex; align-items: center; gap: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.country-card-flag .emoji { font-size: 28px; }
+.country-card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1; letter-spacing: -0.02em;
+}
+.country-card-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink-2);
+  display: flex; gap: 18px; flex-wrap: wrap;
+}
+.country-card-num strong {
+  font-family: "Fraunces", serif;
+  font-size: 28px; font-weight: 500; color: var(--signal);
+  margin-right: 4px;
+}
+.country-card-cta {
+  margin-top: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: gap 0.2s, color 0.2s;
+}
+.country-card:hover .country-card-cta { gap: 14px; color: var(--signal); }
+
+/* ───────── STATS ───────── */
+.stats {
+  max-width: var(--max-w); margin: 40px auto 0;
+  padding: 0 32px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.stat {
+  padding: 36px 24px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1; letter-spacing: -0.03em;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.stat-num .unit { font-size: 0.45em; color: var(--signal); font-weight: 400; }
+.stat-num .sign { color: var(--signal); font-size: 0.6em; }
+.stat-label {
+  margin-top: 14px; font-size: 14px; line-height: 1.4; max-width: 280px;
+}
+.stat-source {
+  margin-top: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ───────── MANIFESTO ───────── */
+.manifesto {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+  display: grid; grid-template-columns: 200px 1fr; gap: 60px;
+}
+.manifesto-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  padding-top: 8px;
+}
+.manifesto-text {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.35; letter-spacing: -0.01em;
+  max-width: 880px;
+}
+.manifesto-text p { margin-bottom: 0.6em; }
+.manifesto-text p:last-child { margin-bottom: 0; }
+.manifesto-text strong {
+  font-weight: 500;
+  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
+  padding: 0 2px;
+}
+
+/* ───────── SECTION HEADS ───────── */
+.section-head {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px 32px;
+  border-top: 1px solid var(--rule);
+}
+.section-head.no-border { border-top: none; padding-top: 60px; }
+.section-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before {
+  content: "§"; font-family: "Fraunces", serif;
+  font-size: 18px; color: var(--ink);
+}
+.section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.section-sub {
+  font-size: 17px; color: var(--ink-2);
+  max-width: 640px; line-height: 1.5;
+}
+
+/* ───────── FILTERS ───────── */
+.filters {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 32px;
+  display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+}
+.filter-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.filter-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-right: 8px;
+}
+.chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; border: 1px solid var(--rule);
+  background: transparent; padding: 7px 13px;
+  border-radius: 999px; cursor: pointer;
+  color: var(--ink-2); transition: all 0.18s;
+}
+.chip:hover { border-color: var(--ink); }
+.chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ───────── CARDS GRID ───────── */
+.cards-grid {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 100px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.card {
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 32px 28px 28px; background: var(--paper);
+  position: relative;
+  display: flex; flex-direction: column; gap: 14px;
+  min-height: 280px;
+  transition: background 0.2s; cursor: pointer;
+}
+.card:hover { background: var(--paper-2); }
+.card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.flag { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+.flag-dot { width: 8px; height: 8px; border-radius: 50%; }
+.flag-ch .flag-dot { background: var(--signal); }
+.flag-fr .flag-dot { background: var(--teal); }
+.card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500; font-size: 24px;
+  line-height: 1.1; letter-spacing: -0.01em;
+}
+.card-org { font-size: 13px; color: var(--muted); font-style: italic; }
+.card-desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); flex: 1; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.card-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--paper-2); padding: 4px 8px;
+  border-radius: 4px; color: var(--ink-2);
+}
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 8px; padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.card-footer .visit { color: var(--signal); }
+.card-empty-state {
+  grid-column: 1 / -1;
+  padding: 80px 32px; text-align: center;
+  font-family: "Fraunces", serif; font-style: italic;
+  color: var(--muted);
+}
+
+/* ───────── KPI ROW (country dashboards) ───────── */
+.kpi-row {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 60px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.kpi {
+  background: var(--paper);
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.kpi-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.kpi-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1; letter-spacing: -0.02em;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.kpi-num .unit { font-size: 0.45em; color: var(--signal); font-weight: 400; }
+.kpi-num .sign { color: var(--signal); font-size: 0.6em; }
+.kpi-label { font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.kpi-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-top: auto;
+}
+
+/* ───────── CONTEXT BLOCK (institutional context on country pages) ───────── */
+.context-block {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 70px 32px 90px;
+  border-top: 1px solid var(--rule);
+}
+.context-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+}
+.context-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 8px;
+}
+.context-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+}
+.context-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.context-content p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+.context-content p:last-of-type {
+  margin-bottom: 0;
+}
+.context-key-facts {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  max-width: 760px;
+}
+.kf-item {
+  background: var(--paper);
+  padding: 22px 22px;
+}
+.kf-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--signal);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.kf-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* CTA row inside dash-header */
+.dash-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.dash-header {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 70px 32px 30px;
+}
+.dash-flag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.dash-flag .emoji { font-size: 28px; }
+.dash-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 0.95; letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.dash-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.dash-lede {
+  font-size: clamp(17px, 1.5vw, 19px);
+  max-width: 720px; color: var(--ink-2);
+}
+
+/* ───────── CHART (mini sparkline / bar) ───────── */
+.chart-block {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 80px;
+}
+.bar-chart { display: flex; flex-direction: column; gap: 14px; }
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  align-items: center; gap: 16px;
+  font-size: 14px;
+}
+.bar-track {
+  height: 28px; background: var(--paper-2);
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.bar-fill {
+  height: 100%; background: var(--ink);
+  position: relative;
+  transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.bar-fill.signal { background: var(--signal); }
+.bar-fill.teal { background: var(--teal); }
+.bar-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; color: var(--ink); text-align: right;
+}
+
+/* ───────── COMPARISON TABLE ───────── */
+.compare-table-wrap {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 32px 100px;
+  overflow-x: auto;
+}
+table.compare {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 720px;
+  border: 1px solid var(--rule);
+}
+table.compare th {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); text-align: left;
+  padding: 16px 20px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+}
+table.compare th.country-ch { color: var(--signal); }
+table.compare th.country-fr { color: var(--teal); }
+table.compare td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+table.compare tr:last-child td { border-bottom: none; }
+table.compare td.dim {
+  font-family: "Fraunces", serif;
+  font-size: 16px; font-weight: 500;
+}
+table.compare td.gap {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal); font-weight: 500;
+}
+
+/* ───────── SYNTHESE (dark) ───────── */
+.synthese {
+  background: var(--ink); color: var(--paper);
+  padding: 100px 0;
+}
+.synthese-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+.synthese .section-eyebrow { color: var(--signal); }
+.synthese .section-eyebrow::before { color: var(--paper); }
+.synthese .section-title { color: var(--paper); }
+.synthese .section-sub { color: rgba(242, 238, 229, 0.7); }
+.table-wrap {
+  margin-top: 48px; overflow-x: auto;
+  border: 1px solid rgba(242, 238, 229, 0.15);
+}
+table.synth {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 720px;
+}
+table.synth th {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--signal); text-align: left;
+  padding: 16px 20px;
+  background: rgba(242, 238, 229, 0.03);
+  border-bottom: 1px solid rgba(242, 238, 229, 0.15);
+  font-weight: 500;
+}
+table.synth td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(242, 238, 229, 0.08);
+  vertical-align: top;
+}
+table.synth tr:hover td { background: rgba(242, 238, 229, 0.03); }
+table.synth td.name {
+  font-family: "Fraunces", serif;
+  font-size: 16px; font-weight: 500;
+}
+table.synth td .pill {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(242, 238, 229, 0.1);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ───────── FIELD REPORT ───────── */
+.field-report {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+}
+.field-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px; margin-top: 48px;
+}
+.field-card {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.field-card:hover { opacity: 0.75; }
+.field-card-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  display: flex; justify-content: space-between;
+}
+.field-card-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 40;
+  font-weight: 400; font-size: 26px;
+  line-height: 1.15; letter-spacing: -0.01em;
+}
+.field-card-excerpt { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.field-card-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal); margin-top: 8px;
+}
+
+/* ───────── ABOUT ───────── */
+.about {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px 32px;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+}
+.about-text {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4; letter-spacing: -0.01em;
+}
+.about-text .accent-bracket { color: var(--signal); font-weight: 500; }
+.about-actions {
+  display: flex; flex-direction: column;
+  gap: 14px; align-items: flex-start; padding-top: 12px;
+}
+
+/* ───────── CROSS LINK (bottom of country page) ───────── */
+.cross-link {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 80px 32px;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px;
+}
+.cross-link h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.cross-link h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 100;
+  color: var(--signal);
+}
+
+/* ───────── BRIEF·iA · LIGHT (magazine-inspired) ───────── */
+.brief-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 60px 32px 50px;
+}
+.brief-hero-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.brief-hero-meta .meta-num {
+  color: var(--signal);
+  font-weight: 500;
+}
+.brief-hero-meta .meta-edition {
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.brief-hero-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(40px, 6.5vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  max-width: 1000px;
+}
+.brief-hero-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-hero-sub {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+  color: var(--ink-2);
+  max-width: 820px;
+  margin-bottom: 32px;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  font-weight: 300;
+}
+.brief-byline {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.brief-byline strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 70px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-section-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.brief-section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 40;
+  font-weight: 400;
+  font-size: clamp(30px, 4.5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  max-width: 800px;
+}
+.brief-section-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-section p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 820px;
+  margin-bottom: 18px;
+}
+.brief-section p:last-of-type { margin-bottom: 0; }
+.brief-section p strong { color: var(--ink); font-weight: 500; }
+.brief-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+}
+.brief-twocol-block h4 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.brief-twocol-block ul { list-style: none; padding: 0; }
+.brief-twocol-block li {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.brief-twocol-block li:last-child { border-bottom: none; }
+.brief-twocol-block li strong {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+.brief-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 32px;
+}
+.brief-stat {
+  background: var(--paper);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.brief-stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-size: clamp(60px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-stat-num .unit {
+  font-size: 0.4em;
+  color: var(--signal);
+  vertical-align: super;
+  margin-left: 2px;
+}
+.brief-stat-num .sign { color: var(--signal); font-size: 0.7em; }
+.brief-stat-label {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  flex: 1;
+}
+.brief-stat-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+.brief-quote {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 60;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(24px, 3.2vw, 38px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 920px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.brief-quote::before {
+  content: "“";
+  font-size: 1.4em;
+  color: var(--signal);
+  vertical-align: -0.1em;
+}
+.brief-quote::after {
+  content: "”";
+  font-size: 1.4em;
+  color: var(--signal);
+  vertical-align: -0.1em;
+}
+.brief-quote-author {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+.brief-quote-author strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-quote-author span { color: var(--muted); margin-left: 8px; }
+.brief-checklist {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.brief-checklist-item {
+  background: var(--paper);
+  padding: 28px;
+  display: flex;
+  gap: 18px;
+}
+.brief-checklist-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--signal);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.brief-checklist-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.brief-checklist-text strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+}
+.brief-toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 40px;
+}
+.brief-tool {
+  background: var(--paper);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.2s;
+}
+.brief-tool:hover { background: var(--paper-2); }
+.brief-tool-cat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.brief-tool-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.brief-tool-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* DISPATCH SOURCES - traceability block */
+.brief-sources {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-top: 40px;
+}
+.brief-sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 40px;
+}
+.brief-source-card {
+  background: var(--paper);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+  transition: background 0.2s;
+}
+.brief-source-card:hover { background: var(--paper-2); }
+.brief-source-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 60;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--signal);
+  line-height: 1;
+  padding-top: 4px;
+}
+.brief-source-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.brief-source-label {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.brief-source-cited {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  font-style: italic;
+}
+.brief-source-cited strong {
+  font-style: normal;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-source-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+.brief-source-links a {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  transition: border-color 0.2s, background 0.2s;
+}
+.brief-source-links a:hover {
+  border-color: var(--signal);
+  background: var(--paper-2);
+}
+@media (max-width: 720px) {
+  .brief-source-card {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  .brief-source-num { font-size: 24px; }
+}
+
+.brief-paywall {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 90px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-paywall-inner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 60px 50px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+.brief-paywall-inner::before {
+  content: "EXECUTIVE";
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--signal);
+}
+.brief-paywall-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 18px;
+}
+.brief-paywall-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--paper);
+}
+.brief-paywall-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.brief-paywall-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(242, 238, 229, 0.75);
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+.brief-paywall ul { list-style: none; padding: 0; margin: 0; }
+.brief-paywall ul li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(242, 238, 229, 0.85);
+  padding: 10px 0 10px 24px;
+  position: relative;
+  border-bottom: 1px dashed rgba(242, 238, 229, 0.15);
+}
+.brief-paywall ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+}
+.brief-paywall ul li:last-child { border-bottom: none; }
+.brief-paywall-price {
+  background: rgba(242, 238, 229, 0.05);
+  border: 1px solid rgba(242, 238, 229, 0.15);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+.brief-paywall-price-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.brief-paywall-price-value {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+}
+.brief-paywall-price-value .currency {
+  font-size: 0.4em;
+  color: var(--signal);
+  margin-right: 6px;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+.brief-paywall-price-alt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(242, 238, 229, 0.6);
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(242, 238, 229, 0.15);
+}
+.brief-paywall-buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 14px 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.brief-paywall-buy:hover { background: #ED5448; color: var(--paper); }
+.brief-paywall-note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: rgba(242, 238, 229, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-top: 4px;
+}
+.brief-back {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  text-align: center;
+}
+@media (max-width: 960px) {
+  .brief-hero { padding: 40px 20px 32px; }
+  .brief-section, .brief-numbers, .brief-quote-section, .brief-checklist-section, .brief-toolkit-section { padding: 50px 20px; }
+  .brief-twocol { grid-template-columns: 1fr; gap: 32px; }
+  .brief-numbers-grid { grid-template-columns: 1fr; }
+  .brief-checklist { grid-template-columns: 1fr; }
+  .brief-toolkit-grid { grid-template-columns: 1fr; }
+  .brief-paywall { padding: 60px 20px; }
+  .brief-paywall-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 28px;
+  }
+  .brief-paywall-inner::before { top: 16px; right: 20px; }
+  .brief-back { padding: 0 20px 50px; }
+}
+
+/* ───────── FOOTER ───────── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 40px 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.foot-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.foot-links { display: flex; gap: 20px; }
+.foot-links a { color: var(--ink-2); transition: color 0.2s; }
+.foot-links a:hover { color: var(--signal); }
+.foot-version { color: var(--ink-2); }
+
+/* ───────── BRIEFINGS · CATALOG LIST ───────── */
+.briefings-list {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 100px;
+}
+.briefing-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 200px;
+  gap: 40px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.briefing-row:last-child { border-bottom: 1px solid var(--rule); }
+.briefing-row.upcoming { opacity: 0.55; }
+.briefing-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 20;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 0.9;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.briefing-row.upcoming .briefing-num { color: var(--muted); }
+.briefing-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.briefing-meta .pill-sector {
+  color: var(--signal);
+  font-weight: 500;
+}
+.briefing-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.briefing-title a { color: inherit; transition: color 0.2s; }
+.briefing-title a:hover { color: var(--signal); }
+.briefing-summary {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 640px;
+}
+.briefing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+.briefing-action-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.briefing-action-line .label { color: var(--muted); width: 50px; }
+.briefing-action-line a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  transition: color 0.2s, border-color 0.2s;
+}
+.briefing-action-line a:hover { color: var(--signal); border-color: var(--signal); }
+.briefing-action-line a.exec { color: var(--signal); border-color: var(--signal); }
+.briefing-action-line .price {
+  color: var(--ink);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* ───────── BRIEFINGS · DOCUMENT VIEW ───────── */
+.briefing-classification {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 2px solid var(--signal);
+  border-bottom: 2px solid var(--signal);
+}
+.briefing-classification .clss-cell { display: flex; gap: 8px; align-items: center; }
+.briefing-classification .clss-label { color: var(--muted); }
+.briefing-classification .clss-value { color: var(--paper); font-weight: 500; }
+.briefing-classification .clss-value.signal { color: var(--signal); }
+
+.briefing-doc {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 70px 32px;
+}
+.briefing-doc-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.briefing-doc-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--signal);
+}
+.briefing-brief {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-weight: 300;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 3px solid var(--signal);
+  padding-left: 24px;
+  margin: 32px 0 48px;
+  max-width: 760px;
+}
+.briefing-byline {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.briefing-byline strong { color: var(--ink); font-weight: 500; }
+
+.briefing-section {
+  margin-bottom: 56px;
+}
+.briefing-section-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  display: block;
+}
+.briefing-section-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.briefing-section p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+  max-width: 760px;
+}
+.briefing-section p strong { color: var(--ink); font-weight: 500; }
+.briefing-section p em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.briefing-findings {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: finding;
+}
+.briefing-findings li {
+  counter-increment: finding;
+  padding: 18px 0 18px 56px;
+  border-bottom: 1px dashed var(--rule);
+  position: relative;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 800px;
+}
+.briefing-findings li:last-child { border-bottom: none; }
+.briefing-findings li::before {
+  content: counter(finding, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 20;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: -0.02em;
+}
+.briefing-findings li strong { color: var(--ink); font-weight: 500; }
+
+.briefing-implications {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 8px;
+}
+.implication-block {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.implication-block:last-child { border-bottom: 1px solid var(--rule); }
+.implication-audience {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  font-weight: 500;
+  padding-top: 4px;
+}
+.implication-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 700px;
+}
+.implication-text strong { color: var(--ink); font-weight: 500; }
+
+.briefing-sources {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.briefing-sources li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.briefing-sources li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+/* ───────── EXEC EDITION CTA BLOCK ───────── */
+.exec-cta {
+  margin-top: 80px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 56px 48px;
+  border-top: 4px solid var(--signal);
+  position: relative;
+}
+.exec-cta::before {
+  content: "EXECUTIVE EDITION";
+  position: absolute;
+  top: -14px;
+  left: 32px;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 5px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+.exec-cta-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.exec-cta-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin-bottom: 18px;
+}
+.exec-cta-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--signal);
+}
+.exec-cta-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(242, 238, 229, 0.78);
+  margin-bottom: 18px;
+}
+.exec-cta-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(242, 238, 229, 0.92);
+}
+.exec-cta-features li {
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.exec-cta-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+.exec-price-card {
+  background: rgba(242, 238, 229, 0.05);
+  border: 1px solid rgba(242, 238, 229, 0.15);
+  padding: 32px;
+}
+.exec-price-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+.exec-price-value {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+}
+.exec-price-currency {
+  font-size: 0.4em;
+  color: var(--signal);
+  margin-right: 6px;
+  font-weight: 400;
+}
+.exec-price-alt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: rgba(242, 238, 229, 0.6);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+.exec-price-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+}
+.exec-price-buy:hover { background: var(--paper); color: var(--ink); }
+.exec-price-sub {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: rgba(242, 238, 229, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 18px;
+  text-align: center;
+  display: block;
+}
+.exec-price-sub a { color: rgba(242, 238, 229, 0.85); border-bottom: 1px solid rgba(242, 238, 229, 0.3); }
+
+@media (max-width: 960px) {
+  .briefings-list { padding: 0 20px 70px; }
+  .briefing-row { grid-template-columns: 60px 1fr; gap: 20px; padding: 28px 0; }
+  .briefing-num { font-size: 40px; }
+  .briefing-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; padding-top: 8px; }
+  .briefing-classification { padding: 10px 20px; gap: 12px; font-size: 10px; }
+  .briefing-doc { padding: 50px 20px; }
+  .implication-block { grid-template-columns: 1fr; gap: 6px; }
+  .exec-cta { padding: 48px 24px; }
+  .exec-cta-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ───────── REVEAL ───────── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ───────── RESPONSIVE ───────── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; }
+  .nav-inner { padding: 14px 20px; }
+  .hero { padding: 56px 20px 40px; }
+  .stats { padding: 0 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 0; }
+  .stat:last-child { border-bottom: none; }
+  .country-teasers { grid-template-columns: 1fr; padding: 0 20px; }
+  .country-card { padding: 28px 24px; }
+  .manifesto { grid-template-columns: 1fr; gap: 24px; padding: 70px 20px; }
+  .section-head { padding: 60px 20px 28px; }
+  .filters { padding: 0 20px 28px; gap: 20px; }
+  .cards-grid { grid-template-columns: 1fr; padding: 0 20px 70px; }
+  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 40px; }
+  .dash-header { padding: 50px 20px 24px; }
+  .context-block { padding: 50px 20px 60px; }
+  .context-grid { grid-template-columns: 1fr; gap: 24px; }
+  .context-key-facts { grid-template-columns: 1fr; }
+  .chart-block { padding: 0 20px 60px; }
+  .bar-row { grid-template-columns: 120px 1fr 50px; gap: 10px; font-size: 12px; }
+  .compare-table-wrap { padding: 0 20px 70px; }
+  .synthese { padding: 70px 0; }
+  .synthese-inner { padding: 0 20px; }
+  .field-report { padding: 70px 20px; }
+  .field-grid { grid-template-columns: 1fr; gap: 24px; }
+  .about { grid-template-columns: 1fr; gap: 32px; padding: 70px 20px; }
+  .about-actions { flex-direction: row; flex-wrap: wrap; }
+  .cross-link { grid-template-columns: 1fr; gap: 20px; padding: 60px 20px; }
+  footer { padding: 28px 20px; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .hero-title { font-size: 42px; }
+  .stat-num, .kpi-num { font-size: 44px; }
+  .section-title { font-size: 30px; }
+  .card { padding: 24px 20px; min-height: 240px; }
+  .field-card-title { font-size: 22px; }
+}
+
+/* ============================================== */
+/* CONTACT FORM */
+/* ============================================== */
+.contact-form-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 32px 80px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-row.form-row-half {
+  flex: 1;
+}
+.form-row-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.form-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.form-label .required {
+  color: var(--signal);
+  margin-left: 4px;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--signal);
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23D03C2F' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.form-textarea {
+  border: 1px solid var(--rule);
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 160px;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+}
+.form-textarea:focus {
+  border-color: var(--signal);
+}
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.form-submit {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 14px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+.form-submit:hover {
+  background: var(--signal);
+}
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form-note {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 380px;
+  line-height: 1.5;
+}
+.form-feedback {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 18px;
+  border: 1px solid var(--signal);
+  background: var(--paper-2);
+  margin-bottom: 24px;
+  display: none;
+}
+.form-feedback.visible { display: block; }
+@media (max-width: 720px) {
+  .contact-form-section { padding: 40px 20px 60px; }
+  .form-row-double { grid-template-columns: 1fr; gap: 32px; }
+  .form-actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ============================================== */
+/* RESPONSIVE COMPLETION                          */
+/* Tablet: 768-960px · Mobile: 560px · Phone: 380px */
+/* ============================================== */
+
+@media (max-width: 960px) {
+  /* Briefings list catalog: stack on tablet */
+  .briefing-row {
+    grid-template-columns: 60px 1fr;
+    gap: 18px;
+    padding: 28px 0;
+  }
+  .briefing-num { font-size: 36px; }
+  .briefing-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  /* Method grid section · stack tag above content */
+  .method-section { padding: 0 20px 40px; }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 36px 0;
+  }
+  .method-content h3 { font-size: 24px; }
+  .method-content h4 { font-size: 17px; }
+
+  /* Brief hero typography for mobile reading */
+  .brief-hero h1, .brief-title { font-size: 32px; line-height: 1.15; }
+  .brief-meta { flex-wrap: wrap; gap: 8px; }
+  .brief-meta-num { font-size: 11px; }
+
+  /* Brief stats: stack vertically with full-width number */
+  .brief-stat-num { font-size: 56px; }
+
+  /* Sources cards · already responsive, tightening padding */
+  .brief-source-card {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  .brief-source-num { font-size: 24px; }
+  .brief-source-links { gap: 8px; }
+  .brief-source-links a { font-size: 10px; padding: 5px 8px; }
+
+  /* Comparer table needs horizontal scroll on tablet */
+  .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { min-width: 600px; }
+
+  /* Cross-link CTAs stack */
+  .cross-link h3 { font-size: 26px; }
+
+  /* About actions: ensure buttons can wrap */
+  .about-actions { gap: 10px; }
+  .about-actions .btn { font-size: 13px; padding: 10px 16px; }
+
+  /* Form: full width inputs, smaller padding */
+  .contact-form-section { padding: 30px 20px 60px; }
+  .form-row-double { grid-template-columns: 1fr; gap: 24px; }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .form-submit { justify-content: center; }
+  .form-note { max-width: 100%; }
+}
+
+@media (max-width: 720px) {
+  /* Hero · scale down dramatically */
+  .hero-title, .dash-title { font-size: 36px; line-height: 1.1; }
+  .hero-lede, .dash-lede { font-size: 16px; }
+
+  /* Section heads */
+  .section-title { font-size: 26px; }
+  .section-sub, .section-eyebrow { font-size: 12px; }
+
+  /* Cards everywhere · reduce padding */
+  .card, .field-card { padding: 22px 18px; }
+  .card-title, .field-card-title { font-size: 20px; }
+
+  /* Brief paywall · single column with smaller fonts */
+  .brief-paywall-title { font-size: 26px; }
+  .brief-paywall-price-num { font-size: 48px; }
+  .brief-paywall-features li { font-size: 14px; }
+  .brief-paywall-buy { padding: 14px 20px; font-size: 13px; }
+
+  /* Brief story sections · readable line lengths */
+  .brief-section p { font-size: 15px; }
+  .brief-quote { font-size: 22px; line-height: 1.35; }
+
+  /* Filters stack neatly */
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .filter-group { flex-wrap: wrap; }
+  .chip { font-size: 11px; padding: 6px 12px; }
+
+  /* Foot wraps */
+  .foot-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+  }
+
+  /* Context block tighter */
+  .context-content h3 { font-size: 22px; }
+  .context-content p { font-size: 15px; }
+
+  /* KPI numbers smaller on phone */
+  .kpi-num { font-size: 36px; }
+  .kpi-label { font-size: 12px; }
+
+  /* Bar charts stay readable */
+  .bar-row { grid-template-columns: 1fr; gap: 4px; padding: 8px 0; }
+  .bar-row > span:first-child { font-size: 12px; font-weight: 500; }
+  .bar-row .bar-bar { margin: 4px 0; }
+  .bar-row > span:last-child { text-align: left; font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  /* Phone · most aggressive tightening */
+  body { font-size: 15px; }
+  .hero-title, .dash-title { font-size: 30px; }
+  .stat-num { font-size: 36px; }
+  .stat-label { font-size: 12px; }
+  .nav-inner { padding: 12px 16px; }
+  .logo { font-size: 16px; }
+  .lang-toggle { font-size: 11px; }
+
+  /* Mobile menu text larger */
+  .mobile-menu a { font-size: 22px; padding: 14px 20px; }
+
+  /* Brief hero numbers wrap better */
+  .brief-stat-num { font-size: 44px; }
+  .brief-stat-label { font-size: 12px; }
+
+  /* Cards stack and tighten */
+  .card { min-height: auto; padding: 20px 16px; }
+  .field-card { padding: 18px 16px; }
+
+  /* Method grid extra tight */
+  .method-content h3 { font-size: 22px; }
+  .method-content h4 { font-size: 16px; }
+  .method-content p { font-size: 14px; }
+  .method-content li { font-size: 14px; }
+
+  /* About actions full-width on phone */
+  .about-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .about-actions .btn { text-align: center; justify-content: center; }
+}
+
+/* Improve touch targets on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .chip, .menu-btn, .lang-toggle button {
+    min-height: 44px;
+  }
+  .nav-links a { padding: 10px 12px; }
+  .field-card-link { padding: 4px 0; }
+}
+
+/* Prevent horizontal scroll on any page */
+html, body { overflow-x: hidden; max-width: 100vw; }
+
+/* Ensure long words break gracefully on narrow screens */
+.field-card-title, .card-title, .brief-source-label,
+.method-content p, .method-content h3, .method-content h4 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Forms · prevent iOS zoom on focus */
+.form-input, .form-select, .form-textarea {
+  font-size: max(16px, 1rem);
+}
+
+/* ============================================== */
+/* EDITORIAL DISCLOSURE · per-dispatch micro block */
+/* ============================================== */
+.brief-disclosure {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px 32px 60px;
+  border-top: 1px dashed var(--rule);
+  margin-top: 0;
+}
+.brief-disclosure-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 32px;
+}
+.brief-disclosure-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 4px;
+}
+.brief-disclosure-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 720px;
+  font-style: italic;
+}
+.brief-disclosure-body strong {
+  color: var(--ink-2);
+  font-weight: 500;
+  font-style: normal;
+}
+.brief-disclosure-body a {
+  color: var(--signal);
+  border-bottom: 1px solid var(--rule);
+  font-style: normal;
+  transition: border-color 0.2s;
+}
+.brief-disclosure-body a:hover { border-color: var(--signal); }
+@media (max-width: 720px) {
+  .brief-disclosure { padding: 24px 20px 40px; }
+  .brief-disclosure-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 24px;
+  }
+  .brief-disclosure-body { font-size: 12px; }
+}
+
+</style>
+<style>
+.method-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+}
+.method-grid:last-child { border-bottom: 1px solid var(--rule); }
+.method-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  padding-top: 6px;
+}
+.method-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500; font-size: 28px;
+  line-height: 1.15; letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+.method-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 100;
+  color: var(--signal);
+}
+.method-content h4 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 20;
+  font-weight: 500; font-size: 19px;
+  line-height: 1.25; letter-spacing: -0.005em;
+  margin-top: 32px; margin-bottom: 10px;
+  color: var(--ink);
+}
+.method-content h4:first-of-type { margin-top: 24px; }
+.method-content p {
+  font-size: 16px; line-height: 1.65;
+  color: var(--ink-2); max-width: 760px;
+  margin-bottom: 14px;
+}
+.method-content p.method-source {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px; margin-top: 0;
+}
+.method-content p.method-caveat {
+  font-size: 14px;
+  color: var(--muted);
+  border-left: 2px solid var(--rule);
+  padding-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 1.55;
+  max-width: 720px;
+}
+.method-content p.method-caveat strong {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.method-content ul {
+  list-style: none; padding: 0;
+  margin-top: 14px; margin-bottom: 14px;
+}
+.method-content li {
+  font-size: 15px; line-height: 1.55;
+  color: var(--ink-2); padding-left: 24px;
+  position: relative; margin-bottom: 12px;
+  max-width: 760px;
+}
+.method-content li::before {
+  content: "→"; position: absolute;
+  left: 0; color: var(--signal); font-weight: 500;
+}
+.method-content li strong {
+  color: var(--ink); font-weight: 500;
+}
+.bias-block {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px dashed var(--rule);
+}
+.bias-block:first-of-type { border-top: none; padding-top: 0; margin-top: 16px; }
+.bias-block.major {
+  background: var(--paper-2);
+  padding: 28px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--signal);
+  border-top: 1px solid var(--rule);
+  margin-top: 24px;
+}
+.bias-block.major h4 { margin-top: 0; }
+@media (max-width: 960px) {
+  .method-section { padding: 0 20px 40px; }
+  .method-grid { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .bias-block.major { padding: 22px; }
+}
+</style>
+<!-- Canonical & Social -->
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/methodologie.html">
+<meta property="og:site_name" content="observatoire[s]·ia">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/methodologie.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@naullyn">
+<meta name="theme-color" content="#D03C2F">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q52TZ7QT84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q52TZ7QT84');
+</script>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono"><span data-i18n="me.tag"></span></div>
+  <h1 class="dash-title" data-i18n="me.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="me.lede"></p>
+</section>
+
+<!-- METHOD CONTEXT -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="me.context.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="me.context.title" data-i18n-html></h3>
+      <div data-i18n="me.context.text" data-i18n-html></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">9</div>
+          <div class="kf-label" data-i18n="me.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">5</div>
+          <div class="kf-label" data-i18n="me.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">8</div>
+          <div class="kf-label" data-i18n="me.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="method-section">
+
+  <!-- 01 · CRITÈRES D'INCLUSION -->
+  <div class="method-grid">
+    <div class="method-tag">01 · <span data-i18n="me.crit.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.crit.title"></h3>
+      <p data-i18n="me.crit.p1"></p>
+      <ul>
+        <li data-i18n="me.crit.li1"></li>
+        <li data-i18n="me.crit.li2"></li>
+        <li data-i18n="me.crit.li3"></li>
+        <li data-i18n="me.crit.li4"></li>
+      </ul>
+      <p data-i18n="me.crit.exclude"></p>
+    </div>
+  </div>
+
+  <!-- 02 · MÉTHODES DE CALCUL -->
+  <div class="method-grid">
+    <div class="method-tag">02 · <span data-i18n="me.calc.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.calc.title" data-i18n-html></h3>
+      <p data-i18n="me.calc.intro"></p>
+
+      <h4 data-i18n="me.calc.a.title"></h4>
+      <p class="method-source" data-i18n="me.calc.a.source"></p>
+      <p data-i18n="me.calc.a.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.a.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.b.title"></h4>
+      <p class="method-source" data-i18n="me.calc.b.source"></p>
+      <p data-i18n="me.calc.b.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.b.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.c.title"></h4>
+      <p class="method-source" data-i18n="me.calc.c.source"></p>
+      <p data-i18n="me.calc.c.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.c.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.d.title"></h4>
+      <p class="method-source" data-i18n="me.calc.d.source"></p>
+      <p data-i18n="me.calc.d.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.d.caveat" data-i18n-html></p>
+
+      <h4 data-i18n="me.calc.e.title"></h4>
+      <p class="method-source" data-i18n="me.calc.e.source"></p>
+      <p data-i18n="me.calc.e.body"></p>
+      <p class="method-caveat" data-i18n="me.calc.e.caveat" data-i18n-html></p>
+    </div>
+  </div>
+
+  <!-- 03 · TYPES D'IA · NOUVELLE SECTION -->
+  <div class="method-grid">
+    <div class="method-tag">03 · <span data-i18n="me.aitype.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.aitype.title" data-i18n-html></h3>
+      <p data-i18n="me.aitype.intro"></p>
+
+      <h4 data-i18n="me.aitype.a.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.a.source"></p>
+      <p data-i18n="me.aitype.a.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.a.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.b.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.b.source"></p>
+      <p data-i18n="me.aitype.b.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.b.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.c.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.c.source"></p>
+      <p data-i18n="me.aitype.c.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.c.who" data-i18n-html></p>
+
+      <h4 data-i18n="me.aitype.d.title"></h4>
+      <p class="method-source" data-i18n="me.aitype.d.source"></p>
+      <p data-i18n="me.aitype.d.body"></p>
+      <p class="method-caveat" data-i18n="me.aitype.d.who" data-i18n-html></p>
+
+      <p data-i18n="me.aitype.consequence" data-i18n-html style="margin-top: 28px;"></p>
+    </div>
+  </div>
+
+  <!-- 04 · TAXONOMIES (ex 03) -->
+  <div class="method-grid">
+    <div class="method-tag">04 · <span data-i18n="me.taxo.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.taxo.title"></h3>
+      <p data-i18n="me.taxo.p1"></p>
+      <ul>
+        <li data-i18n="me.taxo.li1" data-i18n-html></li>
+        <li data-i18n="me.taxo.li2" data-i18n-html></li>
+        <li data-i18n="me.taxo.li3" data-i18n-html></li>
+        <li data-i18n="me.taxo.li4" data-i18n-html></li>
+      </ul>
+      <p data-i18n="me.taxo.implication" data-i18n-html></p>
+    </div>
+  </div>
+
+  <!-- 05 · TRIANGULATION -->
+  <div class="method-grid">
+    <div class="method-tag">05 · <span data-i18n="me.triang.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.triang.title"></h3>
+      <p data-i18n="me.triang.p1"></p>
+      <ul>
+        <li data-i18n="me.triang.li1" data-i18n-html></li>
+        <li data-i18n="me.triang.li2" data-i18n-html></li>
+        <li data-i18n="me.triang.li3" data-i18n-html></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 06 · BIAIS RECONNUS -->
+  <div class="method-grid">
+    <div class="method-tag">06 · <span data-i18n="me.bias.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.bias.title"></h3>
+      <p data-i18n="me.bias.intro"></p>
+
+      <div class="bias-block major">
+        <h4 data-i18n="me.bias.us.title" data-i18n-html></h4>
+        <p data-i18n="me.bias.us.p1"></p>
+        <ul>
+          <li data-i18n="me.bias.us.li1" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li2" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li3" data-i18n-html></li>
+          <li data-i18n="me.bias.us.li4" data-i18n-html></li>
+        </ul>
+        <p data-i18n="me.bias.us.consequence"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.lang.title"></h4>
+        <p data-i18n="me.bias.lang.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.inst.title"></h4>
+        <p data-i18n="me.bias.inst.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.sect.title"></h4>
+        <p data-i18n="me.bias.sect.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.temp.title"></h4>
+        <p data-i18n="me.bias.temp.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.desir.title"></h4>
+        <p data-i18n="me.bias.desir.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.pub.title"></h4>
+        <p data-i18n="me.bias.pub.body"></p>
+      </div>
+
+      <div class="bias-block">
+        <h4 data-i18n="me.bias.surv.title"></h4>
+        <p data-i18n="me.bias.surv.body"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 · FRÉQUENCE -->
+  <div class="method-grid">
+    <div class="method-tag">07 · <span data-i18n="me.update.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.update.title"></h3>
+      <p data-i18n="me.update.p1"></p>
+      <p data-i18n="me.update.p2"></p>
+    </div>
+  </div>
+
+  <!-- 08 · DISCLOSURE ÉDITORIALE -->
+  <div class="method-grid">
+    <div class="method-tag">08 · <span data-i18n="me.disc.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.disc.title" data-i18n-html></h3>
+      <p data-i18n="me.disc.p1"></p>
+      <p data-i18n="me.disc.p2"></p>
+      <p data-i18n="me.disc.p3"></p>
+    </div>
+  </div>
+
+  <!-- 09 · CONTRIBUER -->
+  <div class="method-grid">
+    <div class="method-tag">09 · <span data-i18n="me.contrib.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.contrib.title"></h3>
+      <p data-i18n="me.contrib.p1" data-i18n-html></p>
+    </div>
+  </div>
+
+</section>
+
+<section class="cross-link">
+  <h3 data-i18n="me.cta.text" data-i18n-html></h3>
+  <a href="donnees.html" class="btn btn-primary">
+    <span data-i18n="me.cta.btn"></span>
+    <span class="arrow">→</span>
+  </a>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// SHARED COMPONENTS · observatoire[s]·ia
+// ═══════════════════════════════════════════════════════════
+
+// Embedded data (avoids CORS issues with file:// protocol)
+window.OBSERVATOIRES_DATA = [
+  {"id":"transitions-ia","nom":"transitions-ia.ch","org":{"fr":"Naully Nicolas · indépendant","en":"Naully Nicolas · independent"},"country":"CH","type":"independant","domains":["emploi","formation"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Observatoire indépendant des transitions emploi/IA en Suisse romande. Couvre formations SEFRI, exposition par métier, signaux faibles.","en":"Independent observatory of AI/employment transitions in French-speaking Switzerland. Covers SEFRI training, exposure by job, weak signals."},"last":"2026-04","url":"https://transitions-ia.ch"},
+  {"id":"sefri","nom":"SEFRI","org":{"fr":"Confédération suisse · Formation, recherche, innovation","en":"Swiss Confederation · Education, research, innovation"},"country":"CH","type":"public","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Pilotage des programmes de formation continue et certifications professionnelles, dont les filières IA émergentes.","en":"Steering of continuing education programs and professional certifications, including emerging AI tracks."},"last":"2026-03","url":"https://www.sbfi.admin.ch"},
+  {"id":"ofs","nom":"OFS","org":{"fr":"Office fédéral de la statistique","en":"Federal Statistical Office"},"country":"CH","type":"public","domains":["statistiques","emploi"],"freq":{"fr":"Trimestrielle","en":"Quarterly"},"desc":{"fr":"Statistiques officielles du marché du travail suisse : population active, professions, salaires, postes vacants.","en":"Official statistics on the Swiss labour market: active population, occupations, wages, vacancies."},"last":"2026-04","url":"https://www.bfs.admin.ch"},
+  {"id":"epfl-aic","nom":"EPFL AI Center","org":{"fr":"École polytechnique fédérale de Lausanne","en":"Swiss Federal Institute of Technology Lausanne"},"country":"CH","type":"academique","domains":["gouvernance","formation"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Centre interdisciplinaire IA. Publications sur l'impact sociétal, l'éducation et la gouvernance des systèmes d'IA en Suisse.","en":"Interdisciplinary AI center. Publications on societal impact, education and governance of AI systems in Switzerland."},"last":"2026-03","url":"https://ai.epfl.ch"},
+  {"id":"digital-ch","nom":"Digital Switzerland","org":{"fr":"Initiative cross-secteur","en":"Cross-sector initiative"},"country":"CH","type":"branche","domains":["emploi","formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Coalition d'entreprises et institutions sur la transformation numérique. Études récurrentes sur les compétences IA en entreprise.","en":"Coalition of companies and institutions on digital transformation. Recurring studies on AI skills in business."},"last":"2026-02","url":"https://digitalswitzerland.com"},
+  {"id":"skbf","nom":"CSRE / SKBF","org":{"fr":"Centre suisse de coordination pour la recherche en éducation","en":"Swiss Coordination Centre for Research in Education"},"country":"CH","type":"academique","domains":["formation"],"freq":{"fr":"Quadriennale","en":"Quadrennial"},"desc":{"fr":"Rapport quadriennal sur l'éducation en Suisse, intégrant les enjeux IA et compétences du XXIe siècle.","en":"Quadrennial report on education in Switzerland, integrating AI and 21st-century skills."},"last":"2025-12","url":"https://www.skbf-csre.ch"},
+  {"id":"laboria","nom":"LaborIA","org":{"fr":"Inria × Ministère du Travail","en":"Inria × French Ministry of Labour"},"country":"FR","type":"public","domains":["emploi","gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Laboratoire de recherche-action public sur les effets de l'IA au travail. Études de terrain en entreprises pilotes.","en":"Public research-action lab on AI effects in the workplace. Field studies in pilot companies."},"last":"2026-03","url":"https://www.laboria.ai"},
+  {"id":"france-strategie","nom":"France Stratégie","org":{"fr":"Premier ministre · Conseil national de la productivité","en":"Prime Minister · National Productivity Council"},"country":"FR","type":"public","domains":["emploi","gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Études prospectives sur les métiers, la productivité et l'IA. Rapports publics téléchargeables avec données ouvertes.","en":"Forward-looking studies on jobs, productivity and AI. Public reports with open data."},"last":"2026-04","url":"https://www.strategie.gouv.fr"},
+  {"id":"dares","nom":"DARES","org":{"fr":"Ministère du Travail · Direction de l'animation, de la recherche, des études et des statistiques","en":"French Ministry of Labour · Statistics directorate"},"country":"FR","type":"public","domains":["statistiques","emploi"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Production statistique officielle sur l'emploi en France. Premières estimations chiffrées de l'exposition à l'IA générative.","en":"Official employment statistics in France. First quantitative estimates of generative AI exposure."},"last":"2026-02","url":"https://dares.travail-emploi.gouv.fr"},
+  {"id":"france-travail","nom":"France Travail","org":{"fr":"Observatoire des métiers (ex-Pôle Emploi)","en":"Jobs Observatory (former Pôle Emploi)"},"country":"FR","type":"public","domains":["emploi"],"freq":{"fr":"Mensuelle","en":"Monthly"},"desc":{"fr":"Cartographie ROME des métiers, tensions de recrutement, baromètre BMO. Données ouvertes mensuelles.","en":"ROME jobs taxonomy, recruitment tensions, BMO survey. Monthly open data."},"last":"2026-04","url":"https://www.francetravail.org"},
+  {"id":"apec","nom":"APEC","org":{"fr":"Association pour l'emploi des cadres","en":"Executive Employment Association"},"country":"FR","type":"branche","domains":["emploi"],"freq":{"fr":"Trimestrielle","en":"Quarterly"},"desc":{"fr":"Études trimestrielles sur le marché des cadres, intégrant l'évolution des compétences IA recherchées par les recruteurs.","en":"Quarterly studies on the executive market, including the evolution of AI skills sought by recruiters."},"last":"2026-03","url":"https://corporate.apec.fr"},
+  {"id":"cnil","nom":"CNIL","org":{"fr":"Commission nationale de l'informatique et des libertés","en":"French data protection authority"},"country":"FR","type":"public","domains":["gouvernance"],"freq":{"fr":"Variable","en":"Variable"},"desc":{"fr":"Volet IA & travail : recommandations sur l'usage des outils d'IA dans le management, la sélection et le suivi des salariés.","en":"AI & workplace: recommendations on AI tools for management, hiring and monitoring of employees."},"last":"2026-01","url":"https://www.cnil.fr"},
+  {"id":"france-num","nom":"France Num","org":{"fr":"Direction générale des entreprises","en":"Directorate General for Enterprise"},"country":"FR","type":"public","domains":["formation","emploi"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Observatoire de la transformation numérique des TPE/PME françaises, dont l'adoption d'outils IA et la montée en compétences.","en":"Observatory of digital transformation of French SMEs, including AI tool adoption and upskilling."},"last":"2026-03","url":"https://www.francenum.gouv.fr"},
+  {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
+];
+
+window.VEILLE_DATA = [{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
+
+
+const I18N = {
+  fr: {
+    "nav.suisse": "Suisse",
+    "nav.france": "France",
+    "nav.comparer": "Comparer",
+    "nav.memos": "Le Dispatch·iA",
+    "nav.veille": "Veille",
+    "nav.about": "À propos",
+    "nav.contact": "Contact",
+    "foot.rights": "Données sous licences sources",
+    "foot.method": "Méthodologie",
+    "foot.data": "Données ouvertes",
+    "card.last": "MAJ",
+    "card.visit": "Source ↗",
+    "filter.country": "Pays",
+    "filter.type": "Type",
+    "filter.domain": "Domaine",
+    "filter.all": "Tous",
+    "type.public": "Public",
+    "type.academique": "Académique",
+    "type.branche": "Branche",
+    "type.independant": "Indépendant",
+    "domain.emploi": "Emploi",
+    "domain.formation": "Formation",
+    "domain.gouvernance": "Gouvernance",
+    "domain.statistiques": "Statistiques",
+    "empty": "Aucun observatoire ne correspond à ces filtres."
+  },
+  en: {
+    "nav.suisse": "Switzerland",
+    "nav.france": "France",
+    "nav.comparer": "Compare",
+    "nav.memos": "The Dispatch·iA",
+    "nav.veille": "Field Report",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+    "foot.rights": "Data under source licenses",
+    "foot.method": "Methodology",
+    "foot.data": "Open data",
+    "card.last": "Updated",
+    "card.visit": "Source ↗",
+    "filter.country": "Country",
+    "filter.type": "Type",
+    "filter.domain": "Domain",
+    "filter.all": "All",
+    "type.public": "Public",
+    "type.academique": "Academic",
+    "type.branche": "Industry",
+    "type.independant": "Independent",
+    "domain.emploi": "Employment",
+    "domain.formation": "Training",
+    "domain.gouvernance": "Governance",
+    "domain.statistiques": "Statistics",
+    "empty": "No observatory matches these filters."
+  }
+};
+
+// Page-level translations are merged in by each page before init()
+window.PAGE_I18N = window.PAGE_I18N || { fr: {}, en: {} };
+
+let CURRENT_LANG = localStorage.getItem("obs-lang") || "fr";
+
+function t(key) {
+  const merged = {
+    ...I18N[CURRENT_LANG],
+    ...(window.PAGE_I18N[CURRENT_LANG] || {})
+  };
+  return merged[key] || key;
+}
+
+function applyI18n() {
+  document.documentElement.lang = CURRENT_LANG;
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const html = el.hasAttribute("data-i18n-html");
+    const value = t(key);
+    if (html) el.innerHTML = value;
+    else el.textContent = value;
+  });
+  document.querySelectorAll(".lang-toggle span").forEach((s) => {
+    s.classList.toggle("active", s.getAttribute("data-lang") === CURRENT_LANG);
+  });
+  // Re-render dynamic sections if the page has a hook
+  if (typeof window.onLangChange === "function") window.onLangChange(CURRENT_LANG);
+}
+
+function setupLangToggle() {
+  const toggle = document.getElementById("langToggle");
+  if (!toggle) return;
+  toggle.addEventListener("click", () => {
+    CURRENT_LANG = CURRENT_LANG === "fr" ? "en" : "fr";
+    localStorage.setItem("obs-lang", CURRENT_LANG);
+    applyI18n();
+  });
+}
+
+function setupMobileMenu() {
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (!menuBtn || !mobileMenu) return;
+  menuBtn.addEventListener("click", () => mobileMenu.classList.add("open"));
+  if (closeBtn) closeBtn.addEventListener("click", () => mobileMenu.classList.remove("open"));
+  mobileMenu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => mobileMenu.classList.remove("open"));
+  });
+}
+
+function setupReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".manifesto-text, .section-title, .stat, .kpi, .card, .field-card, .country-card, .dash-title")
+    .forEach((el) => {
+      el.classList.add("reveal");
+      observer.observe(el);
+    });
+}
+
+// Detect if we're in a subfolder (observatoires/ or briefings/) and build relative root
+function rootPath() {
+  // Pages in /observatoires/ or /briefings/ have one extra path segment
+  const path = window.location.pathname;
+  return (path.includes("/observatoires/") || path.includes("/briefings/")) ? "../" : "";
+}
+
+// Render shared nav into a placeholder
+function renderNav(currentPage) {
+  const nav = document.getElementById("siteNav");
+  if (!nav) return;
+  const root = rootPath();
+  const link = (href, key, current) => {
+    const cls = current === currentPage ? ' class="current"' : "";
+    return `<a href="${root}${href}"${cls} data-i18n="nav.${key}">${t("nav." + key)}</a>`;
+  };
+  nav.innerHTML = `
+    <div class="nav-inner">
+      <a href="${root}index.html" class="logo">
+        observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia
+      </a>
+      <div class="nav-links">
+        ${link("observatoires/suisse.html", "suisse", "suisse")}
+        ${link("observatoires/france.html", "france", "france")}
+        ${link("observatoires/comparer.html", "comparer", "comparer")}
+        ${link("briefings.html", "memos", "briefings")}
+        ${link("veille.html", "veille", "veille")}
+        ${link("a-propos.html", "about", "about")}
+        ${link("contact.html", "contact", "contact")}
+      </div>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="active" data-lang="fr">FR</span>
+          <span data-lang="en">EN</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+  `;
+  // Mobile menu
+  const mob = document.getElementById("mobileMenu");
+  if (mob) {
+    mob.innerHTML = `
+      <button class="close-btn" id="closeMenu">×</button>
+      <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
+      <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
+      <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
+      <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
+      <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+      <a href="${root}a-propos.html" data-i18n="nav.about">${t("nav.about")}</a>
+      <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
+    `;
+  }
+}
+
+function renderFooter() {
+  const f = document.getElementById("siteFooter");
+  if (!f) return;
+  const root = rootPath();
+  f.innerHTML = `
+    <div class="foot-inner">
+      <span>© 2026 observatoire[s]·ia · <span data-i18n="foot.rights">${t("foot.rights")}</span></span>
+      <div class="foot-links">
+        <a href="${root}methodologie.html" data-i18n="foot.method">${t("foot.method")}</a>
+        <a href="${root}donnees.html" data-i18n="foot.data">${t("foot.data")}</a>
+      </div>
+      <span class="foot-version">v0.2 · build 2026.04</span>
+    </div>
+  `;
+}
+
+// Bootstrap
+function initSite(currentPage) {
+  renderNav(currentPage);
+  renderFooter();
+  setupLangToggle();
+  setupMobileMenu();
+  applyI18n();
+  setupReveal();
+}
+
+window.initSite = initSite;
+window.t = t;
+window.applyI18n = applyI18n;
+Object.defineProperty(window, "CURRENT_LANG", {
+  get() { return CURRENT_LANG; }
+});
+
+</script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "me.tag": "Méthodologie · v0.2",
+    "me.title": "Comment <em>on cartographie</em>.",
+    "me.lede": "Toute cartographie repose sur des choix invisibles, qui finissent par déterminer ce que l'on voit. Cette page expose les nôtres en clair : critères de sélection des observatoires, méthodes de calcul des indicateurs, nomenclatures nationales mobilisées, biais structurels reconnus. Lire un dashboard sans connaître sa méthode revient à lire un thermomètre sans en connaître l'échelle.",
+    "me.context.tag": "Le cadre",
+    "me.context.title": "Une cartographie qui assume sa <em>fabrique</em>.",
+    "me.context.text": "<p>Mesurer l'impact de l'IA sur le travail mobilise une boîte à outils méthodologique encore jeune et largement importée. Les méthodes de référence proviennent en majorité de la recherche américaine, les nomenclatures changent d'un pays à l'autre, les fréquences de mise à jour sont irrégulières, et la presse confond souvent corrélation et causalité. Cette page documente comment nous traversons cette zone d'incertitude.</p><p>Trois principes guident le travail. Premièrement, ne jamais recalculer un indicateur publié par une institution officielle : nous le rapportons fidèlement avec ses caveats originaux. Deuxièmement, ne pas masquer les écarts méthodologiques entre sources : quand deux observatoires divergent, les deux chiffres apparaissent. Troisièmement, signaler explicitement chaque biais identifié, plutôt que prétendre à une neutralité impossible.</p><p>Cette méthodologie évoluera avec les versions. Les retours de chercheurs, statisticiens et praticiens sont activement souhaités. La cartographie est un travail collectif, jamais achevé.</p>",
+    "me.kf1": "Sections méthodologiques détaillées",
+    "me.kf2": "Méthodes de calcul exposées",
+    "me.kf3": "Biais structurels reconnus",
+
+    "me.crit.tag": "Critères d'inclusion",
+    "me.crit.title": "Quels observatoires entrent dans la carte.",
+    "me.crit.p1": "Un observatoire est inclus s'il satisfait simultanément aux quatre critères suivants :",
+    "me.crit.li1": "Produit des données ou analyses régulières (au moins une publication par an) sur l'emploi, la formation, la gouvernance ou les statistiques liées à l'IA.",
+    "me.crit.li2": "Émet depuis ou couvre principalement la Suisse ou la France. Les sources internationales (Stanford HAI, OCDE, OIT) apparaissent uniquement dans la veille, jamais dans la carte principale.",
+    "me.crit.li3": "Publie ses sources et sa méthodologie de manière vérifiable. Pas de boîte noire propriétaire, pas d'estimation sans note méthodologique.",
+    "me.crit.li4": "Reste accessible publiquement, sans paywall systématique. Les données fermées par défaut mais ouvertes sur demande sont admises avec une note explicite.",
+    "me.crit.exclude": "Sont à l'inverse exclues les sources d'opinion sans donnée mesurable (tribunes, entretiens, livres blancs commerciaux), les indicateurs construits sur moins de 100 répondants ou sur des fenêtres temporelles inférieures à un trimestre, et les agrégateurs qui se contentent de reformuler des sources primaires sans valeur ajoutée méthodologique.",
+
+    "me.calc.tag": "Méthodes de calcul",
+    "me.calc.title": "Comment chaque <em>chiffre</em> est obtenu.",
+    "me.calc.intro": "Cette section expose les méthodes de calcul mobilisées par les sources affichées dans les dashboards CH et FR. Nous ne recalculons pas ces chiffres. Nous les reportons fidèlement avec leurs caveats. Comprendre comment chaque indicateur est construit permet d'en saisir la portée réelle et les limites.",
+
+    "me.calc.a.title": "a. Score d'exposition à l'IA",
+    "me.calc.a.source": "Source · Felten, Raj & Seamans (2018, 2021) ; Eloundou et al., OpenAI (2023)",
+    "me.calc.a.body": "On associe à chaque métier une liste de tâches élémentaires (issues de la base O*NET aux États-Unis, de ROME en France, de NSP en Suisse), puis on évalue dans quelle mesure chacune de ces tâches peut être automatisée ou augmentée par les capacités actuelles d'IA générative. Le score d'exposition par métier est la moyenne pondérée de ces évaluations par tâche, ramenée sur une échelle de 0 à 1.",
+    "me.calc.a.caveat": "<strong>Limitations.</strong> La méthode mesure une exposition théorique, pas un déplacement effectif d'emploi. Une tâche exposable n'est pas une tâche déplacée. La traduction de la nomenclature O*NET vers ROME ou NSP introduit également une marge d'erreur de l'ordre de 5 à 10%, par perte de granularité ou décalage de définition entre catégories voisines.",
+
+    "me.calc.b.title": "b. Indice de tension de recrutement",
+    "me.calc.b.source": "Source · France Travail · indicateur composite trimestriel",
+    "me.calc.b.body": "Combinaison pondérée de plusieurs sous-indicateurs : durée moyenne des offres avant pourvoi, rapport entre les offres et les demandeurs d'emploi inscrits sur un métier donné, part des entreprises déclarant à l'INSEE des difficultés de recrutement sur ce métier, et taux de sortie vers l'emploi. L'indice est publié par fiche ROME, à l'échelle nationale et régionale.",
+    "me.calc.b.caveat": "<strong>Limitations.</strong> L'indice mesure la difficulté à pourvoir un poste, pas la pénurie absolue de la compétence. Une tension forte peut traduire trois réalités différentes : une pénurie réelle (data scientists), un mauvais appariement géographique (aides-soignantes en zones rurales), ou des conditions salariales inadaptées au marché. L'indice ne distingue pas ces trois cas.",
+
+    "me.calc.c.title": "c. Taux d'adoption en entreprise",
+    "me.calc.c.source": "Source · Digital Switzerland, France Num, OFS (TIC dans les entreprises)",
+    "me.calc.c.body": "Calculé par sondage sur un échantillon stratifié d'entreprises : nombre d'entreprises répondant positivement à la question d'adoption, divisé par le total des répondants. Le résultat est généralement segmenté par taille (TPE, PME, ETI, grandes entreprises) et par secteur d'activité (NOGA en Suisse, NAF en France).",
+    "me.calc.c.caveat": "<strong>Limitations.</strong> La définition de l'adoption varie fortement d'une enquête à l'autre. \"Utiliser un outil d'IA\" peut signifier l'usage individuel par un salarié de ChatGPT depuis son navigateur, ou le déploiement industriel d'un système de recommandation client. La comparabilité entre enquêtes est faible si le libellé exact n'est pas explicité. Lire la note méthodologique de l'enquête source est ici indispensable.",
+
+    "me.calc.d.title": "d. Mention IA dans les offres d'emploi",
+    "me.calc.d.source": "Source · APEC, France Travail, plateformes privées (LinkedIn Economic Graph)",
+    "me.calc.d.body": "Détection par mots-clés et expressions régulières dans les corpus d'offres : \"IA\", \"intelligence artificielle\", \"machine learning\", \"deep learning\", \"LLM\", \"prompt engineering\", noms d'outils spécifiques. Les approches récentes affinent par embeddings sémantiques pour limiter les faux positifs.",
+    "me.calc.d.caveat": "<strong>Limitations.</strong> Faux positifs fréquents (\"AI\" abrégé pour Assurance Individuelle, automatisation industrielle classique sans IA). Les compétences IA implicites (par exemple \"expérience en analyse de données avancées\") sont sous-comptées. Les offres mentionnant explicitement \"IA\" peuvent par ailleurs refléter un effet de signalement plus qu'un besoin opérationnel : afficher la compétence IA est devenu un marqueur d'attractivité pour les recruteurs.",
+
+    "me.calc.e.title": "e. Taux d'insertion des diplômés",
+    "me.calc.e.source": "Source · CGE (France), enquêtes des hautes écoles suisses, OFS",
+    "me.calc.e.body": "Cohorte suivie 6, 18 ou 30 mois après l'obtention du diplôme. Les indicateurs distinguent type de contrat (CDI/CDD), salaire d'embauche, adéquation à la formation reçue, et délai entre diplôme et premier poste. Pour la France, l'enquête CGE est annuelle et porte sur environ 200 grandes écoles.",
+    "me.calc.e.caveat": "<strong>Limitations.</strong> L'enquête CGE a un taux de réponse autour de 50 à 60%, biaisé en faveur des diplômés en emploi (biais de réponse classique). Les diplômés en thèse, en année sabbatique ou en mobilité internationale faussent les comparaisons inter-promotions. Le millésime 2024 doit en particulier être lu avec prudence : il agrège des effets sectoriels (recrutement tech ralenti) et des effets cohorte (génération diplômée pendant la pandémie).",
+
+    "me.aitype.tag": "Distinguer les types d'IA",
+    "me.aitype.title": "Une étiquette, quatre <em>réalités techniques</em> distinctes.",
+    "me.aitype.intro": "Le mot « IA » recouvre des familles technologiques très différentes, qui ne touchent pas les mêmes métiers ni au même rythme. Une comptable, un agriculteur, un radiologue et un développeur ne sont pas exposés à la même IA. Confondre ces familles produit des chiffres globaux trompeurs. Cette section distingue les quatre formes pertinentes pour l'analyse emploi, et précise pour chacune quels métiers sont concernés.",
+
+    "me.aitype.a.title": "a. IA discriminative classique (machine learning supervisé)",
+    "me.aitype.a.source": "Famille · scoring, classification, vision par ordinateur, prédiction statistique",
+    "me.aitype.a.body": "L'IA déjà bien installée dans les entreprises depuis quinze ans. Modèles entraînés à reconnaître ou à prédire à partir de données structurées. Pas de génération de contenu, pas de raisonnement libre. C'est cette IA qui filtre vos transactions bancaires, lit votre IRM, propose un produit Netflix ou décide d'accorder un crédit.",
+    "me.aitype.a.who": "<strong>Métiers concernés.</strong> Métiers de l'analyse de risque, du scoring crédit, du contrôle qualité industriel, de la radiologie, de la maintenance prédictive. Effets visibles depuis 2015 environ, courbe d'adoption désormais plate. C'est l'IA dont parlent les rapports OCDE 2019 ou Frey & Osborne 2013, dont les estimations sont aujourd'hui en partie obsolètes.",
+
+    "me.aitype.b.title": "b. IA générative (modèles de langage et multimodaux)",
+    "me.aitype.b.source": "Famille · ChatGPT, Claude, Gemini, Copilot, Mistral, génération texte/image/code",
+    "me.aitype.b.body": "La rupture de 2022. Modèles capables de produire du texte cohérent, du code exécutable, des images, des résumés, des traductions, à partir d'une instruction en langage naturel. Travaille à la tâche, pas au métier. Augmente fortement la productivité individuelle sur les tâches cognitives écrites.",
+    "me.aitype.b.who": "<strong>Métiers concernés.</strong> Tous les métiers à forte composante de production écrite, de code, d'analyse documentaire, de communication : développeurs, juristes, consultants, journalistes, marketing, RH, support client, traduction. Les études de référence sont Eloundou et al. (OpenAI 2023), Brynjolfsson, Noy & Zhang, Stanford HAI 2026, Anthropic 2026. C'est cette IA que la plupart des chiffres récents (Coface 2026, INSEE NDC mars 2026, Stanford HAI) mesurent.",
+
+    "me.aitype.c.title": "c. IA agentique (agents autonomes orchestrés)",
+    "me.aitype.c.source": "Famille · agents capables d'enchaîner des actions, d'utiliser des outils, de planifier",
+    "me.aitype.c.body": "L'horizon 2025-2027. Systèmes qui ne se contentent pas de répondre à une question, mais exécutent une suite de tâches : naviguer sur le web, manipuler des fichiers, appeler des API, prendre des décisions intermédiaires. Encore largement expérimentale début 2026, mais l'adoption suit la trajectoire prédite par OpenAI Richmond.",
+    "me.aitype.c.who": "<strong>Métiers concernés.</strong> Vague différente de la précédente. Touche les métiers d'exécution structurée : back-office bancaire, support client de niveau 1-2, gestion administrative, opérations RH, planification logistique, achats. Coface/OEM avril 2026 chiffre cette vague à 16,3% des emplois français menacés à 2-5 ans, contre 3,8% pour la phase générative actuelle. C'est la rupture qui inquiète aujourd'hui les économistes.",
+
+    "me.aitype.d.title": "d. IA spécialisée scientifique (modèles dédiés à la R&D)",
+    "me.aitype.d.source": "Famille · AlphaFold, modèles de découverte de matériaux, optimisation logistique",
+    "me.aitype.d.body": "Modèles entraînés sur un domaine scientifique précis (biologie structurale, chimie, climat) qui produisent des résultats inaccessibles aux méthodes classiques. Pas un outil grand public. Effet emploi indirect mais structurant à long terme : accélération de la R&D dans la pharma, les matériaux, l'énergie.",
+    "me.aitype.d.who": "<strong>Métiers concernés.</strong> Chercheurs, ingénieurs R&D, biologistes structuraux, chimistes des matériaux, modélisateurs climatiques. Effet plus diffus : raccourcit les cycles d'innovation sans supprimer immédiatement de poste, mais reconfigure les hiérarchies de compétences (le bon expérimentateur compte moins que le bon orchestrateur de modèles).",
+
+    "me.aitype.consequence": "<strong>Conséquence pour la lecture des chiffres.</strong> Quand un rapport annonce « 30% des emplois exposés à l'IA », la première question utile est : <em>de quelle IA parle-t-on</em> ? Frey & Osborne 2013 parlent de l'IA discriminative. Eloundou 2023 et Stanford 2026 parlent de l'IA générative. Coface avril 2026 distingue explicitement la phase Copilot (3,8%) et la phase Special Agent (16,3%). Quand notre cartographie reporte un score d'exposition, le champ <code>ai_type</code> du JSON associé précise la famille technologique de la source. Sans cette distinction, deux chiffres apparemment équivalents peuvent décrire deux phénomènes radicalement différents.",
+
+    "me.taxo.tag": "Sources et taxonomies",
+    "me.taxo.title": "Pourquoi un emploi suisse n'est pas un emploi français.",
+    "me.taxo.p1": "Le travail n'est pas classé de la même façon des deux côtés du Jura. Cette différence de nomenclature complique toute comparaison directe, et impose d'expliciter les correspondances utilisées dans les dashboards.",
+    "me.taxo.li1": "<strong>ROME (France)</strong> · 532 fiches métiers organisées en 14 grands domaines. Géré par France Travail. Mise à jour évolutive, récemment refondu (ROME 4.0) pour intégrer les métiers émergents.",
+    "me.taxo.li2": "<strong>PCS-ESE (France)</strong> · Catégories socioprofessionnelles plus agrégées (environ 487 postes), utilisées par l'INSEE et la DARES pour les statistiques nationales et la mesure d'exposition à l'IA.",
+    "me.taxo.li3": "<strong>NSP / NOGA (Suisse)</strong> · Nomenclature suisse des professions, alignée sur la classification internationale ISCO-08 (OIT). Quatre chiffres pour environ 430 catégories.",
+    "me.taxo.li4": "<strong>ISCO-08 (international)</strong> · Référentiel mondial de l'Organisation internationale du travail. Sert de pivot pour les comparaisons internationales, mais à un niveau d'agrégation supérieur qui efface les spécificités nationales.",
+    "me.taxo.implication": "Concrètement, comparer le métier \"développeur logiciel\" en Suisse et en France implique de croiser ROME M1810 avec NSP 2512. Les libellés sont proches, mais les périmètres incluent des fonctions légèrement différentes : la France classifie les data engineers parmi les développeurs, la Suisse les sépare partiellement. Cet écart, faible, suffit à invalider une comparaison brute des chiffres bruts entre les deux pays sur le seul code métier.",
+
+    "me.triang.tag": "Triangulation",
+    "me.triang.title": "Croiser les sources, traduire sans trahir.",
+    "me.triang.p1": "Quand deux sources mesurent la même réalité avec des résultats divergents, nous appliquons trois règles simples qui guident l'ensemble des contenus du site.",
+    "me.triang.li1": "<strong>Règle 1.</strong> Nous citons les deux et expliquons l'écart, sans trancher. Le débat statistique appartient aux institutions sources, pas à un agrégateur.",
+    "me.triang.li2": "<strong>Règle 2.</strong> Nous privilégions toujours la source primaire (l'institution émettrice du chiffre) sur l'intermédiaire (presse, agrégateur, plateforme). Une statistique reprise d'un communiqué Reuters est moins fiable que la même statistique lue dans le rapport d'origine.",
+    "me.triang.li3": "<strong>Règle 3.</strong> Pour la traduction FR↔EN des notions techniques, nous utilisons les terminologies officielles (ISCO, Eurostat, Eurofound) plutôt que des traductions littérales. \"Tension de recrutement\" devient \"recruitment tension\", pas \"labour shortage\".",
+
+    "me.bias.tag": "Biais reconnus",
+    "me.bias.title": "Ce que cette carte ne peut pas voir.",
+    "me.bias.intro": "Aucune cartographie n'est neutre. Les biais documentés ici ne sont pas exhaustifs, mais ce sont ceux que nous identifions comme structurants. Le premier d'entre eux mérite une attention particulière, car il déborde largement notre cartographie pour conditionner toute la production mondiale sur le sujet.",
+
+    "me.bias.us.title": "<em>Le biais américain</em> · le plus structurant",
+    "me.bias.us.p1": "La recherche académique, les méthodologies de référence et les jeux de données les plus complets sur l'IA et le travail proviennent presque tous des États-Unis. Cette domination épistémique structure le débat européen, souvent à son insu.",
+    "me.bias.us.li1": "<strong>Le Stanford AI Index</strong>, publication annuelle de 423 pages, est devenu la référence mondiale par défaut. Il décrit pourtant avant tout un écosystème américain, et ses extrapolations internationales reposent sur des assumptions implicites qu'il ne discute pas systématiquement.",
+    "me.bias.us.li2": "<strong>La méthodologie d'exposition Felten-Brynjolfsson</strong>, désormais utilisée par la DARES en France et de nombreux chercheurs européens, a été conçue à partir d'O*NET (Bureau of Labor Statistics américain). Sa transposition vers ROME ou NSP introduit une marge d'erreur méthodologique structurelle rarement chiffrée dans les publications dérivées.",
+    "me.bias.us.li3": "<strong>L'estimation Goldman Sachs</strong> de 300 millions d'emplois exposés à l'IA générative, publiée en 2023 et abondamment relayée en Europe, applique implicitement la structure du marché du travail américain au reste du monde. Or la composition sectorielle, la régulation, les conventions collectives et les protections de l'emploi diffèrent radicalement entre les États-Unis, la France et la Suisse.",
+    "me.bias.us.li4": "<strong>Les études MIT, Brookings, Pew Research, NBER</strong> dominent les bibliographies européennes sur le sujet. La recherche francophone et germanophone, même méthodologiquement équivalente ou supérieure (LaborIA, KOF, Inria), circule moins internationalement et reste sous-citée dans la littérature mondiale.",
+    "me.bias.us.consequence": "Conséquence pratique pour cette cartographie : les chiffres que nous reportons en provenance d'institutions européennes (DARES, OFS, EPFL AI Center) restent souvent dérivés ou inspirés de méthodes américaines. Cela ne les invalide pas. Cela rend visible une dépendance épistémique. La construction d'une métrique européenne souveraine sur l'impact emploi de l'IA, fondée sur des nomenclatures propres et des hypothèses adaptées au tissu productif européen, reste à faire.",
+
+    "me.bias.lang.title": "Le biais linguistique interne",
+    "me.bias.lang.body": "À l'intérieur même du périmètre CH+FR, les sources alémaniques (KOF Konjunkturforschungsstelle, BAK Economics, ETH) circulent peu en Suisse romande. Inversement, les enquêtes vaudoises ou genevoises restent peu connues outre-Sarine. Cette cartographie privilégie en version 0.2 les sources francophones et fédérales bilingues, et reconnaît cette restriction comme une limite à corriger en version 0.3.",
+
+    "me.bias.inst.title": "Le biais institutionnel",
+    "me.bias.inst.body": "Un observatoire émanant de l'État ou d'une grande école est plus visible qu'une initiative associative équivalente. Les coopératives, les syndicats, les centres de recherche indépendants produisent parfois des données qui n'apparaissent pas ici, faute de visibilité institutionnelle ou de référencement Google. Cette asymétrie reflète l'architecture de la production statistique, pas la qualité des sources.",
+
+    "me.bias.sect.title": "Le biais sectoriel",
+    "me.bias.sect.body": "Tech, finance et services sont mieux mesurés que la santé, la construction, l'agriculture ou les services à la personne. Cela reflète l'attention médiatique et la disponibilité des données, plus que la réalité du marché du travail. Les métiers manuels et les secteurs essentiels sont sous-cartographiés à l'échelle internationale, et ce déséquilibre se transmet mécaniquement à notre carte.",
+
+    "me.bias.temp.title": "Le biais temporel",
+    "me.bias.temp.body": "Un rapport quadriennal (CSRE en Suisse) reste référencé même quand un travail plus récent existe ailleurs. Le rythme institutionnel ne s'aligne pas sur le rythme technologique. Une donnée de 2022 sur l'adoption de l'IA générative est aujourd'hui largement obsolète, mais peut continuer à structurer le débat public et les décisions politiques pendant plusieurs années après sa péremption effective.",
+
+    "me.bias.desir.title": "Le biais de désirabilité sociale",
+    "me.bias.desir.body": "Les enquêtes par sondage sur l'usage de l'IA sont sensibles à un effet de mode. Les répondants peuvent surestimer leur usage pour ne pas paraître en retard sur leur secteur, ou au contraire le sous-estimer s'ils craignent une perception négative (\"intelligence artificielle = remplacement\"). Les chiffres d'adoption auto-déclarés sont à lire avec une marge d'incertitude qui n'est presque jamais quantifiée dans les publications.",
+
+    "me.bias.pub.title": "Le biais de publication",
+    "me.bias.pub.body": "Les résultats spectaculaires (effondrement, révolution, pénurie massive) sont plus volontiers publiés et relayés que les résultats nuancés ou stables. La littérature accessible donne donc une image plus contrastée que la réalité statistique. Une étude concluant à un impact modéré ou nul de l'IA sur l'emploi a structurellement moins de chances d'être publiée et lue qu'une étude annonçant un choc historique.",
+
+    "me.bias.surv.title": "Le biais de survivance",
+    "me.bias.surv.body": "Les statistiques de l'emploi mesurent ceux qui sont en emploi ou qui en cherchent activement un. Les actifs sortis silencieusement du marché du travail (formation longue subie, retrait précoce, invalidité, économie informelle) échappent largement aux observatoires. Si l'IA produit des sorties de carrière non documentées plutôt que des suppressions de poste visibles, l'effet réel sera systématiquement sous-estimé par les indicateurs actuels.",
+
+    "me.update.tag": "Fréquence de mise à jour",
+    "me.update.title": "Quand la carte bouge.",
+    "me.update.p1": "Les fiches observatoires sont vérifiées et mises à jour mensuellement. La date affichée sur chaque carte (\"MAJ 2026-04\") reflète la dernière publication détectée par cette source, pas la date de notre dernière vérification de la fiche.",
+    "me.update.p2": "La veille (Field Report) est rafraîchie toutes les deux semaines. Une publication n'apparaît dans la veille que si elle apporte une donnée nouvelle ou une méthodologie inédite, pas un simple commentaire ou une reformulation de chiffres existants.",
+
+    "me.disc.tag": "Disclosure éditoriale",
+    "me.disc.title": "Comment ces <em>dossiers</em> sont produits.",
+    "me.disc.p1": "Les dépêches Le Dispatch·iA, les pages thématiques et les analyses publiées sur ce site sont produites avec l'assistance d'une intelligence artificielle (Claude Opus 4.7, en modes Research et Web Search), puis soumises à une vérification factuelle contre les sources primaires citées.",
+    "me.disc.p2": "L'IA a servi d'outil de documentation, de synthèse et de mise en forme visuelle. Elle n'est ni une source autonome, ni une autorité scientifique. Toute donnée chiffrée fait l'objet d'une vérification manuelle contre la publication d'origine, dont le lien apparaît systématiquement dans la section Sources de chaque dossier. Les conclusions interprétatives sont assumées par l'auteur, pas par la machine.",
+    "me.disc.p3": "Cette disclosure est un acte de transparence cohérent avec la posture du site. Travailler sur l'impact de l'IA tout en l'utilisant impose de dire clairement comment. Pour le détail des sources et des méthodes de calcul, voir les sections 02 et 06 de cette même page.",
+
+    "me.contrib.tag": "Contribuer",
+    "me.contrib.title": "Comment proposer un ajout, une correction ou un signalement.",
+    "me.contrib.p1": "Le dépôt GitHub est ouvert. Vous pouvez ouvrir une issue, soumettre une pull request sur le fichier <code>observatoires.json</code>, ou simplement écrire à <a href=\"mailto:sayhi@naullynicolas.ch\" style=\"color: var(--signal);\">sayhi@naullynicolas.ch</a>. Toute contribution acceptée est créditée. Les signalements de biais méthodologiques non documentés ici sont particulièrement bienvenus : cette page est un travail vivant, pas une vérité figée.",
+
+    "me.cta.text": "Vous voulez les <em>données brutes</em> ?",
+    "me.cta.btn": "Données ouvertes"
+  },
+  en: {
+    "me.tag": "Methodology · v0.2",
+    "me.title": "How <em>we map</em>.",
+    "me.lede": "Every cartography rests on invisible choices that ultimately determine what is seen. This page sets ours out plainly: criteria for selecting observatories, methods of computing the indicators, national taxonomies used, and acknowledged structural biases. Reading a dashboard without knowing its method is like reading a thermometer without knowing its scale.",
+    "me.context.tag": "The frame",
+    "me.context.title": "A cartography that owns its <em>making</em>.",
+    "me.context.text": "<p>Measuring AI's impact on work mobilises a methodological toolkit that is still young and largely imported. Reference methods come mostly from American research, classifications differ from one country to the next, update frequencies are uneven, and the press often confuses correlation with causation. This page documents how we navigate that uncertainty zone.</p><p>Three principles guide the work. First, we never recompute an indicator published by an official institution: we report it faithfully with its original caveats. Second, we never hide methodological gaps between sources: when two observatories diverge, both figures appear. Third, we explicitly flag every identified bias rather than claim impossible neutrality.</p><p>This methodology will evolve across versions. Feedback from researchers, statisticians and practitioners is actively sought. Cartography is collective work, never finished.</p>",
+    "me.kf1": "Detailed methodological sections",
+    "me.kf2": "Calculation methods exposed",
+    "me.kf3": "Acknowledged structural biases",
+
+    "me.crit.tag": "Inclusion criteria",
+    "me.crit.title": "Which observatories make it onto the map.",
+    "me.crit.p1": "An observatory is included if it simultaneously meets all four of the following criteria:",
+    "me.crit.li1": "Produces regular data or analysis (at least one publication per year) on employment, training, governance or AI-related statistics.",
+    "me.crit.li2": "Operates from or primarily covers Switzerland or France. International sources (Stanford HAI, OECD, ILO) only appear in the field report, never on the main map.",
+    "me.crit.li3": "Publishes its sources and methodology verifiably. No proprietary black box, no estimate without a methodological note.",
+    "me.crit.li4": "Remains publicly accessible without systematic paywalls. Data closed by default but available on request is admitted with an explicit note.",
+    "me.crit.exclude": "Excluded, conversely, are opinion sources without measurable data (op-eds, interviews, commercial white papers), indicators built on fewer than 100 respondents or on time windows shorter than a quarter, and aggregators that merely reformulate primary sources without methodological added value.",
+
+    "me.calc.tag": "Calculation methods",
+    "me.calc.title": "How each <em>figure</em> is obtained.",
+    "me.calc.intro": "This section sets out the calculation methods used by the sources displayed in the CH and FR dashboards. We do not recompute these figures. We report them faithfully with their caveats. Understanding how each indicator is built reveals its actual scope and limits.",
+
+    "me.calc.a.title": "a. AI exposure score",
+    "me.calc.a.source": "Source · Felten, Raj & Seamans (2018, 2021); Eloundou et al., OpenAI (2023)",
+    "me.calc.a.body": "Each occupation is associated with a list of elementary tasks (drawn from O*NET in the United States, ROME in France, NSP in Switzerland), then each task is evaluated for the extent to which it can be automated or augmented by current generative AI capabilities. The exposure score per occupation is the weighted average of these task-level evaluations, normalised on a 0 to 1 scale.",
+    "me.calc.a.caveat": "<strong>Limitations.</strong> The method measures theoretical exposure, not actual employment displacement. An exposable task is not a displaced task. The translation from the O*NET classification to ROME or NSP also introduces a margin of error of around 5 to 10%, through loss of granularity or definition shifts between neighbouring categories.",
+
+    "me.calc.b.title": "b. Recruitment tension index",
+    "me.calc.b.source": "Source · France Travail · quarterly composite indicator",
+    "me.calc.b.body": "Weighted combination of several sub-indicators: average duration of postings before they are filled, ratio of postings to registered jobseekers per occupation, share of firms reporting recruitment difficulties to INSEE on that occupation, and rate of return to employment. The index is published per ROME card, at national and regional levels.",
+    "me.calc.b.caveat": "<strong>Limitations.</strong> The index measures the difficulty of filling a position, not the absolute scarcity of the skill. High tension can reflect three different realities: a real shortage (data scientists), poor geographic matching (nursing assistants in rural areas), or wage conditions misaligned with the market. The index does not distinguish between these three cases.",
+
+    "me.calc.c.title": "c. Enterprise adoption rate",
+    "me.calc.c.source": "Source · Digital Switzerland, France Num, FSO (ICT in enterprises)",
+    "me.calc.c.body": "Computed by survey on a stratified sample of firms: number of firms answering yes to the adoption question, divided by total respondents. The result is generally segmented by size (micro, SME, mid-cap, large) and by sector (NOGA in Switzerland, NAF in France).",
+    "me.calc.c.caveat": "<strong>Limitations.</strong> The definition of adoption varies considerably from one survey to another. \"Using an AI tool\" can mean an individual employee using ChatGPT in their browser, or the industrial deployment of a customer recommendation system. Comparability between surveys is weak unless the exact wording is made explicit. Reading the source survey's methodological note is essential here.",
+
+    "me.calc.d.title": "d. AI mention in job postings",
+    "me.calc.d.source": "Source · APEC, France Travail, private platforms (LinkedIn Economic Graph)",
+    "me.calc.d.body": "Detection by keywords and regular expressions across job posting corpora: \"AI\", \"artificial intelligence\", \"machine learning\", \"deep learning\", \"LLM\", \"prompt engineering\", names of specific tools. Recent approaches refine detection through semantic embeddings to reduce false positives.",
+    "me.calc.d.caveat": "<strong>Limitations.</strong> Frequent false positives (\"AI\" abbreviated for individual insurance, classical industrial automation without AI). Implicit AI skills (e.g., \"experience with advanced data analysis\") are undercounted. Postings explicitly mentioning \"AI\" may also reflect a signalling effect rather than an operational need: displaying AI competence has become an attractiveness marker for recruiters.",
+
+    "me.calc.e.title": "e. Graduate insertion rate",
+    "me.calc.e.source": "Source · CGE (France), Swiss universities of applied sciences surveys, FSO",
+    "me.calc.e.body": "Cohort tracked 6, 18 or 30 months after graduation. Indicators distinguish contract type (permanent/fixed-term), starting salary, alignment with the training received, and time between graduation and first job. For France, the CGE survey is annual and covers around 200 grandes écoles.",
+    "me.calc.e.caveat": "<strong>Limitations.</strong> The CGE survey has a response rate around 50 to 60%, biased toward graduates in employment (classical response bias). Graduates pursuing a PhD, on a sabbatical, or on international mobility skew cross-cohort comparisons. The 2024 cohort in particular must be read with caution: it aggregates sectoral effects (slowing tech recruitment) and cohort effects (a class graduated during the pandemic).",
+
+    "me.aitype.tag": "AI types disambiguation",
+    "me.aitype.title": "One label, four distinct <em>technical realities</em>.",
+    "me.aitype.intro": "The word \"AI\" covers very different technological families that do not affect the same occupations or at the same pace. An accountant, a farmer, a radiologist and a developer are not exposed to the same AI. Conflating these families produces misleading global figures. This section distinguishes the four forms relevant to employment analysis, and specifies for each which occupations are concerned.",
+
+    "me.aitype.a.title": "a. Classical discriminative AI (supervised machine learning)",
+    "me.aitype.a.source": "Family · scoring, classification, computer vision, statistical prediction",
+    "me.aitype.a.body": "The AI well established in companies for fifteen years. Models trained to recognise or predict from structured data. No content generation, no free reasoning. This is the AI that filters your bank transactions, reads your MRI, suggests a Netflix product or decides on a credit application.",
+    "me.aitype.a.who": "<strong>Occupations concerned.</strong> Risk analysis, credit scoring, industrial quality control, radiology, predictive maintenance. Visible effects since around 2015, adoption curve now flat. This is the AI discussed in OECD 2019 reports or Frey & Osborne 2013, whose estimates are now partly outdated.",
+
+    "me.aitype.b.title": "b. Generative AI (large language and multimodal models)",
+    "me.aitype.b.source": "Family · ChatGPT, Claude, Gemini, Copilot, Mistral, text/image/code generation",
+    "me.aitype.b.body": "The 2022 rupture. Models capable of producing coherent text, executable code, images, summaries, translations from a natural language instruction. Operates at the task level, not the occupation level. Strongly increases individual productivity on cognitive written tasks.",
+    "me.aitype.b.who": "<strong>Occupations concerned.</strong> All occupations with a strong written production, code, document analysis or communication component: developers, lawyers, consultants, journalists, marketing, HR, customer support, translation. Reference studies are Eloundou et al. (OpenAI 2023), Brynjolfsson, Noy & Zhang, Stanford HAI 2026, Anthropic 2026. This is the AI most recent figures (Coface 2026, INSEE NDC March 2026, Stanford HAI) actually measure.",
+
+    "me.aitype.c.title": "c. Agentic AI (orchestrated autonomous agents)",
+    "me.aitype.c.source": "Family · agents capable of chaining actions, using tools, planning",
+    "me.aitype.c.body": "The 2025-2027 horizon. Systems that do not merely answer a question but execute a sequence of tasks: browsing the web, manipulating files, calling APIs, making intermediate decisions. Still largely experimental in early 2026, but adoption follows the trajectory predicted by OpenAI Richmond.",
+    "me.aitype.c.who": "<strong>Occupations concerned.</strong> A different wave from the previous one. Affects structured execution occupations: bank back-office, level 1-2 customer support, administrative management, HR operations, logistics planning, procurement. Coface/OEM April 2026 puts this wave at 16.3% of French jobs threatened within 2-5 years, versus 3.8% for the current generative phase. This is the rupture that worries economists today.",
+
+    "me.aitype.d.title": "d. Specialised scientific AI (R&D-dedicated models)",
+    "me.aitype.d.source": "Family · AlphaFold, materials discovery models, logistics optimisation",
+    "me.aitype.d.body": "Models trained on a specific scientific domain (structural biology, chemistry, climate) that produce results inaccessible to classical methods. Not a consumer tool. Indirect but structuring long-term employment effect: acceleration of R&D in pharma, materials, energy.",
+    "me.aitype.d.who": "<strong>Occupations concerned.</strong> Researchers, R&D engineers, structural biologists, materials chemists, climate modellers. More diffuse effect: shortens innovation cycles without immediately eliminating positions, but reconfigures skill hierarchies (the good experimentalist counts less than the good model orchestrator).",
+
+    "me.aitype.consequence": "<strong>Consequence for reading the figures.</strong> When a report announces \"30% of jobs exposed to AI\", the first useful question is: <em>which AI are we talking about</em>? Frey & Osborne 2013 talk about discriminative AI. Eloundou 2023 and Stanford 2026 talk about generative AI. Coface April 2026 explicitly distinguishes the Copilot phase (3.8%) and the Special Agent phase (16.3%). When our cartography reports an exposure score, the <code>ai_type</code> field in the associated JSON specifies the technological family of the source. Without this distinction, two apparently equivalent figures can describe radically different phenomena.",
+
+    "me.taxo.tag": "Sources and taxonomies",
+    "me.taxo.title": "Why a Swiss job is not a French job.",
+    "me.taxo.p1": "Work is not classified the same way on both sides of the Jura. This difference in nomenclature complicates any direct comparison and forces us to make explicit the correspondences used in the dashboards.",
+    "me.taxo.li1": "<strong>ROME (France)</strong> · 532 occupational cards organised in 14 broad domains. Maintained by France Travail. Continuous updates, recently overhauled (ROME 4.0) to integrate emerging occupations.",
+    "me.taxo.li2": "<strong>PCS-ESE (France)</strong> · More aggregated socio-professional categories (about 487 positions), used by INSEE and DARES for national statistics and AI exposure measurement.",
+    "me.taxo.li3": "<strong>NSP / NOGA (Switzerland)</strong> · Swiss occupation classification, aligned with the international ISCO-08 standard (ILO). Four digits for around 430 categories.",
+    "me.taxo.li4": "<strong>ISCO-08 (international)</strong> · Worldwide reference of the International Labour Organization. Acts as a pivot for international comparisons, but at a higher aggregation level that erases national specificities.",
+    "me.taxo.implication": "Concretely, comparing the occupation \"software developer\" in Switzerland and France means crossing ROME M1810 with NSP 2512. The labels are close, but the perimeters include slightly different functions: France classifies data engineers among developers, Switzerland separates them partially. This small gap is enough to invalidate a raw comparison of headcount figures between the two countries on occupation code alone.",
+
+    "me.triang.tag": "Triangulation",
+    "me.triang.title": "Crossing sources, translating without betraying.",
+    "me.triang.p1": "When two sources measure the same reality with diverging results, we apply three simple rules that guide the entire site's content.",
+    "me.triang.li1": "<strong>Rule 1.</strong> We cite both and explain the gap, without ruling. The statistical debate belongs to the source institutions, not to an aggregator.",
+    "me.triang.li2": "<strong>Rule 2.</strong> We always favour the primary source (the institution issuing the figure) over the intermediary (press, aggregator, platform). A statistic picked up from a Reuters dispatch is less reliable than the same statistic read in the original report.",
+    "me.triang.li3": "<strong>Rule 3.</strong> For FR↔EN translation of technical concepts, we use official terminologies (ISCO, Eurostat, Eurofound) rather than literal translations. \"Tension de recrutement\" becomes \"recruitment tension\", not \"labour shortage\".",
+
+    "me.bias.tag": "Acknowledged biases",
+    "me.bias.title": "What this map cannot see.",
+    "me.bias.intro": "No cartography is neutral. The biases documented here are not exhaustive, but they are the ones we identify as structural. The first deserves particular attention, because it extends well beyond our cartography to condition all global production on the topic.",
+
+    "me.bias.us.title": "<em>The American bias</em> · the most structural one",
+    "me.bias.us.p1": "Academic research, reference methodologies and the most complete datasets on AI and work come almost entirely from the United States. This epistemic dominance shapes the European debate, often unbeknown to its participants.",
+    "me.bias.us.li1": "<strong>The Stanford AI Index</strong>, an annual 423-page publication, has become the global reference by default. It nonetheless describes primarily an American ecosystem, and its international extrapolations rest on implicit assumptions that it does not systematically discuss.",
+    "me.bias.us.li2": "<strong>The Felten-Brynjolfsson exposure methodology</strong>, now used by France's DARES and many European researchers, was designed from O*NET (the American Bureau of Labor Statistics). Its transposition to ROME or NSP introduces a structural methodological margin of error that is rarely quantified in derivative publications.",
+    "me.bias.us.li3": "<strong>The Goldman Sachs estimate</strong> of 300 million jobs exposed to generative AI, published in 2023 and widely relayed in Europe, implicitly applies the structure of the American labour market to the rest of the world. Yet sectoral composition, regulation, collective agreements and employment protections differ radically between the United States, France and Switzerland.",
+    "me.bias.us.li4": "<strong>Studies from MIT, Brookings, Pew Research and NBER</strong> dominate European bibliographies on the topic. Francophone and Germanophone research, even when methodologically equivalent or superior (LaborIA, KOF, Inria), circulates less internationally and remains under-cited in the global literature.",
+    "me.bias.us.consequence": "Practical consequence for this cartography: the figures we report from European institutions (DARES, FSO, EPFL AI Center) often remain derived from or inspired by American methods. This does not invalidate them. It makes an epistemic dependency visible. The construction of a sovereign European metric for the AI employment impact, founded on its own classifications and assumptions adapted to the European productive fabric, remains to be done.",
+
+    "me.bias.lang.title": "The internal linguistic bias",
+    "me.bias.lang.body": "Within the CH+FR perimeter itself, German-speaking sources (KOF Konjunkturforschungsstelle, BAK Economics, ETH) circulate little in French-speaking Switzerland. Conversely, surveys from Vaud or Geneva remain little known east of the Sarine. This cartography in version 0.2 prioritises French-speaking and bilingual federal sources, and acknowledges this restriction as a limit to be corrected in version 0.3.",
+
+    "me.bias.inst.title": "The institutional bias",
+    "me.bias.inst.body": "An observatory backed by the State or a major school is more visible than an equivalent grassroots initiative. Cooperatives, trade unions and independent research centres sometimes produce data that does not appear here, for lack of institutional visibility or Google indexing. This asymmetry reflects the architecture of statistical production, not the quality of sources.",
+
+    "me.bias.sect.title": "The sectoral bias",
+    "me.bias.sect.body": "Tech, finance and services are better measured than healthcare, construction, agriculture or personal services. This reflects media attention and data availability, more than the reality of the labour market. Manual occupations and essential sectors are under-mapped at the international scale, and this imbalance is mechanically transmitted to our map.",
+
+    "me.bias.temp.title": "The temporal bias",
+    "me.bias.temp.body": "A quadrennial report (SCCRE in Switzerland) remains referenced even when more recent work exists elsewhere. The institutional rhythm does not align with the technological one. A 2022 figure on generative AI adoption is now largely obsolete, but may continue to structure public debate and policy decisions for several years after its effective expiration.",
+
+    "me.bias.desir.title": "The social desirability bias",
+    "me.bias.desir.body": "Surveys on AI usage are sensitive to a fashion effect. Respondents may overstate their use to avoid appearing behind their sector, or conversely understate it if they fear a negative perception (\"artificial intelligence equals replacement\"). Self-reported adoption figures should be read with an uncertainty margin that is almost never quantified in publications.",
+
+    "me.bias.pub.title": "The publication bias",
+    "me.bias.pub.body": "Spectacular results (collapse, revolution, massive shortage) are more readily published and relayed than nuanced or stable findings. The accessible literature therefore yields a more contrasted image than statistical reality. A study concluding that AI's impact on employment is moderate or null is structurally less likely to be published and read than one announcing a historic shock.",
+
+    "me.bias.surv.title": "The survivor bias",
+    "me.bias.surv.body": "Employment statistics measure those who are employed or actively seeking employment. Workers who silently exit the labour market (long forced training, early withdrawal, disability, informal economy) largely escape observatories. If AI produces undocumented career exits rather than visible position eliminations, the actual effect will be systematically underestimated by current indicators.",
+
+    "me.update.tag": "Update frequency",
+    "me.update.title": "When the map shifts.",
+    "me.update.p1": "Observatory cards are verified and updated monthly. The date shown on each card (\"Updated 2026-04\") reflects the latest publication detected from that source, not the date of our last card check.",
+    "me.update.p2": "The Field Report is refreshed every two weeks. A publication only appears in the report if it brings new data or an unprecedented methodology, not a mere commentary or a rephrasing of existing figures.",
+
+    "me.disc.tag": "Editorial disclosure",
+    "me.disc.title": "How these <em>dossiers</em> are produced.",
+    "me.disc.p1": "Le Dispatch·iA dispatches, thematic pages and analyses published on this site are produced with the assistance of an artificial intelligence (Claude Opus 4.7, in Research and Web Search modes), then subjected to factual verification against the cited primary sources.",
+    "me.disc.p2": "AI was used as a tool for documentation, synthesis and visual formatting. It is neither an autonomous source nor a scientific authority. Every numerical figure is manually verified against the original publication, whose link systematically appears in the Sources section of each dossier. Interpretive conclusions are owned by the author, not by the machine.",
+    "me.disc.p3": "This disclosure is an act of transparency consistent with the site's posture. Working on the impact of AI while using it requires saying clearly how. For details on sources and calculation methods, see sections 02 and 06 of this same page.",
+
+    "me.contrib.tag": "Contributing",
+    "me.contrib.title": "How to suggest an addition, correction, or flag an issue.",
+    "me.contrib.p1": "The GitHub repo is open. You can open an issue, submit a pull request on the <code>observatoires.json</code> file, or simply write to <a href=\"mailto:sayhi@naullynicolas.ch\" style=\"color: var(--signal);\">sayhi@naullynicolas.ch</a>. Every accepted contribution is credited. Reports of methodological biases not documented here are particularly welcome: this page is living work, not frozen truth.",
+
+    "me.cta.text": "Want the <em>raw data</em>?",
+    "me.cta.btn": "Open data"
+  }
+};
+
+initSite("method");
+</script>
+</body>
+</html>

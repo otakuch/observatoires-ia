@@ -1,0 +1,40 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+This license applies to the JSON datasets located in `assets/data/`:
+
+- metiers-ia-fr.json
+- metiers-ia-ch.json
+- indicateurs-ia-fr.json
+- indicateurs-ia-ch.json
+- scenarios-ia-fr.json
+- scenarios-ia-ch.json
+- economistes-ia.json
+- economistes-ia-ch.json
+- timeline-ia-emploi.json
+- observatoires.json
+- veille.json
+
+You are free to:
+
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material
+- For any purpose, even commercially.
+
+Under the following terms:
+
+- Attribution — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made. You may do so in any reasonable
+  manner, but not in any way that suggests the licensor endorses you or your
+  use.
+
+Suggested citation:
+    Naully Nicolas, "observatoire[s]·ia v0.2", 2026,
+    https://observatoire.naullynicolas.ch
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Note on derived data: Many fields in these datasets are themselves derived
+from primary sources (DARES, OFS, INSEE, Stanford HAI, Coface, etc.) which
+have their own licensing terms. The aggregation, methodology annotations
+(ai_type, tier), translation and structure are licensed under CC BY 4.0.
+For the underlying values, please consult the cited primary sources.

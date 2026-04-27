@@ -1,0 +1,906 @@
+{
+  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-fr.schema.json",
+  "version": "0.3.0",
+  "compiled_at": "2026-04-26",
+  "country": "FR",
+  "scope": "Indicateurs prospectifs IA & emploi · France",
+  "license": "CC BY 4.0",
+  "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
+  "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
+  "count": 15,
+  "indicators": [
+    {
+      "title": "% emplois français automatisables d'ici 2030",
+      "unit": "%",
+      "n_sources": 13,
+      "value_min": 3.8,
+      "value_max": 38,
+      "value_median": 15,
+      "description_fr": "Deux horizons coexistent aujourd'hui en France. Environ 3,8% des emplois sont déjà fragilisés par l'IA dans sa forme actuelle. Ce chiffre monte à 16,3% d'ici 2 à 5 ans dès que l'IA agentique se généralise, soit 5 millions de postes. Stanford HAI AI Index 2026 : un tiers des organisations mondiales anticipent des réductions d'effectifs dans les 12 mois un signal d'anticipation fort, très au-dessus des destructions déjà observées. La rupture majeure est structurelle : l'IA cible en priorité les tâches cognitives des hauts diplômés, à l'inverse de toutes les vagues précédentes.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 20,
+          "year": 2026,
+          "citation": "Stanford HAI AI Index 2026 · 1/3 organisations anticipent réductions effectifs dans 12 mois · plus prononcé service client, supply chain, ingénierie logicielle",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 3.8,
+          "year": 2026,
+          "citation": "Coface/OEM 'Emplois, compétences, valeur' · Avr. 2026 · 3,8% emplois FR actuellement fragilisés par IA générative (phase Copilot)",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 16.3,
+          "year": 2026,
+          "citation": "Coface/OEM · Avr. 2026 · 16,3% emplois FR menacés à 2-5 ans avec IA agentique (Special Agent) = 5 millions sur 30M · seuil : >30% tâches automatisables",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 11,
+          "year": 2026,
+          "citation": "Massenkoff & McCrory · observed vs theoretical gap large (Anthropic 2026)",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 15,
+          "year": 2026,
+          "citation": "Karger, Kuusela, Tetlock et al. mars 2026 · FRB Chicago · scénario rapide : LFPR US 62%→55% d'ici 2050 · ~10M emplois US attribuables à l'IA (adapté France : ~2,5-3M ETP)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 10,
+          "year": 2022,
+          "citation": "France Stratégie",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 15,
+          "year": 2024,
+          "citation": "Commission IA France",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 12,
+          "year": 2023,
+          "citation": "Autor & Salomons",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 25,
+          "year": 2025,
+          "citation": "McKinsey MGI · 57% US heures auto · corrigé France -30% (rigidités)",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 9,
+          "year": 2023,
+          "citation": "OCDE",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 20,
+          "year": 2025,
+          "citation": "PwC AI Jobs Barometer 2025 · France · +273% métiers exposés",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 33,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 33% professions profondément transformées (Economic Graph 30M membres)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 38,
+          "year": 2026,
+          "citation": "BCG Henderson Institute avr. 2026 · 43% emplois US > 40% tâches auto. · adapté France ~35-38% (rigidités CDI, secteur industriel, IA Act)",
+          "ai_type": "automation_broad"
+        }
+      ]
+    },
+    {
+      "title": "Adoption IA générative en entreprise française",
+      "unit": "%",
+      "n_sources": 8,
+      "value_min": 24,
+      "value_max": 88,
+      "value_median": 38,
+      "description_fr": "L'IA s'est installée dans les entreprises françaises, mais à deux vitesses. La quasi-totalité des grandes organisations mondiales (88%) déclarent l'utiliser dans au moins une fonction. La GenAI a atteint 53% d'adoption populaire en seulement 3 ans plus vite que l'ordinateur personnel ou internet. Pourtant, seuls 7% des salariés français l'activent quotidiennement dans leur travail. Ce retard d'adoption n'est pas culturel : c'est un écart structurel qui se traduit par un différentiel de productivité croissant par rapport aux États-Unis (24ème rang mondial à 28,3%).",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 88,
+          "year": 2025,
+          "citation": "Stanford HAI AI Index 2026 · 88% adoption organisationnelle (vs 55% en 2022) · GenAI 53% adoption populaire en 3 ans · plus rapide que PC ou internet · US 24ème rang mondial à 28.3%",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 88,
+          "year": 2025,
+          "citation": "Coface/OEM citant McKinsey State of AI 2025 · 88% d'entreprises utilisent l'IA dans au moins 1 fonction (vs 55% en 2022)",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 43,
+          "year": 2026,
+          "citation": "Bick, Blandin, Deming et al. · St. Louis Fed / BPEA mars 2026 · 43% travailleurs US vs 32% EU · France/Allemagne/Italie ~1/3 intensité US",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 32,
+          "year": 2025,
+          "citation": "Sortlist · PME/ETI françaises",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 38,
+          "year": 2025,
+          "citation": "Eurostat · digital intensity",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 28,
+          "year": 2024,
+          "citation": "CCI France · sondage PME",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 35,
+          "year": 2025,
+          "citation": "PwC AI Jobs Barometer 2025 · offres IA +273% en France 2019-2024",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 24,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · Access Partnership · 24% PME vs 36% grandes entreprises",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Gain de productivité annuel attendu d'ici 2030",
+      "unit": "%",
+      "n_sources": 13,
+      "value_min": 0.5,
+      "value_max": 4,
+      "value_median": 2.5,
+      "description_fr": "Les données macroéconomiques commencent à montrer les premiers signes de matérialisation. Aux États-Unis, la productivité a crû de 2,7% en 2025 presque le double de la moyenne décennale de 1,4% ce que Brynjolfsson appelle le début de la 'J-curve'. Parmi 12 000 firmes européennes, l'adoption de l'IA a généré +4% de productivité du travail, avec un multiplicateur formation remarquable : chaque 1% du budget investi en formation IA génère +5,9 points de productivité supplémentaires. Ces gains ne seront pas distribués uniformément les secteurs à demande expansible verront de nouveaux volumes, les secteurs à demande bornée des réductions d'effectifs.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 2.7,
+          "year": 2025,
+          "citation": "Stanford HAI AI Index 2026 · Brynjolfsson 2026 · US productivity growth 2.7% en 2025 · presque double de la décennie précédente (1.4%) · J-curve hypothesis · début de matérialisation des gains",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 4,
+          "year": 2026,
+          "citation": "Stanford HAI AI Index 2026 · Aldasoro et al. 2026 · 12 000 firmes européennes (2019-2024) · +4% productivité du travail · +5.9pp par 1% investi en formation IA",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 0.5,
+          "year": 2022,
+          "citation": "Gordon (Northwestern)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 1.5,
+          "year": 2025,
+          "citation": "McKinsey MGI · Agents Robots and Us · nov. 2025 · Skill Change Index",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 2.8,
+          "year": 2024,
+          "citation": "Brynjolfsson & Rock",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 2,
+          "value": 1.2,
+          "year": 2024,
+          "citation": "Banque de France",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 4,
+          "value": 4,
+          "year": 2025,
+          "citation": "Goldman Sachs optimiste",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 2.1,
+          "year": 2025,
+          "citation": "PwC · secteurs exposés IA · CA/employé ×3 plus rapide",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 1.8,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · Access Partnership · 523Mds$ capacité productive libérable = 16.5% PIB FR",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 2.5,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · gains productivité concentrés chez entreprises déployant l'IA · risque redistribution capital vs travail",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 2.5,
+          "year": 2026,
+          "citation": "Karger, Kuusela, Tetlock et al. mars 2026 · FRB Chicago · median forecast GDP +2.5%/an · scénario rapide : +4%/an · au-dessus des projections gouvernementales 2.0% (MT) et 1.7% (LT)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 3.2,
+          "year": 2026,
+          "citation": "Bick, Blandin, Deming et al. · St. Louis Fed / BPEA mars 2026 · +3.2 pp productivité cumulative US vs Europe depuis 2022 · France/Allemagne/Italie = 1/3 du taux US",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 2.0,
+          "year": 2026,
+          "citation": "BCG Henderson Institute avr. 2026 · 50-55% emplois US reshapés à 2-3 ans · gains productivité concentrés sur rôles Amplified (5%) et Rebalanced (14%) · lag multiyear entre potentiel et impact réalisé",
+          "ai_type": "automation_broad"
+        }
+      ]
+    },
+    {
+      "title": "% emplois difficultés recrutement liées à l'IA",
+      "unit": "%",
+      "n_sources": 6,
+      "value_min": 52,
+      "value_max": 72,
+      "value_median": 65,
+      "description_fr": "L'IA crée une tension paradoxale : elle automatise des tâches tout en générant une demande de compétences que le marché ne produit pas encore. Les compétences liées à l'IA évoluent 34% plus vite que les autres. Résultat concret : 79% des salariés français n'ont reçu aucune formation structurée à l'IA de leur employeur. L'enjeu n'est plus uniquement la suppression d'emplois, mais la vitesse d'adaptation. Les entreprises qui forment tôt leurs équipes créent un avantage compétitif durable ; celles qui attendent subiront la pression en même temps que la transformation.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 72,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · diplômes corrèlent positivement avec exposition IA · valeur des diplômes remise en question",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 58,
+          "year": 2024,
+          "citation": "DARES BMO 2024",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 52,
+          "year": 2023,
+          "citation": "France Travail · tensions sectorielles",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 65,
+          "year": 2025,
+          "citation": "Capital · pénurie compétences IA",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 68,
+          "year": 2025,
+          "citation": "PwC AI Jobs Barometer 2025 · compétences IA évoluent 34% + vite en France",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 62,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 79% employés sans formation structurée IA",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Score moyen exposition IA · métiers français",
+      "unit": "/10",
+      "n_sources": 6,
+      "value_min": 4.8,
+      "value_max": 7.5,
+      "value_median": 5.7,
+      "description_fr": "L'exposition à l'IA varie massivement selon les secteurs. Le numérique et l'informatique sont les plus touchés (31% des tâches automatisables), suivis de l'ingénierie (26,9%), du créatif et de l'administratif (23,8%), du juridique (21,6%) et de la finance (25%). À l'opposé, la restauration (7,5%), le bâtiment (14,7%) et la santé (14,9%) restent relativement protégés. La rupture centrale : l'exposition corrèle positivement avec le niveau de diplôme et de salaire inversion totale de toutes les vagues d'automatisation précédentes. Paris concentre les emplois cognitifs exposés et est la région la plus vulnérable.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 5.1,
+          "year": 2024,
+          "citation": "Eloundou et al. adapté ROME",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 2,
+          "value": 5.3,
+          "year": 2024,
+          "citation": "France Stratégie · analyse ROME",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 4.8,
+          "year": 2023,
+          "citation": "Autor · tâches France adapté",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 7.5,
+          "year": 2026,
+          "citation": "Coface/OEM avr. 2026 · Informatique 31% · Architecture-Ingénierie 26,9% · Administratif 23,8% · Créatif 23,8% · Juridique 21,6% · Santé 14,9% · Construction 14,7% · Restauration 7,5%",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 5.7,
+          "year": 2025,
+          "citation": "McKinsey Skill Change Index · presque tous les métiers ont ≥1 compétence très perturbée",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 5.8,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · Tech 73,8% exposés · Santé 27,8%",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "% emplois où IA = complémentarité (non-substitution)",
+      "unit": "%",
+      "n_sources": 11,
+      "value_min": 44,
+      "value_max": 87,
+      "value_median": 68,
+      "description_fr": "La grande majorité des emplois ne sont pas voués à disparaître mais à se transformer profondément. Aux États-Unis, 57% des postes ont moins de 40% de leurs tâches automatisables ils appartiennent aux catégories les moins perturbées. En France, ce seuil est encore plus élevé en raison de la composition sectorielle. La substitution complète est structurellement plus lente que l'augmentation : remplacer un humain par l'IA exige un redesign total des processus et la formalisation des savoirs tacites. L'augmentation diffuse rapidement car l'humain reste dans la boucle et gère les exceptions. À ce stade, aucune preuve statistique d'impact emploi n'a été détectée au niveau des industries, ni en Europe ni aux États-Unis. Imas & Mandel 2026 (SSRN) apportent une preuve expérimentale décisive : lorsque l'humain est le producteur, la valeur d'exclusivité est 2x plus forte que pour un bien généré par IA. Le secteur relationnel (soins, hospitalité, artisanat, performance vivante) résiste non par contrainte technique mais parce que l'automatisation en détruirait la valeur.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 44,
+          "year": 2026,
+          "citation": "Imas & Mandel 2026 SSRN · oeuvres humaines +44% prime exclusivité vs +21% IA · secteur relationnel structurellement protégé",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 46,
+          "year": 2026,
+          "citation": "Stanford HAI AI Index 2026 · Shao et al. 2026 · 844 tâches occupationnelles · 46.1% des travailleurs souhaitent que l'IA prenne en charge ces tâches · libérer du temps pour tâches haute valeur",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 87,
+          "year": 2026,
+          "citation": "Coface/OEM · 87% occupations < 30% tâches exposées en Special Agent · 15% des 923 professions < 5% = quasi-immunisées (travail physique)",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 80,
+          "year": 2026,
+          "citation": "Jones & Tonetti 'Weak Links' Stanford 2026 · élasticité substitution <1 → impossible d'automatiser entièrement → tâches résiduelles humaines contraignent la croissance",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 75,
+          "year": 2026,
+          "citation": "Bick, Blandin, Deming et al. · St. Louis Fed mars 2026 · zéro preuve impact emploi niveau industrie Europe ou US à ce stade",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 57,
+          "year": 2026,
+          "citation": "BCG Henderson Institute avr. 2026 · 57% emplois US < 40% seuil = Limited-exposure 34% + Enabled 23% · substitution complète plus lente que l'augmentation car redesign process obligatoire",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 68,
+          "year": 2025,
+          "citation": "BIS WP 1239 · EU firms",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 72,
+          "year": 2025,
+          "citation": "McKinsey MGI · Agents Robots and Us · 72% compétences applicables dans les deux contextes",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 2,
+          "value": 70,
+          "year": 2025,
+          "citation": "Commission européenne · IA & travail",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 67,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 42% protégés + 25% augmentés = 67% sans transformation profonde immédiate",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 62,
+          "year": 2024,
+          "citation": "Autor · augmentation vs remplacement",
+          "ai_type": "automation_broad"
+        }
+      ]
+    },
+    {
+      "title": "Jeunes (18-24 ans) utilisant l'IA chaque semaine",
+      "unit": "%",
+      "n_sources": 7,
+      "value_min": 20,
+      "value_max": 93,
+      "value_median": 74,
+      "description_fr": "Les jeunes ont adopté l'IA bien avant leurs employeurs : entre 73% et 93% des 18-25 ans l'utilisent chaque semaine. Cette adoption massive ne les protège pas pour autant. Les postes à risque immédiat dans les catégories Divergent et Substituted de la segmentation BCG sont précisément ceux occupés par des juniors tâches structurées, répétitives, faible valeur de jugement. Les entreprises ralentissent ou gèlent les embauches d'entrée de gamme et attendent des candidats capables de gérer des tâches de plus haut niveau dès le premier jour. La fluidité IA devient un substitut à l'ancienneté dans l'évaluation des candidatures.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 80,
+          "year": 2025,
+          "citation": "Stanford HAI AI Index 2026 · 4 étudiants sur 5 à l'université utilisent la GenAI · mais school policies non alignées · 46.1% des travailleurs veulent que l'IA prenne en charge certaines tâches",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 20,
+          "year": 2025,
+          "citation": "Stanford HAI AI Index 2026 · Brynjolfsson et al. 2025 données ADP · emploi développeurs 22-25 ans −20% depuis pic 2022 · pattern identique service client · gap débute mi-2024",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 3,
+          "value": 73,
+          "year": 2025,
+          "citation": "Ifop-Jedha (n=1003)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 74,
+          "year": 2025,
+          "citation": "Ipsos-CESI (n=1048)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 93,
+          "year": 2025,
+          "citation": "Born AI / Heaven (n=495, 6 mois)",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 78,
+          "year": 2026,
+          "citation": "Coface/OEM citant Hosseini & Lichtinger SSRN 2025 · jeunes travailleurs disproportionnellement touchés · gel embauches juniors dans métiers exposés · pas seniors",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 66,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · Gen Z 66.02% augmentés ou profondément transformés (37.23% profond)",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Délai avant impact majeur marché travail FR",
+      "unit": "ans",
+      "n_sources": 10,
+      "value_min": 4,
+      "value_max": 75,
+      "value_median": 6,
+      "description_fr": "Le paradoxe actuel : l'IA est omniprésente dans les discours et quasi-absente des statistiques de l'emploi. Ce décalage est structurel : le déploiement à grande échelle des systèmes agentiques exige des experts d'intégration ingénieurs forward-deployed, intégrateurs système, chefs de projet dont l'offre reste très inférieure à la demande. La substitution complète est encore plus lente que l'augmentation car elle oblige à formaliser les savoirs tacites et à reconstruire les processus de zéro. Les signaux précoces convergent, mais même dans le scénario d'accélération, le pic d'impact se mesure en années.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 5,
+          "year": 2026,
+          "citation": "Massenkoff & McCrory · no unemployment impact detected yet (Anthropic 2026)",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 7,
+          "year": 2022,
+          "citation": "Frey & Osborne · timing",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 6,
+          "year": 2025,
+          "citation": "McKinsey MGI · adoption takes time · electricity took 30+ years",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 8,
+          "year": 2024,
+          "citation": "Acemoglu · gradual adoption",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 4,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · IA agentique (Special Agent) commence à se déployer · effets agrégés absents MAIS signaux précoces convergents · phase actuelle = signal précoce, pas le choc principal",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 2,
+          "value": 4,
+          "year": 2025,
+          "citation": "BPI France · rupture IA",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 5,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 56% entreprises FR prévoient d'augmenter leurs effectifs IA",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 8,
+          "year": 2026,
+          "citation": "Karger, Kuusela, Tetlock et al. mars 2026 · T1 · même en scénario rapide : déclin LFPR 'gradual' 62%→55% d'ici 2050 · 'historically unprecedented' mais pas 'transformative acceleration'",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 75,
+          "year": 2026,
+          "citation": "Jones & Tonetti 'Weak Links' · Stanford 2026 · même avec automatisation totale en temps fini : 'paths indistinguishable for next 75 years' · weak links = élasticité substitution <1",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 6,
+          "year": 2026,
+          "citation": "BCG Henderson Institute avr. 2026 · lag multiyear entre potentiel et réalisation · talent d'intégration (forward-deployed engineers) = goulot d'étranglement · industries financières et juridiques : potentiel fort mais adoption non déployée",
+          "ai_type": "automation_broad"
+        }
+      ]
+    },
+    {
+      "title": "Prime salariale IA · écart emplois IA vs non-IA",
+      "unit": "%",
+      "n_sources": 6,
+      "value_min": 25,
+      "value_max": 172,
+      "value_median": 56,
+      "description_fr": "Maîtriser l'IA paie déjà, et la prime se creuse : les postes intégrant des compétences IA affichent une rémunération supérieure de 47 à 56% à leurs équivalents sans cette dimension. Cette prime a doublé en un an. Mais cette récompense coexiste avec un risque inédit : les professions les mieux payées sont aussi celles dont le plus de tâches sont automatisables. L'IA ne creuse plus la polarisation habituelle entre cols bleus et cols blancs elle comprime les revenus par le haut en ciblant les tâches cognitives complexes des hauts salaires, renversant le schéma de toutes les révolutions technologiques précédentes.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 172,
+          "year": 2026,
+          "citation": "Stanford HAI AI Index 2026 · consumer surplus GenAI US = 172Mds$ annuels début 2026 · vs 112Mds$ un an avant · valeur médiane par utilisateur ×3 en 1 an",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 2,
+          "value": 56,
+          "year": 2025,
+          "citation": "PwC AI Jobs Barometer 2025 · worldwide · doublé en 1 an",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 25,
+          "year": 2024,
+          "citation": "PwC AI Jobs Barometer 2024 · baseline précédent",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 47,
+          "year": 2026,
+          "citation": "Massenkoff & McCrory · Anthropic Economic Index · workers in exposed jobs earn 47% more",
+          "ai_type": "generative"
+        },
+        {
+          "tier": 1,
+          "value": 60,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · 20-25% contenu tâches à risque dans le 10ème décile de revenus · les mieux payés sont les plus exposés · inversion polarisation historique",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 4,
+          "value": 30,
+          "year": 2024,
+          "citation": "Estimation DARES France",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Offres d'emploi liées à l'IA en France (milliers)",
+      "unit": "k",
+      "n_sources": 4,
+      "value_min": 21,
+      "value_max": 166,
+      "value_median": 147,
+      "description_fr": "La France est le premier marché européen pour les emplois liés à l'IA, avec 166 000 offres publiées en 2024 soit une hausse de 273% par rapport à 2019. Elle devance l'Allemagne et le Royaume-Uni. Cette position de leader cache une tension : les postes IA français exigent davantage de diplômes qu'ailleurs, à contre-courant de la tendance mondiale. Le marché crée, mais les profils qu'il demande ne sont pas encore produits à grande échelle par la formation initiale. La prime salariale associée est réelle et mesurable dès aujourd'hui.",
+      "sources": [
+        {
+          "tier": 2,
+          "value": 166,
+          "year": 2025,
+          "citation": "PwC AI Jobs Barometer 2025 · France N°1 Europe · 2024",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 21,
+          "year": 2019,
+          "citation": "PwC · base 2019 · +273% en 6 ans",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 147,
+          "year": 2025,
+          "citation": "Allemagne · 2ème EU · référence comparative",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 125,
+          "year": 2025,
+          "citation": "Royaume-Uni · 3ème EU · référence comparative",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Capacité productive libérable par l'IA (% PIB)",
+      "unit": "%",
+      "n_sources": 5,
+      "value_min": 12,
+      "value_max": 18,
+      "value_median": 16,
+      "description_fr": "L'IA représente un potentiel de 523 milliards de dollars de capacité productive libérable pour l'économie française environ 16,5% du PIB. Ce chiffre ne signifie pas une création de richesse automatique, mais une réallocation possible du temps humain vers des tâches à plus haute valeur. La question n'est pas de savoir si cette capacité sera libérée, mais qui en captera les bénéfices. Les travailleurs qui s'adaptent, les entreprises qui déploient activement l'IA, ou les sociétés technologiques qui contrôlent l'infrastructure mondiale : la répartition de ces gains est le vrai enjeu politique des prochaines années.",
+      "sources": [
+        {
+          "tier": 2,
+          "value": 16.5,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · Access Partnership · 523 Mds$ = 16.5% PIB FR 2024",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 14,
+          "year": 2024,
+          "citation": "McKinsey · automation potential EU advanced economies (adapté France)",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 1,
+          "value": 12,
+          "year": 2025,
+          "citation": "FMI WP/2025/067 · gains productivité IA zone euro 10 ans",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 18,
+          "year": 2025,
+          "citation": "Goldman Sachs · global AI productivity potential",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 1,
+          "value": 16,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · 16% contenu tâches exposé Special Agent · risque de capture par les entreprises technologiques US d'une partie des gains de productivité",
+          "ai_type": "agentic"
+        }
+      ]
+    },
+    {
+      "title": "% professions fortement exposées IA agentique FR",
+      "unit": "%",
+      "n_sources": 6,
+      "value_min": 13,
+      "value_max": 33,
+      "value_median": 25,
+      "description_fr": "L'IA agentique représente le vrai seuil de rupture. En France, 13% des professions dépassent le seuil critique de 30% de tâches automatisables. La segmentation BCG Henderson Institute affine ce tableau à l'échelle américaine : 12% des emplois en substitution directe (demande bornée, l'IA exécute les tâches centrales), 12% en divergence (demande expansible mais postes juniors éliminés en premier). Adapté à la France, ce total de 24% descend à environ 19-20% en raison des protections contractuelles et du secteur industriel plus présent. La fenêtre pour se former et pivoter se mesure en années, pas en décennies.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 13,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · 13% des 923 professions > 30% tâches auto. · Special Agent · task-based framework granulaire",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 15,
+          "year": 2026,
+          "citation": "Coface/OEM · 15% professions < 5% exposition = quasi-immunisées (travail physique)",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 33,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 33% professions 'profondément transformées'",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 25,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 25% professions 'augmentées'",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 30,
+          "year": 2024,
+          "citation": "McKinsey · 1/3 métiers verront >10% compétences très transformées d'ici 2030",
+          "ai_type": "automation_broad"
+        },
+        {
+          "tier": 2,
+          "value": 24,
+          "year": 2026,
+          "citation": "BCG Henderson Institute avr. 2026 · Substituted 12% + Divergent 12% = 24% emplois US à risque élevé · adapté France ~19-20% (correction rigidités)",
+          "ai_type": "automation_broad"
+        }
+      ]
+    },
+    {
+      "title": "Part du secteur relationnel dans l'emploi post-IA",
+      "unit": "%",
+      "n_sources": 3,
+      "value_min": 30,
+      "value_max": 35,
+      "value_median": 33,
+      "description_fr": "Imas (2026) modélise le changement structurel post-IA : quand la production standardisée est automatisée, la demande se réalloue vers les secteurs à haute élasticité-revenu — care, éducation, hospitality, artisanat, performance, thérapie. Comin et al. (2021 Econometrica) confirment que les effets-revenus expliquent 75% de ce type de réallocation historique. Imas et Mandel (2026) : l'implication IA réduit la prime d'exclusivité de 44% à 21% — la présence humaine dans la production est elle-même une valeur économique. Le secteur relationnel ne disparait pas avec l'IA, il devient plus précieux.",
+      "sources": [
+        {
+          "tier": 2,
+          "value": 35,
+          "year": 2026,
+          "citation": "Imas 2026 · Structural Change AGI model · relational sector employment share",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 2,
+          "value": 30,
+          "year": 2021,
+          "citation": "Comin, Lashkari, Mestieri · Econometrica 2021 · income effects 75% structural change",
+          "ai_type": "unspecified"
+        },
+        {
+          "tier": 3,
+          "value": 33,
+          "year": 2026,
+          "citation": "Imas 2026 · BLS Consumer Expenditure Survey · ~50M US workers relational sectors actuellement",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "% métiers à risque élevé d'automatisation CT (France)",
+      "unit": "%",
+      "n_sources": 3,
+      "value_min": 3.8,
+      "value_max": 18,
+      "value_median": 15,
+      "description_fr": "Richmond (OpenAI 2026) classe 18% des professions US dans l'archétype risque élevé : forte exposition, faible nécessité humaine réglementaire, demande inélastique. Adapté France avec correction -20% : environ 15% des emplois. Ces métiers cumulent les trois facteurs défavorables — l'IA peut y faire beaucoup, la présence humaine n'est pas structurellement obligatoire, et la baisse des prix ne génère pas assez de demande supplémentaire pour absorber les gains de productivité. Exemples : saisie de données, traitement administratif, contenu générique, services client standardisés.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 18,
+          "year": 2026,
+          "citation": "Richmond OpenAI 2026 · 18% US jobs high automation risk · framework 3 dimensions",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 15,
+          "year": 2026,
+          "citation": "Richmond OpenAI 2026 adapté France · correction -20% (CDI AI Act 35h) · 15% emplois FR archétype risque élevé",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 3.8,
+          "year": 2026,
+          "citation": "Coface/OEM Avr. 2026 · 3,8% emplois FR actuellement fragilisés phase Copilot · convergent avec framework OpenAI court terme",
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "% métiers qui se réorganisent sans disparaître (France)",
+      "unit": "%",
+      "n_sources": 3,
+      "value_min": 20,
+      "value_max": 33,
+      "value_median": 24,
+      "description_fr": "L'archétype réorganisation du framework OpenAI (Richmond 2026) est le plus important en volume : 24% des emplois US ont une forte exposition et une forte nécessité humaine (réglementaire, relationnelle ou physique), mais la demande n'est pas assez élastique pour absorber les gains de productivité. Le nombre de postes peut baisser même si les humains restent indispensables, car chaque professionnel fait plus avec l'IA. Exemples US : médecins, avocats, enseignants, infirmiers. En France, la correction réglementaire atténue l'effet.",
+      "sources": [
+        {
+          "tier": 1,
+          "value": 24,
+          "year": 2026,
+          "citation": "Richmond OpenAI 2026 · 24% US jobs reorganize · forte nécessité humaine + demande inélastique",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 1,
+          "value": 20,
+          "year": 2026,
+          "citation": "Richmond OpenAI 2026 adapté France · 20% emplois FR archétype réorganisation",
+          "ai_type": "agentic"
+        },
+        {
+          "tier": 2,
+          "value": 33,
+          "year": 2025,
+          "citation": "LinkedIn AI Report France 2025 · 33% professions profondément transformées · convergent avec archétype réorganisation",
+          "ai_type": "unspecified"
+        }
+      ]
+    }
+  ]
+}

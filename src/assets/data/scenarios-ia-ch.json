@@ -1,0 +1,44 @@
+{
+  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/scenarios-ia-ch.schema.json",
+  "version": "0.3.0",
+  "compiled_at": "2026-04-26",
+  "country": "CH",
+  "scope": "Scénarios prospectifs · gains de productivité IA en Suisse 2025-2030",
+  "license": "CC BY 4.0",
+  "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
+  "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
+  "method_note": "Probabilités agrégées à partir de 18 économistes/institutions référencés et de méta-analyses 2024-2026. Voir economistes-ia-ch.json pour le détail.",
+  "count": 5,
+  "scenarios": [
+    {
+      "name": "Stagnation",
+      "annual_productivity_growth_range": "0–0.5%/an",
+      "probability_pct": 8,
+      "color_hex": "#C43820"
+    },
+    {
+      "name": "Croissance modérée",
+      "annual_productivity_growth_range": "0.5–1.5%/an",
+      "probability_pct": 22,
+      "color_hex": "#D47820"
+    },
+    {
+      "name": "Accélération IA",
+      "annual_productivity_growth_range": "1.5–3%/an",
+      "probability_pct": 40,
+      "color_hex": "#138050"
+    },
+    {
+      "name": "Transformation majeure",
+      "annual_productivity_growth_range": "3–5%/an",
+      "probability_pct": 22,
+      "color_hex": "#1E5CB8"
+    },
+    {
+      "name": "Rupture technologique",
+      "annual_productivity_growth_range": ">5%/an",
+      "probability_pct": 8,
+      "color_hex": "#8B3DAA"
+    }
+  ]
+}

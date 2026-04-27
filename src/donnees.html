@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Données ouvertes · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.dl-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.dl-card {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.dl-card:hover { background: var(--paper-2); border-color: var(--ink); }
+.dl-format {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--signal);
+}
+.dl-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 60, "SOFT" 30;
+  font-weight: 500; font-size: 28px;
+  line-height: 1.1; letter-spacing: -0.01em;
+}
+.dl-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; color: var(--muted);
+  display: flex; gap: 18px; flex-wrap: wrap;
+}
+.dl-desc {
+  font-size: 14px; line-height: 1.5;
+  color: var(--ink-2); flex: 1;
+}
+.dl-actions {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-top: 8px;
+}
+.dl-btn {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.18s;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dl-btn:hover { background: var(--ink); color: var(--paper); }
+.dl-btn.primary { background: var(--ink); color: var(--paper); }
+.dl-btn.primary:hover { background: var(--signal); border-color: var(--signal); }
+
+.schema-block {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.schema-pre {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre;
+}
+.schema-pre .key { color: #F7E27D; }
+.schema-pre .str { color: #B6E0C2; }
+.schema-pre .com { color: #8B8579; font-style: italic; }
+
+.license-block {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.license-card {
+  border-left: 3px solid var(--signal);
+  padding-left: 24px;
+}
+.license-card h3 {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.license-card p {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-2);
+}
+
+@media (max-width: 960px) {
+  .dl-grid, .license-block { grid-template-columns: 1fr; padding: 0 20px 40px; }
+  .schema-block { padding: 0 20px 40px; }
+  .schema-pre { font-size: 11px; padding: 20px; }
+  .dl-card { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <div class="dash-flag mono"><span data-i18n="dn.tag"></span></div>
+  <h1 class="dash-title" data-i18n="dn.title" data-i18n-html></h1>
+  <p class="dash-lede" data-i18n="dn.lede"></p>
+</section>
+
+<!-- DOWNLOADS -->
+<div class="section-head no-border">
+  <div class="section-eyebrow mono" data-i18n="dn.dl.eyebrow"></div>
+  <h2 class="section-title" data-i18n="dn.dl.title"></h2>
+  <p class="section-sub" data-i18n="dn.dl.sub"></p>
+</div>
+
+<div class="dl-grid">
+  <div class="dl-card">
+    <div class="dl-format">JSON · UTF-8</div>
+    <h3 class="dl-name">observatoires.json</h3>
+    <div class="dl-meta">
+      <span><span data-i18n="dn.records"></span> 14</span>
+      <span>~12 KB</span>
+      <span data-i18n="dn.bilingual"></span>
+    </div>
+    <p class="dl-desc" data-i18n="dn.obs.desc"></p>
+    <div class="dl-actions">
+      <button class="dl-btn primary" onclick="downloadJSON('observatoires')">
+        <span data-i18n="dn.download"></span> .json
+      </button>
+      <button class="dl-btn" onclick="downloadCSV('observatoires')">
+        <span data-i18n="dn.download"></span> .csv
+      </button>
+    </div>
+  </div>
+
+  <div class="dl-card">
+    <div class="dl-format">JSON · UTF-8</div>
+    <h3 class="dl-name">veille.json</h3>
+    <div class="dl-meta">
+      <span><span data-i18n="dn.records"></span> 6</span>
+      <span>~3 KB</span>
+      <span data-i18n="dn.bilingual"></span>
+    </div>
+    <p class="dl-desc" data-i18n="dn.veille.desc"></p>
+    <div class="dl-actions">
+      <button class="dl-btn primary" onclick="downloadJSON('veille')">
+        <span data-i18n="dn.download"></span> .json
+      </button>
+      <button class="dl-btn" onclick="downloadCSV('veille')">
+        <span data-i18n="dn.download"></span> .csv
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEMA -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="dn.schema.eyebrow"></div>
+  <h2 class="section-title" data-i18n="dn.schema.title"></h2>
+  <p class="section-sub" data-i18n="dn.schema.sub"></p>
+</div>
+
+<div class="schema-block">
+<pre class="schema-pre"><span class="com">// observatoires.json · record schema</span>
+{
+  <span class="key">"id"</span>:       <span class="str">"transitions-ia"</span>,        <span class="com">// kebab-case unique slug</span>
+  <span class="key">"nom"</span>:      <span class="str">"transitions-ia.ch"</span>,     <span class="com">// display name (lang-agnostic)</span>
+  <span class="key">"org"</span>:      { <span class="key">"fr"</span>: ..., <span class="key">"en"</span>: ... }, <span class="com">// parent organisation, bilingual</span>
+  <span class="key">"country"</span>:  <span class="str">"CH"</span> | <span class="str">"FR"</span>,
+  <span class="key">"type"</span>:     <span class="str">"public"</span> | <span class="str">"academique"</span> | <span class="str">"branche"</span> | <span class="str">"independant"</span>,
+  <span class="key">"domains"</span>:  [ <span class="str">"emploi"</span>, <span class="str">"formation"</span>, <span class="str">"gouvernance"</span>, <span class="str">"statistiques"</span> ],
+  <span class="key">"freq"</span>:     { <span class="key">"fr"</span>: ..., <span class="key">"en"</span>: ... }, <span class="com">// publication cadence</span>
+  <span class="key">"desc"</span>:     { <span class="key">"fr"</span>: ..., <span class="key">"en"</span>: ... }, <span class="com">// 1-2 sentence description</span>
+  <span class="key">"last"</span>:     <span class="str">"YYYY-MM"</span>,                <span class="com">// most recent publication detected</span>
+  <span class="key">"url"</span>:      <span class="str">"https://..."</span>             <span class="com">// canonical primary source</span>
+}</pre>
+</div>
+
+<!-- LICENSE -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="dn.lic.eyebrow"></div>
+  <h2 class="section-title" data-i18n="dn.lic.title"></h2>
+</div>
+
+<div class="license-block">
+  <div class="license-card">
+    <h3 data-i18n="dn.lic.agg.title"></h3>
+    <p data-i18n="dn.lic.agg.text"></p>
+  </div>
+  <div class="license-card">
+    <h3 data-i18n="dn.lic.src.title"></h3>
+    <p data-i18n="dn.lic.src.text"></p>
+  </div>
+</div>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "dn.tag": "Données ouvertes · CC BY 4.0",
+    "dn.title": "Les données. <em>Brutes</em>.",
+    "dn.lede": "L'agrégation est publiée sous licence Creative Commons. Téléchargez, copiez, forkez, corrigez. La crédibilité d'un observatoire passe par la transparence de ses fichiers.",
+    "dn.dl.eyebrow": "Téléchargements · 2 fichiers",
+    "dn.dl.title": "Récupérer les données.",
+    "dn.dl.sub": "Deux fichiers structurés en JSON, exportables en CSV à la volée.",
+    "dn.records": "Entrées :",
+    "dn.bilingual": "FR + EN",
+    "dn.obs.desc": "Liste complète des observatoires CH et FR référencés, avec leurs métadonnées (pays, type, domaines, fréquence, dernière mise à jour, URL source).",
+    "dn.veille.desc": "Sélection éditoriale des publications récentes (30 derniers jours) issues des observatoires référencés et de sources internationales d'intérêt.",
+    "dn.download": "Télécharger",
+    "dn.schema.eyebrow": "Schéma · observatoires.json",
+    "dn.schema.title": "La structure d'un enregistrement.",
+    "dn.schema.sub": "Un fichier observatoires.json est un tableau d'objets respectant le schéma suivant. Les champs bilingues utilisent un sous-objet { fr, en }.",
+    "dn.lic.eyebrow": "Licences",
+    "dn.lic.title": "Ce que vous pouvez en faire.",
+    "dn.lic.agg.title": "L'agrégation",
+    "dn.lic.agg.text": "Le travail de cartographie, de classification et de description de cet observatoire est publié sous licence Creative Commons Attribution 4.0 International (CC BY 4.0). Vous pouvez la copier, modifier, redistribuer, y compris à des fins commerciales, à condition de créditer observatoire[s]·ia et Naully Nicolas.",
+    "dn.lic.src.title": "Les sources sous-jacentes",
+    "dn.lic.src.text": "Chaque observatoire référencé conserve sa propre licence. Les chiffres et rapports cités appartiennent à leurs auteurs respectifs (OFS, DARES, France Stratégie, etc.) et sont utilisés ici à titre référentiel. Pour réutiliser leur contenu, consultez les conditions de chaque source primaire."
+  },
+  en: {
+    "dn.tag": "Open data · CC BY 4.0",
+    "dn.title": "The data. <em>Raw</em>.",
+    "dn.lede": "The aggregation is published under a Creative Commons license. Download, copy, fork, correct. An observatory's credibility comes from the transparency of its files.",
+    "dn.dl.eyebrow": "Downloads · 2 files",
+    "dn.dl.title": "Get the data.",
+    "dn.dl.sub": "Two JSON-structured files, exportable to CSV on the fly.",
+    "dn.records": "Records:",
+    "dn.bilingual": "FR + EN",
+    "dn.obs.desc": "Complete list of referenced CH and FR observatories, with metadata (country, type, domains, frequency, last update, source URL).",
+    "dn.veille.desc": "Editorial selection of recent publications (last 30 days) from referenced observatories and international sources of interest.",
+    "dn.download": "Download",
+    "dn.schema.eyebrow": "Schema · observatoires.json",
+    "dn.schema.title": "Record structure.",
+    "dn.schema.sub": "An observatoires.json file is an array of objects matching the schema below. Bilingual fields use a { fr, en } sub-object.",
+    "dn.lic.eyebrow": "Licenses",
+    "dn.lic.title": "What you can do with it.",
+    "dn.lic.agg.title": "The aggregation",
+    "dn.lic.agg.text": "The cartography, classification and description work of this observatory is published under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You can copy, modify and redistribute it, including for commercial purposes, provided you credit observatoire[s]·ia and Naully Nicolas.",
+    "dn.lic.src.title": "Underlying sources",
+    "dn.lic.src.text": "Each referenced observatory retains its own license. The figures and reports cited belong to their respective authors (FSO, DARES, France Stratégie, etc.) and are used here for reference. To reuse their content, consult the terms of each primary source."
+  }
+};
+
+function downloadJSON(name) {
+  const data = name === "observatoires" ? window.OBSERVATOIRES_DATA : window.VEILLE_DATA;
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  triggerDownload(blob, name + ".json");
+}
+
+function downloadCSV(name) {
+  const data = name === "observatoires" ? window.OBSERVATOIRES_DATA : window.VEILLE_DATA;
+  let csv = "";
+  if (name === "observatoires") {
+    csv = "id,nom,country,type,domains,freq_fr,freq_en,last,url,desc_fr,desc_en\n";
+    data.forEach((o) => {
+      const row = [
+        o.id, o.nom, o.country, o.type,
+        o.domains.join(";"),
+        o.freq.fr, o.freq.en,
+        o.last, o.url,
+        '"' + o.desc.fr.replace(/"/g, '""') + '"',
+        '"' + o.desc.en.replace(/"/g, '""') + '"'
+      ];
+      csv += row.join(",") + "\n";
+    });
+  } else {
+    csv = "date,source,country,title_fr,title_en,excerpt_fr,excerpt_en,url\n";
+    data.forEach((v) => {
+      const row = [
+        v.date, v.source, v.country,
+        '"' + v.title.fr.replace(/"/g, '""') + '"',
+        '"' + v.title.en.replace(/"/g, '""') + '"',
+        '"' + v.excerpt.fr.replace(/"/g, '""') + '"',
+        '"' + v.excerpt.en.replace(/"/g, '""') + '"',
+        v.url
+      ];
+      csv += row.join(",") + "\n";
+    });
+  }
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  triggerDownload(blob, name + ".csv");
+}
+
+function triggerDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+initSite("data");
+</script>
+</body>
+</html>
