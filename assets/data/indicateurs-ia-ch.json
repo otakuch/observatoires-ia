@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-ch.schema.json",
   "version": "0.3.0",
-  "compiled_at": "2026-04-26",
+  "compiled_at": "2026-04-28",
   "country": "CH",
   "scope": "Indicateurs prospectifs IA & emploi · Suisse",
   "license": "CC BY 4.0",

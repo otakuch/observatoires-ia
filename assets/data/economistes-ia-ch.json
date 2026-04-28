@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/economistes-ia-ch.schema.json",
   "version": "0.3.0",
-  "compiled_at": "2026-04-26",
+  "compiled_at": "2026-04-28",
   "scope": "Économistes & institutions référencés (focus Suisse) · positions sur scénarios IA",
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",

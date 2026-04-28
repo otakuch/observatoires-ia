@@ -114,11 +114,10 @@
 </head>
 <body>
 
-<nav class="nav" id="siteNav"></nav>
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
 <section class="dash-header">
-  <div class="dash-flag mono"><span data-i18n="me.tag"></span></div>
   <h1 class="dash-title" data-i18n="me.title" data-i18n-html></h1>
   <p class="dash-lede" data-i18n="me.lede"></p>
 </section>
@@ -327,9 +326,54 @@
     </div>
   </div>
 
-  <!-- 08 · DISCLOSURE ÉDITORIALE -->
+  <!-- 08 · LE DISPATCH·IA -->
+  <div class="method-grid" id="dispatch">
+    <div class="method-tag">08 · <span data-i18n="me.dispatch.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.dispatch.title" data-i18n-html></h3>
+      <p data-i18n="me.dispatch.p1"></p>
+      <h4 data-i18n="me.dispatch.h1"></h4>
+      <p data-i18n="me.dispatch.p2"></p>
+      <h4 data-i18n="me.dispatch.h2"></h4>
+      <p data-i18n="me.dispatch.p3"></p>
+      <h4 data-i18n="me.dispatch.h3"></h4>
+      <p data-i18n="me.dispatch.p4" data-i18n-html></p>
+      <h4 data-i18n="me.dispatch.h4"></h4>
+      <p data-i18n="me.dispatch.p5"></p>
+    </div>
+  </div>
+
+  <!-- 09 · SOCLE DE DONNÉES -->
+  <div class="method-grid" id="datasets">
+    <div class="method-tag">09 · <span data-i18n="me.data.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.data.title" data-i18n-html></h3>
+      <p data-i18n="me.data.intro" data-i18n-html></p>
+
+      <h4 data-i18n="me.data.h_fr"></h4>
+      <ul>
+        <li data-i18n="me.data.d1" data-i18n-html></li>
+        <li data-i18n="me.data.d2" data-i18n-html></li>
+        <li data-i18n="me.data.d3" data-i18n-html></li>
+        <li data-i18n="me.data.d4" data-i18n-html></li>
+        <li data-i18n="me.data.d5" data-i18n-html></li>
+      </ul>
+
+      <h4 data-i18n="me.data.h_ch"></h4>
+      <ul>
+        <li data-i18n="me.data.d6" data-i18n-html></li>
+        <li data-i18n="me.data.d7" data-i18n-html></li>
+        <li data-i18n="me.data.d8" data-i18n-html></li>
+        <li data-i18n="me.data.d9" data-i18n-html></li>
+      </ul>
+
+      <p data-i18n="me.data.note" data-i18n-html></p>
+    </div>
+  </div>
+
+  <!-- 10 · DISCLOSURE ÉDITORIALE -->
   <div class="method-grid">
-    <div class="method-tag">08 · <span data-i18n="me.disc.tag"></span></div>
+    <div class="method-tag">10 · <span data-i18n="me.disc.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.disc.title" data-i18n-html></h3>
       <p data-i18n="me.disc.p1"></p>
@@ -338,9 +382,9 @@
     </div>
   </div>
 
-  <!-- 09 · CONTRIBUER -->
+  <!-- 11 · CONTRIBUER -->
   <div class="method-grid">
-    <div class="method-tag">09 · <span data-i18n="me.contrib.tag"></span></div>
+    <div class="method-tag">11 · <span data-i18n="me.contrib.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.contrib.title"></h3>
       <p data-i18n="me.contrib.p1" data-i18n-html></p>
@@ -363,7 +407,7 @@
 <script>
 window.PAGE_I18N = {
   fr: {
-    "me.tag": "Méthodologie · v0.2",
+    "me.tag": "",
     "me.title": "Comment <em>on cartographie</em>.",
     "me.lede": "Toute cartographie repose sur des choix invisibles, qui finissent par déterminer ce que l'on voit. Cette page expose les nôtres en clair : critères de sélection des observatoires, méthodes de calcul des indicateurs, nomenclatures nationales mobilisées, biais structurels reconnus. Lire un dashboard sans connaître sa méthode revient à lire un thermomètre sans en connaître l'échelle.",
     "me.context.tag": "Le cadre",
@@ -491,6 +535,34 @@ window.PAGE_I18N = {
     "me.update.p1": "Les fiches observatoires sont vérifiées et mises à jour mensuellement. La date affichée sur chaque carte (\"MAJ 2026-04\") reflète la dernière publication détectée par cette source, pas la date de notre dernière vérification de la fiche.",
     "me.update.p2": "La veille (Field Report) est rafraîchie toutes les deux semaines. Une publication n'apparaît dans la veille que si elle apporte une donnée nouvelle ou une méthodologie inédite, pas un simple commentaire ou une reformulation de chiffres existants.",
 
+    "me.dispatch.tag": "Le Dispatch·iA",
+    "me.dispatch.title": "Le format <em>Dispatch·iA</em> en détail.",
+    "me.dispatch.p1": "Le Dispatch·iA est une dépêche sectorielle stratégique, publiée à cadence cible mensuelle. Le format s'inspire des dépêches diplomatiques de la Renaissance décrites par Garrett Mattingly : observation à distance, faits vérifiés, recommandation d'action. Chaque dépêche est conçue pour cadrer une décision dans les six à douze mois, pas pour rapporter une actualité chaude.",
+    "me.dispatch.h1": "Deux éditions",
+    "me.dispatch.p2": "Chaque sujet existe en deux versions complémentaires. La version libre, accessible sans inscription, fournit la synthèse, les principaux constats, les chiffres-clés sourcés et les implications stratégiques. Elle se lit en cinq à sept minutes et suffit à cadrer un comité de direction. La version exécutive est un document PDF de douze à dix-huit pages, livré dans une mise en page inspirée des notes de cabinet. Elle contient les sources brutes, les tableaux de données, les scénarios chiffrés et les recommandations tactiques par segment décisionnel. Elle est payante, vendue à l'unité ou par abonnement annuel.",
+    "me.dispatch.h2": "Critères de sélection des sujets",
+    "me.dispatch.p3": "Trois critères doivent être réunis pour qu'un sujet devienne une dépêche. Premièrement, un signal observable et mesurable doit exister : un chiffre, une variation, un point de bascule documenté dans des sources primaires. Deuxièmement, une matérialité décisionnelle doit se manifester dans les six à douze mois : la dépêche doit servir une décision concrète de comité de direction, pas alimenter un débat académique. Troisièmement, au moins une source primaire originale doit être exploitée par mes soins, pas simplement citée d'un agrégateur.",
+    "me.dispatch.h3": "Traçabilité des sources",
+    "me.dispatch.p4": "Toutes les sources citées renvoient à leur publication d'origine. Lorsqu'une source figure dans la cartographie de l'observatoire, le lien renvoie également à la fiche correspondante. La section <em>Sources et traçabilité</em> de chaque dépêche détaille trois sources primaires, avec leur identification (auteur, institution, date), leur nature (étude, rapport, communication officielle) et leur niveau de fiabilité (T1 à T4 selon la grille de la section 02 de cette page).",
+    "me.dispatch.h4": "Articulation avec la cartographie",
+    "me.dispatch.p5": "Les dépêches ne remplacent pas la cartographie : elles l'incarnent sur un sujet précis. La cartographie expose ce que disent les observatoires, leurs méthodologies, leurs biais. Les dépêches montrent comment lire ces signaux pour décider. Une dépêche bien faite cite au moins deux fiches de la cartographie et au moins une source primaire absente de la cartographie, signe qu'elle ajoute de la valeur au-delà de la simple synthèse de l'existant.",
+
+    "me.data.tag": "Socle de données",
+    "me.data.title": "Neuf jeux de données <em>ouverts</em>, derrière chaque dépêche.",
+    "me.data.intro": "Les dépêches Le Dispatch·iA et l'ensemble des cartographies du site sont produits depuis cette base structurée, mise à jour en continu et publiée en JSON sous licence CC BY 4.0. <strong>Cinq jeux pour la France</strong> (nomenclature ROME 4.0), <strong>quatre jeux pour la Suisse</strong> (nomenclature NP 2010 · OFS). Téléchargez les fichiers, forkez le dépôt, citez ce travail dans vos propres analyses : c'est le commun éditorial du projet.",
+    "me.data.h_fr": "🇫🇷 France · 5 jeux de données",
+    "me.data.d1": "<strong>metiers-ia-fr.json</strong> · score d'exposition à l'IA pour 200 métiers ROME, avec rationale, parcours de reconversion suggérés, salaire médian et effectif national. Champ <code>ai_type</code> qui précise pour chaque source si elle parle d'IA discriminative, générative ou agentique. <a href=\"assets/data/metiers-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d2": "<strong>indicateurs-ia-fr.json</strong> · 15 indicateurs prospectifs France : automatisation 2030, adoption générative, prime salariale, gain de productivité, exposition agentique. Chaque indicateur agrège jusqu'à 14 sources avec écart-type et médiane. <a href=\"assets/data/indicateurs-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 28 jalons 2019-2026 : ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 chômage, Coface 16,3%. Chronologie de référence pour replacer un débat. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d4": "<strong>scenarios-ia-fr.json</strong> · 5 scénarios de croissance de productivité IA France 2025-2030, du « Stagnation 0-0,5%/an » à « Rupture technologique &gt;5%/an », avec probabilités agrégées par 12 économistes. <a href=\"assets/data/scenarios-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d5": "<strong>economistes-ia.json</strong> · 12 économistes référencés (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) avec leur distribution de probabilité sur les 5 scénarios. Permet de cartographier le débat scientifique au-delà des soundbites de presse. <a href=\"assets/data/economistes-ia.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.h_ch": "🇨🇭 Suisse · 4 jeux de données",
+    "me.data.d6": "<strong>metiers-ia-ch.json</strong> · score d'exposition à l'IA pour 324 métiers NP 2010 (Suisse · OFS), avec salaire CHF, effectif national et parcours de reconversion. Couvre les 19 grands domaines économiques suisses, du céréalier vaudois au data scientist zurichois. <a href=\"assets/data/metiers-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d7": "<strong>indicateurs-ia-ch.json</strong> · 10 indicateurs prospectifs Suisse : adoption en entreprise, churn occupationnel, exposition par canton, écart Suisse romande / alémanique. Sources OFS, ESPA 2024, ESS 2022, complétées par Stanford HAI et Coface. <a href=\"assets/data/indicateurs-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d8": "<strong>scenarios-ia-ch.json</strong> · 5 scénarios de productivité IA en Suisse 2025-2030, calibrés sur la structure productive suisse (forte part du tertiaire haut de gamme, banque privée, pharma, horlogerie). <a href=\"assets/data/scenarios-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d9": "<strong>economistes-ia-ch.json</strong> · 18 économistes & institutions suivis (Avenir Suisse, Economiesuisse, KOF ETH, Université de Zurich, EPFL AI Center…) avec leurs positions sur les 5 scénarios. <a href=\"assets/data/economistes-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.note": "<strong>Total : 524 métiers (FR + CH), 25 indicateurs, 28 jalons.</strong> Schémas JSON documentés dans le dépôt GitHub. Contributions, corrections et signalements de biais bienvenus via Pull Request ou via la <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">page de contact</a>.",
+
     "me.disc.tag": "Disclosure éditoriale",
     "me.disc.title": "Comment ces <em>dossiers</em> sont produits.",
     "me.disc.p1": "Les dépêches Le Dispatch·iA, les pages thématiques et les analyses publiées sur ce site sont produites avec l'assistance d'une intelligence artificielle (Claude Opus 4.7, en modes Research et Web Search), puis soumises à une vérification factuelle contre les sources primaires citées.",
@@ -505,7 +577,7 @@ window.PAGE_I18N = {
     "me.cta.btn": "Données ouvertes"
   },
   en: {
-    "me.tag": "Methodology · v0.2",
+    "me.tag": "",
     "me.title": "How <em>we map</em>.",
     "me.lede": "Every cartography rests on invisible choices that ultimately determine what is seen. This page sets ours out plainly: criteria for selecting observatories, methods of computing the indicators, national taxonomies used, and acknowledged structural biases. Reading a dashboard without knowing its method is like reading a thermometer without knowing its scale.",
     "me.context.tag": "The frame",
@@ -632,6 +704,34 @@ window.PAGE_I18N = {
     "me.update.title": "When the map shifts.",
     "me.update.p1": "Observatory cards are verified and updated monthly. The date shown on each card (\"Updated 2026-04\") reflects the latest publication detected from that source, not the date of our last card check.",
     "me.update.p2": "The Field Report is refreshed every two weeks. A publication only appears in the report if it brings new data or an unprecedented methodology, not a mere commentary or a rephrasing of existing figures.",
+
+    "me.dispatch.tag": "The Dispatch·iA",
+    "me.dispatch.title": "The <em>Dispatch·iA</em> format in detail.",
+    "me.dispatch.p1": "The Dispatch·iA is a strategic sectoral dispatch, published at a target monthly cadence. The format is inspired by the diplomatic dispatches of the Renaissance described by Garrett Mattingly: remote observation, verified facts, action recommendation. Each dispatch is designed to frame a decision within six to twelve months, not to report breaking news.",
+    "me.dispatch.h1": "Two editions",
+    "me.dispatch.p2": "Each topic exists in two complementary versions. The free edition, accessible without registration, delivers the synthesis, the main findings, the sourced key figures and the strategic implications. It reads in five to seven minutes and is enough to frame an executive committee. The executive edition is a twelve to eighteen page PDF document, laid out in the style of cabinet notes. It contains the raw sources, data tables, quantified scenarios and tactical recommendations per decisional segment. It is paid, sold per unit or by annual subscription.",
+    "me.dispatch.h2": "Topic selection criteria",
+    "me.dispatch.p3": "Three criteria must be met for a topic to become a dispatch. First, an observable and measurable signal must exist: a figure, a variation, a tipping point documented in primary sources. Second, decisional materiality must manifest within six to twelve months: the dispatch must serve a concrete executive committee decision, not feed an academic debate. Third, at least one original primary source must be worked by myself, not simply cited from an aggregator.",
+    "me.dispatch.h3": "Source traceability",
+    "me.dispatch.p4": "Every cited source links back to its original publication. When a source appears in the observatory cartography, the link also redirects to the corresponding card. The <em>Sources and traceability</em> section of each dispatch details three primary sources, with their identification (author, institution, date), their nature (study, report, official communication) and their reliability level (T1 to T4 according to the grid in section 02 of this page).",
+    "me.dispatch.h4": "Articulation with the cartography",
+    "me.dispatch.p5": "Dispatches do not replace the cartography: they embody it on a specific topic. The cartography exposes what observatories say, their methodologies, their biases. Dispatches show how to read these signals to decide. A well-crafted dispatch cites at least two cards from the cartography and at least one primary source absent from the cartography, a sign that it adds value beyond the simple synthesis of what already exists.",
+
+    "me.data.tag": "Data foundation",
+    "me.data.title": "Nine <em>open</em> datasets, behind every dispatch.",
+    "me.data.intro": "The Dispatch·iA dispatches and all cartographies on this site are produced from this structured database, continuously updated and published as JSON under CC BY 4.0. <strong>Five datasets for France</strong> (ROME 4.0 classification), <strong>four datasets for Switzerland</strong> (NP 2010 · FSO classification). Download the files, fork the repo, cite this work in your own analyses: it is the editorial commons of the project.",
+    "me.data.h_fr": "🇫🇷 France · 5 datasets",
+    "me.data.d1": "<strong>metiers-ia-fr.json</strong> · AI exposure score for 200 ROME occupations, with rationale, suggested reconversion paths, median salary and national headcount. <code>ai_type</code> field that specifies for each source whether it refers to discriminative, generative or agentic AI. <a href=\"assets/data/metiers-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d2": "<strong>indicateurs-ia-fr.json</strong> · 15 prospective indicators for France: 2030 automation, generative adoption, AI wage premium, productivity gain, agentic exposure. Each indicator aggregates up to 14 sources with standard deviation and median. <a href=\"assets/data/indicateurs-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 28 milestones 2019-2026: ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 unemployment, Coface 16.3%. Reference chronology to anchor a debate. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d4": "<strong>scenarios-ia-fr.json</strong> · 5 AI productivity growth scenarios for France 2025-2030, from « Stagnation 0-0.5%/year » to « Technological rupture &gt;5%/year », with probabilities aggregated by 12 economists. <a href=\"assets/data/scenarios-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d5": "<strong>economistes-ia.json</strong> · 12 referenced economists (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) with their probability distribution across the 5 scenarios. Maps the scientific debate beyond press soundbites. <a href=\"assets/data/economistes-ia.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.h_ch": "🇨🇭 Switzerland · 4 datasets",
+    "me.data.d6": "<strong>metiers-ia-ch.json</strong> · AI exposure score for 324 NP 2010 occupations (Switzerland · FSO), with CHF salary, national headcount and reconversion paths. Covers all 19 main Swiss economic domains, from a Vaud cereal farmer to a Zurich data scientist. <a href=\"assets/data/metiers-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d7": "<strong>indicateurs-ia-ch.json</strong> · 10 prospective indicators for Switzerland: enterprise adoption, occupational churn, exposure by canton, French- vs German-speaking divide. Sources FSO, ESPA 2024, ESS 2022, complemented by Stanford HAI and Coface. <a href=\"assets/data/indicateurs-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d8": "<strong>scenarios-ia-ch.json</strong> · 5 AI productivity scenarios for Switzerland 2025-2030, calibrated on the Swiss productive structure (high-end tertiary, private banking, pharma, watchmaking). <a href=\"assets/data/scenarios-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d9": "<strong>economistes-ia-ch.json</strong> · 18 economists & institutions tracked (Avenir Suisse, Economiesuisse, KOF ETH, University of Zurich, EPFL AI Center…) with their positions across the 5 scenarios. <a href=\"assets/data/economistes-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.note": "<strong>Total: 524 occupations (FR + CH), 25 indicators, 28 milestones.</strong> JSON schemas documented in the GitHub repository. Contributions, corrections and bias reports welcome via Pull Request or through the <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">contact page</a>.",
 
     "me.disc.tag": "Editorial disclosure",
     "me.disc.title": "How these <em>dossiers</em> are produced.",

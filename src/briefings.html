@@ -12,13 +12,10 @@
 </head>
 <body>
 
-<nav class="nav" id="siteNav"></nav>
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
 <section class="dash-header">
-  <div class="dash-flag mono">
-    <span data-i18n="bf.tag"></span>
-  </div>
   <h1 class="dash-title" data-i18n="bf.title" data-i18n-html></h1>
   <p class="dash-lede" data-i18n="bf.lede"></p>
 </section>
@@ -48,117 +45,14 @@
   </div>
 </section>
 
-<!-- DATASETS · données ouvertes derrière les dépêches -->
+<!-- DATA · CTA vers méthodologie (section déplacée) -->
 <div class="section-head">
-  <div class="section-eyebrow mono" data-i18n="bf.data.eyebrow"></div>
-  <h2 class="section-title" data-i18n="bf.data.title" data-i18n-html></h2>
-  <p class="section-sub" data-i18n="bf.data.sub"></p>
-</div>
-
-<section class="brief-section brief-sources">
-  <div class="brief-sources-list">
-    <article class="brief-source-card">
-      <div class="brief-source-num">01</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label">metiers-ia-fr.json · 200 métiers ROME</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d1" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/metiers-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/metiers-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">02</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label">indicateurs-ia-fr.json · 15 indicateurs prospectifs</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d2" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/indicateurs-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/indicateurs-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">03</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label">timeline-ia-emploi.json · 28 jalons 2019-2026</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d3" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/timeline-ia-emploi.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/timeline-ia-emploi.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">04</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label">scenarios-ia-fr.json · 5 scénarios prospectifs</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d4" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/scenarios-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/scenarios-ia-fr.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">05</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label">economistes-ia.json · 12 économistes référencés</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d5" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/economistes-ia.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/economistes-ia.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">06</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 metiers-ia-ch.json · 324 métiers NP 2010</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d6" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/metiers-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/metiers-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">07</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 indicateurs-ia-ch.json · 10 indicateurs prospectifs</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d7" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/indicateurs-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/indicateurs-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">08</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 scenarios-ia-ch.json · 5 scénarios suisses</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d8" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/scenarios-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/scenarios-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
-    <article class="brief-source-card">
-      <div class="brief-source-num">09</div>
-      <div class="brief-source-body">
-        <div class="brief-source-label" style="color: var(--signal);">🇨🇭 economistes-ia-ch.json · 18 économistes & institutions</div>
-        <div class="brief-source-cited" data-i18n="bf.data.d9" data-i18n-html></div>
-        <div class="brief-source-links">
-          <a href="assets/data/economistes-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.dl"></a>
-          <a href="https://github.com/otakuch/observatoires-ia/blob/main/assets/data/economistes-ia-ch.json" target="_blank" rel="noopener" data-i18n="bf.data.gh"></a>
-        </div>
-      </div>
-    </article>
+  <h2 class="section-title" data-i18n="bf.dataref.title" data-i18n-html></h2>
+  <p class="section-sub" data-i18n="bf.dataref.sub" data-i18n-html></p>
+  <div style="margin-top: 24px;">
+    <a href="methodologie.html#datasets" class="btn btn-primary" data-i18n="bf.dataref.cta"></a>
   </div>
-  <p style="margin-top: 32px; font-size: 13px; color: var(--muted); max-width: 720px;" data-i18n="bf.data.note" data-i18n-html></p>
-</section>
+</div>
 
 <!-- FILTERS -->
 <div class="section-head">
@@ -208,35 +102,21 @@
 <script>
 window.PAGE_I18N = {
   fr: {
-    "bf.tag": "Le Dispatch·iA · Intelligence stratégique · v0.1",
+    "bf.tag": "",
     "bf.title": "Des <em>dépêches</em> de terrain pour les directions.",
     "bf.lede": "Les ambassades de la Renaissance envoyaient des dépêches à leurs princes : observation à distance, faits vérifiés, recommandation d'action. Le Dispatch·iA reprend ce format, appliqué à l'IA et au travail. Une dépêche sectorielle par mois, en deux éditions : une synthèse libre en ligne pour cadrer le sujet, une édition exécutive PDF pour les directions qui décident.",
 
     "bf.format.tag": "Le format",
     "bf.format.title": "Deux <em>éditions</em>, deux usages.",
-    "bf.format.text": "<p>Chaque dépêche existe en deux éditions distinctes, conçues pour deux moments de lecture différents. La <strong>version libre</strong>, accessible sans inscription, fournit la synthèse, les principaux constats, les chiffres-clés sourcés et les implications stratégiques. Elle se lit en cinq à sept minutes et suffit à cadrer un comité de direction.</p><p>La <strong>version exécutive</strong> est un document PDF de douze à dix-huit pages, livré dans une mise en page inspirée des notes de cabinet et des <em>presidential daily briefings</em> américains. Elle contient les sources brutes, les tableaux de données, les scénarios chiffrés et les recommandations tactiques par segment décisionnel. Elle est payante, vendue à l'unité ou par abonnement.</p><p>La cadence cible est mensuelle. Les sujets sont choisis selon trois critères : un signal observable et mesurable, une matérialité décisionnelle dans les six à douze mois, et au moins une source primaire originale exploitée par mes soins. Toutes les sources citées renvoient à leur publication d'origine et, si elle est dans la cartographie, à la fiche correspondante de l'observatoire.</p>",
+    "bf.format.text": "<p>Chaque dépêche existe en deux éditions distinctes : une <strong>version libre</strong> en ligne qui fournit la synthèse et les chiffres-clés, et une <strong>version exécutive</strong> en PDF qui ajoute les sources brutes, les tableaux et les recommandations tactiques.</p><p>Le format complet, les critères de sélection des sujets, la cadence éditoriale et la traçabilité des sources sont détaillés dans la <a href=\"methodologie.html#dispatch\" style=\"color: var(--signal); font-weight: 500;\">section dédiée de la méthodologie</a>.</p>",
     "bf.kf1": "Mots dans l'édition libre HTML",
     "bf.kf2": "Pages dans l'édition exécutive PDF",
     "bf.kf3.num": "Mensuelle",
     "bf.kf3": "Cadence cible de publication",
 
-    "bf.data.eyebrow": "Le Dispatch·iA · Socle de données",
-    "bf.data.title": "Neuf jeux de données <em>ouverts</em>, derrière chaque dépêche.",
-    "bf.data.sub": "Les dépêches sont écrites depuis cette base de données structurée, mise à jour en continu, publiée en JSON sous licence CC BY 4.0. Cinq jeux pour la France (ROME 4.0), quatre pour la Suisse (NP 2010 · OFS). Téléchargez, forkez sur GitHub, citez dans vos propres travaux. C'est le commun éditorial du projet.",
-
-    "bf.data.d1": "🇫🇷 Score d'exposition à l'IA pour <strong>200 métiers ROME</strong>, avec rationale, parcours de reconversion suggérés, salaire médian, effectif national. Champ <code>ai_type</code> qui précise pour chaque source si elle parle d'IA discriminative, générative ou agentique.",
-    "bf.data.d2": "🇫🇷 <strong>15 indicateurs prospectifs</strong> France : automatisation 2030, adoption générative, prime salariale, gain productivité, exposition agentique. Chaque indicateur agrège jusqu'à 14 sources avec écart-type et médiane.",
-    "bf.data.d3": "<strong>28 jalons</strong> 2019-2026 : ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 chômage, Coface 16,3%. Chronologie de référence pour replacer un débat.",
-    "bf.data.d4": "🇫🇷 <strong>5 scénarios</strong> de croissance de productivité IA France 2025-2030, du « Stagnation 0-0,5%/an » à « Rupture technologique &gt;5%/an », avec probabilités agrégées par 12 économistes.",
-    "bf.data.d5": "<strong>12 économistes référencés</strong> (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) avec leur distribution de probabilité sur les 5 scénarios. Permet de cartographier le débat scientifique au-delà des soundbites de presse.",
-    "bf.data.d6": "🇨🇭 Score d'exposition à l'IA pour <strong>324 métiers NP 2010</strong> (Suisse · OFS), avec salaire CHF, effectif national, parcours de reconversion. Couvre les 19 grands domaines économiques suisses, du céréalier vaudois au data scientist zurichois.",
-    "bf.data.d7": "🇨🇭 <strong>10 indicateurs prospectifs</strong> Suisse : adoption en entreprise, churn occupationnel, exposition par canton, écart Suisse romande / alémanique. Sources OFS, ESPA 2024, ESS 2022, complétées par Stanford HAI et Coface.",
-    "bf.data.d8": "🇨🇭 <strong>5 scénarios</strong> de productivité IA en Suisse 2025-2030, calibrés sur la structure productive suisse (forte part du tertiaire haut de gamme, banque privée, pharma, horlogerie).",
-    "bf.data.d9": "🇨🇭 <strong>18 économistes & institutions</strong> suivis (Avenir Suisse, Economiesuisse, KOF ETH, Université de Zurich, EPFL AI Center…) avec leurs positions sur les 5 scénarios.",
-
-    "bf.data.dl": "Télécharger ↓",
-    "bf.data.gh": "Voir sur GitHub ↗",
-    "bf.data.note": "<strong>Total : 524 métiers (FR + CH), 25 indicateurs, 28 jalons.</strong> Schémas JSON documentés dans le dépôt. Contributions, corrections et signalements de biais bienvenus via Pull Request ou via la <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">page de contact</a>.",
+    "bf.dataref.title": "Les dépêches s'appuient sur <em>9 jeux de données ouverts</em>.",
+    "bf.dataref.sub": "Chaque chiffre cité ici provient d'une base de données structurée, mise à jour en continu et publiée en JSON sous licence CC BY 4.0. Cinq jeux couvrent la France (ROME 4.0), quatre couvrent la Suisse (NP 2010 · OFS). Pour explorer le détail des sources, télécharger les fichiers, ou citer ce travail dans vos propres analyses, rendez-vous sur la page Méthodologie.",
+    "bf.dataref.cta": "Voir le socle de données →",
 
     "bf.list.eyebrow": "Le Dispatch·iA · Catalogue",
     "bf.list.title": "Toutes les dépêches.",
@@ -259,35 +139,21 @@ window.PAGE_I18N = {
     "bf.sub.direct": "Email direct ↗"
   },
   en: {
-    "bf.tag": "The Dispatch·iA · Strategic intelligence · v0.1",
+    "bf.tag": "",
     "bf.title": "Field <em>dispatches</em> for executive teams.",
     "bf.lede": "Renaissance embassies sent dispatches to their princes: remote observation, verified facts, action recommendation. The Dispatch·iA brings that format back, applied to AI and work. One sectoral dispatch per month, in two editions: a free online digest to frame the topic, an executive PDF edition for the leaders who decide.",
 
     "bf.format.tag": "The format",
     "bf.format.title": "Two <em>editions</em>, two uses.",
-    "bf.format.text": "<p>Each dispatch exists in two distinct editions, designed for two different reading moments. The <strong>free edition</strong>, accessible without registration, delivers the synthesis, the main findings, the sourced key figures and the strategic implications. It reads in five to seven minutes and is enough to frame an executive committee.</p><p>The <strong>executive edition</strong> is a twelve to eighteen page PDF document, laid out in the style of cabinet notes and American <em>presidential daily briefings</em>. It contains the raw sources, data tables, quantified scenarios and tactical recommendations per decisional segment. It is paid, sold per unit or by annual subscription.</p><p>The target cadence is monthly. Topics are chosen on three criteria: an observable, measurable signal, decisional materiality within six to twelve months, and at least one original primary source worked by myself. Every cited source links back to its original publication and, if it appears in the cartography, to its corresponding observatory card.</p>",
+    "bf.format.text": "<p>Each dispatch exists in two distinct editions: a <strong>free edition</strong> online with the synthesis and key figures, and an <strong>executive edition</strong> in PDF that adds raw sources, data tables and tactical recommendations.</p><p>The full format, topic selection criteria, editorial cadence and source traceability are detailed in the <a href=\"methodologie.html#dispatch\" style=\"color: var(--signal); font-weight: 500;\">dedicated section of the methodology</a>.</p>",
     "bf.kf1": "Words in the free HTML edition",
     "bf.kf2": "Pages in the executive PDF edition",
     "bf.kf3.num": "Monthly",
     "bf.kf3": "Target publication cadence",
 
-    "bf.data.eyebrow": "The Dispatch·iA · Data foundation",
-    "bf.data.title": "Nine <em>open</em> datasets, behind every dispatch.",
-    "bf.data.sub": "Dispatches are written from this structured database, continuously updated, published as JSON under CC BY 4.0. Five datasets for France (ROME 4.0), four for Switzerland (NP 2010 · FSO). Download, fork on GitHub, cite in your own work. It is the editorial commons of the project.",
-
-    "bf.data.d1": "🇫🇷 AI exposure score for <strong>200 ROME occupations</strong>, with rationale, suggested reconversion paths, median salary, national headcount. <code>ai_type</code> field that specifies for each source whether it refers to discriminative, generative or agentic AI.",
-    "bf.data.d2": "🇫🇷 <strong>15 prospective indicators</strong> for France: 2030 automation, generative adoption, AI wage premium, productivity gain, agentic exposure. Each indicator aggregates up to 14 sources with standard deviation and median.",
-    "bf.data.d3": "<strong>28 milestones</strong> 2019-2026: ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 unemployment, Coface 16.3%. Reference chronology to anchor a debate.",
-    "bf.data.d4": "🇫🇷 <strong>5 scenarios</strong> of AI productivity growth for France 2025-2030, from \"Stagnation 0-0.5%/year\" to \"Technological rupture &gt;5%/year\", with probabilities aggregated by 12 economists.",
-    "bf.data.d5": "<strong>12 referenced economists</strong> (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) with their probability distribution across the 5 scenarios. Maps the scientific debate beyond press soundbites.",
-    "bf.data.d6": "🇨🇭 AI exposure score for <strong>324 NP 2010 occupations</strong> (Switzerland · FSO), with CHF salary, national headcount, reconversion paths. Covers all 19 main Swiss economic domains, from a Vaud cereal farmer to a Zurich data scientist.",
-    "bf.data.d7": "🇨🇭 <strong>10 prospective indicators</strong> for Switzerland: enterprise adoption, occupational churn, exposure by canton, French- vs German-speaking divide. Sources FSO, ESPA 2024, ESS 2022, complemented by Stanford HAI and Coface.",
-    "bf.data.d8": "🇨🇭 <strong>5 scenarios</strong> of AI productivity in Switzerland 2025-2030, calibrated on the Swiss productive structure (high-end tertiary, private banking, pharma, watchmaking).",
-    "bf.data.d9": "🇨🇭 <strong>18 economists & institutions</strong> tracked (Avenir Suisse, Economiesuisse, KOF ETH, University of Zurich, EPFL AI Center…) with their positions across the 5 scenarios.",
-
-    "bf.data.dl": "Download ↓",
-    "bf.data.gh": "View on GitHub ↗",
-    "bf.data.note": "<strong>Total: 524 occupations (FR + CH), 25 indicators, 28 milestones.</strong> JSON schemas documented in the repo. Contributions, corrections and bias reports welcome via Pull Request or through the <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">contact page</a>.",
+    "bf.dataref.title": "Dispatches are built on <em>9 open datasets</em>.",
+    "bf.dataref.sub": "Every figure cited here comes from a structured database, continuously updated and published as JSON under CC BY 4.0. Five datasets cover France (ROME 4.0), four cover Switzerland (NP 2010 · FSO). To explore the source details, download the files, or cite this work in your own analyses, visit the Methodology page.",
+    "bf.dataref.cta": "View the data foundation →",
 
     "bf.list.eyebrow": "The Dispatch·iA · Catalog",
     "bf.list.title": "All dispatches.",
@@ -348,6 +214,23 @@ const BRIEFINGS = [
   },
   {
     num: "003",
+    slug: "03-luxe-horlogerie",
+    date: "2026-04-26",
+    country: "CH",
+    sector: "industry",
+    title: {
+      fr: "Luxe et horlogerie premium face à l'IA : la gouvernance comme nouvel échelon de désirabilité.",
+      en: "Luxury and premium watchmaking facing AI: governance as the new tier of desirability."
+    },
+    summary: {
+      fr: "Trimestre le plus rude depuis 2008 pour le luxe mondial. Exports horlogers suisses en repli pour la deuxième année consécutive (-1,7% en 2025), mais Richemont signe un rebond inattendu (+7% sur les spécialités horlogères). 90% des dirigeants luxe jugent l'IA essentielle, +16,2%/an d'investissement IA prévu sur dix ans. Le vrai sujet n'est plus l'adoption : c'est la gouvernance. Trois fronts ouverts simultanément.",
+      en: "Toughest quarter since 2008 for global luxury. Swiss watch exports down for the second consecutive year (-1.7% in 2025), but Richemont posts an unexpected rebound (+7% on specialist watchmakers). 90% of luxury executives consider AI essential, +16.2%/year AI investment forecast over ten years. The real topic is no longer adoption: it is governance. Three fronts open simultaneously."
+    },
+    price: { unit: "CHF 49 / EUR 49" },
+    upcoming: false
+  },
+  {
+    num: "004",
     date: "2026-05",
     country: "FR",
     sector: "public",
@@ -358,21 +241,6 @@ const BRIEFINGS = [
     summary: {
       fr: "La DGFiP, la CAF et les ministères publient des feuilles de route ambitieuses. Le déploiement effectif sur le terrain raconte une autre histoire. Cartographie sans complaisance.",
       en: "DGFiP, CAF and ministries publish ambitious roadmaps. Actual deployment on the ground tells a different story. An unsparing cartography."
-    },
-    upcoming: true
-  },
-  {
-    num: "004",
-    date: "2026-06",
-    country: "CH",
-    sector: "industry",
-    title: {
-      fr: "Industrie horlogère et IA : entre prestige patrimonial et impératif productif.",
-      en: "Watchmaking industry and AI: between heritage prestige and productive imperative."
-    },
-    summary: {
-      fr: "Le secteur horloger suisse oscille entre une tradition artisanale assumée et la nécessité industrielle d'intégrer l'IA dans la qualité, la traçabilité et la relation client. Quatre maisons étudiées.",
-      en: "The Swiss watch industry oscillates between an assumed artisanal tradition and the industrial necessity of integrating AI into quality, traceability and customer relations. Four houses studied."
     },
     upcoming: true
   }

@@ -12,15 +12,11 @@
 </head>
 <body>
 
-<nav class="nav" id="siteNav"></nav>
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="../index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
 <!-- DASHBOARD HEADER -->
 <section class="dash-header">
-  <div class="dash-flag mono">
-    <span class="emoji">🇨🇭</span>
-    <span data-i18n="ch.flag"></span>
-  </div>
   <h1 class="dash-title" data-i18n="ch.title" data-i18n-html></h1>
   <p class="dash-lede" data-i18n="ch.lede"></p>
   <div class="cta-row" style="margin-top: 28px;">
@@ -64,19 +60,19 @@
 <section class="kpi-row">
   <div class="kpi">
     <div class="kpi-tag mono" data-i18n="ch.kpi1.tag"></div>
-    <div class="kpi-num">42<span class="unit">%</span></div>
+    <div class="kpi-num">17<span class="unit">%</span></div>
     <div class="kpi-label" data-i18n="ch.kpi1.label"></div>
     <div class="kpi-source" data-i18n="ch.kpi1.source"></div>
   </div>
   <div class="kpi">
     <div class="kpi-tag mono" data-i18n="ch.kpi2.tag"></div>
-    <div class="kpi-num">18</div>
+    <div class="kpi-num">24<span class="unit">%</span></div>
     <div class="kpi-label" data-i18n="ch.kpi2.label"></div>
     <div class="kpi-source" data-i18n="ch.kpi2.source"></div>
   </div>
   <div class="kpi">
     <div class="kpi-tag mono" data-i18n="ch.kpi3.tag"></div>
-    <div class="kpi-num"><span class="sign">−</span>9<span class="unit">%</span></div>
+    <div class="kpi-num">22<span class="unit">%</span></div>
     <div class="kpi-label" data-i18n="ch.kpi3.label"></div>
     <div class="kpi-source" data-i18n="ch.kpi3.source"></div>
   </div>
@@ -142,20 +138,20 @@
 <script>
 window.PAGE_I18N = {
   fr: {
-    "ch.flag": "Suisse · Confédération",
+    "ch.flag": "",
     "ch.title": "Le paysage suisse, en <em>un dashboard</em>.",
     "ch.lede": "Six observatoires institutionnels, académiques, sectoriels et indépendants. Une langue commune : la donnée publique.",
     "ch.cta.full": "Dashboard détaillé",
     "ch.cta.compare": "Comparer avec la France",
-    "ch.kpi1.tag": "01 · Adoption IA · PME",
-    "ch.kpi1.label": "des PME suisses utilisent au moins un outil d'IA générative régulièrement.",
-    "ch.kpi1.source": "Digital Switzerland · 2025",
-    "ch.kpi2.tag": "02 · Formations IA",
-    "ch.kpi2.label": "filières IA reconnues SEFRI (CFC, brevet fédéral, diplôme).",
-    "ch.kpi2.source": "SEFRI · Q1 2026",
-    "ch.kpi3.tag": "03 · Postes vacants tech",
-    "ch.kpi3.label": "de baisse des offres tech au Q1 2026 par rapport à Q1 2025.",
-    "ch.kpi3.source": "OFS · STATEM Q1 2026",
+    "ch.kpi1.tag": "01 · Introduction d'outils IA",
+    "ch.kpi1.label": "des actifs suisses ont vu un outil d'IA ou d'automatisation introduit dans leur environnement de travail au cours des 12 derniers mois.",
+    "ch.kpi1.source": "Angestellte Schweiz · DemoSCOPE · avril 2026",
+    "ch.kpi2.tag": "02 · Effet taille d'entreprise",
+    "ch.kpi2.label": "des actifs en grande entreprise (250+ collaborateurs) déclarent une introduction IA, contre seulement 9% dans les TPE de moins de 10 salariés.",
+    "ch.kpi2.source": "Angestellte Schweiz · DemoSCOPE · avril 2026",
+    "ch.kpi3.tag": "03 · Effet revenu",
+    "ch.kpi3.label": "des hauts revenus (>9 000 CHF/mois) sont concernés par l'introduction de l'IA, contre 6% chez les bas revenus. L'IA touche d'abord les emplois qualifiés.",
+    "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · avril 2026",
     "ch.chart.eyebrow": "Adoption IA · par secteur",
     "ch.chart.title": "Où l'IA s'installe vraiment.",
     "ch.chart.sub": "Part des entreprises ayant déployé au moins un outil d'IA en production. Échantillon Digital Switzerland 2025.",
@@ -174,20 +170,20 @@ window.PAGE_I18N = {
     "ch.context.text": "<p>La Suisse n'a pas d'État central au sens français du terme. Trois niveaux de gouvernement coexistent : la Confédération, vingt-six cantons souverains et près de deux mille communes. Chacun produit ses propres données, ses propres normes, ses propres temporalités. Comprendre l'impact de l'IA sur le travail suisse implique donc de naviguer entre l'Office fédéral de la statistique, qui agrège au sommet, et les services cantonaux de l'emploi, qui observent au plus près du terrain.</p><p>À cette architecture politique s'ajoute une réalité linguistique. <strong>Quatre langues nationales</strong> structurent la production statistique : l'allemand domine quantitativement, le français anime le débat romand, l'italien couvre le Tessin, le romanche persiste dans quelques vallées grisonnes. Les sources alémaniques (KOF Konjunkturforschungsstelle, BAK Economics) circulent peu en Suisse romande et inversement. Cette cartographie reconnaît ce biais et travaille à le corriger version après version.</p><p>Le système de formation suisse repose enfin sur la coexistence d'une voie académique et d'une voie professionnelle duale. Le SEFRI pilote au niveau fédéral les certifications professionnelles, dont les filières IA émergentes. Cette particularité façonne la manière dont la reconversion s'organise : <em>moins par diplômes universitaires que par brevets fédéraux et certifications continues</em>. Sur le plan réglementaire, la Suisse n'a pas adopté de loi spécifique à l'IA en 2026 et privilégie l'adaptation sectorielle des cadres existants.</p>",
   },
   en: {
-    "ch.flag": "Switzerland · Confederation",
+    "ch.flag": "",
     "ch.title": "The Swiss landscape, in <em>one dashboard</em>.",
     "ch.lede": "Six institutional, academic, sectoral and independent observatories. One common language: public data.",
     "ch.cta.full": "Detailed dashboard",
     "ch.cta.compare": "Compare with France",
-    "ch.kpi1.tag": "01 · AI adoption · SMEs",
-    "ch.kpi1.label": "of Swiss SMEs regularly use at least one generative AI tool.",
-    "ch.kpi1.source": "Digital Switzerland · 2025",
-    "ch.kpi2.tag": "02 · AI training tracks",
-    "ch.kpi2.label": "AI-related programs recognised by SERI (CFC, federal certificate, diploma).",
-    "ch.kpi2.source": "SERI · Q1 2026",
-    "ch.kpi3.tag": "03 · Tech vacancies",
-    "ch.kpi3.label": "drop in tech postings in Q1 2026 vs. Q1 2025.",
-    "ch.kpi3.source": "FSO · STATEM Q1 2026",
+    "ch.kpi1.tag": "01 · AI tool introduction",
+    "ch.kpi1.label": "of Swiss workers have seen an AI or automation tool introduced in their work environment over the past 12 months.",
+    "ch.kpi1.source": "Angestellte Schweiz · DemoSCOPE · April 2026",
+    "ch.kpi2.tag": "02 · Company size effect",
+    "ch.kpi2.label": "of workers in large firms (250+ employees) report AI introduction, vs only 9% in micro-enterprises under 10 employees.",
+    "ch.kpi2.source": "Angestellte Schweiz · DemoSCOPE · April 2026",
+    "ch.kpi3.tag": "03 · Income effect",
+    "ch.kpi3.label": "of high-income workers (>CHF 9,000/month) are concerned by AI introduction, vs 6% for low incomes. AI affects qualified jobs first.",
+    "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · April 2026",
     "ch.chart.eyebrow": "AI adoption · by sector",
     "ch.chart.title": "Where AI is actually settling in.",
     "ch.chart.sub": "Share of companies that have deployed at least one AI tool in production. Digital Switzerland 2025 sample.",

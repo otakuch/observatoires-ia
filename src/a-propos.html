@@ -94,11 +94,10 @@
 </head>
 <body>
 
-<nav class="nav" id="siteNav"></nav>
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
 <section class="dash-header">
-  <div class="dash-flag mono"><span data-i18n="ab.tag"></span></div>
   <h1 class="dash-title" data-i18n="ab.title" data-i18n-html></h1>
   <p class="dash-lede" data-i18n="ab.lede"></p>
 </section>
@@ -154,6 +153,16 @@
       </ul>
       <p data-i18n="ab.who.consult.p7" data-i18n-html></p>
       <p class="punchline" data-i18n="ab.who.consult.punch" data-i18n-html></p>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-tag">02 · <span data-i18n="ab.who.disclosure.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="ab.who.disclosure.title" data-i18n-html></h3>
+      <p data-i18n="ab.who.disclosure.p1" data-i18n-html></p>
+      <p data-i18n="ab.who.disclosure.p2" data-i18n-html></p>
+      <p data-i18n="ab.who.disclosure.p3" data-i18n-html></p>
     </div>
   </div>
 
@@ -230,9 +239,6 @@
     <a href="https://github.com/otakuch/observatoires-ia" class="btn btn-secondary" target="_blank" rel="noopener">
       <span data-i18n="ab.contact.github"></span> ↗
     </a>
-    <a href="https://transitions-ia.ch" class="btn btn-secondary" target="_blank" rel="noopener">
-      <span data-i18n="ab.contact.transitions"></span> ↗
-    </a>
   </div>
 </section>
 
@@ -242,7 +248,7 @@
 <script>
 window.PAGE_I18N = {
   fr: {
-    "ab.tag": "À propos · v0.2",
+    "ab.tag": "",
     "ab.title": "Pourquoi <em>ce</em> projet, par <em>qui</em>, et comment <em>contribuer</em>.",
     "ab.lede": "Cette page répond à trois questions simples. Pourquoi cette cartographie existe-t-elle. Qui la maintient. Et comment vous pouvez l'enrichir, la corriger ou la critiquer.",
 
@@ -271,6 +277,12 @@ window.PAGE_I18N = {
     "ab.who.consult.p7": "Je suis également l'auteur de <em>Guérill-IA</em> et <em>Darwinisme numérique</em>, deux travaux consacrés aux transformations stratégiques provoquées par l'intelligence artificielle.",
     "ab.who.consult.punch": "Le sujet n'est plus de savoir si l'IA va changer les organisations. Le sujet est de savoir <em>lesquelles sauront s'y préparer avec lucidité</em>.",
 
+    "ab.who.disclosure.tag": "Disclosure éditoriale",
+    "ab.who.disclosure.title": "Comment <em>ce site</em> est produit.",
+    "ab.who.disclosure.p1": "Cohérence oblige : un projet qui documente l'IA et le travail doit être transparent sur la manière dont il utilise lui-même l'IA. Ce site est produit avec l'assistance d'une intelligence artificielle (Claude Opus 4.7, en modes Research et Web Search), puis soumis à une vérification factuelle contre les sources primaires.",
+    "ab.who.disclosure.p2": "L'IA sert d'outil de documentation, de synthèse et de mise en forme visuelle. Elle ne sert ni de source autonome, ni d'autorité scientifique. Toutes les données chiffrées présentées dans les dashboards, les dépêches et les fichiers JSON ouverts proviennent de sources primaires (DARES, OFS, INSEE, Stanford HAI, Coface, APEC, EPFL, ESPA, etc.) et sont vérifiées manuellement avant publication.",
+    "ab.who.disclosure.p3": "Cette posture suit la même règle que celle imposée aux observatoires intégrés à la cartographie : <strong>publier ses sources et sa méthodologie de manière vérifiable</strong>. Une cartographie qui n'expose pas son propre processus de fabrication serait incohérente avec ce qu'elle exige des autres.",
+
     "ab.princ.eyebrow": "Trois principes",
     "ab.princ.title": "Comment on travaille.",
     "ab.princ.sub": "Trois règles non négociables qui structurent l'ensemble du projet, des choix d'inclusion à la publication des données brutes.",
@@ -298,10 +310,9 @@ window.PAGE_I18N = {
     "ab.contact.text": "Une remarque, une contribution, une critique, ou simplement envie d'échanger ? <span class=\"accent-bracket\">[</span>Écrivez-moi<span class=\"accent-bracket\">]</span>.",
     "ab.contact.email": "sayhi@naullynicolas.ch",
     "ab.contact.github": "GitHub · otakuch",
-    "ab.contact.transitions": "transitions-ia.ch"
   },
   en: {
-    "ab.tag": "About · v0.2",
+    "ab.tag": "",
     "ab.title": "Why <em>this</em> project, by <em>whom</em>, and how to <em>contribute</em>.",
     "ab.lede": "This page answers three simple questions. Why this cartography exists. Who maintains it. And how you can enrich, correct or criticise it.",
 
@@ -330,6 +341,12 @@ window.PAGE_I18N = {
     "ab.who.consult.p7": "I am also the author of <em>Guérill-IA</em> and <em>Darwinisme numérique</em>, two works dedicated to the strategic transformations brought about by artificial intelligence.",
     "ab.who.consult.punch": "The question is no longer whether AI will change organisations. The question is <em>which ones will know how to prepare for it with lucidity</em>.",
 
+    "ab.who.disclosure.tag": "Editorial disclosure",
+    "ab.who.disclosure.title": "How <em>this site</em> is produced.",
+    "ab.who.disclosure.p1": "For consistency: a project that documents AI and work must be transparent about how it uses AI itself. This site is produced with the assistance of an artificial intelligence (Claude Opus 4.7, in Research and Web Search modes), then submitted to factual verification against primary sources.",
+    "ab.who.disclosure.p2": "AI is used as a tool for documentation, synthesis and visual formatting. It is neither an autonomous source nor a scientific authority. All quantitative data presented in the dashboards, dispatches and open JSON files come from primary sources (DARES, FSO, INSEE, Stanford HAI, Coface, APEC, EPFL, ESPA, etc.) and are manually verified before publication.",
+    "ab.who.disclosure.p3": "This stance follows the same rule imposed on observatories integrated into the cartography: <strong>publish sources and methodology in a verifiable way</strong>. A cartography that does not expose its own production process would be inconsistent with what it requires of others.",
+
     "ab.princ.eyebrow": "Three principles",
     "ab.princ.title": "How we work.",
     "ab.princ.sub": "Three non-negotiable rules that structure the entire project, from inclusion choices to the publication of raw data.",
@@ -357,7 +374,6 @@ window.PAGE_I18N = {
     "ab.contact.text": "A remark, a contribution, a critique, or simply a wish to exchange? <span class=\"accent-bracket\">[</span>Reach out<span class=\"accent-bracket\">]</span>.",
     "ab.contact.email": "sayhi@naullynicolas.ch",
     "ab.contact.github": "GitHub · otakuch",
-    "ab.contact.transitions": "transitions-ia.ch"
   }
 };
 

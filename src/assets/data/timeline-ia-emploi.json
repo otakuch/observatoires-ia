@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 28,
+  "count": 29,
   "events": [
     {
       "year": "2025",
@@ -38,7 +38,7 @@
     {
       "year": "Avr. 2026",
       "title": "Imas 2026 · Secteur relationnel · la rareté se déplace, pas le travail",
-      "summary_fr": "Alex Imas (Chicago Booth) publie 'What will be scarce?' (Substack, avr. 2026). Thèse centrale : quand l'IA automatise la production de biens standardisés (commodités), les prix baissent, les revenus réels augmentent et la demande se réalloue vers les secteurs à haute élasticité-revenu — le secteur relationnel. Appui sur Comin, Lashkari et Mestieri (Econometrica 2021) : les effets-revenus expliquent 75% du changement structurel historique. Données empiriques Imas & Mandel (SSRN 2026) : les oeuvres d'art humaines gagnent 44% de valeur par l'exclusivité contre seulement 21% pour les oeuvres IA. L'implication IA détruit la perception d'exclusivité. Préférence mimétique (désir girardien) : les gens désirent ce que les autres ne peuvent pas avoir — cette préférence est élastique au revenu et ne se sature pas. Secteur relationnel : soins, éducation, hospitality, thérapie, artisanat, performance vivante, cuisine gastronomique — partages GDP et emploi en hausse structurelle post-IA. Cas Starbucks : le CEO Brian Niccol a inversé l'automatisation — notes manuscrites, tasses en céramique, baristas en plus — car 'les petits détails et l'hospitalité pilotent la satisfaction'. Contrepoint : Philip Trammell souligne que de nouvelles variétés non-relationnelles pourraient compenser la demande relationnelle à long terme.",
+      "summary_fr": "Alex Imas (Chicago Booth) publie 'What will be scarce?' (Substack, avr. 2026). Thèse centrale : quand l'IA automatise la production de biens standardisés (commodités), les prix baissent, les revenus réels augmentent et la demande se réalloue vers les secteurs à haute élasticité-revenu · le secteur relationnel. Appui sur Comin, Lashkari et Mestieri (Econometrica 2021) : les effets-revenus expliquent 75% du changement structurel historique. Données empiriques Imas & Mandel (SSRN 2026) : les oeuvres d'art humaines gagnent 44% de valeur par l'exclusivité contre seulement 21% pour les oeuvres IA. L'implication IA détruit la perception d'exclusivité. Préférence mimétique (désir girardien) : les gens désirent ce que les autres ne peuvent pas avoir, cette préférence est élastique au revenu et ne se sature pas. Secteur relationnel : soins, éducation, hospitality, thérapie, artisanat, performance vivante, cuisine gastronomique, partages GDP et emploi en hausse structurelle post-IA. Cas Starbucks : le CEO Brian Niccol a inversé l'automatisation · notes manuscrites, tasses en céramique, baristas en plus · car 'les petits détails et l'hospitalité pilotent la satisfaction'. Contrepoint : Philip Trammell souligne que de nouvelles variétés non-relationnelles pourraient compenser la demande relationnelle à long terme.",
       "headline_value": "Secteur relationnel : +emploi · 44% premium humain vs 21% IA · 75% effets-revenus",
       "tier": 2,
       "citation": "Alex Imas · 'What will be scarce?' · Substack Ghosts of Electricity · 14 avr. 2026",
@@ -258,6 +258,15 @@
       "headline_value": "+55% productivité dev",
       "tier": 1,
       "citation": "Science / GitHub Copilot Working Paper",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "DemoSCOPE / Angestellte Schweiz · première mesure perception IA en CH",
+      "summary_fr": "Première enquête nationale représentative suisse (1 028 actifs des 3 régions linguistiques, 23-30 mars 2026) mesurant la perception de l'IA et l'emploi. 17% des actifs déclarent l'introduction d'un outil IA dans leur environnement sur 12 mois. Asymétrie marquée par taille d'entreprise (24% chez 250+ vs 9% chez les TPE) et par revenu (22% chez les hauts revenus vs 6% chez les bas). L'IA ressort comme cause individuelle #1 d'insécurité quand on demande aux répondants. La formation continue est jugée la mesure la plus efficace (M=3.27/4).",
+      "headline_value": "17% IA introduite · asymétrie 9% / 24% TPE / grand groupe",
+      "tier": 2,
+      "citation": "Angestellte Schweiz · DemoSCOPE · avril 2026",
       "ai_type": "generative"
     }
   ]

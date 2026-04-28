@@ -2,7 +2,7 @@
 
 Cartographie indépendante et bilingue des observatoires emploi & IA en Suisse et en France.
 
-**v0.2.1** · multi-pages · responsive · FR/EN
+**v0.2** — multi-pages · responsive · FR/EN
 
 ---
 

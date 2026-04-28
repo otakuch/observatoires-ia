@@ -2,62 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://observatoire.naullynicolas.ch/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://observatoire.naullynicolas.ch/veille.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://observatoire.naullynicolas.ch/methodologie.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://observatoire.naullynicolas.ch/donnees.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://observatoire.naullynicolas.ch/a-propos.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://observatoire.naullynicolas.ch/contact.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://observatoire.naullynicolas.ch/briefings.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://observatoire.naullynicolas.ch/observatoires/suisse.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://observatoire.naullynicolas.ch/observatoires/france.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://observatoire.naullynicolas.ch/observatoires/comparer.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://observatoire.naullynicolas.ch/veille.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://observatoire.naullynicolas.ch/methodologie.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://observatoire.naullynicolas.ch/donnees.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://observatoire.naullynicolas.ch/a-propos.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://observatoire.naullynicolas.ch/contact.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://observatoire.naullynicolas.ch/briefings/01-banque-suisse.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://observatoire.naullynicolas.ch/briefings/02-cadres-france.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://observatoire.naullynicolas.ch/briefings/03-luxe-horlogerie.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
   </url>
 </urlset>

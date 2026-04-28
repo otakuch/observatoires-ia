@@ -1,5 +1,20 @@
 [
   {
+    "date": "2026-04-23",
+    "source": "Angestellte Schweiz · DemoSCOPE",
+    "country": "CH",
+    "title": {
+      "fr": "Insécurité de l'emploi perçue et responsabilités · enquête nationale",
+      "en": "Perceived job insecurity and responsibilities · national survey"
+    },
+    "excerpt": {
+      "fr": "Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).",
+      "en": "Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."
+    },
+    "url": "https://www.angestellte.ch",
+    "ai_type": "generative"
+  },
+  {
     "date": "2026-04-15",
     "source": "Stanford HAI",
     "country": "INT",
