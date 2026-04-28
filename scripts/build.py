@@ -83,6 +83,7 @@ bundle(f"{SITE_SRC}/veille.html", f"{SITE_OUT}/veille.html")
 bundle(f"{SITE_SRC}/methodologie.html", f"{SITE_OUT}/methodologie.html")
 bundle(f"{SITE_SRC}/donnees.html", f"{SITE_OUT}/donnees.html")
 bundle(f"{SITE_SRC}/a-propos.html", f"{SITE_OUT}/a-propos.html")
+bundle(f"{SITE_SRC}/partenariats.html", f"{SITE_OUT}/partenariats.html")
 bundle(f"{SITE_SRC}/contact.html", f"{SITE_OUT}/contact.html")
 bundle(f"{SITE_SRC}/briefings.html", f"{SITE_OUT}/briefings.html")
 bundle(f"{SITE_SRC}/observatoires/suisse.html", f"{SITE_OUT}/observatoires/suisse.html")
@@ -119,6 +120,7 @@ PAGES = [
     "methodologie.html",
     "donnees.html",
     "a-propos.html",
+    "partenariats.html",
     "contact.html",
     "briefings/01-banque-suisse.html",
     "briefings/02-cadres-france.html",

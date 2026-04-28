@@ -4,6 +4,27 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] · 2026-04-28
+
+### Added
+- **New page · Partenariats** (`partenariats.html`) targeting professional
+  associations, sectoral federations, public institutions, and educational
+  organizations who want tailored sectoral reports, memo series, conferences,
+  workshops or territorial mappings. Includes a dedicated mailto-driven form
+  with organization type and format selectors. All deliverables published
+  under CC BY 4.0 like the rest of the editorial commons.
+- **Three new nav entries**: Accueil (Home), Méthodologie (Methodology),
+  and Partenariats (Partnerships). Total nav now 10 items.
+- **Intermediate responsive breakpoint at 1100px** so the mobile menu kicks
+  in before the 10-item nav becomes too crowded.
+
+### Changed
+- `nav-links` gap reduced from 28px to 22px and font-size from 14px to 13.5px
+  to accommodate 10 items on desktop.
+- Sitemap.xml updated to 14 URLs (was 12).
+
+---
+
 ## [0.2.1] · 2026-04-28
 
 ### Added

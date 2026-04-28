@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/metiers-ia-fr.schema.json",
   "version": "0.3.0",
-  "compiled_at": "2026-04-28",
+  "compiled_at": "2026-04-26",
   "country": "FR",
   "nomenclature": "ROME 4.0 (France Travail)",
   "scope": "Métiers français · exposition à l'IA · 2026",

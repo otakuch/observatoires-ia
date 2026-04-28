@@ -14,7 +14,7 @@ authors:
     website: https://naullynicolas.ch
     affiliation: "Independent consultant — AI, governance, cybersecurity"
 type: dataset
-version: "0.2.1"
+version: "0.2.3"
 date-released: 2026-04-28
 url: "https://observatoire.naullynicolas.ch"
 repository-code: "https://github.com/otakuch/observatoires-ia"

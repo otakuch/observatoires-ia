@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/metiers-ia-ch.schema.json",
   "version": "0.3.0",
-  "compiled_at": "2026-04-28",
+  "compiled_at": "2026-04-26",
   "country": "CH",
   "nomenclature": "NP 2010 (OFS · 394 groupes de professions)",
   "scope": "Métiers suisses · exposition à l'IA · 2026",

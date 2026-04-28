@@ -26,12 +26,15 @@ window.VEILLE_DATA = [{"date":"2026-04-23","source":"Angestellte Schweiz · Demo
 const I18N = {
   fr: {
     "nav.home": "Retour à l'accueil",
+    "nav.accueil": "Accueil",
     "nav.suisse": "Suisse",
     "nav.france": "France",
     "nav.comparer": "Comparer",
     "nav.memos": "Le Dispatch·iA",
     "nav.veille": "Veille",
+    "nav.method": "Méthodologie",
     "nav.about": "À propos",
+    "nav.partner": "Partenariats",
     "nav.contact": "Contact",
     "foot.rights": "Données sous licences sources",
     "foot.method": "Méthodologie",
@@ -54,12 +57,15 @@ const I18N = {
   },
   en: {
     "nav.home": "Back to home",
+    "nav.accueil": "Home",
     "nav.suisse": "Switzerland",
     "nav.france": "France",
     "nav.comparer": "Compare",
     "nav.memos": "The Dispatch·iA",
     "nav.veille": "Field Report",
+    "nav.method": "Methodology",
     "nav.about": "About",
+    "nav.partner": "Partnerships",
     "nav.contact": "Contact",
     "foot.rights": "Data under source licenses",
     "foot.method": "Methodology",
@@ -168,12 +174,15 @@ function renderNav(currentPage) {
         observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia
       </a>
       <div class="nav-links">
+        ${link("index.html", "accueil", "home")}
         ${link("observatoires/suisse.html", "suisse", "suisse")}
         ${link("observatoires/france.html", "france", "france")}
         ${link("observatoires/comparer.html", "comparer", "comparer")}
         ${link("briefings.html", "memos", "briefings")}
         ${link("veille.html", "veille", "veille")}
+        ${link("methodologie.html", "method", "methodologie")}
         ${link("a-propos.html", "about", "about")}
+        ${link("partenariats.html", "partner", "partenariats")}
         ${link("contact.html", "contact", "contact")}
       </div>
       <div class="nav-actions">
@@ -190,12 +199,15 @@ function renderNav(currentPage) {
   if (mob) {
     mob.innerHTML = `
       <button class="close-btn" id="closeMenu">×</button>
+      <a href="${root}index.html" data-i18n="nav.accueil">${t("nav.accueil")}</a>
       <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
       <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
       <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
       <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
       <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+      <a href="${root}methodologie.html" data-i18n="nav.method">${t("nav.method")}</a>
       <a href="${root}a-propos.html" data-i18n="nav.about">${t("nav.about")}</a>
+      <a href="${root}partenariats.html" data-i18n="nav.partner">${t("nav.partner")}</a>
       <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
     `;
   }

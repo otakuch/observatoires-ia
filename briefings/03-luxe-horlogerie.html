@@ -66,8 +66,8 @@ a { color: inherit; text-decoration: none; }
 .logo .dot { color: var(--muted); margin: 0 0.15em; }
 
 .nav-links {
-  display: flex; gap: 28px; align-items: center;
-  font-size: 14px; font-weight: 500;
+  display: flex; gap: 22px; align-items: center;
+  font-size: 13.5px; font-weight: 500;
 }
 .nav-links a {
   color: var(--ink-2); position: relative; padding: 4px 0;
@@ -2147,6 +2147,55 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .brief-disclosure-body { font-size: 12px; }
 }
 
+/* Nav avec 10 items : passer en mobile menu plus tôt */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; }
+}
+
+/* Base method-content typography (was missing) */
+.method-content { font-family: "Instrument Sans", sans-serif; }
+.method-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 0;
+  font-size: 28px; font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.method-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  color: var(--signal);
+}
+.method-content h4 {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 18px; font-weight: 600;
+  margin: 24px 0 8px 0;
+  color: var(--ink);
+}
+.method-content p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+  color: var(--ink-2);
+}
+.method-content p:last-child { margin-bottom: 0; }
+.method-content ul {
+  margin: 12px 0 16px 0;
+  padding-left: 22px;
+}
+.method-content li {
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin-bottom: 8px;
+  color: var(--ink-2);
+}
+.method-content a { color: var(--signal); text-decoration: underline; text-decoration-thickness: 1px; }
+.method-content a:hover { text-decoration-thickness: 2px; }
+.method-content strong { color: var(--ink); font-weight: 600; }
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/03-luxe-horlogerie.html">
@@ -2181,7 +2230,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     <span data-i18n="b3.meta.date"></span>
     <span class="meta-edition" data-i18n="b3.meta.edition"></span>
   </div>
-  <h1 class="brief-hero-title" data-i18n="b3.title" data-i18n-html></h1>
+  <h1 class="brief-hero-title" data-i18n="b3.title" data-i18n-html="true"></h1>
   <p class="brief-hero-sub" data-i18n="b3.sub"></p>
   <div class="brief-byline">
     <span><strong data-i18n="b3.by.author">Naully Nicolas</strong></span>
@@ -2193,7 +2242,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <!-- LANDSCAPE -->
 <section class="brief-section">
   <div class="brief-section-eyebrow" data-i18n="b3.land.eyebrow"></div>
-  <h2 class="brief-section-title" data-i18n="b3.land.title" data-i18n-html></h2>
+  <h2 class="brief-section-title" data-i18n="b3.land.title" data-i18n-html="true"></h2>
   <p data-i18n="b3.land.p1"></p>
   <p data-i18n="b3.land.p2"></p>
 
@@ -2201,19 +2250,19 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     <div class="brief-twocol-block">
       <h4 data-i18n="b3.land.up.title"></h4>
       <ul>
-        <li data-i18n="b3.land.up.li1" data-i18n-html></li>
-        <li data-i18n="b3.land.up.li2" data-i18n-html></li>
-        <li data-i18n="b3.land.up.li3" data-i18n-html></li>
-        <li data-i18n="b3.land.up.li4" data-i18n-html></li>
+        <li data-i18n="b3.land.up.li1" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.up.li2" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.up.li3" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.up.li4" data-i18n-html="true"></li>
       </ul>
     </div>
     <div class="brief-twocol-block">
       <h4 data-i18n="b3.land.down.title"></h4>
       <ul>
-        <li data-i18n="b3.land.down.li1" data-i18n-html></li>
-        <li data-i18n="b3.land.down.li2" data-i18n-html></li>
-        <li data-i18n="b3.land.down.li3" data-i18n-html></li>
-        <li data-i18n="b3.land.down.li4" data-i18n-html></li>
+        <li data-i18n="b3.land.down.li1" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.down.li2" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.down.li3" data-i18n-html="true"></li>
+        <li data-i18n="b3.land.down.li4" data-i18n-html="true"></li>
       </ul>
     </div>
   </div>
@@ -2255,24 +2304,24 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <!-- DECISION CHECKLIST (Proof of Work for executives) -->
 <section class="brief-section">
   <div class="brief-section-eyebrow" data-i18n="b3.dec.eyebrow"></div>
-  <h2 class="brief-section-title" data-i18n="b3.dec.title" data-i18n-html></h2>
+  <h2 class="brief-section-title" data-i18n="b3.dec.title" data-i18n-html="true"></h2>
   <p data-i18n="b3.dec.intro"></p>
   <div class="brief-checklist">
     <div class="brief-checklist-item">
       <div class="brief-checklist-num">01</div>
-      <div class="brief-checklist-text" data-i18n="b3.dec.li1" data-i18n-html></div>
+      <div class="brief-checklist-text" data-i18n="b3.dec.li1" data-i18n-html="true"></div>
     </div>
     <div class="brief-checklist-item">
       <div class="brief-checklist-num">02</div>
-      <div class="brief-checklist-text" data-i18n="b3.dec.li2" data-i18n-html></div>
+      <div class="brief-checklist-text" data-i18n="b3.dec.li2" data-i18n-html="true"></div>
     </div>
     <div class="brief-checklist-item">
       <div class="brief-checklist-num">03</div>
-      <div class="brief-checklist-text" data-i18n="b3.dec.li3" data-i18n-html></div>
+      <div class="brief-checklist-text" data-i18n="b3.dec.li3" data-i18n-html="true"></div>
     </div>
     <div class="brief-checklist-item">
       <div class="brief-checklist-num">04</div>
-      <div class="brief-checklist-text" data-i18n="b3.dec.li4" data-i18n-html></div>
+      <div class="brief-checklist-text" data-i18n="b3.dec.li4" data-i18n-html="true"></div>
     </div>
   </div>
 </section>
@@ -2280,7 +2329,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <!-- AI AS LEVERAGE / TOOLKIT -->
 <section class="brief-section">
   <div class="brief-section-eyebrow" data-i18n="b3.tools.eyebrow"></div>
-  <h2 class="brief-section-title" data-i18n="b3.tools.title" data-i18n-html></h2>
+  <h2 class="brief-section-title" data-i18n="b3.tools.title" data-i18n-html="true"></h2>
   <p data-i18n="b3.tools.intro"></p>
   <div class="brief-toolkit-grid">
     <div class="brief-tool">
@@ -2319,14 +2368,14 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <!-- SOURCES & TRAÇABILITÉ -->
 <section class="brief-section brief-sources">
   <div class="brief-section-eyebrow" data-i18n="b3.src.eyebrow"></div>
-  <h2 class="brief-section-title" data-i18n="b3.src.title" data-i18n-html></h2>
+  <h2 class="brief-section-title" data-i18n="b3.src.title" data-i18n-html="true"></h2>
   <p data-i18n="b3.src.intro"></p>
   <div class="brief-sources-list">
     <article class="brief-source-card">
       <div class="brief-source-num">01</div>
       <div class="brief-source-body">
         <div class="brief-source-label" data-i18n="b3.src.s1.label"></div>
-        <div class="brief-source-cited" data-i18n="b3.src.s1.cited" data-i18n-html></div>
+        <div class="brief-source-cited" data-i18n="b3.src.s1.cited" data-i18n-html="true"></div>
         <div class="brief-source-links">
           <a href="https://www.fhs.swiss/fre/2026_01_29_statistics.html" target="_blank" rel="noopener" data-i18n="b3.src.primary"></a>
           <a href="../observatoires/suisse.html" data-i18n="b3.src.observatory"></a>
@@ -2337,7 +2386,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
       <div class="brief-source-num">02</div>
       <div class="brief-source-body">
         <div class="brief-source-label" data-i18n="b3.src.s2.label"></div>
-        <div class="brief-source-cited" data-i18n="b3.src.s2.cited" data-i18n-html></div>
+        <div class="brief-source-cited" data-i18n="b3.src.s2.cited" data-i18n-html="true"></div>
         <div class="brief-source-links">
           <a href="https://www.letemps.ch/economie/horlogerie-joaillerie/resultats-financiers-depassant-les-attentes-a-l-horloge-du-groupe-de-luxe-richemont-il-est-bientot-l-heure-du-reveil" target="_blank" rel="noopener" data-i18n="b3.src.primary"></a>
           <a href="../observatoires/suisse.html" data-i18n="b3.src.observatory"></a>
@@ -2348,7 +2397,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
       <div class="brief-source-num">03</div>
       <div class="brief-source-body">
         <div class="brief-source-label" data-i18n="b3.src.s3.label"></div>
-        <div class="brief-source-cited" data-i18n="b3.src.s3.cited" data-i18n-html></div>
+        <div class="brief-source-cited" data-i18n="b3.src.s3.cited" data-i18n-html="true"></div>
         <div class="brief-source-links">
           <a href="https://www.kearney.com/industry/consumer-retail/article/2026-luxury-industry-outlook" target="_blank" rel="noopener" data-i18n="b3.src.primary"></a>
         </div>
@@ -2362,7 +2411,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <section class="brief-disclosure">
   <div class="brief-disclosure-inner">
     <div class="brief-disclosure-tag" data-i18n="b3.disc.tag"></div>
-    <div class="brief-disclosure-body" data-i18n="b3.disc.body" data-i18n-html></div>
+    <div class="brief-disclosure-body" data-i18n="b3.disc.body" data-i18n-html="true"></div>
   </div>
 </section>
 
@@ -2371,7 +2420,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <div class="brief-paywall-inner">
     <div>
       <div class="brief-paywall-eyebrow" data-i18n="b3.cta.eyebrow"></div>
-      <h2 class="brief-paywall-title" data-i18n="b3.cta.title" data-i18n-html></h2>
+      <h2 class="brief-paywall-title" data-i18n="b3.cta.title" data-i18n-html="true"></h2>
       <p class="brief-paywall-desc" data-i18n="b3.cta.desc"></p>
       <ul>
         <li data-i18n="b3.cta.f1"></li>
@@ -2433,12 +2482,15 @@ window.VEILLE_DATA = [{"date":"2026-04-23","source":"Angestellte Schweiz · Demo
 const I18N = {
   fr: {
     "nav.home": "Retour à l'accueil",
+    "nav.accueil": "Accueil",
     "nav.suisse": "Suisse",
     "nav.france": "France",
     "nav.comparer": "Comparer",
     "nav.memos": "Le Dispatch·iA",
     "nav.veille": "Veille",
+    "nav.method": "Méthodologie",
     "nav.about": "À propos",
+    "nav.partner": "Partenariats",
     "nav.contact": "Contact",
     "foot.rights": "Données sous licences sources",
     "foot.method": "Méthodologie",
@@ -2461,12 +2513,15 @@ const I18N = {
   },
   en: {
     "nav.home": "Back to home",
+    "nav.accueil": "Home",
     "nav.suisse": "Switzerland",
     "nav.france": "France",
     "nav.comparer": "Compare",
     "nav.memos": "The Dispatch·iA",
     "nav.veille": "Field Report",
+    "nav.method": "Methodology",
     "nav.about": "About",
+    "nav.partner": "Partnerships",
     "nav.contact": "Contact",
     "foot.rights": "Data under source licenses",
     "foot.method": "Methodology",
@@ -2575,12 +2630,15 @@ function renderNav(currentPage) {
         observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia
       </a>
       <div class="nav-links">
+        ${link("index.html", "accueil", "home")}
         ${link("observatoires/suisse.html", "suisse", "suisse")}
         ${link("observatoires/france.html", "france", "france")}
         ${link("observatoires/comparer.html", "comparer", "comparer")}
         ${link("briefings.html", "memos", "briefings")}
         ${link("veille.html", "veille", "veille")}
+        ${link("methodologie.html", "method", "methodologie")}
         ${link("a-propos.html", "about", "about")}
+        ${link("partenariats.html", "partner", "partenariats")}
         ${link("contact.html", "contact", "contact")}
       </div>
       <div class="nav-actions">
@@ -2597,12 +2655,15 @@ function renderNav(currentPage) {
   if (mob) {
     mob.innerHTML = `
       <button class="close-btn" id="closeMenu">×</button>
+      <a href="${root}index.html" data-i18n="nav.accueil">${t("nav.accueil")}</a>
       <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
       <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
       <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
       <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
       <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+      <a href="${root}methodologie.html" data-i18n="nav.method">${t("nav.method")}</a>
       <a href="${root}a-propos.html" data-i18n="nav.about">${t("nav.about")}</a>
+      <a href="${root}partenariats.html" data-i18n="nav.partner">${t("nav.partner")}</a>
       <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
     `;
   }

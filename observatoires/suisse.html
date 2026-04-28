@@ -66,8 +66,8 @@ a { color: inherit; text-decoration: none; }
 .logo .dot { color: var(--muted); margin: 0 0.15em; }
 
 .nav-links {
-  display: flex; gap: 28px; align-items: center;
-  font-size: 14px; font-weight: 500;
+  display: flex; gap: 22px; align-items: center;
+  font-size: 13.5px; font-weight: 500;
 }
 .nav-links a {
   color: var(--ink-2); position: relative; padding: 4px 0;
@@ -2147,6 +2147,55 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .brief-disclosure-body { font-size: 12px; }
 }
 
+/* Nav avec 10 items : passer en mobile menu plus tôt */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; }
+}
+
+/* Base method-content typography (was missing) */
+.method-content { font-family: "Instrument Sans", sans-serif; }
+.method-content h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 0;
+  font-size: 28px; font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.method-content h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  color: var(--signal);
+}
+.method-content h4 {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 18px; font-weight: 600;
+  margin: 24px 0 8px 0;
+  color: var(--ink);
+}
+.method-content p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+  color: var(--ink-2);
+}
+.method-content p:last-child { margin-bottom: 0; }
+.method-content ul {
+  margin: 12px 0 16px 0;
+  padding-left: 22px;
+}
+.method-content li {
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin-bottom: 8px;
+  color: var(--ink-2);
+}
+.method-content a { color: var(--signal); text-decoration: underline; text-decoration-thickness: 1px; }
+.method-content a:hover { text-decoration-thickness: 2px; }
+.method-content strong { color: var(--ink); font-weight: 600; }
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/observatoires/suisse.html">
@@ -2174,7 +2223,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 <!-- DASHBOARD HEADER -->
 <section class="dash-header">
-  <h1 class="dash-title" data-i18n="ch.title" data-i18n-html></h1>
+  <h1 class="dash-title" data-i18n="ch.title" data-i18n-html="true"></h1>
   <p class="dash-lede" data-i18n="ch.lede"></p>
   <div class="cta-row" style="margin-top: 28px;">
     <a href="https://observatoire.naullynicolas.ch/ch/" class="btn btn-primary" target="_blank" rel="noopener">
@@ -2193,8 +2242,8 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <div class="context-grid">
     <div class="context-tag" data-i18n="ch.context.tag"></div>
     <div class="context-content">
-      <h3 data-i18n="ch.context.title" data-i18n-html></h3>
-      <div data-i18n="ch.context.text" data-i18n-html></div>
+      <h3 data-i18n="ch.context.title" data-i18n-html="true"></h3>
+      <div data-i18n="ch.context.text" data-i18n-html="true"></div>
       <div class="context-key-facts">
         <div class="kf-item">
           <div class="kf-num">26<span style="color: var(--ink); font-size: 0.6em;">+1</span></div>
@@ -2276,7 +2325,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 <!-- CROSS LINK -->
 <section class="cross-link">
-  <h3 data-i18n="ch.cross.text" data-i18n-html></h3>
+  <h3 data-i18n="ch.cross.text" data-i18n-html="true"></h3>
   <div class="cta-row">
     <a href="france.html" class="btn btn-primary">
       <span data-i18n="ch.cross.cta"></span>
@@ -2320,12 +2369,15 @@ window.VEILLE_DATA = [{"date":"2026-04-23","source":"Angestellte Schweiz · Demo
 const I18N = {
   fr: {
     "nav.home": "Retour à l'accueil",
+    "nav.accueil": "Accueil",
     "nav.suisse": "Suisse",
     "nav.france": "France",
     "nav.comparer": "Comparer",
     "nav.memos": "Le Dispatch·iA",
     "nav.veille": "Veille",
+    "nav.method": "Méthodologie",
     "nav.about": "À propos",
+    "nav.partner": "Partenariats",
     "nav.contact": "Contact",
     "foot.rights": "Données sous licences sources",
     "foot.method": "Méthodologie",
@@ -2348,12 +2400,15 @@ const I18N = {
   },
   en: {
     "nav.home": "Back to home",
+    "nav.accueil": "Home",
     "nav.suisse": "Switzerland",
     "nav.france": "France",
     "nav.comparer": "Compare",
     "nav.memos": "The Dispatch·iA",
     "nav.veille": "Field Report",
+    "nav.method": "Methodology",
     "nav.about": "About",
+    "nav.partner": "Partnerships",
     "nav.contact": "Contact",
     "foot.rights": "Data under source licenses",
     "foot.method": "Methodology",
@@ -2462,12 +2517,15 @@ function renderNav(currentPage) {
         observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia
       </a>
       <div class="nav-links">
+        ${link("index.html", "accueil", "home")}
         ${link("observatoires/suisse.html", "suisse", "suisse")}
         ${link("observatoires/france.html", "france", "france")}
         ${link("observatoires/comparer.html", "comparer", "comparer")}
         ${link("briefings.html", "memos", "briefings")}
         ${link("veille.html", "veille", "veille")}
+        ${link("methodologie.html", "method", "methodologie")}
         ${link("a-propos.html", "about", "about")}
+        ${link("partenariats.html", "partner", "partenariats")}
         ${link("contact.html", "contact", "contact")}
       </div>
       <div class="nav-actions">
@@ -2484,12 +2542,15 @@ function renderNav(currentPage) {
   if (mob) {
     mob.innerHTML = `
       <button class="close-btn" id="closeMenu">×</button>
+      <a href="${root}index.html" data-i18n="nav.accueil">${t("nav.accueil")}</a>
       <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
       <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
       <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
       <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
       <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+      <a href="${root}methodologie.html" data-i18n="nav.method">${t("nav.method")}</a>
       <a href="${root}a-propos.html" data-i18n="nav.about">${t("nav.about")}</a>
+      <a href="${root}partenariats.html" data-i18n="nav.partner">${t("nav.partner")}</a>
       <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
     `;
   }
