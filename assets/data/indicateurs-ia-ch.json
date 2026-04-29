@@ -8,7 +8,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "underlying_dashboard": "https://observatoire.naullynicolas.ch/ch/",
-  "count": 10,
+  "count": 12,
   "indicators": [
     {
       "title": "% emplois suisses exposés à l'IA d'ici 2030",
@@ -540,6 +540,58 @@
           "year": 2025,
           "citation": "Digitalswitzerland · usage GenAI vs potentiel",
           "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "% gain de productivité IA · effet concentré secteur tertiaire haut",
+      "unit": "%",
+      "n_sources": 3,
+      "value_min": 2.5,
+      "value_max": 8.0,
+      "value_median": 4.0,
+      "description_fr": "Estimation du gain de productivité IA en Suisse. Reconstitution à partir de l'asymétrie observée par DemoSCOPE (avril 2026) entre les secteurs : 24% d'introduction IA dans les grandes entreprises (+250 collaborateurs) vs 9% dans les TPE. Cet écart est cohérent avec les +7,8% de productivité observés par Focaldata UK+US dans le secteur Tech vs +2,1% dans Health & Social Care. Pour la Suisse, dont la structure productive concentre la valeur dans le tertiaire haut de gamme (banque privée, pharma, horlogerie), la concentration des gains sera mécaniquement plus marquée.",
+      "sources": [
+        {
+          "name": "Angestellte Schweiz · DemoSCOPE",
+          "url": "https://www.angestellte.ch",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+          "url": "https://focaldata.com",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Swiss AI Center · HES-SO",
+          "url": "https://www.hes-so.ch/",
+          "tier": 2,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Écart formation IA · point d'appui empirique pour les politiques de formation continue",
+      "unit": "points",
+      "n_sources": 2,
+      "value_min": 24,
+      "value_max": 37,
+      "value_median": 30,
+      "description_fr": "L'effet de la formation IA sur l'usage quotidien (+24 à +37 points selon Focaldata UK+US) constitue le levier le plus puissant identifié dans la littérature 2026. Pour la Suisse, ce constat empirique converge avec celui de DemoSCOPE : la formation continue est la mesure considérée comme la plus efficace par les actifs eux-mêmes (M=3,27/4 sur 4). Levier d'action prioritaire pour les fédérations professionnelles, les associations syndicales (Angestellte Schweiz), et les pouvoirs publics cantonaux et fédéraux.",
+      "sources": [
+        {
+          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+          "url": "https://focaldata.com",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Angestellte Schweiz · DemoSCOPE",
+          "url": "https://www.angestellte.ch",
+          "tier": 1,
+          "ai_type": "generative"
         }
       ]
     }

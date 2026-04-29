@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 29,
+  "count": 33,
   "events": [
     {
       "year": "2025",
@@ -267,6 +267,42 @@
       "headline_value": "17% IA introduite · asymétrie 9% / 24% TPE / grand groupe",
       "tier": 2,
       "citation": "Angestellte Schweiz · DemoSCOPE · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Février 2026",
+      "title": "FT Burn-Murdoch & O'Connor · critique méthodologique des exposure scores",
+      "summary_fr": "Critique systématique des sept mesures dominantes d'exposition à l'IA (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab et autres). Selon l'analyse Yale Budget Lab citée, les mesures s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Trois facteurs ignorés par les approches task-based : autonomie du travailleur (David Autor 2003), régulation institutionnelle (radiologie, thérapie aux États-Unis), et effets de second ordre sur la demande. Repère méthodologique majeur pour calibrer la prudence de tout observatoire qui s'appuie sur ces scores.",
+      "headline_value": "7 mesures d'exposition · faible accord sur les jobs les plus exposés",
+      "tier": 1,
+      "citation": "Burn-Murdoch & O'Connor · Financial Times · 26 février 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Focaldata × Financial Times · Workforce AI Tracker Wave 1",
+      "summary_fr": "Premier tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont déjà utilisé l'IA, mais distribution L-shape : 35% jamais, 11-18% quotidiennement. Productivité IA marché total +3,5% (Tech +7,8%). Effet formation +37 pts d'usage quotidien, mais seulement 14% formés. Divergence frappante entre managers UK (25% prévoient réduction, 16% augmentation) et US (28% augmentation, 22% réduction). Trois scénarios prospectifs ABC : Augmentation (formation massive), Bifurcation (probable, écart formation creuse), Crash (capacités IA dépassent capacité d'adaptation des entreprises).",
+      "headline_value": "65% utilisent l'IA · 14% formés · scénario probable : Bifurcation",
+      "tier": 1,
+      "citation": "Focaldata Workforce AI Tracker Wave 1 · 23 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "FT Burn-Murdoch · « Ce que rate le récit du jobpocalypse »",
+      "summary_fr": "Démonstration empirique : la relation productivité-emploi dépend du rapport demande/offre, pas de la seule capacité technique de l'IA. Logiciels et services pro : productivité ↑ et emploi ↑ (demande latente). Manufacture : productivité ↑ et emploi ↓ (demande satisfaite, James Bessen). Retail vs warehousing : effets de second ordre opposés du même e-commerce. Spreadsheets : tueurs de bookkeepers, créateurs de financial analysts. Bank tellers tués par smartphones, pas par ATM. Conclusion : « Can AI do this task? » est un signal ambigu qui ne forme qu'une petite partie d'un tableau complexe.",
+      "headline_value": "Productivité et emploi peuvent croître ensemble selon la demande",
+      "tier": 1,
+      "citation": "Burn-Murdoch · Financial Times · 25 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "British Progress · état des preuves UK",
+      "summary_fr": "Synthèse rigoureuse des données disponibles sur l'impact de l'IA sur l'emploi britannique (Pedro Serôdio). Conclusion : peu de signes d'effets agrégés massifs malgré 54% des PME britanniques utilisant l'IA. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Trois sorties de l'Anthropic Economic Index (sept 2025, janv 2026, mars 2026) confirment un écart stable entre exposition prédite (forte chez professionnels et managers) et usage réel (en retard).",
+      "headline_value": "54% PME UK utilisent l'IA · écart prédiction/réalité stable",
+      "tier": 2,
+      "citation": "British Progress · Pedro Serôdio · avril 2026",
       "ai_type": "generative"
     }
   ]

@@ -4,6 +4,132 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.5] · 2026-04-29
+
+### Added · Reinvention pathways section
+
+New editorial section "Pistes de réinvention" (Reinvention pathways) added
+to both Swiss and France dashboard pages. For each country, five professional
+archetypes with a plausible 3-5 year reinvention trajectory, presented as a
+clickable accordion menu (drop-down) to avoid page overload.
+
+**Five archetypes selected per country**, spanning a range of AI exposure
+levels and economic domains:
+
+1. **Bank advisor** (banking, high exposure) — pivot to wealth advisor with
+   strong human relationship
+2. **Social educator** (personal services, low exposure) — pivot to
+   human-technology mediator in institutions
+3. **Accountant** (business support, very high exposure) — pivot to expert
+   reviewer & strategic SME partner
+4. **Journalist** (communication, high exposure) — pivot to investigative
+   journalist & epistemic guardian
+5. **Software developer** (digital, very high exposure) — pivot to AI
+   architect & systems orchestrator
+
+**Each pathway articulates three elements**:
+- **Future role**: what the person would do
+- **Transferable skills**: what they already know that becomes valuable
+- **Recommended training pathway**: calibrated on national systems
+
+**Training pathways adapted by country**:
+- **Switzerland**: CFC, ES, HES, EPF, ETHZ, CAS HES-SO, MAS, federal diplomas
+  (Brevet fédéral, Diplôme fédéral), continuing education through professional
+  associations (Veb.ch, SAQ, avastp, impressum, SGAICO), CFJM, MAZ
+- **France**: DCG/DSCG/DEC for accounting, DEES/CAFERUIS/DEIS for social
+  sector, Master 2/CGPC/AMF for banking, CPNEJ-recognized journalism schools,
+  Polytechnique/Centrale/Mines/Télécom/INSA for engineering, CNAM, CPF, OPCO
+  Atlas, OPCO Santé
+
+**Each card cites supporting evidence**:
+- DemoSCOPE April 2026 (24% large Swiss firms with AI tools)
+- Coface OEM April 2026 (16.3% French jobs threatened 2-5 years)
+- Indeed UK (-7% junior postings 2025)
+- France Stratégie Métiers 2030
+
+**Disclaimer**: explicit caveat that these are projections, not predictions.
+Actual trajectories will depend on individual context, region/canton,
+industry, and AI adoption pace within the company.
+
+**CTA at the bottom** invites visitors to explore the full dashboard (200
+ROME occupations FR, 324 NP 2010 occupations CH) or to see Le Dispatch·iA
+sectoral reports.
+
+### Changed
+- New CSS components added: `.reinvent-section`, `.reinvent-list`,
+  `.reinvent-item`, `.reinvent-trigger` (grid 60px/1fr/auto/auto),
+  `.reinvent-content` (display:none by default), `.reinvent-future-role`
+  (Fraunces italic 26px), `.reinvent-skills` (teal left border),
+  `.reinvent-formation` (signal red left border), `.reinvent-cta-block`
+  (dark background, paper text). Mobile breakpoint 720px hides exposure
+  chips for compactness.
+- New JavaScript handler in both pages for `.reinvent-trigger` clicks
+  (toggles `.open` class on parent `.reinvent-item`).
+
+---
+
+## [0.2.4] · 2026-04-28
+
+### Added · Major international research integration
+
+Four new primary sources integrated to strengthen the methodological backbone
+of the cartography:
+
+- **Focaldata × Financial Times Workforce AI Tracker · Wave 1** (April 2026,
+  n=4,119 UK+US). Monthly tracker. Key findings: 65% of workers used AI at
+  least once, fewer than 1/5 daily, L-shaped adoption distribution. Aggregate
+  productivity gain +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37
+  points daily usage but only 14% formally trained. UK managers pessimistic
+  vs US optimistic on hiring expectations. ABC scenarios (Augmentation,
+  Bifurcation, Crash) with Bifurcation as most likely near-term outcome.
+- **Burn-Murdoch & O'Connor · FT** (26 February 2026). Methodological
+  critique of seven task-based AI exposure scores. Yale Budget Lab finding
+  cited: measures agree on low-exposure occupations but diverge sharply on
+  the most exposed. Three factors typically missed: worker autonomy
+  (Autor 2003), institutional regulation (radiology, therapy), second-order
+  demand effects (Bessen).
+- **Burn-Murdoch · FT** (25 April 2026). "What the AI 'jobpocalypse'
+  narrative misses". Empirical demonstration via BLS historical data that
+  productivity-employment relationship depends on demand elasticity, not
+  AI's technical capability alone. Software and pro services: productivity
+  ↑ + employment ↑. Manufacturing: productivity ↑ + employment ↓. Spreadsheets
+  killed bookkeepers but created financial analysts. Bank tellers: smartphones
+  killed them, not ATMs.
+- **British Progress · Pedro Serôdio** (April 2026). UK labour market
+  evidence synthesis. Conclusion: few signs of massive aggregate effects
+  despite 54% UK SMEs using AI. Goldman Sachs and McKinsey predictions rest
+  on theoretical full adoption. Anthropic Economic Index (Sep 2025, Jan 2026,
+  March 2026): stable gap between predicted exposure and actual usage.
+
+### Changed
+- **Methodology page**: new bias block "Limits of task-based exposure scores"
+  added to section 06 (recognized biases). Citing Yale Budget Lab,
+  Burn-Murdoch/O'Connor, David Autor 2003, James Bessen.
+- **Swiss dashboard**: new "International perspective" block after the three
+  KPIs, contextualizing DemoSCOPE 2026 with Focaldata UK+US findings. Three
+  new key facts: +37 pts training effect, 14% formally trained, +3.5%
+  aggregate productivity gain.
+- **Veille (Field Reports)**: 4 new reports at top of list. 13 reports total.
+- **Timeline**: 4 new milestones. 33 events total.
+- **Datasets**:
+  - indicateurs-ia-fr.json: 15 → 17 indicators (added aggregate productivity
+    and AI training gap)
+  - indicateurs-ia-ch.json: 10 → 12 indicators (Swiss-adapted versions)
+  - economistes-ia.json: 12 → 16 economists (added Autor, Bessen, Gimbel,
+    Serôdio)
+  - economistes-ia-ch.json: 18 → 20 (added Gimbel and Serôdio as
+    international anchors)
+
+### Notes
+- All Focaldata and FT figures verified against the source PDFs and FT
+  articles. The methodological critique (Burn-Murdoch/O'Connor + Yale Budget
+  Lab) is now central to how the cartography frames its own exposure scores.
+- The site now totals: 524 occupations (FR + CH) + 29 prospective indicators
+  + 33 timeline milestones + 36 economists. Editorial commons keeps growing
+  while methodological caveats become more rigorous.
+
+---
+
 ## [0.2.2] · 2026-04-28
 
 ### Added

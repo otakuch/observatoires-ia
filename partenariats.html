@@ -2196,6 +2196,240 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .method-content a:hover { text-decoration-thickness: 2px; }
 .method-content strong { color: var(--ink); font-weight: 600; }
 
+/* ============================================== */
+/* PISTES DE RÉINVENTION · accordion menu */
+/* ============================================== */
+
+.reinvent-section {
+  padding: 60px 60px 80px;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+@media (max-width: 960px) {
+  .reinvent-section { padding: 48px 20px 56px; }
+}
+
+.reinvent-intro {
+  max-width: 720px;
+  margin: 0 0 36px 0;
+}
+.reinvent-intro p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 12px 0;
+}
+.reinvent-intro .caveat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+
+.reinvent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.reinvent-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.reinvent-trigger {
+  display: grid;
+  grid-template-columns: 60px 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+.reinvent-trigger:hover { background-color: rgba(208, 60, 47, 0.03); }
+
+.reinvent-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+}
+
+.reinvent-title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.reinvent-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.reinvent-meta {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.reinvent-expo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.reinvent-expo.high {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.reinvent-expo.low {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.reinvent-chevron {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 24px;
+  color: var(--ink-3);
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+.reinvent-item.open .reinvent-chevron {
+  transform: rotate(45deg);
+  color: var(--signal);
+}
+
+.reinvent-content {
+  display: none;
+  padding: 0 0 36px 84px;
+  max-width: 820px;
+}
+.reinvent-item.open .reinvent-content { display: block; }
+
+.reinvent-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin: 0 0 6px 0;
+}
+.reinvent-future-role {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 32, "SOFT" 50;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+}
+.reinvent-content p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 14px 0;
+}
+.reinvent-content p strong { color: var(--ink); font-weight: 600; }
+
+.reinvent-skills {
+  margin: 18px 0 14px 0;
+  padding: 14px 18px;
+  background: rgba(31, 58, 61, 0.04);
+  border-left: 2px solid var(--teal);
+}
+.reinvent-skills-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.reinvent-skills p { margin: 0; font-size: 14px; }
+
+.reinvent-formation {
+  margin: 18px 0 0 0;
+  padding: 14px 18px;
+  background: rgba(208, 60, 47, 0.04);
+  border-left: 2px solid var(--signal);
+}
+.reinvent-formation-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--signal);
+  margin-bottom: 6px;
+}
+.reinvent-formation p { margin: 0; font-size: 14px; }
+.reinvent-formation strong { color: var(--ink); }
+
+.reinvent-cta-block {
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+}
+.reinvent-cta-block h4 {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+.reinvent-cta-block p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  color: rgba(242, 238, 229, 0.85);
+  margin: 0 0 16px 0;
+  line-height: 1.55;
+}
+.reinvent-cta-block a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--signal);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 1px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+  .reinvent-trigger {
+    grid-template-columns: 36px 1fr auto;
+    gap: 14px;
+    padding: 20px 0;
+  }
+  .reinvent-trigger .reinvent-expo { display: none; }
+  .reinvent-title { font-size: 18px; }
+  .reinvent-content { padding: 0 0 28px 50px; }
+  .reinvent-future-role { font-size: 21px; }
+}
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/partenariats.html">
@@ -2441,7 +2675,7 @@ window.OBSERVATOIRES_DATA = [
   {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
 ];
 
-window.VEILLE_DATA = [{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
+window.VEILLE_DATA = [{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
 
 
 const I18N = {

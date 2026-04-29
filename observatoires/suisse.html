@@ -2196,6 +2196,240 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .method-content a:hover { text-decoration-thickness: 2px; }
 .method-content strong { color: var(--ink); font-weight: 600; }
 
+/* ============================================== */
+/* PISTES DE RÉINVENTION · accordion menu */
+/* ============================================== */
+
+.reinvent-section {
+  padding: 60px 60px 80px;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+@media (max-width: 960px) {
+  .reinvent-section { padding: 48px 20px 56px; }
+}
+
+.reinvent-intro {
+  max-width: 720px;
+  margin: 0 0 36px 0;
+}
+.reinvent-intro p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 12px 0;
+}
+.reinvent-intro .caveat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+
+.reinvent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.reinvent-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.reinvent-trigger {
+  display: grid;
+  grid-template-columns: 60px 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+.reinvent-trigger:hover { background-color: rgba(208, 60, 47, 0.03); }
+
+.reinvent-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+}
+
+.reinvent-title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.reinvent-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.reinvent-meta {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.reinvent-expo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.reinvent-expo.high {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.reinvent-expo.low {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.reinvent-chevron {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 24px;
+  color: var(--ink-3);
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+.reinvent-item.open .reinvent-chevron {
+  transform: rotate(45deg);
+  color: var(--signal);
+}
+
+.reinvent-content {
+  display: none;
+  padding: 0 0 36px 84px;
+  max-width: 820px;
+}
+.reinvent-item.open .reinvent-content { display: block; }
+
+.reinvent-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin: 0 0 6px 0;
+}
+.reinvent-future-role {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 32, "SOFT" 50;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+}
+.reinvent-content p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 14px 0;
+}
+.reinvent-content p strong { color: var(--ink); font-weight: 600; }
+
+.reinvent-skills {
+  margin: 18px 0 14px 0;
+  padding: 14px 18px;
+  background: rgba(31, 58, 61, 0.04);
+  border-left: 2px solid var(--teal);
+}
+.reinvent-skills-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.reinvent-skills p { margin: 0; font-size: 14px; }
+
+.reinvent-formation {
+  margin: 18px 0 0 0;
+  padding: 14px 18px;
+  background: rgba(208, 60, 47, 0.04);
+  border-left: 2px solid var(--signal);
+}
+.reinvent-formation-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--signal);
+  margin-bottom: 6px;
+}
+.reinvent-formation p { margin: 0; font-size: 14px; }
+.reinvent-formation strong { color: var(--ink); }
+
+.reinvent-cta-block {
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+}
+.reinvent-cta-block h4 {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+.reinvent-cta-block p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  color: rgba(242, 238, 229, 0.85);
+  margin: 0 0 16px 0;
+  line-height: 1.55;
+}
+.reinvent-cta-block a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--signal);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 1px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+  .reinvent-trigger {
+    grid-template-columns: 36px 1fr auto;
+    gap: 14px;
+    padding: 20px 0;
+  }
+  .reinvent-trigger .reinvent-expo { display: none; }
+  .reinvent-title { font-size: 18px; }
+  .reinvent-content { padding: 0 0 28px 50px; }
+  .reinvent-future-role { font-size: 21px; }
+}
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/observatoires/suisse.html">
@@ -2284,6 +2518,184 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   </div>
 </section>
 
+<!-- INTERNATIONAL CONTEXT · Focaldata + Yale Budget Lab -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="ch.intl.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="ch.intl.title" data-i18n-html="true"></h3>
+      <div data-i18n="ch.intl.text" data-i18n-html="true"></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">+37<span style="color: var(--ink); font-size: 0.6em;">pts</span></div>
+          <div class="kf-label" data-i18n="ch.intl.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">14<span class="unit">%</span></div>
+          <div class="kf-label" data-i18n="ch.intl.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">+3,5<span class="unit">%</span></div>
+          <div class="kf-label" data-i18n="ch.intl.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISTES DE RÉINVENTION · 5 métiers archétypaux CH -->
+<section class="reinvent-section">
+  <div class="section-head no-border" style="padding-bottom: 18px;">
+    <div class="section-eyebrow mono" data-i18n="ch.rein.eyebrow"></div>
+    <h2 class="section-title" data-i18n="ch.rein.title" data-i18n-html="true"></h2>
+  </div>
+
+  <div class="reinvent-intro">
+    <p data-i18n="ch.rein.intro1"></p>
+    <p data-i18n="ch.rein.intro2"></p>
+    <p class="caveat" data-i18n="ch.rein.caveat"></p>
+  </div>
+
+  <div class="reinvent-list" id="chReinventList">
+    <!-- Item 01 · Conseiller bancaire -->
+    <div class="reinvent-item">
+      <button class="reinvent-trigger" type="button">
+        <div class="reinvent-num">01</div>
+        <div class="reinvent-title-cell">
+          <div class="reinvent-title" data-i18n="ch.rein.m1.label"></div>
+          <div class="reinvent-meta" data-i18n="ch.rein.m1.meta"></div>
+        </div>
+        <div class="reinvent-expo high" data-i18n="ch.rein.m1.expo"></div>
+        <div class="reinvent-chevron">+</div>
+      </button>
+      <div class="reinvent-content">
+        <div class="reinvent-eyebrow" data-i18n="ch.rein.future"></div>
+        <div class="reinvent-future-role" data-i18n="ch.rein.m1.future"></div>
+        <p data-i18n="ch.rein.m1.why" data-i18n-html="true"></p>
+        <div class="reinvent-skills">
+          <div class="reinvent-skills-label" data-i18n="ch.rein.skillslabel"></div>
+          <p data-i18n="ch.rein.m1.skills" data-i18n-html="true"></p>
+        </div>
+        <div class="reinvent-formation">
+          <div class="reinvent-formation-label" data-i18n="ch.rein.formationlabel"></div>
+          <p data-i18n="ch.rein.m1.formation" data-i18n-html="true"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 02 · Éducateur·trice social·e -->
+    <div class="reinvent-item">
+      <button class="reinvent-trigger" type="button">
+        <div class="reinvent-num">02</div>
+        <div class="reinvent-title-cell">
+          <div class="reinvent-title" data-i18n="ch.rein.m2.label"></div>
+          <div class="reinvent-meta" data-i18n="ch.rein.m2.meta"></div>
+        </div>
+        <div class="reinvent-expo low" data-i18n="ch.rein.m2.expo"></div>
+        <div class="reinvent-chevron">+</div>
+      </button>
+      <div class="reinvent-content">
+        <div class="reinvent-eyebrow" data-i18n="ch.rein.future"></div>
+        <div class="reinvent-future-role" data-i18n="ch.rein.m2.future"></div>
+        <p data-i18n="ch.rein.m2.why" data-i18n-html="true"></p>
+        <div class="reinvent-skills">
+          <div class="reinvent-skills-label" data-i18n="ch.rein.skillslabel"></div>
+          <p data-i18n="ch.rein.m2.skills" data-i18n-html="true"></p>
+        </div>
+        <div class="reinvent-formation">
+          <div class="reinvent-formation-label" data-i18n="ch.rein.formationlabel"></div>
+          <p data-i18n="ch.rein.m2.formation" data-i18n-html="true"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 03 · Comptable -->
+    <div class="reinvent-item">
+      <button class="reinvent-trigger" type="button">
+        <div class="reinvent-num">03</div>
+        <div class="reinvent-title-cell">
+          <div class="reinvent-title" data-i18n="ch.rein.m3.label"></div>
+          <div class="reinvent-meta" data-i18n="ch.rein.m3.meta"></div>
+        </div>
+        <div class="reinvent-expo high" data-i18n="ch.rein.m3.expo"></div>
+        <div class="reinvent-chevron">+</div>
+      </button>
+      <div class="reinvent-content">
+        <div class="reinvent-eyebrow" data-i18n="ch.rein.future"></div>
+        <div class="reinvent-future-role" data-i18n="ch.rein.m3.future"></div>
+        <p data-i18n="ch.rein.m3.why" data-i18n-html="true"></p>
+        <div class="reinvent-skills">
+          <div class="reinvent-skills-label" data-i18n="ch.rein.skillslabel"></div>
+          <p data-i18n="ch.rein.m3.skills" data-i18n-html="true"></p>
+        </div>
+        <div class="reinvent-formation">
+          <div class="reinvent-formation-label" data-i18n="ch.rein.formationlabel"></div>
+          <p data-i18n="ch.rein.m3.formation" data-i18n-html="true"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 04 · Journaliste -->
+    <div class="reinvent-item">
+      <button class="reinvent-trigger" type="button">
+        <div class="reinvent-num">04</div>
+        <div class="reinvent-title-cell">
+          <div class="reinvent-title" data-i18n="ch.rein.m4.label"></div>
+          <div class="reinvent-meta" data-i18n="ch.rein.m4.meta"></div>
+        </div>
+        <div class="reinvent-expo high" data-i18n="ch.rein.m4.expo"></div>
+        <div class="reinvent-chevron">+</div>
+      </button>
+      <div class="reinvent-content">
+        <div class="reinvent-eyebrow" data-i18n="ch.rein.future"></div>
+        <div class="reinvent-future-role" data-i18n="ch.rein.m4.future"></div>
+        <p data-i18n="ch.rein.m4.why" data-i18n-html="true"></p>
+        <div class="reinvent-skills">
+          <div class="reinvent-skills-label" data-i18n="ch.rein.skillslabel"></div>
+          <p data-i18n="ch.rein.m4.skills" data-i18n-html="true"></p>
+        </div>
+        <div class="reinvent-formation">
+          <div class="reinvent-formation-label" data-i18n="ch.rein.formationlabel"></div>
+          <p data-i18n="ch.rein.m4.formation" data-i18n-html="true"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 05 · Développeur·euse -->
+    <div class="reinvent-item">
+      <button class="reinvent-trigger" type="button">
+        <div class="reinvent-num">05</div>
+        <div class="reinvent-title-cell">
+          <div class="reinvent-title" data-i18n="ch.rein.m5.label"></div>
+          <div class="reinvent-meta" data-i18n="ch.rein.m5.meta"></div>
+        </div>
+        <div class="reinvent-expo high" data-i18n="ch.rein.m5.expo"></div>
+        <div class="reinvent-chevron">+</div>
+      </button>
+      <div class="reinvent-content">
+        <div class="reinvent-eyebrow" data-i18n="ch.rein.future"></div>
+        <div class="reinvent-future-role" data-i18n="ch.rein.m5.future"></div>
+        <p data-i18n="ch.rein.m5.why" data-i18n-html="true"></p>
+        <div class="reinvent-skills">
+          <div class="reinvent-skills-label" data-i18n="ch.rein.skillslabel"></div>
+          <p data-i18n="ch.rein.m5.skills" data-i18n-html="true"></p>
+        </div>
+        <div class="reinvent-formation">
+          <div class="reinvent-formation-label" data-i18n="ch.rein.formationlabel"></div>
+          <p data-i18n="ch.rein.m5.formation" data-i18n-html="true"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reinvent-cta-block">
+    <h4 data-i18n="ch.rein.cta.title"></h4>
+    <p data-i18n="ch.rein.cta.body" data-i18n-html="true"></p>
+    <a href="../briefings.html" data-i18n="ch.rein.cta.link"></a>
+  </div>
+</section>
+
 <!-- MINI CHART : adoption IA par secteur -->
 <div class="section-head no-border">
   <div class="section-eyebrow mono" data-i18n="ch.chart.eyebrow"></div>
@@ -2363,7 +2775,7 @@ window.OBSERVATOIRES_DATA = [
   {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
 ];
 
-window.VEILLE_DATA = [{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
+window.VEILLE_DATA = [{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
 
 
 const I18N = {
@@ -2607,6 +3019,68 @@ window.PAGE_I18N = {
     "ch.kpi3.tag": "03 · Effet revenu",
     "ch.kpi3.label": "des hauts revenus (>9 000 CHF/mois) sont concernés par l'introduction de l'IA, contre 6% chez les bas revenus. L'IA touche d'abord les emplois qualifiés.",
     "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · avril 2026",
+
+    "ch.intl.tag": "Mise en perspective internationale",
+    "ch.intl.title": "Ce que la <em>Suisse partage</em> et ce qui la <em>distingue</em>.",
+    "ch.intl.text": "<p>Les trois indicateurs DemoSCOPE ci-dessus prennent tout leur sens quand on les replace dans le tableau international. Le tracker mensuel <strong>Focaldata × Financial Times</strong> publié en avril 2026 (n=4 119, UK+US) confirme que l'asymétrie observée en Suisse n'est ni une exception ni un retard : c'est le motif dominant du déploiement de l'IA en 2026 dans toutes les économies avancées.</p><p>Trois constats convergents méritent d'ancrer la lecture suisse. <strong>L'usage de l'IA suit une distribution en L</strong>, pas en cloche : 35% des actifs UK+US n'utilisent jamais l'IA, 11-18% l'utilisent quotidiennement, le reste de manière épisodique. <strong>Le levier le plus puissant identifié reste la formation</strong> : une entreprise qui forme ses équipes voit +37 points d'usage quotidien, mais seulement 14% des actifs ont reçu une formation formelle. <strong>Les gains de productivité agrégés restent modérés</strong> (+3,5% au total) mais très concentrés dans la tech (+7,8%) et la finance (+5,1%).</p><p>Pour la Suisse, dont la structure productive est plus orientée vers le tertiaire haut de gamme que les économies UK et US, ces signaux suggèrent que la concentration des gains sera <em>mécaniquement plus marquée</em>. Le constat de DemoSCOPE : formation continue jugée la mesure la plus efficace par les actifs eux-mêmes (M=3,27/4) : converge avec le constat international : le levier de formation est <em>la</em> politique publique prioritaire pour éviter que la Bifurcation devienne le scénario par défaut.</p>",
+    "ch.intl.kf1": "d'usage quotidien apporté par une formation IA formelle (Focaldata)",
+    "ch.intl.kf2": "des actifs UK+US ont reçu une formation IA formelle",
+    "ch.intl.kf3": "gain de productivité IA agrégé · marché total (Focaldata)",
+
+    "ch.rein.eyebrow": "Pistes de réinvention · 5 trajectoires CH",
+    "ch.rein.title": "À quoi ressemblent les <em>métiers d'après</em>.",
+    "ch.rein.intro1": "Cinq archétypes professionnels suisses, choisis pour couvrir un éventail d'expositions à l'IA et de domaines économiques. Pour chacun, une trajectoire de réinvention plausible à 3-5 ans, calibrée sur la structure productive helvétique et le système de formation suisse (CFC, ES, HES, EPF, formation continue).",
+    "ch.rein.intro2": "Cliquez sur un métier pour ouvrir le détail. Chaque piste articule trois éléments : <strong>le rôle futur</strong> (ce que vous feriez), <strong>les compétences mobilisables</strong> (ce que vous savez déjà faire et qui devient précieux), <strong>le parcours de formation suisse</strong> recommandé pour pivoter.",
+    "ch.rein.caveat": "Note · Ce sont des projections, pas des prédictions. Les trajectoires effectives dépendront de votre parcours individuel, de votre canton, de votre branche, et de la rapidité d'adoption IA dans votre entreprise. Pour explorer les 324 métiers cartographiés et leurs scores d'exposition, consultez le dashboard ci-dessous.",
+
+    "ch.rein.future": "Rôle futur",
+    "ch.rein.skillslabel": "Compétences mobilisables",
+    "ch.rein.formationlabel": "Parcours de formation suisse",
+
+    "ch.rein.m1.label": "Conseiller bancaire",
+    "ch.rein.m1.meta": "42 000 actifs · 7 800 CHF/mois · banque, assurance",
+    "ch.rein.m1.expo": "Exposition 7/10",
+    "ch.rein.m1.future": "Conseiller patrimonial à forte relation humaine",
+    "ch.rein.m1.why": "Les produits bancaires standards (crédit hypothécaire de base, ouverture de compte) seront massivement automatisés d'ici 2028. Les cas complexes : successions transfrontalières, entrepreneurs en crise, expatriés UHNW, planification retraite multi-piliers : exigent un jugement humain et une relation de confiance que l'IA ne peut pas reproduire. <strong>DemoSCOPE (avril 2026)</strong> confirme que 24% des grandes entreprises suisses cherchent des profils hybrides métier+IA. Le secteur bancaire suisse, premier employeur de cols blancs, sera le premier à recomposer ses lignes.",
+    "ch.rein.m1.skills": "Connaissance fiscale CH (cantons et fédéral) · maîtrise des produits structurés · culture de la confidentialité bancaire · capacité à lire un patrimoine global · sensibilité aux moments de vie clients (mariage, deuil, transmission).",
+    "ch.rein.m1.formation": "<strong>Brevet fédéral de conseiller en finances</strong> ou <strong>Diplôme fédéral de planificateur financier</strong> · CAS HES en wealth management ou en banque privée · Certifications professionnelles SAQ Senior Wealth Manager · Formation continue IA appliquée à la finance (EPFL Extension School, HEG Genève).",
+
+    "ch.rein.m2.label": "Éducateur·trice social·e ES / HES",
+    "ch.rein.m2.meta": "28 000 actifs · 7 000 CHF/mois · services à la personne",
+    "ch.rein.m2.expo": "Exposition 3/10",
+    "ch.rein.m2.future": "Médiateur humain-technologie en institution",
+    "ch.rein.m2.why": "Vos missions actuelles d'accompagnement humain, d'évaluation sociale et psychologique, et de travail en équipe pluridisciplinaire vous dotent de compétences directement transposables. Dans les EMS, foyers, centres de jour et institutions sociales, l'introduction d'outils IA d'assistance (planning, dossiers, communication) crée un besoin urgent de pilotage avec jugement éthique. <strong>DemoSCOPE (avril 2026)</strong> confirme que 24% des grandes entreprises suisses ont déjà introduit des outils IA et cherchent activement des profils hybrides métier+IA. Le secteur social, peu exposé techniquement, devient stratégique parce qu'il définit les règles d'usage.",
+    "ch.rein.m2.skills": "Évaluation sociale et psychologique · accompagnement humain · travail en équipe pluridisciplinaire · médiation et résolution de conflits · connaissance du cadre LAS et des dispositifs cantonaux d'aide sociale.",
+    "ch.rein.m2.formation": "<strong>CAS HES-SO « Éthique et IA dans les institutions sociales »</strong> ou équivalent · MAS en supervision et coordination institutionnelle · Formation continue avastp (Association suisse des éducateurs·trices) · Formation IA pour secteur social via les Hautes Écoles Sociales (HETS Genève, Lausanne, Fribourg).",
+
+    "ch.rein.m3.label": "Comptable",
+    "ch.rein.m3.meta": "45 000 actifs · 8 000 CHF/mois · support entreprise",
+    "ch.rein.m3.expo": "Exposition 8,8/10",
+    "ch.rein.m3.future": "Expert révision & partenaire stratégique d'entreprise",
+    "ch.rein.m3.why": "La saisie comptable et la production des écritures courantes seront automatisées à 80% d'ici 2028. Mais le <strong>discernement des cas ambigus, l'interprétation des réglementations cantonales et fédérales (TVA, IFD, BVG, CO 957), et la responsabilité légale</strong> restent humaines. Le comptable de demain n'est pas un saisisseur, c'est un superviseur d'IA comptable et un conseiller stratégique de la PME suisse. La demande de profils combinant expertise réglementaire CH et maîtrise des outils IA explose.",
+    "ch.rein.m3.skills": "Maîtrise du Code des obligations (art. 957 ss) · TVA suisse et internationale · interprétation des cas complexes · sens de la responsabilité légale · culture de la précision · connaissance des spécificités sectorielles (industrie, service, immobilier, BFI).",
+    "ch.rein.m3.formation": "<strong>Brevet fédéral de spécialiste en finance et comptabilité</strong> · <strong>Diplôme fédéral d'expert en finance et controlling</strong> · Diplôme fédéral d'expert-comptable diplômé · Formation continue Veb.ch et SwissAccounting · CAS IA appliquée à la comptabilité et à l'audit (HEG Genève, ZHAW Zurich).",
+
+    "ch.rein.m4.label": "Journaliste",
+    "ch.rein.m4.meta": "14 000 actifs · 7 200 CHF/mois · communication, média",
+    "ch.rein.m4.expo": "Exposition 7/10",
+    "ch.rein.m4.future": "Journaliste d'investigation & gardien épistémique",
+    "ch.rein.m4.why": "L'écriture de brèves, la traduction et le résumé seront massivement automatisés. Mais l'enquête de terrain, la vérification des sources primaires, l'interview, et la signature éditoriale restent fondamentalement humaines. Dans un paysage saturé de contenu synthétique, le journaliste suisse devient un <strong>gardien épistémique</strong>. La presse régionale (24 heures, Le Temps, Tages-Anzeiger, NZZ, RTS, SRF) cherche activement des profils capables d'allier rigueur classique et maîtrise des outils IA pour démultiplier leur capacité d'enquête sans céder sur la déontologie.",
+    "ch.rein.m4.skills": "Vérification factuelle · culture du sourcing primaire · réseau de contacts terrain · connaissance des arcanes politiques fédérales et cantonales · capacité à raconter une histoire complexe · déontologie journalistique (Code suisse des devoirs et des droits du journaliste).",
+    "ch.rein.m4.formation": "<strong>CFJM Lausanne</strong> (Centre de formation au journalisme et aux médias) ou <strong>MAZ Lucerne</strong> · CAS « Data journalism et IA » HES-SO · Bachelor HES en Information documentaire ou en Communication · Formation continue impressum (Les journalistes suisses) sur la vérification de l'IA générative.",
+
+    "ch.rein.m5.label": "Développeur·euse logiciels · informaticien·ne",
+    "ch.rein.m5.meta": "35 000 actifs · 11 000 CHF/mois · numérique, SI",
+    "ch.rein.m5.expo": "Exposition 7,5/10",
+    "ch.rein.m5.future": "Architecte IA & orchestrateur de systèmes",
+    "ch.rein.m5.why": "Le code de base sera produit massivement par les agents IA d'ici 2028. Les développeurs juniors écrivant du CRUD répétitif voient leur rôle se contracter (Indeed UK : -7% offres juniors en 2025). Mais la <strong>conception d'architectures, l'orchestration d'agents IA, la gouvernance des systèmes, la sécurité applicative et le mentorat</strong> deviennent les compétences-clés. AI Act européen, FINMA, Swissmedic et nLPD exigent des ingénieurs responsables au sens légal : c'est une opportunité unique pour les développeurs suisses formés EPFL/ETH.",
+    "ch.rein.m5.skills": "Conception d'architectures distribuées · sécurité applicative · maîtrise du contexte réglementaire CH (nLPD, FINMA, Swissmedic) · capacité à mentorer · culture du test et de la qualité · communication avec le métier · pensée systémique.",
+    "ch.rein.m5.formation": "<strong>Master EPFL ou ETHZ en Computer Science (spécialisation Machine Learning ou IA)</strong> · CAS HES-SO « IA appliquée et éthique » · Certifications Cloud (AWS, GCP, Azure) avec spécialisation MLOps · Formation continue Swiss Group for Artificial Intelligence (SGAICO) · Programmes EPFL Extension School en IA générative.",
+
+    "ch.rein.cta.title": "Explorez les 324 métiers suisses cartographiés.",
+    "ch.rein.cta.body": "Ces 5 archétypes ne sont qu'un échantillon. Le dashboard suisse couvre 324 métiers selon la nomenclature NP 2010 de l'OFS, avec leur score d'exposition à l'IA, leurs pistes de reconversion et les sources primaires. <strong>Filtrez par domaine, comparez les expositions, téléchargez les données ouvertes.</strong>",
+    "ch.rein.cta.link": "Voir les dépêches sectorielles Le Dispatch·iA →",
+
     "ch.chart.eyebrow": "Adoption IA · par secteur",
     "ch.chart.title": "Où l'IA s'installe vraiment.",
     "ch.chart.sub": "Part des entreprises ayant déployé au moins un outil d'IA en production. Échantillon Digital Switzerland 2025.",
@@ -2639,6 +3113,68 @@ window.PAGE_I18N = {
     "ch.kpi3.tag": "03 · Income effect",
     "ch.kpi3.label": "of high-income workers (>CHF 9,000/month) are concerned by AI introduction, vs 6% for low incomes. AI affects qualified jobs first.",
     "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · April 2026",
+
+    "ch.intl.tag": "International perspective",
+    "ch.intl.title": "What Switzerland <em>shares</em> and what <em>sets it apart</em>.",
+    "ch.intl.text": "<p>The three DemoSCOPE indicators above gain meaning when placed in the international picture. The monthly <strong>Focaldata × Financial Times</strong> tracker published in April 2026 (n=4,119, UK+US) confirms that the asymmetry observed in Switzerland is neither an exception nor a delay: it is the dominant pattern of AI deployment in 2026 across advanced economies.</p><p>Three convergent findings should anchor the Swiss reading. <strong>AI usage follows an L-shaped distribution</strong>, not a bell curve: 35% of UK+US workers never use AI, 11-18% use it daily, the rest only occasionally. <strong>The most powerful identified lever remains training</strong>: a company that trains its teams sees +37 points of daily usage, but only 14% of workers have received formal training. <strong>Aggregate productivity gains remain modest</strong> (+3.5% total) but heavily concentrated in tech (+7.8%) and finance (+5.1%).</p><p>For Switzerland, whose productive structure is more oriented toward high-end tertiary than the UK and US economies, these signals suggest that the concentration of gains will be <em>mechanically more pronounced</em>. The DemoSCOPE finding : continuing education rated the most effective measure by workers themselves (M=3.27/4) : converges with the international finding: training is <em>the</em> priority public policy lever to prevent Bifurcation from becoming the default scenario.</p>",
+    "ch.intl.kf1": "of daily usage brought by formal AI training (Focaldata)",
+    "ch.intl.kf2": "of UK+US workers have received formal AI training",
+    "ch.intl.kf3": "aggregate AI productivity gain · total market (Focaldata)",
+
+    "ch.rein.eyebrow": "Reinvention pathways · 5 Swiss trajectories",
+    "ch.rein.title": "What the <em>jobs of tomorrow</em> look like.",
+    "ch.rein.intro1": "Five Swiss professional archetypes, chosen to span a range of AI exposure levels and economic domains. For each, a plausible reinvention trajectory at 3-5 years, calibrated on the Swiss productive structure and Swiss training system (CFC, ES, HES, EPF, continuing education).",
+    "ch.rein.intro2": "Click on an occupation to expand the detail. Each pathway articulates three elements: <strong>the future role</strong> (what you would do), <strong>transferable skills</strong> (what you already know that becomes valuable), <strong>recommended Swiss training pathway</strong> to pivot.",
+    "ch.rein.caveat": "Note · These are projections, not predictions. Actual trajectories will depend on your individual background, your canton, your industry, and the speed of AI adoption in your company. To explore the 324 mapped Swiss occupations and their exposure scores, see the dashboard below.",
+
+    "ch.rein.future": "Future role",
+    "ch.rein.skillslabel": "Transferable skills",
+    "ch.rein.formationlabel": "Swiss training pathway",
+
+    "ch.rein.m1.label": "Bank advisor",
+    "ch.rein.m1.meta": "42,000 workers · CHF 7,800/month · banking, insurance",
+    "ch.rein.m1.expo": "Exposure 7/10",
+    "ch.rein.m1.future": "Wealth advisor with strong human relationship",
+    "ch.rein.m1.why": "Standard banking products (basic mortgage, account opening) will be massively automated by 2028. Complex cases : cross-border successions, entrepreneurs in crisis, UHNW expatriates, multi-pillar retirement planning : require human judgment and trust-based relationships AI cannot replicate. <strong>DemoSCOPE (April 2026)</strong> confirms 24% of large Swiss firms are seeking hybrid profession+AI profiles. The Swiss banking sector, the leading white-collar employer, will be the first to recompose its lines.",
+    "ch.rein.m1.skills": "Swiss tax knowledge (cantonal and federal) · structured products mastery · banking confidentiality culture · ability to read a global patrimony · sensitivity to client life moments (marriage, bereavement, transmission).",
+    "ch.rein.m1.formation": "<strong>Federal Diploma of Financial Advisor</strong> or <strong>Federal Diploma of Financial Planner</strong> · CAS HES in wealth management or private banking · SAQ Senior Wealth Manager certifications · Continuing AI education applied to finance (EPFL Extension School, HEG Geneva).",
+
+    "ch.rein.m2.label": "Social educator ES / HES",
+    "ch.rein.m2.meta": "28,000 workers · CHF 7,000/month · personal services",
+    "ch.rein.m2.expo": "Exposure 3/10",
+    "ch.rein.m2.future": "Human-technology mediator in institutions",
+    "ch.rein.m2.why": "Your current missions of human accompaniment, social and psychological assessment, and multidisciplinary teamwork equip you with directly transferable skills. In nursing homes, day centers, and social institutions, the introduction of AI assistance tools (planning, records, communication) creates an urgent need for ethically-grounded oversight. <strong>DemoSCOPE (April 2026)</strong> confirms 24% of large Swiss firms have already introduced AI tools and are actively seeking hybrid profession+AI profiles. The social sector, technically low-exposure, becomes strategic precisely because it defines usage rules.",
+    "ch.rein.m2.skills": "Social and psychological assessment · human accompaniment · multidisciplinary teamwork · mediation and conflict resolution · knowledge of LAS framework and cantonal social aid mechanisms.",
+    "ch.rein.m2.formation": "<strong>HES-SO CAS « Ethics and AI in social institutions »</strong> or equivalent · MAS in institutional supervision and coordination · Continuing education via avastp (Swiss Association of Social Educators) · AI training for social sector via Schools of Social Work (HETS Geneva, Lausanne, Fribourg).",
+
+    "ch.rein.m3.label": "Accountant",
+    "ch.rein.m3.meta": "45,000 workers · CHF 8,000/month · business support",
+    "ch.rein.m3.expo": "Exposure 8.8/10",
+    "ch.rein.m3.future": "Audit expert & strategic business partner",
+    "ch.rein.m3.why": "Bookkeeping and routine entry production will be 80% automated by 2028. But <strong>discernment of ambiguous cases, interpretation of cantonal and federal regulations (VAT, IFD, BVG, CO 957), and legal accountability</strong> remain human. The accountant of tomorrow is not a data entry person, but an AI-accounting supervisor and strategic advisor to the Swiss SME. Demand for profiles combining CH regulatory expertise and AI tool mastery is exploding.",
+    "ch.rein.m3.skills": "Code of Obligations mastery (art. 957 ff.) · Swiss and international VAT · interpretation of complex cases · legal responsibility · culture of precision · knowledge of sector specifics (industry, services, real estate, BFI).",
+    "ch.rein.m3.formation": "<strong>Federal Diploma of Specialist in Finance and Accounting</strong> · <strong>Federal Diploma of Expert in Finance and Controlling</strong> · Federal Diploma of Certified Public Accountant · Continuing education through Veb.ch and SwissAccounting · CAS in AI applied to accounting and audit (HEG Geneva, ZHAW Zurich).",
+
+    "ch.rein.m4.label": "Journalist",
+    "ch.rein.m4.meta": "14,000 workers · CHF 7,200/month · communication, media",
+    "ch.rein.m4.expo": "Exposure 7/10",
+    "ch.rein.m4.future": "Investigative journalist & epistemic guardian",
+    "ch.rein.m4.why": "Brief writing, translation, and summarization will be massively automated. But field investigation, primary source verification, interviews, and editorial signature remain fundamentally human. In a landscape saturated with synthetic content, the Swiss journalist becomes an <strong>epistemic guardian</strong>. Regional press (24 heures, Le Temps, Tages-Anzeiger, NZZ, RTS, SRF) is actively seeking profiles capable of combining classical rigor with AI tool mastery to multiply their investigative capacity without compromising on ethics.",
+    "ch.rein.m4.skills": "Fact-checking · primary sourcing culture · field contact network · knowledge of federal and cantonal political workings · ability to tell a complex story · journalism ethics (Swiss Code of Duties and Rights of the Journalist).",
+    "ch.rein.m4.formation": "<strong>CFJM Lausanne</strong> (Center for Journalism and Media Training) or <strong>MAZ Lucerne</strong> · CAS « Data journalism and AI » HES-SO · HES Bachelor in Information Documentation or Communication · Continuing education through impressum (Swiss Journalists) on generative AI verification.",
+
+    "ch.rein.m5.label": "Software developer · IT professional",
+    "ch.rein.m5.meta": "35,000 workers · CHF 11,000/month · digital, IS",
+    "ch.rein.m5.expo": "Exposure 7.5/10",
+    "ch.rein.m5.future": "AI architect & systems orchestrator",
+    "ch.rein.m5.why": "Basic code will be massively produced by AI agents by 2028. Junior developers writing repetitive CRUD see their role contracting (Indeed UK: -7% junior postings in 2025). But <strong>architecture design, AI agent orchestration, system governance, application security, and mentoring</strong> become the key skills. European AI Act, FINMA, Swissmedic, and nLPD require legally accountable engineers : a unique opportunity for EPFL/ETH-trained Swiss developers.",
+    "ch.rein.m5.skills": "Distributed architecture design · application security · mastery of CH regulatory context (nLPD, FINMA, Swissmedic) · mentoring ability · test and quality culture · business communication · systems thinking.",
+    "ch.rein.m5.formation": "<strong>EPFL or ETHZ Master in Computer Science (Machine Learning or AI specialization)</strong> · HES-SO CAS « Applied AI and ethics » · Cloud certifications (AWS, GCP, Azure) with MLOps specialization · Continuing education via Swiss Group for Artificial Intelligence (SGAICO) · EPFL Extension School programs in generative AI.",
+
+    "ch.rein.cta.title": "Explore the 324 mapped Swiss occupations.",
+    "ch.rein.cta.body": "These 5 archetypes are only a sample. The Swiss dashboard covers 324 occupations by FSO NP 2010 nomenclature, with their AI exposure score, reconversion pathways, and primary sources. <strong>Filter by domain, compare exposures, download open data.</strong>",
+    "ch.rein.cta.link": "See sectoral dispatches The Dispatch·iA →",
+
     "ch.chart.eyebrow": "AI adoption · by sector",
     "ch.chart.title": "Where AI is actually settling in.",
     "ch.chart.sub": "Share of companies that have deployed at least one AI tool in production. Digital Switzerland 2025 sample.",
@@ -2809,6 +3345,16 @@ window.onLangChange = function() {
   renderCards();
   renderChart();
 };
+
+// Accordion toggle for reinvent section
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("#chReinventList .reinvent-trigger").forEach(function(trigger) {
+    trigger.addEventListener("click", function() {
+      var item = trigger.closest(".reinvent-item");
+      item.classList.toggle("open");
+    });
+  });
+});
 
 initSite("suisse");
 loadData();

@@ -1,5 +1,65 @@
 [
   {
+    "date": "2026-04-25",
+    "source": "Financial Times · John Burn-Murdoch",
+    "country": "INT",
+    "title": {
+      "fr": "Ce que rate le récit du « jobpocalypse » IA",
+      "en": "What the AI 'jobpocalypse' narrative misses"
+    },
+    "excerpt": {
+      "fr": "Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.",
+      "en": "Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."
+    },
+    "url": "https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-23",
+    "source": "Focaldata · Financial Times Workforce AI Tracker · Wave 1",
+    "country": "INT",
+    "title": {
+      "fr": "Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis",
+      "en": "Two-Tier Transformation: How AI is Changing Work in the UK and US"
+    },
+    "excerpt": {
+      "fr": "Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.",
+      "en": "First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."
+    },
+    "url": "https://focaldata.com",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-02-26",
+    "source": "Financial Times · Burn-Murdoch & O'Connor",
+    "country": "INT",
+    "title": {
+      "fr": "Sait-on vraiment quels métiers sont les plus exposés à l'IA ?",
+      "en": "Do we really know which jobs are most at risk from AI?"
+    },
+    "excerpt": {
+      "fr": "Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.",
+      "en": "Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."
+    },
+    "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-15",
+    "source": "British Progress · Pedro Serôdio",
+    "country": "INT",
+    "title": {
+      "fr": "L'IA et le marché du travail britannique : l'état des preuves",
+      "en": "AI and the UK labour market: the evidence so far"
+    },
+    "excerpt": {
+      "fr": "Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).",
+      "en": "Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."
+    },
+    "url": "https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far",
+    "ai_type": "generative"
+  },
+  {
     "date": "2026-04-23",
     "source": "Angestellte Schweiz · DemoSCOPE",
     "country": "CH",

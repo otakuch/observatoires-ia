@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 12,
+  "count": 16,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -152,6 +152,58 @@
         "Rupture technologique": 18
       },
       "most_likely_scenario": "Transformation majeure"
+    },
+    {
+      "name": "David Autor",
+      "institution": "MIT (Department of Economics)",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur du cadre 2003 distinguant les tâches qui peuvent être substituées par les machines (suivre des specs) et celles qui sont complétées (définir des specs). Position prudente sur les exposure scores task-based."
+    },
+    {
+      "name": "James Bessen",
+      "institution": "Boston University · Technology and Policy Research Initiative",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 40,
+        "Accélération IA": 30,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Spécialiste de l'histoire économique de l'automatisation. Démontre que l'effet productivité-emploi dépend de l'élasticité de la demande sectorielle. Cas paradigmatique : ATM n'a pas tué les bank tellers."
+    },
+    {
+      "name": "Martha Gimbel",
+      "institution": "Yale Budget Lab",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 45,
+        "Accélération IA": 25,
+        "Transformation majeure": 10,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Co-autrice du tracker mensuel Yale Budget Lab sur l'impact de l'IA sur l'emploi américain (33+ mois de données depuis novembre 2022). Conclusion à mars 2026 : pas de disruption macroéconomique observable."
+    },
+    {
+      "name": "Pedro Serôdio",
+      "institution": "Centre for British Progress",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 50,
+        "Accélération IA": 25,
+        "Transformation majeure": 10,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur du rapport « AI and the UK labour market: the evidence so far » (avril 2026). Position : peu de signes d'effets agrégés massifs au UK malgré 54% des PME utilisant l'IA. Critique des prédictions Goldman/McKinsey basées sur l'adoption théorique maximale."
     }
   ]
 }

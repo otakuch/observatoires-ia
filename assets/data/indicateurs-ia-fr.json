@@ -7,7 +7,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 15,
+  "count": 17,
   "indicators": [
     {
       "title": "% emplois français automatisables d'ici 2030",
@@ -898,6 +898,64 @@
           "value": 33,
           "year": 2025,
           "citation": "LinkedIn AI Report France 2025 · 33% professions profondément transformées · convergent avec archétype réorganisation",
+          "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "% gain de productivité IA agrégé · marché total",
+      "unit": "%",
+      "n_sources": 4,
+      "value_min": 3.0,
+      "value_max": 11.0,
+      "value_median": 4.5,
+      "description_fr": "Estimation du gain de productivité agrégé issu de l'usage de l'IA dans l'économie. Focaldata/FT (avril 2026) calcule +3,5% sur la base d'auto-déclarations UK+US. DSIT UK enquête entreprises : 56% des firmes utilisatrices reportent un gain, dont la plupart estiment l'amélioration jusqu'à 20%. Concentration sectorielle marquée : Tech & Communications +7,8% vs Health & Social Care +2,1% selon Focaldata. La distribution L-shape de l'usage (35% jamais, 11-18% quotidiennement) suggère que ce gain est très concentré sur une minorité de power users.",
+      "sources": [
+        {
+          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+          "url": "https://focaldata.com",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "DSIT UK · Assessment of AI capabilities and the impact on the UK labour market",
+          "url": "https://www.gov.uk/government/publications/assessment-of-ai-capabilities-and-the-impact-on-the-uk-labour-market",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Brynjolfsson, Li & Raymond · Generative AI at Work · NBER 2024",
+          "url": "https://www.nber.org/papers/w31161",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Yale Budget Lab · Tracking the Impact of AI on the Labor Market",
+          "url": "https://budgetlab.yale.edu/research/tracking-impact-ai-labor-market",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Écart formation IA · effet sur l'usage quotidien",
+      "unit": "points",
+      "n_sources": 2,
+      "value_min": 24,
+      "value_max": 37,
+      "value_median": 30,
+      "description_fr": "Effet d'une politique de formation IA en entreprise sur le taux d'usage quotidien des outils IA. Focaldata Wave 1 (avril 2026) : une entreprise qui délivre une formation IA formelle voit +37 points d'usage quotidien par rapport à une entreprise comparable sans formation. Une simple guidance informelle produit déjà +24 points. Or seuls 14% des actifs UK+US déclarent avoir reçu une formation formelle, ce qui en fait le levier le plus puissant et le plus négligé. Le rapport est explicite : « Training is the single most powerful tool for increasing AI adoption ». Implication directe pour les politiques publiques de formation continue, déjà identifiées comme la mesure prioritaire par DemoSCOPE en Suisse (M=3,27/4).",
+      "sources": [
+        {
+          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+          "url": "https://focaldata.com",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "DSIT UK · Skills England",
+          "url": "https://www.gov.uk/government/organisations/skills-england",
+          "tier": 2,
           "ai_type": "unspecified"
         }
       ]
