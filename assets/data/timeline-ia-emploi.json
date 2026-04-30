@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 33,
+  "count": 35,
   "events": [
     {
       "year": "2025",
@@ -303,6 +303,24 @@
       "headline_value": "54% PME UK utilisent l'IA · écart prédiction/réalité stable",
       "tier": 2,
       "citation": "British Progress · Pedro Serôdio · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Février 2026",
+      "title": "Yale Budget Lab · 7 mesures d'exposition à l'IA comparées sur 867 métiers",
+      "summary_fr": "Étude méthodique de Gimbel, Kendall et Kulsakdinun (Yale Budget Lab) comparant les 7 mesures dominantes d'exposition à l'IA (Eloundou, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft) sur 867 métiers SOC 2018. Conclusion empirique nuancée : les mesures s'accordent largement sur les métiers peu exposés (variance 0,03 pour les plombiers) mais divergent sur l'ampleur de l'exposition des métiers fortement exposés (variance 0,48 pour les programmeurs informatiques). Le désaccord porte sur l'ampleur, pas sur l'existence de l'exposition. Important : les scores indiquent des zones d'impact possible, pas des prédictions d'automatisation. Données XLSX téléchargeables, 710 métiers couverts par toutes les mesures.",
+      "headline_value": "Variance ×16 entre métiers à faible et forte exposition",
+      "tier": 1,
+      "citation": "Gimbel, Kendall, Kulsakdinun · Yale Budget Lab · 19 février 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "NBER w35110 · L'instabilité des scores d'exposition LLM démontrée empiriquement",
+      "summary_fr": "Yin, Vu et Persico démontrent que les mesures d'exposition à l'IA basées sur l'auto-évaluation par LLM sont hautement instables. Trois modèles frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence ×3,6 sur l'exposition moyenne, avec un accord descendant à 57%. L'instabilité a des conséquences empiriques majeures : les coefficients en panel diff-in-diff varient ×2,4 selon l'annotateur, et les estimations au niveau county passent d'un effet négatif significatif à un effet positif non significatif selon le modèle utilisé. Recommandation : ne pas traiter les LLM en évolution comme des instruments de mesure statiques. Renforce la critique méthodologique Burn-Murdoch/O'Connor de février 2026.",
+      "headline_value": "Divergence ×3,6 entre 3 LLM frontière sur la même tâche",
+      "tier": 1,
+      "citation": "Yin, Vu, Persico · NBER Working Paper 35110 · avril 2026",
       "ai_type": "generative"
     }
   ]

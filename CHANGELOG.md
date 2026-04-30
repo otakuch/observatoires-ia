@@ -4,6 +4,188 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.8] · 2026-04-30
+
+### Changed · Editorial pivot: from paywall to open access + dual action bridges
+
+This release marks a significant editorial shift in how Le Dispatch·iA is
+distributed and monetized. The two-tier model (free HTML edition + paid PDF
+"executive edition" at $99/unit or annual subscription) is replaced by a
+single integral edition, fully and freely accessible online, with two
+contact-driven passerelles for organisations needing customisation or
+operational support.
+
+### Added · Dispatch enrichments
+
+- **New ROLES section** added to all three published Dispatches (Banque
+  suisse #001, Cadres France #002, Horlogerie premium #003). Each Dispatch
+  now articulates **five professional archetypes** (cards with exposure
+  score, headcount, narrative shift, and pivot suggestion). The section
+  bridges the architectural-strategic level of the Dispatch with the
+  individual-professional level addressed by the Pistes de réinvention on
+  the country dashboards. Each card links back to the dashboard for the
+  full 200-324 occupation map.
+- **New ACTION CTA section** at the foot of each Dispatch, replacing the
+  former paywall block. Two cards:
+  - **Une dépêche dédiée à votre établissement** (custom Dispatch on the
+    organisation's exact perimeter, ~12-15 page, calibrated on internal
+    constraints, sourced like the public Dispatches)
+  - **Du cadrage à l'architecture des workflows** (operational engagement,
+    moving from diagnosis to implementation: workflow architecture,
+    governance, training paths)
+  Both cards link to `contact.html?type=custom&dispatch=00X` and
+  `contact.html?type=ops&dispatch=00X` with parameter pre-filling.
+
+### Changed · Le Dispatch·iA hub
+- Title: "Rapports sectoriels stratégiques" → "Dépêches sectorielles
+  stratégiques"
+- Lede rewritten: "Une dépêche par mois en deux éditions" → "Une dépêche
+  par mois en intégralité, librement accessible"
+- Subscription CTA replaced by Dual CTA (custom Dispatch + operational
+  engagement)
+- Numbers updated: ~1500 mots → ~2500 mots, 12-18 pages → 12-15 pages
+
+### Changed · Methodology
+- Section "Le Dispatch·iA · format" rewritten:
+  - "Deux éditions" → "Une dépêche intégrale"
+  - Paragraph rewritten to describe the single complete version, the
+    absence of paywall or hidden premium tier, and the two action bridges
+    described at the foot of every Dispatch.
+
+### Changed · Contact form
+- Form options `dispatch-exec` (executive PDF) and `dispatch-sub`
+  (subscription) replaced by `dispatch-custom` (custom Dispatch) and
+  `dispatch-ops` (operational engagement), aligned with the new Dispatch
+  CTA cards.
+
+### Added · CSS components
+- `.brief-roles-section`, `.brief-roles-grid`, `.brief-role-card` (with
+  num, domain, name, stats, shift, pivot, link)
+- `.brief-cta-actions`, `.brief-cta-grid`, `.brief-cta-card` (with tag,
+  title, desc, arrow)
+- Mobile responsive overrides at 960px
+
+### Notes
+- This pivot is consistent with the editorial commons positioning
+  reinforced in v0.2.0 (Methodology disclosure, CC BY 4.0 datasets) and
+  with the Partenariats page added in v0.2.2. The Dispatch becomes a
+  loss leader for the consultative engagement model, rather than a
+  standalone paid product.
+- All 13 i18n key blocks (FR + EN, 3 Dispatches × 2 langues + hub) updated
+  consistently. No orphaned keys, all new keys resolve correctly under
+  Node test.
+- The methodological caveats added in v0.2.7 (NBER w35110, Yale Budget
+  Lab figures) are fully preserved.
+
+---
+
+## [0.2.7] · 2026-04-29
+
+### Added · Methodological reinforcement: AI exposure scores instability
+
+Integration of two major studies that strengthen the methodological backbone
+of the cartography on the (in)stability of task-based AI exposure scores.
+
+- **Yin, Vu, Persico · NBER w35110** (April 2026). Empirical demonstration
+  that LLM-based self-assessed AI exposure measures are highly fragile.
+  Three frontier models applying the same rubric on identical tasks produce
+  a 3.6-fold divergence in mean exposure, with agreement as low as 57%.
+  Difference-in-differences coefficients vary 2.4-fold across annotators.
+  County-level estimates flip from significant negative to insignificant
+  positive depending on the model. The paper formalizes this non-classical
+  measurement error and warns against treating evolving LLMs as static
+  instruments.
+- **Gimbel, Kendall, Kulsakdinun · Yale Budget Lab** (February 19, 2026).
+  Systematic comparison of 7 dominant AI exposure metrics (Eloundou OpenAI,
+  Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) across
+  867 SOC 2018 occupations. Three key takeaways: metrics broadly agree;
+  disagreement is about magnitude not whether an occupation is exposed;
+  exposure indicates impact zones, not automation predictions. Canonical
+  examples: variance 0.03 for plumbers (full consensus on low exposure)
+  vs. 0.48 for computer programmers (major disagreement on magnitude).
+  Open data XLSX downloadable.
+
+### Changed · Methodology section reinforced
+
+- **Bias block 06.2 "Limits of task-based exposure scores"** rewritten to
+  cite both new studies with their precise figures (3.6-fold divergence,
+  57% agreement, 2.4-fold DiD variance, variance 0.03 vs 0.48). The block
+  now reads as the strongest methodological caveat in the cartography:
+  exposure scores are technical capability indicators, not employment
+  predictions, and must never be read from a single measure or a single
+  annotator model.
+
+### Datasets updated
+- veille.json: 13 → 15 reports (+ NBER w35110, Yale Budget Lab)
+- timeline-ia-emploi.json: 33 → 35 milestones
+- economistes-ia.json: 16 → 17 (+ Yin/Vu/Persico as joint entry)
+- economistes-ia-ch.json: 20 → 21 (same, as international anchor)
+- indicateurs-ia-fr.json: 17 → 18 (+ "Instabilité des scores d'exposition")
+- indicateurs-ia-ch.json: 12 → 13 (+ "Robustesse des prédictions IA appliquées au tissu suisse")
+
+### Site totals
+524 occupations (FR + CH) + 31 indicators + 35 milestones + 38 economists.
+The methodological caveats now constitute one of the most rigorous critiques
+publicly available on AI labor-market exposure scoring.
+
+---
+
+## [0.2.6] · 2026-04-29
+
+### Added · Pre-publication polish pack
+
+Six attractivity improvements applied to the homepage and footer before
+official public launch.
+
+- **Homepage `<title>` and meta description rewritten** for SEO. Old:
+  "Cartographie indépendante des observatoires emploi & IA · CH/FR" (too long,
+  insider jargon). New: "Comprendre l'impact des IA sur le travail · Suisse &
+  France" (shorter, search-friendly, contains the keywords people actually
+  type). Meta description now mentions concrete numbers (524 métiers, 14
+  observatoires) and the editorial postulate (lecture factuelle plutôt
+  qu'émotionnelle).
+- **Three hero KPI stats refreshed** with April 2026 data:
+  - **65%** of UK+US workers have used AI at work (Focaldata × FT Wave 1,
+    April 2026), with the L-shaped distribution caveat
+  - **24%** of large Swiss firms have introduced AI vs 9% for SMEs
+    (DemoSCOPE / Angestellte Schweiz, April 2026), highlighting the Swiss
+    asymmetry
+  - **524** mapped occupations (200 ROME France + 324 NP 2010 Switzerland),
+    promoting the open data dimension
+- **Latest field reports section moved from bottom to top** of homepage
+  (right after manifesto). Three most recent verified reports now appear
+  immediately as clickable cards. The most powerful editorial asset of the
+  site is now the most visible.
+- **New "Latest dispatch" tease section** added between field reports and
+  country teasers. Dark ink card with signal red accent bar, featuring The
+  Dispatch·iA #003 (Premium watchmaking and AI governance). Two CTAs: read
+  the dispatch + see all dispatches.
+- **Third "Compare both" card** added to the country teasers grid. Layout
+  expanded from 2 to 3 columns. The Comparer card uses a feature variant
+  (paper-2 background, ink hover) to signal it as the project's unique value
+  proposition. Mobile collapses to 1 column.
+- **Footer entirely rewritten** as 4-column grid:
+  1. Brand + tagline
+  2. Explore links (Suisse, France, Comparer, Le Dispatch·iA)
+  3. About links (Méthodologie, Veille, Partenariats, Contact)
+  4. Meta column with **last update date** (29 avril 2026), open data license,
+     version
+  Plus a bottom row with copyright and "Designed and operated by Naully
+  Nicolas" with link to naullynicolas.ch. Mobile collapses to single column.
+
+### Changed
+- `country-teasers` grid changed from 2 columns to 3 columns on desktop
+- `footer` wrapper: removed redundant padding (now handled by `.foot-inner`
+  and `.foot-bottom` to enable the new layered layout)
+
+### Notes
+- One Open Graph image (1200×630) and a favicon are still pending. These
+  should ideally be designed by a graphic designer rather than auto-generated,
+  given they are the first signal of quality when the link is shared on
+  LinkedIn, WhatsApp, Slack.
+
+---
+
 ## [0.2.5] · 2026-04-29
 
 ### Added · Reinvention pathways section

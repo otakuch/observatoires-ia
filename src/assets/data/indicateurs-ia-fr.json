@@ -7,7 +7,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 17,
+  "count": 18,
   "indicators": [
     {
       "title": "% emplois français automatisables d'ici 2030",
@@ -957,6 +957,35 @@
           "url": "https://www.gov.uk/government/organisations/skills-england",
           "tier": 2,
           "ai_type": "unspecified"
+        }
+      ]
+    },
+    {
+      "title": "Instabilité des scores d'exposition à l'IA · variance entre méthodes",
+      "unit": "facteur de divergence",
+      "n_sources": 3,
+      "value_min": 1.6,
+      "value_max": 3.6,
+      "value_median": 2.4,
+      "description_fr": "Mesure de la (dé)stabilité des scores d'exposition à l'IA selon la méthode utilisée. Trois constats convergents en 2026 imposent une lecture prudente. <strong>Yin, Vu, Persico (NBER w35110, avril 2026)</strong> : trois LLM frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence ×3,6, avec un accord aussi bas que 57%, et les coefficients DiD varient ×2,4. <strong>Yale Budget Lab (Gimbel et al., février 2026)</strong> : sur 867 métiers, les 7 mesures d'exposition s'accordent sur les faibles expositions (variance 0,03 pour les plombiers) mais divergent sur les fortes (variance 0,48 pour les programmeurs). <strong>Burn-Murdoch & O'Connor (FT, février 2026)</strong> : critique méthodologique des sept mesures dominantes citant Yale, Autor 2003, Bessen. Conséquence : les exposition scores indiquent des zones d'impact possible, pas des prédictions de remplacement.",
+      "sources": [
+        {
+          "name": "Yin, Vu, Persico · NBER w35110",
+          "url": "https://www.nber.org/papers/w35110",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gimbel, Kendall, Kulsakdinun · Yale Budget Lab",
+          "url": "https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Burn-Murdoch & O'Connor · Financial Times",
+          "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
+          "tier": 1,
+          "ai_type": "generative"
         }
       ]
     }

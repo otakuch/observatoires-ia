@@ -76,8 +76,8 @@
         <span data-i18n="ct.f.type"></span>
       </label>
       <select id="ct-type" name="type" class="form-select">
-        <option value="dispatch-exec" data-i18n="ct.t.exec"></option>
-        <option value="dispatch-sub" data-i18n="ct.t.sub"></option>
+        <option value="dispatch-custom" data-i18n="ct.t.custom"></option>
+        <option value="dispatch-ops" data-i18n="ct.t.ops"></option>
         <option value="dispatch-notify" data-i18n="ct.t.notify"></option>
         <option value="conf" data-i18n="ct.t.conf"></option>
         <option value="workshop" data-i18n="ct.t.workshop"></option>
@@ -165,8 +165,8 @@ window.PAGE_I18N = {
     "ct.f.send": "Préparer l'email",
     "ct.f.note": "Le bouton ouvre votre client mail avec le message pré-rempli. Aucun envoi automatique. Aucune donnée stockée.",
 
-    "ct.t.exec": "Le Dispatch·iA · Édition exécutive (à l'unité)",
-    "ct.t.sub": "Le Dispatch·iA · Abonnement annuel",
+    "ct.t.custom": "Le Dispatch·iA · Dispatch sur mesure pour mon organisation",
+    "ct.t.ops": "Le Dispatch·iA · Mise en œuvre opérationnelle (architecture, agents, formation)",
     "ct.t.notify": "Le Dispatch·iA · Être prévenu d'une parution",
     "ct.t.conf": "Conférence ou keynote",
     "ct.t.workshop": "Atelier de direction ou workshop",
@@ -181,8 +181,8 @@ window.PAGE_I18N = {
     "ct.cta.text": "Vous cherchiez plutôt <em>Le Dispatch·iA</em> ?",
     "ct.cta.btn": "Voir les dépêches",
 
-    "ct.subject.exec": "Le Dispatch·iA - Édition exécutive",
-    "ct.subject.sub": "Le Dispatch·iA - Abonnement annuel",
+    "ct.subject.custom": "Le Dispatch·iA - Demande de Dispatch sur mesure",
+    "ct.subject.ops": "Le Dispatch·iA - Mise en œuvre opérationnelle",
     "ct.subject.notify": "Le Dispatch·iA - Notification de parution",
     "ct.subject.conf": "Demande conférence / keynote",
     "ct.subject.workshop": "Demande atelier / workshop",
@@ -213,8 +213,8 @@ window.PAGE_I18N = {
     "ct.f.send": "Prepare the email",
     "ct.f.note": "The button opens your mail client with the message pre-filled. No automatic sending. No data stored.",
 
-    "ct.t.exec": "The Dispatch·iA · Executive edition (single unit)",
-    "ct.t.sub": "The Dispatch·iA · Annual subscription",
+    "ct.t.custom": "The Dispatch·iA · Custom dispatch for my organisation",
+    "ct.t.ops": "The Dispatch·iA · Operational implementation (architecture, agents, training)",
     "ct.t.notify": "The Dispatch·iA · Notify me of a release",
     "ct.t.conf": "Conference or keynote",
     "ct.t.workshop": "Executive workshop",
@@ -229,8 +229,8 @@ window.PAGE_I18N = {
     "ct.cta.text": "Were you looking for <em>The Dispatch·iA</em>?",
     "ct.cta.btn": "See dispatches",
 
-    "ct.subject.exec": "The Dispatch·iA - Executive edition",
-    "ct.subject.sub": "The Dispatch·iA - Annual subscription",
+    "ct.subject.custom": "The Dispatch·iA - Custom dispatch request",
+    "ct.subject.ops": "The Dispatch·iA - Operational implementation",
     "ct.subject.notify": "The Dispatch·iA - Release notification",
     "ct.subject.conf": "Conference / keynote inquiry",
     "ct.subject.workshop": "Workshop inquiry",
@@ -246,8 +246,8 @@ window.PAGE_I18N = {
 function applyURLParams() {
   const params = new URLSearchParams(window.location.search);
   const typeMap = {
-    "exec": "dispatch-exec",
-    "sub": "dispatch-sub",
+    "custom": "dispatch-custom",
+    "ops": "dispatch-ops",
     "notify": "dispatch-notify",
     "conf": "conf",
     "workshop": "workshop",

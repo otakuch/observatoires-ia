@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 16,
+  "count": 17,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -204,6 +204,19 @@
       },
       "most_likely_scenario": "Croissance modérée",
       "notes": "Auteur du rapport « AI and the UK labour market: the evidence so far » (avril 2026). Position : peu de signes d'effets agrégés massifs au UK malgré 54% des PME utilisant l'IA. Critique des prédictions Goldman/McKinsey basées sur l'adoption théorique maximale."
+    },
+    {
+      "name": "Michelle Yin, Hoa Vu & Claudia Persico",
+      "institution": "American University · NBER w35110",
+      "scenario_distribution_pct": {
+        "Stagnation": 25,
+        "Croissance modérée": 50,
+        "Accélération IA": 15,
+        "Transformation majeure": 7,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteurs de la démonstration empirique majeure (NBER w35110, avril 2026) que les scores d'exposition à l'IA basés sur les LLM auto-évaluatifs sont fragiles : divergence ×3,6 entre 3 modèles frontière, accord 57%, coefficients DiD ×2,4. Position fortement prudente sur la robustesse des prédictions actuelles."
     }
   ]
 }

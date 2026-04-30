@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>observatoire[s]·ia · Cartographie indépendante des observatoires emploi & IA · CH/FR</title>
-<meta name="description" content="Une cartographie indépendante et bilingue des observatoires de l'emploi face à l'IA en Suisse et en France.">
+<title>observatoire[s]·ia · Comprendre l'impact des IA sur le travail · Suisse & France</title>
+<meta name="description" content="524 métiers cartographiés, 14 observatoires institutionnels CH et FR référencés, données ouvertes CC BY 4.0. Une lecture factuelle plutôt qu'émotionnelle de l'impact des IA sur le travail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -176,7 +176,7 @@ a { color: inherit; text-decoration: none; }
 .country-teasers {
   max-width: var(--max-w); margin: 60px auto;
   padding: 0 32px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
 }
 .country-card {
   border: 1px solid var(--rule);
@@ -1281,20 +1281,114 @@ table.synth td .pill {
 /* ───────── FOOTER ───────── */
 footer {
   border-top: 1px solid var(--rule);
-  padding: 40px 32px;
+  margin-top: 40px;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px; color: var(--muted);
   text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--paper);
 }
 .foot-inner {
   max-width: var(--max-w); margin: 0 auto;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding: 56px 32px 32px;
 }
-.foot-links { display: flex; gap: 20px; }
-.foot-links a { color: var(--ink-2); transition: color 0.2s; }
-.foot-links a:hover { color: var(--signal); }
-.foot-version { color: var(--ink-2); }
+.foot-col { display: flex; flex-direction: column; gap: 10px; }
+.foot-col-brand .foot-brand {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.foot-col-brand .foot-brand .bracket {
+  color: var(--signal);
+}
+.foot-col-brand .foot-brand .dot {
+  color: var(--signal);
+}
+.foot-tagline {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  max-width: 280px;
+}
+.foot-col-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+}
+.foot-col-links a {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 2px 0;
+}
+.foot-col-links a:hover { color: var(--signal); }
+
+.foot-col-meta {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.foot-update {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+.foot-update strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+  font-family: "Instrument Sans", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.foot-license { margin-bottom: 6px; color: var(--teal); }
+.foot-version { color: var(--ink-3); }
+
+.foot-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 20px 32px 32px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-3);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.foot-bottom .bracket, .foot-bottom .dot { color: var(--signal); }
+.foot-author a {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.foot-author a:hover { color: var(--signal); }
+
+/* Mobile footer */
+@media (max-width: 720px) {
+  .foot-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px 24px;
+  }
+  .foot-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px 24px;
+  }
+}
 
 /* ───────── BRIEFINGS · CATALOG LIST ───────── */
 .briefings-list {
@@ -2011,13 +2105,7 @@ footer {
   .filter-group { flex-wrap: wrap; }
   .chip { font-size: 11px; padding: 6px 12px; }
 
-  /* Foot wraps */
-  .foot-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    text-align: left;
-  }
+  /* Foot mobile is handled by the dedicated @media (max-width: 720px) block at the end of this file */
 
   /* Context block tighter */
   .context-content h3 { font-size: 22px; }
@@ -2430,6 +2518,395 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .reinvent-future-role { font-size: 21px; }
 }
 
+/* ============================================== */
+/* METHOD-SECTION + METHOD-GRID · base layout    */
+/* (previously defined inline in methodologie.html only, migrated to global) */
+/* ============================================== */
+.method-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+}
+.method-grid:last-child { border-bottom: 1px solid var(--rule); }
+.method-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 6px;
+}
+
+/* Mobile : tag stacks above content */
+@media (max-width: 720px) {
+  .method-section { padding: 0 20px 40px; }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 36px 0;
+  }
+}
+
+/* ============================================== */
+/* DISPATCH TEASE · home page · last published   */
+/* ============================================== */
+.dispatch-tease {
+  max-width: var(--max-w);
+  margin: 60px auto 80px;
+  padding: 0 32px;
+}
+.dispatch-tease-inner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 48px 56px;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+.dispatch-tease-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--signal);
+}
+.dispatch-tease-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.dispatch-tease-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  padding: 4px 10px;
+  border: 1px solid var(--signal);
+  border-radius: 999px;
+}
+.dispatch-tease-num {
+  font-size: 12px;
+  color: rgba(242, 238, 229, 0.6);
+  letter-spacing: 0.04em;
+}
+.dispatch-tease-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px 0;
+  color: var(--paper);
+  max-width: 700px;
+}
+.dispatch-tease-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.dispatch-tease-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(242, 238, 229, 0.85);
+  margin: 0 0 28px 0;
+  max-width: 720px;
+}
+.dispatch-tease-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.dispatch-tease-actions .btn-secondary {
+  background: transparent;
+  color: var(--paper);
+  border-color: rgba(242, 238, 229, 0.4);
+}
+.dispatch-tease-actions .btn-secondary:hover {
+  border-color: var(--paper);
+  background: rgba(242, 238, 229, 0.08);
+}
+
+@media (max-width: 720px) {
+  .dispatch-tease { padding: 0 20px; margin: 40px auto 56px; }
+  .dispatch-tease-inner { padding: 32px 28px; }
+  .dispatch-tease-title { font-size: 28px; }
+  .dispatch-tease-lede { font-size: 15px; }
+}
+
+/* Country card feature variant · Comparer */
+.country-card-feature {
+  background: var(--paper-2, #ECE7DA);
+  border-color: var(--ink);
+}
+.country-card-feature:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.country-card-feature:hover .country-card-title,
+.country-card-feature:hover .country-card-num strong,
+.country-card-feature:hover p {
+  color: var(--paper) !important;
+}
+.country-card-feature:hover .country-card-cta {
+  color: var(--signal);
+}
+.country-card-feature .country-card-flag {
+  gap: 8px;
+}
+.country-card-feature .country-card-flag .emoji {
+  font-size: 24px;
+}
+
+/* 3-column → 1-column on mobile */
+@media (max-width: 960px) {
+  .country-teasers { grid-template-columns: 1fr; }
+}
+
+/* ============================================== */
+/* BRIEF · ROLES & CTA ACTIONS · (from v0.2.8 source pack) */
+/* ============================================== */
+.brief-roles-section .brief-section-title {
+  margin-bottom: 12px;
+}
+.brief-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 40px 0 32px;
+}
+.brief-role-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 32px 28px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.brief-role-card:nth-child(5) {
+  /* Last card spans 2 columns when only 5 cards in 2-col grid */
+  grid-column: 1 / -1;
+}
+.brief-role-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.brief-role-domain {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+.brief-role-name {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 0 0 14px;
+  padding-right: 50px;
+}
+.brief-role-stats {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  color: var(--ink-2);
+  flex-wrap: wrap;
+}
+.brief-role-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.brief-role-stat strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-role-shift {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.brief-role-pivot {
+  border-left: 3px solid var(--signal);
+  padding: 10px 14px 10px 16px;
+  background: rgba(208, 60, 47, 0.04);
+  margin-bottom: 18px;
+}
+.brief-role-pivot-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.brief-role-pivot-text {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.brief-role-link {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--signal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: opacity 0.15s ease;
+}
+.brief-role-link:hover {
+  opacity: 0.7;
+}
+.brief-roles-footer {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 24px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ───────── BRIEF · ACTION CTA (replaces paywall) ───────── */
+.brief-cta-actions {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 90px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-cta-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.brief-cta-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.brief-cta-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.brief-cta-title em {
+  font-style: italic;
+  color: var(--signal);
+}
+.brief-cta-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.brief-cta-card {
+  display: block;
+  text-decoration: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+.brief-cta-card:hover {
+  border-color: var(--signal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.brief-cta-card-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+.brief-cta-card-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.brief-cta-card-desc {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 24px;
+}
+.brief-cta-card-arrow {
+  display: inline-block;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--signal);
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+}
+
+
+/* Brief roles + CTA mobile */
+@media (max-width: 960px) {
+  .brief-cta-actions { padding: 60px 20px; }
+  .brief-cta-title { font-size: 32px; }
+  .brief-cta-grid { grid-template-columns: 1fr; gap: 20px; }
+  .brief-cta-card { padding: 28px 24px 24px; }
+  .brief-roles-grid { grid-template-columns: 1fr; gap: 18px; }
+  .brief-role-card { padding: 24px 22px 22px; }
+  .brief-role-card:nth-child(5) { grid-column: auto; }
+  .brief-role-name { font-size: 22px; padding-right: 36px; }
+  .brief-role-num { top: 18px; right: 22px; }
+}
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/">
@@ -2475,17 +2952,17 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <section class="stats">
   <div class="stats-grid">
     <div class="stat">
-      <div class="stat-num">71<span class="unit">%</span></div>
+      <div class="stat-num">65<span class="unit">%</span></div>
       <div class="stat-label" data-i18n="home.stat1.label"></div>
-      <div class="stat-source mono">Microsoft &amp; LinkedIn · 2024</div>
+      <div class="stat-source mono">Focaldata × FT Wave 1 · avril 2026</div>
     </div>
     <div class="stat">
-      <div class="stat-num"><span class="sign">−</span>26<span class="unit">%</span></div>
+      <div class="stat-num">24<span class="unit">%</span></div>
       <div class="stat-label" data-i18n="home.stat2.label"></div>
-      <div class="stat-source mono">LinkedIn Economic Graph</div>
+      <div class="stat-source mono">DemoSCOPE / Angestellte Schweiz · avril 2026</div>
     </div>
     <div class="stat">
-      <div class="stat-num">14</div>
+      <div class="stat-num">524</div>
       <div class="stat-label" data-i18n="home.stat3.label"></div>
       <div class="stat-source mono" data-i18n="home.stat3.source"></div>
     </div>
@@ -2496,6 +2973,42 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <section class="manifesto">
   <div class="manifesto-tag mono" data-i18n="home.manifesto.tag"></div>
   <div class="manifesto-text" data-i18n="home.manifesto.text" data-i18n-html="true"></div>
+</section>
+
+
+<!-- LATEST FROM FIELD REPORT -->
+<section class="field-report">
+  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
+  <h2 class="section-title" data-i18n="home.veille.title"></h2>
+  <p class="section-sub" data-i18n="home.veille.sub"></p>
+  <div class="field-grid" id="fieldGrid"></div>
+  <div style="margin-top: 40px;">
+    <a href="veille.html" class="btn btn-secondary">
+      <span data-i18n="home.veille.cta"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- LE DISPATCH·iA TEASE · last published dispatch -->
+<section class="dispatch-tease">
+  <div class="dispatch-tease-inner">
+    <div class="dispatch-tease-meta">
+      <span class="dispatch-tease-tag mono" data-i18n="home.dispatch.tag"></span>
+      <span class="dispatch-tease-num mono" data-i18n="home.dispatch.num"></span>
+    </div>
+    <h2 class="dispatch-tease-title" data-i18n="home.dispatch.title" data-i18n-html="true"></h2>
+    <p class="dispatch-tease-lede" data-i18n="home.dispatch.lede"></p>
+    <div class="dispatch-tease-actions">
+      <a href="briefings/03-luxe-horlogerie.html" class="btn btn-primary">
+        <span data-i18n="home.dispatch.read"></span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="briefings.html" class="btn btn-secondary">
+        <span data-i18n="home.dispatch.allcta"></span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- COUNTRY TEASERS -->
@@ -2539,21 +3052,25 @@ html, body { overflow-x: hidden; max-width: 100vw; }
       <span>→</span>
     </span>
   </a>
-</div>
 
-<!-- LATEST FROM FIELD REPORT -->
-<section class="field-report">
-  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
-  <h2 class="section-title" data-i18n="home.veille.title"></h2>
-  <p class="section-sub" data-i18n="home.veille.sub"></p>
-  <div class="field-grid" id="fieldGrid"></div>
-  <div style="margin-top: 40px;">
-    <a href="veille.html" class="btn btn-secondary">
-      <span data-i18n="home.veille.cta"></span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-</section>
+  <a href="observatoires/comparer.html" class="country-card country-card-feature">
+    <div class="country-card-flag">
+      <span class="emoji">🇨🇭</span>
+      <span class="emoji">×</span>
+      <span class="emoji">🇫🇷</span>
+    </div>
+    <h3 class="country-card-title" data-i18n="home.cmp.title"></h3>
+    <div class="country-card-num">
+      <span><strong>2</strong> <span data-i18n="home.cmp.systems"></span></span>
+      <span><strong>1</strong> <span data-i18n="home.cmp.question"></span></span>
+    </div>
+    <p data-i18n="home.cmp.desc" style="font-size: 15px; line-height: 1.5; color: var(--ink-2);"></p>
+    <span class="country-card-cta">
+      <span data-i18n="home.cmp.cta"></span>
+      <span>→</span>
+    </span>
+  </a>
+</div>
 
 <footer id="siteFooter"></footer>
 
@@ -2580,7 +3097,7 @@ window.OBSERVATOIRES_DATA = [
   {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
 ];
 
-window.VEILLE_DATA = [{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
+window.VEILLE_DATA = [{"date":"2026-04-15","source":"NBER · Yin, Vu, Persico (w35110)","country":"INT","title":{"fr":"Quelle (in)stabilité des scores d'exposition LLM ? Evidence d'une réplication multi-modèles","en":"How (un)Stable Are LLM Occupational Exposure Scores? Evidence from Multi-Model Replication"},"excerpt":{"fr":"Démonstration que les mesures d'exposition à l'IA basées sur les LLM auto-évaluatifs sont hautement fragiles. Trois modèles frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence d'un facteur 3,6 sur l'exposition moyenne, avec un accord descendant à 57%. Cette instabilité altère les conclusions empiriques en aval : les coefficients en panel diff-in-diff varient d'un facteur 2,4 selon l'annotateur, et les estimations county-level passent d'un effet négatif significatif à un effet positif non significatif selon le modèle utilisé. Conclusion radicale : traiter les LLM en évolution comme des instruments statiques est risqué.","en":"Demonstration that LLM-based self-assessed AI exposure measures are highly fragile. Three frontier models applying the same rubric on identical tasks produce a 3.6-fold divergence in mean exposure, with agreement as low as 57%. This instability alters downstream empirical conclusions: difference-in-differences coefficients vary 2.4-fold across annotators, and county-level estimates flip from significant negative to insignificant positive depending on the model. Radical conclusion: treating evolving LLMs as static instruments is risky."},"url":"https://www.nber.org/papers/w35110","ai_type":"generative"},{"date":"2026-02-19","source":"Yale Budget Lab · Gimbel, Kendall, Kulsakdinun","country":"INT","title":{"fr":"L'exposition à l'IA sur le marché du travail : que sait-on vraiment ?","en":"Labor Market AI Exposure: What Do We Know?"},"excerpt":{"fr":"Étude systématique comparant 7 métriques d'exposition à l'IA (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) sur 867 métiers SOC 2018. Conclusion en trois points : les métriques s'accordent largement, mais elles divergent davantage sur les métiers fortement exposés. Le désaccord porte sur l'ampleur de l'exposition, pas sur le fait qu'un métier soit exposé. L'exposition n'indique pas qu'un métier sera automatisé, seulement qu'il pourrait être impacté. Exemples canoniques : les plombiers ont une variance de 0,03 (consensus total sur faible exposition), les programmeurs informatiques ont 0,48 (désaccord majeur sur l'ampleur). Données ouvertes téléchargeables.","en":"Systematic study comparing 7 AI exposure metrics (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) across 867 SOC 2018 occupations. Three key takeaways: metrics broadly agree, but disagree more on highly exposed occupations. Disagreement is about magnitude, not whether an occupation is exposed. Exposure does not indicate which jobs AI will automate, only where AI could have an impact. Canonical examples: plumbers have variance 0.03 (full consensus on low exposure), computer programmers have 0.48 (major disagreement on magnitude). Open data downloadable."},"url":"https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know","ai_type":"generative"},{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"}];
 
 
 const I18N = {
@@ -2599,6 +3116,12 @@ const I18N = {
     "foot.rights": "Données sous licences sources",
     "foot.method": "Méthodologie",
     "foot.data": "Données ouvertes",
+    "foot.tagline": "Comprendre l'impact des IA sur le travail · Suisse & France",
+    "foot.explore": "Explorer",
+    "foot.about": "À propos",
+    "foot.lastupdate": "Dernière mise à jour",
+    "foot.license": "Données ouvertes · CC BY 4.0",
+    "foot.by": "Conçu et opéré par",
     "card.last": "MAJ",
     "card.visit": "Source ↗",
     "filter.country": "Pays",
@@ -2630,6 +3153,12 @@ const I18N = {
     "foot.rights": "Data under source licenses",
     "foot.method": "Methodology",
     "foot.data": "Open data",
+    "foot.tagline": "Understanding AI's impact on work · Switzerland & France",
+    "foot.explore": "Explore",
+    "foot.about": "About",
+    "foot.lastupdate": "Last update",
+    "foot.license": "Open data · CC BY 4.0",
+    "foot.by": "Designed and operated by",
     "card.last": "Updated",
     "card.visit": "Source ↗",
     "filter.country": "Country",
@@ -2779,12 +3308,39 @@ function renderFooter() {
   const root = rootPath();
   f.innerHTML = `
     <div class="foot-inner">
-      <span>© 2026 observatoire[s]·ia · <span data-i18n="foot.rights">${t("foot.rights")}</span></span>
-      <div class="foot-links">
-        <a href="${root}methodologie.html" data-i18n="foot.method">${t("foot.method")}</a>
-        <a href="${root}donnees.html" data-i18n="foot.data">${t("foot.data")}</a>
+      <div class="foot-col foot-col-brand">
+        <div class="foot-brand">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</div>
+        <div class="foot-tagline" data-i18n="foot.tagline">${t("foot.tagline")}</div>
       </div>
-      <span class="foot-version">v0.2 · build 2026.04</span>
+      <div class="foot-col foot-col-links">
+        <div class="foot-col-label mono" data-i18n="foot.explore">${t("foot.explore")}</div>
+        <a href="${root}observatoires/suisse.html" data-i18n="nav.suisse">${t("nav.suisse")}</a>
+        <a href="${root}observatoires/france.html" data-i18n="nav.france">${t("nav.france")}</a>
+        <a href="${root}observatoires/comparer.html" data-i18n="nav.comparer">${t("nav.comparer")}</a>
+        <a href="${root}briefings.html" data-i18n="nav.memos">${t("nav.memos")}</a>
+      </div>
+      <div class="foot-col foot-col-links">
+        <div class="foot-col-label mono" data-i18n="foot.about">${t("foot.about")}</div>
+        <a href="${root}methodologie.html" data-i18n="foot.method">${t("foot.method")}</a>
+        <a href="${root}veille.html" data-i18n="nav.veille">${t("nav.veille")}</a>
+        <a href="${root}partenariats.html" data-i18n="nav.partner">${t("nav.partner")}</a>
+        <a href="${root}contact.html" data-i18n="nav.contact">${t("nav.contact")}</a>
+      </div>
+      <div class="foot-col foot-col-meta">
+        <div class="foot-update mono">
+          <span data-i18n="foot.lastupdate">${t("foot.lastupdate")}</span>
+          <strong>29 avril 2026</strong>
+        </div>
+        <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
+        <div class="foot-version mono">v0.2.5 · build 2026.04.29</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia · <span data-i18n="foot.rights">${t("foot.rights")}</span></span>
+      <span class="foot-author">
+        <span data-i18n="foot.by">${t("foot.by")}</span>
+        <a href="https://naullynicolas.ch" target="_blank" rel="noopener">Naully Nicolas</a>
+      </span>
     </div>
   `;
 }
@@ -2811,16 +3367,16 @@ Object.defineProperty(window, "CURRENT_LANG", {
 window.PAGE_I18N = {
   fr: {
     "home.eyebrow": "",
-    "home.title": "Comprendre comment l'<em>IA</em> redessine le travail<span class=\"accent-bracket\">.</span>",
-    "home.lede": "L'intelligence artificielle ne supprime pas le travail. Elle le déplace, le décompose et le recompose, parfois discrètement, parfois brutalement. En Suisse comme en France, une douzaine d'institutions publiques, académiques et sectorielles tentent de mesurer ces mouvements. Leurs publications existent. Leurs méthodologies divergent. Leurs résultats restent dispersés, en plusieurs langues, sur autant de sites différents. Ce projet rassemble, traduit et compare ces sources pour que les actifs, les responsables RH, les décideurs publics et les chercheurs disposent enfin d'un point d'observation commun.",
+    "home.title": "Ce que <em>les IA</em> font vraiment au travail<span class=\"accent-bracket\">.</span>",
+    "home.lede": "On entend tout et son contraire sur l'impact des IA sur l'emploi. Effondrement annoncé d'un côté, révolution productive de l'autre, et entre les deux les actifs essaient de décider de leur formation et de leur trajectoire. Le problème n'est pas le manque de données : les chiffres existent, dispersés entre une douzaine d'institutions, en plusieurs langues, sous autant de méthodologies. Cet observatoire les rassemble, les traduit, et les croise pour permettre une lecture factuelle plutôt qu'émotionnelle. Et parce que l'IA générative, l'IA discriminative et le machine learning ne produisent pas les mêmes effets sur les mêmes métiers, chaque chiffre est ici tagué par type d'IA.",
     "home.cta.ch": "Dashboard Suisse",
     "home.cta.fr": "Dashboard France",
-    "home.stat1.label": "de recruteurs privilégient les compétences IA à l'ancienneté.",
-    "home.stat2.label": "d'offres tech junior entre 2022 et 2024.",
-    "home.stat3.label": "observatoires CH + FR cartographiés. Mise à jour mensuelle.",
-    "home.stat3.source": "Sources publiques · académiques · sectorielles",
+    "home.stat1.label": "des actifs UK+US ont déjà utilisé l'IA au travail. Mais moins d'1/5 quotidiennement.",
+    "home.stat2.label": "des grandes entreprises suisses ont introduit l'IA. Contre 9% pour les TPE : l'asymétrie est suisse.",
+    "home.stat3.label": "métiers cartographiés (200 ROME France + 324 NP 2010 Suisse). Données ouvertes.",
+    "home.stat3.source": "ROME 4.0 · NP 2010 OFS · CC BY 4.0",
     "home.manifesto.tag": "¶ Manifeste",
-    "home.manifesto.text": "<p>Mesurer l'impact de l'IA sur le travail relève d'un exercice paradoxal. Les chiffres <strong>existent</strong>, dispersés entre une douzaine d'institutions, dans deux pays, sous autant de méthodologies hétérogènes. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement métier par métier. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants helvétiques. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble.</p><p>Cette fragmentation produit un effet politique mesurable. Faute de cadre commun, le débat oscille entre des récits incompatibles. D'un côté, l'effondrement annoncé du marché du travail. De l'autre, la révolution productive promise. Entre les deux, les actifs concernés naviguent dans cette brume statistique <em>sans repère</em> pour décider de leur formation, de leur reconversion, de leur trajectoire.</p><p><em>observatoire[s]·ia</em> ne produit pas de chiffre nouveau. Le projet agrège, traduit, compare et critique ceux qui existent déjà. L'ambition est de redonner aux décideurs publics, aux responsables RH, aux chercheurs et aux actifs un terrain partagé sur lequel raisonner.</p>",
+    "home.manifesto.text": "<p>Parler de « l'IA » au singulier est une commodité de langage qui produit des erreurs d'analyse. <strong>L'IA générative</strong> qui rédige un mail n'a pas le même impact qu'<strong>une IA discriminative</strong> qui trie des CV, ni qu'<strong>un système de machine learning</strong> qui optimise une chaîne logistique. Confondre ces familles, c'est se condamner à des prédictions imprécises et à des politiques publiques mal calibrées. C'est pourquoi chaque chiffre publié ici est explicitement tagué par type d'IA, et pourquoi nous parlons des <em>IA</em>, au pluriel.</p><p>Le second postulat de cet observatoire est plus simple : <strong>une seule source ne suffit jamais</strong>. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants suisses. Coface modélise les risques sectoriels. Le Yale Budget Lab tracke mensuellement l'effet emploi américain. Le Financial Times publie son tracker Workforce AI. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble. <em>Toutes ensemble, croisées et confrontées, elles permettent un tableau plus juste</em>, à la fois sur ce que les IA peuvent faire et ce qu'elles ne font pas.</p><p>L'observatoire ne cherche ni à rassurer ni à inquiéter. Il cherche à <strong>réduire la part émotionnelle du débat</strong> en redonnant aux actifs, aux responsables RH, aux décideurs publics et aux chercheurs un terrain partagé sur lequel raisonner. Tous les chiffres sont sourcés, traçables jusqu'à la publication primaire, et publiés en données ouvertes sous licence CC BY 4.0.</p>",
     "home.dash.eyebrow": "Deux dashboards · une méthodologie",
     "home.dash.title": "Choisissez votre territoire.",
     "home.dash.sub": "Chaque pays a sa propre architecture institutionnelle, ses propres taxonomies, ses propres rythmes. Deux dashboards dédiés, plus une vue comparative pour croiser les regards.",
@@ -2836,23 +3392,35 @@ window.PAGE_I18N = {
     "home.fr.domains": "domaines couverts",
     "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. La galaxie française des observatoires emploi et IA.",
     "home.fr.cta": "Explorer le dashboard FR",
+    "home.cmp.title": "Comparer les deux",
+    "home.cmp.systems": "modèles · Suisse et France",
+    "home.cmp.question": "même question · l'impact des IA",
+    "home.cmp.desc": "Là où la valeur ajoutée du projet apparaît : un dashboard transfrontalier qui croise les nomenclatures, les méthodologies et les chiffres pour que les bonnes pratiques d'un côté nourrissent l'autre.",
+    "home.cmp.cta": "Voir la comparaison",
     "home.veille.eyebrow": "Veille · Avril 2026",
     "home.veille.title": "Les rapports à lire ce mois-ci.",
     "home.veille.sub": "Sélection des publications les plus structurantes des 30 derniers jours.",
-    "home.veille.cta": "Voir toute la veille"
+    "home.veille.cta": "Voir toute la veille",
+
+    "home.dispatch.tag": "Dernière dépêche",
+    "home.dispatch.num": "Le Dispatch·iA · #003 · avril 2026",
+    "home.dispatch.title": "Horlogerie premium et <em>gouvernance IA</em>.",
+    "home.dispatch.lede": "Comment l'industrie horlogère suisse arbitre entre tradition manufacturière et adoption mesurée de l'IA. Étude des stratégies différenciées de Richemont, Swatch Group, et de l'écosystème indépendant. Format magazine, 18 pages, sources primaires Fédération Horlogère, Le Temps, Kearney 2026.",
+    "home.dispatch.read": "Lire la dépêche",
+    "home.dispatch.allcta": "Voir toutes les dépêches"
   },
   en: {
     "home.eyebrow": "",
-    "home.title": "How <em>AI</em> is redrawing the world of work<span class=\"accent-bracket\">.</span>",
-    "home.lede": "Artificial intelligence is not erasing work. It is shifting, decomposing and recomposing it, sometimes quietly, sometimes brutally. In Switzerland as in France, a dozen public, academic and sectoral institutions are attempting to measure these movements. Their publications exist. Their methodologies diverge. Their findings remain scattered across several languages and as many websites. This project gathers, translates and compares these sources so that workers, HR leaders, public decision-makers and researchers finally share a common observation point.",
+    "home.title": "What <em>AI systems</em> actually do to work<span class=\"accent-bracket\">.</span>",
+    "home.lede": "On the impact of AI on jobs, we hear everything and its opposite. Looming collapse on one side, productive revolution on the other, and in between workers trying to decide on their training and trajectory. The problem is not a lack of data: figures exist, scattered across a dozen institutions, in several languages, under as many methodologies. This observatory gathers, translates, and cross-checks them to enable a factual reading rather than an emotional one. And because generative AI, discriminative AI, and machine learning do not produce the same effects on the same occupations, every figure here is tagged by AI type.",
     "home.cta.ch": "Switzerland dashboard",
     "home.cta.fr": "France dashboard",
-    "home.stat1.label": "of recruiters prioritise AI skills over seniority.",
-    "home.stat2.label": "drop in junior tech postings between 2022 and 2024.",
-    "home.stat3.label": "CH + FR observatories mapped. Monthly updates.",
-    "home.stat3.source": "Public · academic · sectoral sources",
+    "home.stat1.label": "of UK+US workers have already used AI at work. But fewer than 1/5 daily.",
+    "home.stat2.label": "of large Swiss firms have introduced AI. Against 9% for SMEs: the asymmetry is Swiss.",
+    "home.stat3.label": "occupations mapped (200 ROME France + 324 NP 2010 Switzerland). Open data.",
+    "home.stat3.source": "ROME 4.0 · NP 2010 FSO · CC BY 4.0",
     "home.manifesto.tag": "¶ Manifesto",
-    "home.manifesto.text": "<p>Measuring AI's impact on work is a paradoxical exercise. The figures <strong>do exist</strong>, scattered across a dozen institutions, in two countries, under as many heterogeneous methodologies. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions occupation by occupation. The EPFL AI Center documents adoption in companies. Switzerland's Federal Statistical Office tracks vacancies. No single source, taken in isolation, gives the full picture.</p><p>This fragmentation produces a measurable political effect. Without a shared frame, public debate oscillates between incompatible narratives. On one side, the announced collapse of the labour market. On the other, the promised productivity revolution. In between, the workers concerned navigate this statistical fog <em>without any compass</em> to decide on their training, their career change or their trajectory.</p><p><em>observatoire[s]·ia</em> produces no new figures. The project aggregates, translates, compares and critiques those that already exist. The ambition is to give public decision-makers, HR leaders, researchers and workers a shared ground on which to reason.</p>",
+    "home.manifesto.text": "<p>Speaking of « AI » in the singular is a linguistic shortcut that produces analytical errors. <strong>Generative AI</strong> writing an email does not have the same impact as <strong>a discriminative AI</strong> screening résumés, nor as <strong>a machine learning system</strong> optimizing a supply chain. Conflating these families is to condemn oneself to imprecise predictions and ill-calibrated public policies. This is why every figure published here is explicitly tagged by AI type, and why we speak of <em>AI systems</em>, in the plural.</p><p>The second postulate of this observatory is simpler: <strong>a single source is never enough</strong>. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions. The EPFL AI Center documents company adoption. Switzerland's Federal Statistical Office tracks vacancies. Coface models sectoral risks. The Yale Budget Lab monthly tracks US employment effects. The Financial Times publishes its Workforce AI Tracker. No single source, taken in isolation, gives the full picture. <em>Together, cross-checked and confronted, they allow a fairer reading</em>, both of what AI systems can do and what they do not do.</p><p>The observatory seeks neither to reassure nor to alarm. It seeks to <strong>reduce the emotional share of the debate</strong> by giving workers, HR leaders, public decision-makers and researchers a shared ground on which to reason. All figures are sourced, traceable to the primary publication, and published as open data under CC BY 4.0 license.</p>",
     "home.dash.eyebrow": "Two dashboards · one methodology",
     "home.dash.title": "Choose your territory.",
     "home.dash.sub": "Each country has its own institutional architecture, its own taxonomies, its own rhythms. Two dedicated dashboards, plus a comparative view to cross-reference them.",
@@ -2868,10 +3436,22 @@ window.PAGE_I18N = {
     "home.fr.domains": "domains covered",
     "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. The French galaxy of AI and employment observatories.",
     "home.fr.cta": "Open FR dashboard",
+    "home.cmp.title": "Compare both",
+    "home.cmp.systems": "models · Switzerland and France",
+    "home.cmp.question": "same question · the impact of AI",
+    "home.cmp.desc": "Where the project's added value emerges: a cross-border dashboard that combines classifications, methodologies, and figures so that best practices on one side feed the other.",
+    "home.cmp.cta": "See the comparison",
     "home.veille.eyebrow": "Field report · April 2026",
     "home.veille.title": "What to read this month.",
     "home.veille.sub": "A selection of the most structuring publications from the past 30 days.",
-    "home.veille.cta": "See all reports"
+    "home.veille.cta": "See all reports",
+
+    "home.dispatch.tag": "Latest dispatch",
+    "home.dispatch.num": "The Dispatch·iA · #003 · April 2026",
+    "home.dispatch.title": "Premium watchmaking and <em>AI governance</em>.",
+    "home.dispatch.lede": "How the Swiss watchmaking industry arbitrates between manufacturing tradition and measured AI adoption. Analysis of the differentiated strategies of Richemont, Swatch Group, and the independent ecosystem. Magazine format, 18 pages, primary sources from Fédération Horlogère, Le Temps, Kearney 2026.",
+    "home.dispatch.read": "Read the dispatch",
+    "home.dispatch.allcta": "See all dispatches"
   }
 };
 
@@ -2887,7 +3467,7 @@ function renderVeille() {
   if (!grid) return;
   grid.innerHTML = "";
   const lang = window.CURRENT_LANG;
-  veilleData.slice(0, 4).forEach((v) => {
+  veilleData.slice(0, 3).forEach((v) => {
     const card = document.createElement("a");
     card.className = "field-card";
     card.href = v.url;

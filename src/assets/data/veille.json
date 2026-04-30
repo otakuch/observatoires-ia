@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-04-15",
+    "source": "NBER · Yin, Vu, Persico (w35110)",
+    "country": "INT",
+    "title": {
+      "fr": "Quelle (in)stabilité des scores d'exposition LLM ? Evidence d'une réplication multi-modèles",
+      "en": "How (un)Stable Are LLM Occupational Exposure Scores? Evidence from Multi-Model Replication"
+    },
+    "excerpt": {
+      "fr": "Démonstration que les mesures d'exposition à l'IA basées sur les LLM auto-évaluatifs sont hautement fragiles. Trois modèles frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence d'un facteur 3,6 sur l'exposition moyenne, avec un accord descendant à 57%. Cette instabilité altère les conclusions empiriques en aval : les coefficients en panel diff-in-diff varient d'un facteur 2,4 selon l'annotateur, et les estimations county-level passent d'un effet négatif significatif à un effet positif non significatif selon le modèle utilisé. Conclusion radicale : traiter les LLM en évolution comme des instruments statiques est risqué.",
+      "en": "Demonstration that LLM-based self-assessed AI exposure measures are highly fragile. Three frontier models applying the same rubric on identical tasks produce a 3.6-fold divergence in mean exposure, with agreement as low as 57%. This instability alters downstream empirical conclusions: difference-in-differences coefficients vary 2.4-fold across annotators, and county-level estimates flip from significant negative to insignificant positive depending on the model. Radical conclusion: treating evolving LLMs as static instruments is risky."
+    },
+    "url": "https://www.nber.org/papers/w35110",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-02-19",
+    "source": "Yale Budget Lab · Gimbel, Kendall, Kulsakdinun",
+    "country": "INT",
+    "title": {
+      "fr": "L'exposition à l'IA sur le marché du travail : que sait-on vraiment ?",
+      "en": "Labor Market AI Exposure: What Do We Know?"
+    },
+    "excerpt": {
+      "fr": "Étude systématique comparant 7 métriques d'exposition à l'IA (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) sur 867 métiers SOC 2018. Conclusion en trois points : les métriques s'accordent largement, mais elles divergent davantage sur les métiers fortement exposés. Le désaccord porte sur l'ampleur de l'exposition, pas sur le fait qu'un métier soit exposé. L'exposition n'indique pas qu'un métier sera automatisé, seulement qu'il pourrait être impacté. Exemples canoniques : les plombiers ont une variance de 0,03 (consensus total sur faible exposition), les programmeurs informatiques ont 0,48 (désaccord majeur sur l'ampleur). Données ouvertes téléchargeables.",
+      "en": "Systematic study comparing 7 AI exposure metrics (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) across 867 SOC 2018 occupations. Three key takeaways: metrics broadly agree, but disagree more on highly exposed occupations. Disagreement is about magnitude, not whether an occupation is exposed. Exposure does not indicate which jobs AI will automate, only where AI could have an impact. Canonical examples: plumbers have variance 0.03 (full consensus on low exposure), computer programmers have 0.48 (major disagreement on magnitude). Open data downloadable."
+    },
+    "url": "https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know",
+    "ai_type": "generative"
+  },
+  {
     "date": "2026-04-25",
     "source": "Financial Times · John Burn-Murdoch",
     "country": "INT",

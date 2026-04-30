@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>observatoire[s]·ia · Cartographie indépendante des observatoires emploi & IA · CH/FR</title>
-<meta name="description" content="Une cartographie indépendante et bilingue des observatoires de l'emploi face à l'IA en Suisse et en France.">
+<title>observatoire[s]·ia · Comprendre l'impact des IA sur le travail · Suisse & France</title>
+<meta name="description" content="524 métiers cartographiés, 14 observatoires institutionnels CH et FR référencés, données ouvertes CC BY 4.0. Une lecture factuelle plutôt qu'émotionnelle de l'impact des IA sur le travail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -35,17 +35,17 @@
 <section class="stats">
   <div class="stats-grid">
     <div class="stat">
-      <div class="stat-num">71<span class="unit">%</span></div>
+      <div class="stat-num">65<span class="unit">%</span></div>
       <div class="stat-label" data-i18n="home.stat1.label"></div>
-      <div class="stat-source mono">Microsoft &amp; LinkedIn · 2024</div>
+      <div class="stat-source mono">Focaldata × FT Wave 1 · avril 2026</div>
     </div>
     <div class="stat">
-      <div class="stat-num"><span class="sign">−</span>26<span class="unit">%</span></div>
+      <div class="stat-num">24<span class="unit">%</span></div>
       <div class="stat-label" data-i18n="home.stat2.label"></div>
-      <div class="stat-source mono">LinkedIn Economic Graph</div>
+      <div class="stat-source mono">DemoSCOPE / Angestellte Schweiz · avril 2026</div>
     </div>
     <div class="stat">
-      <div class="stat-num">14</div>
+      <div class="stat-num">524</div>
       <div class="stat-label" data-i18n="home.stat3.label"></div>
       <div class="stat-source mono" data-i18n="home.stat3.source"></div>
     </div>
@@ -56,6 +56,42 @@
 <section class="manifesto">
   <div class="manifesto-tag mono" data-i18n="home.manifesto.tag"></div>
   <div class="manifesto-text" data-i18n="home.manifesto.text" data-i18n-html="true"></div>
+</section>
+
+
+<!-- LATEST FROM FIELD REPORT -->
+<section class="field-report">
+  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
+  <h2 class="section-title" data-i18n="home.veille.title"></h2>
+  <p class="section-sub" data-i18n="home.veille.sub"></p>
+  <div class="field-grid" id="fieldGrid"></div>
+  <div style="margin-top: 40px;">
+    <a href="veille.html" class="btn btn-secondary">
+      <span data-i18n="home.veille.cta"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- LE DISPATCH·iA TEASE · last published dispatch -->
+<section class="dispatch-tease">
+  <div class="dispatch-tease-inner">
+    <div class="dispatch-tease-meta">
+      <span class="dispatch-tease-tag mono" data-i18n="home.dispatch.tag"></span>
+      <span class="dispatch-tease-num mono" data-i18n="home.dispatch.num"></span>
+    </div>
+    <h2 class="dispatch-tease-title" data-i18n="home.dispatch.title" data-i18n-html="true"></h2>
+    <p class="dispatch-tease-lede" data-i18n="home.dispatch.lede"></p>
+    <div class="dispatch-tease-actions">
+      <a href="briefings/03-luxe-horlogerie.html" class="btn btn-primary">
+        <span data-i18n="home.dispatch.read"></span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="briefings.html" class="btn btn-secondary">
+        <span data-i18n="home.dispatch.allcta"></span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- COUNTRY TEASERS -->
@@ -99,21 +135,25 @@
       <span>→</span>
     </span>
   </a>
-</div>
 
-<!-- LATEST FROM FIELD REPORT -->
-<section class="field-report">
-  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
-  <h2 class="section-title" data-i18n="home.veille.title"></h2>
-  <p class="section-sub" data-i18n="home.veille.sub"></p>
-  <div class="field-grid" id="fieldGrid"></div>
-  <div style="margin-top: 40px;">
-    <a href="veille.html" class="btn btn-secondary">
-      <span data-i18n="home.veille.cta"></span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-</section>
+  <a href="observatoires/comparer.html" class="country-card country-card-feature">
+    <div class="country-card-flag">
+      <span class="emoji">🇨🇭</span>
+      <span class="emoji">×</span>
+      <span class="emoji">🇫🇷</span>
+    </div>
+    <h3 class="country-card-title" data-i18n="home.cmp.title"></h3>
+    <div class="country-card-num">
+      <span><strong>2</strong> <span data-i18n="home.cmp.systems"></span></span>
+      <span><strong>1</strong> <span data-i18n="home.cmp.question"></span></span>
+    </div>
+    <p data-i18n="home.cmp.desc" style="font-size: 15px; line-height: 1.5; color: var(--ink-2);"></p>
+    <span class="country-card-cta">
+      <span data-i18n="home.cmp.cta"></span>
+      <span>→</span>
+    </span>
+  </a>
+</div>
 
 <footer id="siteFooter"></footer>
 
@@ -122,16 +162,16 @@
 window.PAGE_I18N = {
   fr: {
     "home.eyebrow": "",
-    "home.title": "Comprendre comment l'<em>IA</em> redessine le travail<span class=\"accent-bracket\">.</span>",
-    "home.lede": "L'intelligence artificielle ne supprime pas le travail. Elle le déplace, le décompose et le recompose, parfois discrètement, parfois brutalement. En Suisse comme en France, une douzaine d'institutions publiques, académiques et sectorielles tentent de mesurer ces mouvements. Leurs publications existent. Leurs méthodologies divergent. Leurs résultats restent dispersés, en plusieurs langues, sur autant de sites différents. Ce projet rassemble, traduit et compare ces sources pour que les actifs, les responsables RH, les décideurs publics et les chercheurs disposent enfin d'un point d'observation commun.",
+    "home.title": "Ce que <em>les IA</em> font vraiment au travail<span class=\"accent-bracket\">.</span>",
+    "home.lede": "On entend tout et son contraire sur l'impact des IA sur l'emploi. Effondrement annoncé d'un côté, révolution productive de l'autre, et entre les deux les actifs essaient de décider de leur formation et de leur trajectoire. Le problème n'est pas le manque de données : les chiffres existent, dispersés entre une douzaine d'institutions, en plusieurs langues, sous autant de méthodologies. Cet observatoire les rassemble, les traduit, et les croise pour permettre une lecture factuelle plutôt qu'émotionnelle. Et parce que l'IA générative, l'IA discriminative et le machine learning ne produisent pas les mêmes effets sur les mêmes métiers, chaque chiffre est ici tagué par type d'IA.",
     "home.cta.ch": "Dashboard Suisse",
     "home.cta.fr": "Dashboard France",
-    "home.stat1.label": "de recruteurs privilégient les compétences IA à l'ancienneté.",
-    "home.stat2.label": "d'offres tech junior entre 2022 et 2024.",
-    "home.stat3.label": "observatoires CH + FR cartographiés. Mise à jour mensuelle.",
-    "home.stat3.source": "Sources publiques · académiques · sectorielles",
+    "home.stat1.label": "des actifs UK+US ont déjà utilisé l'IA au travail. Mais moins d'1/5 quotidiennement.",
+    "home.stat2.label": "des grandes entreprises suisses ont introduit l'IA. Contre 9% pour les TPE : l'asymétrie est suisse.",
+    "home.stat3.label": "métiers cartographiés (200 ROME France + 324 NP 2010 Suisse). Données ouvertes.",
+    "home.stat3.source": "ROME 4.0 · NP 2010 OFS · CC BY 4.0",
     "home.manifesto.tag": "¶ Manifeste",
-    "home.manifesto.text": "<p>Mesurer l'impact de l'IA sur le travail relève d'un exercice paradoxal. Les chiffres <strong>existent</strong>, dispersés entre une douzaine d'institutions, dans deux pays, sous autant de méthodologies hétérogènes. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement métier par métier. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants helvétiques. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble.</p><p>Cette fragmentation produit un effet politique mesurable. Faute de cadre commun, le débat oscille entre des récits incompatibles. D'un côté, l'effondrement annoncé du marché du travail. De l'autre, la révolution productive promise. Entre les deux, les actifs concernés naviguent dans cette brume statistique <em>sans repère</em> pour décider de leur formation, de leur reconversion, de leur trajectoire.</p><p><em>observatoire[s]·ia</em> ne produit pas de chiffre nouveau. Le projet agrège, traduit, compare et critique ceux qui existent déjà. L'ambition est de redonner aux décideurs publics, aux responsables RH, aux chercheurs et aux actifs un terrain partagé sur lequel raisonner.</p>",
+    "home.manifesto.text": "<p>Parler de « l'IA » au singulier est une commodité de langage qui produit des erreurs d'analyse. <strong>L'IA générative</strong> qui rédige un mail n'a pas le même impact qu'<strong>une IA discriminative</strong> qui trie des CV, ni qu'<strong>un système de machine learning</strong> qui optimise une chaîne logistique. Confondre ces familles, c'est se condamner à des prédictions imprécises et à des politiques publiques mal calibrées. C'est pourquoi chaque chiffre publié ici est explicitement tagué par type d'IA, et pourquoi nous parlons des <em>IA</em>, au pluriel.</p><p>Le second postulat de cet observatoire est plus simple : <strong>une seule source ne suffit jamais</strong>. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants suisses. Coface modélise les risques sectoriels. Le Yale Budget Lab tracke mensuellement l'effet emploi américain. Le Financial Times publie son tracker Workforce AI. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble. <em>Toutes ensemble, croisées et confrontées, elles permettent un tableau plus juste</em>, à la fois sur ce que les IA peuvent faire et ce qu'elles ne font pas.</p><p>L'observatoire ne cherche ni à rassurer ni à inquiéter. Il cherche à <strong>réduire la part émotionnelle du débat</strong> en redonnant aux actifs, aux responsables RH, aux décideurs publics et aux chercheurs un terrain partagé sur lequel raisonner. Tous les chiffres sont sourcés, traçables jusqu'à la publication primaire, et publiés en données ouvertes sous licence CC BY 4.0.</p>",
     "home.dash.eyebrow": "Deux dashboards · une méthodologie",
     "home.dash.title": "Choisissez votre territoire.",
     "home.dash.sub": "Chaque pays a sa propre architecture institutionnelle, ses propres taxonomies, ses propres rythmes. Deux dashboards dédiés, plus une vue comparative pour croiser les regards.",
@@ -147,23 +187,35 @@ window.PAGE_I18N = {
     "home.fr.domains": "domaines couverts",
     "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. La galaxie française des observatoires emploi et IA.",
     "home.fr.cta": "Explorer le dashboard FR",
+    "home.cmp.title": "Comparer les deux",
+    "home.cmp.systems": "modèles · Suisse et France",
+    "home.cmp.question": "même question · l'impact des IA",
+    "home.cmp.desc": "Là où la valeur ajoutée du projet apparaît : un dashboard transfrontalier qui croise les nomenclatures, les méthodologies et les chiffres pour que les bonnes pratiques d'un côté nourrissent l'autre.",
+    "home.cmp.cta": "Voir la comparaison",
     "home.veille.eyebrow": "Veille · Avril 2026",
     "home.veille.title": "Les rapports à lire ce mois-ci.",
     "home.veille.sub": "Sélection des publications les plus structurantes des 30 derniers jours.",
-    "home.veille.cta": "Voir toute la veille"
+    "home.veille.cta": "Voir toute la veille",
+
+    "home.dispatch.tag": "Dernière dépêche",
+    "home.dispatch.num": "Le Dispatch·iA · #003 · avril 2026",
+    "home.dispatch.title": "Horlogerie premium et <em>gouvernance IA</em>.",
+    "home.dispatch.lede": "Comment l'industrie horlogère suisse arbitre entre tradition manufacturière et adoption mesurée de l'IA. Étude des stratégies différenciées de Richemont, Swatch Group, et de l'écosystème indépendant. Format magazine, 18 pages, sources primaires Fédération Horlogère, Le Temps, Kearney 2026.",
+    "home.dispatch.read": "Lire la dépêche",
+    "home.dispatch.allcta": "Voir toutes les dépêches"
   },
   en: {
     "home.eyebrow": "",
-    "home.title": "How <em>AI</em> is redrawing the world of work<span class=\"accent-bracket\">.</span>",
-    "home.lede": "Artificial intelligence is not erasing work. It is shifting, decomposing and recomposing it, sometimes quietly, sometimes brutally. In Switzerland as in France, a dozen public, academic and sectoral institutions are attempting to measure these movements. Their publications exist. Their methodologies diverge. Their findings remain scattered across several languages and as many websites. This project gathers, translates and compares these sources so that workers, HR leaders, public decision-makers and researchers finally share a common observation point.",
+    "home.title": "What <em>AI systems</em> actually do to work<span class=\"accent-bracket\">.</span>",
+    "home.lede": "On the impact of AI on jobs, we hear everything and its opposite. Looming collapse on one side, productive revolution on the other, and in between workers trying to decide on their training and trajectory. The problem is not a lack of data: figures exist, scattered across a dozen institutions, in several languages, under as many methodologies. This observatory gathers, translates, and cross-checks them to enable a factual reading rather than an emotional one. And because generative AI, discriminative AI, and machine learning do not produce the same effects on the same occupations, every figure here is tagged by AI type.",
     "home.cta.ch": "Switzerland dashboard",
     "home.cta.fr": "France dashboard",
-    "home.stat1.label": "of recruiters prioritise AI skills over seniority.",
-    "home.stat2.label": "drop in junior tech postings between 2022 and 2024.",
-    "home.stat3.label": "CH + FR observatories mapped. Monthly updates.",
-    "home.stat3.source": "Public · academic · sectoral sources",
+    "home.stat1.label": "of UK+US workers have already used AI at work. But fewer than 1/5 daily.",
+    "home.stat2.label": "of large Swiss firms have introduced AI. Against 9% for SMEs: the asymmetry is Swiss.",
+    "home.stat3.label": "occupations mapped (200 ROME France + 324 NP 2010 Switzerland). Open data.",
+    "home.stat3.source": "ROME 4.0 · NP 2010 FSO · CC BY 4.0",
     "home.manifesto.tag": "¶ Manifesto",
-    "home.manifesto.text": "<p>Measuring AI's impact on work is a paradoxical exercise. The figures <strong>do exist</strong>, scattered across a dozen institutions, in two countries, under as many heterogeneous methodologies. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions occupation by occupation. The EPFL AI Center documents adoption in companies. Switzerland's Federal Statistical Office tracks vacancies. No single source, taken in isolation, gives the full picture.</p><p>This fragmentation produces a measurable political effect. Without a shared frame, public debate oscillates between incompatible narratives. On one side, the announced collapse of the labour market. On the other, the promised productivity revolution. In between, the workers concerned navigate this statistical fog <em>without any compass</em> to decide on their training, their career change or their trajectory.</p><p><em>observatoire[s]·ia</em> produces no new figures. The project aggregates, translates, compares and critiques those that already exist. The ambition is to give public decision-makers, HR leaders, researchers and workers a shared ground on which to reason.</p>",
+    "home.manifesto.text": "<p>Speaking of « AI » in the singular is a linguistic shortcut that produces analytical errors. <strong>Generative AI</strong> writing an email does not have the same impact as <strong>a discriminative AI</strong> screening résumés, nor as <strong>a machine learning system</strong> optimizing a supply chain. Conflating these families is to condemn oneself to imprecise predictions and ill-calibrated public policies. This is why every figure published here is explicitly tagged by AI type, and why we speak of <em>AI systems</em>, in the plural.</p><p>The second postulate of this observatory is simpler: <strong>a single source is never enough</strong>. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions. The EPFL AI Center documents company adoption. Switzerland's Federal Statistical Office tracks vacancies. Coface models sectoral risks. The Yale Budget Lab monthly tracks US employment effects. The Financial Times publishes its Workforce AI Tracker. No single source, taken in isolation, gives the full picture. <em>Together, cross-checked and confronted, they allow a fairer reading</em>, both of what AI systems can do and what they do not do.</p><p>The observatory seeks neither to reassure nor to alarm. It seeks to <strong>reduce the emotional share of the debate</strong> by giving workers, HR leaders, public decision-makers and researchers a shared ground on which to reason. All figures are sourced, traceable to the primary publication, and published as open data under CC BY 4.0 license.</p>",
     "home.dash.eyebrow": "Two dashboards · one methodology",
     "home.dash.title": "Choose your territory.",
     "home.dash.sub": "Each country has its own institutional architecture, its own taxonomies, its own rhythms. Two dedicated dashboards, plus a comparative view to cross-reference them.",
@@ -179,10 +231,22 @@ window.PAGE_I18N = {
     "home.fr.domains": "domains covered",
     "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. The French galaxy of AI and employment observatories.",
     "home.fr.cta": "Open FR dashboard",
+    "home.cmp.title": "Compare both",
+    "home.cmp.systems": "models · Switzerland and France",
+    "home.cmp.question": "same question · the impact of AI",
+    "home.cmp.desc": "Where the project's added value emerges: a cross-border dashboard that combines classifications, methodologies, and figures so that best practices on one side feed the other.",
+    "home.cmp.cta": "See the comparison",
     "home.veille.eyebrow": "Field report · April 2026",
     "home.veille.title": "What to read this month.",
     "home.veille.sub": "A selection of the most structuring publications from the past 30 days.",
-    "home.veille.cta": "See all reports"
+    "home.veille.cta": "See all reports",
+
+    "home.dispatch.tag": "Latest dispatch",
+    "home.dispatch.num": "The Dispatch·iA · #003 · April 2026",
+    "home.dispatch.title": "Premium watchmaking and <em>AI governance</em>.",
+    "home.dispatch.lede": "How the Swiss watchmaking industry arbitrates between manufacturing tradition and measured AI adoption. Analysis of the differentiated strategies of Richemont, Swatch Group, and the independent ecosystem. Magazine format, 18 pages, primary sources from Fédération Horlogère, Le Temps, Kearney 2026.",
+    "home.dispatch.read": "Read the dispatch",
+    "home.dispatch.allcta": "See all dispatches"
   }
 };
 
@@ -198,7 +262,7 @@ function renderVeille() {
   if (!grid) return;
   grid.innerHTML = "";
   const lang = window.CURRENT_LANG;
-  veilleData.slice(0, 4).forEach((v) => {
+  veilleData.slice(0, 3).forEach((v) => {
     const card = document.createElement("a");
     card.className = "field-card";
     card.href = v.url;

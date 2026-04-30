@@ -165,7 +165,7 @@ a { color: inherit; text-decoration: none; }
 .country-teasers {
   max-width: var(--max-w); margin: 60px auto;
   padding: 0 32px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
 }
 .country-card {
   border: 1px solid var(--rule);
@@ -1270,20 +1270,114 @@ table.synth td .pill {
 /* ───────── FOOTER ───────── */
 footer {
   border-top: 1px solid var(--rule);
-  padding: 40px 32px;
+  margin-top: 40px;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px; color: var(--muted);
   text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--paper);
 }
 .foot-inner {
   max-width: var(--max-w); margin: 0 auto;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding: 56px 32px 32px;
 }
-.foot-links { display: flex; gap: 20px; }
-.foot-links a { color: var(--ink-2); transition: color 0.2s; }
-.foot-links a:hover { color: var(--signal); }
-.foot-version { color: var(--ink-2); }
+.foot-col { display: flex; flex-direction: column; gap: 10px; }
+.foot-col-brand .foot-brand {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.foot-col-brand .foot-brand .bracket {
+  color: var(--signal);
+}
+.foot-col-brand .foot-brand .dot {
+  color: var(--signal);
+}
+.foot-tagline {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  max-width: 280px;
+}
+.foot-col-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+}
+.foot-col-links a {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 2px 0;
+}
+.foot-col-links a:hover { color: var(--signal); }
+
+.foot-col-meta {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.foot-update {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+.foot-update strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+  font-family: "Instrument Sans", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.foot-license { margin-bottom: 6px; color: var(--teal); }
+.foot-version { color: var(--ink-3); }
+
+.foot-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 20px 32px 32px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-3);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.foot-bottom .bracket, .foot-bottom .dot { color: var(--signal); }
+.foot-author a {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.foot-author a:hover { color: var(--signal); }
+
+/* Mobile footer */
+@media (max-width: 720px) {
+  .foot-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px 24px;
+  }
+  .foot-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px 24px;
+  }
+}
 
 /* ───────── BRIEFINGS · CATALOG LIST ───────── */
 .briefings-list {
@@ -2000,13 +2094,7 @@ footer {
   .filter-group { flex-wrap: wrap; }
   .chip { font-size: 11px; padding: 6px 12px; }
 
-  /* Foot wraps */
-  .foot-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    text-align: left;
-  }
+  /* Foot mobile is handled by the dedicated @media (max-width: 720px) block at the end of this file */
 
   /* Context block tighter */
   .context-content h3 { font-size: 22px; }
@@ -2417,4 +2505,393 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .reinvent-title { font-size: 18px; }
   .reinvent-content { padding: 0 0 28px 50px; }
   .reinvent-future-role { font-size: 21px; }
+}
+
+/* ============================================== */
+/* METHOD-SECTION + METHOD-GRID · base layout    */
+/* (previously defined inline in methodologie.html only, migrated to global) */
+/* ============================================== */
+.method-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+}
+.method-grid:last-child { border-bottom: 1px solid var(--rule); }
+.method-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-top: 6px;
+}
+
+/* Mobile : tag stacks above content */
+@media (max-width: 720px) {
+  .method-section { padding: 0 20px 40px; }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 36px 0;
+  }
+}
+
+/* ============================================== */
+/* DISPATCH TEASE · home page · last published   */
+/* ============================================== */
+.dispatch-tease {
+  max-width: var(--max-w);
+  margin: 60px auto 80px;
+  padding: 0 32px;
+}
+.dispatch-tease-inner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 48px 56px;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+.dispatch-tease-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--signal);
+}
+.dispatch-tease-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.dispatch-tease-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  padding: 4px 10px;
+  border: 1px solid var(--signal);
+  border-radius: 999px;
+}
+.dispatch-tease-num {
+  font-size: 12px;
+  color: rgba(242, 238, 229, 0.6);
+  letter-spacing: 0.04em;
+}
+.dispatch-tease-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px 0;
+  color: var(--paper);
+  max-width: 700px;
+}
+.dispatch-tease-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.dispatch-tease-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(242, 238, 229, 0.85);
+  margin: 0 0 28px 0;
+  max-width: 720px;
+}
+.dispatch-tease-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.dispatch-tease-actions .btn-secondary {
+  background: transparent;
+  color: var(--paper);
+  border-color: rgba(242, 238, 229, 0.4);
+}
+.dispatch-tease-actions .btn-secondary:hover {
+  border-color: var(--paper);
+  background: rgba(242, 238, 229, 0.08);
+}
+
+@media (max-width: 720px) {
+  .dispatch-tease { padding: 0 20px; margin: 40px auto 56px; }
+  .dispatch-tease-inner { padding: 32px 28px; }
+  .dispatch-tease-title { font-size: 28px; }
+  .dispatch-tease-lede { font-size: 15px; }
+}
+
+/* Country card feature variant · Comparer */
+.country-card-feature {
+  background: var(--paper-2, #ECE7DA);
+  border-color: var(--ink);
+}
+.country-card-feature:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.country-card-feature:hover .country-card-title,
+.country-card-feature:hover .country-card-num strong,
+.country-card-feature:hover p {
+  color: var(--paper) !important;
+}
+.country-card-feature:hover .country-card-cta {
+  color: var(--signal);
+}
+.country-card-feature .country-card-flag {
+  gap: 8px;
+}
+.country-card-feature .country-card-flag .emoji {
+  font-size: 24px;
+}
+
+/* 3-column → 1-column on mobile */
+@media (max-width: 960px) {
+  .country-teasers { grid-template-columns: 1fr; }
+}
+
+/* ============================================== */
+/* BRIEF · ROLES & CTA ACTIONS · (from v0.2.8 source pack) */
+/* ============================================== */
+.brief-roles-section .brief-section-title {
+  margin-bottom: 12px;
+}
+.brief-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 40px 0 32px;
+}
+.brief-role-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 32px 28px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.brief-role-card:nth-child(5) {
+  /* Last card spans 2 columns when only 5 cards in 2-col grid */
+  grid-column: 1 / -1;
+}
+.brief-role-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.brief-role-domain {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+.brief-role-name {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 0 0 14px;
+  padding-right: 50px;
+}
+.brief-role-stats {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  color: var(--ink-2);
+  flex-wrap: wrap;
+}
+.brief-role-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.brief-role-stat strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brief-role-shift {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.brief-role-pivot {
+  border-left: 3px solid var(--signal);
+  padding: 10px 14px 10px 16px;
+  background: rgba(208, 60, 47, 0.04);
+  margin-bottom: 18px;
+}
+.brief-role-pivot-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.brief-role-pivot-text {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.brief-role-link {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--signal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: opacity 0.15s ease;
+}
+.brief-role-link:hover {
+  opacity: 0.7;
+}
+.brief-roles-footer {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 24px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ───────── BRIEF · ACTION CTA (replaces paywall) ───────── */
+.brief-cta-actions {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 90px 32px;
+  border-top: 1px solid var(--rule);
+}
+.brief-cta-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.brief-cta-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.brief-cta-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.brief-cta-title em {
+  font-style: italic;
+  color: var(--signal);
+}
+.brief-cta-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.brief-cta-card {
+  display: block;
+  text-decoration: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+.brief-cta-card:hover {
+  border-color: var(--signal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.brief-cta-card-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+.brief-cta-card-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.brief-cta-card-desc {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 24px;
+}
+.brief-cta-card-arrow {
+  display: inline-block;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--signal);
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+}
+
+
+/* Brief roles + CTA mobile */
+@media (max-width: 960px) {
+  .brief-cta-actions { padding: 60px 20px; }
+  .brief-cta-title { font-size: 32px; }
+  .brief-cta-grid { grid-template-columns: 1fr; gap: 20px; }
+  .brief-cta-card { padding: 28px 24px 24px; }
+  .brief-roles-grid { grid-template-columns: 1fr; gap: 18px; }
+  .brief-role-card { padding: 24px 22px 22px; }
+  .brief-role-card:nth-child(5) { grid-column: auto; }
+  .brief-role-name { font-size: 22px; padding-right: 36px; }
+  .brief-role-num { top: 18px; right: 22px; }
 }
