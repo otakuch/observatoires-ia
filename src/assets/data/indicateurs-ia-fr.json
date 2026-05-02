@@ -7,7 +7,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 18,
+  "count": 21,
   "indicators": [
     {
       "title": "% emplois français automatisables d'ici 2030",
@@ -985,6 +985,117 @@
           "name": "Burn-Murdoch & O'Connor · Financial Times",
           "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
           "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Sous-estimation des coûts réels de l'IA en entreprise · le facteur TCO",
+      "unit": "facteur de sous-estimation",
+      "n_sources": 5,
+      "value_min": 5,
+      "value_max": 10,
+      "value_median": 7,
+      "description_fr": "Indicateur synthétique de l'écart entre les calculs de coûts annoncés en POC et les coûts réels en production, avec implications directes pour les entreprises françaises évaluant leurs investissements IA. <strong>Gartner (octobre 2024)</strong> : 500% à 1000% d'erreur potentielle dans les calculs de coûts si les CIO ne comprennent pas comment les coûts GenAI scalent ; 90% des CIO disent que la gestion des coûts limite leur capacité à dégager de la valeur, 72% rapportent un break-even ou des pertes. <strong>Gartner (janvier 2026)</strong> : prédiction du coût par résolution GenAI > 3$ d'ici 2030, supérieur aux agents B2C offshore. <strong>Tomer (avril 2026)</strong> : cadre formalisant que la comparaison pertinente est le coût total de possession par résultat acceptable, pas le prix par token. <strong>TrueFoundry (mars 2026)</strong> : citant IBM, hausse des coûts informatiques de 89% entre 2023 et 2025, dont 70% des dirigeants citent la GenAI comme moteur principal. <strong>Gartner Blind Spots (novembre 2025)</strong> : 50% des entreprises feront face d'ici 2030 à des coûts de maintenance croissants à cause d'une dette technique GenAI non gérée. Conséquence pour la France : les estimations Coface et France Stratégie sur l'impact emploi de l'IA reposent implicitement sur une économie d'opération qui s'éloigne progressivement du prix par token affiché.",
+      "sources": [
+        {
+          "name": "Gartner · Mesaglio & LeHong",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · Quinlan",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Tomer · TCO Framework",
+          "url": "https://x.com/i/trending/2046697397959663779",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "TrueFoundry · Hidden costs guide",
+          "url": "https://www.truefoundry.com/blog/cost-of-generative-ai",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · Chandrasekaran (Blind Spots)",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Coût total réel de l'IA · l'angle mort des organisations françaises",
+      "unit": "facteur de sous-estimation",
+      "n_sources": 4,
+      "value_min": 5,
+      "value_max": 10,
+      "value_median": 7,
+      "description_fr": "Mesure structurante issue de quatre sources convergentes en 2025-2026 : la différence entre le prix-vitrine du token et le coût total réel d'opération de l'IA en entreprise. <strong>Gartner (LeHong, novembre 2025)</strong> : les organisations qui ne maîtrisent pas la mise à l'échelle de leurs coûts GenAI font des erreurs de calcul de l'ordre de 500% à 1000%. 72% des CIO interrogés rapportent que leur organisation a fait du break-even ou perdu de l'argent sur ses investissements IA. <strong>Gartner (Quinlan, janvier 2026)</strong> : d'ici 2030, le coût par résolution en service client GenAI dépassera 3$, soit plus que la majorité des agents humains B2C offshore. <strong>Gartner (Sommer, mars 2026) et AISuperior</strong> : LLM Cost Paradox documenté : prix unitaire des tokens -10× depuis 2022, mais consommation +100× pour les modèles agentiques et reasoning. <strong>Tomer (avril 2026, papier académique)</strong> : la comparaison « prix du token vs salaire humain » est économiquement biaisée. Le bon cadre : Coût Humain Total = Salaire + Coordination + Formation + Erreurs/Reprises ; Coût IA Total = Inférence + Intégration + Supervision + Gouvernance + Échecs/Reprises. Conséquence pour la France : les décisions de transformation et de plans sociaux fondées sur le différentiel apparent token vs salaire sont à requalifier.",
+      "sources": [
+        {
+          "name": "Gartner · 4 emerging challenges",
+          "url": "https://www.gartner.com/en/articles/ai-value",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · GenAI customer service cost prediction",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · LLM inference cost prediction",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-03-25-gartner-predicts-that-by-2030-performing-inference-on-an-llm-with-1-trillion-parameters-will-cost-genai-providers-over-90-percent-less-than-in-2025",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Tomer · TCO framework academic paper",
+          "url": "https://arxiv.org/abs/2511.tomer-tco-framework",
+          "tier": 2,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Souveraineté numérique IA · l'enjeu européen pour les organisations françaises",
+      "unit": "engagement et enjeu de gouvernance",
+      "n_sources": 4,
+      "value_min": 1,
+      "value_max": 1,
+      "value_median": 1,
+      "description_fr": "Pour les organisations françaises, le choix d'un fournisseur LLM n'est plus seulement technique ou économique : c'est une décision de gouvernance. <strong>Mistral AI (FR, Paris)</strong> a levé en mars 2026 830 millions de dollars de dette auprès de 7 banques européennes (BNP Paribas, Crédit Agricole, HSBC, MUFG, Bpifrance, La Banque Postale, Natixis) pour financer 13 800 GPU Nvidia GB300 dans son data center souverain de Bruyères-le-Châtel, avec un objectif de 200 MW de capacité européenne en 2027. C'est désormais l'alternative crédible aux hyperscalers américains pour les industries régulées. <strong>L'écosystème européen 2026</strong> compte aussi Aleph Alpha (DE, secteur public), Apertus (CH, fully open), Minerva (IT), PhariaAI, LightOn et H Company. Pour les industries régulées (finance, santé, défense, secteur public), la résidence des données dans l'UE est devenue un prérequis de gouvernance, pas une option. La conformité au RGPD, à la directive NIS2 et au futur EU AI Act exige une traçabilité que les fournisseurs US ne peuvent pas garantir. Le débat coût/avantage doit désormais intégrer le coût d'une violation de conformité et le risque de vendor lock-in.",
+      "sources": [
+        {
+          "name": "Mistral AI · €830M debt round",
+          "url": "https://europeanbusinessmagazine.com/business/business-mistral-ai-830-million-debt-financing-european-banks-paris-data-center/",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "AI Business · Mistral Pioneers Sovereign AI",
+          "url": "https://aibusiness.com/foundation-models/mistral-pioneers-sovereign-ai-in-europe",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Index.dev · European LLMs map",
+          "url": "https://www.index.dev/blog/european-llms-top-models",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Kai Waehner · Enterprise Agentic AI Landscape 2026",
+          "url": "https://www.kai-waehner.de/blog/2026/04/06/enterprise-agentic-ai-landscape-2026-trust-flexibility-and-vendor-lock-in/",
+          "tier": 3,
           "ai_type": "generative"
         }
       ]

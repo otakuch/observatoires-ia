@@ -227,6 +227,35 @@
       <p class="method-caveat" data-i18n="me.aitype.d.who" data-i18n-html="true"></p>
 
       <p data-i18n="me.aitype.consequence" data-i18n-html="true" style="margin-top: 28px;"></p>
+
+      <!-- Tableau de synthèse · 3 familles d'IA et métiers affectés -->
+      <div class="aitype-summary">
+        <div class="aitype-summary-head" data-i18n="me.aitype.sum.head" data-i18n-html="true"></div>
+        <div class="aitype-summary-grid">
+
+          <div class="aitype-summary-card">
+            <div class="aitype-summary-icon">✦</div>
+            <div class="aitype-summary-name" data-i18n="me.aitype.sum.gen.name"></div>
+            <div class="aitype-summary-what" data-i18n="me.aitype.sum.gen.what"></div>
+            <div class="aitype-summary-jobs" data-i18n="me.aitype.sum.gen.jobs"></div>
+          </div>
+
+          <div class="aitype-summary-card">
+            <div class="aitype-summary-icon">◉</div>
+            <div class="aitype-summary-name" data-i18n="me.aitype.sum.spec.name"></div>
+            <div class="aitype-summary-what" data-i18n="me.aitype.sum.spec.what"></div>
+            <div class="aitype-summary-jobs" data-i18n="me.aitype.sum.spec.jobs"></div>
+          </div>
+
+          <div class="aitype-summary-card">
+            <div class="aitype-summary-icon">⬡</div>
+            <div class="aitype-summary-name" data-i18n="me.aitype.sum.robot.name"></div>
+            <div class="aitype-summary-what" data-i18n="me.aitype.sum.robot.what"></div>
+            <div class="aitype-summary-jobs" data-i18n="me.aitype.sum.robot.jobs"></div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 
@@ -321,9 +350,31 @@
     </div>
   </div>
 
-  <!-- 07 · FRÉQUENCE -->
+  <!-- 07 · ÉCONOMIE DES COÛTS DE L'IA · TCO et limites du prix par token -->
   <div class="method-grid">
-    <div class="method-tag">07 · <span data-i18n="me.update.tag"></span></div>
+    <div class="method-tag">07 · <span data-i18n="me.tco.tag"></span></div>
+    <div class="method-content">
+      <h3 data-i18n="me.tco.title" data-i18n-html="true"></h3>
+      <p data-i18n="me.tco.intro" data-i18n-html="true"></p>
+
+      <h4 data-i18n="me.tco.problem.title"></h4>
+      <p data-i18n="me.tco.problem.body" data-i18n-html="true"></p>
+
+      <h4 data-i18n="me.tco.framework.title"></h4>
+      <p data-i18n="me.tco.framework.body" data-i18n-html="true"></p>
+      <p data-i18n="me.tco.framework.equation" data-i18n-html="true" style="background: var(--paper-2, #ECE7DA); padding: 14px 18px; border-left: 3px solid var(--signal); font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;"></p>
+
+      <h4 data-i18n="me.tco.evidence.title"></h4>
+      <p data-i18n="me.tco.evidence.body" data-i18n-html="true"></p>
+
+      <h4 data-i18n="me.tco.implication.title"></h4>
+      <p data-i18n="me.tco.implication.body" data-i18n-html="true"></p>
+    </div>
+  </div>
+
+  <!-- 08 · FRÉQUENCE (anciennement 07) -->
+  <div class="method-grid">
+    <div class="method-tag">08 · <span data-i18n="me.update.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.update.title"></h3>
       <p data-i18n="me.update.p1"></p>
@@ -331,9 +382,9 @@
     </div>
   </div>
 
-  <!-- 08 · LE DISPATCH·IA -->
+  <!-- 09 · LE DISPATCH·IA (anciennement 08) -->
   <div class="method-grid" id="dispatch">
-    <div class="method-tag">08 · <span data-i18n="me.dispatch.tag"></span></div>
+    <div class="method-tag">09 · <span data-i18n="me.dispatch.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.dispatch.title" data-i18n-html="true"></h3>
       <p data-i18n="me.dispatch.p1"></p>
@@ -350,7 +401,7 @@
 
   <!-- 09 · SOCLE DE DONNÉES -->
   <div class="method-grid" id="datasets">
-    <div class="method-tag">09 · <span data-i18n="me.data.tag"></span></div>
+    <div class="method-tag">10 · <span data-i18n="me.data.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.data.title" data-i18n-html="true"></h3>
       <p data-i18n="me.data.intro" data-i18n-html="true"></p>
@@ -378,7 +429,7 @@
 
   <!-- 10 · DISCLOSURE ÉDITORIALE -->
   <div class="method-grid">
-    <div class="method-tag">10 · <span data-i18n="me.disc.tag"></span></div>
+    <div class="method-tag">11 · <span data-i18n="me.disc.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.disc.title" data-i18n-html="true"></h3>
       <p data-i18n="me.disc.p1"></p>
@@ -389,7 +440,7 @@
 
   <!-- 11 · CONTRIBUER -->
   <div class="method-grid">
-    <div class="method-tag">11 · <span data-i18n="me.contrib.tag"></span></div>
+    <div class="method-tag">12 · <span data-i18n="me.contrib.tag"></span></div>
     <div class="method-content">
       <h3 data-i18n="me.contrib.title"></h3>
       <p data-i18n="me.contrib.p1" data-i18n-html="true"></p>
@@ -486,6 +537,17 @@ window.PAGE_I18N = {
 
     "me.aitype.consequence": "<strong>Conséquence pour la lecture des chiffres.</strong> Quand un rapport annonce « 30% des emplois exposés à l'IA », la première question utile est : <em>de quelle IA parle-t-on</em> ? Frey & Osborne 2013 parlent de l'IA discriminative. Eloundou 2023 et Stanford 2026 parlent de l'IA générative. Coface avril 2026 distingue explicitement la phase Copilot (3,8%) et la phase Special Agent (16,3%). Quand notre cartographie reporte un score d'exposition, le champ <code>ai_type</code> du JSON associé précise la famille technologique de la source. Sans cette distinction, deux chiffres apparemment équivalents peuvent décrire deux phénomènes radicalement différents.",
 
+    "me.aitype.sum.head": "Synthèse opérationnelle · <em>trois familles d'IA, trois cibles de métiers</em>",
+    "me.aitype.sum.gen.name": "IA générative",
+    "me.aitype.sum.gen.what": "Texte, image, code, synthèse, dialogue. Production de contenu nouveau à partir de patterns appris sur des corpus massifs.",
+    "me.aitype.sum.gen.jobs": "Métiers affectés en priorité : journaliste, avocat junior, rédacteur, développeur junior, community manager, traducteur, analyste de synthèse.",
+    "me.aitype.sum.spec.name": "IA spécialisée",
+    "me.aitype.sum.spec.what": "Détection, scoring, classification, prédiction sur données structurées. Modèles entraînés sur un domaine précis.",
+    "me.aitype.sum.spec.jobs": "Métiers affectés en priorité : radiologue, actuaire, analyste crédit, analyste risques, contrôleur qualité, opérateur de scoring marketing.",
+    "me.aitype.sum.robot.name": "Robotique IA",
+    "me.aitype.sum.robot.what": "Geste physique, manipulation, conduite, manutention. Combinaison de perception, planification et actuation dans le monde réel.",
+    "me.aitype.sum.robot.jobs": "Métiers affectés en priorité : opérateur de production, chauffeur, préparateur de commandes, maçon sur tâches répétitives, manutentionnaire.",
+
     "me.taxo.tag": "Sources et taxonomies",
     "me.taxo.title": "Pourquoi un emploi suisse n'est pas un emploi français.",
     "me.taxo.p1": "Le travail n'est pas classé de la même façon des deux côtés du Jura. Cette différence de nomenclature complique toute comparaison directe, et impose d'expliciter les correspondances utilisées dans les dashboards.",
@@ -538,6 +600,19 @@ window.PAGE_I18N = {
     "me.bias.surv.title": "Le biais de survivance",
     "me.bias.surv.body": "Les statistiques de l'emploi mesurent ceux qui sont en emploi ou qui en cherchent activement un. Les actifs sortis silencieusement du marché du travail (formation longue subie, retrait précoce, invalidité, économie informelle) échappent largement aux observatoires. Si l'IA produit des sorties de carrière non documentées plutôt que des suppressions de poste visibles, l'effet réel sera systématiquement sous-estimé par les indicateurs actuels.",
 
+    "me.tco.tag": "Économie des coûts de l'IA",
+    "me.tco.title": "Au-delà du prix par token : <em>l'angle mort des décisions COMEX</em>",
+    "me.tco.intro": "Toutes les prédictions sur l'impact emploi de l'IA reposent implicitement sur une économie d'opération : à coût X, l'IA remplace ou augmente Y travailleurs. Or, cette économie est mal mesurée par la plupart des organisations. Le prix affiché du token diverge significativement du coût réel d'opération en production. Cet écart structurel est devenu en 2026 un sujet à part entière de la littérature institutionnelle, et il a des implications directes pour la lecture de tous les chiffres d'exposition de cette cartographie.",
+    "me.tco.problem.title": "Le problème · le prix par token n'est pas le coût d'opération",
+    "me.tco.problem.body": "Le débat public confond systématiquement le prix unitaire d'inférence (quelques centimes par milliers de tokens chez OpenAI, Anthropic, Google) avec le coût économique d'un déploiement IA en entreprise. <strong>Gartner</strong> a formalisé l'écart en octobre 2024 sur la base d'une enquête de 451 leaders technologiques senior : « si les CIO ne comprennent pas comment leurs coûts GenAI vont scaler, l'erreur peut atteindre 500% à 1000% dans leurs calculs ». 90% des CIO déclarent que la gestion des coûts limite leur capacité à dégager de la valeur de l'IA, et 72% rapportent un break-even ou des pertes sur leurs investissements. En janvier 2026, Gartner prédit que le coût par résolution GenAI en service client dépassera 3$ d'ici 2030, au-dessus de nombreux agents B2C offshore. La conclusion de Quinlan : <em>« l'automatisation totale sera prohibitivement coûteuse pour la plupart des organisations »</em>.",
+    "me.tco.framework.title": "Le cadre · Total Cost of Ownership par résultat acceptable",
+    "me.tco.framework.body": "<strong>Diksha Singh Tomer (avril 2026)</strong> formalise dans un cadre Total Cost of Ownership pourquoi les comparaisons prix-token vs salaire sont économiquement incorrectes. La comparaison pertinente n'est pas le prix unitaire d'inférence versus le salaire, mais le coût total de possession par résultat acceptable. Pour les humains comme pour l'IA, le coût visible (salaire ou inférence) ne représente qu'une fraction du coût total :",
+    "me.tco.framework.equation": "Coût Total Humain = Travail Direct + Coordination + Formation + Erreurs/Reprises<br>Coût Total IA = Inférence + Intégration + Supervision + Gouvernance + Échec/Reprises",
+    "me.tco.evidence.title": "Les preuves empiriques de productivité varient par tâche",
+    "me.tco.evidence.body": "La synthèse Tomer cite trois études phares qui montrent que le ROI de l'IA n'est pas uniforme : <strong>Noy & Zhang (2023)</strong> mesurent +40% de productivité et +18% de qualité en rédaction professionnelle de niveau intermédiaire ; <strong>Brynjolfsson, Li & Raymond (2025)</strong> mesurent +15% de productivité chez 5000+ agents support, mais surtout chez les moins expérimentés (effet d'égalisation, pas substitution des top performers) ; <strong>Becker et al. (2025)</strong> mesurent un <em>recul</em> de 19% de productivité chez les développeurs OSS expérimentés sur des codebases qu'ils connaissent bien (le surcoût de prompting, vérification et correction dépasse le gain de génération). Cette dispersion (+40%, +15%, -19%) est cohérente avec le cadre TCO : l'IA performe sur le narrow, le high-volume, le moderate-risk ; les humains restent supérieurs sur l'ambigu, le contextuel et l'imputable.",
+    "me.tco.implication.title": "Conséquence · pourquoi les Dispatches doivent traiter ce facteur",
+    "me.tco.implication.body": "<strong>Pour les COMEX et les directions RH</strong>, l'enjeu n'est plus de savoir si l'IA est techniquement capable de prendre en charge une tâche (les scores d'exposition l'indiquent), mais de savoir si le coût total de possession permet une viabilité économique en production sur leur périmètre spécifique. <strong>Pour les PME suisses</strong> en particulier, où DemoSCOPE 2026 montre une asymétrie d'adoption (24% grandes entreprises vs 9% TPE), les coûts d'intégration et de gouvernance sont relativement plus lourds proportionnellement à un budget PME. <strong>Pour la France</strong>, l'écart entre les estimations Coface (3,8% phase Copilot, 16,3% phase Special Agent) et la réalité opérationnelle dépendra largement de la maîtrise des coûts cachés. Cette dimension est désormais traitée systématiquement dans les dépêches sectorielles publiées par cet observatoire, en complément des scores d'exposition technique.",
+
     "me.update.tag": "Fréquence de mise à jour",
     "me.update.title": "Quand la carte bouge.",
     "me.update.p1": "Les fiches observatoires sont vérifiées et mises à jour mensuellement. La date affichée sur chaque carte (\"MAJ 2026-04\") reflète la dernière publication détectée par cette source, pas la date de notre dernière vérification de la fiche.",
@@ -561,7 +636,7 @@ window.PAGE_I18N = {
     "me.data.h_fr": "🇫🇷 France · 5 jeux de données",
     "me.data.d1": "<strong>metiers-ia-fr.json</strong> · score d'exposition à l'IA pour 200 métiers ROME, avec rationale, parcours de reconversion suggérés, salaire médian et effectif national. Champ <code>ai_type</code> qui précise pour chaque source si elle parle d'IA discriminative, générative ou agentique. <a href=\"assets/data/metiers-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.d2": "<strong>indicateurs-ia-fr.json</strong> · 15 indicateurs prospectifs France : automatisation 2030, adoption générative, prime salariale, gain de productivité, exposition agentique. Chaque indicateur agrège jusqu'à 14 sources avec écart-type et médiane. <a href=\"assets/data/indicateurs-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
-    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 35 jalons 2019-2026 : ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 chômage, Coface 16,3%. Chronologie de référence pour replacer un débat. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
+    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 38 jalons 2019-2026 : ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 chômage, Coface 16,3%. Chronologie de référence pour replacer un débat. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.d4": "<strong>scenarios-ia-fr.json</strong> · 5 scénarios de croissance de productivité IA France 2025-2030, du « Stagnation 0-0,5%/an » à « Rupture technologique &gt;5%/an », avec probabilités agrégées par 12 économistes. <a href=\"assets/data/scenarios-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.d5": "<strong>economistes-ia.json</strong> · 12 économistes référencés (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) avec leur distribution de probabilité sur les 5 scénarios. Permet de cartographier le débat scientifique au-delà des soundbites de presse. <a href=\"assets/data/economistes-ia.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.h_ch": "🇨🇭 Suisse · 4 jeux de données",
@@ -569,7 +644,7 @@ window.PAGE_I18N = {
     "me.data.d7": "<strong>indicateurs-ia-ch.json</strong> · 10 indicateurs prospectifs Suisse : adoption en entreprise, churn occupationnel, exposition par canton, écart Suisse romande / alémanique. Sources OFS, ESPA 2024, ESS 2022, complétées par Stanford HAI et Coface. <a href=\"assets/data/indicateurs-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.d8": "<strong>scenarios-ia-ch.json</strong> · 5 scénarios de productivité IA en Suisse 2025-2030, calibrés sur la structure productive suisse (forte part du tertiaire haut de gamme, banque privée, pharma, horlogerie). <a href=\"assets/data/scenarios-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
     "me.data.d9": "<strong>economistes-ia-ch.json</strong> · 18 économistes & institutions suivis (Avenir Suisse, Economiesuisse, KOF ETH, Université de Zurich, EPFL AI Center…) avec leurs positions sur les 5 scénarios. <a href=\"assets/data/economistes-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Télécharger ↓</a>",
-    "me.data.note": "<strong>Total : 524 métiers (FR + CH), 31 indicateurs, 35 jalons, 38 économistes.</strong> Schémas JSON documentés dans le dépôt GitHub. Contributions, corrections et signalements de biais bienvenus via Pull Request ou via la <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">page de contact</a>.",
+    "me.data.note": "<strong>Total : 524 métiers (FR + CH), 33 indicateurs, 38 jalons, 42 économistes.</strong> Schémas JSON documentés dans le dépôt GitHub. Contributions, corrections et signalements de biais bienvenus via Pull Request ou via la <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">page de contact</a>.",
 
     "me.disc.tag": "Disclosure éditoriale",
     "me.disc.title": "Comment ces <em>dossiers</em> sont produits.",
@@ -659,6 +734,17 @@ window.PAGE_I18N = {
 
     "me.aitype.consequence": "<strong>Consequence for reading the figures.</strong> When a report announces \"30% of jobs exposed to AI\", the first useful question is: <em>which AI are we talking about</em>? Frey & Osborne 2013 talk about discriminative AI. Eloundou 2023 and Stanford 2026 talk about generative AI. Coface April 2026 explicitly distinguishes the Copilot phase (3.8%) and the Special Agent phase (16.3%). When our cartography reports an exposure score, the <code>ai_type</code> field in the associated JSON specifies the technological family of the source. Without this distinction, two apparently equivalent figures can describe radically different phenomena.",
 
+    "me.aitype.sum.head": "Operational synthesis · <em>three AI families, three occupation targets</em>",
+    "me.aitype.sum.gen.name": "Generative AI",
+    "me.aitype.sum.gen.what": "Text, image, code, synthesis, dialogue. Production of new content from patterns learned on massive corpora.",
+    "me.aitype.sum.gen.jobs": "Occupations affected in priority: journalist, junior lawyer, copywriter, junior developer, community manager, translator, synthesis analyst.",
+    "me.aitype.sum.spec.name": "Specialized AI",
+    "me.aitype.sum.spec.what": "Detection, scoring, classification, prediction on structured data. Models trained on a specific domain.",
+    "me.aitype.sum.spec.jobs": "Occupations affected in priority: radiologist, actuary, credit analyst, risk analyst, quality controller, marketing scoring operator.",
+    "me.aitype.sum.robot.name": "Robotic AI",
+    "me.aitype.sum.robot.what": "Physical gesture, manipulation, driving, handling. Combination of perception, planning, and actuation in the real world.",
+    "me.aitype.sum.robot.jobs": "Occupations affected in priority: production operator, driver, order picker, mason on repetitive tasks, warehouse handler.",
+
     "me.taxo.tag": "Sources and taxonomies",
     "me.taxo.title": "Why a Swiss job is not a French job.",
     "me.taxo.p1": "Work is not classified the same way on both sides of the Jura. This difference in nomenclature complicates any direct comparison and forces us to make explicit the correspondences used in the dashboards.",
@@ -711,6 +797,19 @@ window.PAGE_I18N = {
     "me.bias.surv.title": "The survivor bias",
     "me.bias.surv.body": "Employment statistics measure those who are employed or actively seeking employment. Workers who silently exit the labour market (long forced training, early withdrawal, disability, informal economy) largely escape observatories. If AI produces undocumented career exits rather than visible position eliminations, the actual effect will be systematically underestimated by current indicators.",
 
+    "me.tco.tag": "AI cost economics",
+    "me.tco.title": "Beyond token price: <em>the executive committee blind spot</em>",
+    "me.tco.intro": "All predictions about AI's employment impact rest implicitly on an operating economics: at cost X, AI replaces or augments Y workers. Yet, this economics is poorly measured by most organizations. The advertised token price diverges significantly from the real operating cost in production. This structural gap has become in 2026 a topic of its own in institutional literature, and it has direct implications for reading every exposure figure in this cartography.",
+    "me.tco.problem.title": "The problem · token price is not operating cost",
+    "me.tco.problem.body": "Public debate systematically conflates the unit inference price (a few cents per thousand tokens at OpenAI, Anthropic, Google) with the economic cost of an enterprise AI deployment. <strong>Gartner</strong> formalized the gap in October 2024 based on a survey of 451 senior tech leaders: 'if CIOs do not understand how their GenAI costs will scale, the error can reach 500% to 1000% in their calculations'. 90% of CIOs say cost management limits their ability to extract value from AI, and 72% report break-even or losses on their investments. In January 2026, Gartner predicts that GenAI cost per resolution in customer service will exceed $3 by 2030, above many B2C offshore agents. Quinlan's conclusion: <em>'full automation will be prohibitively expensive for most organizations'</em>.",
+    "me.tco.framework.title": "The framework · Total Cost of Ownership per acceptable outcome",
+    "me.tco.framework.body": "<strong>Diksha Singh Tomer (April 2026)</strong> formalizes in a Total Cost of Ownership framework why token-price vs salary comparisons are economically incorrect. The relevant comparison is not unit inference price versus salary, but total cost of ownership per acceptable outcome. For humans as for AI, the visible cost (salary or inference) represents only a fraction of total cost:",
+    "me.tco.framework.equation": "Human Total Cost = Direct Labor + Coordination + Training + Error/Rework<br>AI Total Cost = Inference + Integration + Oversight + Governance + Failure/Rework",
+    "me.tco.evidence.title": "Empirical productivity evidence varies by task",
+    "me.tco.evidence.body": "Tomer's synthesis cites three pivotal studies showing AI ROI is not uniform: <strong>Noy & Zhang (2023)</strong> measure +40% productivity and +18% quality in mid-level professional writing; <strong>Brynjolfsson, Li & Raymond (2025)</strong> measure +15% productivity across 5000+ support agents, but mostly for less experienced ones (equalizing effect, not top-performer substitution); <strong>Becker et al. (2025)</strong> measure a <em>19% productivity decline</em> in experienced OSS developers on codebases they know well (the prompting, verification and correction overhead exceeds the generation gain). This dispersion (+40%, +15%, -19%) is consistent with the TCO framework: AI performs on narrow, high-volume, moderate-risk tasks; humans remain superior on ambiguous, contextual, and accountable work.",
+    "me.tco.implication.title": "Consequence · why dispatches must address this factor",
+    "me.tco.implication.body": "<strong>For executive committees and HR leadership</strong>, the issue is no longer whether AI is technically capable of handling a task (exposure scores indicate that), but whether the total cost of ownership allows for economic viability in production on their specific scope. <strong>For Swiss SMEs</strong> in particular, where DemoSCOPE 2026 shows adoption asymmetry (24% large firms vs 9% small ones), integration and governance costs are relatively heavier proportionally to an SME budget. <strong>For France</strong>, the gap between Coface estimates (3.8% Copilot phase, 16.3% Special Agent phase) and operational reality will largely depend on hidden cost mastery. This dimension is now systematically addressed in the sectoral dispatches published by this observatory, alongside technical exposure scores.",
+
     "me.update.tag": "Update frequency",
     "me.update.title": "When the map shifts.",
     "me.update.p1": "Observatory cards are verified and updated monthly. The date shown on each card (\"Updated 2026-04\") reflects the latest publication detected from that source, not the date of our last card check.",
@@ -734,7 +833,7 @@ window.PAGE_I18N = {
     "me.data.h_fr": "🇫🇷 France · 5 datasets",
     "me.data.d1": "<strong>metiers-ia-fr.json</strong> · AI exposure score for 200 ROME occupations, with rationale, suggested reconversion paths, median salary and national headcount. <code>ai_type</code> field that specifies for each source whether it refers to discriminative, generative or agentic AI. <a href=\"assets/data/metiers-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.d2": "<strong>indicateurs-ia-fr.json</strong> · 15 prospective indicators for France: 2030 automation, generative adoption, AI wage premium, productivity gain, agentic exposure. Each indicator aggregates up to 14 sources with standard deviation and median. <a href=\"assets/data/indicateurs-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
-    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 35 milestones 2019-2026: ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 unemployment, Coface 16.3%. Reference chronology to anchor a debate. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
+    "me.data.d3": "<strong>timeline-ia-emploi.json</strong> · 38 milestones 2019-2026: ChatGPT, Goldman Sachs 300M, Eloundou OpenAI, France Stratégie, Anthropic 0 unemployment, Coface 16.3%. Reference chronology to anchor a debate. <a href=\"assets/data/timeline-ia-emploi.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.d4": "<strong>scenarios-ia-fr.json</strong> · 5 AI productivity growth scenarios for France 2025-2030, from « Stagnation 0-0.5%/year » to « Technological rupture &gt;5%/year », with probabilities aggregated by 12 economists. <a href=\"assets/data/scenarios-ia-fr.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.d5": "<strong>economistes-ia.json</strong> · 12 referenced economists (Aghion, Cette, LeCun, Acemoglu, Brynjolfsson…) with their probability distribution across the 5 scenarios. Maps the scientific debate beyond press soundbites. <a href=\"assets/data/economistes-ia.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.h_ch": "🇨🇭 Switzerland · 4 datasets",
@@ -742,7 +841,7 @@ window.PAGE_I18N = {
     "me.data.d7": "<strong>indicateurs-ia-ch.json</strong> · 10 prospective indicators for Switzerland: enterprise adoption, occupational churn, exposure by canton, French- vs German-speaking divide. Sources FSO, ESPA 2024, ESS 2022, complemented by Stanford HAI and Coface. <a href=\"assets/data/indicateurs-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.d8": "<strong>scenarios-ia-ch.json</strong> · 5 AI productivity scenarios for Switzerland 2025-2030, calibrated on the Swiss productive structure (high-end tertiary, private banking, pharma, watchmaking). <a href=\"assets/data/scenarios-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
     "me.data.d9": "<strong>economistes-ia-ch.json</strong> · 18 economists & institutions tracked (Avenir Suisse, Economiesuisse, KOF ETH, University of Zurich, EPFL AI Center…) with their positions across the 5 scenarios. <a href=\"assets/data/economistes-ia-ch.json\" target=\"_blank\" rel=\"noopener\">Download ↓</a>",
-    "me.data.note": "<strong>Total: 524 occupations (FR + CH), 31 indicators, 35 milestones, 38 economists.</strong> JSON schemas documented in the GitHub repository. Contributions, corrections and bias reports welcome via Pull Request or through the <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">contact page</a>.",
+    "me.data.note": "<strong>Total: 524 occupations (FR + CH), 33 indicators, 38 milestones, 42 economists.</strong> JSON schemas documented in the GitHub repository. Contributions, corrections and bias reports welcome via Pull Request or through the <a href=\"contact.html?type=contrib\" style=\"color: var(--signal);\">contact page</a>.",
 
     "me.disc.tag": "Editorial disclosure",
     "me.disc.title": "How these <em>dossiers</em> are produced.",

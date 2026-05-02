@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 35,
+  "count": 40,
   "events": [
     {
       "year": "2025",
@@ -321,6 +321,51 @@
       "headline_value": "Divergence ×3,6 entre 3 LLM frontière sur la même tâche",
       "tier": 1,
       "citation": "Yin, Vu, Persico · NBER Working Paper 35110 · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Octobre 2024",
+      "title": "Gartner · Erreur de calcul des coûts IA de 500% à 1000% révélée",
+      "summary_fr": "Mary Mesaglio et Hung LeHong (Gartner Distinguished VP) publient le constat fondateur de l'écart entre prix par token affiché et coût réel d'opération de l'IA en entreprise. Sur la base d'une enquête de 451 leaders technologiques senior puis 300 CIO en juin-juillet 2024 : 90% des CIO déclarent que la gestion des coûts limite leur capacité à dégager de la valeur de l'IA, 72% rapportent un break-even ou des pertes sur leurs investissements IA. La déclaration phare : « si les CIO ne comprennent pas comment leurs coûts GenAI vont scaler, l'erreur peut atteindre 500% à 1000% dans leurs calculs ». Le coût devient officiellement « un risque IA aussi important que la sécurité ou les hallucinations ».",
+      "headline_value": "500% à 1000% d'erreur de calcul potentielle sur les coûts IA",
+      "tier": 1,
+      "citation": "Gartner Press Release · 21 octobre 2024",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Janvier 2026",
+      "title": "Gartner · Le coût par résolution GenAI dépassera 3$ d'ici 2030",
+      "summary_fr": "Patrick Quinlan (Senior Director Analyst, Gartner Customer Service) prédit que le coût par résolution en service client basé sur l'IA générative dépassera 3$ d'ici 2030, au-dessus de nombreux agents B2C offshore. Trois facteurs convergents : hausse des coûts de data centers, pivot des fournisseurs IA de la croissance subventionnée vers la profitabilité, et complexification des cas d'usage qui consomment plus de tokens. Conséquence pour les directions service client : « l'automatisation totale sera prohibitivement coûteuse pour la plupart des organisations ». Bascule stratégique attendue : de la logique de réduction de coûts vers une logique d'engagement client et de valeur à vie.",
+      "headline_value": "Coût par résolution GenAI > 3$ en 2030, supérieur aux agents offshore",
+      "tier": 1,
+      "citation": "Gartner Press Release · 26 janvier 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "Le LLM Cost Paradox documenté : tokens unitaires -90%, mais coûts d'inférence en hausse",
+      "summary_fr": "Convergence entre Gartner (Will Sommer, mars 2026) et l'analyse AISuperior : le prix unitaire par token va baisser de 90% d'ici 2030 pour les fournisseurs IA, mais les coûts globaux d'inférence vont augmenter parce que la consommation explose. Les modèles agentiques consomment 5 à 30 fois plus de tokens par tâche qu'un chatbot standard. Les reasoning models cachent leur consommation : une question simple peut générer 10 000 tokens de raisonnement pour 200 tokens de sortie visible. Cas extrême documenté : 600 tokens consommés pour 2 mots de sortie. Phrase-clé Sommer : « Les CPO ne doivent pas confondre la déflation des tokens commodity avec la démocratisation du raisonnement frontière. » Conséquence : les organisations qui décident de leurs investissements IA sur le prix du token font des erreurs de calibrage majeures.",
+      "headline_value": "Tokens -90% mais consommation +100×",
+      "tier": 1,
+      "citation": "Gartner & AISuperior · mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Septembre 2025",
+      "title": "Apertus · premier LLM suisse public, fully open et conforme à l'EU AI Act",
+      "summary_fr": "EPFL, ETH Zurich et CSCS publient Apertus (8B et 70B paramètres), entièrement open : architecture, poids, données et recettes documentées. Entraîné sur 15 trillions de tokens, 40% non anglophones, plus de 1000 langues incluant le suisse-allemand et le romanche. Hébergé sur la plateforme IA souveraine de Swisscom. Conforme dès l'origine à l'EU AI Act, à la LPD suisse et aux opt-outs créateurs. Plus d'un million de téléchargements en six mois. Ce lancement est le pilier technique de la stratégie helvétique de souveraineté IA, aux côtés des 20 millions CHF engagés par la Confédération sur la Swiss AI Initiative jusqu'en 2028.",
+      "headline_value": "1er LLM public suisse · 70B paramètres · open weights · EU AI Act compliant",
+      "tier": 1,
+      "citation": "EPFL, ETH Zurich, CSCS · Swiss AI Initiative · 2 septembre 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "Mistral AI · 830 M$ de dette levés auprès de 7 banques européennes pour data center souverain",
+      "summary_fr": "Plus grosse opération de dette d'une entreprise IA européenne. Consortium 100% européen et japonais, sans banque US : BNP Paribas, Crédit Agricole CIB, HSBC, MUFG, Bpifrance, La Banque Postale, Natixis CIB. Finance 13 800 GPU Nvidia GB300 pour le premier data center à Bruyères-le-Châtel (44 MW, ouverture Q2 2026). Engagement Mensch : 200 MW de capacité de calcul européen d'ici 2027. Stratégie : devenir le 3e fournisseur souverain européen de calcul IA derrière OVHcloud et Scaleway. Pour les industries régulées (gouvernements, défense, finance), c'est l'alternative aux hyperscalers américains qui ne peuvent pas garantir une infrastructure sous juridiction européenne. Mistral atteint 13,7 milliards de dollars de valorisation.",
+      "headline_value": "$830M de dette · 7 banques EU+JP · 13 800 GPU · 200 MW européens en 2027",
+      "tier": 1,
+      "citation": "European Business Magazine · Mistral AI · 30 mars 2026",
       "ai_type": "generative"
     }
   ]

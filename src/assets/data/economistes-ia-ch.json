@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 21,
+  "count": 23,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -262,6 +262,32 @@
       },
       "most_likely_scenario": "Croissance modérée",
       "notes": "Auteurs de la démonstration empirique majeure (NBER w35110, avril 2026) que les scores d'exposition à l'IA basés sur les LLM auto-évaluatifs sont fragiles : divergence ×3,6 entre 3 modèles frontière, accord 57%, coefficients DiD ×2,4. Position fortement prudente sur la robustesse des prédictions actuelles."
+    },
+    {
+      "name": "Diksha Singh Tomer",
+      "institution": "Auteur du cadre TCO Knowledge Work · academic preprint 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 55,
+        "Accélération IA": 20,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur du cadre conceptuel de Total Cost of Ownership (avril 2026) qui démontre pourquoi comparer le prix du token au salaire humain est une erreur économique. Position : l'IA est une technologie d'augmentation sélective et complémentaire, pas un substitut universel. Cadre directement utilisable par les COMEX pour calibrer leurs déploiements selon la nature des tâches (étroites/ambiguës) et les coûts réels d'orchestration, gouvernance et vérification."
+    },
+    {
+      "name": "Patrick Quinlan & Hung LeHong",
+      "institution": "Gartner · Customer Service Analytics & Distinguished VP",
+      "scenario_distribution_pct": {
+        "Stagnation": 30,
+        "Croissance modérée": 45,
+        "Accélération IA": 15,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Co-auteurs des prédictions Gartner les plus citées sur les coûts cachés de l'IA. LeHong (octobre 2024) : 500% à 1000% d'erreur de calcul potentielle sur les coûts IA, 72% des CIO en break-even ou perte. Quinlan (janvier 2026) : coût par résolution GenAI > 3$ en 2030, dépassant les agents offshore. Position prudente sur le ROI de l'automatisation totale : recommandent un pivot vers l'engagement client plutôt que la réduction de coûts brute."
     }
   ]
 }

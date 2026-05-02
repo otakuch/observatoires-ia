@@ -4,6 +4,297 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] · 2026-05-02
+
+### Changed · About page rewrite
+
+The About page (a-propos.html) is rewritten to integrate the analytical
+acquisitions of v0.2.9 (three-dimension reading frame) and v0.3.0 (TCO and
+sovereignty layer), and to fill an editorial gap on the "Three principles"
+section that previously had a title and sub but empty cards.
+
+### Added · "The frame · 4 reading angles" section
+- New section inserted between "Why this project" and "Who", structured as
+  4 method-grid blocks (parallel to the methodology page layout):
+  - 01 Demand trajectory: income effect (Imas & Comin 2026), with chef vs.
+    credit analyst example
+  - 02 Relational sector: indirect AI beneficiaries (care, hospitality,
+    craft, training, performance)
+  - 03 AI type: generative / specialized / robotic, with the canonical
+    radiologist vs. journalist example
+  - 04 TCO and sovereignty (4th blind spot): Singh Tomer 2026 TCO framework,
+    Gartner $3-per-resolution prediction, 72% CIO breakeven/loss rate,
+    European sovereign LLM ecosystem (Mistral, Apertus, Aleph Alpha,
+    Minerva, PhariaAI, LightOn)
+
+### Added · Three real principle cards
+The "Trois principes" section had a title and intro but never displayed
+the principles themselves (the `<div id="princGrid">` was a never-filled
+placeholder). Now properly written as three method-grid cards:
+- 01 Primary sources: never cite second-hand, traceability to original
+  publication, Tier 1-4 source hierarchy
+- 02 Explicit biases: documenting limits with as much care as findings,
+  citing NBER w35110 (×3.6 LLM divergence) and Yale Budget Lab (variance
+  0.03 vs 0.48), 9 structural biases acknowledged
+- 03 Open data: 524 occupations + 23 indicators + 40 milestones + 38
+  economists + 27 reports under CC BY 4.0, no paywall on Dispatches, code
+  on GitHub
+
+### Changed · KPI label refresh
+- "Observatories connected in v0.2" → "CH + FR observatories mapped"
+  (removes obsolete version reference)
+
+### Notes
+- The About page now spans 5 logical sections (Why · Frame · Who ·
+  Principles · Contribute) instead of 4 (Why · Who · Principles ·
+  Contribute), with the new Frame section providing the missing
+  editorial bridge between the project's existence rationale and its
+  practitioner.
+- All new content uses formal-direct French voice, zero em-dashes,
+  practitioner tone, with concrete examples and inline citations
+  (Imas & Comin 2026, Singh Tomer 2026, NBER w35110, Yale Budget Lab,
+  Mistral, Apertus).
+- The existing Disclosure block (Naully + Claude Opus 4.7 production
+  process) is preserved unchanged.
+- Existing nav and footer links to a-propos.html were already correct.
+  No link updates were needed across other pages.
+
+---
+
+## [0.3.0] · 2026-05-02
+
+### Added · 4th analytical blind spot: real TCO and digital sovereignty
+
+This release introduces a new analytical layer to the observatory, complementing
+the three-dimension reading frame (demand trajectory, relational sector, AI type)
+introduced in v0.2.9 with what the editorial team identifies as the 4th blind spot
+that organizations systematically underestimate: the gap between published token
+prices and real total cost of ownership, and the question of jurisdictional
+sovereignty over data and inference infrastructure.
+
+### Added · Homepage warning section
+- New "Mise en garde · 4e angle mort" section inserted between the Cadre
+  analytique and the field reports. Two cards:
+  - **Coûts cachés**: Gartner's prediction of GenAI cost underestimation by
+    500% to 1000%, $3 cost-per-resolution by 2030 exceeding offshore agents,
+    72% CIO breakeven/loss rate, 50% PoC abandonment rate, 90% CIO cost-driven
+    value limitation.
+  - **Souveraineté**: Mistral's $830M debt raise from 7 European banks for
+    sovereign Paris data center, Apertus EPFL/ETH/CSCS as the first public
+    fully open Swiss LLM compliant with EU AI Act and Swiss FADP, the
+    European sovereign ecosystem (Aleph Alpha, PhariaAI, LightOn, H Company,
+    Minerva).
+
+### Added · Sovereignty section in all 3 Dispatches
+- New `brief-sov` section added to each Dispatch (banking Swiss, executives
+  France, premium watchmaking), structured as 3-card pattern with
+  context-specific framing:
+  - **Banque suisse**: Apertus + Swisscom alignment with FADP/FINMA,
+    Mistral for European-zone branches, CLOUD Act extra-territorial risk
+    against banking secrecy
+  - **Cadres France**: Mistral La Plateforme + Le Chat Pro, broader
+    European ecosystem (Aleph Alpha, PhariaAI, LightOn, Apertus), GDPR/NIS2
+    /upcoming AI Act compliance cost
+  - **Horlogerie premium**: Apertus alignment with Swiss Made narrative,
+    Mistral for European boutique markets, narrative inconsistency risk
+    when sovereignty is undermined
+
+### Fixed · TCO section bilingual coverage
+- A latent bug from a previous session: the brief-tco section existed in HTML
+  on all 3 Dispatches but its i18n strings (b1.tco.*, b2.tco.*, b3.tco.*)
+  existed only in the English block. In French, the section displayed raw
+  i18n keys instead of content. This release restores full FR + EN bilingual
+  coverage for the TCO sections on all 3 Dispatches.
+
+### Added · 5 new field reports in veille
+- Singh Tomer · "Human Labor Versus AI: A Total Cost of Ownership and
+  Task-Suitability Framework" · April 2026 (the central theoretical reference
+  on TCO economic framing)
+- Gartner · Patrick Quinlan · "GenAI cost per resolution will exceed
+  offshore human agents by 2030" · January 2026 (the reference prediction)
+- EPFL · ETH Zurich · CSCS · Apertus launch · September 2025 (Switzerland's
+  first public fully open LLM)
+- Mistral AI · "$830M debt raise from 7 European banks" · March 2026 (the
+  largest European AI debt operation, sovereign infrastructure)
+- Index.dev · BenchLM · EuropeanStack synthesis · "European LLM ecosystem
+  2026" · February 2026 (Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI,
+  LightOn mapping)
+
+### Added · 3 timeline milestones
+- September 2025: Apertus public release (CHF 20M Swiss federal funding)
+- January 2026: Gartner $3-per-resolution prediction
+- March 2026: Mistral AI $830M debt round (consortium 6 European + 1 Japanese
+  banks, no US bank, 13 800 Nvidia GB300 GPUs)
+
+### Added · 2 new indicators
+- France: "Souveraineté numérique IA · l'enjeu européen pour les organisations
+  françaises" with Mistral, Aleph Alpha, Apertus, Minerva ecosystem
+- Switzerland: "Souveraineté IA helvétique · Apertus et l'écosystème suisse
+  de l'IA fully open" with CHF 20M Swiss AI Initiative funding, 1M+
+  downloads, Meditron CHUV deployment May 2026
+
+### Added · CSS components
+- `.warning-section`, `.warning-card`, `.warning-grid` (homepage gradient
+  paper card with red signal accent bar)
+- `.brief-sov`, `.brief-sov-inner`, `.brief-sov-grid`, `.brief-sov-card`
+  (dark ink card with signal red accent, parallel to `.brief-tco-*`)
+- All with mobile breakpoints
+
+### Site totals
+571 occupations (FR + CH) + 23 indicators + 40 milestones + 38 economists
++ 27 verified field reports.
+
+### Notes
+- The X.com link cited in the user request was blocked by robots.txt and
+  could not be fetched. Five primary and secondary web sources were
+  collected as substitute and integrated into the corpus.
+- The radiologist vs journalist canonical example, established in v0.2.9
+  for AI type differentiation, is preserved unchanged. The TCO + sovereignty
+  layer enriches the frame without contradicting it.
+- All new content uses formal-direct French voice, zero em-dashes,
+  practitioner tone, no "révolution" or "disruption" vocabulary, with
+  concrete examples and inline academic citations.
+
+---
+
+## [0.3.0] · 2026-05-02
+
+### Added · Total Cost of Ownership dimension fully sourced
+
+This minor release consolidates the economic-cost dimension introduced in
+prior versions and grounds it on a substantially expanded source corpus.
+The « cost beyond token price » angle is one of the most underweighted by
+organizations in 2026 strategic planning. The observatory now treats it
+with the same rigor as the other three analytical dimensions (demand
+trajectory, relational sector, AI type).
+
+**5 new reports added to veille.json (now 24 total):**
+- **Gartner · Will Sommer (March 25, 2026)** · The LLM Cost Paradox:
+  by 2030, inference cost on a 1-trillion-parameter LLM will drop by 90%
+  for providers, but enterprise inference costs will rise because agentic
+  models consume 5-30x more tokens per task and reasoning models hide
+  internal consumption. Direct quote: « CPOs should not confuse the
+  deflation of commodity tokens with the democratization of frontier
+  reasoning. »
+- **Gartner · Patrick Quinlan (January 26, 2026)** · GenAI customer
+  service cost per resolution will exceed $3 by 2030, more than most B2C
+  offshore human agents. Strategic implication: full automation will be
+  prohibitively expensive for most organizations.
+- **Gartner · Hung LeHong (November 20, 2025)** · Organizations
+  underestimate GenAI total cost by 500% to 1000%. 72% of CIOs report
+  break-even or losses on AI investments. 50% of GenAI projects abandoned
+  after PoC.
+- **AISuperior (March 16, 2026)** · LLM Cost Paradox empirically
+  documented: per-token price -10x since 2022, but token consumption +100x
+  for reasoning workloads. Documented extreme: 600 tokens consumed for
+  2 words of output.
+- **Roboto (April 10, 2026)** · The French linguistic tax: French
+  consumes +60% tokens vs English on the same agent task. Strategic
+  consequence for French and Romandie organizations: model selection
+  must be even more rigorous than for English-speaking counterparts.
+
+**2 new timeline milestones:**
+- January 2026 · Gartner GenAI cost prediction (>$3/resolution by 2030)
+- March 2026 · LLM Cost Paradox documented (tokens -90%, consumption +100x)
+
+**1 new indicator FR + 1 new indicator CH:**
+- France: « Coût total réel de l'IA · l'angle mort des organisations
+  françaises » (4 sources, factor 5-10 underestimation, median 7)
+- Switzerland: « Coût total réel de l'IA · vulnérabilité spécifique des
+  PME suisses » (5 sources, including DemoSCOPE 9% TPE-PME and Roboto
+  linguistic tax, calling for cantonal/SECO support on TCO calculation)
+
+### Changed · home.frame.d4 reinforced
+
+The 4th analytical card on the homepage (« Le prix par token n'est pas
+le coût réel ») is enriched with the LLM Cost Paradox documentation and
+the French linguistic tax (+60% tokens vs English). The card now stands
+as the strongest economic argument on the homepage, complementing the
+three existing dimensions (demand trajectory, relational sector, AI type).
+
+### Notes
+- The TCO section in methodologie.html (07) and the brief-tco sections
+  in all 3 Dispatches were already in place from earlier work on the
+  Tomer paper. This release consolidates them with the broader Gartner +
+  AISuperior + Roboto corpus.
+- All new datasets respect the formatting standards: ai_type tagged,
+  tier scoring, CC BY 4.0 license, source URLs verified.
+- No em-dashes in new content. JSON validates.
+- The X.com URL referenced by the user was blocked by robots.txt, so
+  source enrichment was conducted through the broader 2025-2026 web
+  corpus, focusing on Gartner, AISuperior, and Roboto as the most
+  rigorous sources on the TCO topic.
+
+---
+
+## [0.2.9] · 2026-04-30
+
+### Added · Three-dimension analytical frame surfaced across the site
+
+The observatory's three-dimension analytical frame (demand trajectory,
+relational sector, AI type) is now explicitly surfaced on four key pages
+of the site. Until now this frame was implicit in the methodology and the
+metier datasets but not visible to a first-time visitor.
+
+- **index.html · Hero pitch line**. New short statement between H1 and lede:
+  « Les IA ne menacent pas tous les métiers de la même façon. Ce n'est pas la
+  même IA qui affecte un radiologue, un journaliste et un chauffeur. Et tous
+  les métiers exposés ne sont pas sous pression : certains en bénéficient. »
+  Styled in Fraunces italic to read as a manifesto pitch, between the title
+  and the more developed lede paragraph.
+
+- **index.html · "Cadre analytique" section**. New section after the manifesto,
+  three side-by-side cards with mono icons (↑ → ↓, ⌭, ✦ ◉ ⬡) presenting:
+  - 01 Trajectoire de demande (citing Imas & Comin 2026 income effect, with
+    chef gastronomique vs analyste crédit example)
+  - 02 Secteur relationnel (with social educator example)
+  - 03 Type d'IA (with the canonical radiologist vs journalist example,
+    linking to Methodology)
+
+- **methodologie.html · Synthesis table**. New three-column synthesis at the
+  end of section 03 (Distinguer les types d'IA), with icons ✦ (generative),
+  ◉ (specialized), ⬡ (robotic). Each card lists what the family does and
+  occupations affected in priority. Complements without contradicting the
+  existing four-category breakdown (a/b/c/d).
+
+- **observatoires/comparer.html · Cadre commun block**. New section between
+  the institutional context block and the comparison table, presenting the
+  three dimensions as the shared reading grid that makes the cross-border
+  comparison possible without flattening national specificities.
+
+- **partenariats.html · Three strategic questions**. New section between
+  audience cards and delivery formats, translating the three dimensions
+  into actionable questions for an executive committee or HR leadership:
+  - "Quels sont nos métiers sous pression baissière réelle, et pas
+    seulement exposés ?"
+  - "Avons-nous des métiers relationnels que nous sous-valorisons dans
+    notre stratégie de transformation ?"
+  - "Quelle IA affecte réellement chaque fonction, et avec quel calendrier ?"
+
+### Added · CSS components
+- `.frame-section`, `.frame-grid`, `.frame-card` (3-column home cards with
+  icon, tag, title, body, example)
+- `.hero-pitch` (Fraunces italic between H1 and lede)
+- `.aitype-summary`, `.aitype-summary-grid`, `.aitype-summary-card` (synthesis
+  cards in methodology)
+- `.cmp-dim-section`, `.cmp-dim-grid`, `.cmp-dim-card` (3-dim block on
+  Comparer page)
+- `.pt-questions-section`, `.pt-questions-list`, `.pt-question` (numbered
+  list of strategic questions on Partnerships page)
+- All with mobile breakpoints (single column at 720px or 960px)
+
+### Notes
+- All new content uses the radiologist vs journalist example as canonical
+  illustration of AI-type differentiation, per the editorial direction.
+- No em-dashes anywhere in the new content. Voice is formal-direct,
+  practitioner tone, without the words "révolution" or "disruption".
+- Existing content (methodology section 03 a/b/c/d breakdown, manifesto
+  three paragraphs, partnership audience cards) is untouched.
+- Each new block reads independently. Visitors who skip the manifesto and
+  jump to the cadre analytique still get the frame in 30 seconds.
+
+---
+
 ## [0.2.8] · 2026-04-30
 
 ### Changed · Editorial pivot: from paywall to open access + dual action bridges

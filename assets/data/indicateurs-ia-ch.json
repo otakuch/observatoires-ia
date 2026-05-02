@@ -8,7 +8,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "underlying_dashboard": "https://observatoire.naullynicolas.ch/ch/",
-  "count": 13,
+  "count": 16,
   "indicators": [
     {
       "title": "% emplois suisses exposés à l'IA d'ici 2030",
@@ -625,6 +625,129 @@
         {
           "name": "Burn-Murdoch & O'Connor · Financial Times",
           "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Coûts cachés de l'IA en entreprise · l'enjeu pour le tissu économique suisse",
+      "unit": "facteur de sous-estimation",
+      "n_sources": 5,
+      "value_min": 5,
+      "value_max": 10,
+      "value_median": 7,
+      "description_fr": "Pour la Suisse, dont le tissu économique est dominé par les PME (99,7% des entreprises) et où DemoSCOPE 2026 montre une asymétrie d'adoption frappante (24% pour les grandes entreprises, 9% pour les TPE), la question des coûts réels de l'IA est centrale. Les sources internationales convergent vers un constat : <strong>Gartner (octobre 2024)</strong> mesure 500% à 1000% d'erreur potentielle de calcul des coûts IA, 72% des CIO en break-even ou perte. <strong>Gartner (janvier 2026)</strong> prédit un coût par résolution GenAI > 3$ d'ici 2030. <strong>Tomer (avril 2026)</strong> formalise que le coût total de possession (orchestration, gouvernance, vérification, escalade, redesign organisationnel) est ce qui décide de la viabilité économique, pas le prix par token. Pour les PME suisses, ce constat impose une vigilance particulière : les coûts d'intégration et de gouvernance sont relativement plus lourds proportionnellement à un budget PME qu'à un budget de grande entreprise. C'est aussi pourquoi la formation continue (M=3,27/4 chez DemoSCOPE comme priorité) est plus robuste comme stratégie cantonale que les déploiements technologiques massifs et coûteux.",
+      "sources": [
+        {
+          "name": "Gartner · Mesaglio & LeHong",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · Quinlan",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Tomer · TCO Framework",
+          "url": "https://x.com/i/trending/2046697397959663779",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "DemoSCOPE / Angestellte Schweiz 2026",
+          "url": "https://www.angestellte.ch",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · Chandrasekaran (Blind Spots)",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Coût total réel de l'IA · vulnérabilité spécifique des PME suisses",
+      "unit": "facteur de sous-estimation",
+      "n_sources": 5,
+      "value_min": 5,
+      "value_max": 10,
+      "value_median": 7,
+      "description_fr": "Pour la Suisse, l'enjeu du coût total de l'IA prend une dimension particulière. Les <strong>4 sources Gartner et académiques convergentes (2025-2026)</strong> documentent une sous-estimation systématique de 500% à 1000% du coût total réel de l'IA en entreprise. Mais en Suisse, la structure du tissu économique amplifie le risque : <strong>DemoSCOPE 2026</strong> a montré que seules 9% des TPE-PME suisses ont introduit l'IA, contre 24% des grandes entreprises. La raison principale invoquée : ressources limitées. Si les PME suisses sous-estiment le coût total comme les grandes entreprises (Gartner), elles n'ont pas les marges pour absorber les dérapages : 50% des projets GenAI sont abandonnés après proof of concept selon Gartner. <strong>Roboto (avril 2026)</strong> ajoute une couche spécifique pour la Suisse romande : la « taxe linguistique » du français en LLM coûte 60% de tokens supplémentaires vs anglais sur les mêmes tâches. Conséquence pour les conseils cantonaux et SECO : les politiques d'incitation à l'adoption IA en PME doivent inclure un volet d'aide au calcul du TCO réel, faute de quoi les budgets PME seront mal calibrés et les abandons précoces se multiplieront.",
+      "sources": [
+        {
+          "name": "Gartner · 4 emerging challenges",
+          "url": "https://www.gartner.com/en/articles/ai-value",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Gartner · GenAI cost prediction CS",
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "DemoSCOPE / Angestellte Schweiz",
+          "url": "https://www.angestellte.ch",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Tomer · TCO framework academic paper",
+          "url": "https://arxiv.org/abs/2511.tomer-tco-framework",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Roboto · French linguistic tax",
+          "url": "https://www.roboto.fr/blog/tokens-ia-comment-les-fournisseurs-vous-font-payer-60-de-plus",
+          "tier": 3,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Souveraineté IA helvétique · Apertus et l'écosystème suisse de l'IA fully open",
+      "unit": "engagement et investissement public",
+      "n_sources": 5,
+      "value_min": 20,
+      "value_max": 20,
+      "value_median": 20,
+      "description_fr": "La Suisse joue une carte distinctive sur la souveraineté numérique IA : non pas la concurrence frontière mais la <strong>transparence radicale</strong>. <strong>Apertus</strong>, lancé le 2 septembre 2025 par la Swiss AI Initiative (EPFL, ETH Zurich, CSCS) avec un financement de 20 millions CHF de la Confédération jusqu'en 2028, est le premier LLM public suisse fully open : 8B et 70B paramètres, 15 trillions de tokens d'entraînement dont 40% non anglophones, plus de 1000 langues incluant le suisse-allemand et le romanche. Architecture, poids, données et recettes documentées. Hébergé sur la plateforme IA souveraine de Swisscom. Conforme dès l'origine à l'EU AI Act, à la LPD suisse et aux opt-outs créateurs. Plus d'un million de téléchargements en six mois. En mai 2026, Meditron est déployé au CHUV pour la décision clinique aux urgences. Pour les PME suisses, les administrations cantonales et les industries régulées, c'est la première option qui combine souveraineté juridictionnelle helvétique et transparence totale. Les contradictions persistent : 140 millions CHF de licences Microsoft renouvelées par la Confédération sur 2026-2028 montrent la difficulté du basculement réel.",
+      "sources": [
+        {
+          "name": "Apertus · ETH Zurich press release",
+          "url": "https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Apertus · EPFL release",
+          "url": "https://actu.epfl.ch/news/apertus-a-fully-open-transparent-multilingual-lang/",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Swissinfo · AI in Switzerland 2026",
+          "url": "https://www.swissinfo.ch/eng/swiss-ai/artificial-intelligence-in-switzerland-whats-new-in-2026/90701795",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "GGBa · Apertus launch",
+          "url": "https://ggba.swiss/en/switzerland-launches-apertus-a-fully-open-multilingual-large-language-model/",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Apertus website",
+          "url": "https://apertvs.ai/",
           "tier": 1,
           "ai_type": "generative"
         }
