@@ -1,5 +1,290 @@
 [
   {
+    "date": "2026-05-02",
+    "source": "Yves Caseau · CTO Michelin, ex-CEISAR · Information Systems Biology",
+    "country": "INT",
+    "title": {
+      "fr": "L'impact de l'automatisation IA sur nos emplois et nos vies · synthèse à partir des conférences RNS Strasbourg et Bonnieux",
+      "en": "The Impact of AI Automation on Our Jobs and Our Lives · Synthesis from RNS Strasbourg and Bonnieux Lectures"
+    },
+    "excerpt": {
+      "fr": "Synthèse magistrale d'un praticien doublé d'un théoricien (CTO Michelin, ex-CEISAR, Académie des technologies). Mobilise le modèle McKinsey production/transaction/interaction (Lund, Manyika, Ramaswamy) pour structurer l'impact différencié de l'IA. Articule la loi d'Amara (surestimation court terme, sous-estimation long terme) avec la viscosité documentée de la transformation IA en entreprise. S'appuie sur Choudary (Reshuffle), Iansiti (Harvard), AII 2026 Stanford pour chiffrer la maturité réelle des capacités. Présente le modèle FWPM (Future of Work Parametric Model) comme outil d'analyse systémique. Cadre robuste et nuancé, à mi-chemin entre les positions Amodei pessimiste et le déni minimaliste. Fait de Yann Ferguson sa principale référence sociologique pour les 4 archétypes de travailleurs face à l'IA.",
+      "en": "Masterful synthesis from a practitioner-theorist (CTO Michelin, ex-CEISAR, French Academy of Technology). Mobilizes the McKinsey production/transaction/interaction model (Lund, Manyika, Ramaswamy) to structure AI's differentiated impact. Articulates Amara's law (overestimation short-term, underestimation long-term) with the documented viscosity of AI enterprise transformation. Draws on Choudary (Reshuffle), Iansiti (Harvard), AII 2026 Stanford to quantify real capability maturity. Presents the FWPM (Future of Work Parametric Model) as a systemic analysis tool. Robust and nuanced framework, midway between the Amodei pessimistic position and minimalist denial. Makes Yann Ferguson the main sociological reference for the 4 worker archetypes facing AI."
+    },
+    "url": "https://informationsystemsbiology.blogspot.com/2026/05/the-impact-of-ai-automation-on-our-jobs.html",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2025-09-15",
+    "source": "Sangeet Paul Choudary · Reshuffle (livre)",
+    "country": "INT",
+    "title": {
+      "fr": "Reshuffle · qui gagne quand l'IA réorganise l'économie de la connaissance",
+      "en": "Reshuffle · Who Wins When AI Restacks the Knowledge Economy"
+    },
+    "excerpt": {
+      "fr": "Ouvrage de référence sur la nature systémique de la transformation IA. Thèse centrale : le pouvoir transformateur réel de l'IA n'est pas dans l'automatisation de tâches isolées (RPA 2.0), mais dans son rôle de glu intelligente qui restructure le système entier autour de la tâche. Distinction critique entre task-oriented AI (qui améliore la performance dans les structures de travail existantes) et system-level AI (qui redessine la structure du travail). Exemple Airbus : digital twins pour identifier les bottlenecks, tester des configurations alternatives et redessiner les rôles selon une vue systémique en évolution constante. Implication directe pour les directions RH : décomposer un job en tâches automatisables manque les contraintes (contexte, coordination, gestion du risque) qui maintiennent le job ensemble.",
+      "en": "Reference book on the systemic nature of AI transformation. Central thesis: AI's real transformative power is not in automating isolated tasks (RPA 2.0), but in its role as intelligent glue that restructures the entire system around the task. Critical distinction between task-oriented AI (improving performance within existing work structures) and system-level AI (redesigning work structure). Airbus example: digital twins to identify bottlenecks, test alternative configurations, and redesign roles based on a constantly evolving systemic view. Direct implication for HR leadership: breaking down a job into automatable tasks misses the constraints (context, coordination, risk management) that hold the job together."
+    },
+    "url": "https://www.amazon.com/Reshuffle-wins-restacks-knowledge-economy/dp/B0FK3BHF3F",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-15",
+    "source": "Yann Ferguson · LaborIA Explorer · ICAM Toulouse",
+    "country": "FR",
+    "title": {
+      "fr": "Quatre archétypes de travailleurs face à l'IA · cadre sociologique pour les directions RH",
+      "en": "Four Worker Archetypes Facing AI · Sociological Framework for HR Leadership"
+    },
+    "excerpt": {
+      "fr": "Sociologue spécialiste de l'IA au travail (LaborIA Explorer, ICAM Toulouse), Yann Ferguson propose une typologie en quatre archétypes de la relation travailleur-IA. Le travailleur remplacé : automatisation discrète qui réduit l'emploi par attrition plutôt que par licenciement collectif. Le travailleur dominé : autonomie et compétences contraintes par le contrôle algorithmique, soulèvant des questions éthiques fortes. Le travailleur augmenté : performance améliorée mais avec exigences de compétences nouvelles et risques cognitifs (sédation, dépendance). Le travailleur réhumanisé : l'IA libère du temps pour les activités proprement humaines (créativité, empathie), mais cette issue reste ambiguë. Cadre directement utile aux DRH pour cartographier les transformations métier par métier, plutôt que de raisonner en pourcentage agrégé.",
+      "en": "Sociologist specialized in AI at work (LaborIA Explorer, ICAM Toulouse), Yann Ferguson proposes a typology of four worker-AI relationship archetypes. The replaced worker: quiet automation reducing employment through attrition rather than mass layoffs. The dominated worker: autonomy and skills constrained by algorithmic control, raising strong ethical questions. The augmented worker: improved performance but with new skill requirements and cognitive risks (sedation, dependence). The rehumanized worker: AI frees time for distinctly human activities (creativity, empathy), but this outcome remains ambiguous. A directly useful framework for HR leadership to map transformations role by role, rather than reason in aggregate percentages."
+    },
+    "url": "https://laboria.fr/yann-ferguson-laboria-explorer/",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-30",
+    "source": "Stanford HAI · AI Index Report 2026",
+    "country": "INT",
+    "title": {
+      "fr": "AII 2026 · l'écart entre fenêtre de contexte longue et compréhension profonde",
+      "en": "AII 2026 · The Gap Between Long Context Window and Deep Understanding"
+    },
+    "excerpt": {
+      "fr": "Rapport annuel de référence du Stanford Human-Centered AI Institute. Quatre chiffres clés à intégrer dans les décisions RH 2026 : sur LongBench v2 (compréhension de longs documents par experts sous contrainte de 15 minutes), les humains experts atteignent 53,7% et le meilleur modèle 57,7% (marge étroite, la compréhension profonde reste difficile). Sur OSWorld (tâches sur ordinateur), les agents IA passent de 12% à 66,3% en 2025, à 6 points de la performance humaine. Robots multi-usages : 89,4% de réussite en simulation RLBench, mais seulement 12% sur les tâches ménagères réelles. Un agent IA échoue encore 1 fois sur 3 sur les benchmarks structurés. Ces chiffres recadrent la conversation sur l'AGI : l'ACI (intelligence cognitive artificielle) arrive, mais l'AGI (intelligence générale incluant intelligence situationnelle et émotionnelle) n'est pas pour avant 2030.",
+      "en": "Annual reference report from Stanford Human-Centered AI Institute. Four key figures to integrate into 2026 HR decisions: on LongBench v2 (long document comprehension by experts under 15-minute constraint), human experts reach 53.7% and the best model 57.7% (narrow margin, deep understanding remains difficult). On OSWorld (computer tasks), AI agents went from 12% to 66.3% in 2025, within 6 points of human performance. Multi-purpose robots: 89.4% success in RLBench simulation, but only 12% on real household tasks. An AI agent still fails 1 in 3 attempts on structured benchmarks. These figures reframe the AGI conversation: ACI (artificial cognitive intelligence) is arriving, but AGI (general intelligence including situational and emotional intelligence) is not before 2030."
+    },
+    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2023-09-15",
+    "source": "Acemoglu, Autor, Johnson · MIT Shaping Work · policy memo",
+    "country": "INT",
+    "title": {
+      "fr": "Pouvons-nous avoir une IA pro-travailleurs ? Mémoire de politique du MIT",
+      "en": "Can We Have Pro-Worker AI? · MIT Shaping Work Policy Memo"
+    },
+    "excerpt": {
+      "fr": "Memo de politique économique signé par trois économistes majeurs : Daron Acemoglu (MIT, Nobel 2024), David Autor (MIT) et Simon Johnson (MIT, Nobel 2024). Argument central : la trajectoire actuelle de l'IA, orientée vers l'automatisation de tâches plutôt que la complémentarité avec le travail, n'est pas inévitable. Elle résulte de choix d'incitation fiscale et de politique publique qui peuvent être réorientés. Recommandations clés : déplacer la base de la taxation hors du travail (problématique quand le travail devient minoritaire), créer des subventions ciblées pour les activités à utilité sociale forte mais à faible viabilité économique de marché (soin, éducation, accompagnement, artisanat). Document de référence pour les politiques publiques européennes en cours de définition (EU AI Act, négociations sur la taxation du calcul IA).",
+      "en": "Economic policy memo signed by three major economists: Daron Acemoglu (MIT, Nobel 2024), David Autor (MIT), and Simon Johnson (MIT, Nobel 2024). Central argument: the current trajectory of AI, oriented toward task automation rather than complementarity with labor, is not inevitable. It results from tax incentive and public policy choices that can be redirected. Key recommendations: shift the tax base away from labor (problematic when labor becomes a minority), create targeted subsidies for activities with strong social utility but low market economic viability (care, education, accompaniment, craft). Reference document for European public policies under definition (EU AI Act, ongoing negotiations on AI compute taxation)."
+    },
+    "url": "https://shapingwork.mit.edu/wp-content/uploads/2023/09/Pro-Worker-AI-Policy-Memo.pdf",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2025-01-15",
+    "source": "Microsoft Research · Carnegie Mellon University",
+    "country": "INT",
+    "title": {
+      "fr": "L'impact de l'IA générative sur l'effort cognitif et la pensée critique au travail",
+      "en": "The Impact of Generative AI on Cognitive Effort and Critical Thinking at Work"
+    },
+    "excerpt": {
+      "fr": "Étude conjointe Microsoft Research / Carnegie Mellon documentant que l'usage répété d'assistants génératifs crée un faux sentiment de confiance et affaiblit la pensée critique. Les utilisateurs qui externalisent systématiquement la réflexion vers l'IA voient leurs capacités d'analyse, de doute méthodique et de vérification se dégrader sur 6 à 12 mois. Phénomène de sédation cognitive observé chez les utilisateurs novices (effet plus faible chez les experts qui maintiennent une discipline d'usage). Implications RH directes : la promesse d'augmentation IA n'est pas automatique. Sans discipline d'usage et critère de relecture critique, l'IA dégrade les compétences qu'elle est censée augmenter. Confirme indépendamment l'étude MIT/Klopfer sur la performance Fortran (les groupes ChatGPT et Code LLM ne se souvenaient de rien et ont tous échoué au test mémoire) et l'étude MIT brain imaging arxiv 2506.08872v1 sur la baisse d'activation neurale chez les utilisateurs intensifs.",
+      "en": "Joint Microsoft Research / Carnegie Mellon study documenting that repeated use of generative assistants creates a false sense of confidence and weakens critical thinking. Users who systematically outsource reflection to AI see their analytical, methodical doubt, and verification capacities degrade over 6 to 12 months. Cognitive sedation phenomenon observed in novice users (weaker effect on experts who maintain usage discipline). Direct HR implications: AI augmentation is not automatic. Without usage discipline and critical review criteria, AI degrades the skills it is supposed to augment. Independently confirms the MIT/Klopfer Fortran performance study (ChatGPT and Code LLM groups remembered nothing and all failed the memory test) and the MIT brain imaging study arxiv 2506.08872v1 on lower neural activation in intensive users."
+    },
+    "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-15",
+    "source": "Stanford HAI · AI Index Report 2026",
+    "country": "INT",
+    "title": {
+      "fr": "AI Index Report 2026 · l'écart entre fenêtre de contexte et compréhension profonde",
+      "en": "AI Index Report 2026 · the Gap Between Context Window and Deep Understanding"
+    },
+    "excerpt": {
+      "fr": "Rapport annuel de référence de Stanford HAI sur l'état des capacités IA. Le chapitre 2 documente les progrès considérables de 2025 mais aussi les limites structurelles persistantes. Sur le benchmark expert LongBench v2, les experts humains atteignent 53,7% de précision sous contrainte de 15 minutes, le meilleur modèle 57,7% : marge étroite par rapport aux benchmarks structurés où les modèles dépassent largement la baseline humaine. Sur OSWorld (agents complétant des tâches sur OS réels), la précision est passée de 12% à 66,3% en un an, à 6 points seulement de la performance humaine. Sur la robotique, les robots ne réussissent que 12% des tâches ménagères courantes même quand ils excellent en environnement contrôlé (RLBench, manipulation simulée à 89,4% de succès). Source incontournable pour calibrer les attentes : l'IA progresse vite sur les benchmarks structurés, mais l'écart persiste sur la compréhension profonde et l'action en environnement réel non contrôlé.",
+      "en": "Stanford HAI's reference annual report on the state of AI capabilities. Chapter 2 documents 2025's considerable progress but also persistent structural limits. On the expert benchmark LongBench v2, human experts reach 53.7% accuracy under a 15-minute constraint, the best model 57.7%: narrow margin compared to structured benchmarks where models largely exceed the human baseline. On OSWorld (agents completing tasks on real OS), accuracy jumped from 12% to 66.3% in one year, just 6 points below human performance. On robotics, robots succeed at only 12% of common household tasks even when they excel in controlled environments (RLBench simulated manipulation at 89.4% success). Indispensable source for calibrating expectations: AI progresses rapidly on structured benchmarks, but the gap persists on deep comprehension and action in real uncontrolled environments."
+    },
+    "url": "https://hai.stanford.edu/research/ai-index-report",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-02-15",
+    "source": "Anthropic · Economic Index Research",
+    "country": "INT",
+    "title": {
+      "fr": "Anthropic Labor Market Impacts of AI · l'écart capacité observée vs capacité théorique",
+      "en": "Anthropic Labor Market Impacts of AI · the Gap Between Observed and Theoretical Capability"
+    },
+    "excerpt": {
+      "fr": "Étude d'Anthropic sur les usages réels de Claude par catégorie professionnelle, croisée avec les capacités théoriques d'automatisation par tâche. Le résultat clé : un écart majeur entre ce que la technologie est capable de faire et ce qu'elle est effectivement utilisée pour faire. Confirme l'observation MIT/Nanda 2024 (95% des projets GenAI échouent à délivrer de la valeur) et illustre le démarrage lent de l'automatisation par genAI dans les organisations. Le mode dominant d'usage reste l'augmentation (assistance à des tâches précises) plutôt que l'automatisation complète de bundles de tâches. Cadre essentiel pour comprendre la viscosité réelle de la transformation par IA, complémentaire à Brynjolfsson 2025 et NY Fed 2026 sur le reskilling plutôt que les coupes.",
+      "en": "Anthropic study on actual Claude usage by professional category, cross-referenced with theoretical task-by-task automation capabilities. The key finding: a major gap between what the technology can do and what it is actually used for. Confirms the MIT/Nanda 2024 observation (95% of GenAI projects fail to deliver value) and illustrates the slow start of AI automation in organizations. The dominant usage mode remains augmentation (assistance on specific tasks) rather than complete automation of task bundles. Essential framework for understanding the real viscosity of AI transformation, complementary to Brynjolfsson 2025 and NY Fed 2026 on reskilling rather than cuts."
+    },
+    "url": "https://www.anthropic.com/research/labor-market-impacts",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2025-09-01",
+    "source": "Sangeet Paul Choudary · Reshuffle book",
+    "country": "INT",
+    "title": {
+      "fr": "Reshuffle · l'IA comme intelligent glue qui supprime les frictions des processus",
+      "en": "Reshuffle · AI as Intelligent Glue Removing Process Friction"
+    },
+    "excerpt": {
+      "fr": "Ouvrage de référence sur l'IA en entreprise par Sangeet Paul Choudary. La thèse centrale : la vraie puissance transformative de l'IA ne vient pas de la manière dont elle exécute une tâche, mais de la manière dont elle restructure tout le système autour de la tâche. Définir les métiers comme une simple somme de tâches automatisables passe à côté des contraintes que les métiers gèrent : le contexte dans lequel les tâches sont effectuées, la coordination requise pour séquencer les tâches, et le risque à gérer en cas d'incident. Ces contraintes maintiennent les métiers ensemble. Choudary cite l'exemple Airbus de l'usage de l'IA et des digital twins pour redéfinir la structure du travail, plutôt que d'optimiser des tâches isolées. Avertissement crucial : surestimer l'optimisation peut paradoxalement détruire la coordination existante, rendant le système moins fiable.",
+      "en": "Reference work on AI in enterprise by Sangeet Paul Choudary. The central thesis: AI's real transformative power does not come from how it performs a task, but from how it restructures the entire system around the task. Defining jobs as a simple sum of automatable tasks misses the constraints jobs manage: the context in which tasks are performed, the coordination required to sequence tasks, and the risk to manage if something goes wrong. These constraints hold jobs together. Choudary cites the Airbus example of AI and digital twins use to redefine work structure, rather than optimizing isolated tasks. Crucial warning: overemphasizing optimization can paradoxically break down existing coordination, making the system less reliable."
+    },
+    "url": "https://www.amazon.fr/Reshuffle-wins-restacks-knowledge-economy/dp/B0FK3BHF3F",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-20",
+    "source": "Yann Ferguson · Numeum / RNS Strasbourg",
+    "country": "FR",
+    "title": {
+      "fr": "Yann Ferguson · les 4 archétypes du travailleur face à l'IA · RNS Strasbourg",
+      "en": "Yann Ferguson · The 4 Worker Archetypes Facing AI · RNS Strasbourg"
+    },
+    "excerpt": {
+      "fr": "Cadre d'analyse de Yann Ferguson, sociologue et expert reconnu sur l'impact réel de l'automatisation sur les personnes et les métiers, présenté lors des Rencontres Numériques de Strasbourg en avril 2026 et synthétisé dans son ouvrage « Ce que l'intelligence artificielle fait de l'homme au travail ». Quatre archétypes du travailleur face à l'IA : <strong>le travailleur remplacé</strong>, où l'automatisation réduit silencieusement les emplois par attrition plutôt que par licenciements ; <strong>le travailleur dominé</strong>, dont l'autonomie et les compétences sont contraintes par le contrôle algorithmique, soulevant des préoccupations éthiques fortes ; <strong>le travailleur augmenté</strong>, qui bénéficie d'une performance améliorée mais fait face à de nouvelles exigences de compétences et à des coûts cognitifs potentiels ; <strong>le travailleur réhumanisé</strong>, où l'IA libère du temps pour des activités plus distinctement humaines comme la créativité et l'empathie, bien que cette issue reste ambiguë. Cadre directement applicable aux décisions RH françaises : chaque poste cadre à transformer doit être analysé en termes d'archétype cible.",
+      "en": "Analytical framework by Yann Ferguson, sociologist and recognized expert on the real impact of automation on people and jobs, presented at the Strasbourg Digital Encounters in April 2026 and synthesized in his book « Ce que l'intelligence artificielle fait de l'homme au travail ». Four worker archetypes facing AI: <strong>the replaced worker</strong>, where automation silently reduces jobs through attrition rather than layoffs; <strong>the dominated worker</strong>, whose autonomy and skills are constrained by algorithmic control, raising strong ethical concerns; <strong>the augmented worker</strong>, who benefits from improved performance but faces new skill requirements and potential cognitive costs; <strong>the rehumanized worker</strong>, where AI frees time for more distinctly human activities like creativity and empathy, although this outcome remains ambiguous. Framework directly applicable to French HR decisions: each executive role to transform must be analyzed in terms of target archetype."
+    },
+    "url": "https://numeum.fr/numerique-responsable/strasbourg-le-20-avril-2026-communique-de-presse-troisieme-edition-des-rencontres-numeriques-de-strasbourg/",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-05-03",
+    "source": "The New York Times · Opinion",
+    "country": "INT",
+    "title": {
+      "fr": "Le débat IA et chômage à l'épreuve des faits · Silicon Valley face à la réalité du marché du travail",
+      "en": "The AI Jobs Debate Against the Facts · Silicon Valley Versus Real Labor Markets"
+    },
+    "excerpt": {
+      "fr": "Tribune de référence sur le décalage entre les annonces des dirigeants de l'IA (Amodei, Suleyman) et les données empiriques disponibles en 2026. Confronte la prédiction Amodei (50% des emplois cadres entrants éliminés en 1 à 5 ans) aux observations du terrain : reskilling massif chez les firmes ayant adopté l'IA, occupational churn à un plancher historique, absence de signal de désorganisation aggregate. Synthèse essentielle pour les COMEX qui doivent arbitrer entre récit médiatique et politique RH actionnable.",
+      "en": "Reference op-ed on the gap between AI executives' announcements (Amodei, Suleyman) and the empirical data available in 2026. Confronts the Amodei prediction (50% of entry-level white-collar jobs eliminated in 1 to 5 years) with field observations: massive reskilling among AI-adopting firms, occupational churn at a historic low, no aggregate disruption signal. Essential synthesis for executives arbitrating between media narrative and actionable HR policy."
+    },
+    "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-05-02",
+    "source": "Silicon Continent · Pieter Garicano",
+    "country": "INT",
+    "title": {
+      "fr": "Pourquoi les emplois de bureau survivent · une réponse côté offre à Amodei",
+      "en": "Why Desk Jobs Survive · A Supply-Side Answer to Amodei"
+    },
+    "excerpt": {
+      "fr": "Critique structurée des prédictions Amodei et Suleyman. Argument central : un job n'est pas une somme de tâches automatisables, c'est un bundle. Quand l'IA prend la tâche faible du bundle, elle laisse au travailleur la tâche forte, qui était souvent celle qui produisait la vraie valeur. Conséquence empirique : l'IA recompose les métiers, elle les supprime rarement. Travail préliminaire au livre Messy Jobs avec Jin Li et Yanhui Wu. Référence à l'exemple historique de l'horlogerie suisse face au quartz (1980), où la survie n'est pas venue d'une meilleure précision technique mais d'une redéfinition du bundle de valeur.",
+      "en": "Structured critique of Amodei's and Suleyman's predictions. Central argument: a job is not a sum of automatable tasks, it is a bundle. When AI takes the weak task of the bundle, it leaves the worker with the strong task, which was often the one producing the real value. Empirical consequence: AI recomposes occupations, it rarely eliminates them. Preliminary work for the book Messy Jobs with Jin Li and Yanhui Wu. References the historical example of Swiss watchmaking facing quartz (1980), where survival came not from better technical precision but from a redefinition of the value bundle."
+    },
+    "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-03-27",
+    "source": "Philip Trammell · Stanford Digital Economy Lab",
+    "country": "INT",
+    "title": {
+      "fr": "Le travail est-il un luxe à long terme ?",
+      "en": "Is Labor a Luxury in the Long Run?"
+    },
+    "excerpt": {
+      "fr": "Argumentation théorique sur la persistance d'une part travail élevée même dans un scénario de pleine automatisation. Trammell mobilise la notion de biens human-intrinsic : concerts, performances, accompagnement, soin, où la présence humaine fait partie de la définition même du bien. Une préférence même légère pour ces biens humains-intrinsèques peut maintenir la part travail à un niveau élevé, voire la pousser vers 1, même si les machines deviennent arbitrairement capables. Cadre théorique solide pour comprendre pourquoi les économistes (Papanikolaou, Northwestern) observent des effets compensatoires plutôt qu'un effondrement de l'emploi. Coauteur du Working Paper GPI 2020 fondateur sur la croissance économique sous IA transformatrice avec Anton Korinek.",
+      "en": "Theoretical argument on the persistence of a high labor share even in a full-automation scenario. Trammell mobilizes the notion of human-intrinsic goods: concerts, performances, accompaniment, care, where human presence is part of the very definition of the good. Even a mild preference for these human-intrinsic goods can keep the labor share at a high level, possibly pushing it toward 1, even if machines become arbitrarily capable. Solid theoretical framework for understanding why economists (Papanikolaou, Northwestern) observe offsetting effects rather than employment collapse. Co-author of the foundational GPI 2020 Working Paper on economic growth under transformative AI with Anton Korinek."
+    },
+    "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-15",
+    "source": "Federal Reserve Bank of New York · Survey",
+    "country": "INT",
+    "title": {
+      "fr": "Survey NY Fed · les firmes adoptant l'IA choisissent majoritairement le reskilling plutôt que les coupes d'effectifs",
+      "en": "NY Fed Survey · AI-Adopting Firms Mostly Choose Reskilling Over Headcount Cuts"
+    },
+    "excerpt": {
+      "fr": "Données de la Federal Reserve Bank of New York montrant que la majorité des entreprises adoptant l'IA en 2026 choisissent de former leur personnel existant plutôt que de réduire les effectifs. Donnée empirique critique pour calibrer les attentes sur le rythme et la nature de la transition. Confirme les observations Brynjolfsson 2025 (gain +15% concentré sur les juniors, augmentation plutôt que substitution) et complète l'argument Garicano sur la recomposition des bundles plutôt que leur élimination. À mettre en regard des prédictions Amodei sur la suppression rapide de 50% des entry-level cadres.",
+      "en": "Data from the Federal Reserve Bank of New York showing that the majority of firms adopting AI in 2026 choose to retrain their existing staff rather than cut headcount. Critical empirical data to calibrate expectations about the pace and nature of the transition. Confirms Brynjolfsson 2025 observations (+15% gain concentrated on juniors, augmentation rather than substitution) and complements Garicano's argument on bundle recomposition rather than elimination. To be set against Amodei's predictions of rapid suppression of 50% entry-level white-collar jobs."
+    },
+    "url": "https://www.newyorkfed.org/research/policy/sce-labor",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2025-01-23",
+    "source": "Davos / Anthropic · Dario Amodei",
+    "country": "INT",
+    "title": {
+      "fr": "Prédiction Amodei à Davos · 50% des emplois cadres entrants éliminés en 1 à 5 ans",
+      "en": "Amodei Davos Prediction · 50% of Entry-Level White-Collar Jobs Eliminated in 1 to 5 Years"
+    },
+    "excerpt": {
+      "fr": "Prédiction de référence dans le débat IA et travail. Lors de Davos en janvier 2025, Dario Amodei (CEO d'Anthropic) annonce que l'IA pourrait éliminer jusqu'à 50% des emplois cadres entrants en finance, conseil, droit et tech, dans un horizon de 1 à 5 ans, et porter le chômage entre 10% et 20%. Argument structurel : contrairement aux vagues d'automatisation passées, l'IA progresse simultanément dans tous les secteurs cognitifs, supprimant les bassins d'emploi adjacents qui absorbaient les travailleurs déplacés. Cette prédiction est devenue le pôle pessimiste du débat de référence en 2025-2026 et a été contestée par Garicano (Silicon Continent), Trammell (Stanford), Papanikolaou (Northwestern) et LeCun (Meta).",
+      "en": "Reference prediction in the AI and work debate. At Davos in January 2025, Dario Amodei (Anthropic CEO) announced that AI could eliminate up to 50% of entry-level white-collar jobs in finance, consulting, law, and tech, on a 1-to-5-year horizon, and push unemployment between 10% and 20%. Structural argument: unlike past automation waves, AI progresses simultaneously across all cognitive sectors, eliminating the adjacent employment basins that absorbed displaced workers. This prediction has become the pessimistic pole of the 2025-2026 reference debate and has been contested by Garicano (Silicon Continent), Trammell (Stanford), Papanikolaou (Northwestern), and LeCun (Meta)."
+    },
+    "url": "https://www.weforum.org/agenda/2025/01/anthropic-amodei-davos-ai-employment/",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-15",
+    "source": "Dan Taylor-Watt · Substack",
+    "country": "INT",
+    "title": {
+      "fr": "Pourquoi je conteste la prédiction Amodei sur l'emploi",
+      "en": "Why I Disagree With Amodei's AI Jobs Prediction"
+    },
+    "excerpt": {
+      "fr": "Démontre trois facteurs sous-estimés par Amodei dans son extrapolation depuis les capacités IA en software vers l'ensemble des métiers white-collar. Premièrement, le software est anormalement validable (Y/N sur les tests) ; les autres domaines ne sont pas binaires. Deuxièmement, les hallucinations restent un facteur prohibitif pour l'automatisation totale dans la plupart des domaines. Troisièmement, le jugement, l'accountability et la crédibilité humaines sont rémunérés en plus de la formule technique. En consulting, les clients ne paient pas seulement la formule, ils paient le jugement, la crédibilité et l'accountability du consultant humain. Mise en garde : si les dirigeants gèlent les recrutements juniors par anticipation, ils détruisent leur propre pipeline de seniors. Hollow out the entry level and you hollow out the pipeline.",
+      "en": "Demonstrates three factors underestimated by Amodei in his extrapolation from software AI capabilities to all white-collar jobs. First, software is unusually verifiable (Y/N on tests); other domains are not binary. Second, hallucinations remain a prohibitive factor for full automation in most domains. Third, human judgment, accountability, and credibility are paid in addition to the technical formula. In consulting, clients do not just pay for the formula, they pay for the judgment, credibility, and accountability of the human consultant. Warning: if executives freeze junior hiring in anticipation, they destroy their own pipeline of seniors. Hollow out the entry level and you hollow out the pipeline."
+    },
+    "url": "https://dantaylorwatt.substack.com/p/why-i-disagree-with-dario-amodeis",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2023-10-01",
+    "source": "Trammell & Korinek · Global Priorities Institute · NBER",
+    "country": "INT",
+    "title": {
+      "fr": "Economic Growth under Transformative AI : le paper foundateur sur la croissance et la part du travail",
+      "en": "Economic Growth under Transformative AI: the foundational paper on growth and labor share"
+    },
+    "excerpt": {
+      "fr": "Working paper de Philip Trammell (Oxford GPI, Stanford Digital Economy Lab) et Anton Korinek (Virginia, NBER, CEPR) qui pose le cadre théorique de référence sur la croissance économique en présence d'IA transformative. Si l'IA permet au capital de devenir un substitut brut au travail dans la production, et si les machines peuvent s'auto-répliquer, alors le taux de croissance peut s'accélérer dramatiquement et la part du travail peut s'effondrer. Ce résultat dépend de manière critique des hypothèses sur la fonction de production et la complémentarité capital-travail. Le paper recense les modèles disponibles (Hanson, Davidson, Korinek-Halperin-Houlden) et identifie les paramètres clés pour anticiper les scénarios. Référence centrale citée par Imas, Trammell et Garicano dans leurs échanges substack 2026.",
+      "en": "Working paper by Philip Trammell (Oxford GPI, Stanford Digital Economy Lab) and Anton Korinek (Virginia, NBER, CEPR) establishing the reference theoretical framework for economic growth in the presence of transformative AI. If AI enables capital to become a gross substitute for labor in production, and if machines can self-replicate, then the growth rate can dramatically accelerate and the labor share can collapse. This result depends critically on assumptions about the production function and capital-labor complementarity. The paper reviews the available models (Hanson, Davidson, Korinek-Halperin-Houlden) and identifies the key parameters for anticipating scenarios. Central reference cited by Imas, Trammell, and Garicano in their 2026 substack exchanges."
+    },
+    "url": "https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-05-01",
+    "source": "Washington Post · Tech",
+    "country": "INT",
+    "title": {
+      "fr": "Ce que les licenciements de la Silicon Valley cachent sur l'avenir du marché du travail",
+      "en": "What Silicon Valley layoffs hide about the future of the job market"
+    },
+    "excerpt": {
+      "fr": "Enquête Washington Post du 1er mai 2026. Les géants tech investissent massivement dans l'IA mais n'ont pas réduit leurs effectifs significativement. Meta annonce 10% de licenciements en mai mais cela suit deux années de croissance d'effectifs. Les électeurs américains, dans les sondages cités, n'achètent pas le récit que l'IA va bénéficier au travailleur moyen. Le décalage entre les prédictions Amodei/Suleyman (50% des cols blancs juniors automatisés, 12-18 mois) et la réalité statistique du marché du travail américain alimente la défiance institutionnelle. L'article fait écho aux travaux de Garicano, Trammell et Imas qui défendent la thèse de la persistance des métiers complexes face à l'automatisation des tâches.",
+      "en": "Washington Post investigation of May 1, 2026. Tech giants are investing heavily in AI but haven't significantly shrunk their workforces. Meta announces 10% layoffs in May but this follows two years of headcount growth. American voters, in cited polls, are not buying the narrative that AI will benefit the average worker. The gap between Amodei/Suleyman predictions (50% of junior white-collars automated, 12-18 months) and the statistical reality of the US labor market fuels institutional distrust. The article echoes the work of Garicano, Trammell, and Imas defending the thesis of complex job persistence in the face of task automation."
+    },
+    "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+    "ai_type": "generative"
+  },
+  {
+    "date": "2026-04-06",
+    "source": "Fortune · Omar Abbosh (CEO Pearson)",
+    "country": "INT",
+    "title": {
+      "fr": "L'apocalypse IA des emplois est un récit Silicon Valley. Les données racontent autre chose.",
+      "en": "The AI Job Apocalypse Is a Silicon Valley Story. The Data Tells a Different One."
+    },
+    "excerpt": {
+      "fr": "Le PDG de Pearson contextualise : la transformation des métiers du software engineering explique l'essentiel de la panique émanant de la Silicon Valley, mais ne reflète pas le marché du travail au sens large. Recherches d'Oxford Economics (janvier 2026) : preuves de perturbation IA « patchwork au mieux ». Économistes du travail Wharton : AI-washing des pertes d'emploi. Taux de chômage US 4,4% (9,4% pour les 16-24 ans), bien en deçà des pics européens années 90 (11% global, plus de 20% pour les jeunes). Ce qui est observé : cycles économiques classiques, surembauche, correction des coûts. La rhétorique d'« inflection point IA » est largement déconnectée des données macroéconomiques effectives. À utiliser en contre-poids des annonces Amodei/Suleyman/Dimon dans les Dispatches.",
+      "en": "Pearson's CEO contextualizes: the transformation of software engineering jobs explains most of the panic emanating from Silicon Valley, but does not reflect the broader labor market. Oxford Economics research (January 2026): evidence of AI disruption « patchy at best ». Wharton labor economists: AI-washing of job losses. US unemployment rate 4.4% (9.4% for 16-24-year-olds), far below European peaks of the 1990s (11% overall, over 20% for youth). What we are observing: classical economic cycles, overhiring, cost correction. The « AI inflection point » rhetoric is largely disconnected from actual macroeconomic data. To use as counterweight to Amodei/Suleyman/Dimon announcements in the Dispatches."
+    },
+    "url": "https://fortune.com/2026/04/06/ai-job-apocalypse-silicon-valley-wrong-labor-market/",
+    "ai_type": "generative"
+  },
+  {
     "date": "2026-04-28",
     "source": "Singh Tomer · Working Paper",
     "country": "INT",
@@ -147,21 +432,6 @@
       "en": "Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."
     },
     "url": "https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far",
-    "ai_type": "generative"
-  },
-  {
-    "date": "2026-04-15",
-    "source": "Stanford HAI",
-    "country": "INT",
-    "title": {
-      "fr": "AI Index Report 2026·neuvième édition",
-      "en": "AI Index Report 2026·ninth edition"
-    },
-    "excerpt": {
-      "fr": "Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.",
-      "en": "Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."
-    },
-    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
     "ai_type": "generative"
   },
   {

@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 40,
+  "count": 52,
   "events": [
     {
       "year": "2025",
@@ -366,6 +366,114 @@
       "headline_value": "$830M de dette · 7 banques EU+JP · 13 800 GPU · 200 MW européens en 2027",
       "tier": 1,
       "citation": "European Business Magazine · Mistral AI · 30 mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "Trammell · le travail comme bien de luxe à long terme · théorie de la part durable",
+      "summary_fr": "Philip Trammell (postdoc Stanford Digital Economy Lab, en collaboration avec Brynjolfsson et Chad Jones, prolongeant son paper Trammell-Korinek 2023 au Global Priorities Institute) publie une théorisation de la part durable du travail humain. Argument central : il y a au plus un travailleur par personne, alors que les machines peuvent être numériquement illimitées. Quand l'offre d'une machine devient suffisamment abondante, son utilité marginale s'effondre plus vite qu'à la moitié à chaque doublement. Une préférence même très faible pour des biens « human-intrinsic » (concert, performance, soin, où être produit par un humain fait partie de la valeur) suffit à maintenir la part du travail élevée, voire à la conduire à 1, même avec des machines arbitrairement capables. Trois résultats articulés : (1) si les machines peuvent tout faire et sont plus nombreuses, leurs propriétaires capturent davantage de revenus ; (2) certains biens restent human-intrinsic et non substituables ; (3) si la complémentarité capital-travail reste forte sur ces biens, le revenu réalloué maintient la part du travail. Cette base théorique consolide la dimension 2 du cadre analytique de l'observatoire (secteur relationnel comme bénéficiaire structurel de l'IA via l'effet-revenu).",
+      "headline_value": "Une préférence même faible pour les biens human-intrinsic suffit à maintenir la part du travail élevée",
+      "tier": 1,
+      "citation": "Trammell · Stanford Digital Economy Lab · 27 mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Garicano · The Task Is Not the Job · réfutation argumentée du scénario Amodei/Suleyman",
+      "summary_fr": "Luis Garicano (LSE, économiste du travail, Silicon Continent) publie le « bundles framework » et réfute les prédictions d'Amodei (Anthropic, 50% des cols blancs juniors automatisés en 1-5 ans) et Suleyman (Microsoft AI, 12-18 mois pour automatiser le travail de bureau). Thèse centrale : les marchés du travail valorisent des métiers, pas des tâches isolées. Trois conditions rendent un bundle fort : demande imprévisible, spillovers de production, problème de mesure (Alchian-Demsetz). Trois objections au scénario Silicon Valley : (1) les agents de voyage qui ont survécu à Internet gagnent davantage car la machine a pris la partie faible du bundle, leur laissant la partie forte (emploi -60% depuis 2000, salaires hebdo passés de 87% à 99% de la moyenne secteur privé) ; (2) l'effet-revenu réalloue la dépense vers les secteurs à forte composante humaine ; (3) l'économie n'est pas l'agrégat des tâches que veulent les consommateurs, c'est ce que les organisations doivent faire pour les atteindre (coordination, gestion d'incohérences que les LLM ne traitent pas). Cas comptables : Frey & Osborne 2013 prédisaient 94% de probabilité d'automatisation, le BLS recense aujourd'hui 1,6 million de comptables et auditeurs avec croissance projetée +5% sur 2024-2034. À paraître dans Messy Jobs (Garicano, Li, Wu). À rapprocher de NBER w35110 et Yale Budget Lab sur l'instabilité des scores d'exposition.",
+      "headline_value": "Agents de voyage : -60% emploi depuis 2000 mais salaires de 87% à 99% de la moyenne",
+      "tier": 1,
+      "citation": "Garicano · Silicon Continent · 24 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mai 2026",
+      "title": "Washington Post + NYT · le décalage entre rhétorique IA et chiffres effectifs des Big Tech",
+      "summary_fr": "Constat empirique majeur publié dans le Washington Post (1er mai 2026) et repris dans une opinion New York Times (3 mai 2026) : Amazon, Google et Meta ont aujourd'hui à peu près le même nombre d'employés qu'en 2022, en pleine ruée à l'embauche post-pandémie. Les coûts R&D par dollar de chiffre d'affaires sont supérieurs à 2022 chez Meta, Google et Amazon. Les quatre plus grandes entreprises tech engagent plus de 700 milliards de dollars de CapEx 2026, principalement vers l'infrastructure IA. Marc Andreessen (board Meta) et Sam Altman (CEO OpenAI) reconnaissent publiquement que les licenciements relèvent d'abord de la surembauche pandémie et des conditions macroéconomiques, l'IA servant de bouc-émissaire culturellement résonnant. Le récit d'austérité IA ne se traduit pas dans les chiffres d'effectifs. Taux de chômage US 4,4% (9,4% pour les 16-24 ans), très en dessous des pics européens années 1990. Oxford Economics (janvier 2026) qualifie les preuves d'une perturbation IA de « patchwork au mieux ». Wharton parle d'« AI-washing des pertes d'emploi ».",
+      "headline_value": "Big Tech : effectifs 2026 ≈ effectifs 2022 malgré 700 Md$ de CapEx IA",
+      "tier": 1,
+      "citation": "Washington Post technology · NYT Opinion · 1er-3 mai 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Janvier 2025",
+      "title": "Amodei à Davos · prédiction de 50% d'emplois cadres entrants éliminés en 1 à 5 ans",
+      "summary_fr": "Au Forum économique mondial de Davos en janvier 2025, Dario Amodei, CEO d'Anthropic, prédit publiquement que l'IA pourrait éliminer jusqu'à 50% des emplois cadres entrants en finance, conseil, droit et tech sur un horizon de 1 à 5 ans, et porter le chômage entre 10% et 20%. Argument structurel : contrairement aux vagues d'automatisation passées (factory workers vers offices), l'IA progresse simultanément dans tous les secteurs cognitifs, supprimant les bassins d'emploi adjacents qui absorbaient les travailleurs déplacés. Cette prédiction est devenue le pôle pessimiste du débat de référence et a structuré la conversation médiatique pendant 18 mois.",
+      "headline_value": "50% entry-level cadres en 1-5 ans · pôle pessimiste du débat 2025-2026",
+      "tier": 2,
+      "citation": "Davos / Anthropic · Dario Amodei · janvier 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "Trammell · cadre théorique sur la persistance de la part travail face à l'automatisation",
+      "summary_fr": "Philip Trammell (Stanford Digital Economy Lab) publie un argument théorique solide sur la persistance d'une part travail élevée même dans un scénario de pleine automatisation. La thèse repose sur la notion de biens human-intrinsic : concerts, performances, soin, accompagnement, enseignement direct, où la présence humaine fait partie de la définition même du bien. Une préférence même légère pour ces biens humains-intrinsèques peut maintenir la part travail à un niveau élevé, voire la pousser vers 1, même si les machines deviennent arbitrairement capables. Trammell est coauteur du Working Paper GPI 2020 fondateur sur la croissance économique sous IA transformatrice avec Anton Korinek (NBER, CEPR). Cet article fournit le cadre théorique qui soutient les observations empiriques de Papanikolaou (Northwestern) et de Garicano (Silicon Continent).",
+      "headline_value": "Biens human-intrinsic · cadre théorique anti-Amodei",
+      "tier": 1,
+      "citation": "Trammell · Stanford Digital Economy Lab · 27 mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mai 2026",
+      "title": "Garicano · réponse côté offre à Amodei · la tâche n'est pas le job",
+      "summary_fr": "Pieter Garicano (Silicon Continent) publie une critique structurée des prédictions Amodei et Suleyman. L'argument central : un job n'est pas une somme de tâches automatisables, c'est un bundle. Quand l'IA prend la tâche faible du bundle, elle laisse au travailleur la tâche forte, qui était souvent celle qui produisait la vraie valeur. Conséquence empirique : l'IA recompose les métiers, elle les supprime rarement. Travail préliminaire au livre Messy Jobs avec Jin Li et Yanhui Wu. L'auteur mobilise l'exemple historique de l'horlogerie suisse face au quartz dans les années 1980 : la survie n'est pas venue d'une meilleure précision technique, mais d'une redéfinition complète du bundle de valeur (mécanique d'art, héritage, statut). Cadre directement applicable au débat IA contemporain.",
+      "headline_value": "La tâche n'est pas le job · le bundle survit, recomposé",
+      "tier": 1,
+      "citation": "Silicon Continent · Pieter Garicano · 2 mai 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Janvier 2025",
+      "title": "Lee et al. (Microsoft Research + Carnegie Mellon) · l'usage répété de la GenAI affaiblit la pensée critique",
+      "summary_fr": "Étude conjointe Microsoft Research et Carnegie Mellon sur les effets cognitifs de l'usage répété de la GenAI par les knowledge workers. Trois résultats majeurs : faux sentiment de confiance dans les outputs IA, diminution mesurable de la pensée critique après usage répété (particulièrement chez les novices), bascule du cycle question-réflexion-vérification vers le cycle question-IA-acceptation. À mettre en perspective avec l'étude MIT Klopfer (2024, groupe ChatGPT n'a rien retenu en Fortran) et l'imagerie cérébrale MIT 2025 (activation neurale réduite). Implications RH critiques : l'augmentation IA des juniors est productive à court terme mais doit être accompagnée d'une discipline d'usage.",
+      "headline_value": "Faux sentiment de confiance · pensée critique en baisse · effet plus fort sur novices",
+      "tier": 2,
+      "citation": "Microsoft Research + Carnegie Mellon · Lee et al. · janvier 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Rencontres Numériques de Strasbourg · Caseau et Ferguson sur l'agentic AI et le travail",
+      "summary_fr": "Troisième édition des Rencontres Numériques de Strasbourg (RNS), organisées par Numeum, où Yves Caseau (ex-Chief Digital Officer de Michelin) et Yann Ferguson (sociologue, expert reconnu sur l'impact réel de l'automatisation) présentent une synthèse structurante du débat IA et travail. Apports majeurs : reprise du cadre McKinsey en trois types de travail (production / transaction / interaction), distinction ACI vs AGI, application de la loi d'Amara, modèle FWPM (Future of Work Parametric Model) avec quatre inconnues clés, et les quatre archétypes du travailleur de Ferguson (remplacé / dominé / augmenté / réhumanisé). Référence éditoriale pour calibrer la lecture de la transformation IA en France et en Suisse francophone.",
+      "headline_value": "Cadre McKinsey 3 types · ACI vs AGI · 4 archétypes Ferguson · loi d'Amara",
+      "tier": 1,
+      "citation": "Caseau · Ferguson · Numeum RNS Strasbourg · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Stanford HAI · AI Index Report 2026",
+      "summary_fr": "Rapport annuel de référence de Stanford HAI sur l'état des capacités IA. Le chapitre 2 documente les progrès considérables de 2025 mais aussi les limites structurelles persistantes. Sur OSWorld, la précision des agents IA est passée de 12% à 66,3% en un an, à 6 points seulement de la performance humaine. Sur LongBench v2, marge étroite entre experts humains (53,7%) et meilleur modèle (57,7%). Sur la robotique, succès de seulement 12% des tâches ménagères courantes même quand les modèles excellent en simulation contrôlée (RLBench 89,4%). Source incontournable pour calibrer les attentes sectorielles.",
+      "headline_value": "AI Index 2026 · OSWorld 12% → 66,3% en un an · robots 12% sur ménage réel",
+      "tier": 1,
+      "citation": "Stanford HAI · AI Index Report 2026 · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Septembre 2025",
+      "title": "Choudary · Reshuffle, l'IA comme glu intelligente qui restructure le système",
+      "summary_fr": "Sangeet Paul Choudary publie « Reshuffle: Who Wins When AI Restacks the Knowledge Economy ». Thèse centrale qui réoriente le débat sur l'automatisation : le pouvoir transformateur réel de l'IA n'est pas dans l'automatisation de tâches isolées (RPA 2.0) mais dans son rôle de glu intelligente qui restructure le système entier autour de la tâche. Distinction critique entre task-oriented AI (améliore la performance dans les structures existantes) et system-level AI (redessine la structure du travail). L'exemple Airbus avec digital twins devient une référence : l'IA n'optimise pas des tâches isolées, elle identifie les bottlenecks, teste des configurations alternatives, redessine les rôles selon une vue systémique en évolution. Implication directe pour les directions RH : décomposer un job en tâches automatisables manque les contraintes (contexte, coordination, gestion du risque) qui maintiennent le job ensemble.",
+      "headline_value": "L'IA comme glu intelligente · system-level vs task-level",
+      "tier": 2,
+      "citation": "Sangeet Paul Choudary · Reshuffle · septembre 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "AII 2026 Stanford · l'écart entre fenêtre de contexte longue et compréhension profonde",
+      "summary_fr": "Le rapport annuel du Stanford Human-Centered AI Institute documente quatre chiffres clés qui recadrent le débat ACI vs AGI. Sur LongBench v2 (compréhension de longs documents par experts en 15 minutes), les humains atteignent 53,7% et le meilleur modèle 57,7% : marge étroite, la compréhension profonde reste difficile pour les modèles. Sur OSWorld (tâches sur ordinateur), les agents passent de 12% à 66,3% en 2025, à 6 points de la performance humaine. Robots multi-usages : 89,4% en simulation RLBench, mais seulement 12% sur les tâches ménagères réelles (l'écart laboratoire/réel reste massif). Un agent IA échoue encore 1 fois sur 3 sur les benchmarks structurés. Ces chiffres soutiennent la lecture Caseau : l'ACI (intelligence cognitive artificielle) est là, mais l'AGI (intelligence générale incluant intelligence situationnelle et émotionnelle) n'est pas pour avant 2030.",
+      "headline_value": "LongBench v2 · 53,7% humains vs 57,7% modèles · marge étroite",
+      "tier": 1,
+      "citation": "Stanford HAI · AI Index Report 2026 · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mai 2026",
+      "title": "Caseau · synthèse RNS Strasbourg, le cadre McKinsey production/transaction/interaction et la viscosité de la transformation",
+      "summary_fr": "Yves Caseau (CTO Michelin, ex-CEISAR, Académie des technologies) publie une synthèse de référence à partir de ses conférences au RNS Strasbourg et à Bonnieux. Mobilise le modèle McKinsey Lund/Manyika/Ramaswamy pour structurer l'impact différencié : la production migre vers les robots, la transaction vers l'IA générative, l'interaction reste résiliente (soin, éducation, hospitalité, médiation, présence incarnée). Articule la loi d'Amara avec la viscosité documentée de la transformation IA en entreprise. Mobilise Yann Ferguson (LaborIA, ICAM Toulouse) pour les 4 archétypes de travailleurs face à l'IA : remplacé, dominé, augmenté, réhumanisé. Mobilise Choudary (Reshuffle), Iansiti (Harvard), AII 2026 Stanford pour calibrer la maturité réelle. Présente le modèle FWPM (Future of Work Parametric Model) en quatre paramètres comme outil d'analyse systémique. Position robuste à mi-chemin entre Amodei pessimiste et déni minimaliste : ACI déjà là, AGI pas avant 2030, transformation profonde mais lente, nécessité d'une politique publique de redistribution.",
+      "headline_value": "ACI déjà là · AGI pas avant 2030 · cadre McKinsey + 4 archétypes Ferguson",
+      "tier": 2,
+      "citation": "Yves Caseau · Information Systems Biology · 2 mai 2026",
       "ai_type": "generative"
     }
   ]

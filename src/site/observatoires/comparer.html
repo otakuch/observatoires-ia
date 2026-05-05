@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparer CH × FR · observatoire[s]·ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="../index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <h1 class="dash-title" data-i18n="cmp.title" data-i18n-html="true"></h1>
+  <p class="dash-lede" data-i18n="cmp.lede"></p>
+  <div class="dash-cta-row">
+    <a href="suisse.html" class="btn btn-secondary">
+      🇨🇭 <span data-i18n="cmp.cta.ch.short"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="france.html" class="btn btn-secondary">
+      🇫🇷 <span data-i18n="cmp.cta.fr.short"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- METHOD CONTEXT -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="cmp.context.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="cmp.context.title" data-i18n-html="true"></h3>
+      <div data-i18n="cmp.context.text" data-i18n-html="true"></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num">6</div>
+          <div class="kf-label" data-i18n="cmp.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">3</div>
+          <div class="kf-label" data-i18n="cmp.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;" data-i18n="cmp.kf3.num"></div>
+          <div class="kf-label" data-i18n="cmp.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 DIMENSIONS · cadre commun aux deux pays -->
+<section class="cmp-dim-section">
+  <div class="cmp-dim-head">
+    <div class="cmp-dim-eyebrow mono" data-i18n="cmp.dim.eyebrow"></div>
+    <h2 class="cmp-dim-title" data-i18n="cmp.dim.title" data-i18n-html="true"></h2>
+    <p class="cmp-dim-lede" data-i18n="cmp.dim.lede"></p>
+  </div>
+  <div class="cmp-dim-grid">
+    <div class="cmp-dim-card">
+      <div class="cmp-dim-icon">↑ → ↓</div>
+      <h3 class="cmp-dim-name" data-i18n="cmp.dim.d1.title"></h3>
+      <p class="cmp-dim-body" data-i18n="cmp.dim.d1.body"></p>
+    </div>
+    <div class="cmp-dim-card">
+      <div class="cmp-dim-icon">⌭</div>
+      <h3 class="cmp-dim-name" data-i18n="cmp.dim.d2.title"></h3>
+      <p class="cmp-dim-body" data-i18n="cmp.dim.d2.body"></p>
+    </div>
+    <div class="cmp-dim-card">
+      <div class="cmp-dim-icon">✦ ◉ ⬡</div>
+      <h3 class="cmp-dim-name" data-i18n="cmp.dim.d3.title"></h3>
+      <p class="cmp-dim-body" data-i18n="cmp.dim.d3.body"></p>
+    </div>
+  </div>
+</section>
+
+<div class="section-head no-border">
+  <div class="section-eyebrow mono" data-i18n="cmp.tab.eyebrow"></div>
+  <h2 class="section-title" data-i18n="cmp.tab.title"></h2>
+  <p class="section-sub" data-i18n="cmp.tab.sub"></p>
+</div>
+
+<div class="compare-table-wrap">
+  <table class="compare">
+    <thead>
+      <tr>
+        <th data-i18n="cmp.col.dim"></th>
+        <th class="country-ch">🇨🇭 <span data-i18n="cmp.col.ch"></span></th>
+        <th class="country-fr">🇫🇷 <span data-i18n="cmp.col.fr"></span></th>
+        <th data-i18n="cmp.col.gap"></th>
+      </tr>
+    </thead>
+    <tbody id="compareBody"></tbody>
+  </table>
+</div>
+
+<!-- BLIND SPOTS -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="cmp.blind.eyebrow"></div>
+  <h2 class="section-title" data-i18n="cmp.blind.title"></h2>
+  <p class="section-sub" data-i18n="cmp.blind.sub"></p>
+</div>
+
+<div class="cards-grid" id="blindGrid"></div>
+
+<!-- CTA double + external dashboards -->
+<section class="cross-link" style="grid-template-columns: 1fr; text-align: center;">
+  <h3 data-i18n="cmp.cta.text" data-i18n-html="true" style="max-width: 700px; margin: 0 auto;"></h3>
+  <div class="cta-row" style="justify-content: center; margin-top: 20px;">
+    <a href="suisse.html" class="btn btn-secondary">
+      🇨🇭 <span data-i18n="cmp.cta.ch"></span>
+    </a>
+    <a href="france.html" class="btn btn-secondary">
+      🇫🇷 <span data-i18n="cmp.cta.fr"></span>
+    </a>
+  </div>
+  <div class="mono" style="margin-top: 32px; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.08em; text-transform: uppercase;">
+    <span data-i18n="cmp.cta.external"></span><br>
+    <a href="https://observatoire.naullynicolas.ch/ch/" target="_blank" rel="noopener" style="color: var(--ink); margin: 8px 10px 0; display: inline-block;">observatoire.naullynicolas.ch/ch/ ↗</a>
+    <a href="https://observatoire.naullynicolas.ch/fr/" target="_blank" rel="noopener" style="color: var(--ink); margin: 8px 10px 0; display: inline-block;">observatoire.naullynicolas.ch/fr/ ↗</a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="../assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "cmp.flag": "",
+    "cmp.title": "Suisse et France face à l'IA : <em>deux modèles</em>, <em>une même question</em>.",
+    "cmp.lede": "Comparer la Suisse et la France ne consiste pas à classer un meilleur élève. Les deux pays observent l'impact de l'IA sur le travail à travers des architectures institutionnelles, des temporalités et des nomenclatures profondément différentes. Ce que l'une mesure chaque mois, l'autre l'agrège tous les quatre ans. Ce que l'une régule horizontalement, l'autre laisse aux secteurs. Cette page rapproche ce qui peut l'être, identifie les écarts structurels, et signale les questions que ni Berne ni Paris ne posent encore.",
+    "cmp.cta.ch.short": "Dashboard Suisse",
+    "cmp.cta.fr.short": "Dashboard France",
+    "cmp.context.tag": "La méthode",
+    "cmp.context.title": "Une <em>comparaison</em>, pas un classement.",
+    "cmp.context.text": "<p>Comparer deux écosystèmes nationaux suppose d'abord de poser leurs asymétries. La France fonctionne par le centre. La Suisse par les marges. La France produit ses statistiques avec une administration unifiée et des cadences mensuelles. La Suisse compose entre la Confédération, les cantons et les langues. Ces architectures politiques produisent des données qui ne sont pas immédiatement comparables.</p><p>Trois axes structurent malgré tout le rapprochement. La <strong>couverture statistique</strong>, qui mesure la densité et la régularité des publications. La <strong>réactivité institutionnelle</strong>, c'est-à-dire la vitesse à laquelle les observatoires intègrent un signal neuf comme l'irruption de l'IA générative. La <strong>posture réglementaire</strong>, enfin, qui détermine ce que les institutions estiment devoir mesurer en priorité.</p><p>Cette comparaison ne hiérarchise pas. Elle ne dit pas qu'un système est meilleur que l'autre. Elle souligne ce que chacun voit, ce que chacun ne voit pas, et les <em>questions communes</em> qu'aucun des deux ne traite encore. Sur l'IA et le travail, les angles morts sont, eux, étrangement symétriques.</p>",
+    "cmp.kf1": "Axes structurants comparés",
+    "cmp.kf2": "Questions communes non résolues",
+    "cmp.kf3.num": "× 0",
+    "cmp.kf3": "Pas de hiérarchie, juste des écarts",
+
+    "cmp.dim.eyebrow": "Cadre commun · 3 dimensions",
+    "cmp.dim.title": "Le cadre que <em>les deux dashboards partagent</em>.",
+    "cmp.dim.lede": "Les nomenclatures diffèrent (ROME en France, NP 2010 en Suisse), les calendriers institutionnels aussi, mais l'observatoire applique les mêmes trois axes de lecture aux deux territoires. Cette grille commune est ce qui rend la comparaison transfrontalière possible sans écraser les spécificités nationales.",
+    "cmp.dim.d1.title": "Trajectoire de demande",
+    "cmp.dim.d1.body": "Hausse, stabilité ou pression baissière. Un score d'exposition élevé ne signifie pas automatiquement une trajectoire négative. L'effet-revenu (Imas & Comin, 2026) explique pourquoi certains métiers exposés voient leur demande croître quand l'IA enrichit la société.",
+    "cmp.dim.d2.title": "Secteur relationnel",
+    "cmp.dim.d2.body": "Les métiers à forte nécessité humaine (soins, hospitalité, artisanat, formation, performance) sont des bénéficiaires indirects de la transition IA. Quand l'IA baisse le coût des biens standardisés, les ménages réallouent leur dépense vers la présence humaine.",
+    "cmp.dim.d3.title": "Type d'IA",
+    "cmp.dim.d3.body": "Générative, spécialisée ou robotique. Chaque famille technologique cible des métiers différents. Confondre ces familles fausse les décisions RH. Un radiologue est concerné par la vision par ordinateur, pas par ChatGPT. Détail méthodologique sur la page Méthodologie.",
+
+    "cmp.tab.eyebrow": "Tableau comparatif",
+    "cmp.tab.title": "Méthodologies, périmètres, fréquences.",
+    "cmp.tab.sub": "Six dimensions clés pour situer chaque écosystème, de la cadence statistique à la posture réglementaire.",
+    "cmp.col.dim": "Dimension",
+    "cmp.col.ch": "Suisse",
+    "cmp.col.fr": "France",
+    "cmp.col.gap": "Écart / lecture",
+    "cmp.blind.eyebrow": "Angles morts · 3 questions",
+    "cmp.blind.title": "Ce que personne ne mesure encore.",
+    "cmp.blind.sub": "Trois zones où ni les observatoires CH ni les observatoires FR ne produisent de données régulières en 2026. Ce sont les vraies questions à instruire pour la décennie qui vient.",
+    "cmp.cta.text": "Plonger dans <em>chaque pays</em> en détail.",
+    "cmp.cta.ch": "Dashboard Suisse →",
+    "cmp.cta.fr": "Dashboard France →",
+    "cmp.cta.external": "Aller plus loin · dashboards complets"
+  },
+  en: {
+    "cmp.flag": "",
+    "cmp.title": "Switzerland and France facing AI: <em>two models</em>, <em>one same question</em>.",
+    "cmp.lede": "Comparing Switzerland and France is not about ranking one against the other. The two countries observe AI's impact on work through deeply different institutional architectures, timelines and classifications. What one measures monthly, the other aggregates every four years. What one regulates horizontally, the other leaves to sectors. This page brings closer what can be brought closer, identifies the structural gaps, and flags the questions neither Bern nor Paris has yet asked.",
+    "cmp.cta.ch.short": "Switzerland dashboard",
+    "cmp.cta.fr.short": "France dashboard",
+    "cmp.context.tag": "The method",
+    "cmp.context.title": "A <em>comparison</em>, not a ranking.",
+    "cmp.context.text": "<p>Comparing two national ecosystems first requires acknowledging their asymmetries. France runs from the centre. Switzerland from the edges. France produces statistics through a unified administration and monthly rhythms. Switzerland composes between the Confederation, the cantons and the languages. These political architectures yield data that is not immediately comparable.</p><p>Three axes nonetheless structure the comparison. <strong>Statistical coverage</strong>, measuring the density and regularity of publications. <strong>Institutional reactivity</strong>, the speed at which observatories pick up a new signal like the rise of generative AI. <strong>Regulatory posture</strong>, finally, which determines what institutions consider worth measuring first.</p><p>This comparison does not rank. It does not claim one system is better than the other. It highlights what each sees, what each misses, and the <em>common questions</em> neither addresses yet. On AI and work, the blind spots turn out to be strangely symmetrical.</p>",
+    "cmp.kf1": "Structural axes compared",
+    "cmp.kf2": "Common unresolved questions",
+    "cmp.kf3.num": "× 0",
+    "cmp.kf3": "No hierarchy, only gaps",
+
+    "cmp.dim.eyebrow": "Shared frame · 3 dimensions",
+    "cmp.dim.title": "The frame both <em>dashboards share</em>.",
+    "cmp.dim.lede": "Classifications differ (ROME in France, NP 2010 in Switzerland), institutional calendars too, but the observatory applies the same three reading axes to both territories. This shared grid is what makes the cross-border comparison possible without flattening national specificities.",
+    "cmp.dim.d1.title": "Demand trajectory",
+    "cmp.dim.d1.body": "Rising, stable, or declining pressure. A high exposure score does not automatically mean a negative trajectory. The income effect (Imas & Comin, 2026) explains why some exposed occupations see their demand grow when AI enriches society.",
+    "cmp.dim.d2.title": "Relational sector",
+    "cmp.dim.d2.body": "Occupations with strong human necessity (care, hospitality, craft, training, performance) are indirect beneficiaries of the AI transition. When AI lowers the cost of standardized goods, households reallocate their spending toward human presence.",
+    "cmp.dim.d3.title": "AI type",
+    "cmp.dim.d3.body": "Generative, specialized, or robotic. Each technological family targets different occupations. Conflating these families distorts HR decisions. A radiologist is concerned by computer vision, not by ChatGPT. Methodological detail on the Methodology page.",
+    "cmp.tab.eyebrow": "Comparative table",
+    "cmp.tab.title": "Methods, scopes, frequencies.",
+    "cmp.tab.sub": "Six key dimensions to situate each ecosystem, from statistical cadence to regulatory posture.",
+    "cmp.col.dim": "Dimension",
+    "cmp.col.ch": "Switzerland",
+    "cmp.col.fr": "France",
+    "cmp.col.gap": "Gap / reading",
+    "cmp.blind.eyebrow": "Blind spots · 3 questions",
+    "cmp.blind.title": "What no one is measuring yet.",
+    "cmp.blind.sub": "Three areas where neither CH nor FR observatories produce regular data in 2026. These are the real questions to investigate for the coming decade.",
+    "cmp.cta.text": "Dive into <em>each country</em> in detail.",
+    "cmp.cta.ch": "Switzerland dashboard →",
+    "cmp.cta.fr": "France dashboard →",
+    "cmp.cta.external": "Go further · full dashboards"
+  }
+};
+
+const COMPARE = [
+  {
+    dim: { fr: "Nombre d'observatoires", en: "Number of observatories" },
+    ch: { fr: "6", en: "6" },
+    fr: { fr: "8", en: "8" },
+    gap: { fr: "FR plus institutionnalisé", en: "FR more institutionalised" }
+  },
+  {
+    dim: { fr: "Statistique mensuelle de l'emploi", en: "Monthly employment stats" },
+    ch: { fr: "OFS · trimestrielle", en: "FSO · quarterly" },
+    fr: { fr: "DARES + France Travail · mensuelle", en: "DARES + France Travail · monthly" },
+    gap: { fr: "FR plus rapide", en: "FR more frequent" }
+  },
+  {
+    dim: { fr: "Exposition à l'IA générative", en: "Generative AI exposure" },
+    ch: { fr: "Pas de mesure officielle", en: "No official measure" },
+    fr: { fr: "DARES · 27% des emplois", en: "DARES · 27% of jobs" },
+    gap: { fr: "Lacune CH", en: "CH gap" }
+  },
+  {
+    dim: { fr: "Recherche-action en entreprise", en: "Field research in companies" },
+    ch: { fr: "EPFL AI Center · variable", en: "EPFL AI Center · variable" },
+    fr: { fr: "LaborIA · structuré", en: "LaborIA · structured" },
+    gap: { fr: "FR plus opérationnel", en: "FR more operational" }
+  },
+  {
+    dim: { fr: "Insertion des diplômés", en: "Graduate insertion" },
+    ch: { fr: "CSRE · quadriennale", en: "SCCRE · quadrennial" },
+    fr: { fr: "CGE · annuelle", en: "CGE · yearly" },
+    gap: { fr: "FR plus réactif", en: "FR more reactive" }
+  },
+  {
+    dim: { fr: "Gouvernance IA & travail", en: "AI & work governance" },
+    ch: { fr: "EPFL AI Center", en: "EPFL AI Center" },
+    fr: { fr: "CNIL + LaborIA", en: "CNIL + LaborIA" },
+    gap: { fr: "FR plus régulé", en: "FR more regulated" }
+  }
+];
+
+const BLIND_SPOTS = [
+  {
+    title: { fr: "Reconversion réussie · cohorte longue", en: "Successful reskilling · long cohort" },
+    desc: {
+      fr: "Aucun observatoire ne suit pendant 3-5 ans une cohorte d'actifs ayant suivi une formation IA. On mesure l'entrée, jamais l'efficacité réelle.",
+      en: "No observatory tracks a cohort of workers who completed AI training over 3-5 years. We measure entry, never actual effectiveness."
+    }
+  },
+  {
+    title: { fr: "Charge mentale & IA au travail", en: "Mental load & AI at work" },
+    desc: {
+      fr: "L'effet de l'usage quotidien d'IA générative sur la fatigue cognitive, l'autonomie perçue, la qualité de vie au travail reste largement non documenté.",
+      en: "The daily impact of generative AI use on cognitive fatigue, perceived autonomy, and quality of work life remains largely undocumented."
+    }
+  },
+  {
+    title: { fr: "Petites communes · zones rurales", en: "Small municipalities · rural areas" },
+    desc: {
+      fr: "Les statistiques sont nationales ou cantonales. L'impact de l'IA sur l'emploi en Vendée, Jura ou Valais reste invisible dans les agrégats.",
+      en: "Statistics are national or cantonal. AI's employment impact in Vendée, Jura or Valais remains invisible in aggregates."
+    }
+  }
+];
+
+function renderCompare() {
+  const tbody = document.getElementById("compareBody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  COMPARE.forEach((row) => {
+    const tr = document.createElement("tr");
+
+    const tdDim = document.createElement("td");
+    tdDim.className = "dim";
+    tdDim.textContent = row.dim[lang];
+    tr.appendChild(tdDim);
+
+    const tdCh = document.createElement("td");
+    tdCh.textContent = row.ch[lang];
+    tr.appendChild(tdCh);
+
+    const tdFr = document.createElement("td");
+    tdFr.textContent = row.fr[lang];
+    tr.appendChild(tdFr);
+
+    const tdGap = document.createElement("td");
+    tdGap.className = "gap";
+    tdGap.textContent = row.gap[lang];
+    tr.appendChild(tdGap);
+
+    tbody.appendChild(tr);
+  });
+}
+
+function renderBlind() {
+  const grid = document.getElementById("blindGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+  BLIND_SPOTS.forEach((b, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.cursor = "default";
+
+    const meta = document.createElement("div");
+    meta.className = "card-meta mono";
+    const num = document.createElement("span");
+    num.textContent = String(i + 1).padStart(2, "0") + " · " + (lang === "fr" ? "Angle mort" : "Blind spot");
+    num.style.color = "var(--signal)";
+    meta.appendChild(num);
+    card.appendChild(meta);
+
+    const title = document.createElement("h3");
+    title.className = "card-title";
+    title.textContent = b.title[lang];
+    card.appendChild(title);
+
+    const desc = document.createElement("p");
+    desc.className = "card-desc";
+    desc.textContent = b.desc[lang];
+    card.appendChild(desc);
+
+    grid.appendChild(card);
+  });
+}
+
+window.onLangChange = function() {
+  renderCompare();
+  renderBlind();
+};
+
+initSite("comparer");
+renderCompare();
+renderBlind();
+</script>
+</body>
+</html>

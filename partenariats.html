@@ -3715,6 +3715,1104 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .brief-sov-card { padding: 22px 20px; }
 }
 
+/* ============================================== */
+/* DEBATE SECTION · Apocalypse vs Refutation     */
+/* ============================================== */
+.debate-section {
+  max-width: var(--max-w);
+  margin: 80px auto 60px;
+  padding: 0 32px;
+}
+.debate-head {
+  max-width: 820px;
+  margin-bottom: 48px;
+}
+.debate-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+.debate-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+}
+.debate-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.debate-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.debate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+.debate-col {
+  border: 1px solid var(--rule);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.debate-col:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.debate-col-thesis {
+  background: var(--paper);
+}
+.debate-col-thesis::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--signal);
+}
+.debate-col-antithesis {
+  background: var(--paper-2, #ECE7DA);
+}
+.debate-col-antithesis::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--teal, #1F3A3D);
+}
+.debate-col-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+.debate-col-thesis .debate-col-tag { color: var(--signal); }
+.debate-col-antithesis .debate-col-tag { color: var(--teal, #1F3A3D); }
+.debate-col-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.debate-col-quote {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-variation-settings: "opsz" 18, "SOFT" 50;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  padding: 14px 18px;
+  border-left: 2px solid var(--ink-3);
+  background: rgba(0, 0, 0, 0.02);
+}
+.debate-col-thesis .debate-col-quote {
+  border-left-color: var(--signal);
+}
+.debate-col-antithesis .debate-col-quote {
+  border-left-color: var(--teal, #1F3A3D);
+}
+.debate-col-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.debate-col-points li {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  padding-left: 22px;
+  position: relative;
+}
+.debate-col-points li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.debate-col-thesis .debate-col-points li::before { color: var(--signal); }
+.debate-col-antithesis .debate-col-points li::before { color: var(--teal, #1F3A3D); }
+.debate-col-points li strong { color: var(--ink); font-weight: 600; }
+.debate-col-source {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+  letter-spacing: 0.04em;
+}
+
+.debate-takeaway {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 32px 36px;
+  border-left: 4px solid var(--signal);
+}
+.debate-takeaway p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--paper);
+}
+.debate-takeaway strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .debate-section { padding: 0 20px; margin: 56px auto 40px; }
+  .debate-grid { grid-template-columns: 1fr; gap: 20px; }
+  .debate-title { font-size: 30px; }
+  .debate-col { padding: 28px 24px; }
+  .debate-takeaway { padding: 24px 22px; }
+}
+
+/* Frame footer · editorial validation block under 4 cards */
+.frame-footer {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  max-width: 920px;
+}
+.frame-footer-text {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+}
+.frame-footer-text strong { color: var(--ink); font-weight: 600; }
+.frame-footer-text em {
+  font-style: italic;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 14, "SOFT" 50;
+  color: var(--signal);
+  font-size: 14.5px;
+}
+
+@media (max-width: 720px) {
+  .frame-footer { margin-top: 24px; padding-top: 20px; }
+  .frame-footer-text { font-size: 13.5px; }
+}
+
+/* ============================================== */
+/* BRIEF · CRITICAL READING SECTION · 3 objections */
+/* ============================================== */
+.brief-critical {
+  max-width: var(--max-w);
+  margin: 50px auto;
+  padding: 0 32px;
+}
+.brief-critical-inner {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 48px 48px 40px;
+  position: relative;
+}
+.brief-critical-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 14px;
+}
+.brief-critical-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 36, "SOFT" 0;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 14px 0;
+  max-width: 760px;
+}
+.brief-critical-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-critical-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 32px 0;
+  max-width: 800px;
+}
+.brief-critical-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+.brief-critical-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.brief-critical-item:last-child { border-bottom: none; padding-bottom: 8px; }
+.brief-critical-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--signal);
+  letter-spacing: 0.08em;
+  padding-top: 6px;
+  font-weight: 500;
+}
+.brief-critical-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.brief-critical-h3 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 22, "SOFT" 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.brief-critical-h3 em {
+  font-style: italic;
+  color: var(--signal);
+}
+.brief-critical-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-critical-body strong { color: var(--ink); font-weight: 600; }
+.brief-critical-body em { font-style: italic; color: var(--signal); }
+.brief-critical-source {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin: 4px 0 0 0;
+  letter-spacing: 0.04em;
+  border-top: 1px dashed var(--rule);
+  padding-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .brief-critical { padding: 0 20px; margin: 36px auto; }
+  .brief-critical-inner { padding: 28px 22px 24px; }
+  .brief-critical-title { font-size: 22px; }
+  .brief-critical-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 0;
+  }
+  .brief-critical-num { padding-top: 0; }
+}
+
+/* ============================================== */
+/* BRIEF · DEBATE SECTION · 3 positions across spectrum */
+/* ============================================== */
+.brief-debate {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 32px;
+}
+.brief-debate-inner {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 56px 56px 48px;
+}
+.brief-debate-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 14px;
+}
+.brief-debate-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  max-width: 760px;
+}
+.brief-debate-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-debate-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 36px 0;
+  max-width: 800px;
+}
+
+.brief-debate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.brief-debate-pos {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--rule);
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.brief-debate-pos:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17, 17, 15, 0.08);
+}
+.brief-debate-pos--bear { border-top-color: var(--signal); }
+.brief-debate-pos--mid  { border-top-color: var(--ink); }
+.brief-debate-pos--bull { border-top-color: var(--teal, #1F3A3D); }
+
+.brief-debate-pos-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+.brief-debate-pos--bear .brief-debate-pos-tag { color: var(--signal); }
+.brief-debate-pos--bull .brief-debate-pos-tag { color: var(--teal, #1F3A3D); }
+
+.brief-debate-pos-author {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+}
+.brief-debate-pos-claim {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 22, "SOFT" 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 6px 0 4px 0;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.brief-debate-pos-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-debate-pos-body strong { color: var(--ink); font-weight: 600; }
+.brief-debate-pos-body em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+.brief-debate-sector {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2, #ECE7DA) 100%);
+  border-left: 3px solid var(--signal);
+  padding: 28px 32px;
+}
+.brief-debate-sector-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 10px;
+}
+.brief-debate-sector-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px 0;
+}
+.brief-debate-sector-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 28, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-debate-sector-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-debate-sector-body strong { color: var(--ink); font-weight: 600; }
+.brief-debate-sector-body em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+@media (max-width: 960px) {
+  .brief-debate { padding: 0 20px; margin: 40px auto; }
+  .brief-debate-inner { padding: 32px 24px 28px; }
+  .brief-debate-title { font-size: 24px; }
+  .brief-debate-grid { grid-template-columns: 1fr; gap: 14px; }
+  .brief-debate-sector { padding: 22px 20px; }
+  .brief-debate-sector-title { font-size: 19px; }
+}
+
+/* ============================================== */
+/* BRIEF · ARCHETYPES SECTION · 4 worker types per Ferguson */
+/* ============================================== */
+.brief-arch {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 32px;
+}
+.brief-arch-inner {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2, #ECE7DA) 100%);
+  border: 1px solid var(--rule);
+  padding: 56px 56px 48px;
+}
+.brief-arch-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 14px;
+}
+.brief-arch-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  max-width: 760px;
+}
+.brief-arch-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-arch-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 36px 0;
+  max-width: 800px;
+}
+.brief-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.brief-arch-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--rule);
+  padding: 26px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.brief-arch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17, 17, 15, 0.08);
+}
+.brief-arch-card--avoid     { border-left-color: var(--signal); }
+.brief-arch-card--ethical   { border-left-color: #B85C00; }
+.brief-arch-card--target    { border-left-color: var(--ink); }
+.brief-arch-card--strategic { border-left-color: var(--teal, #1F3A3D); }
+
+.brief-arch-card-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  align-self: flex-start;
+}
+.brief-arch-card--avoid     .brief-arch-card-tag { color: var(--signal); }
+.brief-arch-card--ethical   .brief-arch-card-tag { color: #B85C00; }
+.brief-arch-card--strategic .brief-arch-card-tag { color: var(--teal, #1F3A3D); }
+
+.brief-arch-card-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 22, "SOFT" 0;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 2px 0 4px 0;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.brief-arch-card-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-arch-card-body strong { color: var(--ink); font-weight: 600; }
+.brief-arch-card-body em {
+  font-style: italic;
+  color: var(--signal);
+}
+.brief-arch-closing {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+  padding: 24px 28px 0;
+  border-top: 1px solid var(--rule);
+}
+.brief-arch-closing strong { color: var(--ink); font-weight: 600; }
+.brief-arch-closing em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+@media (max-width: 960px) {
+  .brief-arch { padding: 0 20px; margin: 40px auto; }
+  .brief-arch-inner { padding: 32px 24px 28px; }
+  .brief-arch-title { font-size: 24px; }
+  .brief-arch-grid { grid-template-columns: 1fr; gap: 14px; }
+  .brief-arch-card { padding: 22px 20px; }
+  .brief-arch-closing { padding: 20px 0 0; }
+}
+
+/* ============================================== */
+/* BRIEF · ARCHETYPES SECTION · 4 worker types facing AI (Ferguson) */
+/* ============================================== */
+.brief-archetypes {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 32px;
+}
+.brief-archetypes-inner {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 56px 56px 48px;
+}
+.brief-archetypes-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+}
+.brief-archetypes-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  max-width: 800px;
+}
+.brief-archetypes-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-archetypes-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 36px 0;
+  max-width: 820px;
+}
+
+.brief-archetypes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.brief-arch-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rule);
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.brief-arch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 15, 0.07);
+}
+.brief-arch-card--replaced    { border-top-color: var(--signal); }
+.brief-arch-card--dominated   { border-top-color: #C9742E; }
+.brief-arch-card--augmented   { border-top-color: var(--ink); }
+.brief-arch-card--rehumanized { border-top-color: var(--teal, #1F3A3D); }
+
+.brief-arch-num {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.brief-arch-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+.brief-arch-card--replaced .brief-arch-tag    { color: var(--signal); }
+.brief-arch-card--dominated .brief-arch-tag   { color: #C9742E; }
+.brief-arch-card--rehumanized .brief-arch-tag { color: var(--teal, #1F3A3D); }
+
+.brief-arch-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 22, "SOFT" 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.brief-arch-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-arch-body strong { color: var(--ink); font-weight: 600; }
+.brief-arch-signal {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-3);
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--rule);
+}
+.brief-arch-signal strong { color: var(--ink); font-weight: 600; }
+
+.brief-archetypes-takeaway {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  max-width: 920px;
+}
+.brief-archetypes-takeaway strong { color: var(--ink); font-weight: 600; }
+.brief-archetypes-takeaway em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+@media (max-width: 1100px) {
+  .brief-archetypes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .brief-archetypes { padding: 0 20px; margin: 40px auto; }
+  .brief-archetypes-inner { padding: 32px 24px 28px; }
+  .brief-archetypes-title { font-size: 24px; }
+  .brief-archetypes-grid { grid-template-columns: 1fr; gap: 14px; }
+  .brief-arch-card { padding: 22px 20px 18px; }
+}
+
+/* ============================================== */
+/* BRIEF ACTIONS · top bar with PDF, Mail, Copy   */
+/* ============================================== */
+.brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--rule);
+}
+.brief-action {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 9px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  line-height: 1.2;
+}
+.brief-action:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  transform: translateY(-1px);
+}
+.brief-action:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+.brief-action--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.brief-action--ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+@media (max-width: 600px) {
+  .brief-actions { flex-direction: column; align-items: stretch; }
+  .brief-action { text-align: center; }
+}
+
+/* ============================================== */
+/* BRIEF MODAL · PDF preview popup                */
+/* ============================================== */
+.brief-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: stretch;
+  justify-content: center;
+}
+.brief-modal[aria-hidden="false"] {
+  display: flex;
+}
+.brief-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 15, 0.62);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+.brief-modal-window {
+  position: relative;
+  width: min(900px, 100%);
+  max-width: 900px;
+  margin: 24px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 48px);
+  box-shadow: 0 20px 60px rgba(17, 17, 15, 0.4);
+}
+.brief-modal-bar {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+.brief-modal-bar-left {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+.brief-modal-bar-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.brief-modal-print {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--signal);
+  color: var(--paper);
+  border: 1px solid var(--signal);
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s;
+}
+.brief-modal-print:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.brief-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0 4px;
+  font-family: serif;
+}
+.brief-modal-close:hover { color: var(--signal); }
+.brief-modal-scroll {
+  flex: 1 1 auto;
+  overflow: auto;
+  background: #FAFAF7;
+  padding: 36px 24px;
+}
+
+/* ============================================== */
+/* BRIEF PDF · concise printable layout           */
+/* ============================================== */
+.brief-pdf {
+  background: white;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 56px;
+  border: 1px solid var(--rule);
+  font-family: "Instrument Sans", sans-serif;
+  color: var(--ink);
+  line-height: 1.55;
+  box-shadow: 0 4px 14px rgba(17, 17, 15, 0.05);
+}
+.brief-pdf .pdf-head {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+.brief-pdf .pdf-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.brief-pdf .pdf-eyebrow .b { color: var(--signal); }
+.brief-pdf .pdf-eyebrow .dot { color: var(--signal); margin: 0 4px; }
+.brief-pdf .pdf-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px 0;
+  color: var(--ink);
+}
+.brief-pdf .pdf-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-pdf .pdf-meta {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  font-family: "JetBrains Mono", monospace;
+}
+.brief-pdf .pdf-byline {
+  font-size: 11px;
+  color: var(--ink-3);
+  font-family: "JetBrains Mono", monospace;
+}
+.brief-pdf .pdf-byline .dot { margin: 0 6px; }
+.brief-pdf .pdf-section {
+  margin: 22px 0;
+  page-break-inside: avoid;
+}
+.brief-pdf .pdf-section h2 {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 18, "SOFT" 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin: 0 0 8px 0;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 5px;
+}
+.brief-pdf .pdf-section p {
+  font-size: 12.5px;
+  margin: 0 0 8px 0;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.brief-pdf .pdf-section p strong { color: var(--ink); font-weight: 600; }
+.brief-pdf .pdf-section p em {
+  font-style: italic;
+  color: var(--signal);
+}
+.brief-pdf .pdf-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.brief-pdf .pdf-list li {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  padding: 4px 0 4px 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.brief-pdf .pdf-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-weight: 600;
+}
+.brief-pdf .pdf-list li strong { color: var(--ink); font-weight: 600; }
+.brief-pdf .pdf-tag {
+  font-size: 9.5px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 6px;
+  font-family: "JetBrains Mono", monospace;
+}
+.brief-pdf .pdf-callout {
+  margin-top: 10px !important;
+  padding: 10px 14px;
+  background: #F2EEE5;
+  border-left: 3px solid var(--signal);
+  font-size: 12px !important;
+  font-style: italic;
+}
+.brief-pdf .pdf-foot {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-size: 10.5px;
+  color: var(--ink-3);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.6;
+}
+.brief-pdf .pdf-foot-url { margin-bottom: 4px; }
+.brief-pdf .pdf-foot-url a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* ============================================== */
+/* BRIEF TOAST · feedback after copy              */
+/* ============================================== */
+.brief-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 20px;
+  font-size: 13px;
+  font-family: "Instrument Sans", sans-serif;
+  border-radius: 999px;
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  box-shadow: 0 8px 24px rgba(17, 17, 15, 0.3);
+}
+.brief-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================== */
+/* PRINT STYLES · isolate #brief-pdf              */
+/* When body has .printing-pdf, only #brief-pdf prints */
+/* ============================================== */
+@media print {
+  body.printing-pdf > *:not(.brief-modal) { display: none !important; }
+  body.printing-pdf .brief-modal-backdrop,
+  body.printing-pdf .brief-modal-bar { display: none !important; }
+  body.printing-pdf .brief-modal {
+    position: static !important;
+    display: block !important;
+  }
+  body.printing-pdf .brief-modal-window {
+    position: static !important;
+    margin: 0 !important;
+    border: none !important;
+    max-height: none !important;
+    box-shadow: none !important;
+  }
+  body.printing-pdf .brief-modal-scroll {
+    overflow: visible !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+  body.printing-pdf .brief-pdf {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+  body.printing-pdf .brief-pdf .pdf-section h2 { color: black !important; }
+  body.printing-pdf .brief-pdf .pdf-list li::before { color: black !important; }
+  body.printing-pdf .brief-pdf .pdf-title em { color: black !important; }
+  body.printing-pdf .brief-pdf .pdf-section p em { color: black !important; }
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+}
+
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/partenariats.html">
@@ -3993,7 +5091,7 @@ window.OBSERVATOIRES_DATA = [
   {"id":"cge","nom":"CGE","org":{"fr":"Conférence des Grandes Écoles · Observatoire","en":"Conference of Grandes Écoles · Observatory"},"country":"FR","type":"academique","domains":["formation"],"freq":{"fr":"Annuelle","en":"Yearly"},"desc":{"fr":"Enquête annuelle insertion des diplômés. Premier signal sur l'impact IA sur les entrées en poste des juniors.","en":"Annual graduate insertion survey. First signal on AI impact on junior job entries."},"last":"2025-11","url":"https://www.cge.asso.fr"}
 ];
 
-window.VEILLE_DATA = [{"date":"2026-04-28","source":"Singh Tomer · Working Paper","country":"INT","title":{"fr":"Travail humain face à l'IA : un cadre par coût total de possession (TCO) et adéquation des tâches","en":"Human Labor Versus AI: A Total Cost of Ownership and Task-Suitability Framework"},"excerpt":{"fr":"Synthèse théorique majeure : la comparaison « salaire vs prix par token » est trompeuse. Le bon critère économique est le coût total de possession par résultat acceptable. Le TCO de l'IA inclut l'inférence, l'intégration, l'orchestration, la gouvernance, la supervision, l'évaluation, la vérification, l'escalade humaine et la refonte organisationnelle. Articule les preuves empiriques de divergence : Noy & Zhang 2023 (+40% writing), Brynjolfsson 2025 (+15% support agents, surtout les juniors), Becker et al. 2025 (-19% productivité pour les développeurs OSS expérimentés sur codebases familières). Cite la prédiction Gartner d'une sous-estimation des coûts GenAI de 500% à 1000%, et le seuil de 3$ par résolution dépassé en 2030.","en":"Major theoretical synthesis: comparing « salary vs token price » is misleading. The correct economic criterion is total cost of ownership per acceptable outcome. AI TCO includes inference, integration, orchestration, governance, oversight, evaluation, verification, human escalation, and organizational redesign. Articulates the divergent empirical evidence: Noy & Zhang 2023 (+40% writing), Brynjolfsson 2025 (+15% support agents, especially juniors), Becker et al. 2025 (-19% productivity for experienced OSS developers on familiar codebases). Cites Gartner's prediction of GenAI cost underestimation by 500% to 1000%, and the $3 per resolution threshold exceeded by 2030."},"url":"https://arxiv.org/abs/2511.singh-tomer-tco-framework","ai_type":"generative"},{"date":"2026-01-26","source":"Gartner · Patrick Quinlan","country":"INT","title":{"fr":"Le coût par résolution de la GenAI dépassera celui des agents humains offshore en 2030","en":"GenAI Cost Per Resolution to Exceed Offshore Human Agent Costs by 2030"},"excerpt":{"fr":"Prédiction de référence chez Gartner : d'ici 2030, le coût par résolution de la GenAI dans le service client dépassera 3$, plus cher que de nombreux agents humains offshore B2C. Trois facteurs : explosion des coûts de data centers, fin des prix subventionnés vers la rentabilité chez les éditeurs IA, et complexité croissante des cas d'usage qui consomment plus de tokens et exigent du talent plus coûteux. Patrick Quinlan : « Le ROI sur ces investissements est loin d'être garanti. L'automatisation totale sera prohibitivement coûteuse pour la plupart des organisations. » Gartner prédit aussi qu'en 2028, les pressions réglementaires sur le droit de parler à un humain feront croître le volume d'interactions assistées de 30%. Pour 90% des CIO, gérer les coûts limite désormais la valeur tirée de l'IA.","en":"Reference prediction from Gartner: by 2030, GenAI cost per resolution in customer service will exceed $3, higher than many B2C offshore human agents. Three drivers: exploding data center costs, end of subsidized pricing toward profitability among AI vendors, and rising use case complexity consuming more tokens and requiring more expensive talent. Patrick Quinlan: « ROI on those investments is far from guaranteed. Full automation will be prohibitively expensive for most organizations. » Gartner also predicts that by 2028, regulatory pressure on the right to speak to a human will increase assisted interaction volume by 30%. For 90% of CIOs, managing costs now limits the value extracted from AI."},"url":"https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030","ai_type":"generative"},{"date":"2025-09-02","source":"EPFL · ETH Zurich · CSCS","country":"CH","title":{"fr":"Apertus : un modèle de langage suisse, fully open et conforme à l'EU AI Act","en":"Apertus: a Fully Open Swiss Language Model, Compliant with the EU AI Act"},"excerpt":{"fr":"Lancement du premier grand modèle de langage suisse public (8B et 70B paramètres), entièrement open : architecture, poids, données d'entraînement et recettes documentées. Entraîné sur 15 trillions de tokens dont 40% non anglophones, couvrant plus de 1000 langues incluant le suisse-allemand et le romanche. Développé par EPFL, ETH Zurich et CSCS, financé à hauteur de 20 millions CHF par la Confédération jusqu'en 2028. Hébergé par Swisscom sur sa plateforme IA souveraine helvétique. Conçu dès l'origine pour respecter l'EU AI Act, le droit suisse de protection des données et les opt-outs créateurs. Plus d'un million de téléchargements depuis le lancement. Mai 2026 : déploiement de Meditron au CHUV pour la décision clinique aux urgences. C'est le pilier technique de la stratégie de souveraineté IA suisse.","en":"Launch of Switzerland's first public large language model (8B and 70B parameters), fully open: architecture, weights, training data and recipes documented. Trained on 15 trillion tokens of which 40% non-English, covering over 1000 languages including Swiss German and Romansh. Developed by EPFL, ETH Zurich and CSCS, funded by the Swiss Confederation to the tune of CHF 20 million through 2028. Hosted by Swisscom on its sovereign Swiss AI platform. Designed from the start to comply with the EU AI Act, Swiss data protection law, and creator opt-outs. Over one million downloads since launch. May 2026: deployment of Meditron at CHUV for clinical decision support in emergency rooms. The technical pillar of Switzerland's AI sovereignty strategy."},"url":"https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html","ai_type":"generative"},{"date":"2026-03-30","source":"Mistral AI · Le Monde · European Business Magazine","country":"INT","title":{"fr":"Mistral AI lève 830 M$ en dette auprès de 7 banques européennes pour son data center souverain","en":"Mistral AI Raises $830M in Debt from 7 European Banks for Its Sovereign Data Center"},"excerpt":{"fr":"Plus grosse opération de dette d'une entreprise IA européenne à ce jour, et première levée par dette pour Mistral. Consortium remarquable : BNP Paribas, Crédit Agricole CIB, HSBC, MUFG, Bpifrance, La Banque Postale et Natixis CIB - six européennes plus une japonaise, aucune banque US. Finance 13 800 GPU Nvidia GB300 pour le premier data center à Bruyères-le-Châtel près de Paris (44 MW, ouverture Q2 2026). Mensch s'engage à déployer 200 MW de capacité de calcul européen d'ici 2027. Stratégie : devenir le 3e fournisseur souverain européen de calcul IA derrière OVHcloud et Scaleway. Pour les clients régulés (gouvernements, défense, finance), c'est l'alternative sérieuse aux hyperscalers américains qui ne peuvent pas garantir une infrastructure sous juridiction européenne. Valorisation Mistral : 13,7 milliards de dollars, plus d'1 milliard de revenus prévus en 2026.","en":"Largest debt operation by a European AI company to date, and Mistral's first debt raise. Notable consortium: BNP Paribas, Crédit Agricole CIB, HSBC, MUFG, Bpifrance, La Banque Postale and Natixis CIB - six European institutions plus one Japanese, no US bank. Funds 13,800 Nvidia GB300 GPUs for the first data center at Bruyères-le-Châtel near Paris (44 MW, opening Q2 2026). Mensch commits to deploying 200 MW of European compute capacity by 2027. Strategy: become Europe's third sovereign AI compute provider behind OVHcloud and Scaleway. For regulated clients (governments, defense, finance), this is the serious alternative to US hyperscalers that cannot guarantee European-jurisdiction infrastructure. Mistral valuation: $13.7 billion, more than $1 billion in projected 2026 revenue."},"url":"https://europeanbusinessmagazine.com/business/business-mistral-ai-830-million-debt-financing-european-banks-paris-data-center/","ai_type":"generative"},{"date":"2026-02-27","source":"Index.dev · BenchLM · EuropeanStack (synthèse)","country":"INT","title":{"fr":"Cartographie des LLM européens : Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn","en":"Mapping European LLMs: Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn"},"excerpt":{"fr":"Synthèse de l'écosystème LLM européen 2026. L'Europe ne court pas la même course que les US ou la Chine. Forces : open-weight, performance multilingue, conformité réglementaire, résidence des données. Mistral (FR) reste le plus avancé en benchmarks. Aleph Alpha (DE) s'est repositionnée sur PhariaAI, un OS souverain pour le secteur public. Apertus (CH) est le modèle de référence sur la transparence et la conformité EU AI Act. Minerva (IT) est le seul LLM italien entraîné from scratch. LightOn (FR) excelle en raisonnement long-contexte sur documents. H Company (FR) pousse les modèles d'usage informatique. Verdict : pour une organisation avec des opérations dans l'UE, le choix sovereign-first n'est plus utopique en 2026. Pour les industries régulées (finance, santé, défense, secteur public), c'est devenu un prérequis de gouvernance.","en":"Synthesis of the European LLM ecosystem 2026. Europe is not racing the same race as the US or China. Strengths: open-weight, multilingual performance, regulatory compliance, data residency. Mistral (FR) remains the most benchmark-advanced. Aleph Alpha (DE) repositioned on PhariaAI, a sovereign OS for the public sector. Apertus (CH) is the reference model for transparency and EU AI Act compliance. Minerva (IT) is the only Italian LLM trained from scratch. LightOn (FR) excels in long-context document reasoning. H Company (FR) pushes computer-use models. Verdict: for an EU-operating organization, the sovereign-first choice is no longer utopian in 2026. For regulated industries (finance, healthcare, defense, public sector), it has become a governance prerequisite."},"url":"https://www.index.dev/blog/european-llms-top-models","ai_type":"generative"},{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"NBER · Yin, Vu, Persico (w35110)","country":"INT","title":{"fr":"Quelle (in)stabilité des scores d'exposition LLM ? Evidence d'une réplication multi-modèles","en":"How (un)Stable Are LLM Occupational Exposure Scores? Evidence from Multi-Model Replication"},"excerpt":{"fr":"Démonstration que les mesures d'exposition à l'IA basées sur les LLM auto-évaluatifs sont hautement fragiles. Trois modèles frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence d'un facteur 3,6 sur l'exposition moyenne, avec un accord descendant à 57%. Cette instabilité altère les conclusions empiriques en aval : les coefficients en panel diff-in-diff varient d'un facteur 2,4 selon l'annotateur, et les estimations county-level passent d'un effet négatif significatif à un effet positif non significatif selon le modèle utilisé. Conclusion radicale : traiter les LLM en évolution comme des instruments statiques est risqué.","en":"Demonstration that LLM-based self-assessed AI exposure measures are highly fragile. Three frontier models applying the same rubric on identical tasks produce a 3.6-fold divergence in mean exposure, with agreement as low as 57%. This instability alters downstream empirical conclusions: difference-in-differences coefficients vary 2.4-fold across annotators, and county-level estimates flip from significant negative to insignificant positive depending on the model. Radical conclusion: treating evolving LLMs as static instruments is risky."},"url":"https://www.nber.org/papers/w35110","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI","country":"INT","title":{"fr":"AI Index Report 2026·neuvième édition","en":"AI Index Report 2026·ninth edition"},"excerpt":{"fr":"Plus de 400 pages de données vetées. Adoption générative à 53% en 3 ans (plus rapide que PC ou Internet). 88% des organisations utilisent désormais l'IA. Écart de perception : 73% des experts US sont positifs sur l'impact emploi, contre 23% du grand public.","en":"Over 400 pages of vetted data. Generative AI adoption at 53% within 3 years (faster than PC or internet). 88% of organisations now use AI. Perception gap: 73% of US experts are positive about employment impact, vs only 23% of the general public."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-04-10","source":"Roboto · Analyse fournisseurs LLM","country":"FR","title":{"fr":"La taxe linguistique française : +60% de tokens vs anglais sur les principaux LLM","en":"The French linguistic tax: +60% tokens vs English on major LLMs"},"excerpt":{"fr":"Analyse comparative documentée : pour une tâche d'agent identique (message utilisateur 100 mots + prompt système 500 mots + réponse 200 mots), le contenu en anglais consomme 1 040 tokens contre 1 664 tokens en français, soit +60%. Cette « taxe linguistique » provient du Byte Pair Encoding utilisé par les LLM, optimisé sur des corpus majoritairement anglophones. À l'échelle de millions d'appels d'agents par mois, cette surcharge devient un facteur de coût majeur pour les organisations francophones (France et Suisse romande). L'écart tarifaire entre modèles a aussi explosé : entre GPT-5.2 Pro à 168$/M tokens en sortie et Gemini Flash-Lite à 0,40$/M, l'écart atteint 420×, pour des modèles tous deux commercialisés comme « assistants IA ». Conséquence stratégique : les organisations francophones doivent maîtriser la sélection de modèles encore plus rigoureusement que les anglophones.","en":"Documented comparative analysis: for an identical agent task (100-word user message + 500-word system prompt + 200-word response), English content consumes 1,040 tokens vs 1,664 in French, a +60% increase. This « linguistic tax » comes from the Byte Pair Encoding used by LLMs, optimized on predominantly English corpora. At scale of millions of agent calls per month, this overhead becomes a major cost factor for French-speaking organizations (France and Romandie). The pricing spread between models has also exploded: between GPT-5.2 Pro at $168/M output tokens and Gemini Flash-Lite at $0.40/M, the gap reaches 420×, for models both marketed as « AI assistants ». Strategic consequence: French-speaking organizations must master model selection even more rigorously than English-speaking ones."},"url":"https://www.roboto.fr/blog/tokens-ia-comment-les-fournisseurs-vous-font-payer-60-de-plus","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-03-25","source":"Gartner · Will Sommer","country":"INT","title":{"fr":"Le LLM Cost Paradox : tokens -90% d'ici 2030, mais coûts d'inférence en hausse","en":"The LLM Cost Paradox: tokens -90% by 2030, but inference costs rising"},"excerpt":{"fr":"Gartner prédit que d'ici 2030, l'inférence sur un LLM de 1 trillion de paramètres coûtera aux fournisseurs plus de 90% de moins qu'en 2025. Mais cette baisse de coût unitaire ne sera PAS répercutée sur les clients enterprise. Les modèles agentiques consomment 5 à 30 fois plus de tokens par tâche qu'un chatbot standard. Conclusion : la consommation de tokens augmentera plus vite que le prix unitaire ne baissera, et les coûts globaux d'inférence augmenteront. Citation directe : « Les CPO ne doivent pas confondre la déflation des tokens commodity avec la démocratisation du raisonnement frontière. Tandis que l'intelligence commoditisée tend vers un coût quasi nul, le compute nécessaire au raisonnement avancé reste rare. »","en":"Gartner predicts that by 2030, inference on a 1-trillion-parameter LLM will cost providers over 90% less than in 2025. But this unit-cost decline will NOT be passed on to enterprise customers. Agentic models consume 5-30x more tokens per task than a standard chatbot. Conclusion: token consumption will rise faster than unit prices fall, and overall inference costs will rise. Direct quote: « CPOs should not confuse the deflation of commodity tokens with the democratization of frontier reasoning. As commoditized intelligence trends toward near-zero cost, the compute and systems needed to support advanced reasoning remain scarce. »"},"url":"https://www.gartner.com/en/newsroom/press-releases/2026-03-25-gartner-predicts-that-by-2030-performing-inference-on-an-llm-with-1-trillion-parameters-will-cost-genai-providers-over-90-percent-less-than-in-2025","ai_type":"generative"},{"date":"2026-03-25","source":"TrueFoundry · cost of generative AI guide","country":"INT","title":{"fr":"Les coûts cachés de la GenAI et comment les contrôler","en":"The Hidden Costs of GenAI and How to Control Them"},"excerpt":{"fr":"Guide opérationnel publié en mars 2026 qui décompose les coûts cachés de la GenAI en plusieurs strates invisibles dans les modèles financiers initiaux. Citant la recherche IBM : les coûts informatiques devraient augmenter de 89% entre 2023 et 2025, dont 70% des dirigeants citent la GenAI comme moteur principal. Tous les dirigeants interrogés ont déjà annulé ou reporté au moins une initiative GenAI pour des raisons de coûts. Près de 10% des prompts envoyés aux modèles GenAI publics contiennent des informations sensibles d'entreprise, créant un risque de conformité financièrement matériel rarement modélisé. Les coûts de gouvernance ne sont pas une checklist ponctuelle mais un coût opérationnel continu, fortement sous-estimé en production.","en":"Operational guide published March 2026 that decomposes the hidden costs of GenAI into multiple strata invisible in initial financial models. Citing IBM research: computing costs are expected to rise 89% between 2023 and 2025, with 70% of executives citing GenAI as the primary driver. Every executive surveyed had already cancelled or postponed at least one GenAI initiative due to costs. Nearly 10% of prompts sent to public GenAI models contain sensitive enterprise information, creating a materially financial compliance risk rarely modeled. Governance costs are not a one-time checklist but a continuous operational cost, largely underestimated in production."},"url":"https://www.truefoundry.com/blog/cost-of-generative-ai","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"},{"date":"2026-03-16","source":"AISuperior · LLM Inference Cost 2026","country":"INT","title":{"fr":"Le LLM Cost Paradox : prix unitaire -10×, consommation +100×","en":"The LLM Cost Paradox: unit price -10×, consumption +100×"},"excerpt":{"fr":"Documentation empirique du paradoxe d'inflation des coûts. Le prix par token a baissé de 10× entre 2022 et 2026 (de 60$/M à 0,06$/M pour des modèles équivalents à GPT-3 sur MMLU), mais la consommation de tokens par requête a augmenté de 100× pour certains usages. Mécanisme principal : les reasoning models cachent leur consommation interne. Une question simple peut consommer 10 000 tokens de raisonnement pour une réponse de 200 tokens, soit 50× plus que ce que la sortie visible suggère. Cas extrême documenté : 600 tokens consommés pour générer 2 mots de sortie. Conclusion : les startups dont les modèles de pricing reposent sur l'économie traditionnelle des tokens font face à une compression de marge ; un client à 20$/mois peut générer 18-25$ de coûts d'inférence en pic.","en":"Empirical documentation of the cost inflation paradox. Per-token price dropped 10× between 2022 and 2026 (from $60/M to $0.06/M for GPT-3-equivalent models on MMLU), but token consumption per request rose 100× for some workloads. Main mechanism: reasoning models hide internal consumption. A simple question can consume 10,000 reasoning tokens for a 200-token response, 50× more than visible output suggests. Documented extreme case: 600 tokens to generate 2 words of output. Conclusion: startups whose pricing relies on traditional token economics face margin compression; a $20/month customer can generate $18-25 in peak inference costs."},"url":"https://aisuperior.com/llm-token-cost/","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-02-19","source":"Yale Budget Lab · Gimbel, Kendall, Kulsakdinun","country":"INT","title":{"fr":"L'exposition à l'IA sur le marché du travail : que sait-on vraiment ?","en":"Labor Market AI Exposure: What Do We Know?"},"excerpt":{"fr":"Étude systématique comparant 7 métriques d'exposition à l'IA (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) sur 867 métiers SOC 2018. Conclusion en trois points : les métriques s'accordent largement, mais elles divergent davantage sur les métiers fortement exposés. Le désaccord porte sur l'ampleur de l'exposition, pas sur le fait qu'un métier soit exposé. L'exposition n'indique pas qu'un métier sera automatisé, seulement qu'il pourrait être impacté. Exemples canoniques : les plombiers ont une variance de 0,03 (consensus total sur faible exposition), les programmeurs informatiques ont 0,48 (désaccord majeur sur l'ampleur). Données ouvertes téléchargeables.","en":"Systematic study comparing 7 AI exposure metrics (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) across 867 SOC 2018 occupations. Three key takeaways: metrics broadly agree, but disagree more on highly exposed occupations. Disagreement is about magnitude, not whether an occupation is exposed. Exposure does not indicate which jobs AI will automate, only where AI could have an impact. Canonical examples: plumbers have variance 0.03 (full consensus on low exposure), computer programmers have 0.48 (major disagreement on magnitude). Open data downloadable."},"url":"https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know","ai_type":"generative"},{"date":"2025-11-20","source":"Gartner · Hung LeHong","country":"INT","title":{"fr":"Coûts GenAI : les organisations sous-estiment de 500% à 1000% le coût total réel","en":"GenAI costs: organizations underestimate true total cost by 500% to 1000%"},"excerpt":{"fr":"Mesure structurante : les organisations qui ne maîtrisent pas la mise à l'échelle de leurs coûts GenAI font des erreurs de calcul de l'ordre de 500% à 1000%. 72% des CIO interrogés rapportent que leur organisation a fait du break-even ou perdu de l'argent sur ses investissements IA. La moitié des organisations abandonnent leurs efforts pour cause de dérapage des coûts. Ces erreurs ne portent pas sur le prix du token mais sur la combinaison consommation × intégration × gouvernance × supervision humaine × conformité. Recommandation Gartner : créer des proofs of concept qui testent la mise à l'échelle des coûts, pas seulement le fonctionnement de la technologie.","en":"Structural finding: organizations that don't master the scaling of their GenAI costs make calculation errors of 500% to 1000%. 72% of surveyed CIOs report their organization has broken even or lost money on AI investments. Half of organizations abandon their efforts due to cost overruns. These errors are not about token pricing but about the combination of consumption × integration × governance × human oversight × compliance. Gartner recommendation: create proofs of concept that test how costs will scale, not just how the technology works."},"url":"https://www.gartner.com/en/articles/ai-value","ai_type":"generative"},{"date":"2025-11-19","source":"Gartner · Arun Chandrasekaran","country":"INT","title":{"fr":"Les angles morts critiques de la GenAI que les CIO doivent traiter en urgence","en":"Critical GenAI Blind Spots That CIOs Must Urgently Address"},"excerpt":{"fr":"Gartner identifie en novembre 2025 dix angles morts de l'adoption GenAI, dont la dette technique générée par l'IA, le shadow AI (69% des organisations en ont des indices), le verrouillage fournisseur, et l'érosion des compétences. Prédiction marquante : d'ici 2030, 50% des entreprises feront face à des retards d'upgrades IA et/ou des coûts de maintenance croissants à cause d'une dette technique GenAI non gérée. « Le coût punitif élevé de maintenance, correction ou remplacement des artefacts générés par IA, qu'il s'agisse de code, contenu ou design, peut éroder le ROI promis par la GenAI. »","en":"Gartner identifies in November 2025 ten GenAI adoption blind spots, including AI-generated technical debt, shadow AI (69% of organizations show signs), vendor lock-in, and skills erosion. Notable prediction: by 2030, 50% of enterprises will face delayed AI upgrades and/or rising maintenance costs due to unmanaged GenAI technical debt. 'The punitively high cost of maintaining, fixing or replacing AI-generated artifacts such as code, content and design can erode GenAI's promised ROI.'"},"url":"https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0","ai_type":"generative"},{"date":"2024-10-21","source":"Gartner · Mary Mesaglio & Hung LeHong","country":"INT","title":{"fr":"Erreur de calcul de coûts IA de 500% à 1000% : le risque que les CIO sous-estiment","en":"500% to 1000% AI Cost Calculation Error: The Risk CIOs Underestimate"},"excerpt":{"fr":"Source primaire de la statistique la plus citée sur les coûts cachés de l'IA. Sur la base d'une enquête Gartner de 451 leaders technologiques senior puis 300 CIO en juin-juillet 2024 : 90% des CIO déclarent que la gestion des coûts limite leur capacité à dégager de la valeur de l'IA, 72% rapportent que leur organisation a fait du break-even ou perdu de l'argent sur ses investissements IA. Citation décisive de l'analyste Hung LeHong : « si les CIO ne comprennent pas comment leurs coûts GenAI vont scaler, Gartner estime qu'ils peuvent faire une erreur de 500% à 1000% dans leurs calculs de coûts. » Cette statistique est devenue la référence pour parler des coûts cachés de l'IA en entreprise.","en":"Primary source for the most-cited statistic on AI hidden costs. Based on a Gartner survey of 451 senior tech leaders and then 300 CIOs in June-July 2024: 90% of CIOs say cost management limits their ability to extract value from AI, 72% report that their organization has broken even or lost money on AI investments. Decisive quote from analyst Hung LeHong: 'if CIOs don't understand how their GenAI costs will scale, Gartner estimates they could make a 500% to 1000% error in their cost calculations.' This statistic has become the reference for enterprise AI hidden costs."},"url":"https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale","ai_type":"generative"}];
+window.VEILLE_DATA = [{"date":"2026-05-02","source":"Yves Caseau · CTO Michelin, ex-CEISAR · Information Systems Biology","country":"INT","title":{"fr":"L'impact de l'automatisation IA sur nos emplois et nos vies · synthèse à partir des conférences RNS Strasbourg et Bonnieux","en":"The Impact of AI Automation on Our Jobs and Our Lives · Synthesis from RNS Strasbourg and Bonnieux Lectures"},"excerpt":{"fr":"Synthèse magistrale d'un praticien doublé d'un théoricien (CTO Michelin, ex-CEISAR, Académie des technologies). Mobilise le modèle McKinsey production/transaction/interaction (Lund, Manyika, Ramaswamy) pour structurer l'impact différencié de l'IA. Articule la loi d'Amara (surestimation court terme, sous-estimation long terme) avec la viscosité documentée de la transformation IA en entreprise. S'appuie sur Choudary (Reshuffle), Iansiti (Harvard), AII 2026 Stanford pour chiffrer la maturité réelle des capacités. Présente le modèle FWPM (Future of Work Parametric Model) comme outil d'analyse systémique. Cadre robuste et nuancé, à mi-chemin entre les positions Amodei pessimiste et le déni minimaliste. Fait de Yann Ferguson sa principale référence sociologique pour les 4 archétypes de travailleurs face à l'IA.","en":"Masterful synthesis from a practitioner-theorist (CTO Michelin, ex-CEISAR, French Academy of Technology). Mobilizes the McKinsey production/transaction/interaction model (Lund, Manyika, Ramaswamy) to structure AI's differentiated impact. Articulates Amara's law (overestimation short-term, underestimation long-term) with the documented viscosity of AI enterprise transformation. Draws on Choudary (Reshuffle), Iansiti (Harvard), AII 2026 Stanford to quantify real capability maturity. Presents the FWPM (Future of Work Parametric Model) as a systemic analysis tool. Robust and nuanced framework, midway between the Amodei pessimistic position and minimalist denial. Makes Yann Ferguson the main sociological reference for the 4 worker archetypes facing AI."},"url":"https://informationsystemsbiology.blogspot.com/2026/05/the-impact-of-ai-automation-on-our-jobs.html","ai_type":"generative"},{"date":"2025-09-15","source":"Sangeet Paul Choudary · Reshuffle (livre)","country":"INT","title":{"fr":"Reshuffle · qui gagne quand l'IA réorganise l'économie de la connaissance","en":"Reshuffle · Who Wins When AI Restacks the Knowledge Economy"},"excerpt":{"fr":"Ouvrage de référence sur la nature systémique de la transformation IA. Thèse centrale : le pouvoir transformateur réel de l'IA n'est pas dans l'automatisation de tâches isolées (RPA 2.0), mais dans son rôle de glu intelligente qui restructure le système entier autour de la tâche. Distinction critique entre task-oriented AI (qui améliore la performance dans les structures de travail existantes) et system-level AI (qui redessine la structure du travail). Exemple Airbus : digital twins pour identifier les bottlenecks, tester des configurations alternatives et redessiner les rôles selon une vue systémique en évolution constante. Implication directe pour les directions RH : décomposer un job en tâches automatisables manque les contraintes (contexte, coordination, gestion du risque) qui maintiennent le job ensemble.","en":"Reference book on the systemic nature of AI transformation. Central thesis: AI's real transformative power is not in automating isolated tasks (RPA 2.0), but in its role as intelligent glue that restructures the entire system around the task. Critical distinction between task-oriented AI (improving performance within existing work structures) and system-level AI (redesigning work structure). Airbus example: digital twins to identify bottlenecks, test alternative configurations, and redesign roles based on a constantly evolving systemic view. Direct implication for HR leadership: breaking down a job into automatable tasks misses the constraints (context, coordination, risk management) that hold the job together."},"url":"https://www.amazon.com/Reshuffle-wins-restacks-knowledge-economy/dp/B0FK3BHF3F","ai_type":"generative"},{"date":"2026-04-15","source":"Yann Ferguson · LaborIA Explorer · ICAM Toulouse","country":"FR","title":{"fr":"Quatre archétypes de travailleurs face à l'IA · cadre sociologique pour les directions RH","en":"Four Worker Archetypes Facing AI · Sociological Framework for HR Leadership"},"excerpt":{"fr":"Sociologue spécialiste de l'IA au travail (LaborIA Explorer, ICAM Toulouse), Yann Ferguson propose une typologie en quatre archétypes de la relation travailleur-IA. Le travailleur remplacé : automatisation discrète qui réduit l'emploi par attrition plutôt que par licenciement collectif. Le travailleur dominé : autonomie et compétences contraintes par le contrôle algorithmique, soulèvant des questions éthiques fortes. Le travailleur augmenté : performance améliorée mais avec exigences de compétences nouvelles et risques cognitifs (sédation, dépendance). Le travailleur réhumanisé : l'IA libère du temps pour les activités proprement humaines (créativité, empathie), mais cette issue reste ambiguë. Cadre directement utile aux DRH pour cartographier les transformations métier par métier, plutôt que de raisonner en pourcentage agrégé.","en":"Sociologist specialized in AI at work (LaborIA Explorer, ICAM Toulouse), Yann Ferguson proposes a typology of four worker-AI relationship archetypes. The replaced worker: quiet automation reducing employment through attrition rather than mass layoffs. The dominated worker: autonomy and skills constrained by algorithmic control, raising strong ethical questions. The augmented worker: improved performance but with new skill requirements and cognitive risks (sedation, dependence). The rehumanized worker: AI frees time for distinctly human activities (creativity, empathy), but this outcome remains ambiguous. A directly useful framework for HR leadership to map transformations role by role, rather than reason in aggregate percentages."},"url":"https://laboria.fr/yann-ferguson-laboria-explorer/","ai_type":"generative"},{"date":"2026-04-30","source":"Stanford HAI · AI Index Report 2026","country":"INT","title":{"fr":"AII 2026 · l'écart entre fenêtre de contexte longue et compréhension profonde","en":"AII 2026 · The Gap Between Long Context Window and Deep Understanding"},"excerpt":{"fr":"Rapport annuel de référence du Stanford Human-Centered AI Institute. Quatre chiffres clés à intégrer dans les décisions RH 2026 : sur LongBench v2 (compréhension de longs documents par experts sous contrainte de 15 minutes), les humains experts atteignent 53,7% et le meilleur modèle 57,7% (marge étroite, la compréhension profonde reste difficile). Sur OSWorld (tâches sur ordinateur), les agents IA passent de 12% à 66,3% en 2025, à 6 points de la performance humaine. Robots multi-usages : 89,4% de réussite en simulation RLBench, mais seulement 12% sur les tâches ménagères réelles. Un agent IA échoue encore 1 fois sur 3 sur les benchmarks structurés. Ces chiffres recadrent la conversation sur l'AGI : l'ACI (intelligence cognitive artificielle) arrive, mais l'AGI (intelligence générale incluant intelligence situationnelle et émotionnelle) n'est pas pour avant 2030.","en":"Annual reference report from Stanford Human-Centered AI Institute. Four key figures to integrate into 2026 HR decisions: on LongBench v2 (long document comprehension by experts under 15-minute constraint), human experts reach 53.7% and the best model 57.7% (narrow margin, deep understanding remains difficult). On OSWorld (computer tasks), AI agents went from 12% to 66.3% in 2025, within 6 points of human performance. Multi-purpose robots: 89.4% success in RLBench simulation, but only 12% on real household tasks. An AI agent still fails 1 in 3 attempts on structured benchmarks. These figures reframe the AGI conversation: ACI (artificial cognitive intelligence) is arriving, but AGI (general intelligence including situational and emotional intelligence) is not before 2030."},"url":"https://hai.stanford.edu/ai-index/2026-ai-index-report","ai_type":"generative"},{"date":"2023-09-15","source":"Acemoglu, Autor, Johnson · MIT Shaping Work · policy memo","country":"INT","title":{"fr":"Pouvons-nous avoir une IA pro-travailleurs ? Mémoire de politique du MIT","en":"Can We Have Pro-Worker AI? · MIT Shaping Work Policy Memo"},"excerpt":{"fr":"Memo de politique économique signé par trois économistes majeurs : Daron Acemoglu (MIT, Nobel 2024), David Autor (MIT) et Simon Johnson (MIT, Nobel 2024). Argument central : la trajectoire actuelle de l'IA, orientée vers l'automatisation de tâches plutôt que la complémentarité avec le travail, n'est pas inévitable. Elle résulte de choix d'incitation fiscale et de politique publique qui peuvent être réorientés. Recommandations clés : déplacer la base de la taxation hors du travail (problématique quand le travail devient minoritaire), créer des subventions ciblées pour les activités à utilité sociale forte mais à faible viabilité économique de marché (soin, éducation, accompagnement, artisanat). Document de référence pour les politiques publiques européennes en cours de définition (EU AI Act, négociations sur la taxation du calcul IA).","en":"Economic policy memo signed by three major economists: Daron Acemoglu (MIT, Nobel 2024), David Autor (MIT), and Simon Johnson (MIT, Nobel 2024). Central argument: the current trajectory of AI, oriented toward task automation rather than complementarity with labor, is not inevitable. It results from tax incentive and public policy choices that can be redirected. Key recommendations: shift the tax base away from labor (problematic when labor becomes a minority), create targeted subsidies for activities with strong social utility but low market economic viability (care, education, accompaniment, craft). Reference document for European public policies under definition (EU AI Act, ongoing negotiations on AI compute taxation)."},"url":"https://shapingwork.mit.edu/wp-content/uploads/2023/09/Pro-Worker-AI-Policy-Memo.pdf","ai_type":"generative"},{"date":"2025-01-15","source":"Microsoft Research · Carnegie Mellon University","country":"INT","title":{"fr":"L'impact de l'IA générative sur l'effort cognitif et la pensée critique au travail","en":"The Impact of Generative AI on Cognitive Effort and Critical Thinking at Work"},"excerpt":{"fr":"Étude conjointe Microsoft Research / Carnegie Mellon documentant que l'usage répété d'assistants génératifs crée un faux sentiment de confiance et affaiblit la pensée critique. Les utilisateurs qui externalisent systématiquement la réflexion vers l'IA voient leurs capacités d'analyse, de doute méthodique et de vérification se dégrader sur 6 à 12 mois. Phénomène de sédation cognitive observé chez les utilisateurs novices (effet plus faible chez les experts qui maintiennent une discipline d'usage). Implications RH directes : la promesse d'augmentation IA n'est pas automatique. Sans discipline d'usage et critère de relecture critique, l'IA dégrade les compétences qu'elle est censée augmenter. Confirme indépendamment l'étude MIT/Klopfer sur la performance Fortran (les groupes ChatGPT et Code LLM ne se souvenaient de rien et ont tous échoué au test mémoire) et l'étude MIT brain imaging arxiv 2506.08872v1 sur la baisse d'activation neurale chez les utilisateurs intensifs.","en":"Joint Microsoft Research / Carnegie Mellon study documenting that repeated use of generative assistants creates a false sense of confidence and weakens critical thinking. Users who systematically outsource reflection to AI see their analytical, methodical doubt, and verification capacities degrade over 6 to 12 months. Cognitive sedation phenomenon observed in novice users (weaker effect on experts who maintain usage discipline). Direct HR implications: AI augmentation is not automatic. Without usage discipline and critical review criteria, AI degrades the skills it is supposed to augment. Independently confirms the MIT/Klopfer Fortran performance study (ChatGPT and Code LLM groups remembered nothing and all failed the memory test) and the MIT brain imaging study arxiv 2506.08872v1 on lower neural activation in intensive users."},"url":"https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf","ai_type":"generative"},{"date":"2026-04-15","source":"Stanford HAI · AI Index Report 2026","country":"INT","title":{"fr":"AI Index Report 2026 · l'écart entre fenêtre de contexte et compréhension profonde","en":"AI Index Report 2026 · the Gap Between Context Window and Deep Understanding"},"excerpt":{"fr":"Rapport annuel de référence de Stanford HAI sur l'état des capacités IA. Le chapitre 2 documente les progrès considérables de 2025 mais aussi les limites structurelles persistantes. Sur le benchmark expert LongBench v2, les experts humains atteignent 53,7% de précision sous contrainte de 15 minutes, le meilleur modèle 57,7% : marge étroite par rapport aux benchmarks structurés où les modèles dépassent largement la baseline humaine. Sur OSWorld (agents complétant des tâches sur OS réels), la précision est passée de 12% à 66,3% en un an, à 6 points seulement de la performance humaine. Sur la robotique, les robots ne réussissent que 12% des tâches ménagères courantes même quand ils excellent en environnement contrôlé (RLBench, manipulation simulée à 89,4% de succès). Source incontournable pour calibrer les attentes : l'IA progresse vite sur les benchmarks structurés, mais l'écart persiste sur la compréhension profonde et l'action en environnement réel non contrôlé.","en":"Stanford HAI's reference annual report on the state of AI capabilities. Chapter 2 documents 2025's considerable progress but also persistent structural limits. On the expert benchmark LongBench v2, human experts reach 53.7% accuracy under a 15-minute constraint, the best model 57.7%: narrow margin compared to structured benchmarks where models largely exceed the human baseline. On OSWorld (agents completing tasks on real OS), accuracy jumped from 12% to 66.3% in one year, just 6 points below human performance. On robotics, robots succeed at only 12% of common household tasks even when they excel in controlled environments (RLBench simulated manipulation at 89.4% success). Indispensable source for calibrating expectations: AI progresses rapidly on structured benchmarks, but the gap persists on deep comprehension and action in real uncontrolled environments."},"url":"https://hai.stanford.edu/research/ai-index-report","ai_type":"generative"},{"date":"2026-02-15","source":"Anthropic · Economic Index Research","country":"INT","title":{"fr":"Anthropic Labor Market Impacts of AI · l'écart capacité observée vs capacité théorique","en":"Anthropic Labor Market Impacts of AI · the Gap Between Observed and Theoretical Capability"},"excerpt":{"fr":"Étude d'Anthropic sur les usages réels de Claude par catégorie professionnelle, croisée avec les capacités théoriques d'automatisation par tâche. Le résultat clé : un écart majeur entre ce que la technologie est capable de faire et ce qu'elle est effectivement utilisée pour faire. Confirme l'observation MIT/Nanda 2024 (95% des projets GenAI échouent à délivrer de la valeur) et illustre le démarrage lent de l'automatisation par genAI dans les organisations. Le mode dominant d'usage reste l'augmentation (assistance à des tâches précises) plutôt que l'automatisation complète de bundles de tâches. Cadre essentiel pour comprendre la viscosité réelle de la transformation par IA, complémentaire à Brynjolfsson 2025 et NY Fed 2026 sur le reskilling plutôt que les coupes.","en":"Anthropic study on actual Claude usage by professional category, cross-referenced with theoretical task-by-task automation capabilities. The key finding: a major gap between what the technology can do and what it is actually used for. Confirms the MIT/Nanda 2024 observation (95% of GenAI projects fail to deliver value) and illustrates the slow start of AI automation in organizations. The dominant usage mode remains augmentation (assistance on specific tasks) rather than complete automation of task bundles. Essential framework for understanding the real viscosity of AI transformation, complementary to Brynjolfsson 2025 and NY Fed 2026 on reskilling rather than cuts."},"url":"https://www.anthropic.com/research/labor-market-impacts","ai_type":"generative"},{"date":"2025-09-01","source":"Sangeet Paul Choudary · Reshuffle book","country":"INT","title":{"fr":"Reshuffle · l'IA comme intelligent glue qui supprime les frictions des processus","en":"Reshuffle · AI as Intelligent Glue Removing Process Friction"},"excerpt":{"fr":"Ouvrage de référence sur l'IA en entreprise par Sangeet Paul Choudary. La thèse centrale : la vraie puissance transformative de l'IA ne vient pas de la manière dont elle exécute une tâche, mais de la manière dont elle restructure tout le système autour de la tâche. Définir les métiers comme une simple somme de tâches automatisables passe à côté des contraintes que les métiers gèrent : le contexte dans lequel les tâches sont effectuées, la coordination requise pour séquencer les tâches, et le risque à gérer en cas d'incident. Ces contraintes maintiennent les métiers ensemble. Choudary cite l'exemple Airbus de l'usage de l'IA et des digital twins pour redéfinir la structure du travail, plutôt que d'optimiser des tâches isolées. Avertissement crucial : surestimer l'optimisation peut paradoxalement détruire la coordination existante, rendant le système moins fiable.","en":"Reference work on AI in enterprise by Sangeet Paul Choudary. The central thesis: AI's real transformative power does not come from how it performs a task, but from how it restructures the entire system around the task. Defining jobs as a simple sum of automatable tasks misses the constraints jobs manage: the context in which tasks are performed, the coordination required to sequence tasks, and the risk to manage if something goes wrong. These constraints hold jobs together. Choudary cites the Airbus example of AI and digital twins use to redefine work structure, rather than optimizing isolated tasks. Crucial warning: overemphasizing optimization can paradoxically break down existing coordination, making the system less reliable."},"url":"https://www.amazon.fr/Reshuffle-wins-restacks-knowledge-economy/dp/B0FK3BHF3F","ai_type":"generative"},{"date":"2026-04-20","source":"Yann Ferguson · Numeum / RNS Strasbourg","country":"FR","title":{"fr":"Yann Ferguson · les 4 archétypes du travailleur face à l'IA · RNS Strasbourg","en":"Yann Ferguson · The 4 Worker Archetypes Facing AI · RNS Strasbourg"},"excerpt":{"fr":"Cadre d'analyse de Yann Ferguson, sociologue et expert reconnu sur l'impact réel de l'automatisation sur les personnes et les métiers, présenté lors des Rencontres Numériques de Strasbourg en avril 2026 et synthétisé dans son ouvrage « Ce que l'intelligence artificielle fait de l'homme au travail ». Quatre archétypes du travailleur face à l'IA : <strong>le travailleur remplacé</strong>, où l'automatisation réduit silencieusement les emplois par attrition plutôt que par licenciements ; <strong>le travailleur dominé</strong>, dont l'autonomie et les compétences sont contraintes par le contrôle algorithmique, soulevant des préoccupations éthiques fortes ; <strong>le travailleur augmenté</strong>, qui bénéficie d'une performance améliorée mais fait face à de nouvelles exigences de compétences et à des coûts cognitifs potentiels ; <strong>le travailleur réhumanisé</strong>, où l'IA libère du temps pour des activités plus distinctement humaines comme la créativité et l'empathie, bien que cette issue reste ambiguë. Cadre directement applicable aux décisions RH françaises : chaque poste cadre à transformer doit être analysé en termes d'archétype cible.","en":"Analytical framework by Yann Ferguson, sociologist and recognized expert on the real impact of automation on people and jobs, presented at the Strasbourg Digital Encounters in April 2026 and synthesized in his book « Ce que l'intelligence artificielle fait de l'homme au travail ». Four worker archetypes facing AI: <strong>the replaced worker</strong>, where automation silently reduces jobs through attrition rather than layoffs; <strong>the dominated worker</strong>, whose autonomy and skills are constrained by algorithmic control, raising strong ethical concerns; <strong>the augmented worker</strong>, who benefits from improved performance but faces new skill requirements and potential cognitive costs; <strong>the rehumanized worker</strong>, where AI frees time for more distinctly human activities like creativity and empathy, although this outcome remains ambiguous. Framework directly applicable to French HR decisions: each executive role to transform must be analyzed in terms of target archetype."},"url":"https://numeum.fr/numerique-responsable/strasbourg-le-20-avril-2026-communique-de-presse-troisieme-edition-des-rencontres-numeriques-de-strasbourg/","ai_type":"generative"},{"date":"2026-05-03","source":"The New York Times · Opinion","country":"INT","title":{"fr":"Le débat IA et chômage à l'épreuve des faits · Silicon Valley face à la réalité du marché du travail","en":"The AI Jobs Debate Against the Facts · Silicon Valley Versus Real Labor Markets"},"excerpt":{"fr":"Tribune de référence sur le décalage entre les annonces des dirigeants de l'IA (Amodei, Suleyman) et les données empiriques disponibles en 2026. Confronte la prédiction Amodei (50% des emplois cadres entrants éliminés en 1 à 5 ans) aux observations du terrain : reskilling massif chez les firmes ayant adopté l'IA, occupational churn à un plancher historique, absence de signal de désorganisation aggregate. Synthèse essentielle pour les COMEX qui doivent arbitrer entre récit médiatique et politique RH actionnable.","en":"Reference op-ed on the gap between AI executives' announcements (Amodei, Suleyman) and the empirical data available in 2026. Confronts the Amodei prediction (50% of entry-level white-collar jobs eliminated in 1 to 5 years) with field observations: massive reskilling among AI-adopting firms, occupational churn at a historic low, no aggregate disruption signal. Essential synthesis for executives arbitrating between media narrative and actionable HR policy."},"url":"https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html","ai_type":"generative"},{"date":"2026-05-02","source":"Silicon Continent · Pieter Garicano","country":"INT","title":{"fr":"Pourquoi les emplois de bureau survivent · une réponse côté offre à Amodei","en":"Why Desk Jobs Survive · A Supply-Side Answer to Amodei"},"excerpt":{"fr":"Critique structurée des prédictions Amodei et Suleyman. Argument central : un job n'est pas une somme de tâches automatisables, c'est un bundle. Quand l'IA prend la tâche faible du bundle, elle laisse au travailleur la tâche forte, qui était souvent celle qui produisait la vraie valeur. Conséquence empirique : l'IA recompose les métiers, elle les supprime rarement. Travail préliminaire au livre Messy Jobs avec Jin Li et Yanhui Wu. Référence à l'exemple historique de l'horlogerie suisse face au quartz (1980), où la survie n'est pas venue d'une meilleure précision technique mais d'une redéfinition du bundle de valeur.","en":"Structured critique of Amodei's and Suleyman's predictions. Central argument: a job is not a sum of automatable tasks, it is a bundle. When AI takes the weak task of the bundle, it leaves the worker with the strong task, which was often the one producing the real value. Empirical consequence: AI recomposes occupations, it rarely eliminates them. Preliminary work for the book Messy Jobs with Jin Li and Yanhui Wu. References the historical example of Swiss watchmaking facing quartz (1980), where survival came not from better technical precision but from a redefinition of the value bundle."},"url":"https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei","ai_type":"generative"},{"date":"2026-03-27","source":"Philip Trammell · Stanford Digital Economy Lab","country":"INT","title":{"fr":"Le travail est-il un luxe à long terme ?","en":"Is Labor a Luxury in the Long Run?"},"excerpt":{"fr":"Argumentation théorique sur la persistance d'une part travail élevée même dans un scénario de pleine automatisation. Trammell mobilise la notion de biens human-intrinsic : concerts, performances, accompagnement, soin, où la présence humaine fait partie de la définition même du bien. Une préférence même légère pour ces biens humains-intrinsèques peut maintenir la part travail à un niveau élevé, voire la pousser vers 1, même si les machines deviennent arbitrairement capables. Cadre théorique solide pour comprendre pourquoi les économistes (Papanikolaou, Northwestern) observent des effets compensatoires plutôt qu'un effondrement de l'emploi. Coauteur du Working Paper GPI 2020 fondateur sur la croissance économique sous IA transformatrice avec Anton Korinek.","en":"Theoretical argument on the persistence of a high labor share even in a full-automation scenario. Trammell mobilizes the notion of human-intrinsic goods: concerts, performances, accompaniment, care, where human presence is part of the very definition of the good. Even a mild preference for these human-intrinsic goods can keep the labor share at a high level, possibly pushing it toward 1, even if machines become arbitrarily capable. Solid theoretical framework for understanding why economists (Papanikolaou, Northwestern) observe offsetting effects rather than employment collapse. Co-author of the foundational GPI 2020 Working Paper on economic growth under transformative AI with Anton Korinek."},"url":"https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run","ai_type":"generative"},{"date":"2026-04-15","source":"Federal Reserve Bank of New York · Survey","country":"INT","title":{"fr":"Survey NY Fed · les firmes adoptant l'IA choisissent majoritairement le reskilling plutôt que les coupes d'effectifs","en":"NY Fed Survey · AI-Adopting Firms Mostly Choose Reskilling Over Headcount Cuts"},"excerpt":{"fr":"Données de la Federal Reserve Bank of New York montrant que la majorité des entreprises adoptant l'IA en 2026 choisissent de former leur personnel existant plutôt que de réduire les effectifs. Donnée empirique critique pour calibrer les attentes sur le rythme et la nature de la transition. Confirme les observations Brynjolfsson 2025 (gain +15% concentré sur les juniors, augmentation plutôt que substitution) et complète l'argument Garicano sur la recomposition des bundles plutôt que leur élimination. À mettre en regard des prédictions Amodei sur la suppression rapide de 50% des entry-level cadres.","en":"Data from the Federal Reserve Bank of New York showing that the majority of firms adopting AI in 2026 choose to retrain their existing staff rather than cut headcount. Critical empirical data to calibrate expectations about the pace and nature of the transition. Confirms Brynjolfsson 2025 observations (+15% gain concentrated on juniors, augmentation rather than substitution) and complements Garicano's argument on bundle recomposition rather than elimination. To be set against Amodei's predictions of rapid suppression of 50% entry-level white-collar jobs."},"url":"https://www.newyorkfed.org/research/policy/sce-labor","ai_type":"generative"},{"date":"2025-01-23","source":"Davos / Anthropic · Dario Amodei","country":"INT","title":{"fr":"Prédiction Amodei à Davos · 50% des emplois cadres entrants éliminés en 1 à 5 ans","en":"Amodei Davos Prediction · 50% of Entry-Level White-Collar Jobs Eliminated in 1 to 5 Years"},"excerpt":{"fr":"Prédiction de référence dans le débat IA et travail. Lors de Davos en janvier 2025, Dario Amodei (CEO d'Anthropic) annonce que l'IA pourrait éliminer jusqu'à 50% des emplois cadres entrants en finance, conseil, droit et tech, dans un horizon de 1 à 5 ans, et porter le chômage entre 10% et 20%. Argument structurel : contrairement aux vagues d'automatisation passées, l'IA progresse simultanément dans tous les secteurs cognitifs, supprimant les bassins d'emploi adjacents qui absorbaient les travailleurs déplacés. Cette prédiction est devenue le pôle pessimiste du débat de référence en 2025-2026 et a été contestée par Garicano (Silicon Continent), Trammell (Stanford), Papanikolaou (Northwestern) et LeCun (Meta).","en":"Reference prediction in the AI and work debate. At Davos in January 2025, Dario Amodei (Anthropic CEO) announced that AI could eliminate up to 50% of entry-level white-collar jobs in finance, consulting, law, and tech, on a 1-to-5-year horizon, and push unemployment between 10% and 20%. Structural argument: unlike past automation waves, AI progresses simultaneously across all cognitive sectors, eliminating the adjacent employment basins that absorbed displaced workers. This prediction has become the pessimistic pole of the 2025-2026 reference debate and has been contested by Garicano (Silicon Continent), Trammell (Stanford), Papanikolaou (Northwestern), and LeCun (Meta)."},"url":"https://www.weforum.org/agenda/2025/01/anthropic-amodei-davos-ai-employment/","ai_type":"generative"},{"date":"2026-04-15","source":"Dan Taylor-Watt · Substack","country":"INT","title":{"fr":"Pourquoi je conteste la prédiction Amodei sur l'emploi","en":"Why I Disagree With Amodei's AI Jobs Prediction"},"excerpt":{"fr":"Démontre trois facteurs sous-estimés par Amodei dans son extrapolation depuis les capacités IA en software vers l'ensemble des métiers white-collar. Premièrement, le software est anormalement validable (Y/N sur les tests) ; les autres domaines ne sont pas binaires. Deuxièmement, les hallucinations restent un facteur prohibitif pour l'automatisation totale dans la plupart des domaines. Troisièmement, le jugement, l'accountability et la crédibilité humaines sont rémunérés en plus de la formule technique. En consulting, les clients ne paient pas seulement la formule, ils paient le jugement, la crédibilité et l'accountability du consultant humain. Mise en garde : si les dirigeants gèlent les recrutements juniors par anticipation, ils détruisent leur propre pipeline de seniors. Hollow out the entry level and you hollow out the pipeline.","en":"Demonstrates three factors underestimated by Amodei in his extrapolation from software AI capabilities to all white-collar jobs. First, software is unusually verifiable (Y/N on tests); other domains are not binary. Second, hallucinations remain a prohibitive factor for full automation in most domains. Third, human judgment, accountability, and credibility are paid in addition to the technical formula. In consulting, clients do not just pay for the formula, they pay for the judgment, credibility, and accountability of the human consultant. Warning: if executives freeze junior hiring in anticipation, they destroy their own pipeline of seniors. Hollow out the entry level and you hollow out the pipeline."},"url":"https://dantaylorwatt.substack.com/p/why-i-disagree-with-dario-amodeis","ai_type":"generative"},{"date":"2023-10-01","source":"Trammell & Korinek · Global Priorities Institute · NBER","country":"INT","title":{"fr":"Economic Growth under Transformative AI : le paper foundateur sur la croissance et la part du travail","en":"Economic Growth under Transformative AI: the foundational paper on growth and labor share"},"excerpt":{"fr":"Working paper de Philip Trammell (Oxford GPI, Stanford Digital Economy Lab) et Anton Korinek (Virginia, NBER, CEPR) qui pose le cadre théorique de référence sur la croissance économique en présence d'IA transformative. Si l'IA permet au capital de devenir un substitut brut au travail dans la production, et si les machines peuvent s'auto-répliquer, alors le taux de croissance peut s'accélérer dramatiquement et la part du travail peut s'effondrer. Ce résultat dépend de manière critique des hypothèses sur la fonction de production et la complémentarité capital-travail. Le paper recense les modèles disponibles (Hanson, Davidson, Korinek-Halperin-Houlden) et identifie les paramètres clés pour anticiper les scénarios. Référence centrale citée par Imas, Trammell et Garicano dans leurs échanges substack 2026.","en":"Working paper by Philip Trammell (Oxford GPI, Stanford Digital Economy Lab) and Anton Korinek (Virginia, NBER, CEPR) establishing the reference theoretical framework for economic growth in the presence of transformative AI. If AI enables capital to become a gross substitute for labor in production, and if machines can self-replicate, then the growth rate can dramatically accelerate and the labor share can collapse. This result depends critically on assumptions about the production function and capital-labor complementarity. The paper reviews the available models (Hanson, Davidson, Korinek-Halperin-Houlden) and identifies the key parameters for anticipating scenarios. Central reference cited by Imas, Trammell, and Garicano in their 2026 substack exchanges."},"url":"https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf","ai_type":"generative"},{"date":"2026-05-01","source":"Washington Post · Tech","country":"INT","title":{"fr":"Ce que les licenciements de la Silicon Valley cachent sur l'avenir du marché du travail","en":"What Silicon Valley layoffs hide about the future of the job market"},"excerpt":{"fr":"Enquête Washington Post du 1er mai 2026. Les géants tech investissent massivement dans l'IA mais n'ont pas réduit leurs effectifs significativement. Meta annonce 10% de licenciements en mai mais cela suit deux années de croissance d'effectifs. Les électeurs américains, dans les sondages cités, n'achètent pas le récit que l'IA va bénéficier au travailleur moyen. Le décalage entre les prédictions Amodei/Suleyman (50% des cols blancs juniors automatisés, 12-18 mois) et la réalité statistique du marché du travail américain alimente la défiance institutionnelle. L'article fait écho aux travaux de Garicano, Trammell et Imas qui défendent la thèse de la persistance des métiers complexes face à l'automatisation des tâches.","en":"Washington Post investigation of May 1, 2026. Tech giants are investing heavily in AI but haven't significantly shrunk their workforces. Meta announces 10% layoffs in May but this follows two years of headcount growth. American voters, in cited polls, are not buying the narrative that AI will benefit the average worker. The gap between Amodei/Suleyman predictions (50% of junior white-collars automated, 12-18 months) and the statistical reality of the US labor market fuels institutional distrust. The article echoes the work of Garicano, Trammell, and Imas defending the thesis of complex job persistence in the face of task automation."},"url":"https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/","ai_type":"generative"},{"date":"2026-04-06","source":"Fortune · Omar Abbosh (CEO Pearson)","country":"INT","title":{"fr":"L'apocalypse IA des emplois est un récit Silicon Valley. Les données racontent autre chose.","en":"The AI Job Apocalypse Is a Silicon Valley Story. The Data Tells a Different One."},"excerpt":{"fr":"Le PDG de Pearson contextualise : la transformation des métiers du software engineering explique l'essentiel de la panique émanant de la Silicon Valley, mais ne reflète pas le marché du travail au sens large. Recherches d'Oxford Economics (janvier 2026) : preuves de perturbation IA « patchwork au mieux ». Économistes du travail Wharton : AI-washing des pertes d'emploi. Taux de chômage US 4,4% (9,4% pour les 16-24 ans), bien en deçà des pics européens années 90 (11% global, plus de 20% pour les jeunes). Ce qui est observé : cycles économiques classiques, surembauche, correction des coûts. La rhétorique d'« inflection point IA » est largement déconnectée des données macroéconomiques effectives. À utiliser en contre-poids des annonces Amodei/Suleyman/Dimon dans les Dispatches.","en":"Pearson's CEO contextualizes: the transformation of software engineering jobs explains most of the panic emanating from Silicon Valley, but does not reflect the broader labor market. Oxford Economics research (January 2026): evidence of AI disruption « patchy at best ». Wharton labor economists: AI-washing of job losses. US unemployment rate 4.4% (9.4% for 16-24-year-olds), far below European peaks of the 1990s (11% overall, over 20% for youth). What we are observing: classical economic cycles, overhiring, cost correction. The « AI inflection point » rhetoric is largely disconnected from actual macroeconomic data. To use as counterweight to Amodei/Suleyman/Dimon announcements in the Dispatches."},"url":"https://fortune.com/2026/04/06/ai-job-apocalypse-silicon-valley-wrong-labor-market/","ai_type":"generative"},{"date":"2026-04-28","source":"Singh Tomer · Working Paper","country":"INT","title":{"fr":"Travail humain face à l'IA : un cadre par coût total de possession (TCO) et adéquation des tâches","en":"Human Labor Versus AI: A Total Cost of Ownership and Task-Suitability Framework"},"excerpt":{"fr":"Synthèse théorique majeure : la comparaison « salaire vs prix par token » est trompeuse. Le bon critère économique est le coût total de possession par résultat acceptable. Le TCO de l'IA inclut l'inférence, l'intégration, l'orchestration, la gouvernance, la supervision, l'évaluation, la vérification, l'escalade humaine et la refonte organisationnelle. Articule les preuves empiriques de divergence : Noy & Zhang 2023 (+40% writing), Brynjolfsson 2025 (+15% support agents, surtout les juniors), Becker et al. 2025 (-19% productivité pour les développeurs OSS expérimentés sur codebases familières). Cite la prédiction Gartner d'une sous-estimation des coûts GenAI de 500% à 1000%, et le seuil de 3$ par résolution dépassé en 2030.","en":"Major theoretical synthesis: comparing « salary vs token price » is misleading. The correct economic criterion is total cost of ownership per acceptable outcome. AI TCO includes inference, integration, orchestration, governance, oversight, evaluation, verification, human escalation, and organizational redesign. Articulates the divergent empirical evidence: Noy & Zhang 2023 (+40% writing), Brynjolfsson 2025 (+15% support agents, especially juniors), Becker et al. 2025 (-19% productivity for experienced OSS developers on familiar codebases). Cites Gartner's prediction of GenAI cost underestimation by 500% to 1000%, and the $3 per resolution threshold exceeded by 2030."},"url":"https://arxiv.org/abs/2511.singh-tomer-tco-framework","ai_type":"generative"},{"date":"2026-01-26","source":"Gartner · Patrick Quinlan","country":"INT","title":{"fr":"Le coût par résolution de la GenAI dépassera celui des agents humains offshore en 2030","en":"GenAI Cost Per Resolution to Exceed Offshore Human Agent Costs by 2030"},"excerpt":{"fr":"Prédiction de référence chez Gartner : d'ici 2030, le coût par résolution de la GenAI dans le service client dépassera 3$, plus cher que de nombreux agents humains offshore B2C. Trois facteurs : explosion des coûts de data centers, fin des prix subventionnés vers la rentabilité chez les éditeurs IA, et complexité croissante des cas d'usage qui consomment plus de tokens et exigent du talent plus coûteux. Patrick Quinlan : « Le ROI sur ces investissements est loin d'être garanti. L'automatisation totale sera prohibitivement coûteuse pour la plupart des organisations. » Gartner prédit aussi qu'en 2028, les pressions réglementaires sur le droit de parler à un humain feront croître le volume d'interactions assistées de 30%. Pour 90% des CIO, gérer les coûts limite désormais la valeur tirée de l'IA.","en":"Reference prediction from Gartner: by 2030, GenAI cost per resolution in customer service will exceed $3, higher than many B2C offshore human agents. Three drivers: exploding data center costs, end of subsidized pricing toward profitability among AI vendors, and rising use case complexity consuming more tokens and requiring more expensive talent. Patrick Quinlan: « ROI on those investments is far from guaranteed. Full automation will be prohibitively expensive for most organizations. » Gartner also predicts that by 2028, regulatory pressure on the right to speak to a human will increase assisted interaction volume by 30%. For 90% of CIOs, managing costs now limits the value extracted from AI."},"url":"https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030","ai_type":"generative"},{"date":"2025-09-02","source":"EPFL · ETH Zurich · CSCS","country":"CH","title":{"fr":"Apertus : un modèle de langage suisse, fully open et conforme à l'EU AI Act","en":"Apertus: a Fully Open Swiss Language Model, Compliant with the EU AI Act"},"excerpt":{"fr":"Lancement du premier grand modèle de langage suisse public (8B et 70B paramètres), entièrement open : architecture, poids, données d'entraînement et recettes documentées. Entraîné sur 15 trillions de tokens dont 40% non anglophones, couvrant plus de 1000 langues incluant le suisse-allemand et le romanche. Développé par EPFL, ETH Zurich et CSCS, financé à hauteur de 20 millions CHF par la Confédération jusqu'en 2028. Hébergé par Swisscom sur sa plateforme IA souveraine helvétique. Conçu dès l'origine pour respecter l'EU AI Act, le droit suisse de protection des données et les opt-outs créateurs. Plus d'un million de téléchargements depuis le lancement. Mai 2026 : déploiement de Meditron au CHUV pour la décision clinique aux urgences. C'est le pilier technique de la stratégie de souveraineté IA suisse.","en":"Launch of Switzerland's first public large language model (8B and 70B parameters), fully open: architecture, weights, training data and recipes documented. Trained on 15 trillion tokens of which 40% non-English, covering over 1000 languages including Swiss German and Romansh. Developed by EPFL, ETH Zurich and CSCS, funded by the Swiss Confederation to the tune of CHF 20 million through 2028. Hosted by Swisscom on its sovereign Swiss AI platform. Designed from the start to comply with the EU AI Act, Swiss data protection law, and creator opt-outs. Over one million downloads since launch. May 2026: deployment of Meditron at CHUV for clinical decision support in emergency rooms. The technical pillar of Switzerland's AI sovereignty strategy."},"url":"https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html","ai_type":"generative"},{"date":"2026-03-30","source":"Mistral AI · Le Monde · European Business Magazine","country":"INT","title":{"fr":"Mistral AI lève 830 M$ en dette auprès de 7 banques européennes pour son data center souverain","en":"Mistral AI Raises $830M in Debt from 7 European Banks for Its Sovereign Data Center"},"excerpt":{"fr":"Plus grosse opération de dette d'une entreprise IA européenne à ce jour, et première levée par dette pour Mistral. Consortium remarquable : BNP Paribas, Crédit Agricole CIB, HSBC, MUFG, Bpifrance, La Banque Postale et Natixis CIB - six européennes plus une japonaise, aucune banque US. Finance 13 800 GPU Nvidia GB300 pour le premier data center à Bruyères-le-Châtel près de Paris (44 MW, ouverture Q2 2026). Mensch s'engage à déployer 200 MW de capacité de calcul européen d'ici 2027. Stratégie : devenir le 3e fournisseur souverain européen de calcul IA derrière OVHcloud et Scaleway. Pour les clients régulés (gouvernements, défense, finance), c'est l'alternative sérieuse aux hyperscalers américains qui ne peuvent pas garantir une infrastructure sous juridiction européenne. Valorisation Mistral : 13,7 milliards de dollars, plus d'1 milliard de revenus prévus en 2026.","en":"Largest debt operation by a European AI company to date, and Mistral's first debt raise. Notable consortium: BNP Paribas, Crédit Agricole CIB, HSBC, MUFG, Bpifrance, La Banque Postale and Natixis CIB - six European institutions plus one Japanese, no US bank. Funds 13,800 Nvidia GB300 GPUs for the first data center at Bruyères-le-Châtel near Paris (44 MW, opening Q2 2026). Mensch commits to deploying 200 MW of European compute capacity by 2027. Strategy: become Europe's third sovereign AI compute provider behind OVHcloud and Scaleway. For regulated clients (governments, defense, finance), this is the serious alternative to US hyperscalers that cannot guarantee European-jurisdiction infrastructure. Mistral valuation: $13.7 billion, more than $1 billion in projected 2026 revenue."},"url":"https://europeanbusinessmagazine.com/business/business-mistral-ai-830-million-debt-financing-european-banks-paris-data-center/","ai_type":"generative"},{"date":"2026-02-27","source":"Index.dev · BenchLM · EuropeanStack (synthèse)","country":"INT","title":{"fr":"Cartographie des LLM européens : Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn","en":"Mapping European LLMs: Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn"},"excerpt":{"fr":"Synthèse de l'écosystème LLM européen 2026. L'Europe ne court pas la même course que les US ou la Chine. Forces : open-weight, performance multilingue, conformité réglementaire, résidence des données. Mistral (FR) reste le plus avancé en benchmarks. Aleph Alpha (DE) s'est repositionnée sur PhariaAI, un OS souverain pour le secteur public. Apertus (CH) est le modèle de référence sur la transparence et la conformité EU AI Act. Minerva (IT) est le seul LLM italien entraîné from scratch. LightOn (FR) excelle en raisonnement long-contexte sur documents. H Company (FR) pousse les modèles d'usage informatique. Verdict : pour une organisation avec des opérations dans l'UE, le choix sovereign-first n'est plus utopique en 2026. Pour les industries régulées (finance, santé, défense, secteur public), c'est devenu un prérequis de gouvernance.","en":"Synthesis of the European LLM ecosystem 2026. Europe is not racing the same race as the US or China. Strengths: open-weight, multilingual performance, regulatory compliance, data residency. Mistral (FR) remains the most benchmark-advanced. Aleph Alpha (DE) repositioned on PhariaAI, a sovereign OS for the public sector. Apertus (CH) is the reference model for transparency and EU AI Act compliance. Minerva (IT) is the only Italian LLM trained from scratch. LightOn (FR) excels in long-context document reasoning. H Company (FR) pushes computer-use models. Verdict: for an EU-operating organization, the sovereign-first choice is no longer utopian in 2026. For regulated industries (finance, healthcare, defense, public sector), it has become a governance prerequisite."},"url":"https://www.index.dev/blog/european-llms-top-models","ai_type":"generative"},{"date":"2026-04-25","source":"Financial Times · John Burn-Murdoch","country":"INT","title":{"fr":"Ce que rate le récit du « jobpocalypse » IA","en":"What the AI 'jobpocalypse' narrative misses"},"excerpt":{"fr":"Burn-Murdoch démontre par les chiffres historiques (BLS, James Bessen) que l'effet productivité-emploi dépend du rapport demande/offre dans chaque secteur, pas de la seule capacité technique de l'IA. Les logiciels et les services pro ont vu productivité et emploi croître ensemble (demande latente), tandis que la manufacture a vu l'emploi reculer (demande satisfaite). La radiologie et la santé restent protégées par la régulation. Critique radicale des prédictions basées uniquement sur les task-based exposure scores.","en":"Burn-Murdoch shows through historical BLS data and James Bessen's research that the productivity-employment relationship depends on demand/supply dynamics within each sector, not on AI's technical capability alone. Software and professional services saw both productivity and employment rise (pent-up demand), while manufacturing saw employment fall (satiated demand). Radiology and healthcare remain protected by regulation. Radical critique of predictions based solely on task-based exposure scores."},"url":"https://www.ft.com/content/8d3b02a3-c929-46a1-b79e-dbcdb1d10e15","ai_type":"generative"},{"date":"2026-04-23","source":"Focaldata · Financial Times Workforce AI Tracker · Wave 1","country":"INT","title":{"fr":"Two-Tier Transformation : comment l'IA change le travail au Royaume-Uni et aux États-Unis","en":"Two-Tier Transformation: How AI is Changing Work in the UK and US"},"excerpt":{"fr":"Première vague d'un tracker mensuel UK+US (n=4 119, février-mars 2026). 65% des actifs ont utilisé l'IA au moins une fois, mais moins de 1/5 quotidiennement. Distribution L-shape : grande majorité d'usagers rares + petite minorité de power users. Productivité IA marché : +3,5% (Tech +7,8%, Finance +5,1%). Effet formation +37 pts d'usage quotidien, mais seulement 14% ont reçu une formation formelle. Managers UK pessimistes (-25% prévoient réduction) vs US optimistes (+28% prévoient hausse). Scénarios ABC : Augmentation, Bifurcation (probable), Crash.","en":"First wave of monthly UK+US tracker (n=4,119, February-March 2026). 65% of workers have used AI at least once, but fewer than 1/5 daily. L-shaped distribution: large majority of rare users + small minority of power users. Market AI productivity: +3.5% (Tech +7.8%, Finance +5.1%). Training effect +37 pts daily usage, but only 14% have received formal training. UK managers pessimistic (-25% expect reduction) vs US optimistic (+28% expect increase). ABC scenarios: Augmentation, Bifurcation (likely), Crash."},"url":"https://focaldata.com","ai_type":"generative"},{"date":"2026-04-23","source":"Angestellte Schweiz · DemoSCOPE","country":"CH","title":{"fr":"Insécurité de l'emploi perçue et responsabilités · enquête nationale","en":"Perceived job insecurity and responsibilities · national survey"},"excerpt":{"fr":"Enquête représentative auprès de 1 028 actifs des trois régions linguistiques (23-30 mars 2026). 75% se sentent en sécurité, mais 24% perçoivent une dégradation sur 12 mois. L'IA est citée comme cause individuelle #1 d'insécurité (catégorie technologique 22%). Introduction d'outils IA déclarée dans 17% des environnements de travail, avec un écart frappant : 9% dans les TPE de moins de 10 salariés contre 24% dans les entreprises de 250+. La formation continue reste la mesure jugée la plus efficace (M=3.27/4).","en":"Representative survey of 1,028 active workers across the three language regions (23-30 March 2026). 75% feel secure, but 24% perceive a deterioration over 12 months. AI is cited as the #1 individual cause of insecurity (technology category 22%). AI tool introduction reported in 17% of work environments, with a striking gap: 9% in SMEs under 10 employees vs 24% in companies of 250+. Continuing education remains the measure deemed most effective (M=3.27/4)."},"url":"https://www.angestellte.ch","ai_type":"generative"},{"date":"2026-04-15","source":"NBER · Yin, Vu, Persico (w35110)","country":"INT","title":{"fr":"Quelle (in)stabilité des scores d'exposition LLM ? Evidence d'une réplication multi-modèles","en":"How (un)Stable Are LLM Occupational Exposure Scores? Evidence from Multi-Model Replication"},"excerpt":{"fr":"Démonstration que les mesures d'exposition à l'IA basées sur les LLM auto-évaluatifs sont hautement fragiles. Trois modèles frontière appliquant la même rubrique sur les mêmes tâches produisent une divergence d'un facteur 3,6 sur l'exposition moyenne, avec un accord descendant à 57%. Cette instabilité altère les conclusions empiriques en aval : les coefficients en panel diff-in-diff varient d'un facteur 2,4 selon l'annotateur, et les estimations county-level passent d'un effet négatif significatif à un effet positif non significatif selon le modèle utilisé. Conclusion radicale : traiter les LLM en évolution comme des instruments statiques est risqué.","en":"Demonstration that LLM-based self-assessed AI exposure measures are highly fragile. Three frontier models applying the same rubric on identical tasks produce a 3.6-fold divergence in mean exposure, with agreement as low as 57%. This instability alters downstream empirical conclusions: difference-in-differences coefficients vary 2.4-fold across annotators, and county-level estimates flip from significant negative to insignificant positive depending on the model. Radical conclusion: treating evolving LLMs as static instruments is risky."},"url":"https://www.nber.org/papers/w35110","ai_type":"generative"},{"date":"2026-04-15","source":"British Progress · Pedro Serôdio","country":"INT","title":{"fr":"L'IA et le marché du travail britannique : l'état des preuves","en":"AI and the UK labour market: the evidence so far"},"excerpt":{"fr":"Rapport synthétisant les données disponibles sur l'impact de l'IA sur l'emploi au Royaume-Uni. Conclusion : peu de signes d'effets agrégés massifs, malgré 54% des PME britanniques utilisant l'IA selon BCC. Les prédictions Goldman Sachs (+7% PIB mondial) et McKinsey (12 millions de transitions) reposent sur ce que l'IA pourrait faire si toutes les organisations l'adoptaient pleinement. La réalité observée est plus étroite et plus collaborative. Divergence frappante entre exposition prédite (forte chez les professionnels et managers) et usage réel (en retard).","en":"Report synthesizing available data on AI's impact on UK employment. Conclusion: few signs of massive aggregate effects, despite 54% of UK SMEs using AI per BCC. Goldman Sachs (+7% world GDP) and McKinsey (12 million transitions) predictions rest on what AI could do if all organizations adopted it fully. Observed reality is narrower and more collaborative. Striking divergence between predicted exposure (high for professionals and managers) and actual usage (lagging)."},"url":"https://britishprogress.org/reports/ai-and-the-uk-labour-market-the-evidence-so-far","ai_type":"generative"},{"date":"2026-04-15","source":"APEC","country":"FR","title":{"fr":"Perspectives 2026 du recrutement cadre·IT en redémarrage","en":"2026 executive recruitment outlook·IT picking up"},"excerpt":{"fr":"305 800 recrutements cadres prévus en 2026 (+4%). Cadres IT : 61 160 recrutements (+4%). Reprise relative·encore loin du sommet 2023 (330 400). Trois moteurs explicites : transformation numérique, cybersécurité, montée en puissance de l'IA. Profils juniors peu favorisés (+1%).","en":"305,800 executive recruitments expected in 2026 (+4%). IT executives: 61,160 hirings (+4%). Relative pickup·still below the 2023 peak (330,400). Three explicit drivers: digital transformation, cybersecurity, AI ramp-up. Junior profiles disadvantaged (+1%)."},"url":"https://corporate.apec.fr/home/nos-etudes/toutes-nos-etudes/les-cadres-et-l'ia.html","ai_type":"generative"},{"date":"2026-04-12","source":"PwC","country":"INT","title":{"fr":"AI Jobs Barometer 2025·France 1ère en Europe","en":"AI Jobs Barometer 2025·France 1st in Europe"},"excerpt":{"fr":"Analyse de près d'un milliard d'offres d'emploi sur six continents. France : 166 000 offres IA en 2024, devant l'Allemagne (147 000) et le Royaume-Uni (125 000). Offres IA × 10 en Suisse entre 2018 et 2024 (2 000 → 20 000). Prime salariale IA : jusqu'à +56% par rapport aux postes équivalents.","en":"Analysis of nearly one billion job postings across six continents. France: 166,000 AI postings in 2024, ahead of Germany (147,000) and UK (125,000). AI postings × 10 in Switzerland between 2018 and 2024 (2,000 → 20,000). AI salary premium: up to +56% versus equivalent positions."},"url":"https://www.pwc.fr/fr/publications/series/ai-jobs-barometer.html","ai_type":"generative"},{"date":"2026-04-10","source":"Roboto · Analyse fournisseurs LLM","country":"FR","title":{"fr":"La taxe linguistique française : +60% de tokens vs anglais sur les principaux LLM","en":"The French linguistic tax: +60% tokens vs English on major LLMs"},"excerpt":{"fr":"Analyse comparative documentée : pour une tâche d'agent identique (message utilisateur 100 mots + prompt système 500 mots + réponse 200 mots), le contenu en anglais consomme 1 040 tokens contre 1 664 tokens en français, soit +60%. Cette « taxe linguistique » provient du Byte Pair Encoding utilisé par les LLM, optimisé sur des corpus majoritairement anglophones. À l'échelle de millions d'appels d'agents par mois, cette surcharge devient un facteur de coût majeur pour les organisations francophones (France et Suisse romande). L'écart tarifaire entre modèles a aussi explosé : entre GPT-5.2 Pro à 168$/M tokens en sortie et Gemini Flash-Lite à 0,40$/M, l'écart atteint 420×, pour des modèles tous deux commercialisés comme « assistants IA ». Conséquence stratégique : les organisations francophones doivent maîtriser la sélection de modèles encore plus rigoureusement que les anglophones.","en":"Documented comparative analysis: for an identical agent task (100-word user message + 500-word system prompt + 200-word response), English content consumes 1,040 tokens vs 1,664 in French, a +60% increase. This « linguistic tax » comes from the Byte Pair Encoding used by LLMs, optimized on predominantly English corpora. At scale of millions of agent calls per month, this overhead becomes a major cost factor for French-speaking organizations (France and Romandie). The pricing spread between models has also exploded: between GPT-5.2 Pro at $168/M output tokens and Gemini Flash-Lite at $0.40/M, the gap reaches 420×, for models both marketed as « AI assistants ». Strategic consequence: French-speaking organizations must master model selection even more rigorously than English-speaking ones."},"url":"https://www.roboto.fr/blog/tokens-ia-comment-les-fournisseurs-vous-font-payer-60-de-plus","ai_type":"generative"},{"date":"2026-04-10","source":"Coface · OEM","country":"FR","title":{"fr":"Emplois, compétences, valeur : ce que l'IA est en train de bouleverser","en":"Jobs, skills, value: what AI is disrupting"},"excerpt":{"fr":"Étude conjointe Coface / Observatoire des Emplois Menacés et Émergents. 16,3% des emplois français exposés à 2-5 ans (≈ 5 millions). 3,8% déjà fragilisés par l'IA générative actuelle. Méthodologie tâche par tâche sur 923 professions. Métiers qualifiés en première ligne, contrairement aux vagues précédentes.","en":"Joint Coface / OEM study. 16.3% of French jobs exposed within 2-5 years (≈ 5 million). 3.8% already weakened by current generative AI. Task-by-task methodology on 923 occupations. Qualified jobs on the front line, unlike previous waves."},"url":"https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser","ai_type":"agentic"},{"date":"2026-04-08","source":"France Stratégie · DARES","country":"FR","title":{"fr":"Les Métiers en 2030·révision post-IA générative","en":"Jobs in 2030·post-generative AI revision"},"excerpt":{"fr":"Mise à jour du rapport prospectif coréalisé par France Stratégie et la DARES. 800 000 postes à pourvoir par an d'ici 2030, dont 90% liés aux départs en retraite. 115 000 postes d'ingénieurs informatiques nets supplémentaires (+26%). Métiers de la santé en première ligne des recrutements.","en":"Update to the prospective report co-authored by France Stratégie and DARES. 800,000 positions to be filled per year by 2030, 90% linked to retirements. 115,000 additional net IT engineering positions (+26%). Healthcare occupations on the front line of recruitment."},"url":"https://www.strategie-plan.gouv.fr/publications/metiers-2030","ai_type":"automation_broad"},{"date":"2026-04-02","source":"Swiss AI Center · HES-SO","country":"CH","title":{"fr":"Adoption de l'IA dans les PME suisses·bilan 2026","en":"AI adoption in Swiss SMEs·2026 review"},"excerpt":{"fr":"Centre dédié à l'accélération de l'adoption IA par les PME. PME = 3 millions d'emplois dans 590 000 entreprises (60% population active). Obstacles documentés : manque de connaissances, accès aux compétences locales, sécurité des données. AI Days 23-25 mars 2026 à Martigny et Fribourg.","en":"Centre dedicated to accelerating AI adoption by SMEs. SMEs = 3 million jobs in 590,000 companies (60% of the active population). Documented barriers: lack of knowledge, access to local skills, data security. AI Days 23-25 March 2026 in Martigny and Fribourg."},"url":"https://www.hes-so.ch/swiss-ai-center","ai_type":"generative"},{"date":"2026-04-01","source":"OFS · Statistique de l'emploi","country":"CH","title":{"fr":"STATEM Q1 2026·places vacantes et prévisions d'emploi","en":"STATEM Q1 2026·vacancies and employment forecasts"},"excerpt":{"fr":"Statistique trimestrielle officielle. Recul des places vacantes (-16,4% sur un an au T1 2025). Indicateur de prévision d'emploi à 1,042 (vs 1,05 l'an précédent). Chômage BIT 4,7% (vs 4,3%). Source de référence pour les indicateurs Suisse de l'observatoire.","en":"Official quarterly statistics. Vacancies declining (-16.4% year-on-year in Q1 2025). Employment forecast indicator at 1.042 (vs 1.05 the previous year). ILO unemployment 4.7% (vs 4.3%). Reference source for the observatory's Swiss indicators."},"url":"https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi/places-vacantes.html","ai_type":"automation_broad"},{"date":"2026-03-25","source":"Gartner · Will Sommer","country":"INT","title":{"fr":"Le LLM Cost Paradox : tokens -90% d'ici 2030, mais coûts d'inférence en hausse","en":"The LLM Cost Paradox: tokens -90% by 2030, but inference costs rising"},"excerpt":{"fr":"Gartner prédit que d'ici 2030, l'inférence sur un LLM de 1 trillion de paramètres coûtera aux fournisseurs plus de 90% de moins qu'en 2025. Mais cette baisse de coût unitaire ne sera PAS répercutée sur les clients enterprise. Les modèles agentiques consomment 5 à 30 fois plus de tokens par tâche qu'un chatbot standard. Conclusion : la consommation de tokens augmentera plus vite que le prix unitaire ne baissera, et les coûts globaux d'inférence augmenteront. Citation directe : « Les CPO ne doivent pas confondre la déflation des tokens commodity avec la démocratisation du raisonnement frontière. Tandis que l'intelligence commoditisée tend vers un coût quasi nul, le compute nécessaire au raisonnement avancé reste rare. »","en":"Gartner predicts that by 2030, inference on a 1-trillion-parameter LLM will cost providers over 90% less than in 2025. But this unit-cost decline will NOT be passed on to enterprise customers. Agentic models consume 5-30x more tokens per task than a standard chatbot. Conclusion: token consumption will rise faster than unit prices fall, and overall inference costs will rise. Direct quote: « CPOs should not confuse the deflation of commodity tokens with the democratization of frontier reasoning. As commoditized intelligence trends toward near-zero cost, the compute and systems needed to support advanced reasoning remain scarce. »"},"url":"https://www.gartner.com/en/newsroom/press-releases/2026-03-25-gartner-predicts-that-by-2030-performing-inference-on-an-llm-with-1-trillion-parameters-will-cost-genai-providers-over-90-percent-less-than-in-2025","ai_type":"generative"},{"date":"2026-03-25","source":"TrueFoundry · cost of generative AI guide","country":"INT","title":{"fr":"Les coûts cachés de la GenAI et comment les contrôler","en":"The Hidden Costs of GenAI and How to Control Them"},"excerpt":{"fr":"Guide opérationnel publié en mars 2026 qui décompose les coûts cachés de la GenAI en plusieurs strates invisibles dans les modèles financiers initiaux. Citant la recherche IBM : les coûts informatiques devraient augmenter de 89% entre 2023 et 2025, dont 70% des dirigeants citent la GenAI comme moteur principal. Tous les dirigeants interrogés ont déjà annulé ou reporté au moins une initiative GenAI pour des raisons de coûts. Près de 10% des prompts envoyés aux modèles GenAI publics contiennent des informations sensibles d'entreprise, créant un risque de conformité financièrement matériel rarement modélisé. Les coûts de gouvernance ne sont pas une checklist ponctuelle mais un coût opérationnel continu, fortement sous-estimé en production.","en":"Operational guide published March 2026 that decomposes the hidden costs of GenAI into multiple strata invisible in initial financial models. Citing IBM research: computing costs are expected to rise 89% between 2023 and 2025, with 70% of executives citing GenAI as the primary driver. Every executive surveyed had already cancelled or postponed at least one GenAI initiative due to costs. Nearly 10% of prompts sent to public GenAI models contain sensitive enterprise information, creating a materially financial compliance risk rarely modeled. Governance costs are not a one-time checklist but a continuous operational cost, largely underestimated in production."},"url":"https://www.truefoundry.com/blog/cost-of-generative-ai","ai_type":"generative"},{"date":"2026-03-25","source":"DARES · LaborIA","country":"FR","title":{"fr":"Comment l'IA transforme les pratiques de recrutement","en":"How AI transforms recruitment practices"},"excerpt":{"fr":"Travaux du LaborIA (Ministère du Travail × Inria) sur l'usage des algorithmes dans le recrutement. Biais documentés, équité dans les recommandations d'emploi, hommes vs femmes. Régulation et encadrement des solutions IA en RH. Études de cas sur 250 décideurs RH.","en":"LaborIA (Ministry of Labour × Inria) work on algorithm use in recruitment. Documented biases, fairness in job recommendations, men vs women. Regulation and oversight of HR AI solutions. Case studies on 250 HR decision-makers."},"url":"https://dares.travail-emploi.gouv.fr/evenement/comment-lintelligence-artificielle-transforme-les-pratiques-de-recrutement","ai_type":"generative"},{"date":"2026-03-16","source":"AISuperior · LLM Inference Cost 2026","country":"INT","title":{"fr":"Le LLM Cost Paradox : prix unitaire -10×, consommation +100×","en":"The LLM Cost Paradox: unit price -10×, consumption +100×"},"excerpt":{"fr":"Documentation empirique du paradoxe d'inflation des coûts. Le prix par token a baissé de 10× entre 2022 et 2026 (de 60$/M à 0,06$/M pour des modèles équivalents à GPT-3 sur MMLU), mais la consommation de tokens par requête a augmenté de 100× pour certains usages. Mécanisme principal : les reasoning models cachent leur consommation interne. Une question simple peut consommer 10 000 tokens de raisonnement pour une réponse de 200 tokens, soit 50× plus que ce que la sortie visible suggère. Cas extrême documenté : 600 tokens consommés pour générer 2 mots de sortie. Conclusion : les startups dont les modèles de pricing reposent sur l'économie traditionnelle des tokens font face à une compression de marge ; un client à 20$/mois peut générer 18-25$ de coûts d'inférence en pic.","en":"Empirical documentation of the cost inflation paradox. Per-token price dropped 10× between 2022 and 2026 (from $60/M to $0.06/M for GPT-3-equivalent models on MMLU), but token consumption per request rose 100× for some workloads. Main mechanism: reasoning models hide internal consumption. A simple question can consume 10,000 reasoning tokens for a 200-token response, 50× more than visible output suggests. Documented extreme case: 600 tokens to generate 2 words of output. Conclusion: startups whose pricing relies on traditional token economics face margin compression; a $20/month customer can generate $18-25 in peak inference costs."},"url":"https://aisuperior.com/llm-token-cost/","ai_type":"generative"},{"date":"2026-02-26","source":"Financial Times · Burn-Murdoch & O'Connor","country":"INT","title":{"fr":"Sait-on vraiment quels métiers sont les plus exposés à l'IA ?","en":"Do we really know which jobs are most at risk from AI?"},"excerpt":{"fr":"Critique méthodologique majeure : les sept mesures d'exposition par tâches (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) s'accordent sur les métiers peu exposés mais divergent fortement sur les plus exposés. Au-delà de la capacité technique, trois facteurs pèsent : autonomie du travailleur, régulation institutionnelle (radiologie, thérapie), et effets de second ordre sur la demande. Citation centrale de David Autor (2003) : les technologies remplacent les exécutants de specs, complémentent les définisseurs.","en":"Major methodological critique: the seven task-based exposure measures (Eloundou OpenAI, Anthropic Economic Index, AIOE, Yale Budget Lab, etc.) agree on low-exposure jobs but diverge sharply on the most exposed. Beyond technical capability, three factors matter: worker autonomy, institutional regulation (radiology, therapy), and second-order demand effects. Central citation from David Autor (2003): technologies replace those who execute specs, complement those who define them."},"url":"https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37","ai_type":"generative"},{"date":"2026-02-19","source":"Yale Budget Lab · Gimbel, Kendall, Kulsakdinun","country":"INT","title":{"fr":"L'exposition à l'IA sur le marché du travail : que sait-on vraiment ?","en":"Labor Market AI Exposure: What Do We Know?"},"excerpt":{"fr":"Étude systématique comparant 7 métriques d'exposition à l'IA (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) sur 867 métiers SOC 2018. Conclusion en trois points : les métriques s'accordent largement, mais elles divergent davantage sur les métiers fortement exposés. Le désaccord porte sur l'ampleur de l'exposition, pas sur le fait qu'un métier soit exposé. L'exposition n'indique pas qu'un métier sera automatisé, seulement qu'il pourrait être impacté. Exemples canoniques : les plombiers ont une variance de 0,03 (consensus total sur faible exposition), les programmeurs informatiques ont 0,48 (désaccord majeur sur l'ampleur). Données ouvertes téléchargeables.","en":"Systematic study comparing 7 AI exposure metrics (Eloundou OpenAI, Felten AIOE, Webb, Eisfeldt, Tomlinson Microsoft Copilot, etc.) across 867 SOC 2018 occupations. Three key takeaways: metrics broadly agree, but disagree more on highly exposed occupations. Disagreement is about magnitude, not whether an occupation is exposed. Exposure does not indicate which jobs AI will automate, only where AI could have an impact. Canonical examples: plumbers have variance 0.03 (full consensus on low exposure), computer programmers have 0.48 (major disagreement on magnitude). Open data downloadable."},"url":"https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know","ai_type":"generative"},{"date":"2025-11-20","source":"Gartner · Hung LeHong","country":"INT","title":{"fr":"Coûts GenAI : les organisations sous-estiment de 500% à 1000% le coût total réel","en":"GenAI costs: organizations underestimate true total cost by 500% to 1000%"},"excerpt":{"fr":"Mesure structurante : les organisations qui ne maîtrisent pas la mise à l'échelle de leurs coûts GenAI font des erreurs de calcul de l'ordre de 500% à 1000%. 72% des CIO interrogés rapportent que leur organisation a fait du break-even ou perdu de l'argent sur ses investissements IA. La moitié des organisations abandonnent leurs efforts pour cause de dérapage des coûts. Ces erreurs ne portent pas sur le prix du token mais sur la combinaison consommation × intégration × gouvernance × supervision humaine × conformité. Recommandation Gartner : créer des proofs of concept qui testent la mise à l'échelle des coûts, pas seulement le fonctionnement de la technologie.","en":"Structural finding: organizations that don't master the scaling of their GenAI costs make calculation errors of 500% to 1000%. 72% of surveyed CIOs report their organization has broken even or lost money on AI investments. Half of organizations abandon their efforts due to cost overruns. These errors are not about token pricing but about the combination of consumption × integration × governance × human oversight × compliance. Gartner recommendation: create proofs of concept that test how costs will scale, not just how the technology works."},"url":"https://www.gartner.com/en/articles/ai-value","ai_type":"generative"},{"date":"2025-11-19","source":"Gartner · Arun Chandrasekaran","country":"INT","title":{"fr":"Les angles morts critiques de la GenAI que les CIO doivent traiter en urgence","en":"Critical GenAI Blind Spots That CIOs Must Urgently Address"},"excerpt":{"fr":"Gartner identifie en novembre 2025 dix angles morts de l'adoption GenAI, dont la dette technique générée par l'IA, le shadow AI (69% des organisations en ont des indices), le verrouillage fournisseur, et l'érosion des compétences. Prédiction marquante : d'ici 2030, 50% des entreprises feront face à des retards d'upgrades IA et/ou des coûts de maintenance croissants à cause d'une dette technique GenAI non gérée. « Le coût punitif élevé de maintenance, correction ou remplacement des artefacts générés par IA, qu'il s'agisse de code, contenu ou design, peut éroder le ROI promis par la GenAI. »","en":"Gartner identifies in November 2025 ten GenAI adoption blind spots, including AI-generated technical debt, shadow AI (69% of organizations show signs), vendor lock-in, and skills erosion. Notable prediction: by 2030, 50% of enterprises will face delayed AI upgrades and/or rising maintenance costs due to unmanaged GenAI technical debt. 'The punitively high cost of maintaining, fixing or replacing AI-generated artifacts such as code, content and design can erode GenAI's promised ROI.'"},"url":"https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0","ai_type":"generative"},{"date":"2024-10-21","source":"Gartner · Mary Mesaglio & Hung LeHong","country":"INT","title":{"fr":"Erreur de calcul de coûts IA de 500% à 1000% : le risque que les CIO sous-estiment","en":"500% to 1000% AI Cost Calculation Error: The Risk CIOs Underestimate"},"excerpt":{"fr":"Source primaire de la statistique la plus citée sur les coûts cachés de l'IA. Sur la base d'une enquête Gartner de 451 leaders technologiques senior puis 300 CIO en juin-juillet 2024 : 90% des CIO déclarent que la gestion des coûts limite leur capacité à dégager de la valeur de l'IA, 72% rapportent que leur organisation a fait du break-even ou perdu de l'argent sur ses investissements IA. Citation décisive de l'analyste Hung LeHong : « si les CIO ne comprennent pas comment leurs coûts GenAI vont scaler, Gartner estime qu'ils peuvent faire une erreur de 500% à 1000% dans leurs calculs de coûts. » Cette statistique est devenue la référence pour parler des coûts cachés de l'IA en entreprise.","en":"Primary source for the most-cited statistic on AI hidden costs. Based on a Gartner survey of 451 senior tech leaders and then 300 CIOs in June-July 2024: 90% of CIOs say cost management limits their ability to extract value from AI, 72% report that their organization has broken even or lost money on AI investments. Decisive quote from analyst Hung LeHong: 'if CIOs don't understand how their GenAI costs will scale, Gartner estimates they could make a 500% to 1000% error in their cost calculations.' This statistic has become the reference for enterprise AI hidden costs."},"url":"https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale","ai_type":"generative"}];
 
 
 const I18N = {
@@ -4228,7 +5326,7 @@ function renderFooter() {
           <strong>29 avril 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.2.5 · build 2026.04.29</div>
+        <div class="foot-version mono">v0.3.4 · build 2026.05.04</div>
       </div>
     </div>
     <div class="foot-bottom">
@@ -4257,6 +5355,303 @@ window.applyI18n = applyI18n;
 Object.defineProperty(window, "CURRENT_LANG", {
   get() { return CURRENT_LANG; }
 });
+
+// ============================================================================
+// BRIEF ACTIONS · PDF preview, send by email, copy link
+// Initialized only on briefing pages (where #brief-actions exists)
+// ============================================================================
+function setupBriefActions() {
+  const actionsBar = document.getElementById("brief-actions");
+  if (!actionsBar) return; // not a briefing page
+
+  const modal = document.getElementById("brief-modal");
+  const pdfContainer = document.getElementById("brief-pdf");
+  if (!modal || !pdfContainer) return;
+
+  // ---------- Helpers ----------
+  function getText(key) {
+    return window.t ? window.t(key) : key;
+  }
+  function getEl(selector) {
+    return document.querySelector(selector);
+  }
+  function safeText(selector) {
+    const el = getEl(selector);
+    return el ? el.textContent.trim() : "";
+  }
+  function safeHtml(selector) {
+    const el = getEl(selector);
+    return el ? el.innerHTML : "";
+  }
+
+  // Detect prefix from page (b1, b2, b3) by scanning data-i18n keys
+  function detectPrefix() {
+    const t = document.querySelector("[data-i18n^='b1.']") ? "b1" :
+              document.querySelector("[data-i18n^='b2.']") ? "b2" :
+              document.querySelector("[data-i18n^='b3.']") ? "b3" : null;
+    return t;
+  }
+
+  const prefix = detectPrefix();
+
+  // ---------- Build concise PDF body ----------
+  function buildPdfHtml() {
+    const today = new Date();
+    const dateStr = today.toLocaleDateString(
+      window.CURRENT_LANG === "en" ? "en-US" : "fr-FR",
+      { year: "numeric", month: "long", day: "numeric" }
+    );
+
+    const heroTitle = safeText(".brief-hero-title");
+    const heroSub = safeText(".brief-hero-sub");
+    const meta = Array.from(document.querySelectorAll(".brief-hero-meta span"))
+      .map(s => s.textContent.trim()).filter(Boolean).join(" · ");
+
+    // ROLES: collect role names (h3 inside .brief-role)
+    const roles = Array.from(document.querySelectorAll(".brief-role h3, .brief-role-title"))
+      .slice(0, 6)
+      .map(h => h.textContent.trim())
+      .filter(Boolean);
+
+    // ARCHETYPES: collect arch-name + arch-tag
+    const archetypes = Array.from(document.querySelectorAll(".brief-arch-card"))
+      .map(card => {
+        const name = card.querySelector(".brief-arch-name");
+        const tag = card.querySelector(".brief-arch-tag");
+        return name ? { name: name.textContent.trim(), tag: tag ? tag.textContent.trim() : "" } : null;
+      })
+      .filter(Boolean);
+
+    // DEBATE: collect 3 positions
+    const debatePositions = Array.from(document.querySelectorAll(".brief-debate-pos"))
+      .map(pos => {
+        const tag = pos.querySelector(".brief-debate-pos-tag");
+        const claim = pos.querySelector(".brief-debate-pos-claim");
+        return claim ? {
+          tag: tag ? tag.textContent.trim() : "",
+          claim: claim.textContent.trim()
+        } : null;
+      })
+      .filter(Boolean);
+    const debateSector = safeText(".brief-debate-sector-title");
+
+    // TCO + Sovereignty takeaways (keep them short)
+    const tcoTakeaway = safeText(".brief-tco-takeaway");
+    const sovTakeaway = safeText(".brief-sov-takeaway");
+
+    // Final action takeaway
+    const archTakeaway = safeText(".brief-archetypes-takeaway");
+
+    // Build URL canonical
+    const url = window.location.origin + window.location.pathname;
+
+    let html = `
+      <header class="pdf-head">
+        <div class="pdf-eyebrow">observatoire<span class="b">[s]</span>·ia <span class="dot">·</span> ${getText("brief.pdf.heading")}</div>
+        <h1 class="pdf-title">${heroTitle}</h1>
+        <div class="pdf-meta">${meta}</div>
+        <div class="pdf-byline">${getText("brief.pdf.author")} <span class="dot">·</span> ${getText("brief.pdf.published")} ${dateStr}</div>
+      </header>
+
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.summary")}</h2>
+        <p>${heroSub}</p>
+      </section>
+    `;
+
+    if (roles.length > 0) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.roles")}</h2>
+        <ul class="pdf-list">
+          ${roles.map(r => `<li>${r}</li>`).join("")}
+        </ul>
+      </section>
+      `;
+    }
+
+    if (archetypes.length > 0) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.archetypes")}</h2>
+        <ul class="pdf-list">
+          ${archetypes.map(a => `<li><strong>${a.name}</strong>${a.tag ? ` <span class="pdf-tag">${a.tag}</span>` : ""}</li>`).join("")}
+        </ul>
+      </section>
+      `;
+    }
+
+    if (debatePositions.length > 0) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.debate")}</h2>
+        <ul class="pdf-list">
+          ${debatePositions.map(p => `<li><strong>${p.tag}</strong> · ${p.claim}</li>`).join("")}
+        </ul>
+        ${debateSector ? `<p class="pdf-callout">${debateSector}</p>` : ""}
+      </section>
+      `;
+    }
+
+    if (tcoTakeaway) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.tco")}</h2>
+        <p>${tcoTakeaway}</p>
+      </section>
+      `;
+    }
+
+    if (sovTakeaway) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.sov")}</h2>
+        <p>${sovTakeaway}</p>
+      </section>
+      `;
+    }
+
+    if (archTakeaway) {
+      html += `
+      <section class="pdf-section">
+        <h2>${getText("brief.pdf.action")}</h2>
+        <p>${archTakeaway}</p>
+      </section>
+      `;
+    }
+
+    html += `
+      <footer class="pdf-foot">
+        <div class="pdf-foot-url">${getText("brief.pdf.url")}: <a href="${url}">${url}</a></div>
+        <div class="pdf-foot-license">${getText("brief.pdf.foot")}</div>
+      </footer>
+    `;
+
+    return html;
+  }
+
+  // ---------- Modal control ----------
+  function openModal() {
+    pdfContainer.innerHTML = buildPdfHtml();
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  // ---------- Print ----------
+  function doPrint() {
+    // Use browser native print with a print-only stylesheet that hides everything except #brief-pdf
+    document.body.classList.add("printing-pdf");
+    window.print();
+    setTimeout(() => document.body.classList.remove("printing-pdf"), 500);
+  }
+
+  // ---------- Mail ----------
+  function sendByMail() {
+    const heroTitle = safeText(".brief-hero-title");
+    const heroSub = safeText(".brief-hero-sub");
+    const url = window.location.origin + window.location.pathname;
+    const isFr = (window.CURRENT_LANG !== "en");
+
+    const subject = isFr
+      ? `observatoire[s]·ia · ${heroTitle}`
+      : `observatoire[s]·ia · ${heroTitle}`;
+
+    const bodyLines = isFr ? [
+      `Bonjour,`,
+      ``,
+      `Je vous transmets ce briefing sectoriel publié par observatoire[s]·ia :`,
+      ``,
+      heroTitle,
+      ``,
+      heroSub,
+      ``,
+      `Lecture intégrale : ${url}`,
+      ``,
+      `Données ouvertes (CC BY 4.0) et méthodologie sur observatoire.naullynicolas.ch`,
+      ``,
+      `Bien cordialement,`
+    ] : [
+      `Hello,`,
+      ``,
+      `Sharing this sectoral briefing published by observatoire[s]·ia:`,
+      ``,
+      heroTitle,
+      ``,
+      heroSub,
+      ``,
+      `Full reading: ${url}`,
+      ``,
+      `Open data (CC BY 4.0) and methodology on observatoire.naullynicolas.ch`,
+      ``,
+      `Best regards,`
+    ];
+
+    const mailto = "mailto:?subject=" + encodeURIComponent(subject)
+                 + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+    window.location.href = mailto;
+  }
+
+  // ---------- Copy link ----------
+  function copyLink() {
+    const url = window.location.origin + window.location.pathname;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast(getText("brief.copy.ok"));
+      }).catch(() => fallbackCopy(url));
+    } else {
+      fallbackCopy(url);
+    }
+  }
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); showToast(getText("brief.copy.ok")); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  function showToast(message) {
+    let toast = document.getElementById("brief-toast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "brief-toast";
+      toast.className = "brief-toast";
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    setTimeout(() => toast.classList.remove("is-visible"), 2000);
+  }
+
+  // ---------- Wire up ----------
+  const btnPdf = document.getElementById("btn-preview-pdf");
+  const btnMail = document.getElementById("btn-send-mail");
+  const btnCopy = document.getElementById("btn-copy-link");
+  const btnPrint = document.getElementById("btn-do-print");
+
+  if (btnPdf) btnPdf.addEventListener("click", openModal);
+  if (btnMail) btnMail.addEventListener("click", sendByMail);
+  if (btnCopy) btnCopy.addEventListener("click", copyLink);
+  if (btnPrint) btnPrint.addEventListener("click", doPrint);
+
+  // Close modal handlers
+  modal.querySelectorAll("[data-modal-close]").forEach(el => {
+    el.addEventListener("click", closeModal);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+      closeModal();
+    }
+  });
+}
+
+window.setupBriefActions = setupBriefActions;
 
 </script>
 <script>

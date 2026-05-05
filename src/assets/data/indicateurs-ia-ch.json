@@ -8,7 +8,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "underlying_dashboard": "https://observatoire.naullynicolas.ch/ch/",
-  "count": 16,
+  "count": 18,
   "indicators": [
     {
       "title": "% emplois suisses exposés à l'IA d'ici 2030",
@@ -748,6 +748,88 @@
         {
           "name": "Apertus website",
           "url": "https://apertvs.ai/",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Pour les organisations suisses · l'écart entre annonces Silicon Valley et indicateurs nationaux",
+      "unit": "lecture pour le tissu suisse",
+      "n_sources": 5,
+      "value_min": 1,
+      "value_max": 1,
+      "value_median": 1,
+      "description_fr": "Pour les organisations suisses, le décalage entre la rhétorique d'apocalypse de l'emploi (Amodei, Suleyman, Dimon, Block) et les données empiriques 2026 doit être lu à l'aune des spécificités helvétiques. <strong>Premièrement</strong>, le marché du travail suisse est structurellement plus stable que le marché US (taux de chômage 2,4-2,8% en 2026 selon SECO, contre 4,4% aux US). <strong>Deuxièmement</strong>, la formation continue suisse (CFC, brevet fédéral, ES, HES) crée des trajectoires de réinvention plus institutionnalisées que dans la plupart des pays. DemoSCOPE 2026 confirme M=3,27/4 pour la formation continue comme mesure prioritaire perçue par les actifs. <strong>Troisièmement</strong>, la structure productive suisse (horlogerie, pharma, finance, machines de précision, hospitalité haut de gamme) est dominée par des métiers à forte composante relationnelle ou high-craft, exactement les bénéficiaires théorisés par Trammell (mars 2026) via les biens « human-intrinsic » et confirmés par Garicano (avril 2026) sur les bundles forts. <strong>Conséquence pratique</strong> : les comités exécutifs suisses qui calibrent leur plan de transformation sur les annonces Silicon Valley (50% des cols blancs juniors disparus en 1-5 ans) risquent de surestimer dramatiquement l'impact réel et de sous-investir dans les leviers helvétiques classiques (apprentissage, formation continue, montée en gamme).",
+      "sources": [
+        {
+          "name": "Garicano · Silicon Continent · The task is not the job",
+          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Trammell · Stanford DEL · Is labor a luxury?",
+          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Washington Post · Tech layoffs hide future of jobs",
+          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Angestellte Schweiz · DemoSCOPE 2026",
+          "url": "https://www.angestellte.ch",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "NYT Opinion · The AI jobs apocalypse is a Silicon Valley story",
+          "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
+          "tier": 1,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Confondre tâche et métier · le piège analytique pour les organisations suisses",
+      "unit": "écart narratif et statistique",
+      "n_sources": 5,
+      "value_min": 1,
+      "value_max": 1,
+      "value_median": 1,
+      "description_fr": "Pour les organisations suisses, la prudence est doublement justifiée. Le décalage entre les annonces de la Silicon Valley (Amodei, Suleyman) et la réalité du marché américain documenté par le NYT et le Washington Post en mai 2026 trouve un écho direct dans la posture suisse. <strong>DemoSCOPE 2026</strong> mesure 24% d'adoption IA dans les grandes entreprises suisses contre 9% dans les TPE : le déploiement effectif est lent, structuré, et les licenciements massifs ne sont pas en cours. Trois cadres théoriques importés (Garicano · LSE, Trammell · Oxford GPI, Imas · Stanford) convergent pour expliquer pourquoi les transitions technologiques produisent rarement des effondrements binaires d'emploi : la tâche n'est pas le métier, l'effet-revenu réalloue la dépense vers les biens human-intrinsic, l'économie est ce que les organisations doivent faire pour livrer ce que les consommateurs veulent. Pour les directions cantonales et fédérales chargées de la formation continue, l'enjeu n'est pas de réagir aux prédictions médiatiques mais de calibrer les programmes sur l'évidence empirique des données OFS, ESPA, et des observatoires sectoriels comme DemoSCOPE et l'EPFL AI Center.",
+      "sources": [
+        {
+          "name": "Trammell · Is labor a luxury in the long run?",
+          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Garicano · Why desk jobs survive and Amodei is wrong",
+          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Trammell & Korinek · Economic Growth under Transformative AI",
+          "url": "https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Washington Post · What Silicon Valley layoffs hide",
+          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Angestellte Schweiz · DemoSCOPE",
+          "url": "https://www.angestellte.ch",
           "tier": 1,
           "ai_type": "generative"
         }

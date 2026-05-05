@@ -7,7 +7,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 21,
+  "count": 23,
   "indicators": [
     {
       "title": "% emplois français automatisables d'ici 2030",
@@ -1096,6 +1096,94 @@
           "name": "Kai Waehner · Enterprise Agentic AI Landscape 2026",
           "url": "https://www.kai-waehner.de/blog/2026/04/06/enterprise-agentic-ai-landscape-2026-trust-flexibility-and-vendor-lock-in/",
           "tier": 3,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Le décalage entre la rhétorique IA et les données empiriques · réfutation académique 2026",
+      "unit": "écart rhétorique vs réel",
+      "n_sources": 6,
+      "value_min": 1,
+      "value_max": 1,
+      "value_median": 1,
+      "description_fr": "Pour les organisations françaises, l'enjeu pratique : ne pas calibrer les plans de transformation sur la rhétorique des CEO IA, mais sur les données empiriques. <strong>Trois travaux convergents en 2026 imposent une lecture nuancée</strong>. <strong>Garicano (Silicon Continent, avril 2026)</strong> formalise le « bundles framework » : les marchés du travail valorisent des métiers, pas des tâches isolées. Cas canonique des agents de voyage : -60% d'emploi depuis 2000, mais les salaires hebdomadaires moyens passent de 87% à 99% de la moyenne du secteur privé. Cas des comptables : Frey & Osborne 2013 prédisaient 94% de probabilité d'automatisation, le BLS recense 1,6 million d'actifs avec une croissance projetée +5%. <strong>Trammell (Stanford Digital Economy Lab, mars 2026)</strong> théorise la part durable du travail humain via les biens « human-intrinsic ». <strong>Le Washington Post (1er mai 2026) et le New York Times (3 mai 2026)</strong> documentent que les Big Tech (Amazon, Google, Meta) ont aujourd'hui le même nombre d'employés qu'en 2022, malgré 700 Md$ de CapEx IA. <strong>Oxford Economics (janvier 2026)</strong> qualifie les preuves d'une perturbation IA de « patchwork au mieux ». <strong>Wharton</strong> parle d'« AI-washing des pertes d'emploi ». Pour les directions RH françaises : une décision de réduction d'effectifs adossée à un POC IA doit être confrontée à ces évidences avant exécution. La rhétorique d'apocalypse junior à 1-5 ans (Amodei, Suleyman, Dimon) ne se traduit pas dans les chiffres d'effectifs des entreprises qui la promeuvent.",
+      "sources": [
+        {
+          "name": "Garicano · Silicon Continent · The task is not the job",
+          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Trammell · Stanford DEL · Is labor a luxury?",
+          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Washington Post · Tech layoffs hide future of jobs",
+          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "NYT Opinion · The AI jobs apocalypse is a Silicon Valley story",
+          "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Fortune · Pearson CEO column",
+          "url": "https://fortune.com/2026/04/06/ai-job-apocalypse-silicon-valley-wrong-labor-market/",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Oxford Economics · January 2026 review",
+          "url": "https://www.oxfordeconomics.com",
+          "tier": 2,
+          "ai_type": "generative"
+        }
+      ]
+    },
+    {
+      "title": "Décalage prédictions Silicon Valley / réalité du marché de l'emploi",
+      "unit": "écart narratif et statistique",
+      "n_sources": 5,
+      "value_min": 1,
+      "value_max": 1,
+      "value_median": 1,
+      "description_fr": "Indicateur qualitatif sur le décalage entre les prédictions dramatiques des dirigeants de la Silicon Valley et les chiffres effectifs du marché du travail. <strong>Dario Amodei (Anthropic)</strong> annonce mai 2025 puis répète en 2026 que 50% des cols blancs juniors seront automatisés en 1 à 5 ans. <strong>Mustafa Suleyman (Microsoft AI)</strong> annonce dans le Financial Times que la plupart des tâches de cols blancs seront automatisées en 12 à 18 mois. Mais en mai 2026, le <strong>Washington Post</strong> et le <strong>New York Times</strong> documentent que les géants tech investissent massivement dans l'IA sans réduction significative d'effectifs. Trois cadres théoriques convergent pour expliquer ce décalage. <strong>Luis Garicano (LSE)</strong> : confondre automatisation des tâches et disparition des métiers est une erreur d'analyse classique. <strong>Philip Trammell (Oxford GPI)</strong> : si la complémentarité capital-travail reste forte sur les biens human-intrinsic, le revenu réalloué maintient la part du travail. <strong>Alex Imas (Stanford 2026)</strong> : l'effet-revenu réalloue la dépense vers les secteurs à forte composante humaine. Pour les DRH français, la conséquence pratique : ne pas calibrer un plan de transformation sur les déclarations d'éditeurs IA, mais sur les évidences empiriques sectorielles publiées par les institutions.",
+      "sources": [
+        {
+          "name": "Trammell · Is labor a luxury in the long run?",
+          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Garicano · Why desk jobs survive and Amodei is wrong",
+          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Trammell & Korinek · Economic Growth under Transformative AI",
+          "url": "https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf",
+          "tier": 1,
+          "ai_type": "generative"
+        },
+        {
+          "name": "NYT · AI jobs and the unemployment that isn't coming",
+          "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
+          "tier": 2,
+          "ai_type": "generative"
+        },
+        {
+          "name": "Washington Post · What Silicon Valley layoffs hide",
+          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+          "tier": 2,
           "ai_type": "generative"
         }
       ]

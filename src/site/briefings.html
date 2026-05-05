@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Dispatch·iA · Dépêches sectorielles stratégiques · observatoire[s]·ia</title>
+<meta name="description" content="Le Dispatch·iA. Dépêches sectorielles d'intelligence stratégique sur l'IA et le travail. Suisse et France. Format intégral, libre d'accès, traçable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <h1 class="dash-title" data-i18n="bf.title" data-i18n-html="true"></h1>
+  <p class="dash-lede" data-i18n="bf.lede"></p>
+</section>
+
+<!-- LE FORMAT (context block) -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="bf.format.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="bf.format.title" data-i18n-html="true"></h3>
+      <div data-i18n="bf.format.text" data-i18n-html="true"></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;">~2500</div>
+          <div class="kf-label" data-i18n="bf.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">12-15</div>
+          <div class="kf-label" data-i18n="bf.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;" data-i18n="bf.kf3.num"></div>
+          <div class="kf-label" data-i18n="bf.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA · CTA vers méthodologie (section déplacée) -->
+<div class="section-head">
+  <h2 class="section-title" data-i18n="bf.dataref.title" data-i18n-html="true"></h2>
+  <p class="section-sub" data-i18n="bf.dataref.sub" data-i18n-html="true"></p>
+  <div style="margin-top: 24px;">
+    <a href="methodologie.html#datasets" class="btn btn-primary" data-i18n="bf.dataref.cta"></a>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="bf.list.eyebrow"></div>
+  <h2 class="section-title" data-i18n="bf.list.title"></h2>
+  <p class="section-sub" data-i18n="bf.list.sub"></p>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="filter.country"></span>
+    <button class="chip active" data-filter="country" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="country" data-value="CH">🇨🇭 Suisse</button>
+    <button class="chip" data-filter="country" data-value="FR">🇫🇷 France</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="bf.filter.sector"></span>
+    <button class="chip active" data-filter="sector" data-value="all" data-i18n="filter.all"></button>
+    <button class="chip" data-filter="sector" data-value="finance" data-i18n="bf.sector.finance"></button>
+    <button class="chip" data-filter="sector" data-value="public" data-i18n="bf.sector.public"></button>
+    <button class="chip" data-filter="sector" data-value="hr" data-i18n="bf.sector.hr"></button>
+    <button class="chip" data-filter="sector" data-value="industry" data-i18n="bf.sector.industry"></button>
+  </div>
+</div>
+
+<!-- BRIEFINGS LIST -->
+<div class="briefings-list" id="briefingsList"></div>
+
+<!-- DUAL CTA · Custom Dispatch + Operational Engagement -->
+<section class="cross-link" style="grid-template-columns: 1fr; text-align: center;">
+  <h3 data-i18n="bf.cta.text" data-i18n-html="true" style="max-width: 760px; margin: 0 auto;"></h3>
+  <p style="max-width: 640px; margin: 16px auto 28px; color: var(--ink-2); font-size: 16px;" data-i18n="bf.cta.body"></p>
+  <div class="cta-row" style="justify-content: center; flex-wrap: wrap; gap: 16px;">
+    <a href="contact.html?type=custom" class="btn btn-primary">
+      <span data-i18n="bf.cta.custom"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="contact.html?type=ops" class="btn btn-secondary">
+      <span data-i18n="bf.cta.ops"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "bf.tag": "",
+    "bf.title": "Des <em>dépêches</em> de terrain pour les directions.",
+    "bf.lede": "Les ambassades de la Renaissance envoyaient des dépêches à leurs princes : observation à distance, faits vérifiés, recommandation d'action. Le Dispatch·iA reprend ce format, appliqué à l'IA et au travail. Une dépêche sectorielle par mois, en intégralité, librement accessible. Sources tracées, recommandations actionnables, lecture en quinze minutes pour cadrer une décision de comité.",
+
+    "bf.format.tag": "Le format",
+    "bf.format.title": "Une <em>dépêche intégrale</em>, sans paywall.",
+    "bf.format.text": "<p>Chaque dépêche est publiée en version <strong>complète et libre d'accès</strong> : synthèse, chiffres-clés sourcés, verdict expert, checklist décisionnelle, leviers opérationnels, sources brutes et traçabilité. Aucun blocage, aucune version premium dissimulée. Le format complet, les critères de sélection des sujets et la cadence éditoriale sont détaillés dans la <a href=\"methodologie.html#dispatch\" style=\"color: var(--signal); font-weight: 500;\">section dédiée de la méthodologie</a>.</p><p>Pour les organisations qui souhaitent une dépêche personnalisée sur leur secteur, leur métier ou leur problématique précise, un format <strong>sur mesure</strong> est disponible sur demande.</p>",
+    "bf.kf1": "Mots par dépêche, en moyenne",
+    "bf.kf2": "Sources primaires citées et tracées",
+    "bf.kf3.num": "Mensuelle",
+    "bf.kf3": "Cadence cible de publication",
+
+    "bf.dataref.title": "Les dépêches s'appuient sur <em>9 jeux de données ouverts</em>.",
+    "bf.dataref.sub": "Chaque chiffre cité ici provient d'une base de données structurée, mise à jour en continu et publiée en JSON sous licence CC BY 4.0. Cinq jeux couvrent la France (ROME 4.0), quatre couvrent la Suisse (NP 2010 · OFS). Pour explorer le détail des sources, télécharger les fichiers, ou citer ce travail dans vos propres analyses, rendez-vous sur la page Méthodologie.",
+    "bf.dataref.cta": "Voir le socle de données →",
+
+    "bf.list.eyebrow": "Le Dispatch·iA · Catalogue",
+    "bf.list.title": "Toutes les dépêches.",
+    "bf.list.sub": "Filtrez par pays et par secteur. Les dépêches à venir sont signalées en gris.",
+
+    "bf.filter.sector": "Secteur",
+    "bf.sector.finance": "Banque & Finance",
+    "bf.sector.public": "Secteur public",
+    "bf.sector.hr": "RH & Recrutement",
+    "bf.sector.industry": "Industrie",
+
+    "bf.read": "Lire la dépêche",
+    "bf.upcoming": "À venir",
+    "bf.upcoming.cta": "Être prévenu",
+    "bf.open": "Open Intelligence",
+
+    "bf.cta.text": "Besoin d'une dépêche sur <em>votre secteur</em> ou d'un accompagnement à la mise en œuvre ?",
+    "bf.cta.body": "Les dépêches publiées sont des biens communs. Pour aller plus loin, deux passerelles : un Dispatch sur mesure pour cadrer une décision propre à votre organisation, ou un accompagnement opérationnel pour passer de la lecture stratégique à l'architecture des workflows IA. Les deux passent par un échange préalable.",
+    "bf.cta.custom": "Demander un Dispatch sur mesure",
+    "bf.cta.ops": "Échanger sur la mise en œuvre"
+  },
+  en: {
+    "bf.tag": "",
+    "bf.title": "Field <em>dispatches</em> for executive teams.",
+    "bf.lede": "Renaissance embassies sent dispatches to their princes: remote observation, verified facts, action recommendation. The Dispatch·iA brings that format back, applied to AI and work. One sectoral dispatch per month, in full, freely accessible. Traced sources, actionable recommendations, fifteen-minute read to frame a committee decision.",
+
+    "bf.format.tag": "The format",
+    "bf.format.title": "One <em>full dispatch</em>, no paywall.",
+    "bf.format.text": "<p>Each dispatch is published in its <strong>complete and freely accessible</strong> form: synthesis, sourced key figures, expert verdict, decision checklist, operational levers, raw sources and traceability. No blocker, no hidden premium tier. The full format, topic selection criteria and editorial cadence are detailed in the <a href=\"methodologie.html#dispatch\" style=\"color: var(--signal); font-weight: 500;\">dedicated section of the methodology</a>.</p><p>For organisations that need a custom dispatch on their own sector, occupation or specific issue, a <strong>bespoke format</strong> is available on request.</p>",
+    "bf.kf1": "Words per dispatch, on average",
+    "bf.kf2": "Primary sources cited and traced",
+    "bf.kf3.num": "Monthly",
+    "bf.kf3": "Target publication cadence",
+
+    "bf.dataref.title": "Dispatches are built on <em>9 open datasets</em>.",
+    "bf.dataref.sub": "Every figure cited here comes from a structured database, continuously updated and published as JSON under CC BY 4.0. Five datasets cover France (ROME 4.0), four cover Switzerland (NP 2010 · FSO). To explore the source details, download the files, or cite this work in your own analyses, visit the Methodology page.",
+    "bf.dataref.cta": "View the data foundation →",
+
+    "bf.list.eyebrow": "The Dispatch·iA · Catalog",
+    "bf.list.title": "All dispatches.",
+    "bf.list.sub": "Filter by country and sector. Upcoming dispatches appear in grey.",
+
+    "bf.filter.sector": "Sector",
+    "bf.sector.finance": "Banking & Finance",
+    "bf.sector.public": "Public sector",
+    "bf.sector.hr": "HR & Recruiting",
+    "bf.sector.industry": "Industry",
+
+    "bf.read": "Read the dispatch",
+    "bf.upcoming": "Upcoming",
+    "bf.upcoming.cta": "Notify me",
+    "bf.open": "Open Intelligence",
+
+    "bf.cta.text": "Need a dispatch on <em>your sector</em> or operational support to implement it?",
+    "bf.cta.body": "Published dispatches are commons. To go further, two bridges: a custom Dispatch to frame a decision specific to your organisation, or operational support to move from strategic reading to AI workflow architecture. Both start with a conversation.",
+    "bf.cta.custom": "Request a custom Dispatch",
+    "bf.cta.ops": "Discuss implementation"
+  }
+};
+
+const BRIEFINGS = [
+  {
+    num: "001",
+    slug: "01-banque-suisse",
+    date: "2026-04-15",
+    country: "CH",
+    sector: "finance",
+    title: {
+      fr: "Banques suisses face à l'IA : l'année des choix architecturaux.",
+      en: "Swiss banks facing AI: the year of architectural choices."
+    },
+    summary: {
+      fr: "L'industrie bancaire suisse passe en 2026 d'expérimentations isolées à des décisions d'architecture engageantes pour cinq à dix ans. Trois clivages structurants émergent.",
+      en: "In 2026 the Swiss banking industry shifts from isolated experiments to architectural decisions binding for five to ten years. Three structural divides emerge."
+    },
+    upcoming: false
+  },
+  {
+    num: "002",
+    slug: "02-cadres-france",
+    date: "2026-04-22",
+    country: "FR",
+    sector: "hr",
+    title: {
+      fr: "Cadres français face à l'IA : la déformation cachée du marché.",
+      en: "French executives facing AI: the hidden distortion of the market."
+    },
+    summary: {
+      fr: "Les offres cadres mentionnant l'IA ont décuplé en quatre ans. Mais le taux de transformation effectif s'effondre. Hypothèse : un marché en surenchère de signalement plus qu'en pénurie réelle.",
+      en: "Executive job postings mentioning AI have grown tenfold in four years. But the effective conversion rate is collapsing. Hypothesis: a market driven more by signalling overbid than by actual scarcity."
+    },
+    upcoming: false
+  },
+  {
+    num: "003",
+    slug: "03-luxe-horlogerie",
+    date: "2026-04-26",
+    country: "CH",
+    sector: "industry",
+    title: {
+      fr: "Luxe et horlogerie premium face à l'IA : la gouvernance comme nouvel échelon de désirabilité.",
+      en: "Luxury and premium watchmaking facing AI: governance as the new tier of desirability."
+    },
+    summary: {
+      fr: "Trimestre le plus rude depuis 2008 pour le luxe mondial. Exports horlogers suisses en repli pour la deuxième année consécutive (-1,7% en 2025), mais Richemont signe un rebond inattendu (+7% sur les spécialités horlogères). 90% des dirigeants luxe jugent l'IA essentielle, +16,2%/an d'investissement IA prévu sur dix ans. Le vrai sujet n'est plus l'adoption : c'est la gouvernance. Trois fronts ouverts simultanément.",
+      en: "Toughest quarter since 2008 for global luxury. Swiss watch exports down for the second consecutive year (-1.7% in 2025), but Richemont posts an unexpected rebound (+7% on specialist watchmakers). 90% of luxury executives consider AI essential, +16.2%/year AI investment forecast over ten years. The real topic is no longer adoption: it is governance. Three fronts open simultaneously."
+    },
+    upcoming: false
+  },
+  {
+    num: "004",
+    date: "2026-05",
+    country: "FR",
+    sector: "public",
+    title: {
+      fr: "L'administration française et l'IA générative : où en est le déploiement réel.",
+      en: "The French administration and generative AI: where is real deployment."
+    },
+    summary: {
+      fr: "La DGFiP, la CAF et les ministères publient des feuilles de route ambitieuses. Le déploiement effectif sur le terrain raconte une autre histoire. Cartographie sans complaisance.",
+      en: "DGFiP, CAF and ministries publish ambitious roadmaps. Actual deployment on the ground tells a different story. An unsparing cartography."
+    },
+    upcoming: true
+  }
+];
+
+let activeFilters = { country: "all", sector: "all" };
+
+function renderBriefings() {
+  const list = document.getElementById("briefingsList");
+  if (!list) return;
+  list.innerHTML = "";
+  const lang = window.CURRENT_LANG;
+
+  const filtered = BRIEFINGS.filter((b) => {
+    const c = activeFilters.country === "all" || b.country === activeFilters.country;
+    const s = activeFilters.sector === "all" || b.sector === activeFilters.sector;
+    return c && s;
+  });
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "card-empty-state";
+    empty.style.padding = "60px 0";
+    empty.textContent = window.t("empty");
+    list.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach((b) => {
+    const row = document.createElement("div");
+    row.className = "briefing-row" + (b.upcoming ? " upcoming" : "");
+
+    // Number
+    const num = document.createElement("div");
+    num.className = "briefing-num";
+    num.textContent = "#" + b.num;
+    row.appendChild(num);
+
+    // Body
+    const body = document.createElement("div");
+
+    // Meta
+    const meta = document.createElement("div");
+    meta.className = "briefing-meta";
+    const date = document.createElement("span");
+    date.textContent = b.date;
+    meta.appendChild(date);
+    const flag = document.createElement("span");
+    flag.textContent = b.country === "CH" ? "🇨🇭 Suisse" : "🇫🇷 France";
+    meta.appendChild(flag);
+    const sect = document.createElement("span");
+    sect.className = "pill-sector";
+    sect.textContent = window.t("bf.sector." + b.sector);
+    meta.appendChild(sect);
+    if (b.upcoming) {
+      const u = document.createElement("span");
+      u.textContent = window.t("bf.upcoming");
+      u.style.color = "var(--signal)";
+      meta.appendChild(u);
+    } else {
+      const open = document.createElement("span");
+      open.textContent = window.t("bf.open");
+      open.className = "pill-open";
+      meta.appendChild(open);
+    }
+    body.appendChild(meta);
+
+    // Title
+    const title = document.createElement("h3");
+    title.className = "briefing-title";
+    if (b.upcoming) {
+      title.textContent = b.title[lang];
+    } else {
+      const a = document.createElement("a");
+      a.href = "briefings/" + b.slug + ".html";
+      a.textContent = b.title[lang];
+      title.appendChild(a);
+    }
+    body.appendChild(title);
+
+    // Summary
+    const sum = document.createElement("p");
+    sum.className = "briefing-summary";
+    sum.textContent = b.summary[lang];
+    body.appendChild(sum);
+
+    row.appendChild(body);
+
+    // Actions
+    const actions = document.createElement("div");
+    actions.className = "briefing-actions";
+
+    if (b.upcoming) {
+      const upline = document.createElement("a");
+      upline.href = "contact.html?type=notify&dispatch=" + b.num;
+      upline.className = "briefing-action-line";
+      upline.style.color = "var(--signal)";
+      upline.style.borderBottom = "1px solid var(--signal)";
+      upline.style.paddingBottom = "2px";
+      upline.textContent = window.t("bf.upcoming.cta") + " →";
+      actions.appendChild(upline);
+    } else {
+      const readLink = document.createElement("a");
+      readLink.href = "briefings/" + b.slug + ".html";
+      readLink.className = "briefing-action-primary";
+      readLink.textContent = window.t("bf.read") + " →";
+      actions.appendChild(readLink);
+    }
+
+    row.appendChild(actions);
+    list.appendChild(row);
+  });
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    const filter = chip.getAttribute("data-filter");
+    const value = chip.getAttribute("data-value");
+    activeFilters[filter] = value;
+    document.querySelectorAll(".chip[data-filter=\"" + filter + "\"]").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    renderBriefings();
+  });
+});
+
+window.onLangChange = renderBriefings;
+initSite("briefings");
+renderBriefings();
+</script>
+</body>
+</html>

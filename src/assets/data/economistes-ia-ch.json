@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 23,
+  "count": 34,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -288,6 +288,149 @@
       },
       "most_likely_scenario": "Croissance modérée",
       "notes": "Co-auteurs des prédictions Gartner les plus citées sur les coûts cachés de l'IA. LeHong (octobre 2024) : 500% à 1000% d'erreur de calcul potentielle sur les coûts IA, 72% des CIO en break-even ou perte. Quinlan (janvier 2026) : coût par résolution GenAI > 3$ en 2030, dépassant les agents offshore. Position prudente sur le ROI de l'automatisation totale : recommandent un pivot vers l'engagement client plutôt que la réduction de coûts brute."
+    },
+    {
+      "name": "Philip Trammell",
+      "institution": "Oxford GPI · Stanford Digital Economy Lab",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 20,
+        "Accélération IA": 30,
+        "Transformation majeure": 35,
+        "Rupture technologique": 10
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Co-auteur avec Anton Korinek du paper foundateur 'Economic Growth under Transformative AI' (GPI Working Paper 2020, version mise à jour 2023). Auteur de 'Capital in the 22nd Century' (avec Dwarkesh Patel) et 'Is labor a luxury in the long run?' (mars 2026). Position formalisée : si les machines peuvent se substituer au travail dans la production et s'auto-répliquer, la part du travail peut s'effondrer ; mais si la complémentarité capital-travail reste forte sur les biens human-intrinsic, le revenu réalloué maintient la part du travail. Référence centrale citée par Imas et Garicano dans les échanges substack 2026."
+    },
+    {
+      "name": "Anton Korinek",
+      "institution": "University of Virginia · NBER · CEPR · Brookings",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 15,
+        "Accélération IA": 25,
+        "Transformation majeure": 40,
+        "Rupture technologique": 15
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Économiste à University of Virginia, co-auteur avec Philip Trammell du cadre théorique de référence sur la croissance économique sous IA transformative. Travaux récents sur l'automation de la recherche en IA elle-même (Korinek-Halperin-Houlden 2025) et sur les effets de l'IA sur la part du capital vs travail. Voix prudente mais préparée à des scénarios de transformation majeure si les hypothèses de substitution capital-travail se confirment."
+    },
+    {
+      "name": "Luis Garicano",
+      "institution": "London School of Economics · Silicon Continent",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 40,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Économiste à la LSE, ancien député européen, fondateur de la newsletter Silicon Continent. Position centrale formalisée dans 'Why desk jobs survive and Amodei is wrong' (avril 2026) et dans le livre à paraître Messy Jobs (avec Jin Li et Yanhui Wu) : la tâche n'est pas le métier. Confondre automatisation des tâches et disparition des métiers produit des prédictions erronées. L'économie n'est pas l'agrégat de tâches que les consommateurs veulent : c'est ce que les organisations doivent faire pour les atteindre. Voix critique structurée contre les prédictions Amodei (Anthropic) et Suleyman (Microsoft AI)."
+    },
+    {
+      "name": "Philip Trammell",
+      "institution": "Stanford Digital Economy Lab · ex-Global Priorities Institute Oxford",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 15,
+        "Accélération IA": 30,
+        "Transformation majeure": 35,
+        "Rupture technologique": 15
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Économiste théoricien spécialisé dans la croissance économique sous IA transformatrice. Coauteur avec Anton Korinek (Virginia, NBER, CEPR) du Working Paper GPI 2020 fondateur sur le sujet. Son article de mars 2026 « Is labor a luxury in the long run? » formalise pourquoi la part travail peut rester élevée même en pleine automatisation, grâce aux biens human-intrinsic (concerts, performances, soin, accompagnement). Position : transformation majeure probable mais part travail soutenue par préférence humaine pour la présence."
+    },
+    {
+      "name": "Pieter Garicano",
+      "institution": "Silicon Continent · projet de livre Messy Jobs avec Jin Li et Yanhui Wu",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 40,
+        "Accélération IA": 30,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur de la critique de référence des prédictions Amodei/Suleyman (mai 2026). Argument central : la tâche n'est pas le job, le job est un bundle. Quand l'IA prend la tâche faible du bundle, elle laisse au travailleur la tâche forte. Mobilise l'exemple historique de l'horlogerie suisse face au quartz comme cas d'école de recomposition réussie. Position : recomposition massive plutôt que destruction massive, avec gagnants identifiables (les travailleurs qui montent en gamme sur la partie forte du bundle)."
+    },
+    {
+      "name": "Dimitris Papanikolaou",
+      "institution": "Northwestern University · Kellogg School of Management",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 50,
+        "Accélération IA": 25,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Spécialiste des effets compensatoires sur le marché du travail face aux chocs technologiques. Ses travaux montrent que l'IA a un impact limité sur l'emploi agrégé parce que le marché du travail s'adapte par effets de second ordre (création d'usages nouveaux, demande croissante sur des fonctions complémentaires, recomposition des bundles). Position : pas de rupture brutale visible dans les données 2024-2026, mais composition du travail en transformation profonde."
+    },
+    {
+      "name": "Yves Caseau",
+      "institution": "ex-Chief Digital Officer de Michelin · Académie des Technologies · auteur",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 30,
+        "Transformation majeure": 25,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur de la synthèse de référence « The Impact of AI Automation on Our Jobs and Our Lives » (mai 2026), tirée de sa conférence aux RNS Strasbourg avec Yann Ferguson. Ses cinq apports structurants : cadre McKinsey en trois types de travail (production/transaction/interaction), distinction ACI vs AGI (AGI pas avant 2030), loi d'Amara appliquée à l'IA (surestimation court-terme, sous-estimation long-terme), modèle FWPM avec sa valeur retenue de 30% de réduction d'emplois en secteur compétitif, et avertissement systémique sur le coût cognitif de l'augmentation IA. Position : transformation profonde inévitable, mais à un rythme beaucoup plus lent que celui annoncé par les dirigeants dont les investissements exigent un payoff rapide."
+    },
+    {
+      "name": "Yann Ferguson",
+      "institution": "sociologue · auteur · directeur scientifique LaborIA / Inria-INRS",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 40,
+        "Accélération IA": 25,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Sociologue français spécialiste de l'impact réel de l'automatisation sur les personnes et les métiers. Auteur de « Ce que l'intelligence artificielle fait de l'homme au travail ». Cadre d'analyse central : les quatre archétypes du travailleur face à l'IA. Le travailleur remplacé (automatisation par attrition), le travailleur dominé (contrôle algorithmique sur l'autonomie et les compétences), le travailleur augmenté (performance améliorée mais coûts cognitifs), et le travailleur réhumanisé (IA libère du temps pour créativité et empathie). Position : l'IA a atteint une maturité technique, économique et organisationnelle qui en fait une réalité concrète au travail, ce qui déplace la question centrale de la technologie vers ses implications humaines et sociales."
+    },
+    {
+      "name": "Marco Iansiti",
+      "institution": "Harvard Business School · Digital Initiative · conseiller Michelin",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 30,
+        "Accélération IA": 35,
+        "Transformation majeure": 25,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Économiste de l'innovation à Harvard, spécialiste des transformations IA en entreprise. Apport central : adopter la GenAI individuellement est facile (RAG, synthèse, automatisation de tâches isolées), mais en tirer un vrai gain économique exige trois conditions : streamlining préalable des processus, contexte partagé entre les acteurs, objectifs uniques et simples à évaluer. Sans ces conditions, la GenAI fonctionne comme un RPA 2.0 avec des bénéfices marginaux. Avec ces conditions, elle restructure l'entreprise. Position : transformation profonde réelle, mais réservée aux organisations qui font le travail de simplification systémique préalable."
+    },
+    {
+      "name": "Sangeet Paul Choudary",
+      "institution": "Platform Thinking Labs · auteur · Reshuffle (2025)",
+      "scenario_distribution_pct": {
+        "Stagnation": 0,
+        "Croissance modérée": 20,
+        "Accélération IA": 30,
+        "Transformation majeure": 40,
+        "Rupture technologique": 10
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Auteur de « Reshuffle: Who Wins When AI Restacks the Knowledge Economy » (2025). Thèse centrale : la vraie puissance transformative de l'IA ne vient pas de la manière dont elle exécute une tâche, mais de la manière dont elle restructure tout le système autour de la tâche. Définir les métiers comme une simple somme de tâches automatisables passe à côté des contraintes que les métiers gèrent : contexte, coordination, gestion du risque. Avertissement crucial : surestimer l'optimisation peut paradoxalement détruire la coordination existante, rendant le système moins fiable. Position : transformation systémique majeure inévitable pour les organisations qui acceptent de redéfinir leurs structures de travail."
+    },
+    {
+      "name": "David Autor",
+      "institution": "MIT · NBER · Shaping Work Initiative",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 50,
+        "Accélération IA": 25,
+        "Transformation majeure": 10,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Économiste du travail au MIT, référence mondiale sur la polarisation du marché du travail face à l'automatisation. Coauteur du memo MIT 2023 sur l'IA pro-travailleurs avec Acemoglu et Johnson. Position : l'effet de l'IA dépend critiquement des choix de design (substitution vs complémentarité), qui sont eux-mêmes orientés par les incitations fiscales et les politiques publiques. Distinction entre tâches routinières (substituables) et tâches non routinières d'expertise et d'interaction (complémentables). Position empirique mesurée, refuse les prédictions catégoriques type Amodei."
     }
   ]
 }

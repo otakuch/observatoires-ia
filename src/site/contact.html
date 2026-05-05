@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · observatoire[s]·ia</title>
+<meta name="description" content="Écrivez-moi directement. Conférences, ateliers, accompagnement stratégique, dépêches Le Dispatch·iA, contributions à l'observatoire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section class="dash-header">
+  <h1 class="dash-title" data-i18n="ct.title" data-i18n-html="true"></h1>
+  <p class="dash-lede" data-i18n="ct.lede"></p>
+</section>
+
+<!-- WHY CONTACT -->
+<section class="context-block">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="ct.why.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="ct.why.title" data-i18n-html="true"></h3>
+      <div data-i18n="ct.why.text" data-i18n-html="true"></div>
+      <div class="context-key-facts">
+        <div class="kf-item">
+          <div class="kf-num" style="font-size: 22px;">&lt;48h</div>
+          <div class="kf-label" data-i18n="ct.kf1"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">100%</div>
+          <div class="kf-label" data-i18n="ct.kf2"></div>
+        </div>
+        <div class="kf-item">
+          <div class="kf-num">0</div>
+          <div class="kf-label" data-i18n="ct.kf3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="contact-form-section">
+  <div id="formFeedback" class="form-feedback"></div>
+  <form id="contactForm" class="contact-form" novalidate>
+    <div class="form-row-double">
+      <div class="form-row">
+        <label class="form-label" for="ct-name">
+          <span data-i18n="ct.f.name"></span><span class="required">*</span>
+        </label>
+        <input type="text" id="ct-name" name="name" class="form-input" required>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="ct-email">
+          <span data-i18n="ct.f.email"></span><span class="required">*</span>
+        </label>
+        <input type="email" id="ct-email" name="email" class="form-input" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="ct-org">
+        <span data-i18n="ct.f.org"></span>
+      </label>
+      <input type="text" id="ct-org" name="org" class="form-input">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="ct-type">
+        <span data-i18n="ct.f.type"></span>
+      </label>
+      <select id="ct-type" name="type" class="form-select">
+        <option value="dispatch-custom" data-i18n="ct.t.custom"></option>
+        <option value="dispatch-ops" data-i18n="ct.t.ops"></option>
+        <option value="dispatch-notify" data-i18n="ct.t.notify"></option>
+        <option value="conf" data-i18n="ct.t.conf"></option>
+        <option value="workshop" data-i18n="ct.t.workshop"></option>
+        <option value="strategy" data-i18n="ct.t.strategy"></option>
+        <option value="contrib" data-i18n="ct.t.contrib"></option>
+        <option value="other" data-i18n="ct.t.other"></option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="ct-message">
+        <span data-i18n="ct.f.message"></span><span class="required">*</span>
+      </label>
+      <textarea id="ct-message" name="message" class="form-textarea" rows="7" required></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="form-submit">
+        <span data-i18n="ct.f.send"></span>
+        <span>→</span>
+      </button>
+      <p class="form-note" data-i18n="ct.f.note"></p>
+    </div>
+  </form>
+</section>
+
+<!-- DIRECT CHANNELS -->
+<div class="section-head">
+  <div class="section-eyebrow mono" data-i18n="ct.direct.eyebrow"></div>
+  <h2 class="section-title" data-i18n="ct.direct.title" data-i18n-html="true"></h2>
+  <p class="section-sub" data-i18n="ct.direct.sub"></p>
+</div>
+
+<section class="about" style="border-top: none;">
+  <div class="about-actions" style="flex-direction: row; flex-wrap: wrap; align-items: center;">
+    <a href="mailto:sayhi@naullynicolas.ch" class="btn btn-primary">
+      sayhi@naullynicolas.ch →
+    </a>
+    <a href="https://www.linkedin.com/in/naullynicolas" class="btn btn-secondary" target="_blank" rel="noopener">
+      LinkedIn ↗
+    </a>
+    <a href="https://x.com/naullyn" class="btn btn-secondary" target="_blank" rel="noopener">
+      X · @naullyn ↗
+    </a>
+    <a href="https://github.com/otakuch/observatoires-ia" class="btn btn-secondary" target="_blank" rel="noopener">
+      GitHub · otakuch ↗
+    </a>
+    <a href="https://www.naullynicolas.ch" class="btn btn-secondary" target="_blank" rel="noopener">
+      naullynicolas.ch ↗
+    </a>
+  </div>
+</section>
+
+<!-- CROSS LINK TO DISPATCH -->
+<section class="cross-link">
+  <h3 data-i18n="ct.cta.text" data-i18n-html="true"></h3>
+  <a href="briefings.html" class="btn btn-primary">
+    <span data-i18n="ct.cta.btn"></span>
+    <span class="arrow">→</span>
+  </a>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "ct.tag": "",
+    "ct.title": "Écrivez-moi <em>directement</em>.",
+    "ct.lede": "Une question, une remarque, une commande, une critique méthodologique, une intervention en conférence ou en atelier ? Le formulaire ci-dessous prépare un email structuré qui s'ouvre dans votre client mail. Il n'y a aucune base de données entre vous et moi.",
+
+    "ct.why.tag": "Comment ça marche",
+    "ct.why.title": "Un formulaire qui n'enregistre <em>rien</em>.",
+    "ct.why.text": "<p>Cette page n'utilise ni base de données, ni service tiers, ni cookie de tracking. Le formulaire compose un email pré-rempli (sujet, corps, signature) et ouvre votre application mail habituelle. Vous gardez la main avant l'envoi : vous pouvez modifier, ajouter une pièce jointe, choisir l'expéditeur. Si votre navigateur n'a pas de client mail configuré, écrivez directement à sayhi@naullynicolas.ch.</p><p>Je lis personnellement chaque email reçu. Pas de standardiste, pas de filtrage par mots-clés, pas de réponse automatique. La grande majorité des messages reçoivent une réponse en moins de quarante-huit heures ouvrées. Les sujets très techniques peuvent prendre plus de temps, mais ils arrivent toujours.</p>",
+    "ct.kf1": "Délai moyen de réponse",
+    "ct.kf2": "Lecture personnelle des messages",
+    "ct.kf3": "Donnée stockée par le formulaire",
+
+    "ct.f.name": "Nom",
+    "ct.f.email": "Email",
+    "ct.f.org": "Organisation (facultatif)",
+    "ct.f.type": "Type de demande",
+    "ct.f.message": "Votre message",
+    "ct.f.send": "Préparer l'email",
+    "ct.f.note": "Le bouton ouvre votre client mail avec le message pré-rempli. Aucun envoi automatique. Aucune donnée stockée.",
+
+    "ct.t.custom": "Le Dispatch·iA · Dispatch sur mesure pour mon organisation",
+    "ct.t.ops": "Le Dispatch·iA · Mise en œuvre opérationnelle (architecture, agents, formation)",
+    "ct.t.notify": "Le Dispatch·iA · Être prévenu d'une parution",
+    "ct.t.conf": "Conférence ou keynote",
+    "ct.t.workshop": "Atelier de direction ou workshop",
+    "ct.t.strategy": "Accompagnement stratégique",
+    "ct.t.contrib": "Contribution à l'observatoire",
+    "ct.t.other": "Autre / Échanger",
+
+    "ct.direct.eyebrow": "Canaux directs",
+    "ct.direct.title": "Ou bien : <em>contournez</em> le formulaire.",
+    "ct.direct.sub": "Si le formulaire ne convient pas à votre situation, voici les canaux directs. LinkedIn pour les échanges professionnels, X pour les fragments d'actualité, GitHub pour les contributions code à l'observatoire.",
+
+    "ct.cta.text": "Vous cherchiez plutôt <em>Le Dispatch·iA</em> ?",
+    "ct.cta.btn": "Voir les dépêches",
+
+    "ct.subject.custom": "Le Dispatch·iA - Demande de Dispatch sur mesure",
+    "ct.subject.ops": "Le Dispatch·iA - Mise en œuvre opérationnelle",
+    "ct.subject.notify": "Le Dispatch·iA - Notification de parution",
+    "ct.subject.conf": "Demande conférence / keynote",
+    "ct.subject.workshop": "Demande atelier / workshop",
+    "ct.subject.strategy": "Accompagnement stratégique",
+    "ct.subject.contrib": "Contribution observatoire[s]·ia",
+    "ct.subject.other": "Contact via observatoire[s]·ia",
+
+    "ct.feedback.invalid": "Merci de remplir les champs obligatoires (nom, email, message).",
+    "ct.feedback.opening": "Ouverture de votre client mail avec le message préparé."
+  },
+  en: {
+    "ct.tag": "",
+    "ct.title": "Write to me <em>directly</em>.",
+    "ct.lede": "A question, a remark, an order, a methodological critique, a conference or workshop request? The form below prepares a structured email that opens in your mail client. There is no database between you and me.",
+
+    "ct.why.tag": "How it works",
+    "ct.why.title": "A form that stores <em>nothing</em>.",
+    "ct.why.text": "<p>This page uses no database, no third-party service, no tracking cookie. The form composes a pre-filled email (subject, body, signature) and opens your usual mail application. You keep control before sending: you can edit, attach a file, choose your sender address. If your browser has no mail client configured, write directly to sayhi@naullynicolas.ch.</p><p>I personally read every email received. No switchboard, no keyword filtering, no automated reply. The vast majority of messages get an answer within forty-eight working hours. Highly technical topics may take longer, but they always come back.</p>",
+    "ct.kf1": "Average response time",
+    "ct.kf2": "Messages personally read",
+    "ct.kf3": "Data stored by the form",
+
+    "ct.f.name": "Name",
+    "ct.f.email": "Email",
+    "ct.f.org": "Organisation (optional)",
+    "ct.f.type": "Type of request",
+    "ct.f.message": "Your message",
+    "ct.f.send": "Prepare the email",
+    "ct.f.note": "The button opens your mail client with the message pre-filled. No automatic sending. No data stored.",
+
+    "ct.t.custom": "The Dispatch·iA · Custom dispatch for my organisation",
+    "ct.t.ops": "The Dispatch·iA · Operational implementation (architecture, agents, training)",
+    "ct.t.notify": "The Dispatch·iA · Notify me of a release",
+    "ct.t.conf": "Conference or keynote",
+    "ct.t.workshop": "Executive workshop",
+    "ct.t.strategy": "Strategic advisory",
+    "ct.t.contrib": "Observatory contribution",
+    "ct.t.other": "Other / Just to exchange",
+
+    "ct.direct.eyebrow": "Direct channels",
+    "ct.direct.title": "Or: <em>bypass</em> the form.",
+    "ct.direct.sub": "If the form doesn't suit your situation, here are the direct channels. LinkedIn for professional exchanges, X for live fragments, GitHub for code contributions to the observatory.",
+
+    "ct.cta.text": "Were you looking for <em>The Dispatch·iA</em>?",
+    "ct.cta.btn": "See dispatches",
+
+    "ct.subject.custom": "The Dispatch·iA - Custom dispatch request",
+    "ct.subject.ops": "The Dispatch·iA - Operational implementation",
+    "ct.subject.notify": "The Dispatch·iA - Release notification",
+    "ct.subject.conf": "Conference / keynote inquiry",
+    "ct.subject.workshop": "Workshop inquiry",
+    "ct.subject.strategy": "Strategic advisory inquiry",
+    "ct.subject.contrib": "observatoire[s]·ia contribution",
+    "ct.subject.other": "Contact via observatoire[s]·ia",
+
+    "ct.feedback.invalid": "Please fill in the required fields (name, email, message).",
+    "ct.feedback.opening": "Opening your mail client with the prepared message."
+  }
+};
+
+function applyURLParams() {
+  const params = new URLSearchParams(window.location.search);
+  const typeMap = {
+    "custom": "dispatch-custom",
+    "ops": "dispatch-ops",
+    "notify": "dispatch-notify",
+    "conf": "conf",
+    "workshop": "workshop",
+    "strategy": "strategy",
+    "contrib": "contrib"
+  };
+  const typeParam = params.get("type");
+  if (typeParam && typeMap[typeParam]) {
+    const sel = document.getElementById("ct-type");
+    if (sel) sel.value = typeMap[typeParam];
+  }
+  const dispatchParam = params.get("dispatch");
+  if (dispatchParam) {
+    const tx = document.getElementById("ct-message");
+    const lang = window.CURRENT_LANG || "fr";
+    const prefix = lang === "fr"
+      ? "Concernant Le Dispatch·iA #" + dispatchParam + " :\n\n"
+      : "Regarding The Dispatch·iA #" + dispatchParam + ":\n\n";
+    if (tx && !tx.value) tx.value = prefix;
+  }
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = (form.elements.name.value || "").trim();
+  const email = (form.elements.email.value || "").trim();
+  const org = (form.elements.org.value || "").trim();
+  const type = form.elements.type.value || "other";
+  const message = (form.elements.message.value || "").trim();
+
+  const feedback = document.getElementById("formFeedback");
+
+  if (!name || !email || !message) {
+    feedback.textContent = window.t("ct.feedback.invalid");
+    feedback.classList.add("visible");
+    feedback.style.borderColor = "var(--signal)";
+    return;
+  }
+
+  const subject = window.t("ct.subject." + type.replace("dispatch-", ""));
+
+  const lang = window.CURRENT_LANG || "fr";
+  let body = message + "\n\n";
+  body += "--\n";
+  body += name + "\n";
+  if (org) body += org + "\n";
+  body += email;
+
+  const mailto = "mailto:sayhi@naullynicolas.ch"
+    + "?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(body);
+
+  feedback.textContent = window.t("ct.feedback.opening");
+  feedback.classList.add("visible");
+  feedback.style.borderColor = "var(--ink)";
+
+  window.location.href = mailto;
+}
+
+initSite("contact");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (form) form.addEventListener("submit", handleSubmit);
+  applyURLParams();
+});
+</script>
+</body>
+</html>
