@@ -4,6 +4,420 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.8] · 2026-05-05
+
+### Added · Colombus/Oracle/HEG Swiss Data and AI Observatory 2025
+
+This release integrates the Swiss Data and AI Observatory 2025 from
+Colombus Consulting / Oracle / HEG-Geneva as the 5th empirical CH
+source in the D01 Swiss retail banking dispatch. This longitudinal
+study fills a unique gap in the existing empirical corpus: while
+KOF/ETH measures substitution effects on exposed jobs and HSLU
+measures AI job creation, Colombus/Oracle/HEG measures the real
+organizational maturity of AI adoption in Swiss companies.
+
+- **Colombus Consulting · Oracle · HEG-Geneva · Swiss Data and AI
+  Observatory 2025** (June 2025) · longitudinal study with panel
+  n=100+ Swiss organizations (all sectors, all sizes, national
+  geographic coverage) · methodology identically reproduced from
+  2024 edition for rigorous 12-month evolution measurement.
+
+Key figures from the 2025 edition:
+- 52% of CH companies have deployed AI assistants or generative AI
+  modules at scale (vs 21% in 2024, +31pp)
+- 62% of executives have good to very good AI knowledge
+  (vs 37% in 2024, +25pp)
+- 62% rate their data quality as good to excellent (vs 48%, +14pp)
+- 70% still identify culture and organization as the primary barrier
+  (not technique)
+- 58% acknowledge basic or nonexistent AI ROI measurement
+  (vs 74%, -16pp)
+- Only 35% integrate AI into the long-term strategic plan
+- 77% of uses concentrated on customer/marketing functions
+- 33% of uses touch support functions (Finance, HR, IT)
+- 80% of companies with imperfect data still derive a tangible
+  AI advantage
+- 64% aim to follow the European AI Act (vs 56% in 2024)
+- Slight lead for financial services and insurance sector
+
+### Modified · D01 Swiss banking "Empirie suisse" section
+The brief-chempirie section has been expanded from 4 to 5 sources:
+- 4 → 5 stats (added: 52% CH companies deploying AI at scale)
+- 4 → 5 source cards
+- Sturm/Deloitte renumbered from src4 to src5
+- Colombus/Oracle/HEG inserted as src4 (T2 longitudinal CH tier)
+- Source grid restructured from 2-col to 3-col layout on desktop
+  with graceful degradation to 2-col at 1100px and 1-col at 700px
+- Stats row restructured from 4-col to 5-col layout with adaptive
+  font sizing
+- Title, lede and synthesis updated to reference 5 sources
+- Synthesis enriched with the "observed adoption maturity" reading:
+  "52% of CH companies already deploy AI at scale, financial sector
+  slightly ahead, but 70% identify culture and organization as the
+  primary barrier"
+
+### Added · 1 report in veille
+Colombus/Oracle/HEG Swiss Data and AI Observatory 2025. Total: 64
+verified field reports (no duplicates).
+
+### Added · 1 timeline milestone
+June 2025: Colombus/Oracle/HEG Observatory publication. Total: 65
+milestones.
+
+### Added · 1 economist entry in CH database
+Colombus Consulting · Oracle · HEG-Geneva collective entry with
+full editorial team attribution (Jean Meneveau, Yvan Cognasse,
+Alexandre Caboussat, Frédéric Boretti, Giancarlo Avolio, Merwan
+Barkat). CH economists total: 44.
+
+### Added · CSS variants for 5-source layouts
+- `.brief-chempirie-stats--5`: 5-column grid with adaptive font
+  sizing (30px desktop, 36px tablet, 30px mobile)
+- `.brief-chempirie-grid--3col`: 3-column source grid with
+  responsive breakpoints at 1100px (2-col) and 700px (1-col)
+
+### Fixed · Footer version
+Bumped from `v0.3.7 · build 2026.05.05` to `v0.3.8 · build 2026.05.05`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from the Colombus/Oracle/HEG observatory in the dashboard. All
+  content is reformulated in observatory voice. Only technical figures
+  (percentages, point-spreads, sample sizes) are reproduced as expected
+  for academic reference.
+- D01 Swiss banking now spans 9 distinct analytical layers with 5
+  empirical CH sources fully documented in the chempirie section.
+  Equivalent of approximately 26-30 pages of analysis per Dispatch.
+- The Colombus/Oracle/HEG observatory is positioned as the unique
+  source measuring organizational maturity, complementary to KOF/ETH
+  (substitution), HSLU (creation), BNS (institutional reading), and
+  SWI/Sturm/Deloitte (strategic framework).
+- Site totals: 64 verified field reports + 65 timeline milestones +
+  40 FR economists + 44 CH economists.
+
+---
+
+## [0.3.7] · 2026-05-05
+
+### Added · 7 French empirical sources integration
+
+This release integrates seven major French-specific empirical sources from
+2025-2026, providing for the first time a rigorous local empirical reading
+of AI's real impact on the French labor market. These sources were
+provided by the project owner from his existing transitions-ia.fr v57
+package and are now reflected in the public-facing observatory dispatches.
+This is symmetric to the Swiss empirical integration in v0.3.6.
+
+- **Coface/OEM · Arquié, Duthoit, Subileau** (April 2026) · most rigorous
+  task-based methodology available on France · 923 occupations, 12
+  compared countries, reproducible elementary action decomposition · 3.8%
+  of French jobs significantly exposed today, 16.3% at 2-5 years (transition
+  to agentic AI), i.e. approximately 5 million jobs threatened · French
+  specificity: agentic AI targets the top 10% salary scale, opposite to
+  previous automation waves.
+
+- **National Assembly · Marquier/Bunel/Baquero hearing** (April 2025) ·
+  hearing of the Social Affairs Committee · structuring 2-force AI
+  framework · no quantified consensus among economists (5% Acemoglu,
+  27% OECD, 60% IMF, 17-30% Goldman Sachs) · scissors-effect risk on
+  French public finances if high salaries disappear even temporarily.
+
+- **National Assembly · Ferguson/Goulard/Lamri round table** (15 April 2026)
+  · 30%/70% shadow AI divide correlated with agency, not age · 4C skills
+  (creativity, communication, cooperation, critical thinking) as
+  structural differentiator · AI transformation as managerial challenge
+  before technological one.
+
+- **OpinionWay/Kelio · AI-HR Barometer 2026 · 3rd wave** (March 2026)
+  · ISO 20252 longitudinal barometer · 306 HR directors + 1,071 French
+  citizens · 33% HR leaders use AI in HR (vs 9% in 2024, +24pp in 2 years)
+  · 42% of workers feel threatened · major DRH/teams perception gap
+  (22% vs 42%) · only 4% HR confidence in AI recruitment.
+
+- **PwC AI Jobs Barometer 2025** (June 2025) · France 1st in Europe ·
+  166,000 AI listings · +273% since 2022 · +56% salary premium ·
+  highest gap in Europe.
+
+- **LinkedIn AI Report France 2025** (September 2025) · 42% jobs
+  structurally protected · 33% deeply transformed · 523 billion $
+  releasable productive capacity by 2030.
+
+- **Alex Imas (Chicago Booth)** · "What will be scarce?" (14 April 2026)
+  · post-commodity economics · scarcity shifts to human exclusivity
+  production · income elasticity > 1 goods · convergence with Trammell.
+
+### Added · "Empirie française" section in D02
+
+D02 Cadres France receives a comprehensive new `brief-chempirie` section
+between BCG mapping and Debate (symmetric to D01 Swiss in v0.3.6),
+presenting:
+- 4-stat headline: 3.8% → 16.3% / 33% / 42% / +273%
+- 4-source grid with tier labels (T1 academic FR, T2 institutional FR
+  ×2, T2 survey FR)
+- Strategic synthesis identifying the three lines French organizations
+  must reconcile in 2026-2030: today vs 2-5 years exposure, structural
+  scissors risk, structural counterweight from AI job creation.
+
+The synthesis explicitly converges Coface/OEM + Marquier INSEE +
+Goulard 30%/70% + Lamri 4C, concluding that "the 2026-2030 pivot is
+not how much to cut but how to recompose job descriptions, accelerate
+the junior pipeline, and invest massively in 4C training for the 70%
+stuck in the Google reflex."
+
+### Added · 7 reports in veille
+Coface/OEM, National Assembly economist hearing, National Assembly RH-AI
+round table, OpinionWay/Kelio Barometer, PwC AI Jobs Barometer, LinkedIn
+AI Report France, Alex Imas. Total: 63 verified field reports.
+
+### Added · 5 timeline milestones
+April 2025 (Marquier/Bunel/Baquero hearing), April 2026 (Ferguson/Goulard/
+Lamri round table), March 2026 (Kelio Barometer 3rd wave), April 2026
+(Coface/OEM 5M jobs), April 2026 (Imas post-commodity). Total: 64
+milestones.
+
+### Added · 6 economists in FR database, 1 in CH database
+- Axelle Marquier (INSEE/ENS, Assemblée nationale 2025)
+- Simon Bunel (INC/ENS, Assemblée nationale 2025)
+- Yann Ferguson (LaborIA/Inria, Assemblée nationale 2026)
+- Enora Goulard (Ascend Partners, Assemblée nationale 2026)
+- Jérémy Lamri (Lab-RH, Assemblée nationale 2026)
+- Alex Imas (Chicago Booth, post-commodity economics) — also added to CH
+- Coface · OEM · Arquié, Duthoit, Subileau team
+
+Database totals: 40 FR economists / 43 CH economists.
+
+### Fixed · em-dash leakage
+Em-dashes (—) discovered in source data files (4 in veille.json, 2 in
+timeline-ia-emploi.json, 2 in economistes-ia.json) propagating through
+components.js to all 14 bundled HTML files. All replaced with middle
+dots (·) consistent with site editorial voice. Final em-dash count:
+0 across all bundled pages.
+
+### Fixed · Footer version
+Bumped from `v0.3.6 · build 2026.05.05` to `v0.3.7 · build 2026.05.05`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from any of the seven French sources in the dashboard. All content is
+  reformulated in observatory voice. Only technical figures (percentages,
+  amounts, sample sizes) are reproduced as expected for academic reference.
+- D02 Cadres France now has 9 distinct analytical layers:
+  contextualization, AI Toolkit, ROLES, Archetypes (Ferguson),
+  BCG Mapping (6 segments), Empirie française (5 sources NEW v0.3.7),
+  Debate (3 positions), TCO, Sovereignty, CTA. Equivalent of 24-28
+  pages of analysis.
+- Site totals: 63 verified field reports + 64 timeline milestones +
+  40 FR economists + 43 CH economists.
+
+---
+
+## [0.3.6] · 2026-05-05
+
+### Added · 4 Swiss empirical sources integration
+
+This release integrates four major Swiss-specific empirical sources from
+late 2025 - early 2026, providing for the first time a rigorous empirical
+reading of AI's real impact on the Swiss labor market. These sources were
+provided by the project owner from his existing transitions-ia.ch v31
+package and are now reflected in the public-facing observatory dispatches.
+
+- **KOF/ETH Zurich · Kläui & Siegenthaler · Study #186** (October 2025)
+  · first rigorous academic study empirically measuring AI's impact on
+  the Swiss labor market · funded by Swiss National Science Foundation
+  (project 100018-232103) · Difference-in-Differences methodology on
+  SECO unemployment registry and x28 AG job listings · β-Eloundou
+  exposure measure applied for the first time to Swiss ISCO-08
+  · +27% unemployed in highly exposed occupations vs lightly exposed
+  (population <50 years), −38% job listings in highly exposed
+  occupations, doubling of unemployment among <50 since November 2022
+  · top 10 most exposed occupations: application programmers (β=0.94),
+  DBA (0.91), web developers (0.88), software developers (0.87),
+  payroll office (0.84), non-academic accountants (0.78), accounting
+  office (0.78), webmasters (0.77), authors (0.75), system administrators
+  (0.70). Three top-10 functions directly concern retail banking.
+
+- **HSLU · Swiss AI Jobs Report 2025** (September 2025) · first academic
+  barometer of AI job creation in Switzerland from Hochschule Luzern
+  Applied AI Center in partnership with x28 AG and Local AI Community
+  LAC · 4,703 AI job listings analyzed (July 2024 - June 2025), +400 AI
+  listings per month since early 2025 · geographic concentration: Zurich
+  37%, Geneva 11%, Bern 11%, Basel-City 10%, Vaud 6%, Zug 5% · finance
+  ranks 2nd sector behind IT.
+
+- **SNB · Q1 2026 Quarterly Business Cycle Survey** (March 2026) · official
+  Swiss National Bank reading on n=241 firms · 1 in 5 firms (20%) declare
+  needing less staff due to AI · slow-burn vision · five sectors and
+  functions primarily affected: consulting firms, software development,
+  support functions, HR and accounting, legal departments and translation
+  services.
+
+- **SWI swissinfo · Sturm KOF + Deloitte CH + Kirchschläger UNIL** (May 2026)
+  · synthesis article integrating three Swiss authoritative voices · Sturm
+  identifies 4 major risks for Switzerland (aging, climate, deglobalization,
+  AI) and emphasizes AI is the only one that is also an opportunity ·
+  Deloitte CH study: shortage of 300,000 workers by 2050, required
+  productivity +1.2% per year (4× current pace) · Kirchschläger pessimistic
+  pole: 50-70% jobs could disappear, proposes UBI funded by AI/data tax.
+
+### Added · "Empirie suisse" section in D01 and D03
+
+D01 Swiss banking receives a comprehensive new `brief-chempirie` section
+between BCG mapping and Debate, presenting:
+- 4-stat headline: +27% unemployment / −38% listings / 4,703 AI jobs /
+  300k worker shortage
+- 4-source grid with tier labels (T1 academic CH, T1 academic CH, T1
+  institutional CH, T2 institutional CH)
+- Strategic synthesis identifying the three lines retail banking HR
+  decisions must reconcile: controlled compression of exposed functions
+  (payroll, accounting, first-level KYC), active recruitment on AI
+  skills, absolute preservation of junior pipeline.
+
+D03 luxury watchmaking receives a condensed version with 2 key sources
+(Sturm/Deloitte + KOF/ETH) and 3 stats focused on the demographic
+shortage angle and the structural protection of artisan functions
+(none in KOF top 10 exposed). Strategic synthesis: the 2026-2030
+arbitrage is not between artisans and AI, but between exposed support
+functions and redeployment of freed time toward brand-intensity
+functions.
+
+### Added · 4 reports in veille
+KOF/ETH Study #186, HSLU Swiss AI Jobs Report, SNB Q1 2026, SWI
+swissinfo Sturm/Deloitte/Kirchschläger. Total: 56 verified field
+reports.
+
+### Added · 3 timeline milestones
+October 2025 (KOF/ETH first rigorous Swiss study), September 2025
+(HSLU Swiss AI Jobs Report), March 2026 (SNB official Q1 2026 survey).
+Total: 59 milestones.
+
+### Added · 5 economists in CH database, 2 in FR database
+- Kläui & Siegenthaler (KOF/ETH Zurich, study #186 authors)
+- Jan-Egbert Sturm (KOF/ETH Zurich director)
+- Peter G. Kirchschläger (University of Lucerne, ICIE ethicist)
+- HSLU Applied AI Center (institutional entry)
+- Marc Beierschoder (Deloitte CH, Future of Work CH)
+
+Sturm and Kirchschläger also added to FR database (relevant for
+Swiss-watching French audience).
+
+Database totals: 34 FR economists / 42 CH economists.
+
+### Added · CSS components
+- `.brief-chempirie`, `.brief-chempirie-inner`, `.brief-chempirie-stats`,
+  `.brief-chempirie-stat`, `.brief-chempirie-grid`, `.brief-chempirie-src`,
+  `.brief-chempirie-synthesis`
+- Signal red left-border accent on chempirie-inner (subtle Swiss flag
+  reference without folkloric excess)
+- Mobile breakpoints at 1100px (4 stats → 2, grid → 1) and 700px
+
+### Fixed · Footer version + minor issues
+Bumped from `v0.3.5 · build 2026.05.05` to `v0.3.6 · build 2026.05.05`.
+Fixed em-dash leakage in 4 new content blocks (8 in D01, 6 in D03)
+and trailing quote duplication issue in the i18n string injection.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from the four Swiss sources in the dashboard. All content is reformulated
+  in observatory voice. Only technical figures (β values, percentages,
+  worker counts) are reproduced as expected for academic reference.
+- Each Dispatch retains its 8-layer analytical depth, with D01 now adding
+  a 9th layer for the Swiss empirical section and D03 adding a 6th
+  condensed layer focused on demographic context.
+- Future dispatches concerning Swiss situations should systematically
+  reference these 4 sources as the empirical backbone for CH-specific
+  analysis.
+- Site totals: 56 verified field reports + 59 timeline milestones +
+  34 FR economists + 42 CH economists.
+
+---
+
+## [0.3.5] · 2026-05-05
+
+### Added · BCG, AISI, Labo Société Numérique integration
+
+This release integrates three major publications providing a quantitative
+and institutional framework that complements the existing sociological
+(Ferguson) and macroeconomic (Trammell) lenses:
+
+- **BCG Henderson Institute · "AI Will Reshape More Jobs Than It Replaces"**
+  (3 April 2026, Emerson, Kropp, Bedard, Krayer et al.) · microeconomic
+  modeling on 1,500 Revelio Labs roles / 165M US jobs · 6 AI Labor
+  Disruption segments
+- **AISI · UK AI Security Institute · Future of Work Unit** (2 February 2026)
+  · first RCT on 500 participants using O*NET Generalised Work Activities
+  taxonomy · +25% quality, +61% points per minute, jagged capabilities
+- **Labo Société Numérique · ANCT** (11 February 2025) · French
+  institutional dossier on AI and work as social dialogue issue · CESE,
+  LaborIA, DiaIA, Commission Villani synthesis
+
+### Added · "Cartographie BCG" section in all 3 Dispatches
+Each Dispatch receives a new `brief-bcgmap` section between the Ferguson
+archetypes and the Debate sections, presenting:
+- 3-stat headline: 50-55% reshaped / 10-15% eliminated / 34% limited-exposure
+- 6-segment grid with color variants (Amplified green / Rebalanced teal /
+  Divergent orange / Substituted signal red / Enabled ink / Limited gray)
+- Sector-specific contextualization for each segment
+- Strategic takeaway calibrated per sector
+
+Sector-specific framings:
+- **D01 Swiss banking**: precise perimeter mapping per segment.
+  Strategic warning: uniform entry-level cuts would simultaneously
+  destroy junior pipeline and senior transition capacity.
+- **D02 French executives**: directly targeted by BCG analysis (finance,
+  consulting, law, tech). Convergence of BCG + Garicano + Trammell:
+  the 2026 decision is not how much to cut, it is how to accelerate
+  pipeline progression to defend the 2030 senior talent stock.
+- **D03 Premium watchmaking**: quantitative confirmation of Trammell's
+  human-intrinsic framework. Watchmaking probably reaches 45-50% on
+  Limited-Exposure segment vs 34% US average.
+
+### Added · 7 new field reports in veille
+- BCG Henderson Institute · April 2026 (the 6-segment quantitative reference)
+- AISI UK · February 2026 (RCT methodology and results)
+- Labo Société Numérique · February 2025 (French institutional dossier)
+- CESE · January 2025 (9 attention points for social dialogue)
+- LaborIA · December 2024 (capacitating AI recommendations)
+- DiaIA · IRES + ANACT (operational toolkit for technological dialogue)
+- Bpifrance Le Lab · January 2025 (31% French SMEs use GenAI, doubled in 1 year)
+
+### Added · 4 timeline milestones
+- February 2025: Paris AI Action Summit, future of work as major axis
+- January 2025: CESE 9 attention points
+- February 2026: AISI UK first RCT
+- April 2026: BCG 6-segment mapping
+
+### Added · 4 economists
+- BCG Henderson Institute (Emerson, Kropp, Bedard, Krayer team)
+- AISI · UK AI Security Institute (institutional entry)
+- Yann Ferguson (re-cited as referenced by Labo Société Numérique)
+- Commission IA Villani (institutional entry, French presidential commission)
+
+Database totals: 32 FR economists / 37 CH economists.
+
+### Added · CSS components
+- `.brief-bcgmap`, `.brief-bcgmap-grid`, `.brief-bcgmap-stat`,
+  `.brief-bcgmap-headline`, `.brief-bcgmap-takeaway`
+- `.brief-bcg-seg` with 6 segment color variants
+  (amplified/rebalanced/divergent/substituted/enabled/limited)
+- Mobile breakpoints at 1100px (3 cols → 2) and 700px (2 cols → 1)
+
+### Fixed · Footer version
+Bumped from `v0.3.4 · build 2026.05.04` to `v0.3.5 · build 2026.05.05`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from any of the three publications in the dashboard. All content is
+  reformulated in observatory voice. BCG segment names (Amplified,
+  Rebalanced, etc.) are technical labels of the framework, not quotes.
+- Each Dispatch now spans 8 distinct analytical layers: contextualization,
+  AI Toolkit, ROLES, Archetypes (Ferguson), BCG Mapping (6 segments),
+  Debate (3 positions), TCO, Sovereignty, CTA. Equivalent of 22-26 pages
+  of analysis per Dispatch.
+- Site totals: 52 verified field reports + 56 timeline milestones +
+  32 FR economists + 37 CH economists.
+
+---
+
 ## [0.3.4] · 2026-05-04
 
 ### Fixed · Footer version display obsolete

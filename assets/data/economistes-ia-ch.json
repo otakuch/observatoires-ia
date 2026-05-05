@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 34,
+  "count": 44,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -431,6 +431,136 @@
       },
       "most_likely_scenario": "Croissance modérée",
       "notes": "Économiste du travail au MIT, référence mondiale sur la polarisation du marché du travail face à l'automatisation. Coauteur du memo MIT 2023 sur l'IA pro-travailleurs avec Acemoglu et Johnson. Position : l'effet de l'IA dépend critiquement des choix de design (substitution vs complémentarité), qui sont eux-mêmes orientés par les incitations fiscales et les politiques publiques. Distinction entre tâches routinières (substituables) et tâches non routinières d'expertise et d'interaction (complémentables). Position empirique mesurée, refuse les prédictions catégoriques type Amodei."
+    },
+    {
+      "name": "BCG Henderson Institute · Emerson, Kropp, Bedard, Krayer",
+      "institution": "Boston Consulting Group · BCG Henderson Institute",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Équipe de recherche BCG ayant publié en avril 2026 le cadre quantitatif de référence sur l'impact IA sur l'emploi. Méthodologie microéconomique sur 1 500 rôles Revelio Labs / 165M emplois US. Position centrale : 50-55% des emplois remodelés en 2-3 ans, 10-15% éliminés en 4-5 ans. Six segments AI Labor Disruption : Amplified 5%, Rebalanced 14%, Divergent 12%, Substituted 12%, Enabled 23%, Limited-Exposure 34%. Mobilise la loi de Jevons (efficacité augmente la consommation totale, pas la réduit). Alerte forte sur la coupe entry-level qui détruit le pipeline senior."
+    },
+    {
+      "name": "AISI · UK AI Security Institute",
+      "institution": "AI Security Institute · UK Department for Science Innovation and Technology · Future of Work Unit",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 45,
+        "Accélération IA": 30,
+        "Transformation majeure": 12,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Institut public de recherche IA britannique rattaché au DSIT. A publié en février 2026 la première étude RCT rigoureuse mesurant les gains de productivité IA sur tâches professionnelles. Méthodologie : 500 participants représentatifs, taxonomie O*NET Generalised Work Activities, 4 tâches transcendant les domaines métier. Résultats : +25% qualité, +61% points par minute, variance critique par tâche (Task 4 +102%, Task 3 aucun gain). Met en évidence les capacités jagged de l'IA. Position : gains réels mais hétérogènes selon la nature de la tâche, encore en retrait sur les outputs ouverts et stratégiques."
+    },
+    {
+      "name": "Commission IA Villani · expertes nommées par le Président",
+      "institution": "Commission de l'intelligence artificielle · rapport mars 2024 · gouvernement français",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 55,
+        "Accélération IA": 25,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Commission présidentielle française ayant rendu en mars 2024 le rapport « IA : notre ambition pour la France ». Position structurante : seulement 5% des emplois sont directement remplaçables par l'IA, parce que dans 19 emplois sur 20 il existe des tâches que l'IA ne peut pas accomplir. La diffusion va créer des emplois, dans de nouveaux et d'anciens métiers. L'effet net agrégé sur l'emploi national est probablement neutre ou positif, à condition que les pouvoirs publics accompagnent les baisses sectorielles. S'appuie sur l'enquête INSEE annuelle qui montre que l'emploi total des entreprises ayant adopté l'IA augmente davantage que celles ne l'ayant pas adoptée."
+    },
+    {
+      "name": "Kläui & Siegenthaler · KOF/ETH Zurich",
+      "institution": "KOF Konjunkturforschungsstelle · ETH Zurich · Étude #186",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 35,
+        "Accélération IA": 32,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteurs de la première étude académique rigoureuse mesurant empiriquement l'impact de l'IA sur le marché du travail suisse (octobre 2025, financée par le Fonds national suisse de la recherche). Méthodologie Difference-in-Differences sur registre chômage SECO et insertions x28 AG, β-Eloundou appliqué pour la première fois à la nomenclature ISCO-08 suisse. Résultats : +27% chômage et -38% offres dans les métiers très exposés (population <50 ans), doublement du chômage chez les <50 ans depuis novembre 2022. Position : effets distributionnels significatifs sur les métiers exposés (programmeurs, développeurs, comptabilité, recrutement), à mettre en regard de l'augmentation de +7,4% de l'emploi total CH sur la même période. Lecture nuancée et empiriquement fondée."
+    },
+    {
+      "name": "Jan-Egbert Sturm",
+      "institution": "Directeur KOF Konjunkturforschungsstelle · ETH Zurich",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 25,
+        "Accélération IA": 40,
+        "Transformation majeure": 22,
+        "Rupture technologique": 8
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Directeur du KOF/ETH Zurich depuis 2005. Position structurante pour le débat suisse 2026 : identifie quatre risques majeurs pour la Suisse (vieillissement démographique, changement climatique, déglobalisation, IA), et souligne que l'IA est le seul de ces quatre risques qui est aussi une opportunité. Les gains de productivité de l'IA pourraient atténuer les effets négatifs des trois autres tendances. Lecture pragmatique cohérente avec l'étude Deloitte CH (pénurie 300 000 travailleurs d'ici 2050, productivité requise +1,2% par an, 4× le rythme actuel)."
+    },
+    {
+      "name": "Peter G. Kirchschläger",
+      "institution": "Université de Lucerne · ICIE · éthique de l'IA",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 10,
+        "Accélération IA": 20,
+        "Transformation majeure": 35,
+        "Rupture technologique": 30
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Éthicien de l'IA à l'Université de Lucerne, directeur de l'Institute of Social Ethics ICIE. Voix critique du débat suisse 2026 (cité dans l'article SWI swissinfo de Marc Leutenegger, mai 2026). Position pessimiste : 50-70% des emplois pourraient disparaître à terme. Propose un Revenu de Base Inconditionnel financé par taxe IA et data. Constitue le pôle de résistance structurelle du débat suisse, en miroir de la position pragmatique Sturm/Deloitte. Argument central : sans intervention politique forte, la transformation IA produira des inégalités difficilement absorbables."
+    },
+    {
+      "name": "HSLU · Applied AI Center",
+      "institution": "Hochschule Luzern · Applied AI Center · Swiss AI Jobs Report",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 30,
+        "Accélération IA": 38,
+        "Transformation majeure": 20,
+        "Rupture technologique": 4
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Centre académique suisse documentant la création d'emplois IA spécialisés en Suisse. Premier baromètre académique de la création d'emplois IA (Swiss AI Jobs Report 2025) en partenariat avec x28 AG et la Local AI Community LAC. Analyse de 4 703 annonces IA juillet 2024 - juin 2025, +400 offres IA par mois depuis début 2025. Concentration : Zurich 37%, Genève 11%, Berne 11%, Bâle 10%. Compétences en demande : Data Engineering, Data Science, Machine Learning, Cloud Computing, NLP. Documente le contrepoids structurel positif aux effets de substitution mesurés par la KOF/ETH."
+    },
+    {
+      "name": "Marc Beierschoder",
+      "institution": "Deloitte Suisse · Consulting · Future of Work CH",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 30,
+        "Accélération IA": 40,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Consultant Deloitte CH spécialisé Future of Work, cité dans l'article SWI swissinfo de mai 2026. Position modérée s'appuyant sur le WEF Future of Jobs 2025 : 92M emplois perdus mondialement d'ici 2030, mais 170M créés (solde net +78M). Pour la Suisse spécifiquement, l'étude Deloitte CH documente une pénurie structurelle de 300 000 travailleurs d'ici 2050, qui exige une productivité supplémentaire de +1,2% par an (4× le rythme actuel). L'IA devient dans ce cadrage un outil nécessaire pour combler le déficit démographique, pas une menace pour l'emploi global."
+    },
+    {
+      "name": "Alex Imas",
+      "institution": "Chicago Booth · économiste comportemental · Substack Ghosts of Electricity",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 25,
+        "Accélération IA": 35,
+        "Transformation majeure": 30,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Économiste comportemental à Chicago Booth. Article majeur 'What will be scarce?' (Substack, 14 avril 2026) appliquant le cadre de l'économie du changement structurel (Comin/Lashkari/Mestieri, Econometrica 2021) au contexte IA. Thèse : la rareté ne disparaît pas avec l'IA, elle se déplace de la production de commodités vers la production d'exclusivité humaine (expérience personnalisée, accompagnement, performance live, soin, éducation directe, artisanat). Cadre théorique direct pour comprendre pourquoi le luxe, le conseil patrimonial et le soin résistent structurellement. Convergent avec Trammell sur la persistance de la part travail."
+    },
+    {
+      "name": "Colombus Consulting · Oracle · HEG-Genève",
+      "institution": "Observatoire Data et IA en Suisse · étude longitudinale annuelle · panel n=100+ organisations CH",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 38,
+        "Accélération IA": 35,
+        "Transformation majeure": 16,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Consortium Colombus Consulting (cabinet de conseil suisse), Oracle (équipe Suisse) et Haute École de gestion de Genève (HEG, encadrement académique). Publie depuis 2024 l'Observatoire Data et IA en Suisse, étude longitudinale annuelle sur la maturité organisationnelle réelle des entreprises suisses face à l'IA. Méthodologie reproduite à l'identique d'une édition à l'autre, ce qui en fait la mesure de référence sur les évolutions 12 mois. Édition 2025 : panel de 100+ organisations CH, tous secteurs, toutes tailles. Position : optimisme mesuré, l'IA quitte le pilote pour s'industrialiser (52% déploient à l'échelle vs 21% l'année précédente), mais 70% des organisations identifient la culture et l'organisation comme premier frein, pas la technique. Recommandent trois leviers : vision stratégique explicite ancrée dans les objectifs business, organisation prête à l'échelle (plateformes interopérables, gouvernance hybride, compétences distribuées), culture d'adoption continue (relais internes formés, programmes d'acculturation déployés). Équipe de rédaction : Jean Meneveau (Directeur Associé Colombus Consulting Suisse), Yvan Cognasse (Head of Enterprise Architects Continental Europe Oracle), Alexandre Caboussat (Professeur associé HEG-Genève), Frédéric Boretti (Directeur de Transformation Oracle Suisse), Giancarlo Avolio (Manager data & AI Colombus), Merwan Barkat (Consultant data & AI Colombus)."
     }
   ]
 }

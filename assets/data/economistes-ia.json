@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 29,
+  "count": 40,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -373,6 +373,149 @@
       },
       "most_likely_scenario": "Transformation majeure",
       "notes": "Auteur de « Reshuffle: Who Wins When AI Restacks the Knowledge Economy » (2025). Thèse centrale : la vraie puissance transformative de l'IA ne vient pas de la manière dont elle exécute une tâche, mais de la manière dont elle restructure tout le système autour de la tâche. Définir les métiers comme une simple somme de tâches automatisables passe à côté des contraintes que les métiers gèrent : contexte, coordination, gestion du risque. Avertissement crucial : surestimer l'optimisation peut paradoxalement détruire la coordination existante, rendant le système moins fiable. Position : transformation systémique majeure inévitable pour les organisations qui acceptent de redéfinir leurs structures de travail."
+    },
+    {
+      "name": "BCG Henderson Institute · Emerson, Kropp, Bedard, Krayer",
+      "institution": "Boston Consulting Group · BCG Henderson Institute",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Équipe de recherche BCG ayant publié en avril 2026 le cadre quantitatif de référence sur l'impact IA sur l'emploi. Méthodologie microéconomique sur 1 500 rôles Revelio Labs / 165M emplois US. Position centrale : 50-55% des emplois remodelés en 2-3 ans, 10-15% éliminés en 4-5 ans. Six segments AI Labor Disruption : Amplified 5%, Rebalanced 14%, Divergent 12%, Substituted 12%, Enabled 23%, Limited-Exposure 34%. Mobilise la loi de Jevons (efficacité augmente la consommation totale, pas la réduit). Alerte forte sur la coupe entry-level qui détruit le pipeline senior."
+    },
+    {
+      "name": "AISI · UK AI Security Institute",
+      "institution": "AI Security Institute · UK Department for Science Innovation and Technology · Future of Work Unit",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 45,
+        "Accélération IA": 30,
+        "Transformation majeure": 12,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Institut public de recherche IA britannique rattaché au DSIT. A publié en février 2026 la première étude RCT rigoureuse mesurant les gains de productivité IA sur tâches professionnelles. Méthodologie : 500 participants représentatifs, taxonomie O*NET Generalised Work Activities, 4 tâches transcendant les domaines métier. Résultats : +25% qualité, +61% points par minute, variance critique par tâche (Task 4 +102%, Task 3 aucun gain). Met en évidence les capacités jagged de l'IA. Position : gains réels mais hétérogènes selon la nature de la tâche, encore en retrait sur les outputs ouverts et stratégiques."
+    },
+    {
+      "name": "Commission IA Villani · expertes nommées par le Président",
+      "institution": "Commission de l'intelligence artificielle · rapport mars 2024 · gouvernement français",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 55,
+        "Accélération IA": 25,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Commission présidentielle française ayant rendu en mars 2024 le rapport « IA : notre ambition pour la France ». Position structurante : seulement 5% des emplois sont directement remplaçables par l'IA, parce que dans 19 emplois sur 20 il existe des tâches que l'IA ne peut pas accomplir. La diffusion va créer des emplois, dans de nouveaux et d'anciens métiers. L'effet net agrégé sur l'emploi national est probablement neutre ou positif, à condition que les pouvoirs publics accompagnent les baisses sectorielles. S'appuie sur l'enquête INSEE annuelle qui montre que l'emploi total des entreprises ayant adopté l'IA augmente davantage que celles ne l'ayant pas adoptée."
+    },
+    {
+      "name": "Jan-Egbert Sturm",
+      "institution": "Directeur KOF Konjunkturforschungsstelle · ETH Zurich",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 25,
+        "Accélération IA": 40,
+        "Transformation majeure": 22,
+        "Rupture technologique": 8
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Directeur du KOF/ETH Zurich depuis 2005. Position structurante pour le débat suisse 2026 : identifie quatre risques majeurs pour la Suisse (vieillissement démographique, changement climatique, déglobalisation, IA), et souligne que l'IA est le seul de ces quatre risques qui est aussi une opportunité. Les gains de productivité de l'IA pourraient atténuer les effets négatifs des trois autres tendances. Lecture pragmatique cohérente avec l'étude Deloitte CH (pénurie 300 000 travailleurs d'ici 2050, productivité requise +1,2% par an, 4× le rythme actuel)."
+    },
+    {
+      "name": "Peter G. Kirchschläger",
+      "institution": "Université de Lucerne · ICIE · éthique de l'IA",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 10,
+        "Accélération IA": 20,
+        "Transformation majeure": 35,
+        "Rupture technologique": 30
+      },
+      "most_likely_scenario": "Transformation majeure",
+      "notes": "Éthicien de l'IA à l'Université de Lucerne, directeur de l'Institute of Social Ethics ICIE. Voix critique du débat suisse 2026 (cité dans l'article SWI swissinfo de Marc Leutenegger, mai 2026). Position pessimiste : 50-70% des emplois pourraient disparaître à terme. Propose un Revenu de Base Inconditionnel financé par taxe IA et data. Constitue le pôle de résistance structurelle du débat suisse, en miroir de la position pragmatique Sturm/Deloitte. Argument central : sans intervention politique forte, la transformation IA produira des inégalités difficilement absorbables."
+    },
+    {
+      "name": "Axelle Marquier",
+      "institution": "INSEE · ENS · Audition Assemblée nationale 2025",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 32,
+        "Accélération IA": 38,
+        "Transformation majeure": 18,
+        "Rupture technologique": 4
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Économiste à l'INSEE et à l'ENS, auditionnée par la Commission des affaires sociales de l'Assemblée nationale en avril 2025. Apport central : risque d'effet ciseaux sur les finances publiques françaises. Le modèle social français étant financé sur les cotisations salariales (notamment des hauts salaires), la disparition même temporaire (2-5 ans) des emplois cadres bien rémunérés produit une double pression budgétaire : hausse des dépenses indemnisation chômage et baisse des recettes hauts salaires. Position : pas de prédiction catégorique sur les volumes mais alerte structurelle sur le modèle de financement social face aux scénarios de transition rapide."
+    },
+    {
+      "name": "Simon Bunel",
+      "institution": "Institut national de la consommation · ENS · Audition Assemblée nationale 2025",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 40,
+        "Accélération IA": 30,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Économiste à l'INC et l'ENS. Coauteur du cadre analytique en 2 forces présenté à l'Assemblée nationale (avril 2025) : automatisation (machine substitue humain sur tâches cognitives complexes · rupture vs vagues précédentes) et émergence de nouveaux métiers. Position pragmatique : pas de consensus chiffré entre économistes (5% Acemoglu, 27% OCDE France, 60% FMI exposition large, 17-30% Goldman). Le rythme et la magnitude restent incertains, ce qui appelle un suivi empirique continu plutôt que des décisions RH catégoriques."
+    },
+    {
+      "name": "Enora Goulard",
+      "institution": "Ascend Partners · cabinet RH · Table ronde Assemblée nationale 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 30,
+        "Accélération IA": 40,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Consultante RH (Ascend Partners), intervenante à la table ronde Commission des affaires sociales de l'Assemblée nationale (15 avril 2026). Apport central : observation terrain du clivage shadow IA dans les organisations françaises. Environ 30% des salariés sont des utilisateurs affirmés combinant usage officiel et shadow IA (profils agentifs qui percutent et adoptent naturellement), environ 70% restent bloqués dans un réflexe Google sans usage formé. Ce clivage est corrélé à l'agentivité, pas à l'âge · observation contre-intuitive face aux idées reçues sur les générations. Cadre directement actionnable pour les directions RH françaises."
+    },
+    {
+      "name": "Jérémy Lamri",
+      "institution": "Lab-RH · docteur en psychologie · Table ronde Assemblée nationale 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 30,
+        "Accélération IA": 35,
+        "Transformation majeure": 25,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Docteur en psychologie cognitive, fondateur du Lab-RH, intervenant à la table ronde Commission des affaires sociales de l'Assemblée nationale (15 avril 2026). Apport central : centralité des compétences 4C (créativité, communication, coopération, esprit critique) comme différenciateur structurel face à l'IA. La formation à l'IA n'est pas un sujet outillage mais un sujet d'équipement cognitif des équipes pour qu'elles puissent développer une posture critique face aux outputs IA. Vision tournée vers les compétences transversales et la pédagogie organisationnelle."
+    },
+    {
+      "name": "Alex Imas",
+      "institution": "Chicago Booth · économiste comportemental · Substack Ghosts of Electricity",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 25,
+        "Accélération IA": 35,
+        "Transformation majeure": 30,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Économiste comportemental à Chicago Booth. Article majeur 'What will be scarce?' (Substack, 14 avril 2026) appliquant le cadre de l'économie du changement structurel (Comin/Lashkari/Mestieri, Econometrica 2021) au contexte IA. Thèse : la rareté ne disparaît pas avec l'IA, elle se déplace de la production de commodités vers la production d'exclusivité humaine (expérience personnalisée, accompagnement, performance live, soin, éducation directe, artisanat). Cadre théorique direct pour comprendre pourquoi le luxe, le conseil patrimonial et le soin résistent structurellement. Convergent avec Trammell sur la persistance de la part travail."
+    },
+    {
+      "name": "Coface · OEM · Arquié, Duthoit, Subileau",
+      "institution": "Coface (assureur-crédit) · Observatoire des Métiers · CEPII",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 35,
+        "Accélération IA": 40,
+        "Transformation majeure": 14,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Équipe de recherche Coface en partenariat avec l'Observatoire des Métiers : Axelle Arquié (Centre d'études prospectives et d'informations internationales), Aurélien Duthoit (Coface), Pierre Subileau. Rapport de référence d'avril 2026 'Emplois, compétences, valeur : ce que l'IA est en train de bouleverser' avec la méthodologie task-based la plus rigoureuse disponible sur la France (923 professions, 12 pays, décomposition en actions élémentaires). Chiffres : 3,8% des emplois français significativement exposés aujourd'hui, 16,3% à 2-5 ans (passage à l'IA agentique), soit environ 5 millions d'emplois menacés. Spécificité française : l'IA agentique cible le top 10% salarial."
     }
   ]
 }

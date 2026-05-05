@@ -4801,3 +4801,411 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     margin: 18mm 16mm;
   }
 }
+
+/* ============================================== */
+/* BRIEF · BCG MAP · 6 AI Labor Disruption segments */
+/* ============================================== */
+.brief-bcgmap {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 32px;
+}
+.brief-bcgmap-inner {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2, #ECE7DA) 100%);
+  border: 1px solid var(--ink);
+  padding: 56px 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.brief-bcgmap-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--ink);
+}
+.brief-bcgmap-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+}
+.brief-bcgmap-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  max-width: 860px;
+}
+.brief-bcgmap-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-bcgmap-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 32px 0;
+  max-width: 860px;
+}
+
+.brief-bcgmap-headline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 0 36px 0;
+  padding: 24px 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.brief-bcgmap-stat {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.brief-bcgmap-stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--signal);
+  letter-spacing: -0.02em;
+}
+.brief-bcgmap-stat-label {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.brief-bcgmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.brief-bcg-seg {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rule);
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.brief-bcg-seg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 15, 0.07);
+}
+/* Segment-specific accent colors */
+.brief-bcg-seg--amplified   { border-top-color: #2E7D5B; }
+.brief-bcg-seg--rebalanced  { border-top-color: var(--teal, #1F3A3D); }
+.brief-bcg-seg--divergent   { border-top-color: #C9742E; }
+.brief-bcg-seg--substituted { border-top-color: var(--signal); }
+.brief-bcg-seg--enabled     { border-top-color: var(--ink); }
+.brief-bcg-seg--limited     { border-top-color: var(--ink-3); }
+
+.brief-bcg-seg-pct {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.brief-bcg-seg--amplified .brief-bcg-seg-pct   { color: #2E7D5B; }
+.brief-bcg-seg--rebalanced .brief-bcg-seg-pct  { color: var(--teal, #1F3A3D); }
+.brief-bcg-seg--divergent .brief-bcg-seg-pct   { color: #C9742E; }
+.brief-bcg-seg--substituted .brief-bcg-seg-pct { color: var(--signal); }
+.brief-bcg-seg-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 18, "SOFT" 0;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+.brief-bcg-seg-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-bcg-seg-body strong { color: var(--ink); font-weight: 600; }
+
+.brief-bcgmap-takeaway {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  max-width: 920px;
+}
+.brief-bcgmap-takeaway strong { color: var(--ink); font-weight: 600; }
+.brief-bcgmap-takeaway em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+@media (max-width: 1100px) {
+  .brief-bcgmap-grid { grid-template-columns: repeat(2, 1fr); }
+  .brief-bcgmap-headline { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 700px) {
+  .brief-bcgmap { padding: 0 20px; margin: 40px auto; }
+  .brief-bcgmap-inner { padding: 32px 24px 28px; }
+  .brief-bcgmap-title { font-size: 24px; }
+  .brief-bcgmap-grid { grid-template-columns: 1fr; gap: 14px; }
+  .brief-bcgmap-headline { padding: 20px; }
+  .brief-bcgmap-stat-num { font-size: 32px; }
+}
+
+/* ============================================== */
+/* BRIEF · CH EMPIRIE · Swiss empirical sources    */
+/* ============================================== */
+.brief-chempirie {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 32px;
+}
+.brief-chempirie-inner {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 56px 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.brief-chempirie-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--signal);
+}
+.brief-chempirie-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 14px;
+}
+.brief-chempirie-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  max-width: 880px;
+}
+.brief-chempirie-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 56, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-chempirie-lede {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 32px 0;
+  max-width: 860px;
+}
+
+.brief-chempirie-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 0 0 36px 0;
+  padding: 24px 28px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2, #ECE7DA) 100%);
+  border: 1px solid var(--rule);
+}
+.brief-chempirie-stat {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 14px;
+  border-left: 2px solid var(--signal);
+}
+.brief-chempirie-stat-num {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 56, "SOFT" 0;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.brief-chempirie-stat-label {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.brief-chempirie-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 32px;
+}
+.brief-chempirie-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+.brief-chempirie-src {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.brief-chempirie-src:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 15, 0.07);
+}
+.brief-chempirie-src-tier {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 4px;
+}
+.brief-chempirie-src-name {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 22, "SOFT" 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 12px;
+}
+.brief-chempirie-src-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-chempirie-src-body strong { color: var(--ink); font-weight: 600; }
+.brief-chempirie-src-body em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+.brief-chempirie-synthesis {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2, #ECE7DA) 100%);
+  border-left: 3px solid var(--signal);
+  padding: 28px 32px;
+}
+.brief-chempirie-synthesis-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-bottom: 10px;
+}
+.brief-chempirie-synthesis-title {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 28, "SOFT" 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px 0;
+}
+.brief-chempirie-synthesis-title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 28, "SOFT" 50;
+  color: var(--signal);
+}
+.brief-chempirie-synthesis-body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+}
+.brief-chempirie-synthesis-body strong { color: var(--ink); font-weight: 600; }
+.brief-chempirie-synthesis-body em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+@media (max-width: 1100px) {
+  .brief-chempirie-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .brief-chempirie-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .brief-chempirie { padding: 0 20px; margin: 40px auto; }
+  .brief-chempirie-inner { padding: 32px 24px 28px; }
+  .brief-chempirie-title { font-size: 24px; }
+  .brief-chempirie-stats { grid-template-columns: 1fr; padding: 20px; }
+  .brief-chempirie-stat-num { font-size: 30px; }
+  .brief-chempirie-synthesis { padding: 22px 20px; }
+  .brief-chempirie-synthesis-title { font-size: 19px; }
+}
+
+/* ============================================== */
+/* BRIEF · CH EMPIRIE · 5-source variants v0.3.8   */
+/* ============================================== */
+/* 5-stat row (vs default 4) */
+.brief-chempirie-stats--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.brief-chempirie-stats--5 .brief-chempirie-stat-num {
+  font-size: 30px;
+}
+@media (max-width: 1100px) {
+  .brief-chempirie-stats--5 { grid-template-columns: repeat(2, 1fr); }
+  .brief-chempirie-stats--5 .brief-chempirie-stat-num { font-size: 36px; }
+}
+@media (max-width: 700px) {
+  .brief-chempirie-stats--5 { grid-template-columns: 1fr; }
+  .brief-chempirie-stats--5 .brief-chempirie-stat-num { font-size: 30px; }
+}
+
+/* 3-column source grid for 5-source layouts (3 + 2 split visually) */
+.brief-chempirie-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+.brief-chempirie-grid--3col .brief-chempirie-src:nth-child(4),
+.brief-chempirie-grid--3col .brief-chempirie-src:nth-child(5) {
+  /* center the last 2 cards on desktop */
+}
+@media (max-width: 1100px) {
+  .brief-chempirie-grid--3col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .brief-chempirie-grid--3col { grid-template-columns: 1fr; }
+}

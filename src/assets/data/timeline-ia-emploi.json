@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 52,
+  "count": 65,
   "events": [
     {
       "year": "2025",
@@ -474,6 +474,123 @@
       "headline_value": "ACI déjà là · AGI pas avant 2030 · cadre McKinsey + 4 archétypes Ferguson",
       "tier": 2,
       "citation": "Yves Caseau · Information Systems Biology · 2 mai 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Février 2025",
+      "title": "Sommet pour l'action sur l'IA · Paris · l'avenir du travail comme axe majeur",
+      "summary_fr": "Le Sommet pour l'action sur l'intelligence artificielle de Paris (10-11 février 2025) fait de l'avenir du travail l'un de ses cinq axes majeurs. Le dossier de référence du Labo Société Numérique (ANCT) synthétise pour la première fois les positions institutionnelles françaises sur l'impact de l'IA sur l'emploi : Commission Villani (5% emplois directement remplaçables, 19/20 emplois conservent des tâches non automatisables), Direction du Trésor (effets théoriques incertains), CESE (avis avec 9 points d'attention pour le dialogue social), LaborIA (recommandations pour une IA capacitante). Lancement officiel du dialogue social technologique comme cadre français de gouvernance de l'IA en entreprise.",
+      "headline_value": "Avenir du travail · 5 axes majeurs · cadre français du dialogue social IA",
+      "tier": 1,
+      "citation": "Labo Société Numérique · ANCT · 11 février 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Janvier 2025",
+      "title": "CESE · 9 points d'attention pour un dialogue social constructif sur l'IA",
+      "summary_fr": "Le Conseil économique social et environnemental français rend son avis officiel sur l'IA, le travail et l'emploi. Méthodologie originale d'analyse de controverses appliquée à trois questions critiques : inégalités au travail, organisation et santé, impacts emploi. Identifie trois groupes spécifiquement touchés : employés administratifs, femmes (surreprésentées dans les métiers exposés), jeunes diplômés (qui acquièrent leurs compétences en commençant par les tâches que l'IA va prendre). Constat marquant : moins d'un accord d'entreprise sur mille fait référence à l'IA, mais la proportion a été multipliée par 2,5 entre 2018 et 2023. Cadre directement utilisable par les directions RH françaises pour structurer leur négociation collective.",
+      "headline_value": "9 points d'attention CESE · 3 groupes spécifiquement touchés",
+      "tier": 1,
+      "citation": "CESE · janvier 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Février 2026",
+      "title": "AISI UK · première étude RCT mesurant la productivité IA sur tâches O*NET",
+      "summary_fr": "Le UK AI Security Institute publie la première étude expérimentale rigoureuse mesurant les gains de productivité IA sur des tâches professionnelles standardisées. RCT sur 500 participants représentatifs de la population active britannique, 4 tâches expérimentales conçues sur la taxonomie O*NET Generalised Work Activities. Résultats agrégés : +25% qualité, +61% points par minute, mais aucun gain de temps significatif. Variance critique par tâche : Task 4 (interpréter du sens) +102% de productivité, Task 3 (planification stratégique) aucun gain mesurable. Met en évidence les capacités jagged de l'IA : excellente sur l'analyse synthétique structurée, encore en retrait sur les outputs ouverts. Cadre méthodologique de référence pour la nouvelle UK Future of Work Unit.",
+      "headline_value": "RCT 500 participants · +25% qualité · +61% pts/min · capacités jagged",
+      "tier": 1,
+      "citation": "AISI · UK Future of Work Unit · 2 février 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "BCG · 50-55% des emplois US reshaped en 2-3 ans, 10-15% éliminés en 4-5 ans",
+      "summary_fr": "BCG Henderson Institute publie une étude microéconomique majeure sur 1 500 rôles Revelio Labs représentant 165 millions d'emplois US. Cadre quantitatif décisif pour les décisions RH 2026-2030. Six segments AI Labor Disruption qui répartissent l'ensemble du marché du travail : Amplified 5% (IA augmente, demande extensible, croissance), Rebalanced 14% (IA augmente, demande bornée, redesign sans coupe), Divergent 12% (IA substitue, demande extensible, polarisation senior/junior), Substituted 12% (IA substitue, demande bornée, coupe nette), Enabled 23% (IA s'intègre sans transformer la structure du travail), Limited-Exposure 34% (peu d'impact technique). Loi de Jevons appliquée au travail : la baisse du coût peut élargir la demande au-delà de la coupe d'effectif. Alerte centrale sur la coupe entry-level qui détruit le pipeline de talent senior. Quatre impératifs CEO : intégrer la stratégie workforce dans la stratégie compétitive, recentrer l'automatisation sur la refonte, mettre upskilling au cœur, anticiper le décalage temporel.",
+      "headline_value": "6 segments BCG · 50-55% reshaped · 10-15% éliminés · alerte entry-level",
+      "tier": 1,
+      "citation": "Boston Consulting Group · BCG Henderson Institute · 3 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Octobre 2025",
+      "title": "KOF/ETH Zurich · première étude académique rigoureuse sur l'impact IA en Suisse",
+      "summary_fr": "Le KOF Institut de l'ETH Zurich publie l'étude #186 (Kläui & Siegenthaler), première étude académique rigoureuse mesurant empiriquement l'impact de l'IA sur le marché du travail suisse. Financement Fonds national suisse de la recherche (projet 100018-232103). Méthodologie Difference-in-Differences sur registre chômage SECO et insertions x28 AG, mesure d'exposition β-Eloundou appliquée pour la première fois à la nomenclature ISCO-08 suisse. Résultats : +27% de chômeurs dans les métiers très exposés vs peu exposés (population <50 ans), -38% d'offres d'emploi dans les métiers très exposés, doublement du chômage chez les <50 ans depuis novembre 2022. Effets particulièrement marqués chez les programmeurs, développeurs logiciels, analystes système, recruteurs, journalistes, marketing. Top 10 métiers exposés β : programmeurs applications 0,94, DBA 0,91, développeurs web 0,88, développeurs logiciels 0,87, bureau de la paie 0,84. Met en évidence des effets distributionnels significatifs sur les métiers exposés, complémentaires à la vue agrégée de l'AXA/Sotomo (5:1 création/destruction PME). Sur la même période, l'emploi total CH a augmenté de +7,4%.",
+      "headline_value": "+27% chômage · -38% offres · doublement <50 ans · top 10 β",
+      "tier": 1,
+      "citation": "KOF Institut · ETH Zurich · Kläui & Siegenthaler · Étude #186 · octobre 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Septembre 2025",
+      "title": "HSLU · Swiss AI Jobs Report 2025 · 4 703 annonces · +400 par mois · concentration Zurich",
+      "summary_fr": "Premier baromètre académique de la création d'emplois IA en Suisse publié par l'Applied AI Center de la Hochschule Luzern en partenariat avec x28 AG et Local AI Community LAC. Analyse de 4 703 annonces d'emploi IA juillet 2024 - juin 2025. Plus de 400 offres IA par mois depuis début 2025. Sélection rigoureuse en 2 à 4 rounds avec études de cas techniques, master ou doctorat souvent requis pour Data Scientist, centaines de candidatures par poste avec fermeture en une semaine. Concentration géographique forte : Zurich 1 773 postes (37%), Genève 536 (11%), Berne 512 (11%), Bâle-Ville 448 (10%), Vaud 281 (6%), Zoug 229 (5%). Top secteurs : informatique 1 205, finance 552, recherche et éducation 435, pharma et chimie 298, conseil 296, assurances 252. Compétences : Data Engineering, Data Science, Machine Learning, Cloud Computing, NLP. Documente le contrepoids structurel positif aux effets de substitution mesurés par la KOF.",
+      "headline_value": "4 703 offres IA · 400/mois · Zurich 37% · top 5 secteurs >60%",
+      "tier": 1,
+      "citation": "HSLU · Hochschule Luzern Applied AI Center · septembre 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "BNS · enquête Q1 2026 · 1/5 entreprises CH affectées · vision slow-burn officielle",
+      "summary_fr": "La Banque nationale suisse publie son enquête conjoncturelle trimestrielle Q1 2026 sur n=241 entreprises suisses (relayée par Bloomberg et SWI swissinfo le 25 mars 2026). Constat : seules 1/5 des entreprises (20%) déclarent avoir besoin de moins de personnel à cause de l'IA, les changements sont typiquement légers, vision slow-burn avec un effet progressif anticipé sur les années à venir. La BNS identifie cinq secteurs et fonctions principalement affectés : cabinets de conseil, développement logiciel, fonctions support, ressources humaines et comptabilité, départements juridiques et services de traduction. Convergence forte avec les conclusions KOF/ETH (programmeurs, support functions, marketing). Lecture officielle de l'institution monétaire suisse : effet réel mais mesuré, pas de désorganisation systémique.",
+      "headline_value": "1/5 entreprises affectées · n=241 · slow-burn",
+      "tier": 1,
+      "citation": "Banque nationale suisse · enquête Q1 2026 · 25 mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2025",
+      "title": "Assemblée nationale · Audition Marquier/Bunel/Baquero · cadre 2 forces et risque effet ciseaux",
+      "summary_fr": "Audition de la Commission des affaires sociales de l'Assemblée nationale (avril 2025) avec trois économistes : Axelle Marquier (INSEE/ENS), Simon Bunel (INC/ENS), Lor Baquero (UNEDIC). Cadre analytique en 2 forces : automatisation (machine substitue humain sur tâches cognitives complexes · rupture vs vagues précédentes) et émergence de nouveaux métiers. Constat clé : aucun consensus chiffré entre économistes. Acemoglu (Nobel 2024) ~5%, OCDE 27% emplois à risque élevé en France, FMI 60% emplois exposés en définition large, Goldman Sachs 17-30%. Apport majeur de Marquier : risque d'effet ciseaux finances publiques françaises, modèle social financé sur cotisations salariales surtout des hauts salaires. Si emplois mieux rémunérés disparaissent même temporairement (2-5 ans), État subit double pression hausse indemnisation chômage et baisse recettes hauts salaires. Cadre directement actionnable pour les politiques publiques 2026-2030.",
+      "headline_value": "2 forces · 5%-60% divergence · effet ciseaux finances publiques",
+      "tier": 2,
+      "citation": "Marquier (INSEE/ENS) Bunel (INC/ENS) Baquero (UNEDIC) · Assemblée nationale · avril 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Assemblée nationale · Table ronde Ferguson/Goulard/Lamri · clivage 30%/70% shadow IA",
+      "summary_fr": "Table ronde de la Commission des affaires sociales de l'Assemblée nationale (15 avril 2026) avec Yann Ferguson (LaborIA, Inria), Enora Goulard (Ascend Partners) et Jérémy Lamri (Lab-RH). Trois apports : (1) Clivage shadow IA : ~30% des salariés combinent usage officiel et shadow IA (profils agentifs), ~70% restent bloqués dans réflexe Google sans usage formé · clivage corrélé à l'agentivité, pas à l'âge. (2) Sens du travail : compétences 4C (créativité, communication, coopération, esprit critique) deviennent le différenciateur structurel. (3) Cadre transversal : la transformation IA est un défi managérial avant d'être technologique. Implication directe pour les directions RH : la formation à l'IA n'est pas un sujet outillage mais un sujet d'équipement cognitif des équipes pour développer une posture critique face aux outputs IA.",
+      "headline_value": "30%/70% shadow IA · 4C · défi managérial avant technologique",
+      "tier": 2,
+      "citation": "Ferguson (LaborIA/Inria) Goulard (Ascend Partners) Lamri (Lab-RH) · Assemblée nationale · 15 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "OpinionWay/Kelio · Baromètre IA-RH 3e vague · 33% DRH utilisent l'IA · 42% actifs menacés",
+      "summary_fr": "OpinionWay pour Kelio publie le Baromètre IA et RH 2026 (3e vague longitudinale, ISO 20252). Double échantillon représentatif France : 306 DRH d'entreprises 20+ salariés et 1 071 Français. Source FR la plus complète sur la perception croisée IA-RH-grand public. 33% des DRH utilisent l'IA dans leurs fonctions RH (vs 24% en 2025, 9% en 2024, +24 points en 2 ans), 42% utilisent ou aimeraient utiliser, mais seulement 6% en usage important. 42% des actifs en poste se sentent menacés à long terme dont 30% plutôt menacés et 12% très menacés. Écart de perception majeur DRH/équipes : 22% des DRH se sentent menacés vs 42% des actifs. Confiance DRH dans le recrutement IA : seulement 4% (le recrutement doit rester humain pour 51%).",
+      "headline_value": "33% DRH IA · 42% actifs menacés · écart perception DRH 22% / actifs 42%",
+      "tier": 2,
+      "citation": "OpinionWay pour Kelio · Baromètre IA et RH 2026 · 3e vague · mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Coface/OEM · 3,8% emplois français exposés aujourd'hui · 16,3% à 2-5 ans · 5M emplois menacés",
+      "summary_fr": "Rapport Coface (assureur-crédit français) en partenariat avec l'Observatoire des Métiers : « Emplois, compétences, valeur : ce que l'IA est en train de bouleverser » (avril 2026). Auteurs Axelle Arquié (CEPII), Aurélien Duthoit (Coface), Pierre Subileau. Méthodologie task-based la plus rigoureuse disponible sur la France : 923 professions, 12 pays, décomposition en actions élémentaires reproductible. Aujourd'hui 3,8% des emplois français significativement exposés, à 2-5 ans 16,3% (passage à l'IA agentique), soit environ 5 millions d'emplois menacés en France. Spécificité française : l'IA agentique cible le haut de l'échelle salariale (top 10%), à la différence des vagues d'automatisation précédentes qui touchaient les bas salaires. Cadre quantitatif central pour la décision RH 2026-2030 en France.",
+      "headline_value": "3,8% → 16,3% · 5M emplois · top 10% salaires ciblés · 923 professions",
+      "tier": 1,
+      "citation": "Coface & OEM · Arquié, Duthoit, Subileau · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Imas · What will be scarce? · économie post-commodité et prime d'exclusivité humaine",
+      "summary_fr": "Article d'Alex Imas (Chicago Booth) publié sur Substack le 14 avril 2026, s'appuyant sur Comin/Lashkari/Mestieri (Econometrica 2021). Thèse centrale : quand l'IA automatise la production de biens standardisés, les prix baissent et les revenus réels augmentent. Les ménages réorientent leur consommation vers des biens à élasticité-revenu supérieure à 1, massivement non automatisables : expérience humaine personnalisée, accompagnement long, performance live, soin, éducation directe, hospitalité haut de gamme, artisanat. La rareté ne disparaît pas avec l'IA, elle se déplace de la production de commodités vers la production d'exclusivité humaine. Cadre théorique direct pour comprendre pourquoi le luxe, le conseil patrimonial, l'enseignement direct et le soin résistent structurellement. Convergent avec Trammell sur la persistance de la part travail.",
+      "headline_value": "Économie post-commodité · prime d'exclusivité humaine · élasticité-revenu >1",
+      "tier": 1,
+      "citation": "Alex Imas · Chicago Booth · Substack Ghosts of Electricity · 14 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Juin 2025",
+      "title": "Observatoire Data et IA Suisse 2025 · 52% des entreprises déploient l'IA à l'échelle, 70% citent la culture comme premier frein",
+      "summary_fr": "Étude longitudinale de référence Colombus Consulting / Oracle / HEG-Genève publiée en juin 2025, menée entre janvier et avril 2025 sur un panel de 100+ organisations suisses (méthodologie reproduite à l'identique vs édition 2024). Apport unique : seule source CH mesurant la maturité organisationnelle réelle de l'adoption IA en entreprise, en complément des sources sur les effets de substitution (KOF/ETH) et sur la création d'emplois IA (HSLU). Le déploiement à l'échelle d'assistants IA passe de 21% à 52% en un an (+31 points), tandis que les pilotes reculent de 28 points : la phase exploratoire cède la place à une adoption opérationnelle. 62% des dirigeants ont une connaissance bonne à très bonne de l'IA (vs 37%, +25 points). Mais 70% identifient encore la culture et l'organisation comme principal frein, pas la technique. 58% reconnaissent une mesure du ROI IA basique ou inexistante (vs 74%, -16 points). 35% seulement intègrent l'IA au plan stratégique long-terme. Léger avantage du secteur des services financiers et assurances. Constat éditorial : aucune différence significative entre secteurs sur la capacité de l'IA à résoudre des problèmes complexes, ce qui montre que la maturité interne et les compétences sont les véritables moteurs de la réussite.",
+      "headline_value": "52% déploient à l'échelle · 62% dirigeants formés · 70% culture = frein #1",
+      "tier": 2,
+      "citation": "Colombus Consulting · Oracle · HEG-Genève · Observatoire Data et IA Suisse 2025 · juin 2025",
       "ai_type": "generative"
     }
   ]
