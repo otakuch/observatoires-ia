@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 65,
+  "count": 68,
   "events": [
     {
       "year": "2025",
@@ -591,6 +591,33 @@
       "headline_value": "52% déploient à l'échelle · 62% dirigeants formés · 70% culture = frein #1",
       "tier": 2,
       "citation": "Colombus Consulting · Oracle · HEG-Genève · Observatoire Data et IA Suisse 2025 · juin 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Alegria · Premier baromètre maturité IA des PME françaises · 9% intègrent l'IA, 68% budget IA ≤ 5 000 €",
+      "summary_fr": "Premier baromètre Alegria.group sur la maturité IA des PME françaises (avril 2026, n=100 PME représentatives, dont 60% < 20 salariés et 43% de DG/CEO répondants). Apport critique : seule source FR mesurant spécifiquement la maturité d'adoption IA dans les PME, en complément du Kelio/OpinionWay sur les DRH d'entreprises 20+ et de Coface/OEM sur l'exposition macroéconomique. Constat structurant : décalage majeur entre discours dominant et réalité PME. Seulement 9% des PME ont intégré l'IA dans la majorité de leurs processus clés, 40% restent en usage individuel non structuré. 58% n'ont aucune connexion IA-outils métiers (CRM, ERP, RH). 21% seulement ont une stratégie IA structurée. Maturité auto-évaluée moyenne 5/10. Budgets 2025 : 68% à 5 000 € maximum, 3% seulement au-delà de 20 000 €. ROI : 17% le voient important, 52% pas de mesure claire. Préoccupations : 55% confidentialité, 43% fiabilité, 19% seulement emploi · ce qui contraste avec le récit médiatique sur la menace IA-emploi. Climat interne : 46% enthousiasme, 7% résistance. Compétences IA : plus de 50% se déclarent en niveau faible à inexistant, et 34% n'ont aucun plan de formation. Horizon impact perçu : 24% aujourd'hui, 35% dès 2026, 21% en 2027-2028.",
+      "headline_value": "9% intègrent l'IA · 68% budget ≤ 5k€ · 21% stratégie · maturité 5/10",
+      "tier": 2,
+      "citation": "Alegria.group · Premier baromètre maturité IA des PME françaises · avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mars 2026",
+      "title": "Chen et al. arXiv 2603.23971 · phénomène d'inversion de prix · 21,8% inversions, jusqu'à 28× sur les modèles de raisonnement",
+      "summary_fr": "Première étude académique systématique mesurant l'écart entre prix listés et coûts d'inférence réels des modèles de raisonnement frontière. Auteurs : Lingjiao Chen (Stanford / Microsoft Research), Chi Zhang (CMU), Yeye He (Microsoft Research), Ion Stoica (UC Berkeley), Matei Zaharia (UC Berkeley), James Zou (Stanford). Méthodologie : 8 modèles de raisonnement frontière, 9 tâches (math compétition, science QA, génération de code, raisonnement multi-domaine). Découverte : dans 21,8% des comparaisons par paires, le modèle au prix listé le plus bas génère en pratique un coût total supérieur, magnitude d'inversion jusqu'à 28×. Cas emblématique : Gemini 3 Flash listé 78% moins cher que GPT-5.2, coûte 22% de plus en pratique. Cause racine : sur une même requête, un modèle peut utiliser 900% de tokens de raisonnement de plus qu'un autre. Ces tokens sont invisibles à l'utilisateur mais facturés au tarif output. Démonstration : retirer le coût des tokens de raisonnement réduit les inversions de classement de 70% et fait passer la corrélation Kendall τ prix-coût de 0,563 à 0,873. Pour les directions financières et achats : première démonstration rigoureuse que le prix listé n'est pas un instrument fiable de comparaison économique des modèles de raisonnement. Implication TCO directe : tout calcul de coût basé sur les prix listés sans modélisation explicite de la consommation de tokens de raisonnement par cas d'usage sous-estime structurellement les coûts réels.",
+      "headline_value": "21,8% inversions · jusqu'à 28× · 900% écart tokens raisonnement · Kendall τ 0,563→0,873",
+      "tier": 1,
+      "citation": "Chen, Zhang, He, Stoica, Zaharia, Zou · arXiv 2603.23971 · 25 mars 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mai 2026",
+      "title": "a16z David George · The AI Job Apocalypse Is a Complete Fantasy · thèse bull historique-allocateur · 4 papers académiques 2026",
+      "summary_fr": "Article de référence du fonds Andreessen Horowitz publié le 6 mai 2026 sur le newsletter a16z. Présente la thèse contre-narrative au récit de l'apocalypse IA-emploi, articulée autour de quatre arguments. (1) Cadre historique : agriculture, électrification, VisiCalc/Excel, agents de voyage Tedeschi/Stripe · à chaque vague de productivité, redéploiement vers des activités à plus forte valeur ajoutée. (2) Cadre conceptuel : lump-of-labor fallacy comme erreur récurrente, Jevons Paradox sur l'expansion de la demande quand l'input devient bon marché, Carlota Perez sur les phases des révolutions technologiques. (3) Données empiriques académiques 2026 convergentes : NBER WP 34984 (pas de changement significatif d'emploi total), Atlanta Fed WP 2026-3 (90% des entreprises sans impact perçu), Census CES 26-25 (5% des entreprises utilisatrices, hausses 2,3% vs baisses 2,0%), Yale Budget Lab avril 2026 (stabilité). (4) Données positives émergentes : ratio augmentation/substitution 8:1 dans les earnings calls, embauches développeurs en hausse depuis début 2025, postes PM revenus à leur plus haut depuis 2022, formation de nouvelles entreprises corrélée à l'adoption IA, +60% YoY apps store. Position nuancée sur les juniors : exception Stanford/Dallas Fed/Census documentée mais corrigée par la hausse des rôles d'entrée où l'IA est augmentative. Pour les COMEX et CFO, l'argument optimiste académiquement défendu qui équilibre Amodei et Suleyman et ancre 4 papers académiques 2026 dans une lecture allocateur historique.",
+      "headline_value": "4 papers académiques 2026 · ratio augmentation/substitution 8:1 · lump-of-labor fallacy",
+      "tier": 2,
+      "citation": "David George (Andreessen Horowitz) · a16z newsletter · 6 mai 2026",
       "ai_type": "generative"
     }
   ]

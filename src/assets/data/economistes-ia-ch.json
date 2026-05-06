@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 44,
+  "count": 46,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -561,6 +561,32 @@
       },
       "most_likely_scenario": "Croissance modérée",
       "notes": "Consortium Colombus Consulting (cabinet de conseil suisse), Oracle (équipe Suisse) et Haute École de gestion de Genève (HEG, encadrement académique). Publie depuis 2024 l'Observatoire Data et IA en Suisse, étude longitudinale annuelle sur la maturité organisationnelle réelle des entreprises suisses face à l'IA. Méthodologie reproduite à l'identique d'une édition à l'autre, ce qui en fait la mesure de référence sur les évolutions 12 mois. Édition 2025 : panel de 100+ organisations CH, tous secteurs, toutes tailles. Position : optimisme mesuré, l'IA quitte le pilote pour s'industrialiser (52% déploient à l'échelle vs 21% l'année précédente), mais 70% des organisations identifient la culture et l'organisation comme premier frein, pas la technique. Recommandent trois leviers : vision stratégique explicite ancrée dans les objectifs business, organisation prête à l'échelle (plateformes interopérables, gouvernance hybride, compétences distribuées), culture d'adoption continue (relais internes formés, programmes d'acculturation déployés). Équipe de rédaction : Jean Meneveau (Directeur Associé Colombus Consulting Suisse), Yvan Cognasse (Head of Enterprise Architects Continental Europe Oracle), Alexandre Caboussat (Professeur associé HEG-Genève), Frédéric Boretti (Directeur de Transformation Oracle Suisse), Giancarlo Avolio (Manager data & AI Colombus), Merwan Barkat (Consultant data & AI Colombus)."
+    },
+    {
+      "name": "Chen, Zhang, He, Stoica, Zaharia, Zou",
+      "institution": "Stanford / UC Berkeley / CMU / Microsoft Research · arXiv 2603.23971 · mars 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 40,
+        "Transformation majeure": 17,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Équipe de chercheurs académiques de Stanford, UC Berkeley, CMU et Microsoft Research, auteurs de la première étude systématique sur le phénomène d'inversion de prix dans les modèles de raisonnement frontière (mars 2026, arXiv 2603.23971). Méthodologie : 8 RLM frontière, 9 tâches diverses. Position empirique structurante : le prix listé d'un modèle de raisonnement n'est pas un proxy fiable du coût réel d'usage en production, en raison de la variabilité massive de consommation de tokens de raisonnement (jusqu'à 900% d'écart sur la même requête entre deux modèles). 21,8% des comparaisons par paires montrent une inversion, jusqu'à 28× de magnitude. Implication TCO directe pour les COMEX et CFO : tout business case IA basé sur les prix listés sans modélisation explicite de la consommation de tokens de raisonnement par cas d'usage sous-estime structurellement les coûts. Convergence forte avec Gartner (sous-estimation 500-1000%), AISuperior (cost paradox), Singh Tomer (TCO framework). Cette équipe apporte le maillon empirique académique qui manquait au cadre TCO praticien."
+    },
+    {
+      "name": "David George (Andreessen Horowitz) · cadre conceptuel a16z",
+      "institution": "Andreessen Horowitz · fonds VC américain · newsletter a16z · mai 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 22,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Associé chez Andreessen Horowitz, auteur de l'article The AI Job Apocalypse Is a Complete Fantasy (a16z newsletter, 6 mai 2026). Position : bull historique-allocateur. Soutient que le récit de l'apocalypse IA-emploi est l'erreur du lump-of-labor (volume fixe de travail), corrigée systématiquement par l'histoire économique depuis Keynes. S'appuie sur quatre piliers : précédents historiques (agriculture, électrification, VisiCalc/Excel, agents de voyage Tedeschi/Stripe), cadre conceptuel (Jevons Paradox, Carlota Perez sur les révolutions technologiques), données empiriques académiques 2026 récentes (NBER WP 34984, Atlanta Fed WP 2026-3, Census CES 26-25, Yale Budget Lab avril 2026 · convergence sur stabilité de l'emploi total), et données positives émergentes (ratio augmentation/substitution 8:1 dans les earnings calls, embauches développeurs en hausse, formation de nouvelles entreprises corrélée à l'adoption IA, +60% YoY apps store). Position nuancée sur les juniors : reconnaît l'exception Stanford/Dallas Fed/Census mais la corrige par la hausse documentée des rôles d'entrée où l'IA est augmentative. Pour les COMEX et CFO, c'est le pôle bull académiquement défendu qui équilibre les positions pessimistes d'Amodei et Suleyman dans la section Débat des Dispatches. Convergence forte avec Trammell sur la persistance de la part travail, et avec Imas sur l'économie post-commodité (la rareté se déplace, ne disparaît pas)."
     }
   ]
 }

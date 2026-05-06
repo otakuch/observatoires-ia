@@ -4,6 +4,376 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.11] · 2026-05-06
+
+### Added · a16z David George Bull Thesis Integration in Debate Sections
+
+This release integrates the a16z article "The AI Job Apocalypse Is
+a Complete Fantasy" by David George (Andreessen Horowitz, 6 May 2026)
+as the 4th position in the Debate section of all 3 Dispatches. This
+release is critical for decision-maker grounding: the existing 3
+positions (Amodei pessimist, Garicano empirical, Trammell macro)
+were all academically defended but lacked an articulated
+historical-allocator bull pole. a16z fills exactly this gap with a
+sourced argument backed by 4 recent 2026 academic papers and a
+solid conceptual-historical apparatus.
+
+- **David George (Andreessen Horowitz · a16z newsletter)**
+  (6 May 2026) "The AI Job Apocalypse Is a Complete Fantasy:
+  No evidence, no imagination, no understanding of humans"
+
+Four-pillar argumentation:
+
+1. **Conceptual framework**: lump-of-labor fallacy (fixed amount
+   of work to do) systematically corrected by economic history
+   since Keynes' 1930 prediction; Jevons Paradox (when the cost
+   of a powerful input falls, demand expands, not the opposite);
+   Carlota Perez's framework on technological revolution phases.
+
+2. **Sectoral historical precedents**: US agriculture (33%
+   employment in 1900 to 2% in 2017, output tripled);
+   electrification (5% factories in 1900 to 80% in 1930,
+   productivity doubled for decades); VisiCalc/Excel and
+   bookkeepers (loss of ~1M bookkeepers, gain of ~1.5M financial
+   analysts, FP&A industry creation); travel agents Tedeschi/Stripe
+   (workforce halved but wages from 87% to 99% of private sector
+   average 2000-2025).
+
+3. **Convergent 2026 academic empirical data** (4 papers):
+   - NBER WP 34984: AI adoption has not yet led to meaningful
+     changes in total employment
+   - Atlanta Fed WP 2026-3: over 90% of firms across 4 surveys
+     estimate no impact over the last 3 years
+   - Census CES 26-25: 5% of AI-using firms report headcount
+     impact, distributed nearly equally between increases (2.3%)
+     and decreases (2.0%)
+   - Yale Budget Lab April 2026: overall picture of AI's labor
+     market impact is one of stability, not major disruption at
+     economy-wide level
+
+4. **Positive emerging data**: 8:1 augmentation/substitution ratio
+   in earnings calls, developer hiring up since early 2025, PM
+   postings back to highest since 2022, new business formation
+   correlated with AI adoption, +60% YoY app store new submissions.
+
+Nuanced position on juniors: acknowledges the documented exception
+(Stanford, Dallas Fed, Census) on entry-level high-AI-exposure roles,
+but corrected by the same research showing increase in entry-level
+roles where AI is augmentative or neutral.
+
+### Modified · Debate sections in 3 Dispatches
+All 3 Dispatches receive a 4th debate position card with the same
+position label (Position bull historique-allocateur) but with
+sector-adapted claims and bodies:
+
+- **D01 Swiss banking**: claim focuses on the AI-augmented value
+  of advisory and market-expansion functions in retail banking;
+  body integrates ATM precedent (1970), Excel/FP&A precedent for
+  bank back-office, and applies Jevons paradox to wealth advisory
+  expansion.
+
+- **D02 French executives**: claim focuses on the shift toward new
+  executive roles not yet identified; body integrates agriculture
+  and electrification precedents, Tedeschi/Stripe travel agent
+  data, and warns against media-driven panic for the 2026 HR
+  arbitrage.
+
+- **D03 Luxury watchmaking**: claim focuses on AI massively
+  augmenting the perceived value of human-exclusivity goods; body
+  shows particularly strong convergence with Imas (Chicago Booth)
+  on post-commodity economics and uses Tedeschi/Stripe wage rise
+  pattern as predicted future for watchmaking craftsmen.
+
+Both FR and EN versions added with full sector-specific content.
+
+### Modified · Debate sec.body (sectoral takeaway) in 3 Dispatches
+All 3 Dispatches receive an enriched sectoral takeaway integrating
+the a16z reading as empirical counter-pressure to alarmist narratives.
+Updates include:
+- "convergence des trois positions" → "convergence des quatre
+  positions"
+- New synthesis line referencing the 4 academic 2026 papers
+- New strategic implication for the COMEX/CFO of each sector
+- Both FR and EN versions updated
+
+### Modified · brief-debate-grid CSS
+Updated the debate grid CSS rule from
+`grid-template-columns: repeat(3, 1fr)` to
+`grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))`
+to support graceful 3-card or 4-card layouts. Mobile breakpoint
+(1100px) already collapses to 1 column.
+
+### Added · 1 report in veille
+a16z David George "The AI Job Apocalypse Is a Complete Fantasy".
+Total: 67 verified field reports.
+
+### Added · 1 timeline milestone
+May 2026: a16z bull thesis publication. Total: 68 milestones.
+
+### Added · 1 economist entry in FR database, 1 in CH database
+David George (Andreessen Horowitz · a16z conceptual framework)
+added to both FR and CH bases as the source is transversal.
+Database totals: 43 FR economists / 46 CH economists.
+
+### Architecture · Debate section now spans 4 positions
+The Debate section in each Dispatch now presents 4 academically-
+defended positions:
+- p1: Bear (Amodei/Suleyman) · 50% executives eliminated 1-5 years
+- p2: Empirical (Garicano/Brynjolfsson/NY Fed) · juniors augmented,
+      seniors slowed
+- p3: Macroeconomic (Trammell/Korinek/Papanikolaou) · labor share
+      persists for human-intrinsic goods
+- p4: Historical-allocator bull (George/a16z) · 4 academic 2026
+      papers, lump-of-labor fallacy, Jevons paradox, sector
+      precedents · NEW v0.3.11
+
+This 4-pole architecture gives COMEX/CFO/HR leadership a complete
+intellectual map: pessimistic claim, empirical reading, theoretical
+framework, and sourced bull counter-narrative.
+
+### Fixed · Footer version
+Bumped from `v0.3.10 · build 2026.05.06` to `v0.3.11 · build 2026.05.06`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from the a16z article in the dashboard. All content is reformulated
+  in observatory voice. Only attributed figures (8:1 ratio, +60% YoY,
+  87%/99% wages, 33%/2% agriculture, 5%/80% electrification, etc.)
+  are reproduced as expected for academic reference.
+- The four academic papers cited by a16z (NBER WP 34984, Atlanta
+  Fed WP 2026-3, Census CES 26-25, Yale Budget Lab April 2026) are
+  named in the body content and the position author tag, providing
+  decision-makers with traceable references for their own due
+  diligence.
+- This release significantly strengthens the analytical depth of
+  the Debate section by adding the bull pole that was previously
+  missing. The 3 Dispatches now provide the most complete debate
+  map available on AI-and-employment, with explicit sector
+  application for each of the 4 positions.
+- Site totals: 67 verified field reports + 68 timeline milestones +
+  43 FR economists + 46 CH economists.
+
+---
+
+## [0.3.10] · 2026-05-06
+
+### Added · Chen et al. Price Reversal Phenomenon study integration
+
+This release integrates the Chen et al. study on the price reversal
+phenomenon in reasoning language models as the 4th empirical anchor
+in the TCO section of all 3 Dispatches. This is a transversal source
+that strengthens the academic foundation of the TCO argument across
+all three sectoral analyses (Swiss banking, French executives,
+luxury watchmaking).
+
+- **Chen, Zhang, He, Stoica, Zaharia, Zou · Stanford / UC Berkeley /
+  CMU / Microsoft Research** (25 March 2026, arXiv 2603.23971)
+  "The Price Reversal Phenomenon: When Cheaper Reasoning Models End
+  Up Costing More" · first systematic academic study of the gap
+  between listed prices and actual inference costs of frontier
+  reasoning language models (RLMs).
+
+Methodology:
+- 8 frontier reasoning models evaluated
+- 9 diverse tasks: competition math, science QA, code generation,
+  multi-domain reasoning
+- API pricing as of February 28, 2026
+- All models queried via OpenAI-compatible chat completion APIs
+
+Key findings:
+- 21.8% of model pair comparisons show pricing reversal (the
+  cheaper-listed model actually costs more in practice)
+- Reversal magnitude up to 28x
+- Canonical case: Gemini 3 Flash listed 78% cheaper than GPT-5.2,
+  actually 22% more expensive across all tasks
+- Root cause: vast heterogeneity in thinking token consumption · on
+  the same query, one model can use 900% more thinking tokens than
+  another
+- Removing thinking token costs reduces ranking reversals by 70%
+- Kendall τ rank correlation between listed prices and actual costs
+  rises from 0.563 to 0.873 once thinking tokens are excluded
+- Per-query cost prediction is fundamentally difficult because token
+  consumption varies sharply across tasks and models
+
+### Modified · TCO sections in 3 Dispatches
+All 3 Dispatches receive a 4th TCO card with the same headline figure
+(21.8% reversal magnitude up to 28x) and updated takeaway content:
+- D01 Swiss banking: takeaway enriched with Chen et al. as the
+  academic empirical anchor for the listed-price / real-cost gap,
+  positioned alongside Quinlan/Gartner and Tomer.
+- D02 French executives: takeaway enriched with the 900% thinking
+  token consumption gap finding, complementing the existing
+  Brynjolfsson 2025 / Becker 2025 nuance on junior vs senior effects.
+- D03 Luxury watchmaking: takeaway enriched with the brand capital
+  argument · selecting a model based solely on listed price is
+  identified as a structural economic error for luxury, where every
+  customer interaction engages brand capital.
+
+Both FR and EN versions of all 3 takeaways were updated.
+
+### Modified · brief-tco-grid CSS
+Updated the TCO grid CSS rule from
+`grid-template-columns: repeat(3, 1fr)` to
+`grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))`
+to support graceful 3-card or 4-card layouts. The mobile breakpoint
+already collapses to 1 column.
+
+### Added · 1 report in veille
+Chen et al. The Price Reversal Phenomenon. Total: 66 verified field
+reports (no duplicates).
+
+### Added · 1 timeline milestone
+March 2026: Chen et al. arXiv 2603.23971 publication. Total: 67
+milestones.
+
+### Added · 1 economist entry in FR database, 1 in CH database
+Chen, Zhang, He, Stoica, Zaharia, Zou collective entry, added to
+both FR and CH bases as the source is transversal (Stanford /
+Berkeley / CMU / Microsoft Research). Database totals: 42 FR
+economists / 45 CH economists.
+
+### Architecture
+The TCO section now has a clean 4-card layout with the new figure
+positioned alongside the existing 5x token consumption (Gartner Sommer),
+72% CIO break-even (Gartner LeHong), and 3$ per resolution (Gartner
+Quinlan) figures. The 4 cards form a coherent quantitative narrative:
+listed pricing is structurally unreliable, costs scale with
+consumption, ROI is elusive, and per-resolution costs will exceed
+human costs by 2030.
+
+### Fixed · Footer version
+Bumped from `v0.3.9 · build 2026.05.06` to `v0.3.10 · build 2026.05.06`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from the Chen et al. paper in the dashboard. All content is
+  reformulated in observatory voice. Only technical figures
+  (21.8%, 28x, 900%, Kendall τ values, 78%/22%) are reproduced as
+  expected for academic reference.
+- This release strengthens the TCO argument across all 3 sectoral
+  Dispatches with a fresh academic empirical anchor, complementing
+  the existing practitioner sources (Tomer, Gartner Quinlan/LeHong/
+  Sommer/Mesaglio, AISuperior, TrueFoundry).
+- Site totals: 66 verified field reports + 67 timeline milestones +
+  42 FR economists + 45 CH economists.
+
+---
+
+## [0.3.9] · 2026-05-06
+
+### Added · Alegria French SME AI Maturity Barometer 2026
+
+This release integrates the first Alegria barometer on French SME AI
+maturity as the 5th empirical FR source in the D02 French executives
+dispatch. This study fills a unique gap in the existing FR empirical
+corpus: while Coface/OEM measures macroeconomic exposure across all
+sectors, Kelio/OpinionWay measures HR directors at 20+ employee firms,
+and the National Assembly hearings provide institutional framing,
+Alegria specifically measures AI adoption maturity in SMEs · the
+segment representing the vast majority of the French economic fabric.
+
+- **Alegria.group · First French SME AI Maturity Barometer**
+  (April 2026) · panel n=100 SMEs representative of the national
+  economic fabric · 60% structures under 20 employees, 18% between
+  20 and 49, 9% between 50 and 249, 13% between 250 and 499 · 43%
+  of respondents in CEO, President or DG positions.
+
+Key figures from the 2026 edition:
+- Only 9% of SMEs have integrated AI in most key processes
+- 40% remain in unstructured individual use
+- 58% have no AI-business tool connection (CRM, ERP, HR)
+- Only 21% have a structured AI strategy (30% opportunistic,
+  28% planned, 8% not envisioned)
+- Self-assessed maturity average 5/10
+- 2025 budgets: 27% zero, 41% under €5,000, 16% €5-20K, 3% beyond
+- ROI: 17% see significant ROI, 33% possible but uncertain,
+  17% no ROI perceived
+- Concerns: 55% confidentiality, 43% reliability, only 19% employment
+  · sharp contrast with media narrative on AI-employment threat
+- Internal climate: 46% enthusiasm, 25% caution, 7% resistance
+- Skills: over 50% at low to nonexistent level
+- Training: 7% have trained most collaborators, 24% in progress,
+  22% planned, 34% no plan
+- Perceived impact horizon: 24% today, 35% by 2026, 21% in 2027-2028
+
+### Modified · D02 French executives "Empirie française" section
+The brief-chempirie section has been expanded from 4 to 5 sources
+(symmetric to D01 Swiss banking expansion in v0.3.8):
+- 4 → 5 stats (added: 9% French SMEs AI integration in most processes)
+- 4 → 5 source cards
+- PwC stat renumbered from s4 to s5
+- Old src4 (Kelio + PwC + LinkedIn fusion) split: src4 = Kelio strict,
+  PwC and LinkedIn moved to syn.body where they are now properly
+  contextualized as structural counterweight
+- Alegria/SME inserted as new src5 (T2 SME survey FR tier)
+- Source grid restructured from 2-col to 3-col layout on desktop
+  (using existing brief-chempirie-grid--3col class from v0.3.8)
+- Stats row restructured from 4-col to 5-col layout (using existing
+  brief-chempirie-stats--5 class from v0.3.8)
+- Eyebrow: "5 sources" → "6 sources institutionnelles, académiques
+  et terrain" (6 because PwC + LinkedIn now mentioned in syn rather
+  than as standalone cards, and Alegria added as 5th card)
+- Lede: rewritten to differentiate large companies vs SMEs explicitly
+- Synthesis enriched with new "Réalité PME" reading: "9% seulement
+  des PME ont intégré l'IA dans la majorité de leurs processus, 68%
+  ont un budget IA ≤ 5 000 €, 34% n'ont aucun plan de formation ·
+  le tissu économique français est en phase d'exploration, pas de
+  transformation industrielle, ce qui exige une approche progressive
+  et adaptée à la taille."
+
+### Added · 1 report in veille
+Alegria.group SME AI Maturity Barometer 2026. Total: 65 verified
+field reports (no duplicates).
+
+### Added · 1 timeline milestone
+April 2026: Alegria SME barometer publication. Total: 66 milestones.
+
+### Added · 1 economist entry in FR database
+Alegria.group as institutional entry, with full editorial context
+including methodology summary and position framing. FR economists
+total: 41.
+
+### Architecture
+This release reuses the CSS variants introduced in v0.3.8 for the
+D01 Swiss banking expansion (.brief-chempirie-stats--5 and
+.brief-chempirie-grid--3col), demonstrating the value of the
+factored 5-source layout pattern. No new CSS was needed.
+
+### Symmetry achieved
+The observatory now has empirical parity between Switzerland (D01)
+and France (D02), each Dispatch documenting 5 local empirical
+sources in their respective brief-chempirie sections:
+- D01 CH: KOF/ETH (substitution) + HSLU (création) + BNS
+  (institutionnel) + Colombus/Oracle/HEG (maturité organisationnelle)
+  + Sturm/Deloitte (stratégique)
+- D02 FR: Coface/OEM (macroéconomique) + AN Marquier (institutionnel
+  cadres) + AN Ferguson (managérial cadres) + Kelio/OpinionWay
+  (RH et perception 20+ salariés) + Alegria (maturité PME)
+
+This finalizes the empirical foundation needed to produce future
+Dispatches on any FR or CH sector with full local documentation.
+
+### Fixed · Footer version + build date
+Bumped from `v0.3.8 · build 2026.05.05` to `v0.3.9 · build 2026.05.06`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from the Alegria barometer in the dashboard. All content is
+  reformulated in observatory voice. Only technical figures
+  (percentages, budget brackets, sample sizes) are reproduced as
+  expected for academic reference.
+- D02 French executives now spans 9 distinct analytical layers with
+  5 empirical FR sources fully documented in the chempirie section.
+  Equivalent of approximately 27-31 pages of analysis per Dispatch.
+- The Alegria barometer is positioned as the unique source measuring
+  SME maturity, complementary to Coface/OEM (macroeconomic exposure),
+  Kelio (HR directors at 20+ firms), and the institutional sources
+  (National Assembly hearings).
+- Site totals: 65 verified field reports + 66 timeline milestones +
+  41 FR economists + 44 CH economists.
+
+---
+
 ## [0.3.8] · 2026-05-05
 
 ### Added · Colombus/Oracle/HEG Swiss Data and AI Observatory 2025

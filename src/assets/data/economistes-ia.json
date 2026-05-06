@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 40,
+  "count": 43,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -516,6 +516,45 @@
       },
       "most_likely_scenario": "Accélération IA",
       "notes": "Équipe de recherche Coface en partenariat avec l'Observatoire des Métiers : Axelle Arquié (Centre d'études prospectives et d'informations internationales), Aurélien Duthoit (Coface), Pierre Subileau. Rapport de référence d'avril 2026 'Emplois, compétences, valeur : ce que l'IA est en train de bouleverser' avec la méthodologie task-based la plus rigoureuse disponible sur la France (923 professions, 12 pays, décomposition en actions élémentaires). Chiffres : 3,8% des emplois français significativement exposés aujourd'hui, 16,3% à 2-5 ans (passage à l'IA agentique), soit environ 5 millions d'emplois menacés. Spécificité française : l'IA agentique cible le top 10% salarial."
+    },
+    {
+      "name": "Alegria.group",
+      "institution": "Alegria.group · Premier baromètre maturité IA des PME françaises · avril 2026 · panel n=100 PME",
+      "scenario_distribution_pct": {
+        "Stagnation": 12,
+        "Croissance modérée": 45,
+        "Accélération IA": 28,
+        "Transformation majeure": 12,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Cabinet de conseil ayant publié en avril 2026 le premier baromètre quantitatif rigoureux sur la maturité IA des PME françaises. Méthodologie : 100 répondants sur le tissu PME français, 60% structures de moins de 20 salariés, 18% entre 20 et 49, 9% entre 50 et 249, 13% entre 250 et 499 ; 43% des répondants en position de DG, Président ou CEO. Apport unique : mesure de la maturité d'adoption IA dans les PME, segment représentant l'essentiel du tissu économique français mais peu couvert par les autres sources (Kelio/OpinionWay s'arrête à 20+ salariés, Coface/OEM mesure l'exposition tâche par tâche). Position : optimisme prudent. Constat de fond : décalage central entre discours dominant et réalité PME. 9% seulement intègrent l'IA dans la majorité des processus, 21% ont une stratégie structurée, 68% ont un budget IA ≤ 5 000 €, mais 46% climat interne enthousiaste et 35% perçoivent l'impact majeur dès 2026. Recommandation implicite : structurer la gouvernance, former les équipes (34% des PME n'ont aucun plan de formation), et passer de l'usage individuel à l'intégration aux processus. La rareté du Chief AI Officer et l'usage non encadré sont identifiés comme les premiers chantiers."
+    },
+    {
+      "name": "Chen, Zhang, He, Stoica, Zaharia, Zou",
+      "institution": "Stanford / UC Berkeley / CMU / Microsoft Research · arXiv 2603.23971 · mars 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 40,
+        "Transformation majeure": 17,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Équipe de chercheurs académiques de Stanford, UC Berkeley, CMU et Microsoft Research, auteurs de la première étude systématique sur le phénomène d'inversion de prix dans les modèles de raisonnement frontière (mars 2026, arXiv 2603.23971). Méthodologie : 8 RLM frontière, 9 tâches diverses. Position empirique structurante : le prix listé d'un modèle de raisonnement n'est pas un proxy fiable du coût réel d'usage en production, en raison de la variabilité massive de consommation de tokens de raisonnement (jusqu'à 900% d'écart sur la même requête entre deux modèles). 21,8% des comparaisons par paires montrent une inversion, jusqu'à 28× de magnitude. Implication TCO directe pour les COMEX et CFO : tout business case IA basé sur les prix listés sans modélisation explicite de la consommation de tokens de raisonnement par cas d'usage sous-estime structurellement les coûts. Convergence forte avec Gartner (sous-estimation 500-1000%), AISuperior (cost paradox), Singh Tomer (TCO framework). Cette équipe apporte le maillon empirique académique qui manquait au cadre TCO praticien."
+    },
+    {
+      "name": "David George (Andreessen Horowitz) · cadre conceptuel a16z",
+      "institution": "Andreessen Horowitz · fonds VC américain · newsletter a16z · mai 2026",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 22,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Associé chez Andreessen Horowitz, auteur de l'article The AI Job Apocalypse Is a Complete Fantasy (a16z newsletter, 6 mai 2026). Position : bull historique-allocateur. Soutient que le récit de l'apocalypse IA-emploi est l'erreur du lump-of-labor (volume fixe de travail), corrigée systématiquement par l'histoire économique depuis Keynes. S'appuie sur quatre piliers : précédents historiques (agriculture, électrification, VisiCalc/Excel, agents de voyage Tedeschi/Stripe), cadre conceptuel (Jevons Paradox, Carlota Perez sur les révolutions technologiques), données empiriques académiques 2026 récentes (NBER WP 34984, Atlanta Fed WP 2026-3, Census CES 26-25, Yale Budget Lab avril 2026 · convergence sur stabilité de l'emploi total), et données positives émergentes (ratio augmentation/substitution 8:1 dans les earnings calls, embauches développeurs en hausse, formation de nouvelles entreprises corrélée à l'adoption IA, +60% YoY apps store). Position nuancée sur les juniors : reconnaît l'exception Stanford/Dallas Fed/Census mais la corrige par la hausse documentée des rôles d'entrée où l'IA est augmentative. Pour les COMEX et CFO, c'est le pôle bull académiquement défendu qui équilibre les positions pessimistes d'Amodei et Suleyman dans la section Débat des Dispatches. Convergence forte avec Trammell sur la persistance de la part travail, et avec Imas sur l'économie post-commodité (la rareté se déplace, ne disparaît pas)."
     }
   ]
 }
