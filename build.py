@@ -97,6 +97,10 @@ bundle(f"{SITE_SRC}/briefings/01-banque-suisse.html", f"{SITE_OUT}/briefings/01-
 bundle(f"{SITE_SRC}/briefings/02-cadres-france.html", f"{SITE_OUT}/briefings/02-cadres-france.html")
 bundle(f"{SITE_SRC}/briefings/03-luxe-horlogerie.html", f"{SITE_OUT}/briefings/03-luxe-horlogerie.html")
 
+# Prototype · postfactum-inspired UI redesign on D02
+if os.path.exists(f"{SITE_SRC}/briefings/02-cadres-france-postfactum.html"):
+    bundle(f"{SITE_SRC}/briefings/02-cadres-france-postfactum.html", f"{SITE_OUT}/briefings/02-cadres-france-postfactum.html")
+
 # Copy README and original assets folder for reference
 shutil.copy(f"{SITE_SRC}/README.md", f"{SITE_OUT}/README.md")
 shutil.copytree(f"{SITE_SRC}/assets", f"{SITE_OUT}/assets")

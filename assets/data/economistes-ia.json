@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 43,
+  "count": 50,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -555,6 +555,97 @@
       },
       "most_likely_scenario": "Accélération IA",
       "notes": "Associé chez Andreessen Horowitz, auteur de l'article The AI Job Apocalypse Is a Complete Fantasy (a16z newsletter, 6 mai 2026). Position : bull historique-allocateur. Soutient que le récit de l'apocalypse IA-emploi est l'erreur du lump-of-labor (volume fixe de travail), corrigée systématiquement par l'histoire économique depuis Keynes. S'appuie sur quatre piliers : précédents historiques (agriculture, électrification, VisiCalc/Excel, agents de voyage Tedeschi/Stripe), cadre conceptuel (Jevons Paradox, Carlota Perez sur les révolutions technologiques), données empiriques académiques 2026 récentes (NBER WP 34984, Atlanta Fed WP 2026-3, Census CES 26-25, Yale Budget Lab avril 2026 · convergence sur stabilité de l'emploi total), et données positives émergentes (ratio augmentation/substitution 8:1 dans les earnings calls, embauches développeurs en hausse, formation de nouvelles entreprises corrélée à l'adoption IA, +60% YoY apps store). Position nuancée sur les juniors : reconnaît l'exception Stanford/Dallas Fed/Census mais la corrige par la hausse documentée des rôles d'entrée où l'IA est augmentative. Pour les COMEX et CFO, c'est le pôle bull académiquement défendu qui équilibre les positions pessimistes d'Amodei et Suleyman dans la section Débat des Dispatches. Convergence forte avec Trammell sur la persistance de la part travail, et avec Imas sur l'économie post-commodité (la rareté se déplace, ne disparaît pas)."
+    },
+    {
+      "name": "Thomas Davenport & Miguel Paredes",
+      "institution": "Babson College · MIT Initiative on the Digital Economy · Harvard Data Science Review · MIT Press",
+      "scenario_distribution_pct": {
+        "Stagnation": 12,
+        "Croissance modérée": 38,
+        "Accélération IA": 30,
+        "Transformation majeure": 17,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Thomas Davenport · President's Distinguished Professor of IT à Babson College, faculty member du MIT Initiative on the Digital Economy, co-fondateur de l'International Institute for Analytics, auteur de référence sur l'augmentation IA depuis 15 ans (livre 2022 Working with AI · 2018 The AI Advantage). Co-auteur avec Miguel Paredes de l'article Can We Predict What Jobs AI Will Take? publié dans Harvard Data Science Review 7.4 (automne 2025, MIT Press, CC BY 4.0). Position : méta-épistémologique. Compilation et analyse critique de 10 prédictions absolues, 9 prédictions en pourcentage et 19 prédictions sectorielles · les prédictions IA-emploi sont systématiquement wildly inaccurate. Recommandation aux praticiens : cesser de produire des prédictions chiffrées ou admettre explicitement leur caractère hautement spéculatif. Position personnelle 2026 (Babson interview, avril 2026) : si vous n'êtes pas inquiet par l'IA et le marché du travail, vous ne faites pas attention · les prédictions sont horriblement fausses, et majoritairement trop pessimistes sur les pertes. C'est l'invitation à confronter les chiffres macroéconomiques (Coface/OEM 16,3%, KOF/ETH +27% chômage, Anthropic 50%) aux conditions sectorielles et organisationnelles locales · les chiffres sont des indicateurs directionnels, pas des projections actionnables. Pour les directions RH, le pivot est de déplacer le focus des prédictions vers la préparation des travailleurs (digital mindset, compétences IA spécifiques, supervision des outputs IA, redesign des postes)."
+    },
+    {
+      "name": "Guy Champniss",
+      "institution": "IE Business School Madrid · Meltwater Consulting (UK behavioral science) · Harvard Business Review",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 32,
+        "Accélération IA": 30,
+        "Transformation majeure": 25,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Visiting professor à IE Business School (Madrid), fondateur et directeur de Meltwater Consulting (cabinet UK spécialisé en behavioral science). Auteur de l'article The Psychological Costs of Adopting AI publié dans Harvard Business Review en mai-juin 2026. Position : behavioral-psychologique. Thèse : la concentration sur l'efficience et la productivité IA affichées par les fournisseurs occulte des conséquences psychologiques négatives mesurables sur la motivation des employés, qui peuvent annuler les gains productifs et fragiliser les modèles de ROI. S'appuie sur l'étude empirique de référence Wu et al. (Zhejiang University, Scientific Reports avril 2025, 4 études expérimentales, 3 562 participants, -11% motivation intrinsèque, +20% ennui) et sur la convergence avec l'étude Microsoft Research / Carnegie Mellon University (CHI 2025, Lee et al., 319 knowledge workers, 936 cas réels) sur la sédation cognitive. Position pratique pour les COMEX et DRH : le ROI IA doit intégrer la dette psychologique cumulée (désengagement, ennui, atrophie cognitive, turnover potentiel) pour ne pas être structurellement biaisé · les politiques d'augmentation IA doivent être conçues pour préserver le contrôle perçu et l'engagement intrinsèque. Apport unique au cadre observatoire : ouvre une 6e dimension d'analyse (psychologique-comportementale) à côté des dimensions substitution, création, maturité organisationnelle, TCO et méta-épistémologique."
+    },
+    {
+      "name": "Wu, Liu, Ruan, Chen, Xie",
+      "institution": "Zhejiang University · School of Management · Scientific Reports / Nature Portfolio · DOI 10.1038/s41598-025-98385-2",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 40,
+        "Accélération IA": 30,
+        "Transformation majeure": 17,
+        "Rupture technologique": 3
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Équipe de recherche de la School of Management de Zhejiang University, auteurs de l'étude Human-generative AI collaboration enhances task performance but undermines human's intrinsic motivation publiée dans Scientific Reports (Nature Portfolio) le 29 avril 2025. Suqing Wu (premier auteur), Yukun Liu (corresponding), Mengqi Ruan, Siyu Chen, Xiao-Yun Xie. Méthodologie : 4 études en ligne, 3 562 participants au total, tâches professionnelles réelles (revues de performance, e-mails, posts Facebook, brainstorming), conditions randomisées. Position empirique : effets duals documentés de l'IA générative · effet d'augmentation de performance immédiate (qualité, efficience, ton, empathie) ET effet de privation psychologique mesurable lors du retour au solo (-11% motivation intrinsèque, +20% ennui, d=-0,44 medium effect size). Article companion HBR (mai 2025) propose 3 recommandations opérationnelles pour les directions : cartographier les tâches selon leur valeur cognitive intrinsèque, concevoir des politiques d'augmentation préservant le contrôle perçu, anticiper l'effet de privation. Pour le cadre observatoire, c'est la source académique de référence sur la dimension psychologique-comportementale, la plus rigoureuse expérimentalement parmi les sources disponibles en 2026."
+    },
+    {
+      "name": "Cortesi, Hasse, Müller-Daubermann, Gasser",
+      "institution": "Université de Zurich · Department of Communications and Media Research (IKMZ) · ai-dentities · TUM Think Tank · Loved. Feared. And Here to Stay (mai 2026)",
+      "scenario_distribution_pct": {
+        "Stagnation": 12,
+        "Croissance modérée": 38,
+        "Accélération IA": 28,
+        "Transformation majeure": 18,
+        "Rupture technologique": 4
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Équipe de recherche de l'Université de Zurich (Department of Communications and Media Research IKMZ) en partenariat avec le Technical University of Munich Think Tank. Sandra Cortesi (PI), Alexa Hasse, Kirsten Müller-Daubermann et Urs Gasser (UZH). Auteurs de la première étude académique rigoureuse sur la perception publique de l'IA générative en Suisse alémanique et romande, publiée le 7 mai 2026 (ai-dentities · Loved. Feared. And Here to Stay). Méthodologie : panel en ligne 1 000 répondants 15-79 ans, octobre 2025, pondéré sur les statistiques OFS 2024 (âge × éducation × genre). Licence CC BY-SA 4.0. Position : empirique-perceptive sur l'opinion publique CH. Résultats structurants : 40% plus inquiets qu'enthousiastes, 21% plus enthousiastes, 39% à parts égales (groupe le plus large) · l'humeur publique CH est cautious-but-balanced, ni dismissive ni euphorique. Fracture générationnelle massive (60% des 60+ inquiets vs 31% des moins de 30 ans), fracture régionale documentée (Romandie 49% inquiets vs Suisse alémanique 37%), renversement de la fracture de genre (femmes plus utilisatrices que hommes : 40% vs 31%). Cadre méta-épistémologique : la voix la plus inquiète est aussi celle qui a le moins d'expérience directe (81% des non-utilisateurs sont inquiets vs 16% des utilisateurs fréquents). Les concerns dominantes sont la perte d'agentivité humaine, la surveillance, le déplacement cognitif. Pour les COMEX et DRH suisses, c'est l'éclairage manquant pour calibrer la communication interne IA et les politiques de formation : les 70% de freins culturels Colombus ont leur racine dans cette ambivalence majoritaire."
+    },
+    {
+      "name": "Avi Goldfarb",
+      "institution": "Rotman School of Management, University of Toronto · Rotman Chair in Artificial Intelligence and Healthcare · Professor of Marketing · co-auteur Prediction Machines (2018, avec Agrawal & Gans)",
+      "scenario_distribution_pct": {
+        "Stagnation": 8,
+        "Croissance modérée": 42,
+        "Accélération IA": 30,
+        "Transformation majeure": 16,
+        "Rupture technologique": 4
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Économiste de référence sur l'IA et la productivité. Co-auteur de Prediction Machines (Harvard Business Review Press, 2018) avec Ajay Agrawal et Joshua Gans. Cadre central : l'IA comme baisse du coût de prédiction. Apport 2026 (NBER WP 34639) : les tâches au sein d'un job sont complémentaires plutôt que substituables (O-ring tasks framework, inspiré de Kremer 1993). Si l'IA automatise une tâche complémentaire, la tâche humaine restante devient PLUS valuable, pas moins. Le travailleur réalloue son attention, devient plus productif sur les tâches non automatisées. Critique du framing « augmentation good, automation bad » de Brynjolfsson (Turing Trap) et Acemoglu : ce binaire est trop simpliste. L'augmentation Internet/computing a augmenté les inégalités parce qu'elle augmentait les compétences déjà valorisées. L'automatisation de prédiction pourrait au contraire superpouvoir un médecin assistant à 4 ans de formation combiné avec une machine de diagnostic. Forecast 2050 GDP : 2-3% annuel, bottlenecks réels limitent même un scénario rapid AI. Position académique 2026 : empiriciste-prudent, cohérent avec Garicano (LSE), Trammell (Stanford) et Imas (Chicago)."
+    },
+    {
+      "name": "Alex Imas & Soumitra Shukla",
+      "institution": "Chicago Booth (Imas) · économiste comportemental · article analytique 23 mars 2026 sur la dimensionnalité du job comme variable décisive d'exposition IA",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 35,
+        "Accélération IA": 32,
+        "Transformation majeure": 18,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Alex Imas est professeur d'économie comportementale à Chicago Booth. Apport central 2026 (avec Soumitra Shukla) : introduction de la dimensionnalité du job (nombre de tâches qui composent le job) comme variable critique souvent omise dans les analyses d'exposition. Mécanisme 1 (déplacement conditionnel) : à supposer qu'une tâche soit automatisée, un job basse dimension est plus susceptible d'être entièrement déplacé qu'un job haute dimension. Mécanisme 2 (incitation à l'investissement) : les organisations ont une incitation plus forte à investir dans l'automatisation des jobs basses dimensions (incentive de remplacement complet). Interaction avec O-ring (Goldfarb 2026, Kremer 1993) : un job haute dimension avec dernière tâche automatisable peut basculer brutalement. Mise en garde explicite : « tu seras de plus en plus précieux jusqu'à ce que, soudainement, tu ne le sois plus ». Cohérence avec Garicano (bundles), Goldfarb (O-ring), Trammell (human-intrinsic). Pour les directions RH : la dimensionnalité devient une métrique de robustesse aussi importante que l'AIOE Felten/Raj/Seamans ou le segment BCG."
+    },
+    {
+      "name": "Tomei P. M. & Klein Teeselink B.",
+      "institution": "Auteurs du RL Feasibility Index · première mesure systématique d'exposition à l'automatisation par apprentissage par renforcement (SSRN avril 2026, GitHub public boukektkcl/RL-exposure-public, CC BY 4.0)",
+      "scenario_distribution_pct": {
+        "Stagnation": 7,
+        "Croissance modérée": 33,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Première mesure systématique d'exposition à l'automatisation par apprentissage par renforcement (RL), publiée en avril 2026 par Tomei et Klein Teeselink (SSRN Working Paper, code public GitHub boukektkcl/RL-exposure-public, CC BY 4.0). Méthodologie : scoring de 17 951 paires occupation-tâche du référentiel O*NET américain (894 occupations, version db_30_0) par Gemini 2.5 Flash via OpenRouter, prompt v4.2 avec gate de faisabilité physique binaire et 8 dimensions scorées 1-10. Les 8 dimensions : D1 spectre méthode de vérification, D2 simulabilité environnement, D3 observabilité état, D4 variabilité tâche, D5 profondeur décision séquentielle, D6 densité feedback, D7 accessibilité outils, D8 tangibilité output. Cible analytique distincte d'Eloundou et al. 2024 Science (qui mesure la capacité LLM actuelle sur la tâche) : Tomei mesure la faisabilité de construire un environnement RL pour entraîner un agent sur la tâche (RLHF, RLAIF, RLVR, process reward models, AI-as-Judge, données synthétiques). Index aggregate 0-100. Horizon : 5 ans. À utiliser comme indicateur upstream de l'adoption, pas comme prédiction de déplacement effectif. Pour les directions RH : complète l'AIOE Felten/Raj/Seamans et le Yale Budget Lab en proposant une 7e dimension d'exposition spécifiquement orientée vers la post-formation par renforcement, pipeline dominant des reasoning models 2025-2026 (GPT-5.x, Claude Opus 4.5)."
     }
   ]
 }

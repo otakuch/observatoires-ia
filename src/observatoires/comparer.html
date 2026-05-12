@@ -100,6 +100,53 @@
   </table>
 </div>
 
+
+<!-- AI DIFFUSION MICROSOFT · graphique évolution FR / CH 2025-2026 -->
+<section class="diffusion-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="cmp.diff.eyebrow"></div>
+    <h2 class="section-title" data-i18n="cmp.diff.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="cmp.diff.sub"></p>
+  </div>
+
+  <div class="diff-chart-wrap">
+    <div id="diffChart" class="diff-chart"></div>
+    <div class="diff-chart-legend mono">
+      <span class="diff-legend-item"><span class="diff-dot" style="background: #1F3A3D"></span><span data-i18n="cmp.diff.legend.fr"></span></span>
+      <span class="diff-legend-item"><span class="diff-dot" style="background: #D03C2F"></span><span data-i18n="cmp.diff.legend.ch"></span></span>
+      <span class="diff-legend-item"><span class="diff-dot diff-dot-dashed"></span><span data-i18n="cmp.diff.legend.world"></span></span>
+    </div>
+  </div>
+
+  <div class="diff-summary">
+    <p class="diff-summary-text" data-i18n="cmp.diff.summary"></p>
+    <p class="diff-source mono" data-i18n="cmp.diff.source"></p>
+  </div>
+</section>
+
+
+<!-- AI EXPOSURE GAP · Anthropic Economic Index · théorique vs observée -->
+<section class="expgap-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="cmp.expgap.eyebrow"></div>
+    <h2 class="section-title" data-i18n="cmp.expgap.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="cmp.expgap.sub"></p>
+  </div>
+
+  <div class="expgap-chart-wrap">
+    <div id="expgapChart" class="expgap-chart"></div>
+    <div class="expgap-legend mono">
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-theoretical"></span><span data-i18n="cmp.expgap.legend.theoretical"></span></span>
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-observed"></span><span data-i18n="cmp.expgap.legend.observed"></span></span>
+    </div>
+  </div>
+
+  <div class="expgap-summary">
+    <p class="expgap-readline" data-i18n="cmp.expgap.readline" data-i18n-html="true"></p>
+    <p class="expgap-source mono" data-i18n="cmp.expgap.source"></p>
+  </div>
+</section>
+
 <!-- BLIND SPOTS -->
 <div class="section-head">
   <div class="section-eyebrow mono" data-i18n="cmp.blind.eyebrow"></div>
@@ -129,6 +176,8 @@
 
 <footer id="siteFooter"></footer>
 
+<script type="application/json" id="diffusionData">{"periods":[{"label":"H1 2025","short":"H1 25"},{"label":"H2 2025","short":"H2 25"},{"label":"Q1 2026","short":"Q1 26"}],"countries":[{"code":"FR","name":{"fr":"France","en":"France"},"values":[40.9,44.0,47.8],"rank_q1_2026":5,"color":"#1F3A3D"},{"code":"CH","name":{"fr":"Suisse","en":"Switzerland"},"values":[32.4,34.8,37.8],"rank_q1_2026":14,"color":"#D03C2F"},{"code":"WORLD","name":{"fr":"Monde","en":"World"},"values":[15.1,16.3,17.8],"rank_q1_2026":null,"color":"#11110F","style":"dashed"}]}</script>
+<script type="application/json" id="compareExpData">{"families":[{"code":"ICT","label":"Informatique et numérique","ch_exposure":78,"ch_postings":-30,"fr_exposure":24.9,"fr_postings":-21},{"code":"MARKETING_MEDIA","label":"Créatifs, marketing, médias","ch_exposure":74,"ch_postings":-22,"fr_exposure":23.8,"fr_postings":-22},{"code":"OFFICE_ADMIN","label":"Administration et soutien","ch_exposure":72,"ch_postings":-17,"fr_exposure":23.8,"fr_postings":-15},{"code":"FIN_INSURANCE","label":"Finance, banque, assurance","ch_exposure":65,"ch_postings":-10,"fr_exposure":20,"fr_postings":-21},{"code":"SCIENCE_TECH","label":"Sciences, ingénierie, architecture","ch_exposure":58,"ch_postings":-5,"fr_exposure":26.9,"fr_postings":-16},{"code":"LEGAL","label":"Juridique","ch_exposure":62,"ch_postings":-8,"fr_exposure":21.6,"fr_postings":-12},{"code":"EDUCATION","label":"Enseignement et action publique","ch_exposure":52,"ch_postings":-3,"fr_exposure":13,"fr_postings":-3},{"code":"MANUFACTURING","label":"Industrie manufacturière","ch_exposure":38,"ch_postings":-2,"fr_exposure":15,"fr_postings":-16},{"code":"HEALTHCARE","label":"Santé et soins","ch_exposure":32,"ch_postings":4,"fr_exposure":10,"fr_postings":-3},{"code":"CONSTRUCTION","label":"Construction et BTP","ch_exposure":18,"ch_postings":6,"fr_exposure":8,"fr_postings":-22}]}</script>
 <script src="../assets/components.js"></script>
 <script>
 window.PAGE_I18N = {
@@ -138,6 +187,15 @@ window.PAGE_I18N = {
     "cmp.lede": "Comparer la Suisse et la France ne consiste pas à classer un meilleur élève. Les deux pays observent l'impact de l'IA sur le travail à travers des architectures institutionnelles, des temporalités et des nomenclatures profondément différentes. Ce que l'une mesure chaque mois, l'autre l'agrège tous les quatre ans. Ce que l'une régule horizontalement, l'autre laisse aux secteurs. Cette page rapproche ce qui peut l'être, identifie les écarts structurels, et signale les questions que ni Berne ni Paris ne posent encore.",
     "cmp.cta.ch.short": "Dashboard Suisse",
     "cmp.cta.fr.short": "Dashboard France",
+    "cmp.diff.eyebrow": "Microsoft AI Diffusion · H1 2025 → Q1 2026",
+    "cmp.diff.title": "Trajectoire d'adoption IA · <em>la France progresse plus vite que la Suisse, les deux restent au-dessus de la moyenne mondiale</em>.",
+    "cmp.diff.sub": "Microsoft mesure la part de la population 15-64 ans ayant utilisé un produit IA générative pendant la période. Télémétrie agrégée et anonymisée, ajustée par part de marché OS/appareils, pénétration internet et population. Trois rapports successifs permettent désormais une lecture longitudinale.",
+    "cmp.diff.legend.fr": "🇫🇷 France",
+    "cmp.diff.legend.ch": "🇨🇭 Suisse",
+    "cmp.diff.legend.world": "Moyenne mondiale",
+    "cmp.diff.summary": "Sur trois semestres consécutifs (H1 2025 → Q1 2026), l'adoption IA en France passe de <strong>40,9% à 47,8%</strong> (+6,9 points, +16,9% relatif). La Suisse passe de <strong>32,4% à 37,8%</strong> (+5,4 points, +16,7% relatif). La moyenne mondiale gagne 2,7 points (de 15,1% à 17,8%). La France est désormais <strong>5e mondiale</strong>, la Suisse <strong>14e</strong>. Les deux pays sont au-dessus de la moyenne du Nord global (27,5%) et largement au-dessus du Sud global (15,4%).",
+    "cmp.diff.source": "Source · Microsoft AI Economy Institute · Global AI Diffusion Reports H1 2025, H2 2025, Q1 2026 · arXiv 2511.02781",
+
     "cmp.context.tag": "La méthode",
     "cmp.context.title": "Une <em>comparaison</em>, pas un classement.",
     "cmp.context.text": "<p>Comparer deux écosystèmes nationaux suppose d'abord de poser leurs asymétries. La France fonctionne par le centre. La Suisse par les marges. La France produit ses statistiques avec une administration unifiée et des cadences mensuelles. La Suisse compose entre la Confédération, les cantons et les langues. Ces architectures politiques produisent des données qui ne sont pas immédiatement comparables.</p><p>Trois axes structurent malgré tout le rapprochement. La <strong>couverture statistique</strong>, qui mesure la densité et la régularité des publications. La <strong>réactivité institutionnelle</strong>, c'est-à-dire la vitesse à laquelle les observatoires intègrent un signal neuf comme l'irruption de l'IA générative. La <strong>posture réglementaire</strong>, enfin, qui détermine ce que les institutions estiment devoir mesurer en priorité.</p><p>Cette comparaison ne hiérarchise pas. Elle ne dit pas qu'un système est meilleur que l'autre. Elle souligne ce que chacun voit, ce que chacun ne voit pas, et les <em>questions communes</em> qu'aucun des deux ne traite encore. Sur l'IA et le travail, les angles morts sont, eux, étrangement symétriques.</p>",
@@ -169,7 +227,16 @@ window.PAGE_I18N = {
     "cmp.cta.text": "Plonger dans <em>chaque pays</em> en détail.",
     "cmp.cta.ch": "Dashboard Suisse →",
     "cmp.cta.fr": "Dashboard France →",
-    "cmp.cta.external": "Aller plus loin · dashboards complets"
+    "cmp.cta.external": "Aller plus loin · dashboards complets",
+
+    "cmp.expgap.eyebrow": "KOF/Adecco (CH) · Coface/BMO (FR) · comparaison directe nationale",
+    "cmp.expgap.title": "Comparaison directe France-Suisse · <em>les deux marchés réagissent à l'exposition, avec des intensités différentes</em>.",
+    "cmp.expgap.sub": "10 familles professionnelles comparables côte à côte. Pour chaque famille, la variation des offres d'emploi 2023-2025 est tracée pour la Suisse (Adecco/KOF Swiss Job Market Index Q3 2025) et pour la France (France Travail BMO 2025). Le niveau d'exposition mesuré par les sources nationales (KOF/Felten transposé NP 2010 pour la Suisse, Coface/OEM 923 professions pour la France) est indiqué à droite. Les échelles d'exposition diffèrent par méthodologie, mais le classement relatif et la corrélation avec les offres convergent.",
+    "cmp.expgap.legend.theoretical": "🇨🇭 Suisse",
+    "cmp.expgap.legend.observed": "🇫🇷 France",
+    "cmp.expgap.readline": "<strong>Lecture comparative</strong> · la Suisse résiste mieux que la France sur la plupart des familles. <strong>Santé CH +4%</strong> vs FR -3%, <strong>industrie CH -2%</strong> vs FR -16%, <strong>construction CH +6%</strong> vs FR -22% (effet conjoncture immobilière française). Le signal IA spécifique apparaît clairement sur l'informatique (CH -30% vs FR -21%), les créatifs (CH -22% vs FR -22%, parfait alignement) et l'administration (CH -17% vs FR -15%). Adoption IA en France <strong>47,8%</strong> (rang 5 mondial) vs Suisse <strong>37,8%</strong> (rang 14) selon Microsoft Q1 2026.",
+    "cmp.expgap.source": "Sources Suisse · KOF/ETH Klaeui & Siegenthaler déc. 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · Microsoft AI Diffusion Q1 2026. Sources France · Coface & OEM mars 2026 · DARES tensions 2024 · France Travail BMO 2025 · INSEE 2024 · PwC AI Jobs Barometer 2025.",
+  
   },
   en: {
     "cmp.flag": "",
@@ -177,6 +244,15 @@ window.PAGE_I18N = {
     "cmp.lede": "Comparing Switzerland and France is not about ranking one against the other. The two countries observe AI's impact on work through deeply different institutional architectures, timelines and classifications. What one measures monthly, the other aggregates every four years. What one regulates horizontally, the other leaves to sectors. This page brings closer what can be brought closer, identifies the structural gaps, and flags the questions neither Bern nor Paris has yet asked.",
     "cmp.cta.ch.short": "Switzerland dashboard",
     "cmp.cta.fr.short": "France dashboard",
+    "cmp.diff.eyebrow": "Microsoft AI Diffusion · H1 2025 → Q1 2026",
+    "cmp.diff.title": "AI Adoption Trajectory · <em>France progresses faster than Switzerland, both stay above the global average</em>.",
+    "cmp.diff.sub": "Microsoft measures the share of the population aged 15-64 having used a generative AI product during the period. Aggregated and anonymized telemetry, adjusted for OS/device market share, internet penetration and population. Three successive reports now enable a longitudinal reading.",
+    "cmp.diff.legend.fr": "🇫🇷 France",
+    "cmp.diff.legend.ch": "🇨🇭 Switzerland",
+    "cmp.diff.legend.world": "Global average",
+    "cmp.diff.summary": "Over three consecutive periods (H1 2025 → Q1 2026), AI adoption in France grew from <strong>40.9% to 47.8%</strong> (+6.9 points, +16.9% relative). Switzerland went from <strong>32.4% to 37.8%</strong> (+5.4 points, +16.7% relative). Global average gained 2.7 points (from 15.1% to 17.8%). France is now <strong>5th worldwide</strong>, Switzerland <strong>14th</strong>. Both countries are above the Global North average (27.5%) and well above the Global South (15.4%).",
+    "cmp.diff.source": "Source · Microsoft AI Economy Institute · Global AI Diffusion Reports H1 2025, H2 2025, Q1 2026 · arXiv 2511.02781",
+
     "cmp.context.tag": "The method",
     "cmp.context.title": "A <em>comparison</em>, not a ranking.",
     "cmp.context.text": "<p>Comparing two national ecosystems first requires acknowledging their asymmetries. France runs from the centre. Switzerland from the edges. France produces statistics through a unified administration and monthly rhythms. Switzerland composes between the Confederation, the cantons and the languages. These political architectures yield data that is not immediately comparable.</p><p>Three axes nonetheless structure the comparison. <strong>Statistical coverage</strong>, measuring the density and regularity of publications. <strong>Institutional reactivity</strong>, the speed at which observatories pick up a new signal like the rise of generative AI. <strong>Regulatory posture</strong>, finally, which determines what institutions consider worth measuring first.</p><p>This comparison does not rank. It does not claim one system is better than the other. It highlights what each sees, what each misses, and the <em>common questions</em> neither addresses yet. On AI and work, the blind spots turn out to be strangely symmetrical.</p>",
@@ -207,7 +283,16 @@ window.PAGE_I18N = {
     "cmp.cta.text": "Dive into <em>each country</em> in detail.",
     "cmp.cta.ch": "Switzerland dashboard →",
     "cmp.cta.fr": "France dashboard →",
-    "cmp.cta.external": "Go further · full dashboards"
+    "cmp.cta.external": "Go further · full dashboards",
+
+    "cmp.expgap.eyebrow": "KOF/Adecco (CH) · Coface/BMO (FR) · direct national comparison",
+    "cmp.expgap.title": "Direct France-Switzerland comparison · <em>both markets respond to exposure, with different intensities</em>.",
+    "cmp.expgap.sub": "10 comparable professional families side by side. For each family, 2023-2025 job posting variation is plotted for Switzerland (Adecco/KOF Swiss Job Market Index Q3 2025) and France (France Travail BMO 2025). Exposure level measured by national sources (KOF/Felten transposed on NP 2010 for Switzerland, Coface/OEM 923 professions for France) is shown on the right. Exposure scales differ by methodology, but relative ranking and correlation with postings converge.",
+    "cmp.expgap.legend.theoretical": "🇨🇭 Switzerland",
+    "cmp.expgap.legend.observed": "🇫🇷 France",
+    "cmp.expgap.readline": "<strong>Comparative reading</strong> · Switzerland resists better than France on most families. <strong>Swiss health +4%</strong> vs France -3%, <strong>Swiss industry -2%</strong> vs France -16%, <strong>Swiss construction +6%</strong> vs France -22% (French real estate crisis effect). The specific AI signal appears clearly on IT (CH -30% vs FR -21%), creatives (CH -22% vs FR -22%, perfect alignment) and administration (CH -17% vs FR -15%). AI adoption in France <strong>47.8%</strong> (rank 5 worldwide) vs Switzerland <strong>37.8%</strong> (rank 14) according to Microsoft Q1 2026.",
+    "cmp.expgap.source": "Switzerland sources · KOF/ETH Klaeui & Siegenthaler Dec. 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · Microsoft AI Diffusion Q1 2026. France sources · Coface & OEM March 2026 · DARES tensions 2024 · France Travail BMO 2025 · INSEE 2024 · PwC AI Jobs Barometer 2025.",
+  
   }
 };
 
@@ -341,6 +426,219 @@ window.onLangChange = function() {
   renderBlind();
 };
 
+
+// ───────── AI DIFFUSION CHART (Microsoft) ─────────
+function renderDiffusionChart() {
+  const el = document.getElementById("diffChart");
+  if (!el) return;
+  var inlineEl = document.getElementById("diffusionData");
+  var initialData = null;
+  if (inlineEl) {
+    try { initialData = JSON.parse(inlineEl.textContent); } catch(e) { initialData = null; }
+  }
+  function drawDiffusion(data) {
+      const lang = document.documentElement.lang || "fr";
+      const periods = data.periods.map(p => p.short);
+      const countries = data.countries;
+
+      // SVG dimensions
+      const w = 880, h = 360;
+      const m = { top: 24, right: 100, bottom: 56, left: 60 };
+      const innerW = w - m.left - m.right;
+      const innerH = h - m.top - m.bottom;
+
+      // Y scale: 0% to 60%
+      const yMax = 60;
+      const yScale = v => m.top + innerH * (1 - v / yMax);
+      // X scale: evenly distributed
+      const xStep = innerW / (periods.length - 1);
+      const xScale = i => m.left + i * xStep;
+
+      let svg = '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI diffusion chart">';
+
+      // Y gridlines + labels
+      for (let v = 0; v <= yMax; v += 10) {
+        const y = yScale(v);
+        svg += '<line x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + innerW) + '" y2="' + y + '" stroke="#11110F" stroke-opacity="0.08" stroke-width="1"/>';
+        svg += '<text x="' + (m.left - 10) + '" y="' + (y + 4) + '" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#11110F" fill-opacity="0.6">' + v + '%</text>';
+      }
+
+      // X labels (periods)
+      periods.forEach((p, i) => {
+        const x = xScale(i);
+        svg += '<text x="' + x + '" y="' + (h - m.bottom + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" fill="#11110F">' + p + '</text>';
+      });
+
+      // Draw lines + points for each country
+      countries.forEach(country => {
+        const isDashed = country.style === "dashed";
+        // Path
+        let pathD = "";
+        country.values.forEach((v, i) => {
+          const x = xScale(i);
+          const y = yScale(v);
+          pathD += (i === 0 ? "M" : "L") + x + "," + y;
+        });
+        svg += '<path d="' + pathD + '" fill="none" stroke="' + country.color + '" stroke-width="2.5"' + (isDashed ? ' stroke-dasharray="6,4"' : '') + ' opacity="' + (isDashed ? "0.55" : "1") + '"/>';
+
+        // Points and value labels
+        country.values.forEach((v, i) => {
+          const x = xScale(i);
+          const y = yScale(v);
+          svg += '<circle cx="' + x + '" cy="' + y + '" r="' + (isDashed ? 3.5 : 5) + '" fill="' + country.color + '" opacity="' + (isDashed ? "0.55" : "1") + '"/>';
+          // Value label
+          const labelY = y - 12;
+          svg += '<text x="' + x + '" y="' + labelY + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="' + country.color + '" opacity="' + (isDashed ? "0.65" : "1") + '">' + v.toFixed(1) + '%</text>';
+        });
+
+        // Country label at end
+        const lastX = xScale(periods.length - 1);
+        const lastY = yScale(country.values[country.values.length - 1]);
+        const labelName = country.name.fr || country.name;
+        svg += '<text x="' + (lastX + 12) + '" y="' + (lastY + 4) + '" font-family="Instrument Sans, sans-serif" font-size="13" font-weight="600" fill="' + country.color + '" opacity="' + (isDashed ? "0.7" : "1") + '">' + labelName + '</text>';
+      });
+
+      svg += '</svg>';
+      el.innerHTML = svg;
+  }
+  
+  // First draw with inline data if available
+  if (initialData) {
+    drawDiffusion(initialData);
+  }
+  // Then try fetch to override with potentially newer data (silent fail)
+  fetch("../assets/data/ai-diffusion-microsoft.json")
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var ct = r.headers.get("content-type") || "";
+      if (ct.indexOf("application/json") === -1 && ct.indexOf("text/json") === -1) throw new Error("Not JSON content-type");
+      return r.json();
+    })
+    .then(data => drawDiffusion(data))
+    .catch(err => { /* silent: inline fallback already used */ });
+}
+
+document.addEventListener("DOMContentLoaded", renderDiffusionChart);
+
+
+// ───────── AI EXPOSURE GAP CHART (Anthropic Economic Index Fig 2) ─────────
+function renderCompareExposureChart(containerId, options) {
+  options = options || {};
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const colorCH = options.colorCH || "#D03C2F";
+  const colorFR = options.colorFR || "#1F3A3D";
+  const colorPositive = options.colorPositive || "#3A6B5F";
+  const dataUrl = options.dataUrl || "../assets/data/ai-exposure-compare.json";
+
+  var inlineEl = document.getElementById("compareExpData");
+  var initialData = null;
+  if (inlineEl) {
+    try { initialData = JSON.parse(inlineEl.textContent); } catch(e) { initialData = null; }
+  }
+  function drawCompare(data) {
+      // Sort families by max exposure to keep highest impact at top
+      const families = data.families.slice().sort(function(a, b) {
+        // Sort by FR exposure (Coface, common methodology) descending
+        return b.fr_exposure - a.fr_exposure;
+      });
+
+      const w = 980;
+      const rowH = 50; // each row contains two side-by-side bars
+      const m = { top: 32, right: 60, bottom: 76, left: 270 };
+      const innerH = families.length * rowH;
+      const h = m.top + innerH + m.bottom;
+
+      // Single shared bar panel for postings (-35 to +10)
+      const barX = m.left + 20;
+      const barW = 520;
+      const postMin = -35, postMax = 10;
+      const postRange = postMax - postMin;
+      const postZero = barX + ((-postMin) / postRange) * barW;
+      const postScale = function(v) { return barX + ((v - postMin) / postRange) * barW; };
+
+      let svg = '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="France-Switzerland comparison chart">';
+
+      // Panel header
+      svg += '<text x="' + (barX + barW / 2) + '" y="' + (m.top - 10) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">VARIATION DES OFFRES D\'EMPLOI · CH vs FR</text>';
+      // Exposure column header
+      svg += '<text x="' + (barX + barW + 80) + '" y="' + (m.top - 10) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">EXPOSITION IA</text>';
+
+      // Posting gridlines at -30, -20, -10, 0, +10
+      [-30, -20, -10, 0, 10].forEach(function(v) {
+        const x = postScale(v);
+        const isZero = (v === 0);
+        svg += '<line x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + innerH) + '" stroke="#11110F" stroke-opacity="' + (isZero ? "0.4" : "0.06") + '" stroke-width="' + (isZero ? "1.2" : "1") + '"/>';
+        const label = (v > 0 ? "+" : "") + v + "%";
+        svg += '<text x="' + x + '" y="' + (m.top + innerH + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#11110F" fill-opacity="0.55">' + label + '</text>';
+      });
+
+      // Draw rows
+      families.forEach(function(f, i) {
+        const yBase = m.top + i * rowH + 4;
+        const labelText = f.label;
+        const barH = 13;
+        const gap = 4;
+
+        // Family label
+        svg += '<text x="' + (m.left - 14) + '" y="' + (yBase + 16) + '" text-anchor="end" font-family="Instrument Sans, sans-serif" font-size="13" font-weight="600" fill="#11110F">' + labelText + '</text>';
+
+        // CH bar (top)
+        const yCH = yBase + 4;
+        const vCH = f.ch_postings;
+        const colorCHBar = vCH >= 0 ? colorPositive : colorCH;
+        let xCH, wCH;
+        if (vCH >= 0) { xCH = postZero; wCH = postScale(vCH) - postZero; }
+        else { xCH = postScale(vCH); wCH = postZero - postScale(vCH); }
+        svg += '<rect x="' + xCH + '" y="' + yCH + '" width="' + Math.max(wCH, 1) + '" height="' + barH + '" fill="' + colorCHBar + '" opacity="0.9"/>';
+        // CH label (left of bar): "🇨🇭 CH"
+        svg += '<text x="' + (barX - 8) + '" y="' + (yCH + barH - 3) + '" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">CH</text>';
+        // CH value label
+        const signCH = vCH > 0 ? "+" : "";
+        const labelXCH = vCH >= 0 ? (postScale(vCH) + 6) : (postScale(vCH) - 6);
+        const anchorCH = vCH >= 0 ? "start" : "end";
+        svg += '<text x="' + labelXCH + '" y="' + (yCH + barH - 3) + '" text-anchor="' + anchorCH + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="' + colorCHBar + '">' + signCH + vCH + '%</text>';
+
+        // FR bar (bottom)
+        const yFR = yCH + barH + gap;
+        const vFR = f.fr_postings;
+        const colorFRBar = vFR >= 0 ? colorPositive : colorFR;
+        let xFR, wFR;
+        if (vFR >= 0) { xFR = postZero; wFR = postScale(vFR) - postZero; }
+        else { xFR = postScale(vFR); wFR = postZero - postScale(vFR); }
+        svg += '<rect x="' + xFR + '" y="' + yFR + '" width="' + Math.max(wFR, 1) + '" height="' + barH + '" fill="' + colorFRBar + '" opacity="0.9"/>';
+        svg += '<text x="' + (barX - 8) + '" y="' + (yFR + barH - 3) + '" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">FR</text>';
+        const signFR = vFR > 0 ? "+" : "";
+        const labelXFR = vFR >= 0 ? (postScale(vFR) + 6) : (postScale(vFR) - 6);
+        const anchorFR = vFR >= 0 ? "start" : "end";
+        svg += '<text x="' + labelXFR + '" y="' + (yFR + barH - 3) + '" text-anchor="' + anchorFR + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="' + colorFRBar + '">' + signFR + vFR + '%</text>';
+
+        // Exposure column on far right
+        const expX = barX + barW + 30;
+        svg += '<text x="' + expX + '" y="' + (yCH + barH - 3) + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">CH ' + f.ch_exposure.toFixed(0) + '%</text>';
+        svg += '<text x="' + expX + '" y="' + (yFR + barH - 3) + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">FR ' + f.fr_exposure.toFixed(1) + '%</text>';
+      });
+
+      svg += '</svg>';
+      el.innerHTML = svg;
+  }
+
+  if (initialData) {
+    drawCompare(initialData);
+  }
+  fetch(dataUrl)
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var ct = r.headers.get("content-type") || "";
+      if (ct.indexOf("application/json") === -1 && ct.indexOf("text/json") === -1) throw new Error("Not JSON content-type");
+      return r.json();
+    })
+    .then(function(data) { drawCompare(data); })
+    .catch(function() { /* silent */ });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() { renderCompareExposureChart("expgapChart", { colorCH: "#D03C2F", colorFR: "#1F3A3D", colorPositive: "#3A6B5F", dataUrl: "../assets/data/ai-exposure-compare.json" }); });
 initSite("comparer");
 renderCompare();
 renderBlind();

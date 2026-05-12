@@ -4,6 +4,715 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.16] · 2026-05-08
+
+### Removed · 9 sections including duplicate ARCHÉTYPES blocks
+
+User feedback identified duplicate blocks across the Dispatches.
+Investigation confirmed that the ARCHÉTYPES Ferguson section
+appeared twice in each Dispatch (`brief-archetypes` block and
+`brief-arch` block) referencing the **exact same i18n keys** with
+different HTML formatting · a strict content duplication.
+
+Beyond duplicates, several sections had accumulated over the v0.3.x
+series that diluted the analytical signal-to-noise ratio. User
+directive: keep only the 5 most important and pertinent analytical
+blocks.
+
+Sections removed from all 3 Dispatches:
+- **LANDSCAPE** · paysage section redundant with Hero
+- **BY THE NUMBERS** · KPIs duplicating Empirie figures
+- **EXPERT QUOTE** · purely aesthetic
+- **DECISION CHECKLIST** · redundant with new Actions CTA
+- **ROLES** · `brief-roles-section` overlapping with Cartographie BCG
+- **AI AS LEVERAGE / TOOLKIT** · generic content
+- **ARCHÉTYPES FERGUSON** · `brief-archetypes` (top duplicate)
+- **ARCHÉTYPES** · `brief-arch` (bottom duplicate, identical content)
+- **SOUVERAINETÉ NUMÉRIQUE** · sectoral but non-analytical
+
+### Kept · 5 analytical blocks (the intellectual core)
+
+1. **LECTURE CRITIQUE** · 5 numbered objections to alarmist
+   narrative (Big Tech / Garicano / Trammell / Davenport-Paredes /
+   Champniss-Wu)
+2. **CARTOGRAPHIE BCG** · 6 segments of AI Labor Disruption
+3. **EMPIRIE** · 5 sectoral local sources (KOF/HSLU/SNB/Colombus/
+   Sturm for D01 · Coface/Marquier/Ferguson/Kelio/Alegria for D02)
+4. **DÉBAT** · 4 divergent positions (Bear/Empirical/Macro/Bull)
+5. **TCO** · 4 cards on real AI economic costs
+
+### Added · "3 actions à entreprendre dès maintenant" CTA refactor
+
+The previous generic ACTION CTA section (2 contact-oriented cards)
+has been refactored into a substantive operational block presenting
+**3 sector-specific concrete actions** numbered 01/02/03, with an
+optional follow-up link to the contact page at the bottom.
+
+Cards changed from `<a>` (links) to `<article>` (recommendations
+to read). Each card has a number badge in the top-right corner,
+a uppercase tag, a serif title, and a body paragraph with `<strong>`
+emphasis on the key concept.
+
+#### D01 Banque retail suisse · 3 actions
+1. **Cartographier** · Auditer les bundles de tâches des conseillers
+2. **Piloter** · Lancer un pilote d'augmentation IA mesuré
+3. **Réviser** · Recalibrer le ROI IA pour intégrer la culture
+
+#### D02 Cadres France · 3 actions
+1. **Cartographier** · Trier les fiches de poste par valeur cognitive
+2. **Préserver** · Ne pas geler le pipeline junior
+3. **Trianguler** · Auditer trimestriellement les indicateurs locaux
+
+#### D03 Luxe horlogerie · 3 actions
+1. **Différencier** · Politique d'augmentation IA asymétrique
+2. **Investir** · Renforcer les fonctions d'incarnation humaine
+3. **Auditer** · Surveiller la qualité narrative des contenus IA
+
+All 3 actions per dispatch in FR + EN = 18 contents added (28 i18n
+keys per dispatch including eyebrow/title/lede/followup/followup_cta).
+
+### Modified · CSS additions for new CTA structure
+
+Added in style.css (~50 lines):
+- `.brief-cta-grid--3` · 3-column grid (1fr 1fr 1fr)
+- `.brief-cta-card--action` · non-hover variant for `<article>` cards
+- `.brief-cta-card-num` · numeric badge top-right
+- `.brief-cta-followup` · centered followup zone with top border
+- `.brief-cta-followup-text` · 14.5px Instrument Sans muted
+- `.brief-cta-followup-link` · signal red underlined link
+- Mobile responsive breakpoint at 880px
+
+### Removed · 133 orphan i18n keys per dispatch
+
+After removing the 9 sections, 133 i18n keys per dispatch
+(`b{N}.arch.*`, `b{N}.bcg.*` partial, `b{N}.role.*`,
+`b{N}.toolkit.*`, etc.) became orphaned. All 399 orphan entries
+across the 3 dispatches × 2 languages = 798 entries removed
+from i18n FR + EN blocks to eliminate dead code.
+
+Final clean state per dispatch:
+- D01: 132 i18n keys used / 132 defined · 0 orphans
+- D02: 132 i18n keys used / 132 defined · 0 orphans
+- D03: 124 i18n keys used / 124 defined · 0 orphans
+
+### Volumetric reduction
+
+| Dispatch | HTML source before | After section removal | After i18n cleanup | Bundled v0.3.16 |
+|---|---|---|---|---|
+| D01 Banque suisse | 152,026 | 136,126 (-10%) | 91,439 (-40%) | 425 KB |
+| D02 Cadres France | 159,184 | 143,390 (-10%) | 95,594 (-40%) | 439 KB |
+| D03 Luxe horlogerie | 150,714 | 134,823 (-10%) | 82,385 (-45%) | 426 KB |
+
+The bundled file size remains in the same range because the build
+process inlines components.js (~250 KB shared across dispatches),
+which dominates the total. Source size reduction of 40-45% is
+substantial and reflects the elimination of dead code.
+
+### Fixed · `b3.disc.tag` orphan reference
+
+Pre-existing bug in D03 where `b3.disc.tag` was referenced in HTML
+but missing from i18n FR + EN blocks (resolution would have shown
+the literal key "b3.disc.tag" in the rendered page). Added
+`"b3.disc.tag": "Disclosure"` to both FR and EN blocks for parity
+with D01 and D02.
+
+### Architecture · final Dispatch structure
+
+```
+1. HERO
+2. LECTURE CRITIQUE       → 5-item analytical bloc
+3. CARTOGRAPHIE BCG       → 6-segment matrix
+4. EMPIRIE                → 5-source sectoral evidence
+5. DÉBAT                  → 4-position political-historical
+6. TCO                    → 4-card economic critique
+7. SOURCES & TRAÇABILITÉ
+8. DISCLOSURE ÉDITORIALE
+9. ACTIONS                → NEW · 3 numbered concrete actions
+10. BACK
+```
+
+### Datasets unchanged from v0.3.15
+- 76 verified field reports
+- 71 timeline milestones
+- 46 FR economists
+- 49 CH economists
+
+### Fixed · Footer version
+Bumped from `v0.3.15 · build 2026.05.08` to `v0.3.16 · build 2026.05.08`.
+
+### Notes
+- This release is the largest structural cleanup since v0.3.0.
+  The Dispatches now articulate cleanly the 5 analytical dimensions
+  of the observatory (substitution-creation via Empirie + BCG ·
+  meta-epistemology + psychological + bundle theory + historical
+  via Lecture critique · economic via TCO · political-historical
+  via Débat) followed by 3 concrete actions.
+- All 14 new CTA i18n keys (× 3 dispatches × 2 languages = 84 total
+  new content entries) resolve correctly under the test harness.
+- The followup link in the new CTA points to
+  `../contact.html?dispatch={001|002|003}` preserving the existing
+  contact form's dispatch parameter routing.
+- Backup of v0.3.15 source HTML preserved in `/site/briefings_backup/`
+  (not included in github-repo zip) for reference.
+
+---
+
+## [0.3.15] · 2026-05-08
+
+### Changed · Critical Reading section readability refactor
+
+This release refactors the Critical Reading sections of all 3
+Dispatches to reduce reader drop-off. User feedback identified
+the previous version as too text-heavy, with disproportionately
+long items 04-05 (Davenport meta-epistemological + Champniss/Wu
+psychological) compared to items 01-03 (Big Tech / Garicano /
+Trammell). The refactor uniformizes block sizes, removes inline
+source attributions, and adds visual paragraph separation.
+
+### Modified · Critical Reading lede in 3 Dispatches
+
+Reduced from ~940 chars to ~300 chars (3 sentences):
+- D01 Banque suisse: 900 → 300 chars
+- D02 Cadres France: 937 → 295 chars
+- D03 Luxe horlogerie: 948 → 312 chars
+
+The lede now simply announces the 5 objections without
+pre-detailing them, leaving the substance to each numbered item.
+
+### Modified · 5 critical items × 3 dispatches × 2 languages
+
+All 30 body contents rewritten with uniform structure:
+1. Empirical finding with key figures (1-2 sentences)
+2. Mechanism/explanation (2-3 sentences)
+3. Visual paragraph break (<br><br>)
+4. Sector implication starting with "Conséquence pour [secteur]"
+   (FR) or "Implication for [sector]" (EN)
+
+### Modified · Source attributions moved out of body text
+
+Per user feedback, all source attributions (authors, publications,
+dates, institutions) have been removed from the body text of items
+01-05 and consolidated exclusively into the brief-critical-source
+line at the bottom of each block. The body text now contains only
+the substantive arguments and key figures, while attributions
+appear in the dedicated source citation line.
+
+### Size uniformization · final distribution
+
+| Item | D01 | D02 | D03 |
+|---|---|---|---|
+| t1 body | 809 | 877 | 864 |
+| t2 body | 796 | 839 | 833 |
+| t3 body | 820 | 880 | 831 |
+| t4 body | 1078 | 1065 | 1096 |
+| t5 body | 1135 | 1118 | 1146 |
+
+Items 01-03 are now uniform (796-880 chars). Items 04-05 are
+denser (1065-1146 chars) because they intrinsically cover more
+notions (meta-epistemology aggregates 10+9+19 predictions and
+3 critique sources · psychological dimension covers Wu et al.
+4 studies + Microsoft/CMU CHI 2025 + Liu et al. HBR companion).
+The 35% size differential between items 01-03 and 04-05 is the
+acceptable compromise between uniformity and substance preservation.
+
+### Volume reduction summary
+
+Total Critical Reading section size before/after refactor (FR):
+
+| Dispatch | Before v0.3.15 | After v0.3.15 | Reduction |
+|---|---|---|---|
+| D01 Banque suisse | 5,981 chars | 4,938 chars | -17% |
+| D02 Cadres France | 7,489 chars | 5,074 chars | -32% |
+| D03 Luxe horlogerie | 7,092 chars | 5,070 chars | -29% |
+
+Items 04-05 received the largest reduction (~50% volume cut)
+while preserving all substantive findings. Items 01-03 received
+a light edit (~5-10% reduction). The information density is now
+more uniform across the 5 numbered objections.
+
+### Source citation lines enriched
+
+Source lines for items 04 and 05 now consolidate all attributions
+that were previously inline in the body, listing all relevant
+sources (Davenport/Paredes HDSR + Arntz et al. OECD + Frey/Osborne
+Oxford for item 04; Champniss HBR + Wu et al. Scientific Reports
++ Microsoft/CMU CHI 2025 + Liu et al. HBR for item 05).
+
+### Visual paragraph separation
+
+All 15 items × 3 dispatches × 2 languages = 30 body contents
+now contain exactly one <br><br> separator between the analysis
+paragraph and the sector implication paragraph, providing clear
+visual separation in the rendered HTML.
+
+### Architecture preserved
+- 5-item Critical Reading structure unchanged
+- 6 analytical dimensions unchanged
+- FR/EN i18n system fully functional
+- Build and validation pipelines clean
+
+### Datasets unchanged from v0.3.14
+- 76 verified field reports
+- 71 timeline milestones
+- 46 FR economists
+- 49 CH economists
+
+### Fixed · Footer version
+Bumped from `v0.3.14 · build 2026.05.07` to `v0.3.15 · build 2026.05.08`.
+
+### Notes
+- This release is a pure UX/readability refactor · no analytical
+  content was removed, only condensed and restructured for
+  improved cognitive flow.
+- All 27 critical reading keys (lede + t1-t5 × title/body/source)
+  resolve correctly in FR and EN across the 3 Dispatches.
+- The refactor was driven by user feedback emphasizing reader
+  retention as a priority for COMEX/CFO/HR decision-makers
+  consuming the Dispatches.
+
+---
+
+## [0.3.14] · 2026-05-07
+
+### Added · Champniss HBR Psychological Costs Critique
+
+This release integrates the Champniss article from Harvard Business
+Review (May-June 2026) "The Psychological Costs of Adopting AI" as
+the 5th objection in the Critical Reading section of all 3
+Dispatches. This is a major intellectual addition: it opens a 6th
+analytical dimension (psychological-behavioral) previously absent
+from the dashboard, alongside substitution-creation, organizational
+maturity, TCO, meta-epistemological and historical-allocator.
+
+- **Guy Champniss · Harvard Business Review** (May-June 2026)
+  "The Psychological Costs of Adopting AI"
+  Author: visiting professor at IE Business School Madrid, founder
+  and director of Meltwater Consulting (UK firm specialized in
+  behavioral science).
+
+Central thesis: while most companies focus on efficiency and
+productivity advertised by AI vendors themselves, converging
+empirical data document that AI produces measurable negative
+psychological consequences on employee motivation that can cancel
+productivity benefits and place already fragile ROI models under
+additional pressure.
+
+### Added · Wu et al. Scientific Reports primary source
+
+Main academic source cited by Champniss · the most rigorous
+experimental evidence available in 2026 on AI psychological costs:
+
+- **Wu, Liu, Ruan, Chen, Xie · Zhejiang University**
+  Scientific Reports / Nature Portfolio · 29 April 2025
+  DOI 10.1038/s41598-025-98385-2
+
+Methodology and findings:
+- 4 online experimental studies, 3,562 total participants
+- Real professional tasks: performance reviews, emails, Facebook
+  posts, brainstorming
+- Randomized conditions with/without generative AI assistance
+  between Task 1 and Task 2
+- Performance augmentation effect: AI improves quality and
+  efficiency (longer/more analytical reviews, warmer/more
+  empathetic emails)
+- Psychological deprivation effect: when transitioning from AI
+  collaboration to solo work, intrinsic motivation drops by 11%
+  on average, boredom rises by 20%, medium effect size d=-0.44
+- Documented mechanism: AI collaboration bypasses precisely the
+  most cognitively stimulating parts of tasks, which are what
+  makes work intrinsically satisfying
+
+### Added · Liu et al. HBR companion article
+
+Managerial translation of the Wu et al. study by the same authors:
+
+- **Liu, Wu, Ruan, Chen, Xie · Harvard Business Review** · 13 May 2025
+  "Research: Gen AI Makes People More Productive and Less Motivated"
+
+Three structuring operational recommendations for CFOs and HR:
+1. Map tasks by intrinsic cognitive value · do not systematically
+   delegate tasks that produce meaning and challenge
+2. Design augmentation policies that preserve perceived control
+3. Anticipate the deprivation effect when returning to solo tasks
+
+### Modified · Critical Reading section in 3 Dispatches
+
+All 3 Dispatches receive a 5th critical reading item (numbered 05)
+with sector-adapted content:
+
+- **D01 Swiss banking** (~1100 chars FR body): focuses on advisor
+  40% admin time freed by AI (Colombus 2025) · risk that
+  psychological debt cancels ROI if time is not redeployed to
+  high-cognitive-value advisory · AI executes, advisor decides
+
+- **D02 French executives** (~1900 chars FR body, densest item):
+  central piece because the psychological-behavioral dimension
+  directly touches 2026-2030 HR policies · Brynjolfsson +15%
+  productivity must be weighed against psychological debt if
+  juniors are systematically AI-augmented · 3 operational
+  recommendations from Liu et al. HBR explicitly cited
+
+- **D03 Luxury watchmaking** (~1700 chars FR body): structurally
+  incompatible with attention manufacture · 3 operational risks
+  documented (support functions / clienteling / artisans) ·
+  asymmetric AI policy by function · ROI must explicitly integrate
+  psychological debt
+
+Both FR and EN versions added with full sector-specific content.
+
+### Modified · Critical Reading lede in 3 Dispatches
+Updated from "Four converging sources" to "Five converging sources"
+with explicit mention of Champniss/Wu as the 5th
+psychological-behavioral objection. Both FR and EN versions updated.
+
+### Added · 3 reports in veille
+Champniss HBR · Wu et al. Scientific Reports · Liu et al. HBR
+companion. Total: 76 verified field reports (no duplicates).
+
+### Added · 2 timeline milestones
+- May 2026: Champniss HBR publication
+- April 2025: Wu et al. Scientific Reports publication
+Total: 71 milestones.
+
+### Added · 2 economist entries in FR database, 2 in CH database
+Guy Champniss (IE Business School / Meltwater Consulting) and Wu/
+Liu/Ruan/Chen/Xie team (Zhejiang University) added to both bases
+as transversal sources. FR economists: 46. CH economists: 49.
+
+### Architecture · Critical Reading section now spans 5 numbered items
+
+The Critical Reading section in each Dispatch now presents 5
+numbered objections to the alarmist narrative:
+- 01: Big Tech 2026 headcounts ≈ 2022 despite $700B AI CapEx
+- 02: Jobs are task bundles tied to authority (Garicano)
+- 03: Sector-specific objection (varies per dispatch)
+- 04: All quantified predictions are wildly inaccurate
+      (Davenport/Paredes HDSR · v0.3.12)
+- 05: Measurable psychological cost can cancel productivity gains
+      (Champniss HBR + Wu et al. Scientific Reports · NEW v0.3.14)
+
+The 5 items now cover the full spectrum of objections to alarmist
+predictions: empirical (01), conceptual (02), sectoral (03),
+epistemological (04), psychological-behavioral (05).
+
+### 6 analytical dimensions in the observatory
+
+With v0.3.14, the observatory now articulates 6 distinct empirical
+dimensions for decision-makers:
+
+1. **Substitution** (Coface, KOF, Eloundou): how many jobs disappear
+2. **Creation** (HSLU, PwC, LinkedIn): how many jobs emerge
+3. **Organizational maturity** (Colombus, Alegria, Kelio): where are
+   companies in adoption
+4. **TCO/Economic** (Chen et al., Sommer/Gartner, Quinlan): the
+   real cost
+5. **Meta-epistemological** (Davenport/Paredes HDSR): how to read
+   the data
+6. **Psychological-behavioral** (Champniss HBR, Wu et al. Scientific
+   Reports, Microsoft/CMU CHI 2025): the human cost of AI usage
+   · NEW v0.3.14
+
+This 6-dimension architecture provides the most complete
+intellectual map currently available for COMEX/CFO/HR leadership
+arbitrage on 2026-2030 AI deployment.
+
+### Fixed · Footer version
+Bumped from `v0.3.13 · build 2026.05.07` to `v0.3.14 · build 2026.05.07`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from any of the 3 added sources in the dashboard. All content is
+  reformulated in observatory voice. Only attributable figures
+  (-11% motivation, +20% boredom, 3,562 participants, d=-0.44, 4
+  studies, 319 knowledge workers, 936 cases) are reproduced as
+  expected for academic reference.
+- This release significantly deepens the operational dimension of
+  the Dispatches by adding the psychological-behavioral layer that
+  was previously absent. Decision-makers now have explicitly
+  quantified data on the human cost of AI augmentation policies.
+- The convergence between Wu et al. (Zhejiang, Scientific Reports)
+  and Microsoft/CMU (CHI 2025, Lee et al., already in veille) is
+  particularly strong: both document a measurable degradation of
+  human cognition/motivation under intensive AI use.
+- Site totals: 76 verified field reports + 71 timeline milestones +
+  46 FR economists + 49 CH economists.
+
+---
+
+## [0.3.13] · 2026-05-07
+
+### Deepened · Davenport & Paredes meta-epistemological frame extended beyond Critical Reading
+
+This release extends the meta-epistemological framework of Davenport
+and Paredes (HDSR Fall 2025) beyond its initial v0.3.12 home in the
+Critical Reading section, to two additional locations in each
+Dispatch where decision-makers actually consume the analytical depth:
+the Debate sectoral synthesis (debate.sec.body) and the Empirical
+synthesis (chempirie.syn.body for D01/D02).
+
+The user request was explicit: "ajoute plus de profondeur dans les
+debriefing" (add more depth in the debriefings). v0.3.12 added the
+4th Critical Reading item (~1100 chars FR body) and the source +
+5 foundational studies in databases. v0.3.13 propagates the same
+intellectual frame to the takeaways that COMEX/CFO/HR leadership
+actually use to build a 2026-2030 plan.
+
+### Modified · Debate sec.body in 3 Dispatches
+
+All 3 Dispatches now end their debate sectoral synthesis with an
+explicit meta-epistemological reading framework, both FR and EN:
+
+- **D01 Swiss banking**: "the four positions all produce precise
+  figures (Amodei 50%, Garicano +15%/-19%, Trammell labor share,
+  a16z stability), none calibrated to Swiss retail banking
+  specifically · the practical decision is to treat these four
+  readings as scenario hypotheses to confront with local indicators
+  KOF/ETH, HSLU, SNB, Colombus, Sturm/Deloitte"
+
+- **D02 French executives**: "the peer-reviewed HDSR 7.4 review
+  compiles 10 absolute, 9 percentage, 19 sectoral predictions
+  since 2013 and demonstrates all are wildly inaccurate · for COMEX,
+  none of these four readings should serve as sole reference · the
+  actionable decision is in prudent triangulation between
+  contradictory scenarios and local conditions (Marquier, Ferguson,
+  Kelio, Alegria)"
+
+- **D03 Luxury watchmaking**: "all task-based predictions are
+  systematically inaccurate because luxury value cannot reduce to
+  a sum of measurable tasks · threefold practical consequence for
+  Maison leadership: do not unilaterally adopt pessimist (cuts
+  human embodiment) or bull (underestimates support redeployment),
+  triangulate against local sectoral conditions"
+
+### Modified · Empirical synthesis chempirie.syn.body in D01 and D02
+
+Two of the three Dispatches with empirical sections receive an
+additional meta-epistemological reading note (FR + EN) at the end
+of their empirical synthesis:
+
+- **D01**: "these five Swiss empirical sources are precisely the
+  type of local indicators that any global quantified prediction
+  must traverse to become actionable · global sources (Amodei 50%,
+  Eloundou OpenAI, Coface/OEM 16.3%) remain scenario hypotheses
+  until confronted with local conditions"
+
+- **D02**: "these five French empirical sources are precisely the
+  type of local indicators that any global quantified prediction
+  must traverse to become actionable · global sources (Amodei 50%
+  in 1-5 years, Eloundou OpenAI, international sectoral projections)
+  remain scenario hypotheses until confronted with local sectoral
+  and organizational conditions"
+
+D03 was not enriched on this point as its luxury empirical section
+is intentionally more condensed (sectoral protection argument).
+
+### Davenport mention counts per Dispatch (vs v0.3.12)
+
+| Dispatch | Davenport mentions | Méta-épistémologique mentions |
+|---|---|---|
+| D01 Banque suisse | 9 (vs 5) | 6 (vs 3) |
+| D02 Cadres France | 11 (vs 6) | 7 (vs 4) |
+| D03 Luxe horlogerie | 9 (vs 6) | 6 (vs 4) |
+
+### Architecture · Three explicit reading layers per Dispatch
+
+The Dispatches now articulate three explicit reading layers for
+decision-makers, each linked to the next:
+
+1. **Local empirical layer** (5 sources per Dispatch, brief-chempirie
+   section · KOF/HSLU/SNB/Colombus/Sturm for CH · Coface/Marquier/
+   Ferguson/Kelio/Alegria for FR)
+
+2. **Debate layer** (4 positions, brief-debate section · Bear/
+   Empirical/Macro/Bull · Amodei/Garicano/Trammell/George-a16z)
+
+3. **Meta-epistemological reading frame** (Davenport/Paredes HDSR
+   · how to read the data · spans the Critical Reading 4th item,
+   the Debate sec.body conclusion, and the Empirical syn.body
+   conclusion)
+
+The decision-maker now has a complete intellectual architecture
+to move from quantified inputs to actionable HR arbitrage.
+
+### Datasets unchanged from v0.3.12
+- 73 verified field reports
+- 69 timeline milestones
+- 44 FR economists
+- 47 CH economists
+
+### Fixed · Footer version
+Bumped from `v0.3.12 · build 2026.05.07` to `v0.3.13 · build 2026.05.07`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from Davenport/Paredes in the dashboard. All content is reformulated
+  in observatory voice. Only the standard attributable markers
+  (10 / 9 / 19 predictions, "wildly inaccurate", HDSR 7.4 reference)
+  are reproduced as expected for academic reference.
+- This release closes the v0.3.x integration cycle of Davenport/
+  Paredes by extending the meta-epistemological frame to all three
+  takeaway sections that COMEX/CFO actually read for arbitrage.
+- No new HTML structure was added · no new CSS classes · only i18n
+  string content extension via str_replace.
+
+---
+
+## [0.3.12] · 2026-05-07
+
+### Added · Davenport & Paredes Meta-Epistemological Critique
+
+This release integrates the peer-reviewed Davenport and Paredes
+article from Harvard Data Science Review (MIT Press, Issue 7.4
+Fall 2025, CC BY 4.0) "Can We Predict What Jobs AI Will Take?"
+as the 4th objection in the Critical Reading section of all 3
+Dispatches. This is a major intellectual addition: it provides
+the meta-epistemological framework that invalidates calibrating
+2026-2030 HR plans on precise numbers from either pessimistic
+(Amodei 50% in 1-5 years) or optimistic (a16z total stability)
+predictions.
+
+- **Davenport & Paredes · Harvard Data Science Review 7.4**
+  (MIT Press, Fall 2025, CC BY 4.0) "Can We Predict What Jobs
+  AI Will Take?"
+
+Methodology and findings:
+- Compilation and critical analysis of 10 absolute predictions
+  of jobs lost or gained from AI
+- 9 percentage predictions of total employment
+- 19 sectoral or occupational predictions
+- Published between 2013 and 2025
+- Structuring finding: all these predictions are systematically
+  and wildly inaccurate
+- Task-by-task assessment (Frey/Osborne 2013, Eloundou 2023,
+  Pizzinelli 2023) is demonstrated as ineffective at predicting
+  jobs lost
+- Radical conclusion: no systematic approach is likely to produce
+  accurate predictions; responsible approach is to stop making
+  them or explicitly acknowledge their highly speculative nature
+
+Davenport's 2026 personal position (Babson interview April 2026):
+"If you're not worried about AI and the labor market, you're not
+paying attention" but "AI-employment predictions are horribly
+wrong, and mostly too pessimistic about job losses."
+
+### Added · 5 Foundational Studies Cited by Davenport/Paredes
+
+The user explicitly requested completing the database with studies
+cited in the publication that are relevant for the dashboard. Five
+foundational studies have been added to veille:
+
+- **Frey & Osborne** (Oxford Martin School, 2013/2017) · The Future
+  of Employment · 47% of US jobs at high risk of automation in 10-20
+  years · O*NET task-based methodology · foundational task-based
+  exposure study still cited in every AI-employment debate
+
+- **Arntz, Gregory, Zierahn** (OECD WP 189, 2016) · The Risk of
+  Automation for Jobs in OECD Countries · only 9% of OECD jobs at
+  high risk vs 47% Frey/Osborne · France 9%, Germany 12%, Italy 10%,
+  UK 10%, Spain 12% · foundational methodological critique using
+  PIAAC microdata
+
+- **Felten, Raj, Seamans** (Strategic Management Journal, 2021) ·
+  AIOE Score · AI Occupational Exposure indicator built by crossing
+  EFF AI Progress Measurement (10 capabilities) with O*NET Abilities
+  (52 abilities) · direct ancestor of Eloundou et al. 2023 OpenAI
+  framework, first applied to Switzerland by Klaui/Siegenthaler
+  KOF/ETH study #186
+
+- **Acemoglu & Johnson** (Power and Progress, MIT Press, 2023) ·
+  by 2024 Nobel laureates · 1000 years of technology-prosperity
+  struggles · technology benefits are not automatically shared,
+  only emerge with appropriate institutions · structural reference
+  for understanding why a successful AI deployment can produce
+  inequitable outcomes
+
+- **Becker, Rush, Barnes** (METR, 2025) · Measuring the impact of
+  early-2025 AI on experienced open source developer productivity ·
+  16 senior developers, 246 randomized tasks, Claude 3.5/3.7 Sonnet
+  + Cursor Pro · counter-intuitive result: -19% time when AI is
+  available (vs anticipated +24% gain) · convergent with Brynjolfsson
+  +15% on juniors · AI augments unmastered tasks and slows mastered
+  tasks
+
+### Modified · Critical Reading section in 3 Dispatches
+
+All 3 Dispatches receive a 4th critical reading item (numbered 04)
+with sector-adapted content:
+
+- **D01 Swiss banking**: 4th item invalidates calibration of 2026-
+  2028 banking HR plan on precise pessimist or optimist numbers ·
+  references KOF/ETH +27%, BNS 1/5 firms, Colombus 52% as directional
+  indicators to confront with local conditions
+
+- **D02 French executives**: 4th item is the densest (~1300 chars FR
+  body) · invalidates calibration of 2026-2030 headcount plans on
+  Amodei or a16z numbers · Coface/OEM 3.8%-16.3% as directional
+  indicator, not actionable 5-year projection · references Acemoglu
+  and Johnson Nobel framework as institutional anchor
+
+- **D03 Luxury watchmaking**: 4th item adapts the meta-epistemological
+  critique to luxury · the sector's value cannot reduce to a sum of
+  measurable tasks, so task-based predictions are particularly
+  inadequate for luxury · risk of cutting precisely the human
+  functions that produce the structural human-intrinsic premium
+
+Both FR and EN versions added with full sector-specific content.
+
+### Modified · Critical Reading lede in 3 Dispatches
+The lede was updated from "Three converging sources" to "Four
+converging sources" with explicit mention of Davenport/Paredes as
+the meta-epistemological 4th objection. Both FR and EN versions
+updated.
+
+### Added · 6 reports in veille
+Davenport/Paredes (HDSR), Frey/Osborne (Oxford Martin), Arntz/Gregory/
+Zierahn (OECD), Felten/Raj/Seamans (SMJ), Acemoglu/Johnson (MIT Press),
+Becker/Rush/Barnes (METR). Total: 73 verified field reports.
+
+### Added · 1 timeline milestone
+Fall 2025: Davenport & Paredes HDSR publication. Total: 69 milestones.
+
+### Added · 1 economist entry in FR database, 1 in CH database
+Thomas Davenport & Miguel Paredes added to both bases as the source
+is transversal. FR economists: 44. CH economists: 47.
+
+### Architecture · Critical Reading section now has 4 numbered items
+The Critical Reading section in each Dispatch now presents 4
+numbered objections to the alarmist narrative:
+- 01: Big Tech 2026 headcounts ≈ 2022 despite $700B AI CapEx
+- 02: Jobs are task bundles tied to authority (Garicano)
+- 03: Sector-specific objection (varies per dispatch)
+- 04: All quantified predictions are wildly inaccurate (Davenport/
+      Paredes HDSR) · NEW v0.3.12
+
+The 4th item is the longest and densest, providing decision-makers
+with the full meta-epistemological framework. It explicitly cites
+the 5 foundational studies (Frey/Osborne, Arntz et al., Felten et al.,
+Acemoglu/Johnson, Becker/METR) added to veille in this release.
+
+### Fixed · Footer version + build date
+Bumped from `v0.3.11 · build 2026.05.06` to `v0.3.12 · build 2026.05.07`.
+
+### Notes
+- The user's explicit constraint was respected: no verbatim citations
+  from any of the 6 added sources in the dashboard. All content is
+  reformulated in observatory voice. Only attributed figures
+  (47%, 9%, 19, 246, 700B, etc.) are reproduced as expected for
+  academic reference.
+- This release significantly deepens the analytical dimension of
+  the Dispatches by adding the meta-epistemological layer that was
+  previously implicit but not articulated. Decision-makers now have
+  both the empirical layers (sectoral data) and the epistemological
+  layer (how to read the data) properly documented.
+- The 5 foundational studies added in veille provide the historical
+  and methodological context that grounds the entire AI-employment
+  debate · they are systematically referenced across the existing
+  6 Swiss and 6 French empirical sources.
+- Site totals: 73 verified field reports + 69 timeline milestones +
+  44 FR economists + 47 CH economists.
+
+---
+
 ## [0.3.11] · 2026-05-06
 
 ### Added · a16z David George Bull Thesis Integration in Debate Sections

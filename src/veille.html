@@ -106,7 +106,7 @@ function renderVeille() {
 
     const excerpt = document.createElement("p");
     excerpt.className = "field-card-excerpt";
-    excerpt.textContent = v.excerpt[lang];
+    excerpt.textContent = (v.summary && v.summary[lang]) ? v.summary[lang] : v.excerpt[lang];
     card.appendChild(excerpt);
 
     // AI type badge if present

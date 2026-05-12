@@ -1,0 +1,821 @@
+<!--
+================================================================================
+  observatoire[s]·ia · TEMPLATE de Dispatch
+================================================================================
+
+  Version             : v0.3.19 · 10 mai 2026
+  Structure éditoriale: 5 blocs analytiques + CTA · 3 actions
+  À utiliser pour     : tous les futurs Dispatches sectoriels
+
+  COMMENT UTILISER CE TEMPLATE
+  ────────────────────────────────────────────────────────────────────────────
+  1. Dupliquer ce fichier dans /briefings/ (ex: 04-mon-secteur.html)
+  2. Remplacer toutes les occurrences de "bX" par "b4" (ou b5, b6...)
+     pour le numéro du Dispatch · ex: b2.crit.t1.body → b4.crit.t1.body
+  3. Remplacer le préfixe class du PDF modal "brief-pdfX-*" par "brief-pdf4-*"
+  4. Remplir tous les placeholders [PLACEHOLDER...] avec le contenu sectoriel
+  5. Conserver les balises <em>, <strong>, <br><br> aux endroits indiqués
+  6. Mettre à jour le footer #002 → #004 (ou autre numéro)
+  7. Vérifier les sources et chiffres clés avant publication
+
+  STRUCTURE EN 5 BLOCS ANALYTIQUES (ordre canonique)
+  ────────────────────────────────────────────────────────────────────────────
+  Bloc 1 · LECTURE CRITIQUE (5 objections au récit alarmiste)
+  Bloc 2 · CARTOGRAPHIE BCG (6 segments AI Labor Disruption)
+  Bloc 3 · EMPIRIE (5 sources sectorielles locales · CH, FR, etc.)
+  Bloc 4 · DÉBAT (4 positions Bear / Empirique / Macro / Bull)
+  Bloc 5 · TCO (4 cards · économie réelle de l'IA)
+  CTA  · 3 actions à entreprendre dès maintenant
+  + Hero, PDF modal, Sources, Disclosure, Back navigation
+
+  CONVENTIONS ÉDITORIALES OBSERVATOIRE[S]·IA
+  ────────────────────────────────────────────────────────────────────────────
+  · Aucun em-dash (—) → utiliser middle dot (·)
+  · Voix posée, factuelle, anti-emotional
+  · Chiffres sourcés, jamais de prédiction sans citation
+  · Préfixer toutes les clés i18n par bX (ex: b4) pour ce Dispatch
+  · Toute valeur i18n contenant <em>, <strong>, <a>, <br> doit avoir
+    data-i18n-html="true" sur l'élément HTML correspondant
+
+  CHECKLIST AVANT BUILD
+  ────────────────────────────────────────────────────────────────────────────
+  [ ] Tous les placeholders [PLACEHOLDER...] remplacés
+  [ ] Préfixe i18n bX changé partout (rechercher "bX." et "bX:")
+  [ ] Numéro du Dispatch dans le titre HTML (#XXX)
+  [ ] PDF modal préfixe class brief-pdfX-* renommé
+  [ ] Liens "Briefing précédent / suivant" mis à jour
+  [ ] FR + EN remplis (les deux langues sont obligatoires)
+  [ ] Validation : python3 build.py + node --check par bloc
+
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- TODO: Mettre à jour le numéro #XXX et le titre sectoriel -->
+<title>Le Dispatch·iA #XXX · [PLACEHOLDER : titre court secteur] · observatoire[s]·ia</title>
+<meta name="description" content="Le Dispatch·iA · [PLACEHOLDER : titre complet]. Dépêche intégrale, [PLACEHOLDER : Q? AAAA].">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="../index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   HERO · titre + meta + byline + actions PDF/mail/copy                  -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-hero">
+  <div class="brief-hero-meta">
+    <span class="meta-num" data-i18n="bX.meta.num"></span>
+    <span data-i18n="bX.meta.sector"></span>
+    <span data-i18n="bX.meta.country"></span>
+    <span data-i18n="bX.meta.date"></span>
+    <span class="meta-edition" data-i18n="bX.meta.edition"></span>
+  </div>
+  <h1 class="brief-hero-title" data-i18n="bX.title" data-i18n-html="true"></h1>
+  <p class="brief-hero-sub" data-i18n="bX.sub"></p>
+  <div class="brief-byline">
+    <span><strong data-i18n="bX.by.author">Naully Nicolas</strong></span>
+    <span data-i18n="bX.by.read"></span>
+    <span data-i18n="bX.by.sources"></span>
+  </div>
+  <div class="brief-actions" id="brief-actions">
+    <button type="button" class="brief-action" id="btn-preview-pdf" data-i18n="brief.act.pdf"></button>
+    <button type="button" class="brief-action" id="btn-send-mail" data-i18n="brief.act.mail"></button>
+    <button type="button" class="brief-action brief-action--ghost" id="btn-copy-link" data-i18n="brief.act.copy"></button>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   PDF PREVIEW MODAL · version concise printable                         -->
+<!--   À adapter avec les chiffres-clés du secteur                           -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<div class="brief-modal" id="brief-modal" hidden>
+  <div class="brief-modal-overlay" data-close="1"></div>
+  <div class="brief-modal-card" role="dialog" aria-modal="true" aria-labelledby="brief-modal-title">
+    <div class="brief-modal-head">
+      <div class="brief-modal-label mono" data-i18n="brief.modal.label"></div>
+      <button type="button" class="brief-modal-close" data-close="1" aria-label="Fermer">×</button>
+    </div>
+    <article class="brief-modal-body" id="brief-modal-body">
+      <!-- Contenu PDF concis · à remplir au moment de la finalisation -->
+    </article>
+    <div class="brief-modal-foot">
+      <button type="button" class="brief-action" id="btn-print-modal" data-i18n="brief.modal.print"></button>
+      <button type="button" class="brief-action brief-action--ghost" data-close="1" data-i18n="brief.modal.close"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BLOC 1 · LECTURE CRITIQUE                                             -->
+<!--   Pourquoi le récit alarmiste ne tient pas · 5 objections numérotées    -->
+<!--                                                                          -->
+<!--   Chaque objection : title + body (avec Conséquence finale en strong)   -->
+<!--   + source line. Cohérence des 5 dimensions :                            -->
+<!--   1. Empirique macro (effectifs / chiffres globaux qui contredisent)    -->
+<!--   2. Conceptuel (bundle de tâches · Garicano)                           -->
+<!--   3. Théorique (biens human-intrinsic · Trammell)                       -->
+<!--   4. Méta-épistémologique (Davenport · prédictions inexactes)           -->
+<!--   5. Psychologique-comportemental (Champniss · Wu et al.)               -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-critical">
+  <div class="brief-critical-inner">
+    <div class="brief-critical-eyebrow mono" data-i18n="bX.crit.eyebrow"></div>
+    <h2 class="brief-critical-title" data-i18n="bX.crit.title" data-i18n-html="true"></h2>
+    <p class="brief-critical-lede" data-i18n="bX.crit.lede"></p>
+
+    <ol class="brief-critical-list">
+      <li class="brief-critical-item">
+        <div class="brief-critical-num mono">01</div>
+        <div class="brief-critical-content">
+          <h3 class="brief-critical-item-title" data-i18n="bX.crit.t1.title" data-i18n-html="true"></h3>
+          <p class="brief-critical-item-body" data-i18n="bX.crit.t1.body" data-i18n-html="true"></p>
+          <p class="brief-critical-item-source mono" data-i18n="bX.crit.t1.source"></p>
+        </div>
+      </li>
+      <li class="brief-critical-item">
+        <div class="brief-critical-num mono">02</div>
+        <div class="brief-critical-content">
+          <h3 class="brief-critical-item-title" data-i18n="bX.crit.t2.title" data-i18n-html="true"></h3>
+          <p class="brief-critical-item-body" data-i18n="bX.crit.t2.body" data-i18n-html="true"></p>
+          <p class="brief-critical-item-source mono" data-i18n="bX.crit.t2.source"></p>
+        </div>
+      </li>
+      <li class="brief-critical-item">
+        <div class="brief-critical-num mono">03</div>
+        <div class="brief-critical-content">
+          <h3 class="brief-critical-item-title" data-i18n="bX.crit.t3.title" data-i18n-html="true"></h3>
+          <p class="brief-critical-item-body" data-i18n="bX.crit.t3.body" data-i18n-html="true"></p>
+          <p class="brief-critical-item-source mono" data-i18n="bX.crit.t3.source"></p>
+        </div>
+      </li>
+      <li class="brief-critical-item">
+        <div class="brief-critical-num mono">04</div>
+        <div class="brief-critical-content">
+          <h3 class="brief-critical-item-title" data-i18n="bX.crit.t4.title" data-i18n-html="true"></h3>
+          <p class="brief-critical-item-body" data-i18n="bX.crit.t4.body" data-i18n-html="true"></p>
+          <p class="brief-critical-item-source mono" data-i18n="bX.crit.t4.source"></p>
+        </div>
+      </li>
+      <li class="brief-critical-item">
+        <div class="brief-critical-num mono">05</div>
+        <div class="brief-critical-content">
+          <h3 class="brief-critical-item-title" data-i18n="bX.crit.t5.title" data-i18n-html="true"></h3>
+          <p class="brief-critical-item-body" data-i18n="bX.crit.t5.body" data-i18n-html="true"></p>
+          <p class="brief-critical-item-source mono" data-i18n="bX.crit.t5.source"></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BLOC 2 · CARTOGRAPHIE BCG · 6 segments AI Labor Disruption            -->
+<!--                                                                          -->
+<!--   Cadre BCG d'avril 2026 sur 1 500 rôles Revelio Labs / 165M emplois    -->
+<!--   3 groupes en headers (h1, h2, h3) + 6 segments répartis               -->
+<!--   - Cadres remodelés en 2-3 ans (s1: Amplified, s2: Rebalanced, s3: Divergent)   -->
+<!--   - Cadres éliminés en 4-5 ans  (s4: Substituted)                       -->
+<!--   - Exposition limitée            (s5: Enabled, s6: Limited-Exposure)   -->
+<!--                                                                          -->
+<!--   Adapter chaque segment au secteur du Dispatch (exemples concrets).    -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-bcgmap">
+  <div class="brief-bcgmap-inner">
+    <div class="brief-bcgmap-eyebrow mono" data-i18n="bX.bcg.eyebrow"></div>
+    <h2 class="brief-bcgmap-title" data-i18n="bX.bcg.title" data-i18n-html="true"></h2>
+    <p class="brief-bcgmap-lede" data-i18n="bX.bcg.lede"></p>
+
+    <div class="brief-bcgmap-group">
+      <div class="brief-bcgmap-group-label mono" data-i18n="bX.bcg.h1.label"></div>
+      <div class="brief-bcgmap-grid">
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--amplified">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s1.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s1.body" data-i18n-html="true"></p>
+        </article>
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--rebalanced">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s2.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s2.body" data-i18n-html="true"></p>
+        </article>
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--divergent">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s3.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s3.body" data-i18n-html="true"></p>
+        </article>
+      </div>
+    </div>
+
+    <div class="brief-bcgmap-group">
+      <div class="brief-bcgmap-group-label mono" data-i18n="bX.bcg.h2.label"></div>
+      <div class="brief-bcgmap-grid brief-bcgmap-grid--single">
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--substituted">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s4.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s4.body" data-i18n-html="true"></p>
+        </article>
+      </div>
+    </div>
+
+    <div class="brief-bcgmap-group">
+      <div class="brief-bcgmap-group-label mono" data-i18n="bX.bcg.h3.label"></div>
+      <div class="brief-bcgmap-grid brief-bcgmap-grid--double">
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--enabled">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s5.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s5.body" data-i18n-html="true"></p>
+        </article>
+        <article class="brief-bcgmap-seg brief-bcgmap-seg--limited">
+          <h3 class="brief-bcgmap-seg-name" data-i18n="bX.bcg.s6.name"></h3>
+          <p class="brief-bcgmap-seg-body" data-i18n="bX.bcg.s6.body" data-i18n-html="true"></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BLOC 3 · EMPIRIE LOCALE · 5 sources sectorielles                      -->
+<!--                                                                          -->
+<!--   5 chiffres-clés en stats + 5 cards source (T1 académique, T2 institutionnel) -->
+<!--   + paragraphe de synthèse final intégrant Davenport meta-épistémo      -->
+<!--                                                                          -->
+<!--   Sources types par pays :                                                -->
+<!--   FR : Coface/OEM, Kelio/OpinionWay, Bpifrance, Alegria, PwC, France Stratégie -->
+<!--   CH : KOF/ETH, HSLU, BNS, Colombus/Oracle/HEG, Angestellte Schweiz, Cortesi/aidentities -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-chempirie">
+  <div class="brief-chempirie-inner">
+    <div class="brief-chempirie-eyebrow mono" data-i18n="bX.fre.eyebrow"></div>
+    <h2 class="brief-chempirie-title" data-i18n="bX.fre.title" data-i18n-html="true"></h2>
+    <p class="brief-chempirie-lede" data-i18n="bX.fre.lede"></p>
+
+    <!-- 5 stats principales · chiffres bruts directement intégrés ici, pas dans i18n -->
+    <div class="brief-chempirie-stats brief-chempirie-stats--5">
+      <div class="brief-chempirie-stat">
+        <div class="brief-chempirie-stat-num">[CHIFFRE 1]</div>
+        <div class="brief-chempirie-stat-label" data-i18n="bX.fre.s1.label"></div>
+      </div>
+      <div class="brief-chempirie-stat">
+        <div class="brief-chempirie-stat-num">[CHIFFRE 2]</div>
+        <div class="brief-chempirie-stat-label" data-i18n="bX.fre.s2.label"></div>
+      </div>
+      <div class="brief-chempirie-stat">
+        <div class="brief-chempirie-stat-num">[CHIFFRE 3]</div>
+        <div class="brief-chempirie-stat-label" data-i18n="bX.fre.s3.label"></div>
+      </div>
+      <div class="brief-chempirie-stat">
+        <div class="brief-chempirie-stat-num">[CHIFFRE 4]</div>
+        <div class="brief-chempirie-stat-label" data-i18n="bX.fre.s4.label"></div>
+      </div>
+      <div class="brief-chempirie-stat">
+        <div class="brief-chempirie-stat-num">[CHIFFRE 5]</div>
+        <div class="brief-chempirie-stat-label" data-i18n="bX.fre.s5.label"></div>
+      </div>
+    </div>
+
+    <div class="brief-chempirie-grid brief-chempirie-grid--3col">
+      <article class="brief-chempirie-src">
+        <div class="brief-chempirie-src-tier mono">[T? · type]</div>
+        <h3 class="brief-chempirie-src-name" data-i18n="bX.fre.src1.name"></h3>
+        <p class="brief-chempirie-src-body" data-i18n="bX.fre.src1.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-chempirie-src">
+        <div class="brief-chempirie-src-tier mono">[T? · type]</div>
+        <h3 class="brief-chempirie-src-name" data-i18n="bX.fre.src2.name"></h3>
+        <p class="brief-chempirie-src-body" data-i18n="bX.fre.src2.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-chempirie-src">
+        <div class="brief-chempirie-src-tier mono">[T? · type]</div>
+        <h3 class="brief-chempirie-src-name" data-i18n="bX.fre.src3.name"></h3>
+        <p class="brief-chempirie-src-body" data-i18n="bX.fre.src3.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-chempirie-src">
+        <div class="brief-chempirie-src-tier mono">[T? · type]</div>
+        <h3 class="brief-chempirie-src-name" data-i18n="bX.fre.src4.name"></h3>
+        <p class="brief-chempirie-src-body" data-i18n="bX.fre.src4.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-chempirie-src">
+        <div class="brief-chempirie-src-tier mono">[T? · type]</div>
+        <h3 class="brief-chempirie-src-name" data-i18n="bX.fre.src5.name"></h3>
+        <p class="brief-chempirie-src-body" data-i18n="bX.fre.src5.body" data-i18n-html="true"></p>
+      </article>
+    </div>
+
+    <!-- Synthèse intégrant le cadre méta-épistémologique Davenport -->
+    <div class="brief-chempirie-synthesis">
+      <div class="brief-chempirie-synthesis-tag mono" data-i18n="bX.fre.syn.tag"></div>
+      <h3 class="brief-chempirie-synthesis-title" data-i18n="bX.fre.syn.title" data-i18n-html="true"></h3>
+      <p class="brief-chempirie-synthesis-body" data-i18n="bX.fre.syn.body" data-i18n-html="true"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BLOC 4 · DÉBAT · 4 positions divergentes 2026                         -->
+<!--                                                                          -->
+<!--   4 colonnes représentant la diversité analytique :                       -->
+<!--   - bear      : Amodei / Suleyman (apocalypse)                           -->
+<!--   - empirical : Garicano (bundle) / Brynjolfsson (juniors)               -->
+<!--   - macro     : Trammell / Imas (théorie économique)                    -->
+<!--   - bull      : a16z / NY Fed / NYT (données macro contraires)          -->
+<!--                                                                          -->
+<!--   + Sectoral takeaway final intégrant le méta-cadre                      -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-debate">
+  <div class="brief-debate-inner">
+    <div class="brief-debate-eyebrow mono" data-i18n="bX.deb.eyebrow"></div>
+    <h2 class="brief-debate-title" data-i18n="bX.deb.title" data-i18n-html="true"></h2>
+    <p class="brief-debate-lede" data-i18n="bX.deb.lede"></p>
+
+    <div class="brief-debate-grid brief-debate-grid--4col">
+      <article class="brief-debate-pos brief-debate-pos--bear">
+        <div class="brief-debate-pos-tag mono" data-i18n="bX.deb.p1.tag"></div>
+        <h3 class="brief-debate-pos-author" data-i18n="bX.deb.p1.author"></h3>
+        <p class="brief-debate-pos-body" data-i18n="bX.deb.p1.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-debate-pos brief-debate-pos--empirical">
+        <div class="brief-debate-pos-tag mono" data-i18n="bX.deb.p2.tag"></div>
+        <h3 class="brief-debate-pos-author" data-i18n="bX.deb.p2.author"></h3>
+        <p class="brief-debate-pos-body" data-i18n="bX.deb.p2.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-debate-pos brief-debate-pos--macro">
+        <div class="brief-debate-pos-tag mono" data-i18n="bX.deb.p3.tag"></div>
+        <h3 class="brief-debate-pos-author" data-i18n="bX.deb.p3.author"></h3>
+        <p class="brief-debate-pos-body" data-i18n="bX.deb.p3.body" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-debate-pos brief-debate-pos--bull">
+        <div class="brief-debate-pos-tag mono" data-i18n="bX.deb.p4.tag"></div>
+        <h3 class="brief-debate-pos-author" data-i18n="bX.deb.p4.author"></h3>
+        <p class="brief-debate-pos-body" data-i18n="bX.deb.p4.body" data-i18n-html="true"></p>
+      </article>
+    </div>
+
+    <div class="brief-debate-takeaway">
+      <div class="brief-debate-takeaway-tag mono" data-i18n="bX.deb.tk.tag"></div>
+      <p class="brief-debate-takeaway-body" data-i18n="bX.deb.tk.body" data-i18n-html="true"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BLOC 5 · TCO · ÉCONOMIE DES COÛTS DE L'IA                             -->
+<!--                                                                          -->
+<!--   4 cards · le facteur souvent ignoré dans le ROI IA :                   -->
+<!--   1. Coût total ≠ prix par token (Singh Tomer · Gartner 5-10×)         -->
+<!--   2. LLM Cost Paradox (prix unitaire baisse mais consommation explose) -->
+<!--   3. Taxe linguistique (+60% tokens FR vs EN)                           -->
+<!--   4. Price Reversal (Chen et al. · 21,8% inversions, 28× max)         -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-tco">
+  <div class="brief-tco-inner">
+    <div class="brief-tco-eyebrow mono" data-i18n="bX.tco.eyebrow"></div>
+    <h2 class="brief-tco-title" data-i18n="bX.tco.title" data-i18n-html="true"></h2>
+    <p class="brief-tco-lede" data-i18n="bX.tco.lede"></p>
+
+    <div class="brief-tco-grid brief-tco-grid--4col">
+      <article class="brief-tco-card">
+        <div class="brief-tco-card-num mono">01</div>
+        <h3 class="brief-tco-card-title" data-i18n="bX.tco.c1.title" data-i18n-html="true"></h3>
+        <p class="brief-tco-card-body" data-i18n="bX.tco.c1.body" data-i18n-html="true"></p>
+        <p class="brief-tco-card-source mono" data-i18n="bX.tco.c1.source"></p>
+      </article>
+      <article class="brief-tco-card">
+        <div class="brief-tco-card-num mono">02</div>
+        <h3 class="brief-tco-card-title" data-i18n="bX.tco.c2.title" data-i18n-html="true"></h3>
+        <p class="brief-tco-card-body" data-i18n="bX.tco.c2.body" data-i18n-html="true"></p>
+        <p class="brief-tco-card-source mono" data-i18n="bX.tco.c2.source"></p>
+      </article>
+      <article class="brief-tco-card">
+        <div class="brief-tco-card-num mono">03</div>
+        <h3 class="brief-tco-card-title" data-i18n="bX.tco.c3.title" data-i18n-html="true"></h3>
+        <p class="brief-tco-card-body" data-i18n="bX.tco.c3.body" data-i18n-html="true"></p>
+        <p class="brief-tco-card-source mono" data-i18n="bX.tco.c3.source"></p>
+      </article>
+      <article class="brief-tco-card">
+        <div class="brief-tco-card-num mono">04</div>
+        <h3 class="brief-tco-card-title" data-i18n="bX.tco.c4.title" data-i18n-html="true"></h3>
+        <p class="brief-tco-card-body" data-i18n="bX.tco.c4.body" data-i18n-html="true"></p>
+        <p class="brief-tco-card-source mono" data-i18n="bX.tco.c4.source"></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   SOURCES & TRAÇABILITÉ · annexe rigueur académique                    -->
+<!--   Chiffres cités dans le Dispatch, ouverts à la vérification           -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-section brief-sources">
+  <div class="brief-sources-inner">
+    <div class="brief-sources-eyebrow mono" data-i18n="bX.src.eyebrow"></div>
+    <h2 class="brief-sources-title" data-i18n="bX.src.title" data-i18n-html="true"></h2>
+    <p class="brief-sources-intro" data-i18n="bX.src.intro"></p>
+
+    <ul class="brief-sources-list">
+      <li class="brief-sources-item">
+        <div class="brief-sources-label" data-i18n="bX.src.s1.label"></div>
+        <p class="brief-sources-cited" data-i18n="bX.src.s1.cited" data-i18n-html="true"></p>
+        <a class="brief-sources-link mono" href="[URL_SOURCE_1]" target="_blank" rel="noopener" data-i18n="bX.src.primary"></a>
+      </li>
+      <li class="brief-sources-item">
+        <div class="brief-sources-label" data-i18n="bX.src.s2.label"></div>
+        <p class="brief-sources-cited" data-i18n="bX.src.s2.cited" data-i18n-html="true"></p>
+        <a class="brief-sources-link mono" href="[URL_SOURCE_2]" target="_blank" rel="noopener" data-i18n="bX.src.primary"></a>
+      </li>
+      <li class="brief-sources-item">
+        <div class="brief-sources-label" data-i18n="bX.src.s3.label"></div>
+        <p class="brief-sources-cited" data-i18n="bX.src.s3.cited" data-i18n-html="true"></p>
+        <a class="brief-sources-link mono" href="[URL_SOURCE_3]" target="_blank" rel="noopener" data-i18n="bX.src.primary"></a>
+      </li>
+      <!-- Ajouter autant de sources que nécessaire (typiquement 5-15) -->
+    </ul>
+
+    <p class="brief-sources-note" data-i18n="bX.src.note"></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   DISCLOSURE ÉDITORIALE · transparence méthodologique                   -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-disclosure">
+  <div class="brief-disclosure-inner">
+    <div class="brief-disclosure-tag" data-i18n="bX.disc.tag"></div>
+    <p class="brief-disclosure-body" data-i18n="bX.disc.body" data-i18n-html="true"></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   CTA · 3 actions à entreprendre dès maintenant                         -->
+<!--                                                                          -->
+<!--   Bloc opérationnel à 90 jours · différencié par secteur                -->
+<!--   Chaque action doit être reliée à au moins un des 5 blocs analytiques. -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-cta-actions">
+  <div class="brief-cta-actions-inner">
+    <div class="brief-cta-actions-eyebrow mono" data-i18n="bX.act.eyebrow"></div>
+    <h2 class="brief-cta-actions-title" data-i18n="bX.act.title" data-i18n-html="true"></h2>
+    <p class="brief-cta-actions-lede" data-i18n="bX.act.lede"></p>
+
+    <div class="brief-cta-grid brief-cta-grid--3">
+      <article class="brief-cta-card brief-cta-card--action">
+        <div class="brief-cta-card-tag mono" data-i18n="bX.act.c1.tag"></div>
+        <h3 class="brief-cta-card-title" data-i18n="bX.act.c1.title"></h3>
+        <p class="brief-cta-card-desc" data-i18n="bX.act.c1.desc" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-cta-card brief-cta-card--action">
+        <div class="brief-cta-card-tag mono" data-i18n="bX.act.c2.tag"></div>
+        <h3 class="brief-cta-card-title" data-i18n="bX.act.c2.title"></h3>
+        <p class="brief-cta-card-desc" data-i18n="bX.act.c2.desc" data-i18n-html="true"></p>
+      </article>
+      <article class="brief-cta-card brief-cta-card--action">
+        <div class="brief-cta-card-tag mono" data-i18n="bX.act.c3.tag"></div>
+        <h3 class="brief-cta-card-title" data-i18n="bX.act.c3.title"></h3>
+        <p class="brief-cta-card-desc" data-i18n="bX.act.c3.desc" data-i18n-html="true"></p>
+      </article>
+    </div>
+
+    <div class="brief-cta-followup">
+      <p class="brief-cta-followup-body" data-i18n="bX.act.followup"></p>
+      <a href="../contact.html" class="brief-cta-followup-link" data-i18n="bX.act.followup_cta"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   BACK · navigation                                                       -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-back">
+  <a href="../briefings.html" class="brief-back-link mono" data-i18n="brief.back"></a>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--   SCRIPTS · components.js + i18n FR/EN + initSite                        -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<script src="../assets/components.js"></script>
+<script>
+window.PAGE_I18N = {
+  fr: {
+    /* ═══ CTA · 3 actions ═══════════════════════════════════════════════════ */
+    "bX.act.eyebrow": "[PLACEHOLDER : Du diagnostic à l'action / Variante sectorielle]",
+    "bX.act.title": "Trois actions à entreprendre <em>dès maintenant</em>",
+    "bX.act.lede": "[PLACEHOLDER : 1-2 phrases qui justifient l'urgence opérationnelle pour ce secteur. Mentionner « 90 prochains jours » et le profil cible (COMEX, DRH, CFO, etc.)]",
+    "bX.act.c1.tag": "[VERBE D'ACTION 1 · ex: Cartographier]",
+    "bX.act.c1.title": "[PLACEHOLDER : titre court action 1 · 5-10 mots]",
+    "bX.act.c1.desc": "[PLACEHOLDER : description action 1, 250-350 chars · doit relier à au moins un des 5 blocs analytiques · utiliser <strong>chiffre clé</strong> pour ancrer]",
+    "bX.act.c2.tag": "[VERBE D'ACTION 2 · ex: Préserver]",
+    "bX.act.c2.title": "[PLACEHOLDER : titre court action 2]",
+    "bX.act.c2.desc": "[PLACEHOLDER : description action 2, 250-350 chars]",
+    "bX.act.c3.tag": "[VERBE D'ACTION 3 · ex: Trianguler]",
+    "bX.act.c3.title": "[PLACEHOLDER : titre court action 3]",
+    "bX.act.c3.desc": "[PLACEHOLDER : description action 3, 250-350 chars]",
+    "bX.act.followup": "Pour aller plus loin sur ces 3 priorités, le format Veille Métiers IA peut produire un diagnostic personnalisé pour votre organisation.",
+    "bX.act.followup_cta": "Demander un dispatch personnalisé →",
+
+    /* ═══ HERO · meta + titre + sub + byline ═══════════════════════════════ */
+    "bX.meta.num": "Le Dispatch·iA #XXX",
+    "bX.meta.sector": "[PLACEHOLDER : nom secteur · ex: Banque retail / RH cadres / Luxe horlogerie]",
+    "bX.meta.country": "[FLAG] [PLACEHOLDER : Pays · ex: 🇨🇭 Suisse]",
+    "bX.meta.date": "[PLACEHOLDER : Q? 2026]",
+    "bX.meta.edition": "Open Intelligence",
+    "bX.title": "[PLACEHOLDER : titre principal] : <em>[PLACEHOLDER : thèse en italique]</em>.",
+    "bX.sub": "[PLACEHOLDER : sous-titre 2-4 phrases · pose le cadre, le contre-récit, et l'angle observatoire pour ce secteur. Termine sur l'angle d'audience cible.]",
+    "bX.by.author": "Naully Nicolas",
+    "bX.by.read": "[PLACEHOLDER : X minutes de lecture]",
+    "bX.by.sources": "[PLACEHOLDER : X sources primaires]",
+
+    /* ═══ Strings communes brief.* (NE PAS changer le préfixe) ═════════════ */
+    "brief.act.pdf": "Aperçu PDF",
+    "brief.act.mail": "Envoyer par mail",
+    "brief.act.copy": "Copier le lien",
+    "brief.modal.label": "Aperçu impression · version concise",
+    "brief.modal.print": "Imprimer / Enregistrer en PDF",
+    "brief.modal.close": "Fermer",
+    "brief.copy.ok": "Lien copié",
+    "brief.back": "← Retour à tous les Dispatches",
+
+    /* ═══ BLOC 1 · LECTURE CRITIQUE ═══════════════════════════════════════ */
+    "bX.crit.eyebrow": "Lecture critique · cinq objections au récit alarmiste",
+    "bX.crit.title": "Pourquoi le récit « [PLACEHOLDER : disparition massive / autre slogan secteur] » <em>ne tient pas l'analyse</em>.",
+    "bX.crit.lede": "[PLACEHOLDER : 2-3 phrases qui posent les annonces alarmistes pertinentes pour le secteur, et annoncent les 5 objections qui suivent.]",
+    "bX.crit.t1.title": "[OBJECTION 1 · empirique macro · titre court avec chiffre clé]",
+    "bX.crit.t1.body": "[PLACEHOLDER : argumentation 1, ~750-900 chars, terminer par <br><br><strong>Conséquence pour [audience secteur]</strong> : ...]",
+    "bX.crit.t1.source": "Sources · [PLACEHOLDER : sources primaires]",
+    "bX.crit.t2.title": "[OBJECTION 2 · bundle de tâches · Garicano]",
+    "bX.crit.t2.body": "[PLACEHOLDER · adapter le bundles framework au secteur · ~750-900 chars + Conséquence finale]",
+    "bX.crit.t2.source": "Source · Luis Garicano · Silicon Continent · 22 avril 2026",
+    "bX.crit.t3.title": "[OBJECTION 3 · biens human-intrinsic · Trammell]",
+    "bX.crit.t3.body": "[PLACEHOLDER · adapter Trammell au secteur · pourquoi le travail humain reste structurellement nécessaire · ~750-900 chars + Conséquence]",
+    "bX.crit.t3.source": "Source · Philip Trammell · Stanford Digital Economy Lab · 27 mars 2026",
+    "bX.crit.t4.title": "Toutes les prédictions chiffrées IA-emploi sont systématiquement <em>wildly inaccurate</em>",
+    "bX.crit.t4.body": "[PLACEHOLDER · adapter Davenport meta-épistémo au secteur · 10/9/19 prédictions invalidées · ~750-900 chars + Conséquence]",
+    "bX.crit.t4.source": "Sources · Davenport et Paredes · Harvard Data Science Review · MIT Press · Issue 7.4 · automne 2025 · CC BY 4.0 · Arntz, Gregory, Zierahn · OCDE WP 189 · 2016 · Frey et Osborne · Oxford Martin · 2013/2017",
+    "bX.crit.t5.title": "Le coût psychologique mesurable de l'IA générative peut <em>annuler les gains de productivité affichés</em>",
+    "bX.crit.t5.body": "[PLACEHOLDER · adapter Champniss/Wu au secteur · -11% motivation, +20% ennui · ~750-900 chars + Conséquence]",
+    "bX.crit.t5.source": "Sources · Champniss · Harvard Business Review · mai-juin 2026 · Wu, Liu, Ruan, Chen, Xie · Scientific Reports · Nature Portfolio · 29 avril 2025 · DOI 10.1038/s41598-025-98385-2",
+
+    /* ═══ BLOC 2 · CARTOGRAPHIE BCG ═══════════════════════════════════════ */
+    "bX.bcg.eyebrow": "Cartographie BCG · 6 segments AI Labor Disruption",
+    "bX.bcg.title": "<em>50 à 55%</em> des [PROFIL SECTEUR] remodelés en 2-3 ans, <em>10 à 15%</em> éliminés en 4-5 ans.",
+    "bX.bcg.lede": "[PLACEHOLDER : 2-3 phrases qui transposent l'étude BCG au secteur. Préciser les fonctions/profils typiques que le secteur recouvre.]",
+    "bX.bcg.h1.label": "[PROFIL SECTEUR] remodelés en 2-3 ans (substantiellement transformés sans disparaître)",
+    "bX.bcg.h2.label": "[PROFIL SECTEUR] éliminés en 4-5 ans (vulnérabilité concentrée sur 2 segments)",
+    "bX.bcg.h3.label": "[PROFIL SECTEUR] à exposition limitée (peu de transformation à court terme)",
+    "bX.bcg.s1.name": "Amplified · IA augmente, demande extensible",
+    "bX.bcg.s1.body": "5% des emplois US. Croissance probable des effectifs. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · 2-3 exemples concrets de fonctions du secteur dans ce segment + raison Jevons]",
+    "bX.bcg.s2.name": "Rebalanced · IA augmente, demande bornée",
+    "bX.bcg.s2.body": "14% des emplois US. Effectifs stables, transformation des tâches. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · exemples concrets]",
+    "bX.bcg.s3.name": "Divergent · IA partiellement augmente, mais polarisation",
+    "bX.bcg.s3.body": "12% des emplois US. Polarisation entre profils augmentés et profils suppléés. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · exemples concrets]",
+    "bX.bcg.s4.name": "Substituted · IA remplace, demande contractée",
+    "bX.bcg.s4.body": "12% des emplois US. Contraction effective d'effectifs. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · exemples concrets · zone à surveiller en priorité pour le redéploiement]",
+    "bX.bcg.s5.name": "Enabled · IA débloque de nouvelles capacités",
+    "bX.bcg.s5.body": "23% des emplois US. Tâches auparavant impossibles deviennent productives. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · exemples concrets]",
+    "bX.bcg.s6.name": "Limited-Exposure · faiblement affecté",
+    "bX.bcg.s6.body": "34% des emplois US. Peu de transformation à court terme. <strong>Pour [audience secteur] :</strong> [PLACEHOLDER · exemples concrets · souvent fonctions terrain]",
+
+    /* ═══ BLOC 3 · EMPIRIE LOCALE ═════════════════════════════════════════ */
+    "bX.fre.eyebrow": "Empirie [PAYS/SECTEUR] · cinq sources qui ancrent la décision",
+    "bX.fre.title": "Les chiffres locaux qui <em>ancrent l'arbitrage</em> [audience secteur].",
+    "bX.fre.lede": "[PLACEHOLDER : 2-3 phrases qui justifient pourquoi ces 5 sources locales sont les plus structurantes pour la décision RH du secteur. Mentionner les 5 dimensions couvertes : substitution / création / maturité / TCO / perception ou autre selon secteur.]",
+    "bX.fre.s1.label": "[PLACEHOLDER : libellé court de la source 1 · une ligne]",
+    "bX.fre.s2.label": "[PLACEHOLDER : libellé court de la source 2]",
+    "bX.fre.s3.label": "[PLACEHOLDER : libellé court de la source 3]",
+    "bX.fre.s4.label": "[PLACEHOLDER : libellé court de la source 4]",
+    "bX.fre.s5.label": "[PLACEHOLDER : libellé court de la source 5]",
+    "bX.fre.src1.name": "[PLACEHOLDER : nom complet source 1 + auteurs/institution]",
+    "bX.fre.src1.body": "[PLACEHOLDER : analyse 200-300 chars · méthodo + chiffre clé + implication directe pour le secteur]",
+    "bX.fre.src2.name": "[PLACEHOLDER : nom source 2]",
+    "bX.fre.src2.body": "[PLACEHOLDER : analyse 200-300 chars]",
+    "bX.fre.src3.name": "[PLACEHOLDER : nom source 3]",
+    "bX.fre.src3.body": "[PLACEHOLDER : analyse 200-300 chars]",
+    "bX.fre.src4.name": "[PLACEHOLDER : nom source 4]",
+    "bX.fre.src4.body": "[PLACEHOLDER : analyse 200-300 chars]",
+    "bX.fre.src5.name": "[PLACEHOLDER : nom source 5]",
+    "bX.fre.src5.body": "[PLACEHOLDER : analyse 200-300 chars]",
+    "bX.fre.syn.tag": "Synthèse · cadre méta-épistémologique",
+    "bX.fre.syn.title": "Lire les chiffres <em>en regard du méta-cadre Davenport</em>.",
+    "bX.fre.syn.body": "[PLACEHOLDER : 3-5 phrases qui articulent les 5 sources avec le cadre Davenport · les chiffres sont des indicateurs directionnels à confronter aux conditions sectorielles locales, pas des projections actionnables à 5 ans. Terminer par recommandation de lecture pour le secteur.]",
+
+    /* ═══ BLOC 4 · DÉBAT · 4 positions ════════════════════════════════════ */
+    "bX.deb.eyebrow": "Débat 2026 · quatre lectures du même phénomène",
+    "bX.deb.title": "Quatre positions, un seul terrain : le <em>marché [secteur]</em>.",
+    "bX.deb.lede": "[PLACEHOLDER : 2-3 phrases qui résument le débat IA-emploi 2026 vu depuis le secteur · pourquoi 4 positions cohabitent légitimement dans la littérature 2025-2026.]",
+    "bX.deb.p1.tag": "Bear · apocalypse",
+    "bX.deb.p1.author": "Amodei · Suleyman · Dimon",
+    "bX.deb.p1.body": "[PLACEHOLDER : adapter la position bear au secteur · pourquoi les CEO IA pensent que ce secteur est prochain · ~400-600 chars]",
+    "bX.deb.p2.tag": "Empirique · bundle",
+    "bX.deb.p2.author": "Garicano · Brynjolfsson",
+    "bX.deb.p2.body": "[PLACEHOLDER : adapter la lecture empirique au secteur · pourquoi le bundle protège les fonctions à autorité · ~400-600 chars]",
+    "bX.deb.p3.tag": "Macro · théorie économique",
+    "bX.deb.p3.author": "Trammell · Imas · Acemoglu",
+    "bX.deb.p3.body": "[PLACEHOLDER : adapter au secteur · pourquoi la part travail reste haute long terme · ~400-600 chars]",
+    "bX.deb.p4.tag": "Bull historique-allocateur",
+    "bX.deb.p4.author": "a16z · NY Fed · NYT · Pearson",
+    "bX.deb.p4.body": "[PLACEHOLDER : adapter au secteur · pourquoi les données macro contredisent l'apocalypse · ~400-600 chars]",
+    "bX.deb.tk.tag": "Sectoral takeaway",
+    "bX.deb.tk.body": "[PLACEHOLDER : 3-5 phrases · le takeaway pour la décision RH 2026-2030 dans ce secteur · intégrer Davenport meta-frame · les 4 positions sont à confronter aux conditions sectorielles locales, pas à arbitrer par jugement absolu.]",
+
+    /* ═══ BLOC 5 · TCO · ÉCONOMIE DES COÛTS DE L'IA ═══════════════════════ */
+    "bX.tco.eyebrow": "TCO · économie réelle de l'IA dans le secteur",
+    "bX.tco.title": "Le prix par token n'est <em>pas le coût réel</em>.",
+    "bX.tco.lede": "[PLACEHOLDER : 2-3 phrases qui posent pourquoi le ROI IA dans ce secteur est structurellement biaisé si on compare prix unitaire et salaire humain. Mentionner Singh Tomer et le périmètre TCO complet.]",
+    "bX.tco.c1.title": "Le coût total ≠ prix par token",
+    "bX.tco.c1.body": "[PLACEHOLDER : adapter au secteur · les 9 strates du TCO · Gartner 5-10× sous-estimation · 72% des CIO en break-even ou perte · ~600-800 chars]",
+    "bX.tco.c1.source": "Sources · Gartner · 21 octobre 2024 · Mary Mesaglio et Hung LeHong · Singh Tomer · arxiv 2511.singh-tomer · 28 avril 2026",
+    "bX.tco.c2.title": "Le LLM Cost Paradox · prix unitaire baisse mais consommation explose",
+    "bX.tco.c2.body": "[PLACEHOLDER : adapter au secteur · -90% prix unitaire 2030 (Gartner) mais consommation +100× (AISuperior) · agentic models 5-30× tokens · ~600-800 chars]",
+    "bX.tco.c2.source": "Sources · Gartner · 25 mars 2026 · Will Sommer · AISuperior · LLM Inference Cost · 16 mars 2026",
+    "bX.tco.c3.title": "La taxe linguistique · +60% tokens FR vs EN sur les mêmes tâches",
+    "bX.tco.c3.body": "[PLACEHOLDER : adapter au secteur · si organisation francophone, le TCO IA est structurellement +60% plus élevé · BPE optimisé pour anglais · écart tarifaire 420× entre modèles ~600-800 chars]",
+    "bX.tco.c3.source": "Source · Roboto · 10 avril 2026 · Analyse fournisseurs LLM",
+    "bX.tco.c4.title": "Le Price Reversal · 21,8% d'inversions, magnitude jusqu'à 28×",
+    "bX.tco.c4.body": "[PLACEHOLDER : adapter au secteur · le prix listé n'est pas un proxy fiable du coût réel · cas Gemini 3 Flash 78% moins cher listé mais 22% plus cher en pratique · ~600-800 chars]",
+    "bX.tco.c4.source": "Source · Chen, Zhang, He, Stoica, Zaharia, Zou · arXiv 2603.23971 · 25 mars 2026",
+
+    /* ═══ SOURCES & TRAÇABILITÉ ═══════════════════════════════════════════ */
+    "bX.src.eyebrow": "Annexe · Sources & traçabilité",
+    "bX.src.title": "Les chiffres cités, ouverts à la <em>vérification</em>.",
+    "bX.src.intro": "Une dépêche n'a de valeur que si ses chiffres sont vérifiables. Chaque indicateur de cette dépêche renvoie ci-dessous à sa publication d'origine. Sources primaires intégralement citées, sans paywall ni rétention.",
+    "bX.src.s1.label": "[PLACEHOLDER : libellé complet source 1 + date]",
+    "bX.src.s1.cited": "Citée pour le chiffre <strong>[PLACEHOLDER : chiffre clé exact]</strong>. [PLACEHOLDER : périmètre méthodo en 1 phrase].",
+    "bX.src.s2.label": "[PLACEHOLDER : libellé source 2]",
+    "bX.src.s2.cited": "Citée pour le chiffre <strong>[X]</strong>. [...]",
+    "bX.src.s3.label": "[PLACEHOLDER : libellé source 3]",
+    "bX.src.s3.cited": "Citée pour le chiffre <strong>[X]</strong>. [...]",
+    "bX.src.primary": "Source primaire ↗",
+    "bX.src.note": "Note. Les chiffres présentés ici sont arrondis. Les méthodologies détaillées de chaque indicateur et les marges d'incertitude sont accessibles sur la page Méthodologie.",
+
+    /* ═══ DISCLOSURE ÉDITORIALE ═══════════════════════════════════════════ */
+    "bX.disc.tag": "Disclosure",
+    "bX.disc.body": "Ce Dispatch est publié sous licence <strong>CC BY 4.0</strong>. Les sources sont primaires et accessibles sans paywall. L'auteur ne reçoit aucune rémunération directe ou indirecte des organisations citées. La méthodologie complète est documentée sur la page <a href=\"../methodologie.html\">Méthodologie</a>."
+  },
+
+  en: {
+    /* ═══ CTA · 3 actions ═══════════════════════════════════════════════════ */
+    "bX.act.eyebrow": "[PLACEHOLDER : From diagnosis to action / Sectoral variant]",
+    "bX.act.title": "Three actions to take <em>now</em>",
+    "bX.act.lede": "[PLACEHOLDER : 1-2 sentences justifying operational urgency for this sector. Mention « next 90 days » and target profile (CEO, HR, CFO, etc.)]",
+    "bX.act.c1.tag": "[ACTION VERB 1 · ex: Map]",
+    "bX.act.c1.title": "[PLACEHOLDER : short title action 1 · 5-10 words]",
+    "bX.act.c1.desc": "[PLACEHOLDER : description action 1, 250-350 chars · must connect to at least one of the 5 analytical blocks · use <strong>key figure</strong> as anchor]",
+    "bX.act.c2.tag": "[ACTION VERB 2 · ex: Preserve]",
+    "bX.act.c2.title": "[PLACEHOLDER : short title action 2]",
+    "bX.act.c2.desc": "[PLACEHOLDER : description action 2, 250-350 chars]",
+    "bX.act.c3.tag": "[ACTION VERB 3 · ex: Triangulate]",
+    "bX.act.c3.title": "[PLACEHOLDER : short title action 3]",
+    "bX.act.c3.desc": "[PLACEHOLDER : description action 3, 250-350 chars]",
+    "bX.act.followup": "To go deeper on these 3 priorities, the Veille Métiers IA format can produce a tailored diagnosis for your organization.",
+    "bX.act.followup_cta": "Request a tailored dispatch →",
+
+    /* ═══ HERO ═══════════════════════════════════════════════════════════════ */
+    "bX.meta.num": "The Dispatch·iA #XXX",
+    "bX.meta.sector": "[PLACEHOLDER : sector name in EN]",
+    "bX.meta.country": "[FLAG] [PLACEHOLDER : Country in EN]",
+    "bX.meta.date": "[PLACEHOLDER : Q? 2026]",
+    "bX.meta.edition": "Open Intelligence",
+    "bX.title": "[PLACEHOLDER : main title in EN] : <em>[PLACEHOLDER : thesis in italic]</em>.",
+    "bX.sub": "[PLACEHOLDER : subtitle in EN]",
+    "bX.by.author": "Naully Nicolas",
+    "bX.by.read": "[PLACEHOLDER : X minutes read]",
+    "bX.by.sources": "[PLACEHOLDER : X primary sources]",
+
+    /* ═══ Common brief.* strings ═══════════════════════════════════════════ */
+    "brief.act.pdf": "PDF preview",
+    "brief.act.mail": "Send by email",
+    "brief.act.copy": "Copy link",
+    "brief.modal.label": "Print preview · concise version",
+    "brief.modal.print": "Print / Save as PDF",
+    "brief.modal.close": "Close",
+    "brief.copy.ok": "Link copied",
+    "brief.back": "← Back to all Dispatches",
+
+    /* ═══ BLOC 1 · CRITICAL READING ═══════════════════════════════════════ */
+    "bX.crit.eyebrow": "Critical reading · five objections to the alarmist narrative",
+    "bX.crit.title": "Why the « [PLACEHOLDER : narrative slogan] » story <em>does not hold up</em>.",
+    "bX.crit.lede": "[PLACEHOLDER : 2-3 sentences EN]",
+    "bX.crit.t1.title": "[OBJECTION 1 EN]",
+    "bX.crit.t1.body": "[PLACEHOLDER EN, ~750-900 chars + <br><br><strong>Consequence for [audience]</strong> : ...]",
+    "bX.crit.t1.source": "Sources · [PLACEHOLDER]",
+    "bX.crit.t2.title": "[OBJECTION 2 EN · bundle framework · Garicano]",
+    "bX.crit.t2.body": "[PLACEHOLDER EN]",
+    "bX.crit.t2.source": "Source · Luis Garicano · Silicon Continent · April 22 2026",
+    "bX.crit.t3.title": "[OBJECTION 3 EN · human-intrinsic goods · Trammell]",
+    "bX.crit.t3.body": "[PLACEHOLDER EN]",
+    "bX.crit.t3.source": "Source · Philip Trammell · Stanford Digital Economy Lab · March 27 2026",
+    "bX.crit.t4.title": "All quantified AI-employment forecasts are systematically <em>wildly inaccurate</em>",
+    "bX.crit.t4.body": "[PLACEHOLDER EN · Davenport meta · 10/9/19 forecasts invalidated]",
+    "bX.crit.t4.source": "Sources · Davenport and Paredes · Harvard Data Science Review · MIT Press · Issue 7.4 · Fall 2025 · CC BY 4.0",
+    "bX.crit.t5.title": "The measurable psychological cost of generative AI can <em>cancel out advertised productivity gains</em>",
+    "bX.crit.t5.body": "[PLACEHOLDER EN · Champniss/Wu · -11% motivation, +20% boredom]",
+    "bX.crit.t5.source": "Sources · Champniss · Harvard Business Review · May-June 2026 · Wu, Liu, Ruan, Chen, Xie · Scientific Reports · Nature Portfolio · April 29 2025",
+
+    /* ═══ BLOC 2 · BCG MAP ═══════════════════════════════════════════════ */
+    "bX.bcg.eyebrow": "BCG cartography · 6 AI Labor Disruption segments",
+    "bX.bcg.title": "<em>50 to 55%</em> of [PROFILE] reshaped in 2-3 years, <em>10 to 15%</em> eliminated in 4-5 years.",
+    "bX.bcg.lede": "[PLACEHOLDER EN]",
+    "bX.bcg.h1.label": "[PROFILE] reshaped in 2-3 years (substantially transformed without disappearing)",
+    "bX.bcg.h2.label": "[PROFILE] eliminated in 4-5 years (vulnerability concentrated on 2 segments)",
+    "bX.bcg.h3.label": "[PROFILE] with limited exposure (little near-term transformation)",
+    "bX.bcg.s1.name": "Amplified · AI augments, demand expandable",
+    "bX.bcg.s1.body": "5% of US jobs. Likely headcount growth. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+    "bX.bcg.s2.name": "Rebalanced · AI augments, bounded demand",
+    "bX.bcg.s2.body": "14% of US jobs. Stable headcount, task transformation. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+    "bX.bcg.s3.name": "Divergent · AI partially augments, with polarization",
+    "bX.bcg.s3.body": "12% of US jobs. Polarization between augmented and replaced profiles. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+    "bX.bcg.s4.name": "Substituted · AI replaces, demand contracted",
+    "bX.bcg.s4.body": "12% of US jobs. Effective headcount contraction. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+    "bX.bcg.s5.name": "Enabled · AI unlocks new capabilities",
+    "bX.bcg.s5.body": "23% of US jobs. Previously impossible tasks become productive. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+    "bX.bcg.s6.name": "Limited-Exposure · marginally affected",
+    "bX.bcg.s6.body": "34% of US jobs. Little near-term transformation. <strong>For [audience] :</strong> [PLACEHOLDER EN]",
+
+    /* ═══ BLOC 3 · LOCAL EMPIRICS ═════════════════════════════════════════ */
+    "bX.fre.eyebrow": "[COUNTRY/SECTOR] empirics · five sources that anchor decision-making",
+    "bX.fre.title": "The local figures that <em>anchor [audience] arbitrage</em>.",
+    "bX.fre.lede": "[PLACEHOLDER EN]",
+    "bX.fre.s1.label": "[PLACEHOLDER : short label source 1 EN]",
+    "bX.fre.s2.label": "[PLACEHOLDER : short label source 2 EN]",
+    "bX.fre.s3.label": "[PLACEHOLDER : short label source 3 EN]",
+    "bX.fre.s4.label": "[PLACEHOLDER : short label source 4 EN]",
+    "bX.fre.s5.label": "[PLACEHOLDER : short label source 5 EN]",
+    "bX.fre.src1.name": "[PLACEHOLDER : full source name 1]",
+    "bX.fre.src1.body": "[PLACEHOLDER EN]",
+    "bX.fre.src2.name": "[PLACEHOLDER : source 2]",
+    "bX.fre.src2.body": "[PLACEHOLDER EN]",
+    "bX.fre.src3.name": "[PLACEHOLDER : source 3]",
+    "bX.fre.src3.body": "[PLACEHOLDER EN]",
+    "bX.fre.src4.name": "[PLACEHOLDER : source 4]",
+    "bX.fre.src4.body": "[PLACEHOLDER EN]",
+    "bX.fre.src5.name": "[PLACEHOLDER : source 5]",
+    "bX.fre.src5.body": "[PLACEHOLDER EN]",
+    "bX.fre.syn.tag": "Synthesis · meta-epistemological frame",
+    "bX.fre.syn.title": "Reading the figures <em>against the Davenport meta-frame</em>.",
+    "bX.fre.syn.body": "[PLACEHOLDER EN]",
+
+    /* ═══ BLOC 4 · DEBATE ═════════════════════════════════════════════════ */
+    "bX.deb.eyebrow": "2026 debate · four readings of the same phenomenon",
+    "bX.deb.title": "Four positions, one terrain: the <em>[sector] market</em>.",
+    "bX.deb.lede": "[PLACEHOLDER EN]",
+    "bX.deb.p1.tag": "Bear · apocalypse",
+    "bX.deb.p1.author": "Amodei · Suleyman · Dimon",
+    "bX.deb.p1.body": "[PLACEHOLDER EN]",
+    "bX.deb.p2.tag": "Empirical · bundle",
+    "bX.deb.p2.author": "Garicano · Brynjolfsson",
+    "bX.deb.p2.body": "[PLACEHOLDER EN]",
+    "bX.deb.p3.tag": "Macro · economic theory",
+    "bX.deb.p3.author": "Trammell · Imas · Acemoglu",
+    "bX.deb.p3.body": "[PLACEHOLDER EN]",
+    "bX.deb.p4.tag": "Bull historical-allocator",
+    "bX.deb.p4.author": "a16z · NY Fed · NYT · Pearson",
+    "bX.deb.p4.body": "[PLACEHOLDER EN]",
+    "bX.deb.tk.tag": "Sectoral takeaway",
+    "bX.deb.tk.body": "[PLACEHOLDER EN]",
+
+    /* ═══ BLOC 5 · TCO ════════════════════════════════════════════════════ */
+    "bX.tco.eyebrow": "TCO · real economics of AI in the sector",
+    "bX.tco.title": "The price per token is <em>not the real cost</em>.",
+    "bX.tco.lede": "[PLACEHOLDER EN]",
+    "bX.tco.c1.title": "Total cost ≠ price per token",
+    "bX.tco.c1.body": "[PLACEHOLDER EN · 9 TCO strata · Gartner 5-10× underestimation · 72% break-even or loss]",
+    "bX.tco.c1.source": "Sources · Gartner · October 21 2024 · Mary Mesaglio and Hung LeHong · Singh Tomer · arxiv 2511.singh-tomer · April 28 2026",
+    "bX.tco.c2.title": "The LLM Cost Paradox · unit price falls but consumption explodes",
+    "bX.tco.c2.body": "[PLACEHOLDER EN · -90% unit price 2030 but consumption +100× · agentic 5-30× tokens]",
+    "bX.tco.c2.source": "Sources · Gartner · March 25 2026 · Will Sommer · AISuperior · LLM Inference Cost · March 16 2026",
+    "bX.tco.c3.title": "The linguistic tax · +60% tokens FR vs EN on the same tasks",
+    "bX.tco.c3.body": "[PLACEHOLDER EN · Francophone organizations face structurally +60% TCO · BPE optimized for English]",
+    "bX.tco.c3.source": "Source · Roboto · April 10 2026 · LLM provider analysis",
+    "bX.tco.c4.title": "Price Reversal · 21.8% reversals, magnitude up to 28×",
+    "bX.tco.c4.body": "[PLACEHOLDER EN · listed price not a reliable proxy · Gemini 3 Flash case]",
+    "bX.tco.c4.source": "Source · Chen, Zhang, He, Stoica, Zaharia, Zou · arXiv 2603.23971 · March 25 2026",
+
+    /* ═══ SOURCES & TRACEABILITY ═════════════════════════════════════════ */
+    "bX.src.eyebrow": "Annex · Sources & traceability",
+    "bX.src.title": "The figures cited, open to <em>verification</em>.",
+    "bX.src.intro": "A dispatch is only as valuable as its figures are verifiable. Each indicator in this dispatch links below to its original publication. Primary sources fully cited, no paywall, no withholding.",
+    "bX.src.s1.label": "[PLACEHOLDER : full label source 1 + date]",
+    "bX.src.s1.cited": "Cited for the figure <strong>[PLACEHOLDER]</strong>. [PLACEHOLDER : methodology in 1 sentence].",
+    "bX.src.s2.label": "[PLACEHOLDER : source 2]",
+    "bX.src.s2.cited": "Cited for the figure <strong>[X]</strong>. [...]",
+    "bX.src.s3.label": "[PLACEHOLDER : source 3]",
+    "bX.src.s3.cited": "Cited for the figure <strong>[X]</strong>. [...]",
+    "bX.src.primary": "Primary source ↗",
+    "bX.src.note": "Note. Figures presented here are rounded. Detailed methodologies and uncertainty margins are accessible on the Methodology page.",
+
+    /* ═══ DISCLOSURE ══════════════════════════════════════════════════════ */
+    "bX.disc.tag": "Disclosure",
+    "bX.disc.body": "This Dispatch is published under <strong>CC BY 4.0</strong>. Sources are primary and accessible without paywall. The author receives no direct or indirect remuneration from the organizations cited. The full methodology is documented on the <a href=\"../methodologie.html\">Methodology</a> page."
+  }
+};
+
+initSite("briefingX");
+</script>
+</body>
+</html>

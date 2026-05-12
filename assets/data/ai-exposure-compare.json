@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0",
+  "source_primary_ch": "KOF/ETH Zurich · Klaeui & Siegenthaler · décembre 2025 · Adecco/KOF Swiss Job Market Index Q3 2025",
+  "source_primary_fr": "Coface & Observatoire des Emplois Menacés et Émergents (OEM) · mars 2026 · France Travail BMO 2025",
+  "methodology": "Comparaison directe France-Suisse sur 10 familles professionnelles communes. Les valeurs d'exposition utilisent des méthodologies nationales différentes (Suisse : transposition Felten/Eloundou sur NP 2010, échelle 0-100% ; France : scoring Coface/OEM sur 923 professions, échelle 0-30%). Les valeurs ne sont donc pas directement comparables en absolu, mais le classement relatif et la corrélation avec les variations d'offres sont eux comparables. Les variations d'offres reposent sur des sources nationales : Adecco/KOF Swiss Job Market Index Q3 2025 pour la Suisse, France Travail Enquête BMO 2025 pour la France.",
+  "license": "Données publiques KOF/ETH, Adecco, Coface, OEM, DARES, France Travail.",
+  "compiled_at": "2026-05-12",
+  "context": {
+    "fr": {
+      "title": "Comparaison directe · <em>les deux marchés réagissent à l'exposition, mais avec des intensités différentes</em>.",
+      "subtitle": "10 familles professionnelles comparables côte à côte. Pour chaque famille, l'exposition mesurée par la source nationale (Suisse : transposition KOF/Felten sur NP 2010 ; France : scoring Coface/OEM sur 923 professions) est indiquée à gauche, et la variation des offres d'emploi 2023-2025 à droite (Suisse : Adecco/KOF · France : France Travail BMO 2025). Les échelles d'exposition diffèrent par méthodologie, mais le classement relatif et la corrélation avec les offres convergent.",
+      "readline": "Lecture comparative · <strong>la Suisse résiste mieux que la France</strong> sur la plupart des familles. Santé suisse <strong>+4%</strong> vs France <strong>-3%</strong>. Industrie CH <strong>-2%</strong> vs FR <strong>-16%</strong>. Informatique CH <strong>-30%</strong> vs FR <strong>-21%</strong> (signal IA dominant dans les deux pays). L'écart s'explique en partie par la conjoncture économique française (récession industrielle, crise immobilière). Adoption IA en France <strong>47,8%</strong> (rang 5 mondial) vs Suisse <strong>37,8%</strong> (rang 14) selon Microsoft Q1 2026."
+    }
+  },
+  "families": [
+    {
+      "code": "ICT",
+      "ch_exposure": 78,
+      "ch_postings": -30,
+      "fr_exposure": 24.9,
+      "fr_postings": -21,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Informatique et numérique"
+    },
+    {
+      "code": "MARKETING_MEDIA",
+      "ch_exposure": 74,
+      "ch_postings": -22,
+      "fr_exposure": 23.8,
+      "fr_postings": -22,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Créatifs, marketing, médias"
+    },
+    {
+      "code": "OFFICE_ADMIN",
+      "ch_exposure": 72,
+      "ch_postings": -17,
+      "fr_exposure": 23.8,
+      "fr_postings": -15,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Administration et soutien"
+    },
+    {
+      "code": "FIN_INSURANCE",
+      "ch_exposure": 65,
+      "ch_postings": -10,
+      "fr_exposure": 20,
+      "fr_postings": -21,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Finance, banque, assurance"
+    },
+    {
+      "code": "SCIENCE_TECH",
+      "ch_exposure": 58,
+      "ch_postings": -5,
+      "fr_exposure": 26.9,
+      "fr_postings": -16,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Sciences, ingénierie, architecture"
+    },
+    {
+      "code": "LEGAL",
+      "ch_exposure": 62,
+      "ch_postings": -8,
+      "fr_exposure": 21.6,
+      "fr_postings": -12,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Juridique"
+    },
+    {
+      "code": "EDUCATION",
+      "ch_exposure": 52,
+      "ch_postings": -3,
+      "fr_exposure": 13,
+      "fr_postings": -3,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Enseignement et action publique"
+    },
+    {
+      "code": "MANUFACTURING",
+      "ch_exposure": 38,
+      "ch_postings": -2,
+      "fr_exposure": 15,
+      "fr_postings": -16,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Industrie manufacturière"
+    },
+    {
+      "code": "HEALTHCARE",
+      "ch_exposure": 32,
+      "ch_postings": 4,
+      "fr_exposure": 10,
+      "fr_postings": -3,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Santé et soins"
+    },
+    {
+      "code": "CONSTRUCTION",
+      "ch_exposure": 18,
+      "ch_postings": 6,
+      "fr_exposure": 8,
+      "fr_postings": -22,
+      "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
+      "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
+      "label": "Construction et BTP"
+    }
+  ]
+}

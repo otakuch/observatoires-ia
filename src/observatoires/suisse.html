@@ -78,6 +78,29 @@
   </div>
 </section>
 
+
+<!-- AI EXPOSURE GAP · Anthropic Economic Index · théorique vs observée -->
+<section class="expgap-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="ch.expgap.eyebrow"></div>
+    <h2 class="section-title" data-i18n="ch.expgap.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="ch.expgap.sub"></p>
+  </div>
+
+  <div class="expgap-chart-wrap">
+    <div id="expgapChart" class="expgap-chart"></div>
+    <div class="expgap-legend mono">
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-theoretical"></span><span data-i18n="ch.expgap.legend.theoretical"></span></span>
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-observed"></span><span data-i18n="ch.expgap.legend.observed"></span></span>
+    </div>
+  </div>
+
+  <div class="expgap-summary">
+    <p class="expgap-readline" data-i18n="ch.expgap.readline" data-i18n-html="true"></p>
+    <p class="expgap-source mono" data-i18n="ch.expgap.source"></p>
+  </div>
+</section>
+
 <!-- INTERNATIONAL CONTEXT · Focaldata + Yale Budget Lab -->
 <section class="context-block">
   <div class="context-grid">
@@ -312,6 +335,7 @@
 
 <footer id="siteFooter"></footer>
 
+<script type="application/json" id="swissExpData">{"families":[{"code":"ICT","label":"Informatique et développement logiciel","ai_exposure":78,"job_posting_change_pct":-30},{"code":"OFFICE_ADMIN","label":"Bureau et administration","ai_exposure":72,"job_posting_change_pct":-17},{"code":"MARKETING_MEDIA","label":"Marketing, communication et médias","ai_exposure":74,"job_posting_change_pct":-22},{"code":"FIN_INSURANCE","label":"Finance, banque et assurance","ai_exposure":65,"job_posting_change_pct":-10},{"code":"LEGAL","label":"Juridique","ai_exposure":62,"job_posting_change_pct":-8},{"code":"SCIENCE_TECH","label":"Sciences, ingénierie et techniques","ai_exposure":58,"job_posting_change_pct":-5},{"code":"COMMERCIAL_SERVICES","label":"Agents de services commerciaux","ai_exposure":45,"job_posting_change_pct":8},{"code":"EDUCATION","label":"Enseignement et formation","ai_exposure":52,"job_posting_change_pct":-3},{"code":"HEALTHCARE","label":"Santé et soins","ai_exposure":32,"job_posting_change_pct":4},{"code":"MANUFACTURING","label":"Industrie manufacturière","ai_exposure":38,"job_posting_change_pct":-2},{"code":"CONSTRUCTION","label":"Construction et BTP","ai_exposure":18,"job_posting_change_pct":6},{"code":"PERSONAL_CARE","label":"Services à la personne et aide","ai_exposure":22,"job_posting_change_pct":3}]}</script>
 <script src="../assets/components.js"></script>
 <script>
 window.PAGE_I18N = {
@@ -408,6 +432,15 @@ window.PAGE_I18N = {
     "ch.kf3.num": "Système dual",
     "ch.kf3": "Voie académique + voie professionnelle",
     "ch.context.text": "<p>La Suisse n'a pas d'État central au sens français du terme. Trois niveaux de gouvernement coexistent : la Confédération, vingt-six cantons souverains et près de deux mille communes. Chacun produit ses propres données, ses propres normes, ses propres temporalités. Comprendre l'impact de l'IA sur le travail suisse implique donc de naviguer entre l'Office fédéral de la statistique, qui agrège au sommet, et les services cantonaux de l'emploi, qui observent au plus près du terrain.</p><p>À cette architecture politique s'ajoute une réalité linguistique. <strong>Quatre langues nationales</strong> structurent la production statistique : l'allemand domine quantitativement, le français anime le débat romand, l'italien couvre le Tessin, le romanche persiste dans quelques vallées grisonnes. Les sources alémaniques (KOF Konjunkturforschungsstelle, BAK Economics) circulent peu en Suisse romande et inversement. Cette cartographie reconnaît ce biais et travaille à le corriger version après version.</p><p>Le système de formation suisse repose enfin sur la coexistence d'une voie académique et d'une voie professionnelle duale. Le SEFRI pilote au niveau fédéral les certifications professionnelles, dont les filières IA émergentes. Cette particularité façonne la manière dont la reconversion s'organise : <em>moins par diplômes universitaires que par brevets fédéraux et certifications continues</em>. Sur le plan réglementaire, la Suisse n'a pas adopté de loi spécifique à l'IA en 2026 et privilégie l'adaptation sectorielle des cadres existants.</p>",
+
+    "ch.expgap.eyebrow": "KOF/ETH · Klaeui & Siegenthaler · adoption Microsoft Diffusion · Adecco/PwC",
+    "ch.expgap.title": "Effet documenté de l'IA sur le marché du travail suisse · <em>l'exposition coïncide avec la contraction des offres</em>.",
+    "ch.expgap.sub": "Le KOF de l'ETH Zurich (Klaeui & Siegenthaler, décembre 2025) documente pour la première fois que depuis fin 2022, le chômage progresse jusqu'à 30% plus vite dans les professions hautement exposées à l'IA que dans les métiers peu concernés. Au maximum, un cinquième de la hausse du chômage est attribuable à l'IA. Le graphique croise l'exposition IA estimée par grande famille NP 2010 avec la variation des offres d'emploi en Suisse entre 2023 et 2025 (Adecco/KOF Swiss Job Market Index Q3 2025, étude Adecco bureau et administration octobre 2025).",
+    "ch.expgap.legend.theoretical": "Exposition IA (NP 2010)",
+    "ch.expgap.legend.observed": "Variation des offres 2023-2025",
+    "ch.expgap.readline": "<strong>Lecture pour la Suisse</strong> · adoption IA en Suisse à <strong>37,8% Q1 2026</strong> (Microsoft, rang 14 mondial) et <strong>47%</strong> des 16-74 ans (OFS, 3e rang européen). Bureau et administration <strong>-17,4%</strong>/an d'offres, informatique <strong>-30%</strong> en un an, marketing et journalisme sévèrement touchés (KOF). À l'inverse, les <strong>agents de services commerciaux</strong> (courtage, immobilier) progressent malgré une exposition modérée. Santé, soins, construction et services à la personne résistent.",
+    "ch.expgap.source": "Sources · KOF/ETH Klaeui & Siegenthaler décembre 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS Enquête utilisation Internet 2025 · Microsoft AI Diffusion Q1 2026",
+  
   },
   en: {
     "ch.flag": "",
@@ -502,6 +535,15 @@ window.PAGE_I18N = {
     "ch.kf3.num": "Dual system",
     "ch.kf3": "Academic + vocational tracks",
     "ch.context.text": "<p>Switzerland has no central state in the French sense of the term. Three levels of government coexist: the Confederation, twenty-six sovereign cantons, and nearly two thousand municipalities. Each produces its own data, its own rules, its own timelines. Understanding AI's impact on Swiss work therefore means navigating between the Federal Statistical Office, which aggregates at the top, and the cantonal employment services, which observe closest to the ground.</p><p>On top of this political architecture sits a linguistic reality. <strong>Four national languages</strong> structure statistical production: German dominates quantitatively, French animates the western Swiss debate, Italian covers Ticino, Romansh persists in a few Grison valleys. German-speaking sources (KOF Konjunkturforschungsstelle, BAK Economics) circulate little in French-speaking Switzerland and vice versa. This cartography acknowledges that bias and works to correct it, version after version.</p><p>The Swiss training system finally rests on the coexistence of an academic track and a dual vocational one. SERI steers federal-level professional certifications, including emerging AI tracks. This particularity shapes how reskilling organises itself: <em>less through university degrees than through federal certificates and continuing education credentials</em>. On the regulatory side, Switzerland has not adopted AI-specific legislation in 2026 and favours sectoral adaptation of existing frameworks.</p>",
+
+    "ch.expgap.eyebrow": "KOF/ETH · Klaeui & Siegenthaler · Microsoft Diffusion adoption · Adecco/PwC",
+    "ch.expgap.title": "Documented AI effect on the Swiss labour market · <em>exposure coincides with job posting contraction</em>.",
+    "ch.expgap.sub": "KOF at ETH Zurich (Klaeui & Siegenthaler, December 2025) documents for the first time that since late 2022, unemployment grows up to 30% faster in occupations highly exposed to AI than in less-affected jobs. At most, one fifth of the increase in unemployment is attributable to AI. The chart pairs estimated AI exposure by NP 2010 family with variation in Swiss job postings between 2023 and 2025 (Adecco/KOF Swiss Job Market Index Q3 2025, Adecco office and admin study October 2025).",
+    "ch.expgap.legend.theoretical": "AI Exposure (NP 2010)",
+    "ch.expgap.legend.observed": "Job postings change 2023-2025",
+    "ch.expgap.readline": "<strong>Reading for Switzerland</strong> · AI adoption in Switzerland at <strong>37.8% Q1 2026</strong> (Microsoft, rank 14 worldwide) and <strong>47%</strong> of 16-74 year-olds (OFS, 3rd European rank). Office and administration <strong>-17.4%</strong>/year of postings, IT <strong>-30%</strong> in one year, marketing and journalism severely affected (KOF). Conversely, <strong>commercial services agents</strong> (brokerage, real estate) grow despite moderate exposure. Health, care, construction and personal services resist.",
+    "ch.expgap.source": "Sources · KOF/ETH Klaeui & Siegenthaler December 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS Internet usage survey 2025 · Microsoft AI Diffusion Q1 2026",
+  
   }
 };
 
@@ -667,6 +709,123 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
+// ───────── AI EXPOSURE GAP CHART (Anthropic Economic Index Fig 2) ─────────
+function renderSwissExposureChart(containerId, options) {
+  options = options || {};
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const colorExposure = options.colorExposure || "#B7C5C7";
+  const colorPositive = options.colorPositive || "#1F3A3D";
+  const colorNegative = options.colorNegative || "#D03C2F";
+  const dataUrl = options.dataUrl || "../assets/data/ai-exposure-switzerland.json";
+
+  var inlineEl = document.getElementById("swissExpData");
+  var initialData = null;
+  if (inlineEl) {
+    try { initialData = JSON.parse(inlineEl.textContent); } catch(e) { initialData = null; }
+  }
+  function drawSwiss(data) {
+      // Sort families by AI exposure descending for clearer reading
+      const families = data.families.slice().sort(function(a, b) { return b.ai_exposure - a.ai_exposure; });
+
+      // SVG dimensions
+      const w = 920;
+      const rowH = 34;
+      const m = { top: 24, right: 60, bottom: 64, left: 250 };
+      const innerH = families.length * rowH;
+      const h = m.top + innerH + m.bottom;
+
+      // Split into 2 panels: exposure (0-100%) on left, posting change (-30 to +10) on right
+      // Layout:
+      // | label | exposure bar (light, 0-100%) | postings bar (positive teal / negative red, centered on zero) |
+      const expW = 360;
+      const expScale = function(v) { return m.left + (v / 100) * expW; };
+
+      const postX = m.left + expW + 40;
+      const postW = 230;
+      const postMin = -30, postMax = 10;
+      const postRange = postMax - postMin;
+      const postZero = postX + ((-postMin) / postRange) * postW;
+      const postScale = function(v) { return postX + ((v - postMin) / postRange) * postW; };
+
+      let svg = '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Swiss AI exposure chart">';
+
+      // Panel headers
+      svg += '<text x="' + (m.left + expW / 2) + '" y="' + (m.top - 6) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">EXPOSITION IA</text>';
+      svg += '<text x="' + (postX + postW / 2) + '" y="' + (m.top - 6) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">OFFRES EMPLOI 2023-2025</text>';
+
+      // Exposure axis gridlines + labels at 0, 25, 50, 75, 100
+      [0, 25, 50, 75, 100].forEach(function(v) {
+        const x = expScale(v);
+        svg += '<line x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + innerH) + '" stroke="#11110F" stroke-opacity="0.06" stroke-width="1"/>';
+        svg += '<text x="' + x + '" y="' + (m.top + innerH + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#11110F" fill-opacity="0.55">' + v + '%</text>';
+      });
+
+      // Posting change axis gridlines at -30, -20, -10, 0, +10
+      [-30, -20, -10, 0, 10].forEach(function(v) {
+        const x = postScale(v);
+        const isZero = (v === 0);
+        svg += '<line x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + innerH) + '" stroke="#11110F" stroke-opacity="' + (isZero ? "0.35" : "0.06") + '" stroke-width="' + (isZero ? "1.2" : "1") + '"' + (isZero ? "" : "") + '/>';
+        const label = (v > 0 ? "+" : "") + v + "%";
+        svg += '<text x="' + x + '" y="' + (m.top + innerH + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#11110F" fill-opacity="0.55">' + label + '</text>';
+      });
+
+      // Draw each row
+      families.forEach(function(f, i) {
+        const y = m.top + i * rowH + 6;
+        const barH = 14;
+        const label = f.label;
+
+        // Row label (left)
+        svg += '<text x="' + (m.left - 14) + '" y="' + (y + barH - 2) + '" text-anchor="end" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="500" fill="#11110F">' + label + '</text>';
+
+        // Exposure bar (light)
+        const expWidth = expScale(f.ai_exposure) - m.left;
+        svg += '<rect x="' + m.left + '" y="' + y + '" width="' + expWidth + '" height="' + barH + '" fill="' + colorExposure + '"/>';
+        svg += '<text x="' + (expScale(f.ai_exposure) + 6) + '" y="' + (y + barH - 3) + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">' + f.ai_exposure + '%</text>';
+
+        // Posting change bar (positive teal, negative red)
+        const v = f.job_posting_change_pct;
+        const fillColor = v >= 0 ? colorPositive : colorNegative;
+        let rectX, rectW;
+        if (v >= 0) {
+          rectX = postZero;
+          rectW = postScale(v) - postZero;
+        } else {
+          rectX = postScale(v);
+          rectW = postZero - postScale(v);
+        }
+        svg += '<rect x="' + rectX + '" y="' + y + '" width="' + Math.max(rectW, 1) + '" height="' + barH + '" fill="' + fillColor + '"/>';
+        // Value label
+        const sign = v > 0 ? "+" : "";
+        const labelX = v >= 0 ? (postScale(v) + 6) : (postScale(v) - 6);
+        const labelAnchor = v >= 0 ? "start" : "end";
+        svg += '<text x="' + labelX + '" y="' + (y + barH - 3) + '" text-anchor="' + labelAnchor + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="' + fillColor + '">' + sign + v + '%</text>';
+      });
+
+      svg += '</svg>';
+      el.innerHTML = svg;
+  }
+
+  // First draw with inline data if available
+  if (initialData) {
+    drawSwiss(initialData);
+  }
+  // Then try fetch to override (silent fail)
+  fetch(dataUrl)
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var ct = r.headers.get("content-type") || "";
+      if (ct.indexOf("application/json") === -1 && ct.indexOf("text/json") === -1) throw new Error("Not JSON content-type");
+      return r.json();
+    })
+    .then(function(data) { drawSwiss(data); })
+    .catch(function() { /* silent: inline fallback already used */ });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() { renderSwissExposureChart("expgapChart", { colorExposure: "#B7C5C7", colorPositive: "#1F3A3D", colorNegative: "#D03C2F", dataUrl: "../assets/data/ai-exposure-switzerland.json" }); });
 initSite("suisse");
 loadData();
 </script>

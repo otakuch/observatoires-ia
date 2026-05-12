@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0",
+  "source": "Microsoft AI Economy Institute · Global AI Diffusion Reports H1 2025, H2 2025, Q1 2026",
+  "source_urls": [
+    "https://www.microsoft.com/en-us/corporate-responsibility/topics/ai-economy-institute/reports/global-ai-adoption-2025/",
+    "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf",
+    "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Microsoft-AI-Diffusion-Report-2026-Q1.pdf"
+  ],
+  "methodology": "Part de la population des 15-64 ans ayant utilisé un produit IA générative pendant la période. Télémétrie Microsoft agrégée et anonymisée, ajustée pour part de marché OS/appareils, pénétration internet et population (arXiv 2511.02781).",
+  "license": "Public reporting Microsoft AI Economy Institute. Visualization derived from publicly released figures.",
+  "compiled_at": "2026-05-12",
+  "periods": [
+    {"label": "H1 2025", "short": "H1 25"},
+    {"label": "H2 2025", "short": "H2 25"},
+    {"label": "Q1 2026", "short": "Q1 26"}
+  ],
+  "countries": [
+    {
+      "code": "FR",
+      "name": {"fr": "France", "en": "France"},
+      "values": [40.9, 44.0, 47.8],
+      "rank_q1_2026": 5,
+      "color": "#1F3A3D"
+    },
+    {
+      "code": "CH",
+      "name": {"fr": "Suisse", "en": "Switzerland"},
+      "values": [32.4, 34.8, 37.8],
+      "rank_q1_2026": 14,
+      "color": "#D03C2F"
+    },
+    {
+      "code": "WORLD",
+      "name": {"fr": "Monde", "en": "World"},
+      "values": [15.1, 16.3, 17.8],
+      "rank_q1_2026": null,
+      "color": "#11110F",
+      "style": "dashed"
+    }
+  ],
+  "context": {
+    "fr": {
+      "headline": "La France progresse plus vite que la Suisse · les deux restent largement au-dessus de la moyenne mondiale",
+      "summary": "Sur trois semestres consécutifs (H1 2025 → Q1 2026), l'adoption IA en France passe de 40,9% à 47,8% (+6,9 points, +16,9% relatif). La Suisse passe de 32,4% à 37,8% (+5,4 points, +16,7% relatif). La moyenne mondiale gagne 2,7 points (de 15,1% à 17,8%). La France est désormais 5e mondiale, la Suisse 14e. Les deux pays sont au-dessus de la moyenne du Nord global (27,5%) et largement au-dessus du Sud global (15,4%)."
+    },
+    "en": {
+      "headline": "France progresses faster than Switzerland · both stay well above the global average",
+      "summary": "Over three consecutive periods (H1 2025 → Q1 2026), AI adoption in France grew from 40.9% to 47.8% (+6.9 points, +16.9% relative). Switzerland went from 32.4% to 37.8% (+5.4 points, +16.7% relative). Global average gained 2.7 points (from 15.1% to 17.8%). France is now 5th worldwide, Switzerland 14th. Both countries are above the Global North average (27.5%) and well above the Global South (15.4%)."
+    }
+  }
+}

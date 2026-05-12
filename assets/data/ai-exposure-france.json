@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0",
+  "source_primary": "Coface & Observatoire des Emplois Menacés et Émergents (OEM) · Emplois, compétences, valeur : ce que l'IA est en train de bouleverser · mars 2026",
+  "source_secondary": [
+    "DARES · Les tensions sur le marché du travail en 2024 · publié 2026",
+    "France Travail · Enquête Besoins en Main-d'Œuvre 2025 · BMO 2025",
+    "PwC France · AI Jobs Barometer 2025 · 166 000 offres IA en France, 1ère Europe",
+    "INSEE Première n°2061 · Les TIC dans les entreprises en 2024 · juillet 2025",
+    "France Travail · L'IA et les métiers de demain · 2025",
+    "Microsoft AI Diffusion Report Q1 2026 (France 47,8% rang 5)"
+  ],
+  "source_urls": [
+    "https://www.coface.fr/actualites-economie-conseils/emplois-competences-valeur-ce-que-l-ia-est-en-train-de-bouleverser",
+    "https://dares.travail-emploi.gouv.fr/publication/les-tensions-sur-le-marche-du-travail-en-2024",
+    "https://www.insee.fr/fr/statistiques/8604126"
+  ],
+  "methodology": "L'étude Coface/OEM mars 2026 décompose 923 professions françaises en tâches élémentaires, applique un score d'automatisation à chacune, puis remonte vers une probabilité d'exposition par métier et par secteur. Cible analytique : 3,8% des emplois fragilisés en 2026 (palier actuel), 16,3% à horizon 2026-2029 (5 millions de postes), 13% des métiers (120/923) avec plus de 30% des tâches automatisables. Les valeurs d'exposition utilisées ici sont les pourcentages d'emplois exposés par grande famille FAP. Les variations d'offres d'emploi proviennent de France Travail BMO 2025 (projets de recrutement par secteur 2024-2025) et de l'évolution des tensions DARES sur l'informatique (passage du niveau 5 au niveau 4 sur l'échelle de tension, plus forte baisse tous domaines en 2024).",
+  "license": "Données publiques Coface, DARES, France Travail, INSEE. Transposition FAP par l'observatoire.",
+  "compiled_at": "2026-05-12",
+  "context": {
+    "fr": {
+      "title": "Effet documenté de l'IA sur le marché du travail français · <em>l'exposition coïncide avec la contraction des offres</em>.",
+      "subtitle": "L'étude Coface et Observatoire des Emplois Menacés et Émergents (OEM) publiée en mars 2026 documente une cartographie inédite de l'exposition à l'IA en France, profession par profession. 3,8% des emplois sont actuellement fragilisés, 16,3% pourraient l'être à horizon 2026-2029, soit près de 5 millions de postes. Le graphique croise l'exposition Coface par famille avec la variation des projets de recrutement (France Travail BMO 2025) et l'évolution des tensions DARES 2024.",
+      "readline": "Lecture pour la France · adoption IA en France à 47,8% Q1 2026 (Microsoft, rang 5 mondial). Inversion historique : les emplois qualifiés et à hauts revenus sont en première ligne (cols blancs). Architecture/ingénierie 26,9% emplois exposés, informatique 24,9%, administratif 23,8%, juridique 21,6%, créatifs 23,8% (Coface). Information-communication -21,5% projets de recrutement 2024-2025 (BMO), informatique sortie de la tension très forte pour la première fois depuis 2016 (DARES). À l'inverse, santé, BTP, hôtellerie-restauration résistent.",
+      "metrics_caption": "Adoption IA en France · 47,8% Q1 2026 (Microsoft, rang 5 mondial) · 166 000 offres d'emploi IA en 2024, 1ère en Europe (PwC) · 42% des entreprises information-communication utilisent l'IA, 17% sciences-techniques (INSEE 2024)."
+    }
+  },
+  "families": [
+    {
+      "code": "ARCH_ENG",
+      "ai_exposure": 26.9,
+      "job_posting_change_pct": -16,
+      "fap_mapping": "H1 (études et conception) + F1 (études BTP)",
+      "evidence_note": "Coface mars 2026 · 26,9% emplois exposés (pointes 31%) · cible centrale de l'IA agentique sur le raisonnement technique · industrie BMO 2025 -16,5% projets",
+      "label": "Architecture et ingénierie"
+    },
+    {
+      "code": "ICT",
+      "ai_exposure": 24.9,
+      "job_posting_change_pct": -21,
+      "fap_mapping": "M18 (systèmes d'information et numérique)",
+      "evidence_note": "Coface · 24,9% emplois exposés · DARES 2024 · informatique sortie de la tension très forte pour la première fois depuis 2016, plus forte baisse tous domaines · BMO 2025 · information-communication -21,5% projets",
+      "label": "Informatique et mathématiques"
+    },
+    {
+      "code": "ADMIN",
+      "ai_exposure": 23.8,
+      "job_posting_change_pct": -15,
+      "fap_mapping": "M15 (logistique) + M16 (comptabilité) + M17 (relations clients)",
+      "evidence_note": "Coface · 23,8% emplois exposés · BMO 2025 · services aux entreprises -15,2% projets · automatisation des tâches administratives par IA générative",
+      "label": "Administration et soutien"
+    },
+    {
+      "code": "CREATIVE",
+      "ai_exposure": 23.8,
+      "job_posting_change_pct": -22,
+      "fap_mapping": "E (communication, média) + L (arts et façonnage)",
+      "evidence_note": "Coface · 23,8% emplois exposés · graphistes indépendants et traducteurs vivent déjà la désintégration partielle de leur activité (étude Coface citée par Le Monde et JdG)",
+      "label": "Métiers créatifs, design, médias"
+    },
+    {
+      "code": "LEGAL",
+      "ai_exposure": 21.6,
+      "job_posting_change_pct": -12,
+      "fap_mapping": "K (services à la collectivité, professions juridiques)",
+      "evidence_note": "Coface · 21,6% emplois exposés · l'IA oblige déjà les cabinets à repenser la formation des jeunes recrues (Le Monde mars 2026) · automatisation des recherches documentaires",
+      "label": "Juridique"
+    },
+    {
+      "code": "FINANCE",
+      "ai_exposure": 20,
+      "job_posting_change_pct": -21,
+      "fap_mapping": "C (banque, assurance, immobilier)",
+      "evidence_note": "Coface · 20%+ emplois à haut revenu exposés · BMO 2025 · activités financières et d'assurance -21,1% projets · Harvard 2026 · IA reproduit 71% des décisions de trading",
+      "label": "Finance, banque et assurance"
+    },
+    {
+      "code": "INDUSTRY",
+      "ai_exposure": 15,
+      "job_posting_change_pct": -16,
+      "fap_mapping": "B + C industrie manufacturière + énergie",
+      "evidence_note": "BMO 2025 · industrie -16,5% projets · automatisation lignes de production + maintenance prédictive · exposition modérée car tâches physiques nombreuses",
+      "label": "Industrie manufacturière"
+    },
+    {
+      "code": "COMMERCE",
+      "ai_exposure": 14,
+      "job_posting_change_pct": -13,
+      "fap_mapping": "D (commerce, vente et grande distribution)",
+      "evidence_note": "BMO 2025 · commerce -13% projets · exposition limitée pour la vente en magasin · forte exposition pour la vente à distance (chatbots IA niveau 1)",
+      "label": "Commerce et vente"
+    },
+    {
+      "code": "EDUCATION",
+      "ai_exposure": 13,
+      "job_posting_change_pct": -3,
+      "fap_mapping": "K2 (enseignement et formation)",
+      "evidence_note": "BMO 2025 · administration publique et enseignement -3,5% projets · faible recul · transformation lente du métier · adoption massive chez les étudiants (4/5 utilisent l'IA générative)",
+      "label": "Enseignement et administration publique"
+    },
+    {
+      "code": "HEALTHCARE",
+      "ai_exposure": 10,
+      "job_posting_change_pct": -3,
+      "fap_mapping": "J (santé) + V (services aux particuliers et collectivités)",
+      "evidence_note": "BMO 2025 · santé-action sociale -3,5% projets, faible recul · DARES top tension · infirmiers, aides-soignants pénuriques · activités relationnelles protégées",
+      "label": "Santé et action sociale"
+    },
+    {
+      "code": "CONSTRUCTION",
+      "ai_exposure": 8,
+      "job_posting_change_pct": -22,
+      "fap_mapping": "F (BTP)",
+      "evidence_note": "BMO 2025 · construction -22% projets (effet conjoncture immobilière, pas IA) · faible exposition IA · activités physiques et terrain · tension structurelle persistante",
+      "label": "Construction et BTP"
+    },
+    {
+      "code": "HOSPITALITY",
+      "ai_exposure": 6,
+      "job_posting_change_pct": -13,
+      "fap_mapping": "S (hôtellerie, restauration, alimentation)",
+      "evidence_note": "BMO 2025 · hôtellerie-restauration -12,6% projets · faible exposition IA · sanctuaire de l'humain selon Dynamique Mag mars 2026 · interaction physique et empathie immédiate",
+      "label": "Hôtellerie, restauration, tourisme"
+    }
+  ]
+}

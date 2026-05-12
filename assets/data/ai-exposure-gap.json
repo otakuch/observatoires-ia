@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0",
+  "source_primary": "Anthropic Economic Index · Massenkoff M. & McCrory P. · Labor market impacts of AI: A new measure and early evidence · 5 mars 2026",
+  "source_urls": [
+    "https://www.anthropic.com/research/labor-market-impacts",
+    "https://cdn.sanity.io/files/4zrzovbb/website/2b5bbaf2c1eb81dbf6e6fb813c1a24e35a64d376.pdf"
+  ],
+  "methodology": "Comparaison de l'exposition THÉORIQUE des tâches d'une famille professionnelle aux LLM (Eloundou et al. 2023, β sur tâches O*NET) et de l'exposition OBSERVÉE dérivée des conversations Claude réelles dans des contextes professionnels (Anthropic Economic Index, datasets août et novembre 2025). Les tâches sont agrégées au niveau occupation puis pondérées par emploi total au niveau famille SOC US.",
+  "license": "Données publiques Anthropic Economic Index. Transposition FR/CH par l'observatoire selon mapping SOC → ROME (France) et SOC → NP 2010 (Suisse) avec ajustement par parts d'emploi nationales.",
+  "compiled_at": "2026-05-12",
+  "context": {
+    "fr": {
+      "title": "L'écart entre ce que l'IA <em>pourrait faire</em> et ce qu'elle <em>fait vraiment</em>.",
+      "subtitle": "L'exposition théorique mesure la part des tâches d'une famille professionnelle qu'un LLM pourrait techniquement accélérer (Eloundou et al. 2023, métrique β sur O*NET). L'exposition observée mesure ce qui est effectivement automatisé dans les conversations professionnelles réelles (Anthropic Economic Index, agrégat août-novembre 2025). L'écart signale la marge d'adoption qui reste à parcourir, et donc la vitesse à laquelle un risque potentiel peut devenir un risque réel.",
+      "readline": "Lecture · plus la barre claire dépasse la barre foncée, plus la famille professionnelle est en zone de risque latent · l'IA peut déjà faire beaucoup, elle ne le fait pas encore, mais la marge se réduira."
+    },
+    "en": {
+      "title": "The gap between what AI <em>could do</em> and what it <em>actually does</em>.",
+      "subtitle": "Theoretical exposure measures the share of a professional family's tasks that an LLM could technically accelerate (Eloundou et al. 2023, β metric on O*NET). Observed exposure measures what is effectively automated in real professional conversations (Anthropic Economic Index, aggregate August-November 2025). The gap signals the adoption margin still ahead, and therefore the speed at which a potential risk can become a real risk.",
+      "readline": "Reading · the more the light bar exceeds the dark bar, the more the professional family is in a zone of latent risk · AI can already do a lot, it doesn't yet, but the margin will narrow."
+    }
+  },
+  "families": [
+    {
+      "code": "COMP_MATH",
+      "label_fr": "Informatique et mathématiques",
+      "label_en": "Computer and Mathematical",
+      "theoretical": 94.3,
+      "observed": 35.8,
+      "fr_rome_mapping": "M18 (systèmes d'information et numérique)",
+      "ch_np2010_mapping": "Groupe 25 (spécialistes en TIC)"
+    },
+    {
+      "code": "BUS_FIN",
+      "label_fr": "Affaires et finance",
+      "label_en": "Business and Financial Ops",
+      "theoretical": 94.3,
+      "observed": 28.4,
+      "fr_rome_mapping": "C (banque, assurance, immobilier) + M16 (comptabilité, gestion)",
+      "ch_np2010_mapping": "Groupe 24 (spécialistes administration et commerce) + 33 (employés finance)"
+    },
+    {
+      "code": "MGMT",
+      "label_fr": "Management",
+      "label_en": "Management",
+      "theoretical": 91.3,
+      "observed": 14.0,
+      "fr_rome_mapping": "M13 (direction d'entreprise) + M14 (direction de pôle)",
+      "ch_np2010_mapping": "Groupe 11-14 (dirigeants et cadres supérieurs)"
+    },
+    {
+      "code": "OFFICE_ADMIN",
+      "label_fr": "Administration et support",
+      "label_en": "Office and Admin Support",
+      "theoretical": 90.0,
+      "observed": 34.3,
+      "fr_rome_mapping": "M15 (logistique) + M16 (comptabilité) + M17 (relations clients)",
+      "ch_np2010_mapping": "Groupe 41-44 (employés de bureau)"
+    },
+    {
+      "code": "LEGAL",
+      "label_fr": "Juridique",
+      "label_en": "Legal",
+      "theoretical": 89.0,
+      "observed": 20.4,
+      "fr_rome_mapping": "K (services à la collectivité, professions juridiques)",
+      "ch_np2010_mapping": "Groupe 261 (spécialistes du droit)"
+    },
+    {
+      "code": "ARCH_ENG",
+      "label_fr": "Architecture et ingénierie",
+      "label_en": "Architecture and Engineering",
+      "theoretical": 84.8,
+      "observed": 18.0,
+      "fr_rome_mapping": "H1 (études et conception) + F1 (études du BTP)",
+      "ch_np2010_mapping": "Groupe 21 (architectes, ingénieurs)"
+    },
+    {
+      "code": "ARTS_MEDIA",
+      "label_fr": "Arts, design et médias",
+      "label_en": "Arts, Design and Media",
+      "theoretical": 83.7,
+      "observed": 19.2,
+      "fr_rome_mapping": "L (arts et façonnage d'ouvrages d'art) + E (communication, média)",
+      "ch_np2010_mapping": "Groupe 26 (spécialistes des arts et de la création) + 264 (journalistes)"
+    },
+    {
+      "code": "LIFE_SCI",
+      "label_fr": "Sciences et recherche",
+      "label_en": "Life and Social Sciences",
+      "theoretical": 77.0,
+      "observed": 28.0,
+      "fr_rome_mapping": "K1 (services de l'enseignement supérieur) + recherche en sciences",
+      "ch_np2010_mapping": "Groupe 21 (spécialistes des sciences) + 23 (spécialistes de l'enseignement)"
+    },
+    {
+      "code": "SALES",
+      "label_fr": "Vente",
+      "label_en": "Sales",
+      "theoretical": 62.0,
+      "observed": 26.9,
+      "fr_rome_mapping": "D (commerce, vente et grande distribution)",
+      "ch_np2010_mapping": "Groupe 52 (vendeurs et démonstrateurs)"
+    },
+    {
+      "code": "EDU",
+      "label_fr": "Enseignement",
+      "label_en": "Education and Library",
+      "theoretical": 61.7,
+      "observed": 18.2,
+      "fr_rome_mapping": "K2 (enseignement et formation)",
+      "ch_np2010_mapping": "Groupe 23 (spécialistes de l'enseignement)"
+    },
+    {
+      "code": "HEALTH",
+      "label_fr": "Soignants et santé",
+      "label_en": "Healthcare Practitioners",
+      "theoretical": 59.9,
+      "observed": 6.0,
+      "fr_rome_mapping": "J (santé)",
+      "ch_np2010_mapping": "Groupe 22 (spécialistes de la santé) + 32 (techniciens médecine et santé)"
+    },
+    {
+      "code": "FARM",
+      "label_fr": "Agriculture et pêche",
+      "label_en": "Farming, Fishing, Forestry",
+      "theoretical": 22.0,
+      "observed": 2.0,
+      "fr_rome_mapping": "A (agriculture et pêche, espaces naturels)",
+      "ch_np2010_mapping": "Groupe 6 (agriculteurs) + 92 (manoeuvres agriculture)"
+    }
+  ]
+}

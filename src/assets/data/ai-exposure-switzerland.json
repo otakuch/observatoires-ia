@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0",
+  "source_primary": "KOF/ETH Zurich · Klaeui J. & Siegenthaler M. · LLM exposure and Swiss labour market · décembre 2025",
+  "source_secondary": [
+    "Adecco Group Switzerland + KOF Swiss Job Market Index · Q3 2025",
+    "PwC Suisse · AI Jobs Barometer 2025 · juin 2025",
+    "OFS · Enquête utilisation Internet ménages · publiée avril 2026",
+    "Microsoft AI Diffusion Report Q1 2026 (Suisse 37,8% rang 14)",
+    "KOF Innovation Survey 2024 · adoption IA par taille d'entreprise"
+  ],
+  "source_urls": [
+    "https://kof.ethz.ch/en/publications/kof-insights/articles/2025/12/i-expect-ai-to-make-us-all-richer.html",
+    "https://www.letemps.ch/economie/les-entreprises-freinent-les-embauches-dans-un-contexte-incertain",
+    "https://www.pwc.ch/fr/centre-de-presse/AI_Jobs_Barometer_2025.html"
+  ],
+  "methodology": "Indicateur d'exposition IA par grande famille professionnelle suisse (transposition de la nomenclature NP 2010 de l'OFS), associé à la variation des offres d'emploi 2023-2025 telle que documentée par l'indice Adecco/KOF Swiss Job Market Index et l'étude KOF Klaeui & Siegenthaler. Les valeurs d'exposition représentent la part des tâches de la famille jugées hautement exposées à l'IA générative selon le cadre Felten et al. ajusté à la structure suisse. Les variations d'offres sont rapportées en moyenne annuelle 2023-2025 (Adecco Q3 2025). Lecture : plus l'exposition est élevée ET plus la variation est négative, plus la pression IA est documentée.",
+  "license": "Données publiques KOF/ETH, Adecco, PwC Suisse, OFS. Transposition NP 2010 par l'observatoire.",
+  "compiled_at": "2026-05-12",
+  "context": {
+    "fr": {
+      "title": "Effet documenté de l'IA sur le marché du travail suisse · <em>l'exposition coïncide avec la contraction des offres</em>.",
+      "subtitle": "Le KOF de l'ETH Zurich (Klaeui & Siegenthaler, décembre 2025) documente pour la première fois que depuis fin 2022, le chômage progresse jusqu'à 30% plus vite dans les professions hautement exposées à l'IA que dans les métiers peu concernés. Au maximum, un cinquième de la hausse du chômage est attribuable à l'IA. Le graphique croise l'exposition IA estimée (référentiel NP 2010 transposé depuis Felten et al.) avec la variation des offres d'emploi suisses 2023-2025 (Adecco/KOF Swiss Job Market Index Q3 2025, étude Adecco bureau et administration octobre 2025).",
+      "readline": "Lecture · les familles avec exposition IA élevée présentent les contractions les plus fortes d'offres d'emploi en Suisse (bureau/admin -17,4%/an, informatique -30%+ en un an). Les familles à fort contenu relationnel ou physique résistent (santé, soins, métiers du bâtiment). Les agents de services commerciaux sont une exception : exposition modérée et progression des offres entre 2023 et 2025.",
+      "metrics_caption": "Adoption IA en Suisse · 37,8% Q1 2026 (Microsoft, rang 14 mondial) · 47% des 16-74 ans utilisent l'IA générative (OFS, 3e rang européen) · 33% des grandes entreprises CH, 8% des PME (KOF Innovation Survey)."
+    }
+  },
+  "families": [
+    {
+      "code": "ICT",
+      "ai_exposure": 78,
+      "job_posting_change_pct": -30,
+      "np2010_mapping": "Groupe 25 (spécialistes en TIC)",
+      "evidence_note": "Étude KOF · l'une des professions les plus sévèrement touchées · 24 Heures août 2025 -30% offres bureau et informatique en un an · CapiWell décembre 2025 : tasks développement routinier de plus en plus automatisés",
+      "label": "Informatique et développement logiciel"
+    },
+    {
+      "code": "OFFICE_ADMIN",
+      "ai_exposure": 72,
+      "job_posting_change_pct": -17,
+      "np2010_mapping": "Groupe 41-44 (employés de bureau)",
+      "evidence_note": "Adecco/KOF Q3 2025 : -17,4%/an offres bureau/admin entre 2023 et 2025 (vs -7,8% indice global) · forte proportion de tâches routinières exposées à l'IA",
+      "label": "Bureau et administration"
+    },
+    {
+      "code": "MARKETING_MEDIA",
+      "ai_exposure": 74,
+      "job_posting_change_pct": -22,
+      "np2010_mapping": "Groupe 24 (spécialistes administration et commerce) + 264 (journalistes)",
+      "evidence_note": "Étude KOF · marketing et social media sévèrement touchés · 20 minutes oct 2025 : journalisme bouleversé",
+      "label": "Marketing, communication et médias"
+    },
+    {
+      "code": "FIN_INSURANCE",
+      "ai_exposure": 65,
+      "job_posting_change_pct": -10,
+      "np2010_mapping": "Groupe 24 + 33 (employés finance)",
+      "evidence_note": "PwC AI Jobs Barometer 2025 · 1,7% des offres finance exigent IA · taux d'exposition élevé mais résilience supérieure aux métiers commodité",
+      "label": "Finance, banque et assurance"
+    },
+    {
+      "code": "LEGAL",
+      "ai_exposure": 62,
+      "job_posting_change_pct": -8,
+      "np2010_mapping": "Groupe 261 (spécialistes du droit)",
+      "evidence_note": "Étude KOF · avocats relativement protégés grâce au jugement et à la confiance · automatisation des tâches paralégales mais pas du conseil",
+      "label": "Juridique"
+    },
+    {
+      "code": "SCIENCE_TECH",
+      "ai_exposure": 58,
+      "job_posting_change_pct": -5,
+      "np2010_mapping": "Groupe 21 (architectes, ingénieurs, sciences)",
+      "evidence_note": "PwC AI Jobs Barometer 2025 · activités scientifiques et techniques 9,8% des offres exigent IA · forte demande de profils hybrides",
+      "label": "Sciences, ingénierie et techniques"
+    },
+    {
+      "code": "COMMERCIAL_SERVICES",
+      "ai_exposure": 45,
+      "job_posting_change_pct": 8,
+      "np2010_mapping": "Groupe 33 (employés et professionnels intermédiaires) + 52 (vendeurs)",
+      "evidence_note": "Adecco Q3 2025 · exception remarquable · courtage, immobilier, organisation · exposition modérée mais croissance des offres entre 2023 et 2025",
+      "label": "Agents de services commerciaux"
+    },
+    {
+      "code": "EDUCATION",
+      "ai_exposure": 52,
+      "job_posting_change_pct": -3,
+      "np2010_mapping": "Groupe 23 (spécialistes de l'enseignement)",
+      "evidence_note": "PwC · éducation 1,7% des offres IA · transformation progressive plutôt que substitution · OFS : 4/5 des 15-24 ans utilisent l'IA générative pour études",
+      "label": "Enseignement et formation"
+    },
+    {
+      "code": "HEALTHCARE",
+      "ai_exposure": 32,
+      "job_posting_change_pct": 4,
+      "np2010_mapping": "Groupe 22 + 32 (spécialistes santé)",
+      "evidence_note": "Étude KOF · dentistes et psychologues relativement à l'abri · contact humain et confiance protègent · pénurie persistante de soignants",
+      "label": "Santé et soins"
+    },
+    {
+      "code": "MANUFACTURING",
+      "ai_exposure": 38,
+      "job_posting_change_pct": -2,
+      "np2010_mapping": "Groupe 7 (artisans et ouvriers qualifiés) + 8 (opérateurs)",
+      "evidence_note": "PwC AI Jobs Barometer 2025 · manufacturier en tête avec 14,7% des offres exigeant IA · automatisation lignes de production, maintenance prédictive · création nette d'emplois hybrides",
+      "label": "Industrie manufacturière"
+    },
+    {
+      "code": "CONSTRUCTION",
+      "ai_exposure": 18,
+      "job_posting_change_pct": 6,
+      "np2010_mapping": "Groupe 71 (corps de métier du bâtiment) + 72-74",
+      "evidence_note": "Pénurie record persistante (DARES, parallèles avec marché suisse) · faible exposition IA · activités physiques et terrain",
+      "label": "Construction et BTP"
+    },
+    {
+      "code": "PERSONAL_CARE",
+      "ai_exposure": 22,
+      "job_posting_change_pct": 3,
+      "np2010_mapping": "Groupe 51 (services à la personne) + 53 (auxiliaires)",
+      "evidence_note": "Faible exposition · forte composante relationnelle · pénurie chronique en Suisse",
+      "label": "Services à la personne et aide"
+    }
+  ]
+}

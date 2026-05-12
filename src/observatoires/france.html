@@ -78,6 +78,29 @@
   </div>
 </section>
 
+
+<!-- AI EXPOSURE GAP · Anthropic Economic Index · théorique vs observée -->
+<section class="expgap-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="fr.expgap.eyebrow"></div>
+    <h2 class="section-title" data-i18n="fr.expgap.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="fr.expgap.sub"></p>
+  </div>
+
+  <div class="expgap-chart-wrap">
+    <div id="expgapChart" class="expgap-chart"></div>
+    <div class="expgap-legend mono">
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-theoretical"></span><span data-i18n="fr.expgap.legend.theoretical"></span></span>
+      <span class="expgap-legend-item"><span class="expgap-box expgap-box-observed"></span><span data-i18n="fr.expgap.legend.observed"></span></span>
+    </div>
+  </div>
+
+  <div class="expgap-summary">
+    <p class="expgap-readline" data-i18n="fr.expgap.readline" data-i18n-html="true"></p>
+    <p class="expgap-source mono" data-i18n="fr.expgap.source"></p>
+  </div>
+</section>
+
 <!-- PISTES DE RÉINVENTION · 5 métiers archétypaux FR -->
 <section class="reinvent-section">
   <div class="section-head no-border" style="padding-bottom: 18px;">
@@ -287,6 +310,7 @@
 
 <footer id="siteFooter"></footer>
 
+<script type="application/json" id="franceExpData">{"families":[{"code":"ARCH_ENG","label":"Architecture et ingénierie","ai_exposure":26.9,"job_posting_change_pct":-16},{"code":"ICT","label":"Informatique et mathématiques","ai_exposure":24.9,"job_posting_change_pct":-21},{"code":"ADMIN","label":"Administration et soutien","ai_exposure":23.8,"job_posting_change_pct":-15},{"code":"CREATIVE","label":"Métiers créatifs, design, médias","ai_exposure":23.8,"job_posting_change_pct":-22},{"code":"LEGAL","label":"Juridique","ai_exposure":21.6,"job_posting_change_pct":-12},{"code":"FINANCE","label":"Finance, banque et assurance","ai_exposure":20,"job_posting_change_pct":-21},{"code":"INDUSTRY","label":"Industrie manufacturière","ai_exposure":15,"job_posting_change_pct":-16},{"code":"COMMERCE","label":"Commerce et vente","ai_exposure":14,"job_posting_change_pct":-13},{"code":"EDUCATION","label":"Enseignement et administration publique","ai_exposure":13,"job_posting_change_pct":-3},{"code":"HEALTHCARE","label":"Santé et action sociale","ai_exposure":10,"job_posting_change_pct":-3},{"code":"CONSTRUCTION","label":"Construction et BTP","ai_exposure":8,"job_posting_change_pct":-22},{"code":"HOSPITALITY","label":"Hôtellerie, restauration, tourisme","ai_exposure":6,"job_posting_change_pct":-13}]}</script>
 <script src="../assets/components.js"></script>
 <script>
 window.PAGE_I18N = {
@@ -375,6 +399,15 @@ window.PAGE_I18N = {
     "fr.kf2": "Nomenclature unifiée des métiers",
     "fr.kf3": "Acteurs du dialogue social tripartite",
     "fr.context.text": "<p>La France gouverne par le centre. Une administration unifiée, hiérarchisée du sommet de l'État aux préfectures de département, structure la production statistique sur l'emploi. France Stratégie analyse pour Matignon, la DARES produit la statistique pour le ministère du Travail, France Travail opère sur le terrain. Cette verticalité produit des données <strong>denses, fréquentes, et relativement homogènes</strong> d'une région à l'autre, articulées autour de la nomenclature ROME pour les métiers et de la PCS-ESE pour les catégories socioprofessionnelles.</p><p>Sous l'État central, la décentralisation a empilé des couches successives : régions, départements, métropoles, intercommunalités, communes. Chaque échelon dispose de ses propres directions, de ses propres dispositifs de formation et de retour à l'emploi. Les régions pilotent désormais une part substantielle de la formation professionnelle continue, ce que ni la DARES ni France Travail ne couvrent uniformément. Le dialogue social tripartite (État, organisations syndicales, organisations patronales) ajoute une troisième dimension, qui irrigue les études APEC, OPCO et les observatoires de branche.</p><p>Sur le plan réglementaire, la France a transposé l'AI Act européen et appuie ses contrôles sur la <em>CNIL</em>, autorité de référence sur les usages de l'IA dans le management, la sélection à l'embauche et le suivi des salariés. Cette régulation horizontale, plus contraignante qu'en Suisse, alimente une production analytique abondante et parfois redondante, mais aussi singulièrement avancée sur les enjeux de gouvernance algorithmique au travail.</p>",
+
+    "fr.expgap.eyebrow": "Coface/OEM · DARES · France Travail BMO 2025 · INSEE 2024 · Microsoft Diffusion",
+    "fr.expgap.title": "Effet documenté de l'IA sur le marché du travail français · <em>l'exposition coïncide avec la contraction des offres</em>.",
+    "fr.expgap.sub": "L'étude Coface et Observatoire des Emplois Menacés et Émergents (OEM) publiée en mars 2026 documente une cartographie inédite de l'exposition à l'IA en France, profession par profession. 3,8% des emplois sont actuellement fragilisés, 16,3% pourraient l'être à horizon 2026-2029, soit près de 5 millions de postes. Le graphique croise l'exposition Coface par famille FAP avec la variation des projets de recrutement (France Travail BMO 2025).",
+    "fr.expgap.legend.theoretical": "Exposition Coface (FAP)",
+    "fr.expgap.legend.observed": "Projets de recrutement 2024-2025",
+    "fr.expgap.readline": "<strong>Lecture pour la France</strong> · adoption IA à <strong>47,8% Q1 2026</strong> (Microsoft, rang 5 mondial). <strong>Inversion historique</strong> : les cols blancs en première ligne. Architecture/ingénierie <strong>26,9%</strong>, informatique <strong>24,9%</strong>, administratif et créatifs <strong>23,8%</strong>, juridique <strong>21,6%</strong> (Coface). Information-communication <strong>-21,5%</strong> projets BMO 2025, informatique sortie de la <em>tension très forte</em> pour la première fois depuis 2016 (DARES). À l'inverse, santé, éducation et action publique résistent.",
+    "fr.expgap.source": "Sources · Coface & OEM · Emplois, compétences, valeur · mars 2026 · DARES · Les tensions sur le marché du travail en 2024 · France Travail BMO 2025 · INSEE Première n°2061 · juillet 2025 · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026",
+  
   },
   en: {
     "fr.flag": "",
@@ -460,7 +493,16 @@ window.PAGE_I18N = {
     "fr.kf1": "Administrative levels (State, region, department, intercom., municipality)",
     "fr.kf2": "Unified national job classification",
     "fr.kf3": "Tripartite social dialogue actors",
-    "fr.context.text": "<p>France governs from the centre. A unified, hierarchical administration, stretching from the apex of the state down to departmental prefectures, structures the production of employment statistics. France Stratégie analyses for the Prime Minister's office, DARES produces statistics for the Ministry of Labour, France Travail operates on the ground. This verticality yields <strong>dense, frequent, and relatively homogeneous</strong> data from one region to another, articulated around the ROME job classification and the PCS-ESE socio-professional categories.</p><p>Beneath the central state, decentralisation has stacked successive layers: regions, departments, metropolises, intermunicipal bodies, municipalities. Each level has its own directorates, its own training and return-to-work schemes. The regions now pilot a substantial share of continuing vocational training, an area that neither DARES nor France Travail covers uniformly. Tripartite social dialogue (state, trade unions, employer organisations) adds a third dimension that irrigates APEC studies, OPCO publications and sectoral observatories.</p><p>On the regulatory side, France has transposed the European AI Act and relies on the <em>CNIL</em>, the reference authority on AI use in management, hiring selection and employee monitoring. This horizontal regulation, stricter than in Switzerland, fuels abundant and sometimes redundant analytical output, but also a uniquely advanced posture on workplace algorithmic governance.</p>"
+    "fr.context.text": "<p>France governs from the centre. A unified, hierarchical administration, stretching from the apex of the state down to departmental prefectures, structures the production of employment statistics. France Stratégie analyses for the Prime Minister's office, DARES produces statistics for the Ministry of Labour, France Travail operates on the ground. This verticality yields <strong>dense, frequent, and relatively homogeneous</strong> data from one region to another, articulated around the ROME job classification and the PCS-ESE socio-professional categories.</p><p>Beneath the central state, decentralisation has stacked successive layers: regions, departments, metropolises, intermunicipal bodies, municipalities. Each level has its own directorates, its own training and return-to-work schemes. The regions now pilot a substantial share of continuing vocational training, an area that neither DARES nor France Travail covers uniformly. Tripartite social dialogue (state, trade unions, employer organisations) adds a third dimension that irrigates APEC studies, OPCO publications and sectoral observatories.</p><p>On the regulatory side, France has transposed the European AI Act and relies on the <em>CNIL</em>, the reference authority on AI use in management, hiring selection and employee monitoring. This horizontal regulation, stricter than in Switzerland, fuels abundant and sometimes redundant analytical output, but also a uniquely advanced posture on workplace algorithmic governance.</p>",
+
+    "fr.expgap.eyebrow": "Coface/OEM · DARES · France Travail BMO 2025 · INSEE 2024 · Microsoft Diffusion",
+    "fr.expgap.title": "Documented AI effect on the French labour market · <em>exposure coincides with job posting contraction</em>.",
+    "fr.expgap.sub": "The Coface and Observatoire des Emplois Menacés et Émergents (OEM) study published March 2026 documents an unprecedented cartography of AI exposure in France, profession by profession. 3.8% of jobs are currently fragilized, 16.3% could be at horizon 2026-2029, nearly 5 million positions. The chart pairs Coface exposure by FAP family with variation in recruitment projects (France Travail BMO 2025).",
+    "fr.expgap.legend.theoretical": "Coface exposure (FAP)",
+    "fr.expgap.legend.observed": "Recruitment projects 2024-2025",
+    "fr.expgap.readline": "<strong>Reading for France</strong> · AI adoption at <strong>47.8% Q1 2026</strong> (Microsoft, rank 5 worldwide). <strong>Historic reversal</strong>: white collars in the front line. Architecture/engineering <strong>26.9%</strong>, IT <strong>24.9%</strong>, administrative and creative <strong>23.8%</strong>, legal <strong>21.6%</strong> (Coface). Information-communication <strong>-21.5%</strong> BMO 2025 projects, IT exited <em>very-high tension</em> category for the first time since 2016 (DARES). Conversely, health, education and public action resist.",
+    "fr.expgap.source": "Sources · Coface & OEM · Emplois, compétences, valeur · March 2026 · DARES · Tensions on the labour market 2024 · France Travail BMO 2025 · INSEE Première n°2061 · July 2025 · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026",
+  
   }
 };
 
@@ -624,6 +666,122 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
+// ───────── AI EXPOSURE GAP CHART (Anthropic Economic Index Fig 2) ─────────
+function renderFranceExposureChart(containerId, options) {
+  options = options || {};
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const colorExposure = options.colorExposure || "#B5C0BA";
+  const colorPositive = options.colorPositive || "#1F3A3D";
+  const colorNegative = options.colorNegative || "#D03C2F";
+  const dataUrl = options.dataUrl || "../assets/data/ai-exposure-france.json";
+
+  var inlineEl = document.getElementById("franceExpData");
+  var initialData = null;
+  if (inlineEl) {
+    try { initialData = JSON.parse(inlineEl.textContent); } catch(e) { initialData = null; }
+  }
+  function drawFrance(data) {
+      // Sort families by AI exposure descending
+      const families = data.families.slice().sort(function(a, b) { return b.ai_exposure - a.ai_exposure; });
+
+      const w = 920;
+      const rowH = 34;
+      const m = { top: 24, right: 60, bottom: 64, left: 260 };
+      const innerH = families.length * rowH;
+      const h = m.top + innerH + m.bottom;
+
+      // Two panels
+      // Exposure: 0 to 30%
+      const expW = 280;
+      const expMax = 30;
+      const expScale = function(v) { return m.left + (v / expMax) * expW; };
+
+      // Posting change: -25 to +5
+      const postX = m.left + expW + 60;
+      const postW = 240;
+      const postMin = -25, postMax = 5;
+      const postRange = postMax - postMin;
+      const postZero = postX + ((-postMin) / postRange) * postW;
+      const postScale = function(v) { return postX + ((v - postMin) / postRange) * postW; };
+
+      let svg = '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="French AI exposure chart">';
+
+      // Panel headers
+      svg += '<text x="' + (m.left + expW / 2) + '" y="' + (m.top - 6) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">EXPOSITION COFACE</text>';
+      svg += '<text x="' + (postX + postW / 2) + '" y="' + (m.top - 6) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#11110F" letter-spacing="0.06em">PROJETS DE RECRUTEMENT 2024-2025</text>';
+
+      // Exposure gridlines at 0, 10, 20, 30
+      [0, 10, 20, 30].forEach(function(v) {
+        const x = expScale(v);
+        svg += '<line x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + innerH) + '" stroke="#11110F" stroke-opacity="0.06" stroke-width="1"/>';
+        svg += '<text x="' + x + '" y="' + (m.top + innerH + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#11110F" fill-opacity="0.55">' + v + '%</text>';
+      });
+
+      // Posting change gridlines at -25, -20, -10, 0, +5
+      [-25, -20, -10, 0, 5].forEach(function(v) {
+        const x = postScale(v);
+        const isZero = (v === 0);
+        svg += '<line x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + innerH) + '" stroke="#11110F" stroke-opacity="' + (isZero ? "0.35" : "0.06") + '" stroke-width="' + (isZero ? "1.2" : "1") + '"/>';
+        const label = (v > 0 ? "+" : "") + v + "%";
+        svg += '<text x="' + x + '" y="' + (m.top + innerH + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#11110F" fill-opacity="0.55">' + label + '</text>';
+      });
+
+      // Draw each row
+      families.forEach(function(f, i) {
+        const y = m.top + i * rowH + 6;
+        const barH = 14;
+        const label = f.label;
+
+        // Row label (left)
+        svg += '<text x="' + (m.left - 14) + '" y="' + (y + barH - 2) + '" text-anchor="end" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="500" fill="#11110F">' + label + '</text>';
+
+        // Exposure bar (light teal)
+        const expWidth = expScale(f.ai_exposure) - m.left;
+        svg += '<rect x="' + m.left + '" y="' + y + '" width="' + Math.max(expWidth, 1) + '" height="' + barH + '" fill="' + colorExposure + '"/>';
+        svg += '<text x="' + (expScale(f.ai_exposure) + 6) + '" y="' + (y + barH - 3) + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#11110F">' + f.ai_exposure.toFixed(1) + '%</text>';
+
+        // Posting change bar
+        const v = f.job_posting_change_pct;
+        const fillColor = v >= 0 ? colorPositive : colorNegative;
+        let rectX, rectW;
+        if (v >= 0) {
+          rectX = postZero;
+          rectW = postScale(v) - postZero;
+        } else {
+          rectX = postScale(v);
+          rectW = postZero - postScale(v);
+        }
+        svg += '<rect x="' + rectX + '" y="' + y + '" width="' + Math.max(rectW, 1) + '" height="' + barH + '" fill="' + fillColor + '"/>';
+        const sign = v > 0 ? "+" : "";
+        const labelX = v >= 0 ? (postScale(v) + 6) : (postScale(v) - 6);
+        const labelAnchor = v >= 0 ? "start" : "end";
+        svg += '<text x="' + labelX + '" y="' + (y + barH - 3) + '" text-anchor="' + labelAnchor + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="' + fillColor + '">' + sign + v + '%</text>';
+      });
+
+      svg += '</svg>';
+      el.innerHTML = svg;
+  }
+
+  // First draw with inline data
+  if (initialData) {
+    drawFrance(initialData);
+  }
+  // Then try fetch silently
+  fetch(dataUrl)
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var ct = r.headers.get("content-type") || "";
+      if (ct.indexOf("application/json") === -1 && ct.indexOf("text/json") === -1) throw new Error("Not JSON content-type");
+      return r.json();
+    })
+    .then(function(data) { drawFrance(data); })
+    .catch(function() { /* silent: inline fallback */ });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() { renderFranceExposureChart("expgapChart", { colorExposure: "#B5C0BA", colorPositive: "#1F3A3D", colorNegative: "#D03C2F", dataUrl: "../assets/data/ai-exposure-france.json" }); });
 initSite("france");
 loadData();
 </script>
