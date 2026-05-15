@@ -2326,8 +2326,11 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 }
 
 .reinvent-intro {
-  max-width: 720px;
-  margin: 0 0 36px 0;
+  max-width: var(--max-w);
+  margin: 0 auto 36px auto;
+}
+.reinvent-intro p {
+  max-width: 880px;
 }
 .reinvent-intro p {
   font-family: "Instrument Sans", sans-serif;
@@ -2352,6 +2355,8 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   flex-direction: column;
   gap: 0;
   border-top: 1px solid var(--rule);
+  max-width: var(--max-w);
+  margin: 0 auto;
 }
 
 .reinvent-item {
@@ -5925,7 +5930,7 @@ function renderFooter() {
           <strong>29 avril 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.35 · build 2026.05.15</div>
+        <div class="foot-version mono">v0.3.36 · build 2026.05.15</div>
       </div>
     </div>
     <div class="foot-bottom">
