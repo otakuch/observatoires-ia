@@ -6,7 +6,7 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 53,
+  "count": 55,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -678,6 +678,32 @@
       },
       "most_likely_scenario": "Accélération IA",
       "notes": "Première mesure systématique d'exposition à l'automatisation par apprentissage par renforcement (RL), publiée en avril 2026 par Tomei et Klein Teeselink (SSRN Working Paper, code public GitHub boukektkcl/RL-exposure-public, CC BY 4.0). Méthodologie : scoring de 17 951 paires occupation-tâche du référentiel O*NET américain (894 occupations, version db_30_0) par Gemini 2.5 Flash via OpenRouter, prompt v4.2 avec gate de faisabilité physique binaire et 8 dimensions scorées 1-10. Les 8 dimensions : D1 spectre méthode de vérification, D2 simulabilité environnement, D3 observabilité état, D4 variabilité tâche, D5 profondeur décision séquentielle, D6 densité feedback, D7 accessibilité outils, D8 tangibilité output. Cible analytique distincte d'Eloundou et al. 2024 Science (qui mesure la capacité LLM actuelle sur la tâche) : Tomei mesure la faisabilité de construire un environnement RL pour entraîner un agent sur la tâche (RLHF, RLAIF, RLVR, process reward models, AI-as-Judge, données synthétiques). Index aggregate 0-100. Horizon : 5 ans. À utiliser comme indicateur upstream de l'adoption, pas comme prédiction de déplacement effectif. Pour les directions RH : complète l'AIOE Felten/Raj/Seamans et le Yale Budget Lab en proposant une 7e dimension d'exposition spécifiquement orientée vers la post-formation par renforcement, pipeline dominant des reasoning models 2025-2026 (GPT-5.x, Claude Opus 4.5)."
+    },
+    {
+      "name": "Michael Strobaek",
+      "institution": "Lombard Odier · Global CIO Private Bank · Genève",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 35,
+        "Accélération IA": 35,
+        "Transformation majeure": 20,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Auteur principal · The Intelligent Allocator · CIO Office Viewpoint Lombard Odier · 22 avril 2026 · cadre Schumpeter+Minsky pour investisseurs · technologie remodèle les tâches plus qu'elle ne détruit les emplois · 60% emplois US n'existaient pas en 1940 (Autor MIT) · piège de Turing : substituer plutôt qu'augmenter détruit la valeur."
+    },
+    {
+      "name": "Anton Shenk",
+      "institution": "RAND Corporation · AI Policy Research · Washington DC",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 35,
+        "Accélération IA": 30,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Associé recherche RAND spécialisé dans l'économie de l'IA · auteur de la synthèse magistrale 'The Quadrillion-Dollar Disagreement on AI and the Economy' (AI Frontiers, 11 mai 2026) · cartographie d'un écart de 1 quadrillion $ entre les prévisions IA 2026-2035 · 3 désaccords testables identifiés · position : les skeptics gagnent aux points en mai 2026 mais lags longs."
     }
   ]
 }

@@ -131,6 +131,9 @@ window.PAGE_I18N = {
 
     "bf.read": "Lire la dépêche",
     "bf.upcoming": "À venir",
+    "bf.sponsored": "Sponsorisé",
+    "bf.inprogress": "En cours de rédaction",
+    "bf.inprogress.note": "Publication imminente",
     "bf.upcoming.cta": "Être prévenu",
     "bf.open": "Open Intelligence",
 
@@ -168,6 +171,9 @@ window.PAGE_I18N = {
 
     "bf.read": "Read the dispatch",
     "bf.upcoming": "Upcoming",
+    "bf.sponsored": "Sponsored",
+    "bf.inprogress": "In progress",
+    "bf.inprogress.note": "Publication imminent",
     "bf.upcoming.cta": "Notify me",
     "bf.open": "Open Intelligence",
 
@@ -229,18 +235,22 @@ const BRIEFINGS = [
   },
   {
     num: "004",
-    date: "2026-05",
+    slug: "04-agents-ia-france",
+    date: "2026-05-12",
     country: "FR",
-    sector: "public",
+    sector: "hr",
+    sponsored: true,
+    sponsor: "myAuxilium",
+    inProgress: true,
     title: {
-      fr: "L'administration française et l'IA générative : où en est le déploiement réel.",
-      en: "The French administration and generative AI: where is real deployment."
+      fr: "Agents IA en entreprise · France 2026. État d'adoption et seuils de maturité.",
+      en: "AI agents in enterprise · France 2026. State of adoption and maturity thresholds."
     },
     summary: {
-      fr: "La DGFiP, la CAF et les ministères publient des feuilles de route ambitieuses. Le déploiement effectif sur le terrain raconte une autre histoire. Cartographie sans complaisance.",
-      en: "DGFiP, CAF and ministries publish ambitious roadmaps. Actual deployment on the ground tells a different story. An unsparing cartography."
+      fr: "Snapshot mai 2026 sur l'adoption réelle des agents IA dans les entreprises françaises. 47,8% d'adoption individuelle (Microsoft, rang 5 mondial), mais seulement 13% d'IA agentique à l'échelle (Adobe). Cartographie par fonction et taille, cinq freins documentés, agenda gouvernance 90 jours. Numéro sponsorisé par myAuxilium, contenu analytique sous responsabilité éditoriale exclusive de Naully Nicolas.",
+      en: "May 2026 snapshot on actual AI agent adoption in French companies. 47.8% individual adoption (Microsoft, rank 5 worldwide), but only 13% agentic AI at scale (Adobe). Mapping by function and size, five documented obstacles, 90-day governance agenda. Issue sponsored by myAuxilium, analytical content under exclusive editorial responsibility of Naully Nicolas."
     },
-    upcoming: true
+    upcoming: false
   }
 ];
 
@@ -298,18 +308,29 @@ function renderBriefings() {
       u.textContent = window.t("bf.upcoming");
       u.style.color = "var(--signal)";
       meta.appendChild(u);
+    } else if (b.inProgress) {
+      const ip = document.createElement("span");
+      ip.textContent = window.t("bf.inprogress");
+      ip.className = "pill-inprogress";
+      meta.appendChild(ip);
     } else {
       const open = document.createElement("span");
       open.textContent = window.t("bf.open");
       open.className = "pill-open";
       meta.appendChild(open);
     }
+    if (b.sponsored) {
+      const sp = document.createElement("span");
+      sp.className = "pill-sponsored";
+      sp.textContent = window.t("bf.sponsored") + " · " + b.sponsor;
+      meta.appendChild(sp);
+    }
     body.appendChild(meta);
 
     // Title
     const title = document.createElement("h3");
     title.className = "briefing-title";
-    if (b.upcoming) {
+    if (b.upcoming || b.inProgress) {
       title.textContent = b.title[lang];
     } else {
       const a = document.createElement("a");
@@ -340,6 +361,13 @@ function renderBriefings() {
       upline.style.paddingBottom = "2px";
       upline.textContent = window.t("bf.upcoming.cta") + " →";
       actions.appendChild(upline);
+    } else if (b.inProgress) {
+      const ipline = document.createElement("span");
+      ipline.className = "briefing-action-line";
+      ipline.style.color = "var(--muted)";
+      ipline.style.fontStyle = "italic";
+      ipline.textContent = window.t("bf.inprogress.note");
+      actions.appendChild(ipline);
     } else {
       const readLink = document.createElement("a");
       readLink.href = "briefings/" + b.slug + ".html";

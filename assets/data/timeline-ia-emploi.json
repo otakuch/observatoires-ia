@@ -6,8 +6,98 @@
   "license": "CC BY 4.0",
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "count": 77,
+  "count": 87,
   "events": [
+    {
+      "year": "12 mai 2026",
+      "title": "Assemblée nationale · audition Arthur Mensch (Mistral AI) · commission d'enquête vulnérabilités numériques",
+      "summary_fr": "Audition du cofondateur et directeur général de Mistral AI Arthur Mensch et de la directrice des affaires publiques Audrey Herblin-Stoop devant la Commission d'enquête de l'Assemblée nationale sur les dépendances structurelles et les vulnérabilités systémiques dans le secteur du numérique (créée en février 2026 · rapporteure Cyrielle Chatelain · président Philippe Latombe). Cadre conceptuel : 'l'IA est comme l'énergie' · 'transformer de l'électricité en token'. Constats macroéconomiques structurants : 10% de la masse salariale européenne en IA d'ici 3-4 ans = 1 trillion € de déficit commercial supplémentaire si importation. France : 9 GW de surplus énergétique aujourd'hui · risque de monopolisation par les hyperscalers américains dans les 2 ans. Europe : 400 GW à construire = 20 trillions $ d'investissement, 8 trillions $ de revenus annuels potentiels. Sur l'emploi : 'n'exclut pas une hausse du chômage' et déplacement de la valeur du travail vers le capital, 'capital qui pour le moment n'est largement pas du capital européen'. Plaidoyer pour la commande publique (50% du PIB européen) comme levier vs la réglementation comme défense. Position rare de lucidité de la part d'un acteur IA français.",
+      "headline_value": "10% masse salariale UE en IA importée = 1 trillion € déficit commercial · 9 GW surplus France menacés dans 2 ans · n'exclut pas hausse du chômage",
+      "tier": "T1",
+      "citation": "Assemblée nationale · Commission d'enquête sur les dépendances structurelles et vulnérabilités systémiques du numérique · audition Arthur Mensch (Mistral AI) & Audrey Herblin-Stoop · 12 mai 2026 · vidéo Assemblée nationale 18888392",
+      "ai_type": "generative_and_agentic"
+    },
+    {
+      "year": "11 mai 2026",
+      "title": "AI Frontiers · Anton Shenk (RAND) · The Quadrillion-Dollar Disagreement on AI and the Economy",
+      "summary_fr": "Article-synthèse magistral publié par Anton Shenk (associé recherche RAND) sur AI Frontiers le 11 mai 2026. Cartographie d'un désaccord de 1 quadrillion $ entre les prévisions économiques sur l'IA 2026-2035 (McKinsey +0,1% à Epoch AI +30% par an). Trois désaccords testables génèrent cet écart : (1) quelles tâches l'IA peut-elle automatiser (Acemoglu 5% output / Korinek continuum infini), (2) friction institutionnelle vs capital markets (OECD <0,5% / Goldman Sachs +1,5%), (3) automatisation de l'innovation elle-même (GPT level effect / singularité économique Epoch AI). État des indicateurs en mai 2026 : implémentation IA <10% dans la plupart des secteurs (US Census), tâches difficiles restent difficiles, écarts salariaux ne se compressent pas, productivité scientifique sans inflection. Les skeptics gagnent aux points, mais lags longs.",
+      "headline_value": "1 quadrillion $ d'écart cumulé entre prévisions IA 2026-2035 · 3 désaccords testables sur jobs, friction institutionnelle, automatisation de l'innovation",
+      "tier": "T2",
+      "citation": "Shenk A. · The Quadrillion-Dollar Disagreement on AI and the Economy · AI Frontiers · 11 mai 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "2025",
+      "title": "Epoch AI · GATE model · borne haute de prévision (croissance super-exponentielle)",
+      "summary_fr": "Modèle macroéconomique GATE (Growth via Automation of Tasks and Experience) publié par Epoch AI en 2025. Pose la borne haute de l'éventail des prévisions économiques sur l'IA : jusqu'à 30% de croissance annuelle PIB à 10 ans si l'automatisation de la recherche scientifique elle-même se déclenche. Mécanisme : les chercheurs IA produisent d'autres chercheurs IA, brisant la contrainte démographique classique sur la production d'idées (singularité économique). Trajectoire 2% an 1 → 8% an 5 → 25% an 10.",
+      "headline_value": "Jusqu'à 30% croissance annuelle PIB sur 10 ans si singularité économique (vs 0,71% Acemoglu) · écart 25× entre les deux estimations NBER",
+      "tier": "T2",
+      "citation": "Epoch AI · Announcing GATE · 2025",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Novembre 2024",
+      "title": "OECD · Filippucci et al. · Miracle or Myth · bear case institutionnel",
+      "summary_fr": "Document de travail OECD novembre 2024 par Filippucci, Gal, Schief, Schwellnus. Pose la borne basse sceptique sur les gains de productivité macroéconomiques de l'IA : 0,4-0,7% par an sur 10 ans pour les économies avancées. Méthodologie : modélisation de la friction institutionnelle (régulation médicale, droit, métiers licenciés) sur les 38 pays OECD. Application de Baumol's cost disease : l'économie réalloue vers les secteurs résistant à l'automatisation, plafonnant le gain agrégé. Bear case institutionnel central dans le débat 2024-2026.",
+      "headline_value": "Borne basse à 0,4-0,7% productivité annuelle sur 10 ans · bear case institutionnel · application Baumol's cost disease",
+      "tier": "T1",
+      "citation": "Filippucci F. et al. · Miracle or Myth · Assessing the Macroeconomic Productivity Gains from AI · OECD WP · novembre 2024",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Septembre 2023",
+      "title": "Brookings · Baily, Brynjolfsson, Korinek · Machines of Mind · cadre fondateur GPT",
+      "summary_fr": "Article fondateur publié par Brookings en 2023 par Martin Neil Baily (Brookings), Erik Brynjolfsson (Stanford Digital Economy Lab) et Anton Korinek (University of Virginia). Pose le cadre conceptuel dominant pour analyser l'impact économique de l'IA : l'IA comme General Purpose Technology comparable à l'électricité, l'imprimerie ou l'informatique. Distingue level effect (PIB permanent plus haut, taux de croissance retourne à la tendance) et growth effect (modeste accélération de l'innovation). Référence centrale citée dans tous les articles macro IA 2024-2026.",
+      "headline_value": "Cadre conceptuel fondateur IA comme General Purpose Technology · distingue level effect (PIB permanent ↑) et growth effect (innovation ↑)",
+      "tier": "T2",
+      "citation": "Baily M.N., Brynjolfsson E., Korinek A. · Machines of Mind · The Case for an AI-Powered Productivity Boom · Brookings · 2023",
+      "ai_type": "generative"
+    },
+    {
+      "year": "7 avril 2026",
+      "title": "Writer · 2026 AI Adoption in the Enterprise (2e édition annuelle)",
+      "summary_fr": "Enquête phare publiée le 7 avril 2026 par Writer et Workplace Intelligence sur l'état de l'adoption de l'IA en entreprise. Méthodologie : 2 400 répondants (1 200 C-suite + 1 200 employés non techniques utilisant l'IA) sur 7 pays dont la France, 30 secteurs, entreprises 100 à 10 000+ employés. Constats : 97% des executives ont déployé des agents IA dans l'année, mais seulement 29% voient un ROI significatif et 23% sur les agents. 79% peinent à adopter l'IA (vs 70% en 2025). 75% admettent que leur stratégie IA est « plus pour la galerie » que pour guider. 54% disent que l'adoption IA déchire leur entreprise. 48% considèrent l'adoption comme un échec majeur (vs 34% en 2025). 60% prévoient des licenciements pour les non-adoptants. 67% rapportent une fuite de données via une IA non autorisée. 29% des employés (44% des Gen Z) admettent saboter la stratégie IA de leur entreprise.",
+      "headline_value": "79% des entreprises peinent à adopter l'IA · 75% reconnaissent stratégie « plus pour la galerie » · 29% seulement voient un ROI significatif · 60% planifient des licenciements pour non-adoptants",
+      "tier": "T2",
+      "citation": "Writer & Workplace Intelligence · 2026 AI Adoption in the Enterprise · enquête sur 2 400 répondants (US, UK, Irlande, Benelux, France, Allemagne, Australie) · 7 avril 2026",
+      "ai_type": "generative_and_agentic"
+    },
+    {
+      "year": "14 mai 2026",
+      "title": "The Economist · leader · Prepare for an AI jobs apocalypse",
+      "summary_fr": "Le journal de référence économique mondial publie un leader explicitement alarmiste appelant lecteurs et décideurs à se préparer à une vague de destructions d'emplois cols blancs liée à l'IA. L'article s'appuie principalement sur les données du Dallas Fed (janvier 2026, méthodologie Stanford) qui documentent une baisse de 13% de l'emploi des 22-25 ans dans les professions les plus exposées à l'IA depuis fin 2022. Le narratif vient en tension avec les analyses Brookings, Lombard Odier et Imas qui documentent à l'inverse une stabilité globale du marché américain et une recomposition plutôt qu'une destruction.",
+      "headline_value": "Jeunes 22-25 ans · -13% emploi dans métiers exposés à l'IA depuis fin 2022 (Stanford via Dallas Fed)",
+      "tier": "T2",
+      "citation": "The Economist · Leader · Prepare for an AI jobs apocalypse · 14 mai 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Mai 2026",
+      "title": "McKinsey Global Institute · Agents, robots et nous · Europe",
+      "summary_fr": "Rapport phare du McKinsey Global Institute publié en mai 2026 sur 10 économies européennes (incluant la Suisse) représentant plus de 75% de la main-d'œuvre et du PIB régional. Constats : 58% des heures de travail européennes pourraient théoriquement être automatisées par les technologies actuelles. La part des emplois exigeant des compétences IA a triplé depuis 2023, passant de 4-10% au Q4 2023 à 10-27% au Q4 2025 selon les pays. MGI introduit un Skill Change Index montrant que 70% des compétences resteront pertinentes mais utilisées différemment en partenariat avec agents et robots.",
+      "headline_value": "58% des heures de travail européennes théoriquement automatisables · part des emplois exigeant compétences IA passée de 4-10% à 10-27% en 2 ans",
+      "tier": "T1",
+      "citation": "McKinsey Global Institute · Johansson, Madgavkar, Schrader, Ramírez, Rigby · Agents, robots, and us · How AI reshapes work and skills in Europe · mai 2026",
+      "ai_type": "generative_and_agentic"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "Lombard Odier · Strobaek & Dumur · The Intelligent Allocator",
+      "summary_fr": "Note du CIO Office de Lombard Odier publiée le 22 avril 2026 par Michael Strobaek (Global CIO Private Bank) et Clément Dumur (Portfolio Manager). Thèse structurante en quatre siècles d'évidence : la technologie remodèle les tâches plus qu'elle ne détruit les emplois. 60% des emplois américains actuels relèvent de professions qui n'existaient pas en 1940 (Autor MIT). La Corée du Sud déploie plus de 100 robots industriels pour 1000 ouvriers manufacturiers avec un chômage inférieur à 3%. Cadre Schumpeter + Minsky : les phases initiales de rupture engendrent une mauvaise allocation des capitaux. Mise en garde sur le piège de Turing (Brynjolfsson) : substituer plutôt qu'augmenter détruit la valeur.",
+      "headline_value": "60% des emplois US n'existaient pas en 1940 (Autor MIT) · Corée 100+ robots/1000 ouvriers, chômage <3%",
+      "tier": "T2",
+      "citation": "Lombard Odier · Strobaek M. & Dumur C. · The Intelligent Allocator · CIO Office Viewpoint · 22 avril 2026",
+      "ai_type": "generative"
+    },
+    {
+      "year": "Avril 2026",
+      "title": "OBVIA Québec · Parent-Rocheleau et al. · Cartographie de l'IA au travail",
+      "summary_fr": "Première étude québécoise de grande ampleur sur l'IA au travail vue par les travailleurs eux-mêmes, publiée par l'OBVIA en avril 2026. Sondage de 4 595 personnes syndiquées issues de 11 organisations représentant 1,4 million de membres. Sept grands constats : usage individuel (60%) surpasse largement le déploiement organisationnel (41% exposition générale, 24% gestion algorithmique) · gagnants = professionnels diplômés universitaires, perdants = personnel technique et services · 15% seulement de confiance totale en l'IA · 60% littératie faible ou moyenne · 36% incapables d'évaluer la qualité, mais 70% s'estiment responsables en cas d'erreur · gouvernance peu transparente · action syndicale timide mais prometteuse.",
+      "headline_value": "4 595 syndiqués québécois · 60% usage individuel / 41% exposition générale · 15% confiance totale · 36% incapables d'évaluer la qualité IA",
+      "tier": "T1",
+      "citation": "Parent-Rocheleau X., Pasquier V., Garneau J.M.É., De Broux C., Michaud J. · Cartographie de l'IA au travail · OBVIA · avril 2026 · DOI 10.61737/HMZO8746",
+      "ai_type": "generative_and_algorithmic"
+    },
     {
       "year": "Septembre 2025",
       "title": "Apertus · premier LLM suisse public, fully open et conforme à l'EU AI Act",

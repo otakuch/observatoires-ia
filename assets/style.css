@@ -96,12 +96,15 @@ a { color: inherit; text-decoration: none; }
 .mobile-menu {
   display: none; position: fixed; inset: 0;
   background: var(--paper); z-index: 100;
-  padding: 80px 32px 32px;
-  flex-direction: column; gap: 28px;
+  padding: 64px 32px 24px;
+  flex-direction: column; gap: 4px;
+  overflow-y: auto;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
-  font-family: "Fraunces", serif; font-size: 32px; font-weight: 400; color: var(--ink);
+  font-family: "Fraunces", serif; font-size: 26px; font-weight: 400; color: var(--ink);
+  padding: 6px 0;
+  line-height: 1.15;
 }
 .mobile-menu .close-btn {
   position: absolute; top: 18px; right: 18px;
@@ -2148,7 +2151,7 @@ footer {
   .lang-toggle { font-size: 11px; }
 
   /* Mobile menu text larger */
-  .mobile-menu a { font-size: 22px; padding: 14px 20px; }
+  .mobile-menu a { font-size: 19px; padding: 4px 0; }
 
   /* Brief hero numbers wrap better */
   .brief-stat-num { font-size: 44px; }
@@ -5436,4 +5439,27 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .expgap-section { padding: 0 16px; margin: 48px auto; }
   .expgap-chart-wrap { padding: 16px 8px 12px; }
   .expgap-legend { gap: 18px; font-size: 11px; }
+}
+
+.pill-sponsored {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  background: var(--signal);
+  color: var(--paper);
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.pill-inprogress {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  background: var(--muted);
+  color: var(--paper);
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  opacity: 0.8;
 }

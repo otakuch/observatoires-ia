@@ -96,6 +96,7 @@ os.makedirs(f"{SITE_OUT}/briefings", exist_ok=True)
 bundle(f"{SITE_SRC}/briefings/01-banque-suisse.html", f"{SITE_OUT}/briefings/01-banque-suisse.html")
 bundle(f"{SITE_SRC}/briefings/02-cadres-france.html", f"{SITE_OUT}/briefings/02-cadres-france.html")
 bundle(f"{SITE_SRC}/briefings/03-luxe-horlogerie.html", f"{SITE_OUT}/briefings/03-luxe-horlogerie.html")
+bundle(f"{SITE_SRC}/briefings/04-agents-ia-france.html", f"{SITE_OUT}/briefings/04-agents-ia-france.html")
 
 # Prototype · postfactum-inspired UI redesign on D02
 if os.path.exists(f"{SITE_SRC}/briefings/02-cadres-france-postfactum.html"):
@@ -130,6 +131,7 @@ PAGES = [
     "briefings/01-banque-suisse.html",
     "briefings/02-cadres-france.html",
     "briefings/03-luxe-horlogerie.html",
+    "briefings/04-agents-ia-france.html",
 ]
 import datetime
 today = datetime.date.today().isoformat()

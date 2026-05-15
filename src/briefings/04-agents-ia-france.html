@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Dispatch·iA #004 · Agents IA en entreprise · France 2026 · observatoire[s]·ia</title>
+<meta name="description" content="Le Dispatch·iA · Agents IA en entreprise, France 2026. État d'adoption, seuils de maturité, freins documentés, agenda 90 jours. Dispatch sponsorisé par myAuxilium.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* === Sponsored badge in hero === */
+.brief-sponsor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--signal);
+  color: var(--paper);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+.brief-sponsor-badge .dot { color: var(--paper); opacity: 0.5; }
+
+/* === Partner banner section === */
+.brief-partnership {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.brief-partnership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .brief-partnership-grid { grid-template-columns: 1fr; }
+}
+.brief-partner-card {
+  background: var(--paper-2, #FFFFFF);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+.brief-partner-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+.brief-partner-name {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.brief-partner-body {
+  font-size: 14px;
+  color: var(--ink-2, #5F5F5C);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.brief-partner-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.brief-partner-meta a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.brief-editorial-frame {
+  margin-top: 24px;
+  background: var(--paper);
+  border-left: 3px solid var(--signal);
+  padding: 18px 22px;
+}
+.brief-editorial-frame-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin-bottom: 8px;
+}
+.brief-editorial-frame-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.brief-editorial-frame-body a {
+  color: var(--signal);
+  border-bottom: 1px solid var(--signal);
+  text-decoration: none;
+}
+
+/* === KPI row in hero === */
+.brief-kpi-row {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 900px) {
+  .brief-kpi-row { grid-template-columns: repeat(2, 1fr); }
+}
+.brief-kpi-cell {
+  background: var(--paper);
+  padding: 22px 18px;
+}
+.brief-kpi-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.brief-kpi-value {
+  font-family: "Fraunces", serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.brief-kpi-value .unit { font-size: 18px; color: var(--ink-2, #5F5F5C); margin-left: 2px; }
+.brief-kpi-foot {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brief-kpi-conf {
+  display: inline-block;
+  padding: 1px 5px;
+  background: var(--paper-2, #FFFFFF);
+  border: 1px solid var(--rule);
+  color: var(--ink-2, #5F5F5C);
+  font-weight: 500;
+}
+.brief-kpi-conf.c1 { color: #2D6A4F; border-color: #2D6A4F; }
+
+/* === Definitions 4-col === */
+.brief-defs {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 768px) { .brief-defs { grid-template-columns: 1fr 1fr; } }
+.brief-def {
+  background: var(--paper);
+  padding: 20px 18px;
+}
+.brief-def-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin-bottom: 10px;
+}
+.brief-def-title {
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.brief-def-body {
+  font-size: 13px;
+  color: var(--ink-2, #5F5F5C);
+  line-height: 1.5;
+}
+.brief-def-body b { color: var(--ink); font-weight: 600; }
+
+/* === IS / IS NOT === */
+.brief-isisnot {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 768px) { .brief-isisnot { grid-template-columns: 1fr; } }
+.brief-isisnot-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+.brief-isisnot-card.is { border-left: 3px solid #2D6A4F; }
+.brief-isisnot-card.isnot { border-left: 3px solid var(--signal); }
+.brief-isisnot-card .eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.brief-isisnot-card.is .eyebrow { color: #2D6A4F; }
+.brief-isisnot-card.isnot .eyebrow { color: var(--signal); }
+.brief-isisnot-card h3 {
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.brief-isisnot-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.brief-isisnot-card li {
+  padding: 8px 0;
+  padding-left: 22px;
+  position: relative;
+  font-size: 14px;
+  color: var(--ink-2, #5F5F5C);
+  border-bottom: 1px solid var(--rule);
+}
+.brief-isisnot-card li:last-child { border-bottom: none; }
+.brief-isisnot-card.is li:before { content: '✓'; position: absolute; left: 0; color: #2D6A4F; font-weight: 600; }
+.brief-isisnot-card.isnot li:before { content: '✗'; position: absolute; left: 0; color: var(--signal); font-weight: 600; }
+.brief-isisnot-card li b { color: var(--ink); font-weight: 600; }
+
+/* === Adoption chart === */
+.brief-adoption-row {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 900px) { .brief-adoption-row { grid-template-columns: 1fr; } }
+.brief-adoption-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 22px;
+}
+.brief-adoption-card h3 {
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.brief-adoption-card .sub {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+.brief-adoption-svg { width: 100%; height: 260px; display: block; }
+.brief-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--ink-2, #5F5F5C);
+}
+.brief-legend span { display: flex; align-items: center; gap: 6px; }
+.brief-legend .sw { display: inline-block; width: 12px; height: 2px; }
+
+/* === Size cards (TPE/PME/ETI/Grandes) === */
+.brief-size-grid {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 900px) { .brief-size-grid { grid-template-columns: 1fr 1fr; } }
+.brief-size-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 20px;
+}
+.brief-size-card h4 {
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.brief-size-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.brief-size-big {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: var(--signal);
+}
+.brief-size-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 12px;
+}
+.brief-size-row span:first-child { color: var(--muted); }
+.brief-size-row span:last-child { font-weight: 500; }
+
+/* === Freins (obstacles) === */
+.brief-freins {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.brief-frein {
+  background: var(--paper);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 50px 1fr 90px 70px;
+  gap: 20px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .brief-frein { grid-template-columns: 36px 1fr; }
+  .brief-frein-pct, .brief-frein-conf { display: none; }
+}
+.brief-frein-rank {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  color: var(--signal);
+  font-weight: 500;
+}
+.brief-frein-body h4 {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.brief-frein-body p { font-size: 13px; color: var(--ink-2, #5F5F5C); line-height: 1.5; }
+.brief-frein-pct {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: right;
+}
+.brief-frein-pct small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* === Scenarios === */
+.brief-scen-grid {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 900px) { .brief-scen-grid { grid-template-columns: 1fr; } }
+.brief-scen {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 24px 22px;
+  position: relative;
+}
+.brief-scen-tag {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.brief-scen-name {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin-bottom: 10px;
+}
+.brief-scen h4 {
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.brief-scen p { font-size: 13px; color: var(--ink-2, #5F5F5C); margin-bottom: 14px; line-height: 1.5; }
+.brief-scen ul {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+  padding: 10px 0 0;
+  margin: 0;
+}
+.brief-scen li {
+  font-size: 12px;
+  padding: 5px 0;
+  color: var(--ink-2, #5F5F5C);
+  padding-left: 14px;
+  position: relative;
+}
+.brief-scen li:before { content: '→'; position: absolute; left: 0; color: var(--signal); }
+
+/* === Agenda 90 jours === */
+.brief-agenda {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+@media (max-width: 900px) { .brief-agenda { grid-template-columns: 1fr; } }
+.brief-agenda-col {
+  background: var(--paper);
+  padding: 28px 22px;
+}
+.brief-agenda-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.brief-agenda-day {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+.brief-agenda-day-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.brief-agenda-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.brief-agenda-item:last-child { border-bottom: none; }
+.brief-agenda-check {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* === Partner sponsor section === */
+.brief-sponsor-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 64px 32px;
+  margin-top: 48px;
+}
+.brief-sponsor-inner { max-width: var(--max-w); margin: 0 auto; }
+.brief-sponsor-banner {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 5px 10px;
+  margin-bottom: 24px;
+}
+.brief-sponsor-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.brief-sponsor-section h2 {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  color: var(--paper);
+}
+.brief-sponsor-section .lede {
+  font-size: 16px;
+  color: rgba(242,238,229,0.7);
+  margin-bottom: 32px;
+  max-width: 700px;
+}
+.brief-sponsor-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 36px;
+}
+.brief-sponsor-quote {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 28px;
+  color: var(--paper);
+}
+.brief-sponsor-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(242,238,229,0.85);
+}
+.brief-sponsor-body p { margin-bottom: 14px; }
+.brief-sponsor-sig {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.brief-sponsor-sig-name { font-family: "Fraunces", serif; font-size: 17px; color: var(--paper); }
+.brief-sponsor-sig-role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: rgba(242,238,229,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* === D04 · Tightening overrides (specific to this Dispatch) === */
+.brief-section { padding: 40px 32px; }
+.brief-section .section-head { padding: 0 0 24px; border-top: none; max-width: none; margin: 0; }
+.brief-section .section-head + .brief-defs,
+.brief-section .section-head + .brief-isisnot,
+.brief-section .section-head + .brief-adoption-row,
+.brief-section .section-head + .brief-size-grid,
+.brief-section .section-head + .brief-freins,
+.brief-section .section-head + .brief-scen-grid,
+.brief-section .section-head + .brief-agenda {
+  margin-top: 0;
+}
+.brief-defs, .brief-isisnot, .brief-adoption-row, .brief-size-grid,
+.brief-freins, .brief-scen-grid, .brief-agenda {
+  max-width: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+.brief-isisnot { margin-top: 20px; }
+.brief-kpi-row { padding: 0 32px 32px; }
+.brief-partnership { padding: 32px; }
+.brief-sponsor-section { padding: 48px 32px; margin-top: 32px; }
+.brief-cta-actions { padding: 40px 32px; }
+.brief-cta-actions .section-head { padding-bottom: 20px; }
+
+/* Mobile spacing - tighten further */
+@media (max-width: 768px) {
+  .brief-section { padding: 28px 20px; }
+  .brief-kpi-row { padding: 0 20px 24px; }
+  .brief-partnership { padding: 24px 20px; }
+  .brief-sponsor-section { padding: 36px 20px; }
+  .brief-cta-actions { padding: 28px 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="../index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- HERO -->
+<section class="brief-hero">
+  <div class="brief-hero-meta">
+    <span class="meta-num" data-i18n="b4.meta.num"></span>
+    <span data-i18n="b4.meta.sector"></span>
+    <span data-i18n="b4.meta.country"></span>
+    <span data-i18n="b4.meta.date"></span>
+    <span class="meta-edition" data-i18n="b4.meta.edition"></span>
+  </div>
+  <div class="brief-sponsor-badge">
+    <span data-i18n="b4.sponsor.badge"></span>
+  </div>
+  <h1 class="brief-hero-title" data-i18n="b4.title" data-i18n-html="true"></h1>
+  <p class="brief-hero-sub" data-i18n="b4.sub"></p>
+  <div class="brief-byline">
+    <span><strong>Naully Nicolas</strong></span>
+    <span data-i18n="b4.by.read"></span>
+    <span data-i18n="b4.by.sources"></span>
+  </div>
+  <div class="brief-actions">
+    <button type="button" class="brief-action" id="btn-send-mail" data-i18n="brief.act.mail"></button>
+    <button type="button" class="brief-action brief-action--ghost" id="btn-copy-link" data-i18n="brief.act.copy"></button>
+  </div>
+</section>
+
+<!-- KPI ROW -->
+<div class="brief-kpi-row">
+  <div class="brief-kpi-cell">
+    <div class="brief-kpi-label" data-i18n="b4.kpi.1.label"></div>
+    <div class="brief-kpi-value">47,8<span class="unit">%</span></div>
+    <div class="brief-kpi-foot"><span data-i18n="b4.kpi.1.source"></span><span class="brief-kpi-conf c1">C1</span></div>
+  </div>
+  <div class="brief-kpi-cell">
+    <div class="brief-kpi-label" data-i18n="b4.kpi.2.label"></div>
+    <div class="brief-kpi-value">13<span class="unit">%</span></div>
+    <div class="brief-kpi-foot"><span data-i18n="b4.kpi.2.source"></span><span class="brief-kpi-conf c1">C1</span></div>
+  </div>
+  <div class="brief-kpi-cell">
+    <div class="brief-kpi-label" data-i18n="b4.kpi.3.label"></div>
+    <div class="brief-kpi-value">19<span class="unit">%</span></div>
+    <div class="brief-kpi-foot"><span data-i18n="b4.kpi.3.source"></span><span class="brief-kpi-conf c1">C1</span></div>
+  </div>
+  <div class="brief-kpi-cell">
+    <div class="brief-kpi-label" data-i18n="b4.kpi.4.label"></div>
+    <div class="brief-kpi-value">66<span class="unit">%</span></div>
+    <div class="brief-kpi-foot"><span data-i18n="b4.kpi.4.source"></span><span class="brief-kpi-conf c1">C1</span></div>
+  </div>
+  <div class="brief-kpi-cell">
+    <div class="brief-kpi-label" data-i18n="b4.kpi.5.label"></div>
+    <div class="brief-kpi-value">30<span class="unit"> Mds€</span></div>
+    <div class="brief-kpi-foot"><span data-i18n="b4.kpi.5.source"></span><span class="brief-kpi-conf c1">C1</span></div>
+  </div>
+</div>
+
+<!-- PARTNERSHIP CONTEXT -->
+<section class="brief-partnership">
+  <div class="section-eyebrow mono" data-i18n="b4.partner.eyebrow"></div>
+  <h2 class="section-title" data-i18n="b4.partner.title" data-i18n-html="true" style="margin-top: 8px; margin-bottom: 32px;"></h2>
+  <div class="brief-partnership-grid">
+    <div class="brief-partner-card">
+      <div class="brief-partner-eyebrow" data-i18n="b4.partner.editor.eyebrow"></div>
+      <div class="brief-partner-name">Naully Nicolas</div>
+      <p class="brief-partner-body" data-i18n="b4.partner.editor.body"></p>
+      <div class="brief-partner-meta">
+        <a href="https://transitions-ia.fr">transitions-ia.fr</a>
+        &nbsp;·&nbsp;
+        <a href="https://naullynicolas.ch">naullynicolas.ch</a>
+      </div>
+    </div>
+    <div class="brief-partner-card">
+      <div class="brief-partner-eyebrow" data-i18n="b4.partner.sponsor.eyebrow"></div>
+      <div class="brief-partner-name">myAuxilium</div>
+      <p class="brief-partner-body" data-i18n="b4.partner.sponsor.body"></p>
+      <div class="brief-partner-meta">
+        <a href="https://www.myauxilium.ai">myauxilium.ai</a>
+      </div>
+    </div>
+  </div>
+  <div class="brief-editorial-frame">
+    <div class="brief-editorial-frame-tag" data-i18n="b4.partner.frame.tag"></div>
+    <div class="brief-editorial-frame-body" data-i18n="b4.partner.frame.body" data-i18n-html="true"></div>
+  </div>
+</section>
+
+<!-- §01 CADRE · Qu'est-ce qu'un agent IA -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.def.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.def.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.def.sub"></p>
+  </div>
+
+  <div class="brief-defs">
+    <div class="brief-def">
+      <div class="brief-def-meta">Type 01</div>
+      <div class="brief-def-title">Copilot</div>
+      <div class="brief-def-body" data-i18n="b4.def.t1" data-i18n-html="true"></div>
+    </div>
+    <div class="brief-def">
+      <div class="brief-def-meta">Type 02</div>
+      <div class="brief-def-title">Workflow IA</div>
+      <div class="brief-def-body" data-i18n="b4.def.t2" data-i18n-html="true"></div>
+    </div>
+    <div class="brief-def">
+      <div class="brief-def-meta">Type 03</div>
+      <div class="brief-def-title">RAG métier</div>
+      <div class="brief-def-body" data-i18n="b4.def.t3" data-i18n-html="true"></div>
+    </div>
+    <div class="brief-def">
+      <div class="brief-def-meta">Type 04</div>
+      <div class="brief-def-title" data-i18n="b4.def.t4.title"></div>
+      <div class="brief-def-body" data-i18n="b4.def.t4" data-i18n-html="true"></div>
+    </div>
+  </div>
+
+  <div class="brief-isisnot">
+    <div class="brief-isisnot-card is">
+      <div class="eyebrow" data-i18n="b4.def.is.eyebrow"></div>
+      <h3 data-i18n="b4.def.is.title"></h3>
+      <ul>
+        <li data-i18n="b4.def.is.1" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.is.2" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.is.3" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.is.4" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.is.5" data-i18n-html="true"></li>
+      </ul>
+    </div>
+    <div class="brief-isisnot-card isnot">
+      <div class="eyebrow" data-i18n="b4.def.isnot.eyebrow"></div>
+      <h3 data-i18n="b4.def.isnot.title"></h3>
+      <ul>
+        <li data-i18n="b4.def.isnot.1" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.isnot.2" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.isnot.3" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.isnot.4" data-i18n-html="true"></li>
+        <li data-i18n="b4.def.isnot.5" data-i18n-html="true"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- §02 ADOPTION -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.ado.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.ado.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.ado.sub"></p>
+  </div>
+
+  <div class="brief-adoption-row">
+    <div class="brief-adoption-card">
+      <h3 data-i18n="b4.ado.chart1.title"></h3>
+      <div class="sub" data-i18n="b4.ado.chart1.sub"></div>
+      <svg class="brief-adoption-svg" id="adoptionChart" viewBox="0 0 600 260"></svg>
+      <div class="brief-legend">
+        <span><span class="sw" style="background:#D03C2F"></span><span data-i18n="b4.ado.chart1.legend1"></span></span>
+        <span><span class="sw" style="background:#1F3A3D"></span><span data-i18n="b4.ado.chart1.legend2"></span></span>
+        <span><span class="sw" style="background:#8A8A8A; border-top: 1px dashed #8A8A8A"></span><span data-i18n="b4.ado.chart1.legend3"></span></span>
+      </div>
+    </div>
+    <div class="brief-adoption-card">
+      <h3 data-i18n="b4.ado.chart2.title"></h3>
+      <div class="sub" data-i18n="b4.ado.chart2.sub"></div>
+      <svg class="brief-adoption-svg" id="functionsChart" viewBox="0 0 480 260"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- §03 TAILLE ENTREPRISE -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.size.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.size.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.size.sub"></p>
+  </div>
+  <div class="brief-size-grid">
+    <div class="brief-size-card">
+      <h4>TPE</h4>
+      <div class="brief-size-meta" data-i18n="b4.size.tpe.tag"></div>
+      <div class="brief-size-big">9%</div>
+      <div class="brief-size-meta" data-i18n="b4.size.adoption"></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.stage"></span><span data-i18n="b4.size.tpe.stage"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.frein"></span><span data-i18n="b4.size.tpe.frein"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.levier"></span><span data-i18n="b4.size.tpe.levier"></span></div>
+    </div>
+    <div class="brief-size-card">
+      <h4>PME</h4>
+      <div class="brief-size-meta" data-i18n="b4.size.pme.tag"></div>
+      <div class="brief-size-big">24%</div>
+      <div class="brief-size-meta" data-i18n="b4.size.adoption"></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.stage"></span><span data-i18n="b4.size.pme.stage"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.frein"></span><span data-i18n="b4.size.pme.frein"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.levier"></span><span data-i18n="b4.size.pme.levier"></span></div>
+    </div>
+    <div class="brief-size-card">
+      <h4>ETI</h4>
+      <div class="brief-size-meta" data-i18n="b4.size.eti.tag"></div>
+      <div class="brief-size-big">47%</div>
+      <div class="brief-size-meta" data-i18n="b4.size.adoption"></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.stage"></span><span data-i18n="b4.size.eti.stage"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.frein"></span><span data-i18n="b4.size.eti.frein"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.levier"></span><span data-i18n="b4.size.eti.levier"></span></div>
+    </div>
+    <div class="brief-size-card">
+      <h4 data-i18n="b4.size.ge.title"></h4>
+      <div class="brief-size-meta" data-i18n="b4.size.ge.tag"></div>
+      <div class="brief-size-big">62%</div>
+      <div class="brief-size-meta" data-i18n="b4.size.adoption"></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.stage"></span><span data-i18n="b4.size.ge.stage"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.frein"></span><span data-i18n="b4.size.ge.frein"></span></div>
+      <div class="brief-size-row"><span data-i18n="b4.size.levier"></span><span data-i18n="b4.size.ge.levier"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- §04 FREINS -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.freins.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.freins.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.freins.sub"></p>
+  </div>
+  <div class="brief-freins">
+    <div class="brief-frein">
+      <div class="brief-frein-rank">01</div>
+      <div class="brief-frein-body">
+        <h4 data-i18n="b4.frein.1.title"></h4>
+        <p data-i18n="b4.frein.1.body"></p>
+      </div>
+      <div class="brief-frein-pct">64%<small data-i18n="b4.frein.1.metric"></small></div>
+      <div><span class="brief-kpi-conf c1">C1</span></div>
+    </div>
+    <div class="brief-frein">
+      <div class="brief-frein-rank">02</div>
+      <div class="brief-frein-body">
+        <h4 data-i18n="b4.frein.2.title"></h4>
+        <p data-i18n="b4.frein.2.body"></p>
+      </div>
+      <div class="brief-frein-pct">85%<small data-i18n="b4.frein.2.metric"></small></div>
+      <div><span class="brief-kpi-conf c1">C1</span></div>
+    </div>
+    <div class="brief-frein">
+      <div class="brief-frein-rank">03</div>
+      <div class="brief-frein-body">
+        <h4 data-i18n="b4.frein.3.title"></h4>
+        <p data-i18n="b4.frein.3.body"></p>
+      </div>
+      <div class="brief-frein-pct">80%<small data-i18n="b4.frein.3.metric"></small></div>
+      <div><span class="brief-kpi-conf c1">C1</span></div>
+    </div>
+    <div class="brief-frein">
+      <div class="brief-frein-rank">04</div>
+      <div class="brief-frein-body">
+        <h4 data-i18n="b4.frein.4.title"></h4>
+        <p data-i18n="b4.frein.4.body"></p>
+      </div>
+      <div class="brief-frein-pct">81%<small data-i18n="b4.frein.4.metric"></small></div>
+      <div><span class="brief-kpi-conf c1">C1</span></div>
+    </div>
+    <div class="brief-frein">
+      <div class="brief-frein-rank">05</div>
+      <div class="brief-frein-body">
+        <h4 data-i18n="b4.frein.5.title"></h4>
+        <p data-i18n="b4.frein.5.body"></p>
+      </div>
+      <div class="brief-frein-pct">70%<small data-i18n="b4.frein.5.metric"></small></div>
+      <div><span class="brief-kpi-conf c1">C1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- §05 SCÉNARIOS -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.scen.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.scen.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.scen.sub"></p>
+  </div>
+  <div class="brief-scen-grid">
+    <div class="brief-scen">
+      <div class="brief-scen-tag">P = 25%</div>
+      <div class="brief-scen-name" data-i18n="b4.scen.a.name"></div>
+      <h4 data-i18n="b4.scen.a.title"></h4>
+      <p data-i18n="b4.scen.a.body"></p>
+      <ul>
+        <li data-i18n="b4.scen.a.t1"></li>
+        <li data-i18n="b4.scen.a.t2"></li>
+        <li data-i18n="b4.scen.a.t3"></li>
+      </ul>
+    </div>
+    <div class="brief-scen">
+      <div class="brief-scen-tag">P = 55%</div>
+      <div class="brief-scen-name" data-i18n="b4.scen.b.name"></div>
+      <h4 data-i18n="b4.scen.b.title"></h4>
+      <p data-i18n="b4.scen.b.body"></p>
+      <ul>
+        <li data-i18n="b4.scen.b.t1"></li>
+        <li data-i18n="b4.scen.b.t2"></li>
+        <li data-i18n="b4.scen.b.t3"></li>
+      </ul>
+    </div>
+    <div class="brief-scen">
+      <div class="brief-scen-tag">P = 20%</div>
+      <div class="brief-scen-name" data-i18n="b4.scen.c.name"></div>
+      <h4 data-i18n="b4.scen.c.title"></h4>
+      <p data-i18n="b4.scen.c.body"></p>
+      <ul>
+        <li data-i18n="b4.scen.c.t1"></li>
+        <li data-i18n="b4.scen.c.t2"></li>
+        <li data-i18n="b4.scen.c.t3"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- §06 AGENDA 90 JOURS -->
+<section class="brief-section">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.agenda.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.agenda.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.agenda.sub"></p>
+  </div>
+  <div class="brief-agenda">
+    <div class="brief-agenda-col">
+      <div class="brief-agenda-head">
+        <div class="brief-agenda-day">30j</div>
+        <div class="brief-agenda-day-label" data-i18n="b4.agenda.30.label"></div>
+      </div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.30.1"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.30.2"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.30.3"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.30.4"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.30.5"></div></div>
+    </div>
+    <div class="brief-agenda-col">
+      <div class="brief-agenda-head">
+        <div class="brief-agenda-day">60j</div>
+        <div class="brief-agenda-day-label" data-i18n="b4.agenda.60.label"></div>
+      </div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.60.1"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.60.2"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.60.3"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.60.4"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.60.5"></div></div>
+    </div>
+    <div class="brief-agenda-col">
+      <div class="brief-agenda-head">
+        <div class="brief-agenda-day">90j</div>
+        <div class="brief-agenda-day-label" data-i18n="b4.agenda.90.label"></div>
+      </div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.90.1"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.90.2"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.90.3"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.90.4"></div></div>
+      <div class="brief-agenda-item"><div class="brief-agenda-check"></div><div data-i18n="b4.agenda.90.5"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- §07 SOURCES -->
+<section class="brief-section brief-sources">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.sources.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.sources.title"></h2>
+    <p class="section-sub" data-i18n="b4.sources.sub"></p>
+  </div>
+  <ul class="brief-sources-list">
+    <li data-i18n="b4.sources.1" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.2" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.3" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.4" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.5" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.6" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.7" data-i18n-html="true"></li>
+    <li data-i18n="b4.sources.8" data-i18n-html="true"></li>
+  </ul>
+</section>
+
+<!-- DISCLOSURE ÉDITORIALE -->
+<section class="brief-disclosure">
+  <div class="brief-disclosure-inner">
+    <div class="brief-disclosure-tag" data-i18n="b4.disc.tag"></div>
+    <div class="brief-disclosure-body" data-i18n="b4.disc.body" data-i18n-html="true"></div>
+  </div>
+</section>
+
+<!-- §09 REGARD PARTENAIRE -->
+<section class="brief-sponsor-section">
+  <div class="brief-sponsor-inner">
+    <span class="brief-sponsor-banner" data-i18n="b4.partview.banner"></span>
+    <div class="brief-sponsor-eyebrow" data-i18n="b4.partview.eyebrow"></div>
+    <h2 data-i18n="b4.partview.title"></h2>
+    <p class="lede" data-i18n="b4.partview.lede"></p>
+    <div class="brief-sponsor-card">
+      <p class="brief-sponsor-quote" data-i18n="b4.partview.quote"></p>
+      <div class="brief-sponsor-body">
+        <p data-i18n="b4.partview.body1" data-i18n-html="true"></p>
+        <p data-i18n="b4.partview.body2" data-i18n-html="true"></p>
+        <p data-i18n="b4.partview.body3" data-i18n-html="true"></p>
+      </div>
+      <div class="brief-sponsor-sig">
+        <div>
+          <div class="brief-sponsor-sig-name">Martin Guichard</div>
+          <div class="brief-sponsor-sig-role">CEO · myAuxilium</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIONS · CTA -->
+<section class="brief-cta-actions">
+  <div class="section-head">
+    <div class="section-eyebrow mono" data-i18n="b4.cta.eyebrow"></div>
+    <h2 class="section-title" data-i18n="b4.cta.title" data-i18n-html="true"></h2>
+    <p class="section-sub" data-i18n="b4.cta.sub"></p>
+  </div>
+  <div class="cta-row" style="justify-content: center; margin-top: 32px; flex-wrap: wrap; gap: 16px;">
+    <a href="../contact.html?type=custom&dispatch=004" class="btn btn-primary">
+      <span data-i18n="b4.cta.custom"></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://www.myauxilium.ai" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span data-i18n="b4.cta.partner"></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- BACK -->
+<section style="max-width: var(--max-w); margin: 0 auto; padding: 32px;">
+  <a href="../briefings.html" class="briefing-action-line" data-i18n="brief.back"></a>
+</section>
+
+<footer id="siteFooter"></footer>
+
+<!-- I18N -->
+<script>
+window.PAGE_I18N = {
+  fr: {
+    "b4.meta.num": "DISPATCH #004",
+    "b4.meta.sector": "Cross-sectoriel",
+    "b4.meta.country": "🇫🇷 France",
+    "b4.meta.date": "Mai 2026",
+    "b4.meta.edition": "Édition sponsorisée",
+    "b4.sponsor.badge": "● Sponsorisé par myAuxilium",
+    "b4.title": "Agents IA en entreprise · France 2026. <em>État d'adoption et seuils de maturité.</em>",
+    "b4.sub": "Où en sont réellement les entreprises françaises dans le déploiement d'agents IA en mai 2026 ? Cartographie des usages par fonction et taille, freins documentés, et trajectoires probables à 12-24 mois. À destination des COMEX, CODIR et DRH.",
+    "b4.by.read": "16 min de lecture",
+    "b4.by.sources": "27 sources",
+    "b4.kpi.1.label": "Adoption IA générative en France",
+    "b4.kpi.1.source": "Microsoft AI Diffusion Q1 2026, rang 5 mondial",
+    "b4.kpi.2.label": "IA agentique à l'échelle",
+    "b4.kpi.2.source": "Adobe / Orange Business 2026",
+    "b4.kpi.3.label": "Entreprises FR prêtes pour l'agentique",
+    "b4.kpi.3.source": "AWS / Strand Partners 2026 (vs 67% startups)",
+    "b4.kpi.4.label": "Mesurent leur ROI IA",
+    "b4.kpi.4.source": "KPMG Trends of AI 2026 (vs 33% en 2025)",
+    "b4.kpi.5.label": "Valeur potentielle France à 2030",
+    "b4.kpi.5.source": "VAB · AWS / Strand 2026",
+
+    "b4.partner.eyebrow": "§ 00 · À propos de ce numéro",
+    "b4.partner.title": "Un Dispatch sponsorisé · <em>indépendance éditoriale préservée</em>.",
+    "b4.partner.editor.eyebrow": "Éditeur du dispatch",
+    "b4.partner.editor.body": "Consultant et conférencier IA, auteur de Guerill-iA. Édite deux observatoires publics sur l'impact de l'IA sur les métiers (France et Suisse).",
+    "b4.partner.sponsor.eyebrow": "Partenaire du numéro",
+    "b4.partner.sponsor.body": "Plateforme SaaS d'IA générative sécurisée pour les TPE, PME et ETI françaises. Architecture RAG multi-agents, traçabilité documentaire intégrale, hébergement souverain (OVH), conformité RGPD et AI Act.",
+    "b4.partner.frame.tag": "Cadre éditorial",
+    "b4.partner.frame.body": "L'intégralité du contenu analytique (chiffres, sources, scénarios, agenda) relève de la responsabilité éditoriale exclusive de Naully Nicolas. <strong>myAuxilium soutient la production de ce numéro mais n'intervient ni dans le choix des sources, ni dans la formulation des conclusions.</strong> La section §09 <em>Regard partenaire</em> est l'espace d'expression réservé à myAuxilium, clairement balisé.",
+
+    "b4.def.eyebrow": "§ 01 · Cadre",
+    "b4.def.title": "Qu'est-ce qu'un agent IA, <em>et ce que ce n'est pas</em>.",
+    "b4.def.sub": "Tous les chiffres qui suivent dépendent de cette frontière. Sans clarification, les études se contredisent et les budgets se brûlent sur des objets mal identifiés.",
+    "b4.def.t1": "Assistant qui répond à des sollicitations humaines, sans initiative ni mémoire persistante. Microsoft 365 Copilot, ChatGPT en mode chat. <b>C'est le levier d'adoption dominant en 2026</b> (Unow, France Travail).",
+    "b4.def.t2": "Chaîne de traitements semi-automatisée, étapes prédéfinies, IA invoquée comme brique. n8n, Make + LLM, Zapier. Pas d'autonomie réelle, mais industrialisable et auditable.",
+    "b4.def.t3": "Recherche augmentée sur corpus interne avec citation systématique des sources. Objectif : <b>zéro hallucination, traçabilité</b>. Modèle de la plupart des solutions B2B FR matures (incluant myAuxilium).",
+    "b4.def.t4.title": "Agent autonome",
+    "b4.def.t4": "Système qui planifie, exécute des actions sur des outils externes, et boucle jusqu'à l'objectif. <b>Seules 13% des entreprises FR déployées à l'échelle</b> (Adobe / Orange 2026).",
+    "b4.def.is.eyebrow": "· Ce qu'est un agent IA",
+    "b4.def.is.title": "Un système qui agit, pas seulement qui répond.",
+    "b4.def.is.1": "<b>Un planificateur</b> qui décompose un objectif en sous-tâches",
+    "b4.def.is.2": "<b>Un exécutant</b> qui appelle des outils (API, base de données, navigateur, code)",
+    "b4.def.is.3": "<b>Un bouclage</b> qui évalue le résultat et reprend la main si nécessaire",
+    "b4.def.is.4": "<b>Une mémoire</b> persistante du contexte et des étapes précédentes",
+    "b4.def.is.5": "<b>Une supervision</b> humaine définie : validation, point d'arrêt, escalade",
+    "b4.def.isnot.eyebrow": "· Ce qu'un agent IA n'est pas",
+    "b4.def.isnot.title": "Ni un ChatGPT déguisé, ni une intelligence générale.",
+    "b4.def.isnot.1": "<b>Pas un simple chatbot</b> qui répond et s'arrête là",
+    "b4.def.isnot.2": "<b>Pas un système infaillible</b> · les LLM grand public hallucinent dans 20 à 40% des cas hors RAG",
+    "b4.def.isnot.3": "<b>Pas une boîte noire autonome</b> sans supervision ni traçabilité",
+    "b4.def.isnot.4": "<b>Pas une solution sans coût caché</b> · intégration, formation, maintenance",
+    "b4.def.isnot.5": "<b>Pas un substitut au cadrage métier</b> · un agent sans objectif clair échoue",
+
+    "b4.ado.eyebrow": "§ 02 · Adoption",
+    "b4.ado.title": "La France adopte vite, <em>mais surface plus qu'elle ne s'industrialise</em>.",
+    "b4.ado.sub": "Avec 47,8% d'adoption en Q1 2026 (Microsoft AI Diffusion Report), la France est 5e mondiale et 4e européenne pour l'usage individuel d'IA générative. Mais seules 13% des entreprises ont déployé l'IA agentique à l'échelle (Adobe/Orange). L'écart entre adoption individuelle et industrialisation organisationnelle reste l'enjeu majeur. KPMG documente que 2/3 des entreprises mesurent désormais leur ROI IA, contre 1/3 en 2025.",
+    "b4.ado.chart1.title": "Adoption de l'IA générative en France",
+    "b4.ado.chart1.sub": "Trajectoire H1 2025 → Q1 2026 · Microsoft AI Diffusion",
+    "b4.ado.chart1.legend1": "Population 16-74 ans (Microsoft)",
+    "b4.ado.chart1.legend2": "Entreprises FR (AWS / Strand)",
+    "b4.ado.chart1.legend3": "IA agentique à l'échelle (Adobe)",
+    "b4.ado.chart2.title": "Adoption par fonction métier",
+    "b4.ado.chart2.sub": "% entreprises ayant déployé · KPMG Trends of AI 2026 (356 décideurs FR)",
+
+    "b4.size.eyebrow": "§ 03 · Taille",
+    "b4.size.title": "Le fossé n'est pas générationnel, <em>il est dimensionnel</em>.",
+    "b4.size.sub": "Entre une TPE et un grand groupe, l'écart d'adoption est de 1 à 7. Les ETI émergent comme le segment le plus pragmatique. La taille de l'entreprise reste la variable la plus prédictive du niveau de maturité IA en 2026.",
+    "b4.size.adoption": "adoption · 2026",
+    "b4.size.stage": "Stade dominant",
+    "b4.size.frein": "Frein #1",
+    "b4.size.levier": "Levier #1",
+    "b4.size.tpe.tag": "< 10 salariés",
+    "b4.size.tpe.stage": "Exploration",
+    "b4.size.tpe.frein": "Compétences",
+    "b4.size.tpe.levier": "Outils prêts",
+    "b4.size.pme.tag": "10–249 salariés",
+    "b4.size.pme.stage": "POC",
+    "b4.size.pme.frein": "ROI flou",
+    "b4.size.pme.levier": "Conseil externe",
+    "b4.size.eti.tag": "250–4999 salariés",
+    "b4.size.eti.stage": "POC élargi",
+    "b4.size.eti.frein": "Gouvernance",
+    "b4.size.eti.levier": "Sponsor COMEX",
+    "b4.size.ge.title": "Grands groupes",
+    "b4.size.ge.tag": "> 5000 salariés",
+    "b4.size.ge.stage": "Industrialisation",
+    "b4.size.ge.frein": "Legacy IT",
+    "b4.size.ge.levier": "Plateforme interne",
+
+    "b4.freins.eyebrow": "§ 04 · Obstacles",
+    "b4.freins.title": "Cinq freins, <em>par ordre d'impact</em>.",
+    "b4.freins.sub": "Hiérarchie consolidée à partir de cinq études convergentes (Adobe 2026, KPMG 2026, AWS/Strand 2026, Deloitte 2026, Gallup Q1 2026). Chaque frein est ce que les répondants citent en premier obstacle, pas ce qu'ils citent par défaut.",
+    "b4.frein.1.title": "Qualité et accessibilité des données",
+    "b4.frein.1.body": "Seules 36% des entreprises FR estiment que la qualité de leurs données est suffisante pour l'IA (Adobe 2026, vs 43% en Europe). Sans corpus exploitable, les agents produisent du générique. C'est le frein technique numéro un sur lequel les architectures RAG souveraines apportent une réponse mesurable.",
+    "b4.frein.1.metric": "Données insuffisantes · Adobe 2026",
+    "b4.frein.2.title": "Compétences internes manquantes",
+    "b4.frein.2.body": "Le manque de compétences en IA est le principal frein à l'intégration opérationnelle (Deloitte 2026). 85% des organisations déclarent ne pas avoir formé leurs équipes (KPMG Trends of AI 2026). Le gap n'est pas entre Data Scientists, c'est entre opérationnels métiers et capacités IA.",
+    "b4.frein.2.metric": "Sans formation · KPMG 2026",
+    "b4.frein.3.title": "Gouvernance des agents autonomes",
+    "b4.frein.3.body": "Seule 1 entreprise sur 5 dispose d'un modèle mature de gouvernance des agents IA autonomes (Deloitte 2026). Le shadow AI se développe en marge des cadres officiels. L'AI Act renforce l'exigence sans clarifier l'opérationnel.",
+    "b4.frein.3.metric": "Gouvernance immature · Deloitte 2026",
+    "b4.frein.4.title": "Préparation à l'IA agentique",
+    "b4.frein.4.body": "Seules 19% des entreprises françaises se déclarent prêtes à adopter l'IA agentique, contre 67% des startups (AWS / Strand 2026). Au rythme actuel, il faudrait attendre 2035 pour que la moitié atteigne l'usage avancé.",
+    "b4.frein.4.metric": "Pas prêtes · AWS / Strand 2026",
+    "b4.frein.5.title": "Confiance utilisateur fragile",
+    "b4.frein.5.body": "Seuls 30% des Français interagiraient avec l'agent IA d'une marque (vs 40% en Europe). 41% se disent fermés à l'idée d'un agent IA personnel, contre 27% en Europe (Adobe 2026). 18% craignent l'élimination de leur poste à 5 ans (Gallup Workforce Q1 2026).",
+    "b4.frein.5.metric": "Réticents · Adobe 2026",
+
+    "b4.scen.eyebrow": "§ 05 · Trajectoires",
+    "b4.scen.title": "Trois scénarios à 18 mois.",
+    "b4.scen.sub": "Probabilités estimées à partir des déclencheurs documentés dans la veille de l'observatoire. Pas une prédiction, un cadre pour préparer ses décisions de COMEX.",
+    "b4.scen.a.name": "Scénario A · Accéléré",
+    "b4.scen.a.title": "L'industrialisation l'emporte.",
+    "b4.scen.a.body": "Les ETI passent en production, les freins gouvernance se desserrent, les agents autonomes maturent. Adoption FR ~55% fin 2027, agentique à l'échelle ~25%.",
+    "b4.scen.a.t1": "AI Act stabilisé sur cas d'usage clés",
+    "b4.scen.a.t2": "Baisse coûts inference 60% (post-GPT-5)",
+    "b4.scen.a.t3": "Offres souveraines clés-en-main maturent",
+    "b4.scen.b.name": "Scénario B · Central",
+    "b4.scen.b.title": "Bifurcation par taille.",
+    "b4.scen.b.body": "Grands groupes et ETI matures avancent ; PME stagnent ; TPE décrochent. Adoption FR ~50% fin 2027 mais polarisée. C'est le scénario qui correspond aux trajectoires observées en mai 2026.",
+    "b4.scen.b.t1": "Statu quo réglementaire AI Act",
+    "b4.scen.b.t2": "Pénurie compétences persiste",
+    "b4.scen.b.t3": "ROI démontré sur 3-4 fonctions",
+    "b4.scen.c.name": "Scénario C · Freiné",
+    "b4.scen.c.title": "Désillusion partielle.",
+    "b4.scen.c.body": "Multiplication des échecs de POC, retours en arrière, gel d'investissements. Adoption FR plafonne à ~45% fin 2027.",
+    "b4.scen.c.t1": "Incident majeur réglementaire ou sécurité",
+    "b4.scen.c.t2": "Récession européenne prolongée",
+    "b4.scen.c.t3": "Plateau des capacités modèles",
+
+    "b4.agenda.eyebrow": "§ 06 · Action",
+    "b4.agenda.title": "Agenda gouvernance 90 jours.",
+    "b4.agenda.sub": "À destination des COMEX, CODIR et DRH. Ce qu'il faut décider, mesurer, lancer dans les trois prochains mois · quel que soit votre point de départ.",
+    "b4.agenda.30.label": "Cadrer",
+    "b4.agenda.30.1": "Désigner un sponsor exécutif unique (rattachement COMEX)",
+    "b4.agenda.30.2": "Inventorier les usages déjà en cours, officiels et shadow",
+    "b4.agenda.30.3": "Définir 3 KPI métier mesurables (pas techniques)",
+    "b4.agenda.30.4": "Cartographier les corpus de données mobilisables",
+    "b4.agenda.30.5": "Identifier 1 cas d'usage à fort signal, faible risque",
+    "b4.agenda.60.label": "Outiller",
+    "b4.agenda.60.1": "Politique d'usage IA validée et publiée en interne",
+    "b4.agenda.60.2": "Comité éthique/gouvernance constitué (DRH + DSI + métier)",
+    "b4.agenda.60.3": "Cartographie AI Act des cas d'usage prioritaires",
+    "b4.agenda.60.4": "Plan de montée en compétences sur 4 strates (COMEX, managers, experts, opérationnels)",
+    "b4.agenda.60.5": "POC lancé avec critères d'arrêt explicites",
+    "b4.agenda.90.label": "Décider",
+    "b4.agenda.90.1": "Premier bilan POC · passage à l'échelle, pivot ou arrêt",
+    "b4.agenda.90.2": "Communication interne formalisée (impact métiers, pas seulement outils)",
+    "b4.agenda.90.3": "Dialogue social engagé sur le périmètre déployé",
+    "b4.agenda.90.4": "Budget 2026/2027 cadré sur scénario explicite (A, B ou C)",
+    "b4.agenda.90.5": "Trajectoire 18 mois présentée au conseil d'administration",
+
+    "b4.sources.eyebrow": "§ 07 · Méthode",
+    "b4.sources.title": "Sources et tiérage T1–T4.",
+    "b4.sources.sub": "Études primaires citées dans ce numéro. Tiérage T1 (académique, banques centrales, institutions publiques), T2 (cabinets à méthodologie publique), T3 (éditeurs avec décote commerciale), T4 (presse, témoignages).",
+    "b4.sources.1": "<b>T1</b> · Microsoft Research · AI Economy Institute · <i>Global AI Diffusion Report Q1 2026</i> · mai 2026 · France 47,8% adoption (rang 5)",
+    "b4.sources.2": "<b>T2</b> · KPMG France & Les EnthousIAstes · <i>Trends of AI 2026</i> · 356 décideurs (62% COMEX) · janvier 2026",
+    "b4.sources.3": "<b>T2</b> · AWS & Strand Partners · <i>Unlocking France's AI Potential 2026</i> · 1 000 entreprises + 1 000 citoyens FR · avril 2026",
+    "b4.sources.4": "<b>T2</b> · Adobe & Orange Business · <i>Rapport IA et tendances digitales 2026</i> · 7 000 répondants · février 2026",
+    "b4.sources.5": "<b>T2</b> · Deloitte · <i>State of AI in the Enterprise 2026</i>",
+    "b4.sources.6": "<b>T2</b> · Gallup · <i>Workforce Q1 2026</i> · 23 717 actifs · avril 2026",
+    "b4.sources.7": "<b>T1</b> · INSEE Première n°2061 · <i>Les TIC dans les entreprises en 2024</i> · juillet 2025",
+    "b4.sources.8": "<b>T1</b> · Anthropic Economic Index · Massenkoff & McCrory · <i>Labor market impacts of AI</i> · mars 2026",
+
+    "b4.disc.tag": "Disclosure éditoriale",
+    "b4.disc.body": "Ce Dispatch #004 est un <strong>numéro sponsorisé par myAuxilium</strong>. La sponsoring porte sur le financement de la production éditoriale. <strong>L'intégralité du contenu analytique (chiffres, sources, scénarios, agenda gouvernance) relève de la responsabilité éditoriale exclusive de Naully Nicolas.</strong> myAuxilium n'a pas fourni de données, n'a pas relu les analyses avant publication, et n'intervient pas dans le choix des sources ni dans la formulation des conclusions. La section §09 <em>Regard partenaire</em> est l'espace d'expression réservé à myAuxilium, clairement balisé comme contenu signé.",
+
+    "b4.partview.banner": "Contenu partenaire · signé myAuxilium",
+    "b4.partview.eyebrow": "§ 09 · Regard partenaire",
+    "b4.partview.title": "Le regard d'un opérateur du terrain.",
+    "b4.partview.lede": "Ce que voit Martin Guichard, CEO de myAuxilium, dans les déploiements RAG métiers chez ses clients en 2026.",
+    "b4.partview.quote": "Le passage à l'échelle ne dépend pas du modèle. Il dépend de l'hygiène documentaire et de la clarté du sponsor.",
+    "b4.partview.body1": "Ce qu'on observe chez nos clients ETI et PME françaises en 2026, c'est une bascule très nette entre deux types de POC. Le premier, qui a longtemps dominé, vise à <em>tester ChatGPT en interne</em>. Il échoue presque systématiquement : sans corpus interne, sans cadrage métier, sans gouvernance, l'outil produit du générique. Le second type, qui prend désormais le dessus, part de la documentation existante (procédures, contrats, FAQ, échanges client) et l'organise dans une architecture RAG souveraine avec citation de sources. Là, la conversion en gain de productivité mesurable est rapide.",
+    "b4.partview.body2": "La frontière entre les deux n'est pas technologique. Elle est <strong>organisationnelle</strong>. Les clients qui réussissent ont systématiquement : (1) un sponsor unique au COMEX, qui peut décider et arbitrer ; (2) une hygiène documentaire minimale, à laquelle on consacre les premiers 60 jours du projet ; (3) un cas d'usage à fort signal et faible risque pour démontrer la valeur avant de généraliser.",
+    "b4.partview.body3": "Ce que les DSI sous-estiment systématiquement, c'est le poids de l'<strong>auditabilité</strong>. L'AI Act, la RGPD et les exigences sectorielles convergent vers une obligation de traçabilité : qui a posé la question, quelles sources ont été mobilisées, quelle réponse a été produite. Une plateforme qui n'enregistre pas ces trois éléments avec horodatage et liens vers les documents sources est aujourd'hui un risque réglementaire latent. C'est précisément la frontière entre un LLM grand public et une plateforme métier souveraine.",
+
+    "b4.cta.eyebrow": "→ Prochaines étapes",
+    "b4.cta.title": "Vous voulez un Dispatch <em>calibré sur votre secteur</em> ?",
+    "b4.cta.sub": "Fédérations professionnelles, OPCO, directions générales, DRH · briefings sur-mesure sur le périmètre de votre choix, format court, sourcé, exploitable en COMEX dans la semaine.",
+    "b4.cta.custom": "Demander un Dispatch sur-mesure",
+    "b4.cta.partner": "Découvrir myAuxilium",
+
+    "brief.act.mail": "Partager par mail",
+    "brief.act.copy": "Copier le lien",
+    "brief.back": "← Retour à tous les Dispatches"
+  },
+  en: {
+    "b4.meta.num": "DISPATCH #004",
+    "b4.meta.sector": "Cross-sectoral",
+    "b4.meta.country": "🇫🇷 France",
+    "b4.meta.date": "May 2026",
+    "b4.meta.edition": "Sponsored edition",
+    "b4.sponsor.badge": "● Sponsored by myAuxilium",
+    "b4.title": "AI agents in enterprise · France 2026. <em>State of adoption and maturity thresholds.</em>",
+    "b4.sub": "Where are French companies really at in deploying AI agents in May 2026? Mapping of uses by function and size, documented obstacles, and probable trajectories at 12-24 months. For COMEX, CODIR and HR leadership.",
+    "b4.by.read": "16 min read",
+    "b4.by.sources": "27 sources",
+    "b4.kpi.1.label": "Generative AI adoption in France",
+    "b4.kpi.1.source": "Microsoft AI Diffusion Q1 2026, rank 5 worldwide",
+    "b4.kpi.2.label": "Agentic AI at scale",
+    "b4.kpi.2.source": "Adobe / Orange Business 2026",
+    "b4.kpi.3.label": "FR firms ready for agentic AI",
+    "b4.kpi.3.source": "AWS / Strand Partners 2026 (vs 67% startups)",
+    "b4.kpi.4.label": "Measure their AI ROI",
+    "b4.kpi.4.source": "KPMG Trends of AI 2026 (vs 33% in 2025)",
+    "b4.kpi.5.label": "Potential value France by 2030",
+    "b4.kpi.5.source": "GVA · AWS / Strand 2026",
+
+    "b4.partner.eyebrow": "§ 00 · About this issue",
+    "b4.partner.title": "A sponsored Dispatch · <em>editorial independence preserved</em>.",
+    "b4.partner.editor.eyebrow": "Dispatch editor",
+    "b4.partner.editor.body": "AI consultant and conference speaker, author of Guerill-iA. Edits two public observatories on AI's impact on professions (France and Switzerland).",
+    "b4.partner.sponsor.eyebrow": "Issue sponsor",
+    "b4.partner.sponsor.body": "Secure generative AI SaaS platform for French micro-businesses, SMEs and mid-caps. Multi-agent RAG architecture, full document traceability, sovereign hosting (OVH), GDPR and AI Act compliance.",
+    "b4.partner.frame.tag": "Editorial frame",
+    "b4.partner.frame.body": "All analytical content (figures, sources, scenarios, agenda) is the exclusive editorial responsibility of Naully Nicolas. <strong>myAuxilium supports the production of this issue but does not intervene in source selection or in the formulation of conclusions.</strong> The §09 <em>Partner perspective</em> section is the dedicated space for myAuxilium, clearly labeled.",
+
+    "b4.def.eyebrow": "§ 01 · Frame",
+    "b4.def.title": "What is an AI agent, <em>and what it is not</em>.",
+    "b4.def.sub": "All the figures that follow depend on this boundary. Without clarification, studies contradict each other and budgets burn on misidentified objects.",
+    "b4.def.t1": "Assistant that responds to human requests, without initiative or persistent memory. Microsoft 365 Copilot, ChatGPT in chat mode. <b>This is the dominant adoption lever in 2026</b> (Unow, France Travail).",
+    "b4.def.t2": "Semi-automated processing chain, predefined steps, AI invoked as a brick. n8n, Make + LLM, Zapier. No real autonomy, but industrializable and auditable.",
+    "b4.def.t3": "Augmented search on internal corpus with systematic source citation. Goal: <b>zero hallucination, traceability</b>. Model of most mature FR B2B solutions (including myAuxilium).",
+    "b4.def.t4.title": "Autonomous agent",
+    "b4.def.t4": "System that plans, executes actions on external tools, and loops until objective. <b>Only 13% of FR companies deployed at scale</b> (Adobe / Orange 2026).",
+    "b4.def.is.eyebrow": "· What an AI agent is",
+    "b4.def.is.title": "A system that acts, not just one that answers.",
+    "b4.def.is.1": "<b>A planner</b> that decomposes an objective into subtasks",
+    "b4.def.is.2": "<b>An executor</b> that calls tools (API, database, browser, code)",
+    "b4.def.is.3": "<b>A loop</b> that evaluates the result and takes over if necessary",
+    "b4.def.is.4": "<b>A persistent memory</b> of context and previous steps",
+    "b4.def.is.5": "<b>Defined human supervision</b>: validation, stopping point, escalation",
+    "b4.def.isnot.eyebrow": "· What an AI agent is not",
+    "b4.def.isnot.title": "Neither a disguised ChatGPT, nor general intelligence.",
+    "b4.def.isnot.1": "<b>Not a simple chatbot</b> that answers and stops there",
+    "b4.def.isnot.2": "<b>Not an infallible system</b> · public LLMs hallucinate in 20 to 40% of cases without RAG",
+    "b4.def.isnot.3": "<b>Not an autonomous black box</b> without supervision or traceability",
+    "b4.def.isnot.4": "<b>Not a cost-free solution</b> · integration, training, maintenance",
+    "b4.def.isnot.5": "<b>Not a substitute for business framing</b> · an agent without a clear objective fails",
+
+    "b4.ado.eyebrow": "§ 02 · Adoption",
+    "b4.ado.title": "France adopts fast, <em>but surfaces more than it industrializes</em>.",
+    "b4.ado.sub": "With 47.8% adoption in Q1 2026 (Microsoft AI Diffusion Report), France is 5th worldwide and 4th in Europe for individual generative AI use. But only 13% of companies have deployed agentic AI at scale (Adobe/Orange). The gap between individual adoption and organizational industrialization remains the main challenge. KPMG documents that 2/3 of companies now measure their AI ROI, compared with 1/3 in 2025.",
+    "b4.ado.chart1.title": "Generative AI adoption in France",
+    "b4.ado.chart1.sub": "Trajectory H1 2025 → Q1 2026 · Microsoft AI Diffusion",
+    "b4.ado.chart1.legend1": "Population 16-74 (Microsoft)",
+    "b4.ado.chart1.legend2": "FR firms (AWS / Strand)",
+    "b4.ado.chart1.legend3": "Agentic AI at scale (Adobe)",
+    "b4.ado.chart2.title": "Adoption by business function",
+    "b4.ado.chart2.sub": "% firms deployed · KPMG Trends of AI 2026 (356 FR decision-makers)",
+
+    "b4.size.eyebrow": "§ 03 · Size",
+    "b4.size.title": "The gap is not generational, <em>it is dimensional</em>.",
+    "b4.size.sub": "Between a micro-business and a large group, the adoption gap is 1 to 7. Mid-caps emerge as the most pragmatic segment. Company size remains the most predictive variable of AI maturity level in 2026.",
+    "b4.size.adoption": "adoption · 2026",
+    "b4.size.stage": "Dominant stage",
+    "b4.size.frein": "Obstacle #1",
+    "b4.size.levier": "Lever #1",
+    "b4.size.tpe.tag": "< 10 employees",
+    "b4.size.tpe.stage": "Exploration",
+    "b4.size.tpe.frein": "Skills",
+    "b4.size.tpe.levier": "Ready tools",
+    "b4.size.pme.tag": "10–249 employees",
+    "b4.size.pme.stage": "POC",
+    "b4.size.pme.frein": "Unclear ROI",
+    "b4.size.pme.levier": "External advice",
+    "b4.size.eti.tag": "250–4999 employees",
+    "b4.size.eti.stage": "Extended POC",
+    "b4.size.eti.frein": "Governance",
+    "b4.size.eti.levier": "COMEX sponsor",
+    "b4.size.ge.title": "Large groups",
+    "b4.size.ge.tag": "> 5000 employees",
+    "b4.size.ge.stage": "Industrialization",
+    "b4.size.ge.frein": "Legacy IT",
+    "b4.size.ge.levier": "Internal platform",
+
+    "b4.freins.eyebrow": "§ 04 · Obstacles",
+    "b4.freins.title": "Five obstacles, <em>by order of impact</em>.",
+    "b4.freins.sub": "Hierarchy consolidated from five converging studies (Adobe 2026, KPMG 2026, AWS/Strand 2026, Deloitte 2026, Gallup Q1 2026). Each obstacle is what respondents cite as the first obstacle, not what they cite by default.",
+    "b4.frein.1.title": "Data quality and accessibility",
+    "b4.frein.1.body": "Only 36% of FR firms consider their data quality sufficient for AI (Adobe 2026, vs 43% in Europe). Without exploitable corpus, agents produce generic output. This is the number one technical obstacle on which sovereign RAG architectures bring a measurable answer.",
+    "b4.frein.1.metric": "Insufficient data · Adobe 2026",
+    "b4.frein.2.title": "Missing internal skills",
+    "b4.frein.2.body": "Lack of AI skills is the main obstacle to operational integration (Deloitte 2026). 85% of organizations declare they have not trained their teams (KPMG Trends of AI 2026). The gap is not between Data Scientists, it is between business operators and AI capabilities.",
+    "b4.frein.2.metric": "Without training · KPMG 2026",
+    "b4.frein.3.title": "Governance of autonomous agents",
+    "b4.frein.3.body": "Only 1 in 5 firms has a mature governance model for autonomous AI agents (Deloitte 2026). Shadow AI develops alongside official frameworks. The AI Act reinforces the requirement without clarifying the operational.",
+    "b4.frein.3.metric": "Immature governance · Deloitte 2026",
+    "b4.frein.4.title": "Agentic AI readiness",
+    "b4.frein.4.body": "Only 19% of French firms declare themselves ready to adopt agentic AI, vs 67% of startups (AWS / Strand 2026). At current pace, it would take until 2035 for half to reach advanced use.",
+    "b4.frein.4.metric": "Not ready · AWS / Strand 2026",
+    "b4.frein.5.title": "Fragile user trust",
+    "b4.frein.5.body": "Only 30% of French people would interact with a brand's AI agent (vs 40% in Europe). 41% say they are closed to the idea of a personal AI agent, vs 27% in Europe (Adobe 2026). 18% fear job elimination within 5 years (Gallup Workforce Q1 2026).",
+    "b4.frein.5.metric": "Reluctant · Adobe 2026",
+
+    "b4.scen.eyebrow": "§ 05 · Trajectories",
+    "b4.scen.title": "Three scenarios at 18 months.",
+    "b4.scen.sub": "Probabilities estimated from triggers documented in the observatory's monitoring. Not a prediction, a frame to prepare COMEX decisions.",
+    "b4.scen.a.name": "Scenario A · Accelerated",
+    "b4.scen.a.title": "Industrialization wins.",
+    "b4.scen.a.body": "Mid-caps move into production, governance obstacles loosen, autonomous agents mature. FR adoption ~55% by end-2027, agentic at scale ~25%.",
+    "b4.scen.a.t1": "AI Act stabilized on key use cases",
+    "b4.scen.a.t2": "60% drop in inference costs (post-GPT-5)",
+    "b4.scen.a.t3": "Sovereign turnkey offerings mature",
+    "b4.scen.b.name": "Scenario B · Central",
+    "b4.scen.b.title": "Bifurcation by size.",
+    "b4.scen.b.body": "Large groups and mature mid-caps advance; SMEs stagnate; micro-businesses drop off. FR adoption ~50% by end-2027 but polarized. This is the scenario corresponding to trajectories observed in May 2026.",
+    "b4.scen.b.t1": "Regulatory AI Act status quo",
+    "b4.scen.b.t2": "Skills shortage persists",
+    "b4.scen.b.t3": "ROI demonstrated on 3-4 functions",
+    "b4.scen.c.name": "Scenario C · Slowed",
+    "b4.scen.c.title": "Partial disillusionment.",
+    "b4.scen.c.body": "Multiplication of POC failures, rollbacks, investment freezes. FR adoption plateaus at ~45% by end-2027.",
+    "b4.scen.c.t1": "Major regulatory or security incident",
+    "b4.scen.c.t2": "Extended European recession",
+    "b4.scen.c.t3": "Model capabilities plateau",
+
+    "b4.agenda.eyebrow": "§ 06 · Action",
+    "b4.agenda.title": "90-day governance agenda.",
+    "b4.agenda.sub": "For COMEX, CODIR and HR leadership. What to decide, measure, launch in the next three months · whatever your starting point.",
+    "b4.agenda.30.label": "Frame",
+    "b4.agenda.30.1": "Designate a single executive sponsor (COMEX reporting)",
+    "b4.agenda.30.2": "Inventory uses already in progress, official and shadow",
+    "b4.agenda.30.3": "Define 3 measurable business KPIs (not technical)",
+    "b4.agenda.30.4": "Map mobilizable data corpus",
+    "b4.agenda.30.5": "Identify 1 high-signal, low-risk use case",
+    "b4.agenda.60.label": "Equip",
+    "b4.agenda.60.1": "AI usage policy validated and published internally",
+    "b4.agenda.60.2": "Ethics/governance committee formed (HR + IT + business)",
+    "b4.agenda.60.3": "AI Act mapping of priority use cases",
+    "b4.agenda.60.4": "Upskilling plan across 4 strata (COMEX, managers, experts, operational)",
+    "b4.agenda.60.5": "POC launched with explicit stop criteria",
+    "b4.agenda.90.label": "Decide",
+    "b4.agenda.90.1": "First POC review · scaling, pivot or stop",
+    "b4.agenda.90.2": "Internal communication formalized (business impact, not just tools)",
+    "b4.agenda.90.3": "Social dialogue engaged on deployed perimeter",
+    "b4.agenda.90.4": "2026/2027 budget framed on explicit scenario (A, B or C)",
+    "b4.agenda.90.5": "18-month trajectory presented to the board",
+
+    "b4.sources.eyebrow": "§ 07 · Method",
+    "b4.sources.title": "Sources and T1–T4 tiering.",
+    "b4.sources.sub": "Primary studies cited in this issue. T1 (academic, central banks, public institutions), T2 (consultancies with public methodology), T3 (vendors with commercial discount), T4 (press, testimonials).",
+    "b4.sources.1": "<b>T1</b> · Microsoft Research · AI Economy Institute · <i>Global AI Diffusion Report Q1 2026</i> · May 2026 · France 47.8% adoption (rank 5)",
+    "b4.sources.2": "<b>T2</b> · KPMG France & Les EnthousIAstes · <i>Trends of AI 2026</i> · 356 decision-makers (62% COMEX) · January 2026",
+    "b4.sources.3": "<b>T2</b> · AWS & Strand Partners · <i>Unlocking France's AI Potential 2026</i> · 1,000 firms + 1,000 FR citizens · April 2026",
+    "b4.sources.4": "<b>T2</b> · Adobe & Orange Business · <i>AI and Digital Trends Report 2026</i> · 7,000 respondents · February 2026",
+    "b4.sources.5": "<b>T2</b> · Deloitte · <i>State of AI in the Enterprise 2026</i>",
+    "b4.sources.6": "<b>T2</b> · Gallup · <i>Workforce Q1 2026</i> · 23,717 workers · April 2026",
+    "b4.sources.7": "<b>T1</b> · INSEE Première n°2061 · <i>ICT in firms 2024</i> · July 2025",
+    "b4.sources.8": "<b>T1</b> · Anthropic Economic Index · Massenkoff & McCrory · <i>Labor market impacts of AI</i> · March 2026",
+
+    "b4.disc.tag": "Editorial disclosure",
+    "b4.disc.body": "This Dispatch #004 is a <strong>sponsored issue by myAuxilium</strong>. Sponsorship covers the funding of editorial production. <strong>All analytical content (figures, sources, scenarios, governance agenda) is the exclusive editorial responsibility of Naully Nicolas.</strong> myAuxilium did not provide data, did not review analyses before publication, and does not intervene in source selection or in the formulation of conclusions. The §09 <em>Partner perspective</em> section is the dedicated space for myAuxilium, clearly labeled as signed content.",
+
+    "b4.partview.banner": "Partner content · signed by myAuxilium",
+    "b4.partview.eyebrow": "§ 09 · Partner perspective",
+    "b4.partview.title": "An operator's view from the field.",
+    "b4.partview.lede": "What Martin Guichard, CEO of myAuxilium, sees in RAG business deployments at his clients in 2026.",
+    "b4.partview.quote": "Scaling does not depend on the model. It depends on documentary hygiene and sponsor clarity.",
+    "b4.partview.body1": "What we observe at our French mid-cap and SME clients in 2026 is a very clear shift between two types of POCs. The first, which has long dominated, aims to <em>test ChatGPT internally</em>. It almost systematically fails: without internal corpus, without business framing, without governance, the tool produces generic output. The second type, which is now taking over, starts from existing documentation (procedures, contracts, FAQ, customer exchanges) and organizes it in a sovereign RAG architecture with source citation. There, conversion into measurable productivity gain is rapid.",
+    "b4.partview.body2": "The boundary between the two is not technological. It is <strong>organizational</strong>. Clients who succeed systematically have: (1) a single COMEX sponsor, who can decide and arbitrate; (2) minimal documentary hygiene, to which the first 60 days of the project are dedicated; (3) a high-signal, low-risk use case to demonstrate value before generalizing.",
+    "b4.partview.body3": "What IT leaders systematically underestimate is the weight of <strong>auditability</strong>. The AI Act, GDPR and sectoral requirements converge toward a traceability obligation: who asked the question, what sources were mobilized, what answer was produced. A platform that does not record these three elements with timestamping and links to source documents is today a latent regulatory risk. This is precisely the boundary between a public LLM and a sovereign business platform.",
+
+    "b4.cta.eyebrow": "→ Next steps",
+    "b4.cta.title": "Want a Dispatch <em>calibrated to your sector</em>?",
+    "b4.cta.sub": "Professional federations, OPCO, executive teams, HR leadership · custom briefings on the perimeter of your choice, short format, sourced, exploitable in COMEX within the week.",
+    "b4.cta.custom": "Request a custom Dispatch",
+    "b4.cta.partner": "Discover myAuxilium",
+
+    "brief.act.mail": "Share by mail",
+    "brief.act.copy": "Copy link",
+    "brief.back": "← Back to all Dispatches"
+  }
+};
+</script>
+
+<script src="../assets/components.js"></script>
+<script>
+initSite("dispatch");
+
+// ───── Adoption chart (Microsoft Diffusion + AWS + Adobe) ─────
+(function renderAdoptionChart() {
+  const svg = document.getElementById("adoptionChart");
+  if (!svg) return;
+  const W = 600, H = 260;
+  const m = { top: 16, right: 60, bottom: 32, left: 36 };
+  const innerW = W - m.left - m.right;
+  const innerH = H - m.top - m.bottom;
+
+  const data = [
+    { period: "H1 2025", pop: 40.9, ent: 30, agent: 6 },
+    { period: "H2 2025", pop: 44.0, ent: 35, agent: 9 },
+    { period: "Q1 2026", pop: 47.8, ent: 40, agent: 13 }
+  ];
+  const yMax = 60;
+  const yScale = v => m.top + innerH * (1 - v / yMax);
+  const xStep = innerW / (data.length - 1);
+  const xScale = i => m.left + i * xStep;
+
+  let html = '';
+  // Gridlines + Y labels
+  for (let v = 0; v <= yMax; v += 15) {
+    const y = yScale(v);
+    html += '<line x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + innerW) + '" y2="' + y + '" stroke="#11110F" stroke-opacity="0.08"/>';
+    html += '<text x="' + (m.left - 10) + '" y="' + (y + 4) + '" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#8A8A8A">' + v + '%</text>';
+  }
+  // X labels
+  data.forEach((d, i) => {
+    const x = xScale(i);
+    html += '<text x="' + x + '" y="' + (H - m.bottom + 22) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#11110F">' + d.period + '</text>';
+  });
+  // Lines + circles
+  const drawLine = (key, color, dash) => {
+    let path = '';
+    data.forEach((d, i) => {
+      path += (i === 0 ? "M" : "L") + xScale(i) + "," + yScale(d[key]);
+    });
+    html += '<path d="' + path + '" fill="none" stroke="' + color + '" stroke-width="2.2"' + (dash ? ' stroke-dasharray="4,3"' : '') + '/>';
+    data.forEach((d, i) => {
+      const x = xScale(i), y = yScale(d[key]);
+      html += '<circle cx="' + x + '" cy="' + y + '" r="3.5" fill="' + color + '"/>';
+      html += '<text x="' + x + '" y="' + (y - 10) + '" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="' + color + '">' + d[key].toFixed(1) + '%</text>';
+    });
+  };
+  drawLine("pop", "#D03C2F");
+  drawLine("ent", "#1F3A3D");
+  drawLine("agent", "#8A8A8A", true);
+
+  svg.innerHTML = html;
+})();
+
+// ───── Adoption by function (KPMG Trends 2026) ─────
+(function renderFunctionsChart() {
+  const svg = document.getElementById("functionsChart");
+  if (!svg) return;
+  const W = 480, H = 260;
+  const data = [
+    { r: "Résumé / Traduction", v: 59 },
+    { r: "Génération contenu",  v: 55 },
+    { r: "Détect. anomalies",   v: 44 },
+    { r: "Formation / Dév.",    v: 38 },
+    { r: "Analyse documents",   v: 35 },
+    { r: "Support client",      v: 28 },
+    { r: "Recrutement / RH",    v: 19 },
+    { r: "Prévision ventes",    v: 7 }
+  ];
+  const m = { top: 8, right: 24, bottom: 8, left: 140 };
+  const rowH = (H - m.top - m.bottom) / data.length;
+  const xMax = m.left + (W - m.left - m.right);
+  const xScale = v => m.left + (v / 60) * (W - m.left - m.right);
+
+  let html = '';
+  data.forEach((d, i) => {
+    const y = m.top + i * rowH + 4;
+    const bh = rowH - 8;
+    const w = xScale(d.v) - m.left;
+    const color = d.v >= 50 ? '#D03C2F' : (d.v >= 30 ? '#1F3A3D' : '#8A8A8A');
+    html += '<rect x="' + m.left + '" y="' + y + '" width="' + w + '" height="' + bh + '" fill="' + color + '"/>';
+    html += '<text x="' + (m.left - 8) + '" y="' + (y + bh / 2 + 4) + '" text-anchor="end" font-family="Instrument Sans, sans-serif" font-size="11" fill="#11110F">' + d.r + '</text>';
+    html += '<text x="' + (xScale(d.v) + 6) + '" y="' + (y + bh / 2 + 4) + '" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="' + color + '">' + d.v + '%</text>';
+  });
+  svg.innerHTML = html;
+})();
+
+// Copy link button
+const copyBtn = document.getElementById("btn-copy-link");
+if (copyBtn) {
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const original = copyBtn.textContent;
+      copyBtn.textContent = "✓";
+      setTimeout(() => { copyBtn.textContent = original; }, 1500);
+    });
+  });
+}
+// Mail share button
+const mailBtn = document.getElementById("btn-send-mail");
+if (mailBtn) {
+  mailBtn.addEventListener("click", () => {
+    const subject = encodeURIComponent("Dispatch·iA #004 · Agents IA en entreprise · France 2026");
+    const body = encodeURIComponent("À lire sur observatoire[s]·ia · " + window.location.href);
+    window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+  });
+}
+</script>
+</body>
+</html>

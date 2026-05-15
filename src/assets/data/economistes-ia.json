@@ -7,7 +7,7 @@
   "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
   "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
   "method_note": "Positions reconstruites à partir des publications académiques et déclarations publiques 2023-2026.",
-  "count": 50,
+  "count": 56,
   "economists": [
     {
       "name": "Philippe Aghion",
@@ -454,7 +454,7 @@
     },
     {
       "name": "Simon Bunel",
-      "institution": "Institut national de la consommation · ENS · Audition Assemblée nationale 2025",
+      "institution": "Banque de France · Insee · ENS · Paris",
       "scenario_distribution_pct": {
         "Stagnation": 10,
         "Croissance modérée": 40,
@@ -463,7 +463,7 @@
         "Rupture technologique": 5
       },
       "most_likely_scenario": "Croissance modérée",
-      "notes": "Économiste à l'INC et l'ENS. Coauteur du cadre analytique en 2 forces présenté à l'Assemblée nationale (avril 2025) : automatisation (machine substitue humain sur tâches cognitives complexes · rupture vs vagues précédentes) et émergence de nouveaux métiers. Position pragmatique : pas de consensus chiffré entre économistes (5% Acemoglu, 27% OCDE France, 60% FMI exposition large, 17-30% Goldman). Le rythme et la magnitude restent incertains, ce qui appelle un suivi empirique continu plutôt que des décisions RH catégoriques."
+      "notes": "Économiste à l'INC et l'ENS. Coauteur du cadre analytique en 2 forces présenté à l'Assemblée nationale (avril 2025) : automatisation (machine substitue humain sur tâches cognitives complexes · rupture vs vagues précédentes) et émergence de nouveaux métiers. Position pragmatique : pas de consensus chiffré entre économistes (5% Acemoglu, 27% OCDE France, 60% FMI exposition large, 17-30% Goldman). Le rythme et la magnitude restent incertains, ce qui appelle un suivi empirique continu plutôt que des décisions RH catégoriques. · Coauteur avec Philippe Aghion du papier 'AI and Growth' présenté à la Federal Reserve Bank of San Francisco en 2024 : formalisation mathématique de l'IA automatisant la production d'idées, brise la contrainte démographique sur la recherche, cohérent avec scénario singularité économique Epoch AI. Cité dans la synthèse Shenk (RAND) AI Frontiers mai 2026 comme référence centrale du framework 'AI automating innovation'."
     },
     {
       "name": "Enora Goulard",
@@ -646,6 +646,84 @@
       },
       "most_likely_scenario": "Accélération IA",
       "notes": "Première mesure systématique d'exposition à l'automatisation par apprentissage par renforcement (RL), publiée en avril 2026 par Tomei et Klein Teeselink (SSRN Working Paper, code public GitHub boukektkcl/RL-exposure-public, CC BY 4.0). Méthodologie : scoring de 17 951 paires occupation-tâche du référentiel O*NET américain (894 occupations, version db_30_0) par Gemini 2.5 Flash via OpenRouter, prompt v4.2 avec gate de faisabilité physique binaire et 8 dimensions scorées 1-10. Les 8 dimensions : D1 spectre méthode de vérification, D2 simulabilité environnement, D3 observabilité état, D4 variabilité tâche, D5 profondeur décision séquentielle, D6 densité feedback, D7 accessibilité outils, D8 tangibilité output. Cible analytique distincte d'Eloundou et al. 2024 Science (qui mesure la capacité LLM actuelle sur la tâche) : Tomei mesure la faisabilité de construire un environnement RL pour entraîner un agent sur la tâche (RLHF, RLAIF, RLVR, process reward models, AI-as-Judge, données synthétiques). Index aggregate 0-100. Horizon : 5 ans. À utiliser comme indicateur upstream de l'adoption, pas comme prédiction de déplacement effectif. Pour les directions RH : complète l'AIOE Felten/Raj/Seamans et le Yale Budget Lab en proposant une 7e dimension d'exposition spécifiquement orientée vers la post-formation par renforcement, pipeline dominant des reasoning models 2025-2026 (GPT-5.x, Claude Opus 4.5)."
+    },
+    {
+      "name": "Xavier Parent-Rocheleau",
+      "institution": "HEC Montréal · OBVIA",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 30,
+        "Accélération IA": 35,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Co-auteur principal · Cartographie de l'IA au travail · OBVIA 2026 · 4 595 syndiqués QC · vision pragmatique : usage individuel >> déploiement organisationnel · gouvernance peu transparente · faible littératie · plaide pour la formation et la gouvernance participative."
+    },
+    {
+      "name": "Vincent Pasquier",
+      "institution": "HEC Montréal · OBVIA",
+      "scenario_distribution_pct": {
+        "Stagnation": 10,
+        "Croissance modérée": 30,
+        "Accélération IA": 40,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Co-auteur · Cartographie de l'IA au travail · OBVIA 2026 · documente le creusement entre gagnants (diplômés universitaires) et perdants (personnel technique, industriel, services) · 18-20% craignent le remplacement selon secteur."
+    },
+    {
+      "name": "Dan Schawbel",
+      "institution": "Workplace Intelligence · Managing Partner · New York",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 25,
+        "Accélération IA": 40,
+        "Transformation majeure": 25,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Co-auteur de l'enquête Writer & Workplace Intelligence · AI Adoption in the Enterprise 2026 (avril 2026, 2 400 répondants dont la France) · documente l'écart adoption-transformation et l'émergence d'une classe « élite IA » : super-users 5× plus productifs, 3× plus de promotions, économie 9h/semaine, mais 60% des entreprises envisagent des licenciements de non-adoptants et 29% des employés admettent saboter activement la stratégie IA. Sa thèse : ce n'est pas l'apocalypse de l'emploi, c'est un désordre organisationnel généralisé."
+    },
+    {
+      "name": "Anton Shenk",
+      "institution": "RAND Corporation · AI Policy Research · Washington DC",
+      "scenario_distribution_pct": {
+        "Stagnation": 15,
+        "Croissance modérée": 35,
+        "Accélération IA": 30,
+        "Transformation majeure": 15,
+        "Rupture technologique": 5
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Associé recherche RAND spécialisé dans l'économie de l'IA · auteur de la synthèse magistrale 'The Quadrillion-Dollar Disagreement on AI and the Economy' (AI Frontiers, 11 mai 2026) · documente un écart de 1 quadrillion $ entre les prévisions économiques IA 2026-2035 (McKinsey +0,1% à Epoch AI +30%) · 3 désaccords testables : hard tasks, friction institutionnelle, automatisation de l'innovation · position : les skeptics gagnent aux points en mai 2026 mais lags longs."
+    },
+    {
+      "name": "Tyler Cowen",
+      "institution": "George Mason University · Marginal Revolution University · Virginie",
+      "scenario_distribution_pct": {
+        "Stagnation": 25,
+        "Croissance modérée": 45,
+        "Accélération IA": 20,
+        "Transformation majeure": 8,
+        "Rupture technologique": 2
+      },
+      "most_likely_scenario": "Croissance modérée",
+      "notes": "Économiste George Mason · blog Marginal Revolution · auteur du papier 'Why I Think AI Take-Off Is Relatively Slow' (février 2025) · représentant emblématique du camp skeptic sur l'IA · arguments : absence d'inflection dans les patents/découvertes, friction sectorielle massive (santé, droit, éducation, finance), GPT historiques 20-40 ans à se diffuser, bottleneck humain incontournable. Cité par Shenk (RAND) AI Frontiers mai 2026 comme représentant clé du slow take-off."
+    },
+    {
+      "name": "Arthur Mensch",
+      "institution": "Mistral AI · cofondateur et directeur général · Paris",
+      "scenario_distribution_pct": {
+        "Stagnation": 5,
+        "Croissance modérée": 20,
+        "Accélération IA": 35,
+        "Transformation majeure": 30,
+        "Rupture technologique": 10
+      },
+      "most_likely_scenario": "Accélération IA",
+      "notes": "Cofondateur et directeur général de Mistral AI · audition Assemblée nationale 12 mai 2026 devant la Commission d'enquête sur les dépendances structurelles et vulnérabilités systémiques du numérique. Cadre analytique : 'l'IA est comme l'énergie' · le métier est de 'transformer de l'électricité en token'. Position macroéconomique structurante : 10% de la masse salariale européenne en IA d'ici 3-4 ans = 1 trillion € de déficit commercial si importation. France dispose de 9 GW de surplus énergétique menacés par les hyperscalers US dans les 2 ans. Sur l'emploi : 'n'exclut pas une hausse du chômage' et reconnaît un 'déplacement de la valeur du travail vers le capital · capital qui pour le moment n'est largement pas du capital européen'. Lucidité rare de la part d'un acteur IA français. Plaidoyer pour la commande publique (50% PIB UE) contre la réglementation comme défense."
     }
   ]
 }
