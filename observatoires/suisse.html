@@ -531,6 +531,81 @@ a { color: inherit; text-decoration: none; }
 .context-content p:last-of-type {
   margin-bottom: 0;
 }
+/* MATRIX CTA · pairs with context-block but adds a footer of actions */
+.matrix-cta-actions {
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+}
+.matrix-cta-meta {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+/* HBS quadrant palette · used in the mini-preview */
+.matrix-cta {
+  --q-risk: #E0915F;
+  --q-boost: #1F406F;
+  --q-stagnant: #D4A436;
+  --q-augmented: #9BB7C9;
+}
+.matrix-cta-preview {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 36px;
+  align-items: start;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.matrix-mini {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.matrix-mini svg { width: 100%; height: 100%; display: block; }
+.matrix-mini-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mml-item {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.mml-swatch {
+  width: 12px; height: 12px;
+  margin-top: 6px;
+  border: 1px solid var(--ink-2);
+}
+.mml-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+}
+.mml-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+@media (max-width: 768px) {
+  .matrix-cta-actions { gap: 14px; margin-top: 22px; }
+  .matrix-cta-preview {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+  .matrix-mini { max-width: 320px; margin: 0 auto; }
+}
 .context-key-facts {
   margin-top: 40px;
   display: grid;
@@ -1901,9 +1976,9 @@ footer {
   .section-head { padding: 60px 20px 28px; }
   .filters { padding: 0 20px 28px; gap: 20px; }
   .cards-grid { grid-template-columns: 1fr; padding: 0 20px 70px; }
-  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 40px; }
+  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 28px; }
   .dash-header { padding: 50px 20px 24px; }
-  .context-block { padding: 50px 20px 60px; }
+  .context-block { padding: 36px 20px 40px; }
   .context-grid { grid-template-columns: 1fr; gap: 24px; }
   .context-key-facts { grid-template-columns: 1fr; }
   .chart-block { padding: 0 20px 60px; }
@@ -2363,7 +2438,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   border-top: 1px solid var(--rule);
 }
 @media (max-width: 960px) {
-  .reinvent-section { padding: 48px 20px 56px; }
+  .reinvent-section { padding: 32px 20px 40px; }
 }
 
 .reinvent-intro {
@@ -5492,7 +5567,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 }
 
 @media (max-width: 720px) {
-  .expgap-section { padding: 0 16px; margin: 48px auto; }
+  .expgap-section { padding: 0 16px; margin: 28px auto; }
   .expgap-chart-wrap { padding: 16px 8px 12px; }
   .expgap-legend { gap: 18px; font-size: 11px; }
 }
@@ -5628,6 +5703,80 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <div class="expgap-summary">
     <p class="expgap-readline" data-i18n="ch.expgap.readline" data-i18n-html="true"></p>
     <p class="expgap-source mono" data-i18n="ch.expgap.source"></p>
+  </div>
+</section>
+
+<!-- MATRIX EXPOSURE · HBS / Brynjolfsson automation × augmentation -->
+<section class="context-block matrix-cta">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="ch.matrix.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="ch.matrix.title" data-i18n-html="true"></h3>
+      <p data-i18n="ch.matrix.text" data-i18n-html="true"></p>
+      <p data-i18n="ch.matrix.text2" data-i18n-html="true"></p>
+      <div class="matrix-cta-actions">
+        <a href="../infographies/matrice-suisse.html" class="btn btn-primary" target="_blank" rel="noopener">
+          <span data-i18n="ch.matrix.cta"></span>
+          <span class="arrow">↗</span>
+        </a>
+        <span class="matrix-cta-meta mono" data-i18n="ch.matrix.meta"></span>
+      </div>
+      <div class="matrix-cta-preview">
+        <div class="matrix-mini" role="img" aria-label="Aperçu de la matrice HBS · 4 quadrants automatisation × augmentation">
+          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Quadrant fills (Y-axis: automation, top = high · X-axis: augmentation, right = high) -->
+  <rect x="20" y="20" width="100" height="100" fill="var(--q-risk)"/>
+  <rect x="120" y="20" width="100" height="100" fill="var(--q-boost)"/>
+  <rect x="20" y="120" width="100" height="100" fill="var(--q-stagnant)"/>
+  <rect x="120" y="120" width="100" height="100" fill="var(--q-augmented)"/>
+  <!-- Mid lines -->
+  <line x1="120" y1="20" x2="120" y2="220" stroke="var(--paper)" stroke-width="2"/>
+  <line x1="20" y1="120" x2="220" y2="120" stroke="var(--paper)" stroke-width="2"/>
+  <!-- Outer frame -->
+  <rect x="20" y="20" width="200" height="200" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+  <!-- Y axis arrow -->
+  <line x1="20" y1="225" x2="20" y2="15" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="20,8 16,16 24,16" fill="var(--ink)"/>
+  <!-- X axis arrow -->
+  <line x1="15" y1="225" x2="225" y2="225" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="232,225 224,221 224,229" fill="var(--ink)"/>
+  <!-- Axis labels -->
+  <text x="0" y="120" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 0 120) translate(0 -8)" letter-spacing="1.2">AUTOMATISATION →</text>
+  <text x="120" y="238" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink)" text-anchor="middle" letter-spacing="1.2">AUGMENTATION →</text>
+</svg>
+        </div>
+        <div class="matrix-mini-legend">
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-boost)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.boost.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.boost.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-risk)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.risk.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.risk.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-augmented)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.augmented.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.augmented.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-stagnant)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.stagnant.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.stagnant.text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -6128,7 +6277,7 @@ function renderFooter() {
           <strong>18 mai 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.41 · build 2026.05.18</div>
+        <div class="foot-version mono">v0.3.44 · build 2026.05.18</div>
       </div>
     </div>
     <div class="foot-bottom">
@@ -6474,6 +6623,20 @@ window.PAGE_I18N = {
     "ch.kpi3.label": "des hauts revenus (>9 000 CHF/mois) sont concernés par l'introduction de l'IA, contre 6% chez les bas revenus. L'IA touche d'abord les emplois qualifiés.",
     "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · avril 2026",
 
+    "ch.matrix.tag": "MATRICE D'EXPOSITION",
+    "ch.matrix.title": "Automatisation <em>ou</em> augmentation \u00b7 la lecture HBS",
+    "ch.matrix.text": "Le d\u00e9bat 2026 sur l'IA et l'emploi ne se r\u00e9sume pas \u00e0 \u00ab quels m\u00e9tiers sont expos\u00e9s \u00bb mais \u00e0 <strong>quelle nature d'exposition</strong>. La matrice <strong>Harvard Business School / Brynjolfsson</strong> oppose deux dimensions orthogonales : potentiel d'<strong>automatisation</strong> des t\u00e2ches (substitution) et potentiel d'<strong>augmentation</strong> du travail humain (compl\u00e9mentarit\u00e9). C'est cette distinction qui permet \u00e0 Brynjolfsson, Chandar et Chen (Stanford, novembre 2025) de montrer que le d\u00e9clin entry-level n'appara\u00eet QUE c\u00f4t\u00e9 automatisation.",
+    "ch.matrix.text2": "Lecture suisse \u00b7 22 m\u00e9tiers labellis\u00e9s parmi les 91 cartographi\u00e9s sur l'observatoire, positionn\u00e9s sur les deux axes \u00e0 partir du scoring multi-sources T1-T4 (Eloundou NBER 2023, Anthropic Economic Index 2026, Brynjolfsson Stanford 2025, ILO WP140, Bick/Blandin/Deming, OCDE). Les quatre quadrants d\u00e9clinent quatre trajectoires de transformation : <strong>risqu\u00e9</strong>, <strong>boost\u00e9</strong>, <strong>stagnant</strong>, <strong>avec boost</strong>.",
+    "ch.matrix.cta": "Voir la matrice \u00b7 22 m\u00e9tiers labellis\u00e9s CH",
+    "ch.matrix.meta": "Page d\u00e9di\u00e9e \u00b7 Lecture mobile et desktop",
+    "matrix.q.boost.label": "Boosté · haute automatisation + haute augmentation",
+    "matrix.q.boost.text": "L'IA prend en charge des tâches massives ET amplifie le jugement humain. Productivité gagnée, contenu transformé. Exemples : développement logiciel, conseil, analyse financière.",
+    "matrix.q.risk.label": "Risqué · haute automatisation + faible augmentation",
+    "matrix.q.risk.text": "Les tâches partent à la machine sans grande valeur ajoutée pour le travailleur. Pression sur l'emploi entry-level (Stanford ADP -16% sur les 22-25 ans). Exemples : saisie, service client basique, processing administratif.",
+    "matrix.q.augmented.label": "Avec boost · faible automatisation + haute augmentation",
+    "matrix.q.augmented.text": "L'IA ne remplace pas mais amplifie l'expert humain. Croissance attendue. Exemples : enseignement, médecine, recherche scientifique, design.",
+    "matrix.q.stagnant.label": "Stagnant · faible automatisation + faible augmentation",
+    "matrix.q.stagnant.text": "L'IA actuelle n'atteint pas ces tâches. Trajectoire dépend de la demande sectorielle (cadre Bessen). Exemples : métiers manuels qualifiés, soins à la personne, certains métiers de production.",
     "ch.intl.tag": "Mise en perspective internationale",
     "ch.intl.title": "Ce que la <em>Suisse partage</em> et ce qui la <em>distingue</em>.",
     "ch.intl.text": "<p>Les trois indicateurs DemoSCOPE ci-dessus prennent tout leur sens quand on les replace dans le tableau international. Le tracker mensuel <strong>Focaldata × Financial Times</strong> publié en avril 2026 (n=4 119, UK+US) confirme que l'asymétrie observée en Suisse n'est ni une exception ni un retard : c'est le motif dominant du déploiement de l'IA en 2026 dans toutes les économies avancées.</p><p>Trois constats convergents méritent d'ancrer la lecture suisse. <strong>L'usage de l'IA suit une distribution en L</strong>, pas en cloche : 35% des actifs UK+US n'utilisent jamais l'IA, 11-18% l'utilisent quotidiennement, le reste de manière épisodique. <strong>Le levier le plus puissant identifié reste la formation</strong> : une entreprise qui forme ses équipes voit +37 points d'usage quotidien, mais seulement 14% des actifs ont reçu une formation formelle. <strong>Les gains de productivité agrégés restent modérés</strong> (+3,5% au total) mais très concentrés dans la tech (+7,8%) et la finance (+5,1%).</p><p>Pour la Suisse, dont la structure productive est plus orientée vers le tertiaire haut de gamme que les économies UK et US, ces signaux suggèrent que la concentration des gains sera <em>mécaniquement plus marquée</em>. Le constat de DemoSCOPE : formation continue jugée la mesure la plus efficace par les actifs eux-mêmes (M=3,27/4) : converge avec le constat international : le levier de formation est <em>la</em> politique publique prioritaire pour éviter que la Bifurcation devienne le scénario par défaut.</p>",
@@ -6557,8 +6720,8 @@ window.PAGE_I18N = {
     "ch.expgap.sub": "Le KOF de l'ETH Zurich (Klaeui & Siegenthaler, décembre 2025) documente pour la première fois que depuis fin 2022, le chômage progresse jusqu'à 30% plus vite dans les professions hautement exposées à l'IA que dans les métiers peu concernés. Au maximum, un cinquième de la hausse du chômage est attribuable à l'IA. Le graphique croise l'exposition IA estimée par grande famille NP 2010 avec la variation des offres d'emploi en Suisse entre 2023 et 2025 (Adecco/KOF Swiss Job Market Index Q3 2025, étude Adecco bureau et administration octobre 2025).",
     "ch.expgap.legend.theoretical": "Exposition IA (NP 2010)",
     "ch.expgap.legend.observed": "Variation des offres 2023-2025",
-    "ch.expgap.readline": "<strong>Lecture pour la Suisse</strong> · adoption IA en Suisse à <strong>37,8% Q1 2026</strong> (Microsoft, rang 14 mondial) et <strong>47%</strong> des 16-74 ans (OFS, 3e rang européen). Bureau et administration <strong>-17,4%</strong>/an d'offres, informatique <strong>-30%</strong> en un an, marketing et journalisme sévèrement touchés (KOF). À l'inverse, les <strong>agents de services commerciaux</strong> (courtage, immobilier) progressent malgré une exposition modérée. Santé, soins, construction et services à la personne résistent. <strong>AI Frontiers · Anton Shenk (RAND), 11 mai 2026</strong>, place ces chiffres suisses dans le débat macroéconomique mondial : l'écart entre Acemoglu (+0,71% productivité US sur 10 ans) et Epoch AI (jusqu'à +30% si singularité économique) atteint 1 quadrillion $ cumulés d'ici 2035. Les données suisses KOF/Adecco documentées ici (informatique -30% offres, mais administration plus large à -17%) sont cohérentes avec le bear case institutionnel OECD : friction sectorielle élevée, adoption lente, Baumol's cost disease. Mai 2026 reste un point bas du compteur skeptic/optimiste. <strong>OCDE · AI adoption by SMEs · discussion paper G7 (9 décembre 2025)</strong> ajoute le cadre de référence 2026 sur l'adoption PME : entre 0,2 et 1,3 points de croissance annuelle de la productivité du travail dans les économies G7 sur 10 ans selon le scénario d'adoption (comparable boom ICT US 1990s à 0,5-1,5 pp), adoption agrégée OCDE passée de 5,6% (2020) à 14% (2024), gap persistant petites entreprises 17% / moyennes 30% vs grandes entreprises. La Suisse n'est pas membre du G7 mais l'analyse OCDE applique au tissu suisse via le même mécanisme : 4 barrières dominantes (compétences pour 50% des PME interrogées, financement, infrastructure, pertinence perçue), 39% des PME utilisatrices d'IA générative déclarent qu'elle compense leur skill gap, et 76% des PME restent à un stade de novices (outils basiques sur fonctions isolées) selon l'enquête D4SME 2026 (2 018 PME, 12 pays). À ce constat institutionnel s'ajoute un contrepoint empirique UK : <strong>Pedro Serôdio (British Progress, thread X du 22 avril 2026)</strong> documente qu'au Royaume-Uni, les occupations à forte exposition IA ont en moyenne grandi PLUS vite que les peu exposées trois ans après ChatGPT (résultat robuste sur 4 mesures d'exposition et 2 sources de données). Hétérogénéité occupationnelle frappante depuis 2021 : analystes business IT +38% et programmeurs +18%, mais call-centre -19% et télévendeurs -23%. Ce que l'IA augmente ou substitue compte plus que le score d'exposition lui-même. Lecture complémentaire au pattern KOF/ETH suisse (+27% chômage métiers très exposés <50 ans) qui isole la substitution sans mesurer l'augmentation et la réallocation. Sur le plan théorique, <strong>NBER WP 33509 (Hampole/Papanikolaou/Schmidt/Seegmiller, révisé septembre 2025)</strong> formalise pourquoi : la moyenne d'exposition tâche-level déprime la demande (substitution directe), mais la concentration de l'exposition sur quelques tâches permet la réallocation d'effort vers les tâches non automatisées · les effets emploi globaux sont modestes malgré une substitution forte tâche-level, compensés par la hausse de productivité dans les firmes adoptrices. Sur le plan empirique entry-level, <strong>Brynjolfsson/Chandar/Chen (Stanford Digital Economy Lab, 13 novembre 2025)</strong> exploitent des données ADP haute fréquence pour documenter que les 22-25 ans en métiers AI-exposed accusent -16% d'emploi relatif vs stabilité pour les expérimentés, MAIS uniquement où l'IA automatise le travail, pas où elle l'augmente. Distinction empirique opérationnelle pour les DRH : prioriser les outils IA à logique augmentative dans les fonctions d'entrée pour préserver les pipelines de talent.",
-    "ch.expgap.source": "Sources · KOF/ETH Klaeui & Siegenthaler décembre 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS Enquête utilisation Internet 2025 · Microsoft AI Diffusion Q1 2026 · AI Frontiers · Anton Shenk (RAND) · The Quadrillion-Dollar Disagreement on AI and the Economy · mai 2026 · OECD · AI adoption by small and medium-sized enterprises · discussion paper G7 · décembre 2025 · OECD Filippucci et al. · Miracle or Myth · novembre 2024 · Brookings · Baily/Brynjolfsson/Korinek · Machines of Mind · 2023 · Pedro Serôdio (British Progress) · Is AI killing jobs? · thread X · 22 avril 2026 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · révisé septembre 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · 13 novembre 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · août 2025 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · révisé septembre 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · 13 novembre 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · août 2025",
+    "ch.expgap.readline": "<strong>Lecture pour la Suisse</strong> · adoption IA 37,8% Q1 2026 · <strong>rang 14 mondial</strong> (Microsoft) et 47% des 16-74 ans utilisateurs (OFS, 3<sup>e</sup> rang européen). <strong>Inversion historique</strong> · bureau/administration -17,4%/an d'offres, informatique -30% en un an, marketing et journalisme sévèrement touchés (KOF). Santé, soins, construction et services à la personne résistent.<br><br><strong>Le débat substitution vs augmentation est tranché empiriquement en 2025-26</strong>. <strong>Stanford ADP</strong> (Brynjolfsson et al., novembre 2025) documente <strong>-16% d'emploi sur les 22-25 ans en métiers AI-exposed UNIQUEMENT où l'IA automatise</strong>, pas où elle augmente. <strong>NBER WP 33509</strong> (Hampole et al., septembre 2025) formalise la mécanique · substitution tâche par tâche compensée par la réallocation au sein de l'occupation, effets emploi globaux modestes. <strong>Serôdio</strong> (British Progress, avril 2026) ajoute le contrepoint UK · les métiers fortement exposés ont grandi <strong>plus vite</strong> que les peu exposés.<br><br><strong>Pour les DRH suisses</strong> · prioriser les outils IA à logique augmentative en fonctions d'entrée pour préserver les pipelines de talent.",
+    "ch.expgap.source": "Sources principales · KOF/ETH (Kläui & Siegenthaler, 2025) · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS · Microsoft AI Diffusion Q1 2026 · OECD (G7 PME 2025 ; Miracle or Myth 2024) · NBER WP 33509 (Hampole et al., 2025) · Stanford Digital Economy Lab (Brynjolfsson et al., Canaries, 2025) · Goldman Sachs Research (Briggs/Dong, 2025) · Brookings (Machines of Mind, 2023) · Serôdio (British Progress, 2026) · RAND (Shenk, 2026)",
   
   },
   en: {
@@ -6577,6 +6740,20 @@ window.PAGE_I18N = {
     "ch.kpi3.label": "of high-income workers (>CHF 9,000/month) are concerned by AI introduction, vs 6% for low incomes. AI affects qualified jobs first.",
     "ch.kpi3.source": "Angestellte Schweiz · DemoSCOPE · April 2026",
 
+    "ch.matrix.tag": "EXPOSURE MATRIX",
+    "ch.matrix.title": "Automation <em>or</em> augmentation \u00b7 the HBS reading",
+    "ch.matrix.text": "The 2026 debate on AI and employment is no longer about \u00ab which jobs are exposed \u00bb but about <strong>what kind of exposure</strong>. The <strong>Harvard Business School / Brynjolfsson</strong> matrix sets two orthogonal dimensions: task <strong>automation</strong> potential (substitution) versus human work <strong>augmentation</strong> potential (complementarity). This distinction is exactly what allows Brynjolfsson, Chandar and Chen (Stanford, November 2025) to show that entry-level decline appears ONLY on the automation side.",
+    "ch.matrix.text2": "Swiss reading \u00b7 22 labeled occupations among the 91 mapped in the observatory, positioned on both axes from multi-source T1-T4 scoring (Eloundou NBER 2023, Anthropic Economic Index 2026, Brynjolfsson Stanford 2025, ILO WP140, Bick/Blandin/Deming, OECD). The four quadrants outline four transformation trajectories: <strong>at risk</strong>, <strong>boosted</strong>, <strong>stagnant</strong>, <strong>augmented</strong>.",
+    "ch.matrix.cta": "Open the matrix \u00b7 22 labeled CH occupations",
+    "ch.matrix.meta": "Dedicated page \u00b7 Mobile and desktop reading",
+    "matrix.q.boost.label": "Boosted · high automation + high augmentation",
+    "matrix.q.boost.text": "AI takes over massive tasks AND amplifies human judgment. Productivity gained, content transformed. Examples: software development, consulting, financial analysis.",
+    "matrix.q.risk.label": "At risk · high automation + low augmentation",
+    "matrix.q.risk.text": "Tasks shift to machines with little added value to the worker. Pressure on entry-level employment (Stanford ADP -16% on ages 22-25). Examples: data entry, basic customer service, administrative processing.",
+    "matrix.q.augmented.label": "With boost · low automation + high augmentation",
+    "matrix.q.augmented.text": "AI does not replace but amplifies the human expert. Expected growth. Examples: teaching, medicine, scientific research, design.",
+    "matrix.q.stagnant.label": "Stagnant · low automation + low augmentation",
+    "matrix.q.stagnant.text": "Current AI does not reach these tasks. Trajectory depends on sectoral demand (Bessen framework). Examples: skilled manual trades, personal care, some production occupations.",
     "ch.intl.tag": "International perspective",
     "ch.intl.title": "What Switzerland <em>shares</em> and what <em>sets it apart</em>.",
     "ch.intl.text": "<p>The three DemoSCOPE indicators above gain meaning when placed in the international picture. The monthly <strong>Focaldata × Financial Times</strong> tracker published in April 2026 (n=4,119, UK+US) confirms that the asymmetry observed in Switzerland is neither an exception nor a delay: it is the dominant pattern of AI deployment in 2026 across advanced economies.</p><p>Three convergent findings should anchor the Swiss reading. <strong>AI usage follows an L-shaped distribution</strong>, not a bell curve: 35% of UK+US workers never use AI, 11-18% use it daily, the rest only occasionally. <strong>The most powerful identified lever remains training</strong>: a company that trains its teams sees +37 points of daily usage, but only 14% of workers have received formal training. <strong>Aggregate productivity gains remain modest</strong> (+3.5% total) but heavily concentrated in tech (+7.8%) and finance (+5.1%).</p><p>For Switzerland, whose productive structure is more oriented toward high-end tertiary than the UK and US economies, these signals suggest that the concentration of gains will be <em>mechanically more pronounced</em>. The DemoSCOPE finding : continuing education rated the most effective measure by workers themselves (M=3.27/4) : converges with the international finding: training is <em>the</em> priority public policy lever to prevent Bifurcation from becoming the default scenario.</p>",
@@ -6660,8 +6837,8 @@ window.PAGE_I18N = {
     "ch.expgap.sub": "KOF at ETH Zurich (Klaeui & Siegenthaler, December 2025) documents for the first time that since late 2022, unemployment grows up to 30% faster in occupations highly exposed to AI than in less-affected jobs. At most, one fifth of the increase in unemployment is attributable to AI. The chart pairs estimated AI exposure by NP 2010 family with variation in Swiss job postings between 2023 and 2025 (Adecco/KOF Swiss Job Market Index Q3 2025, Adecco office and admin study October 2025).",
     "ch.expgap.legend.theoretical": "AI Exposure (NP 2010)",
     "ch.expgap.legend.observed": "Job postings change 2023-2025",
-    "ch.expgap.readline": "<strong>Reading for Switzerland</strong> · AI adoption in Switzerland at <strong>37.8% Q1 2026</strong> (Microsoft, rank 14 worldwide) and <strong>47%</strong> of 16-74 year-olds (OFS, 3rd European rank). Office and administration <strong>-17.4%</strong>/year of postings, IT <strong>-30%</strong> in one year, marketing and journalism severely affected (KOF). Conversely, <strong>commercial services agents</strong> (brokerage, real estate) grow despite moderate exposure. Health, care, construction and personal services resist. <strong>AI Frontiers · Anton Shenk (RAND), May 11, 2026</strong>, positions these Swiss figures within the global macroeconomic debate: the gap between Acemoglu (+0.71% US productivity over 10 years) and Epoch AI (up to +30% if economic singularity) reaches $1 quadrillion cumulative by 2035. Swiss KOF/Adecco data documented here (IT -30% postings, but broader administration at -17%) are consistent with the OECD institutional bear case: high sectoral friction, slow adoption, Baumol's cost disease. May 2026 remains a low point on the skeptic/optimist counter. <strong>OECD · AI adoption by SMEs · G7 discussion paper (December 9, 2025)</strong> adds the 2026 reference framework on SME adoption: between 0.2 and 1.3 percentage points of annual labor productivity growth in G7 economies over 10 years depending on the adoption scenario (comparable to the 1990s US ICT boom at 0.5-1.5 pp), OECD aggregate adoption rose from 5.6% (2020) to 14% (2024), persistent gap small firms 17% / medium 30% vs large firms. Switzerland is not a G7 member but the OECD analysis applies to the Swiss fabric via the same mechanism: 4 dominant barriers (skills for 50% of surveyed SMEs, financing, infrastructure, perceived irrelevance), 39% of generative AI-using SMEs say it compensates their skill gap, and 76% of SMEs remain at a novice stage (basic tools on isolated functions) per the D4SME Survey 2026 (2,018 SMEs, 12 countries). To this institutional finding adds a UK empirical counterpoint: <strong>Pedro Serôdio (British Progress, X thread April 22, 2026)</strong> documents that in the UK, highly AI-exposed occupations on average grew FASTER than less-exposed ones three years after ChatGPT (result robust across 4 exposure measures and 2 data sources). Striking occupational heterogeneity since 2021: IT business analysts +38% and programmers +18%, but call-centre roles -19% and telephone salespersons -23%. What AI augments or substitutes matters more than the exposure score itself. Complementary reading to the Swiss KOF/ETH pattern (+27% unemployment in highly exposed occupations <50 years) which isolates substitution without measuring augmentation and reallocation. On the theoretical side, <strong>NBER WP 33509 (Hampole/Papanikolaou/Schmidt/Seegmiller, revised September 2025)</strong> formalizes why: mean task-level exposure depresses demand (direct substitution), but concentration of exposure on a few tasks allows effort reallocation toward non-automated tasks · aggregate employment effects are modest despite strong task-level substitution, offset by productivity-driven labor demand growth at AI-adopting firms. On the empirical entry-level side, <strong>Brynjolfsson/Chandar/Chen (Stanford Digital Economy Lab, November 13, 2025)</strong> leverage high-frequency ADP data to document that ages 22-25 in AI-exposed occupations face -16% relative employment vs stable for experienced workers, BUT only where AI automates work, not where it augments. Operational empirical distinction for HR: prioritize augmentative-logic AI tools in entry-level functions to preserve talent pipelines.",
-    "ch.expgap.source": "Sources · KOF/ETH Klaeui & Siegenthaler December 2025 · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS Internet usage survey 2025 · Microsoft AI Diffusion Q1 2026 · AI Frontiers · Anton Shenk (RAND) · The Quadrillion-Dollar Disagreement on AI and the Economy · May 2026 · OECD · AI adoption by small and medium-sized enterprises · G7 discussion paper · December 2025 · OECD Filippucci et al. · Miracle or Myth · November 2024 · Brookings · Baily/Brynjolfsson/Korinek · Machines of Mind · 2023 · Pedro Serôdio (British Progress) · Is AI killing jobs? · X thread · April 22, 2026 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · revised September 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · November 13, 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · August 2025 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · revised September 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · November 13, 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · August 2025",
+    "ch.expgap.readline": "<strong>Reading for Switzerland</strong> · AI adoption 37.8% Q1 2026 · <strong>rank 14 worldwide</strong> (Microsoft) and 47% of 16-74 year-olds (OFS, 3<sup>rd</sup> European rank). <strong>Historic reversal</strong> · office/administration -17.4%/year postings, IT -30% in one year, marketing and journalism severely affected (KOF). Health, care, construction and personal services resist.<br><br><strong>The substitution vs augmentation debate is empirically settled in 2025-26</strong>. <strong>Stanford ADP</strong> (Brynjolfsson et al., November 2025) documents <strong>-16% employment for ages 22-25 in AI-exposed occupations ONLY where AI automates</strong>, not where it augments. <strong>NBER WP 33509</strong> (Hampole et al., September 2025) formalizes the mechanism · task-level substitution offset by within-occupation reallocation, modest aggregate employment effects. <strong>Serôdio</strong> (British Progress, April 2026) adds the UK counterpoint · highly exposed occupations grew <strong>faster</strong> than less-exposed ones.<br><br><strong>For Swiss HR leaders</strong> · prioritize augmentative-logic AI tools in entry-level functions to preserve talent pipelines.",
+    "ch.expgap.source": "Main sources · KOF/ETH (Kläui & Siegenthaler, 2025) · Adecco/KOF Swiss Job Market Index Q3 2025 · PwC AI Jobs Barometer 2025 · OFS · Microsoft AI Diffusion Q1 2026 · OECD (G7 SMEs 2025; Miracle or Myth 2024) · NBER WP 33509 (Hampole et al., 2025) · Stanford Digital Economy Lab (Brynjolfsson et al., Canaries, 2025) · Goldman Sachs Research (Briggs/Dong, 2025) · Brookings (Machines of Mind, 2023) · Serôdio (British Progress, 2026) · RAND (Shenk, 2026)",
   
   }
 };

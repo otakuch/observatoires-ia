@@ -531,6 +531,81 @@ a { color: inherit; text-decoration: none; }
 .context-content p:last-of-type {
   margin-bottom: 0;
 }
+/* MATRIX CTA · pairs with context-block but adds a footer of actions */
+.matrix-cta-actions {
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+}
+.matrix-cta-meta {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+/* HBS quadrant palette · used in the mini-preview */
+.matrix-cta {
+  --q-risk: #E0915F;
+  --q-boost: #1F406F;
+  --q-stagnant: #D4A436;
+  --q-augmented: #9BB7C9;
+}
+.matrix-cta-preview {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 36px;
+  align-items: start;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.matrix-mini {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.matrix-mini svg { width: 100%; height: 100%; display: block; }
+.matrix-mini-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mml-item {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.mml-swatch {
+  width: 12px; height: 12px;
+  margin-top: 6px;
+  border: 1px solid var(--ink-2);
+}
+.mml-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+}
+.mml-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+@media (max-width: 768px) {
+  .matrix-cta-actions { gap: 14px; margin-top: 22px; }
+  .matrix-cta-preview {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+  .matrix-mini { max-width: 320px; margin: 0 auto; }
+}
 .context-key-facts {
   margin-top: 40px;
   display: grid;
@@ -1901,9 +1976,9 @@ footer {
   .section-head { padding: 60px 20px 28px; }
   .filters { padding: 0 20px 28px; gap: 20px; }
   .cards-grid { grid-template-columns: 1fr; padding: 0 20px 70px; }
-  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 40px; }
+  .kpi-row { grid-template-columns: 1fr; padding: 0 20px 28px; }
   .dash-header { padding: 50px 20px 24px; }
-  .context-block { padding: 50px 20px 60px; }
+  .context-block { padding: 36px 20px 40px; }
   .context-grid { grid-template-columns: 1fr; gap: 24px; }
   .context-key-facts { grid-template-columns: 1fr; }
   .chart-block { padding: 0 20px 60px; }
@@ -2363,7 +2438,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   border-top: 1px solid var(--rule);
 }
 @media (max-width: 960px) {
-  .reinvent-section { padding: 48px 20px 56px; }
+  .reinvent-section { padding: 32px 20px 40px; }
 }
 
 .reinvent-intro {
@@ -5492,7 +5567,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 }
 
 @media (max-width: 720px) {
-  .expgap-section { padding: 0 16px; margin: 48px auto; }
+  .expgap-section { padding: 0 16px; margin: 28px auto; }
   .expgap-chart-wrap { padding: 16px 8px 12px; }
   .expgap-legend { gap: 18px; font-size: 11px; }
 }
@@ -5628,6 +5703,80 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <div class="expgap-summary">
     <p class="expgap-readline" data-i18n="fr.expgap.readline" data-i18n-html="true"></p>
     <p class="expgap-source mono" data-i18n="fr.expgap.source"></p>
+  </div>
+</section>
+
+<!-- MATRIX EXPOSURE · HBS / Brynjolfsson automation × augmentation -->
+<section class="context-block matrix-cta">
+  <div class="context-grid">
+    <div class="context-tag" data-i18n="fr.matrix.tag"></div>
+    <div class="context-content">
+      <h3 data-i18n="fr.matrix.title" data-i18n-html="true"></h3>
+      <p data-i18n="fr.matrix.text" data-i18n-html="true"></p>
+      <p data-i18n="fr.matrix.text2" data-i18n-html="true"></p>
+      <div class="matrix-cta-actions">
+        <a href="../infographies/matrice-france.html" class="btn btn-primary" target="_blank" rel="noopener">
+          <span data-i18n="fr.matrix.cta"></span>
+          <span class="arrow">↗</span>
+        </a>
+        <span class="matrix-cta-meta mono" data-i18n="fr.matrix.meta"></span>
+      </div>
+      <div class="matrix-cta-preview">
+        <div class="matrix-mini" role="img" aria-label="Aperçu de la matrice HBS · 4 quadrants automatisation × augmentation">
+          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Quadrant fills (Y-axis: automation, top = high · X-axis: augmentation, right = high) -->
+  <rect x="20" y="20" width="100" height="100" fill="var(--q-risk)"/>
+  <rect x="120" y="20" width="100" height="100" fill="var(--q-boost)"/>
+  <rect x="20" y="120" width="100" height="100" fill="var(--q-stagnant)"/>
+  <rect x="120" y="120" width="100" height="100" fill="var(--q-augmented)"/>
+  <!-- Mid lines -->
+  <line x1="120" y1="20" x2="120" y2="220" stroke="var(--paper)" stroke-width="2"/>
+  <line x1="20" y1="120" x2="220" y2="120" stroke="var(--paper)" stroke-width="2"/>
+  <!-- Outer frame -->
+  <rect x="20" y="20" width="200" height="200" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+  <!-- Y axis arrow -->
+  <line x1="20" y1="225" x2="20" y2="15" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="20,8 16,16 24,16" fill="var(--ink)"/>
+  <!-- X axis arrow -->
+  <line x1="15" y1="225" x2="225" y2="225" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="232,225 224,221 224,229" fill="var(--ink)"/>
+  <!-- Axis labels -->
+  <text x="0" y="120" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 0 120) translate(0 -8)" letter-spacing="1.2">AUTOMATISATION →</text>
+  <text x="120" y="238" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink)" text-anchor="middle" letter-spacing="1.2">AUGMENTATION →</text>
+</svg>
+        </div>
+        <div class="matrix-mini-legend">
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-boost)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.boost.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.boost.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-risk)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.risk.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.risk.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-augmented)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.augmented.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.augmented.text"></span>
+            </div>
+          </div>
+          <div class="mml-item">
+            <div class="mml-swatch" style="background: var(--q-stagnant)"></div>
+            <div>
+              <span class="mml-label" data-i18n="matrix.q.stagnant.label"></span>
+              <span class="mml-text" data-i18n="matrix.q.stagnant.text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -6103,7 +6252,7 @@ function renderFooter() {
           <strong>18 mai 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.41 · build 2026.05.18</div>
+        <div class="foot-version mono">v0.3.44 · build 2026.05.18</div>
       </div>
     </div>
     <div class="foot-bottom">
@@ -6449,6 +6598,20 @@ window.PAGE_I18N = {
     "fr.kpi3.label": "de baisse des entrées en poste des diplômés grandes écoles 2024 vs. 2022.",
     "fr.kpi3.source": "CGE · Enquête insertion 2025",
 
+    "fr.matrix.tag": "MATRICE D'EXPOSITION",
+    "fr.matrix.title": "Automatisation <em>ou</em> augmentation \u00b7 la lecture HBS",
+    "fr.matrix.text": "Le d\u00e9bat 2026 sur l'IA et l'emploi ne se r\u00e9sume pas \u00e0 \u00ab quels m\u00e9tiers sont expos\u00e9s \u00bb mais \u00e0 <strong>quelle nature d'exposition</strong>. La matrice <strong>Harvard Business School / Brynjolfsson</strong> oppose deux dimensions orthogonales : potentiel d'<strong>automatisation</strong> des t\u00e2ches (substitution) et potentiel d'<strong>augmentation</strong> du travail humain (compl\u00e9mentarit\u00e9). C'est cette distinction qui permet \u00e0 Brynjolfsson, Chandar et Chen (Stanford, novembre 2025) de montrer que le d\u00e9clin entry-level n'appara\u00eet QUE c\u00f4t\u00e9 automatisation.",
+    "fr.matrix.text2": "Lecture fran\u00e7aise \u00b7 22 m\u00e9tiers ROME-IA repr\u00e9sentatifs parmi les 97 cartographi\u00e9s sur transitions-ia.fr, positionn\u00e9s sur les deux axes \u00e0 partir du scoring multi-sources T1-T4 (Eloundou NBER 2023, Anthropic Economic Index 2026, Brynjolfsson Stanford 2025, ILO WP140, Bick/Blandin/Deming, OCDE, Coface/OEM 2026). Les quatre quadrants d\u00e9clinent quatre trajectoires de transformation : <strong>risqu\u00e9</strong>, <strong>boost\u00e9</strong>, <strong>stagnant</strong>, <strong>avec boost</strong>. Cohabite avec la lecture Coface/OEM qui cible le top 10% salarial via l'IA agentique.",
+    "fr.matrix.cta": "Voir la matrice \u00b7 22 m\u00e9tiers ROME-IA FR",
+    "fr.matrix.meta": "Page d\u00e9di\u00e9e \u00b7 Lecture mobile et desktop",
+    "matrix.q.boost.label": "Boosté · haute automatisation + haute augmentation",
+    "matrix.q.boost.text": "L'IA prend en charge des tâches massives ET amplifie le jugement humain. Productivité gagnée, contenu transformé. Exemples : développement logiciel, conseil, analyse financière.",
+    "matrix.q.risk.label": "Risqué · haute automatisation + faible augmentation",
+    "matrix.q.risk.text": "Les tâches partent à la machine sans grande valeur ajoutée pour le travailleur. Pression sur l'emploi entry-level (Stanford ADP -16% sur les 22-25 ans). Exemples : saisie, service client basique, processing administratif.",
+    "matrix.q.augmented.label": "Avec boost · faible automatisation + haute augmentation",
+    "matrix.q.augmented.text": "L'IA ne remplace pas mais amplifie l'expert humain. Croissance attendue. Exemples : enseignement, médecine, recherche scientifique, design.",
+    "matrix.q.stagnant.label": "Stagnant · faible automatisation + faible augmentation",
+    "matrix.q.stagnant.text": "L'IA actuelle n'atteint pas ces tâches. Trajectoire dépend de la demande sectorielle (cadre Bessen). Exemples : métiers manuels qualifiés, soins à la personne, certains métiers de production.",
     "fr.rein.eyebrow": "Pistes de réinvention · 5 trajectoires FR",
     "fr.rein.title": "À quoi ressemblent les <em>métiers d'après</em>.",
     "fr.rein.intro1": "Cinq archétypes professionnels français, choisis pour couvrir un éventail d'expositions à l'IA et de domaines économiques. Pour chacun, une trajectoire de réinvention plausible à 3-5 ans, calibrée sur la structure productive française et le système de formation français (BTS, DUT, Licence, Master, ingénieur, formation continue, CPF, OPCO).",
@@ -6524,8 +6687,8 @@ window.PAGE_I18N = {
     "fr.expgap.sub": "L'étude Coface et Observatoire des Emplois Menacés et Émergents (OEM) publiée en mars 2026 documente une cartographie inédite de l'exposition à l'IA en France, profession par profession. 3,8% des emplois sont actuellement fragilisés, 16,3% pourraient l'être à horizon 2026-2029, soit près de 5 millions de postes. Le graphique croise l'exposition Coface par famille FAP avec la variation des projets de recrutement (France Travail BMO 2025).",
     "fr.expgap.legend.theoretical": "Exposition Coface (FAP)",
     "fr.expgap.legend.observed": "Projets de recrutement 2024-2025",
-    "fr.expgap.readline": "<strong>Lecture pour la France</strong> · adoption IA à <strong>47,8% Q1 2026</strong> (Microsoft, rang 5 mondial). <strong>Inversion historique</strong> : les cols blancs en première ligne. Architecture/ingénierie <strong>26,9%</strong>, informatique <strong>24,9%</strong>, administratif et créatifs <strong>23,8%</strong>, juridique <strong>21,6%</strong> (Coface). Information-communication <strong>-21,5%</strong> projets BMO 2025, informatique sortie de la <em>tension très forte</em> pour la première fois depuis 2016 (DARES). À l'inverse, santé, éducation et action publique résistent. <strong>Writer & Workplace Intelligence (avril 2026, 2 400 répondants dont la France)</strong> ajoute une lecture organisationnelle : <strong>79% des entreprises peinent à adopter l'IA</strong>, seulement 29% voient un ROI significatif, et 60% prévoient des licenciements pour les non-adoptants. L'enjeu côté employeurs est moins l'apocalypse que la gouvernance de l'adoption. <strong>AI Frontiers · Anton Shenk (RAND), 11 mai 2026</strong>, place ces chiffres français dans le débat macroéconomique mondial : entre Acemoglu (+0,71% productivité US sur 10 ans) et Epoch AI (jusqu'à +30% si singularité économique), l'écart cumulé atteint 1 quadrillion $ d'ici 2035. Les données françaises Coface/BMO documentées ici renforcent plutôt le camp skeptic en mai 2026 (implémentation IA <10% dans la plupart des secteurs selon US Census), même si les lags longs des phénomènes économiques rendent l'évidence d'absence non définitive. <strong>Cadrage macroéconomique français · audition Arthur Mensch (Mistral AI) devant la Commission d'enquête de l'Assemblée nationale (12 mai 2026)</strong> : si 10% de la masse salariale européenne devient de l'IA importée d'ici 3-4 ans, c'est 1 trillion € de déficit commercial supplémentaire pour l'Europe. La France dispose de 9 GW de surplus énergétique aujourd'hui · risque de monopolisation par les hyperscalers américains dans les 2 ans. Mensch reconnaît explicitement la possibilité d'une hausse du chômage dans certains domaines et d'un déplacement de la valeur du travail vers le capital, capital qui n'est pour le moment largement pas du capital européen. <strong>OCDE · AI adoption by SMEs · discussion paper G7 (9 décembre 2025)</strong> apporte la projection macroéconomique de référence 2026 pour les économies G7 dont la France : entre 0,2 et 1,3 points de croissance annuelle de la productivité du travail sur 10 ans selon le scénario d'adoption (comparable boom ICT US 1990s à 0,5-1,5 pp), adoption agrégée OCDE passée de 5,6% (2020) à 14% (2024), 4 barrières dominantes (compétences pour 50% des PME, financement, infrastructure, pertinence perçue), 39% des PME utilisatrices d'IA générative la voient compenser leur skill gap. À cadrer avec le baromètre Alegria.group avril 2026 sur les PME françaises : 9% intégration majeure, 68% budget IA inférieur à 5 000 €, 76% des PME mondiales encore au stade de novices (D4SME 2026, 2 018 PME, 12 pays dont la France). <strong>Pedro Serôdio (British Progress, thread X du 22 avril 2026)</strong> apporte le contrepoint empirique UK le plus articulé en 2026 : trois ans après ChatGPT, aucune preuve d'impact significatif sur l'emploi total britannique, et les occupations à forte exposition ont en moyenne grandi PLUS vite que les peu exposées (résultat robuste sur 4 mesures et 2 sources). Hétérogénéité occupationnelle frappante depuis 2021 : analystes business IT +38%, programmeurs +18%, mais call-centre -19% et télévendeurs -23%. À surveiller : le secteur software UK a vu sa productivité accélérer à 3,8%/an depuis ChatGPT (5× le rythme pré-ChatGPT), mais H2 2025 emploi et output en baisse simultanément · point d'inflexion potentiel à monitorer dans les 12-24 prochains mois. Pour la France où l'IA agentique cible le top 10% salarial (Coface/OEM), cette lecture UK élargit le cadre vers l'élasticité de la demande sectorielle (Bessen) plutôt que la seule capacité technique. <strong>Brynjolfsson/Chandar/Chen (Stanford Digital Economy Lab, 13 novembre 2025)</strong> apportent le complément empirique entry-level via données ADP haute fréquence : -16% d'emploi relatif chez les 22-25 ans en métiers AI-exposed (développeurs software, customer service reps) vs stabilité pour les expérimentés, avec la distinction empirique critique selon que l'IA automatise ou augmente la tâche. Lecture pour le marché français : signal d'alerte pour les junior pipelines en développement software, conseil, finance, et signal d'opportunité pour les fonctions où l'IA augmente (analyse, design, gouvernance). Sur le cadre théorique formel, <strong>NBER WP 33509 (Hampole/Papanikolaou/Schmidt/Seegmiller, révisé septembre 2025)</strong> sépare substitution tâche-level (-2% demande compétences par écart-type d'exposition) et réallocation au sein de l'occupation · effets emploi globaux modestes compensés par la productivité, ce qui éclaire l'observation Serôdio. <strong>Goldman Sachs Research (Briggs/Dong, août 2025, actualisation du cadre 2023)</strong> maintient un scénario central de 6-7% déplacement workforce US si adoption large, 2,5% si current uses étendus, chômage frictionnel +0,5pp transitoire, productivité +15% à long terme · cohérent avec la lecture augmentation-réallocation.",
-    "fr.expgap.source": "Sources · Coface & OEM · Emplois, compétences, valeur · mars 2026 · DARES · Les tensions sur le marché du travail en 2024 · France Travail BMO 2025 · INSEE Première n°2061 · juillet 2025 · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026 · Writer & Workplace Intelligence · AI Adoption in the Enterprise 2026 · avril 2026 · AI Frontiers · Anton Shenk (RAND) · The Quadrillion-Dollar Disagreement on AI and the Economy · mai 2026 · OECD · AI adoption by small and medium-sized enterprises · discussion paper G7 · décembre 2025 · OECD Filippucci et al. · Miracle or Myth · novembre 2024 · Goldman Sachs · Briggs & Kodnani · mars 2023 · Brookings · Baily/Brynjolfsson/Korinek · Machines of Mind · 2023 · Assemblée nationale · Commission d'enquête sur les dépendances structurelles et vulnérabilités systémiques du numérique · audition Arthur Mensch (Mistral AI) · 12 mai 2026 · Pedro Serôdio (British Progress) · Is AI killing jobs? · thread X · 22 avril 2026 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · révisé septembre 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · 13 novembre 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · août 2025 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · révisé septembre 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · 13 novembre 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · août 2025",
+    "fr.expgap.readline": "<strong>Lecture pour la France</strong> · adoption IA 47,8% Q1 2026 · <strong>rang 5 mondial</strong> (Microsoft). <strong>Inversion historique</strong> · les cols blancs en première ligne · architecture/ingénierie 26,9%, informatique 24,9%, administratif et créatifs 23,8%, juridique 21,6% (Coface). Information-communication -21,5% projets BMO 2025, informatique sortie de la tension très forte pour la première fois depuis 2016 (DARES). Santé, éducation et action publique résistent.<br><br><strong>Le débat substitution vs augmentation est tranché empiriquement en 2025-26</strong>. <strong>Stanford ADP</strong> (Brynjolfsson et al., novembre 2025) documente <strong>-16% d'emploi sur les 22-25 ans en métiers AI-exposed UNIQUEMENT où l'IA automatise</strong>, pas où elle augmente. <strong>NBER WP 33509</strong> (Hampole et al., septembre 2025) formalise la mécanique · substitution tâche par tâche compensée par la réallocation au sein de l'occupation. <strong>Goldman Sachs Research</strong> (Briggs/Dong, août 2025) maintient un scénario central de <strong>6-7% déplacement workforce US</strong> en adoption large, productivité +15% à long terme.<br><br><strong>Pour les DRH français</strong> · signal d'alerte sur les junior pipelines (software, conseil, finance) et signal d'opportunité sur les fonctions augmentables (analyse, design, gouvernance).",
+    "fr.expgap.source": "Sources principales · Coface & OEM (2026) · DARES (2024) · France Travail BMO 2025 · INSEE Première n°2061 (2025) · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026 · Writer Workplace Intelligence (2026) · OECD (G7 PME 2025 ; Miracle or Myth 2024) · Goldman Sachs (Briggs & Kodnani 2023 ; Briggs/Dong 2025) · NBER WP 33509 (Hampole et al., 2025) · Stanford Digital Economy Lab (Brynjolfsson et al., Canaries, 2025) · Brookings (Machines of Mind, 2023) · Assemblée nationale · audition Mensch (2026) · Serôdio (British Progress, 2026) · RAND (Shenk, 2026)",
   
   },
   en: {
@@ -6544,6 +6707,20 @@ window.PAGE_I18N = {
     "fr.kpi3.label": "drop in job entries for 2024 grandes écoles graduates vs. 2022.",
     "fr.kpi3.source": "CGE · 2025 insertion survey",
 
+    "fr.matrix.tag": "EXPOSURE MATRIX",
+    "fr.matrix.title": "Automation <em>or</em> augmentation \u00b7 the HBS reading",
+    "fr.matrix.text": "The 2026 debate on AI and employment is no longer about \u00ab which jobs are exposed \u00bb but about <strong>what kind of exposure</strong>. The <strong>Harvard Business School / Brynjolfsson</strong> matrix sets two orthogonal dimensions: task <strong>automation</strong> potential (substitution) versus human work <strong>augmentation</strong> potential (complementarity). This distinction is exactly what allows Brynjolfsson, Chandar and Chen (Stanford, November 2025) to show that entry-level decline appears ONLY on the automation side.",
+    "fr.matrix.text2": "French reading \u00b7 22 representative ROME-AI occupations among the 97 mapped on transitions-ia.fr, positioned on both axes from multi-source T1-T4 scoring (Eloundou NBER 2023, Anthropic Economic Index 2026, Brynjolfsson Stanford 2025, ILO WP140, Bick/Blandin/Deming, OECD, Coface/OEM 2026). The four quadrants outline four transformation trajectories: <strong>at risk</strong>, <strong>boosted</strong>, <strong>stagnant</strong>, <strong>augmented</strong>. Coexists with the Coface/OEM reading targeting the top 10% salary scale via agentic AI.",
+    "fr.matrix.cta": "Open the matrix \u00b7 22 ROME-AI FR occupations",
+    "fr.matrix.meta": "Dedicated page \u00b7 Mobile and desktop reading",
+    "matrix.q.boost.label": "Boosted · high automation + high augmentation",
+    "matrix.q.boost.text": "AI takes over massive tasks AND amplifies human judgment. Productivity gained, content transformed. Examples: software development, consulting, financial analysis.",
+    "matrix.q.risk.label": "At risk · high automation + low augmentation",
+    "matrix.q.risk.text": "Tasks shift to machines with little added value to the worker. Pressure on entry-level employment (Stanford ADP -16% on ages 22-25). Examples: data entry, basic customer service, administrative processing.",
+    "matrix.q.augmented.label": "With boost · low automation + high augmentation",
+    "matrix.q.augmented.text": "AI does not replace but amplifies the human expert. Expected growth. Examples: teaching, medicine, scientific research, design.",
+    "matrix.q.stagnant.label": "Stagnant · low automation + low augmentation",
+    "matrix.q.stagnant.text": "Current AI does not reach these tasks. Trajectory depends on sectoral demand (Bessen framework). Examples: skilled manual trades, personal care, some production occupations.",
     "fr.rein.eyebrow": "Reinvention pathways · 5 French trajectories",
     "fr.rein.title": "What the <em>jobs of tomorrow</em> look like.",
     "fr.rein.intro1": "Five French professional archetypes, chosen to span a range of AI exposure levels and economic domains. For each, a plausible reinvention trajectory at 3-5 years, calibrated on the French productive structure and French training system (BTS, DUT, Licence, Master, ingénieur, continuing education, CPF, OPCO).",
@@ -6619,8 +6796,8 @@ window.PAGE_I18N = {
     "fr.expgap.sub": "The Coface and Observatoire des Emplois Menacés et Émergents (OEM) study published March 2026 documents an unprecedented cartography of AI exposure in France, profession by profession. 3.8% of jobs are currently fragilized, 16.3% could be at horizon 2026-2029, nearly 5 million positions. The chart pairs Coface exposure by FAP family with variation in recruitment projects (France Travail BMO 2025).",
     "fr.expgap.legend.theoretical": "Coface exposure (FAP)",
     "fr.expgap.legend.observed": "Recruitment projects 2024-2025",
-    "fr.expgap.readline": "<strong>Reading for France</strong> · AI adoption at <strong>47.8% Q1 2026</strong> (Microsoft, rank 5 worldwide). <strong>Historic reversal</strong>: white collars in the front line. Architecture/engineering <strong>26.9%</strong>, IT <strong>24.9%</strong>, administrative and creative <strong>23.8%</strong>, legal <strong>21.6%</strong> (Coface). Information-communication <strong>-21.5%</strong> BMO 2025 projects, IT exited <em>very-high tension</em> category for the first time since 2016 (DARES). Conversely, health, education and public action resist. <strong>Writer & Workplace Intelligence (April 2026, 2,400 respondents including France)</strong> adds an organizational reading: <strong>79% of companies struggle to adopt AI</strong>, only 29% see significant ROI, and 60% plan layoffs for non-adopters. The corporate-side issue is less apocalypse than adoption governance. <strong>AI Frontiers · Anton Shenk (RAND), May 11, 2026</strong>, positions these French figures within the global macroeconomic debate: between Acemoglu (+0.71% US productivity over 10 years) and Epoch AI (up to +30% if economic singularity), the cumulative gap reaches $1 quadrillion by 2035. French Coface/BMO data documented here reinforce the skeptic camp in May 2026 (AI implementation <10% in most sectors per US Census), even though long lags in economic phenomena make absence of evidence non-definitive. <strong>French macroeconomic framing · Arthur Mensch (Mistral AI) hearing before the National Assembly Enquiry Commission (May 12, 2026)</strong>: if 10% of the European wage mass becomes imported AI within 3-4 years, that is €1 trillion of additional trade deficit for Europe. France has 9 GW of energy surplus today · risk of monopolization by US hyperscalers within 2 years. Mensch explicitly acknowledges the possibility of unemployment rise in certain domains and of a labor-to-capital value shift, capital that is currently largely not European. <strong>OECD · AI adoption by SMEs · G7 discussion paper (December 9, 2025)</strong> brings the reference 2026 macroeconomic projection for G7 economies including France: between 0.2 and 1.3 percentage points of annual labor productivity growth over 10 years depending on adoption scenario (comparable to the 1990s US ICT boom at 0.5-1.5 pp), OECD aggregate adoption rose from 5.6% (2020) to 14% (2024), 4 dominant barriers (skills for 50% of SMEs, financing, infrastructure, perceived irrelevance), 39% of generative AI-using SMEs see it compensate their skill gap. To frame against the Alegria.group April 2026 barometer on French SMEs: 9% major integration, 68% AI budget below €5,000, 76% of global SMEs still at novice stage (D4SME 2026, 2,018 SMEs, 12 countries including France). <strong>Pedro Serôdio (British Progress, X thread April 22, 2026)</strong> brings the most articulate UK empirical counterpoint in 2026: three years after ChatGPT, no evidence of significant impact on overall British employment, and highly exposed occupations on average grew FASTER than less-exposed ones (result robust across 4 measures and 2 sources). Striking occupational heterogeneity since 2021: IT business analysts +38%, programmers +18%, but call-centre roles -19% and telephone salespersons -23%. To watch: the UK software sector saw productivity accelerate to 3.8%/year since ChatGPT (5× pre-ChatGPT pace), but H2 2025 employment and output fell simultaneously · potential inflection point to monitor over the next 12-24 months. For France where agentic AI targets the top 10% salary scale (Coface/OEM), this UK reading broadens the framework toward sectoral demand elasticity (Bessen) rather than technical capability alone. <strong>Brynjolfsson/Chandar/Chen (Stanford Digital Economy Lab, November 13, 2025)</strong> add the entry-level empirical complement via high-frequency ADP data: -16% relative employment for 22-25 year-olds in AI-exposed occupations (software developers, customer service reps) vs stable for experienced workers, with the critical empirical distinction whether AI automates or augments the task. Reading for the French market: alert signal for junior pipelines in software development, consulting, finance, and opportunity signal for functions where AI augments (analysis, design, governance). On the formal theoretical frame, <strong>NBER WP 33509 (Hampole/Papanikolaou/Schmidt/Seegmiller, revised September 2025)</strong> separates task-level substitution (-2% skill demand per std deviation of exposure) and within-occupation reallocation · modest aggregate employment effects offset by productivity, illuminating Serôdio's observation. <strong>Goldman Sachs Research (Briggs/Dong, August 2025, update of 2023 framework)</strong> maintains a central scenario of 6-7% US workforce displacement under wide adoption, 2.5% if current uses extended, transitory frictional unemployment +0.5pp, long-term productivity +15% · consistent with augmentation-reallocation reading.",
-    "fr.expgap.source": "Sources · Coface & OEM · Emplois, compétences, valeur · March 2026 · DARES · Tensions on the labour market 2024 · France Travail BMO 2025 · INSEE Première n°2061 · July 2025 · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026 · Writer & Workplace Intelligence · AI Adoption in the Enterprise 2026 · April 2026 · AI Frontiers · Anton Shenk (RAND) · The Quadrillion-Dollar Disagreement on AI and the Economy · May 2026 · OECD · AI adoption by small and medium-sized enterprises · G7 discussion paper · December 2025 · OECD Filippucci et al. · Miracle or Myth · November 2024 · Goldman Sachs · Briggs & Kodnani · March 2023 · Brookings · Baily/Brynjolfsson/Korinek · Machines of Mind · 2023 · Assemblée nationale · Commission d'enquête sur les dépendances structurelles et vulnérabilités systémiques du numérique · audition Arthur Mensch (Mistral AI) · May 12, 2026 · Pedro Serôdio (British Progress) · Is AI killing jobs? · X thread · April 22, 2026 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · revised September 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · November 13, 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · August 2025 · NBER WP 33509 · Hampole/Papanikolaou/Schmidt/Seegmiller · Artificial Intelligence and the Labor Market · revised September 2025 · Stanford Digital Economy Lab · Brynjolfsson/Chandar/Chen · Canaries in the Coal Mine · November 13, 2025 · Goldman Sachs Research · Briggs/Dong · How Will AI Affect the Global Workforce? · August 2025",
+    "fr.expgap.readline": "<strong>Reading for France</strong> · AI adoption 47.8% Q1 2026 · <strong>rank 5 worldwide</strong> (Microsoft). <strong>Historic reversal</strong> · white collars in the front line · architecture/engineering 26.9%, IT 24.9%, administrative and creative 23.8%, legal 21.6% (Coface). Information-communication -21.5% BMO 2025 projects, IT exited very-high tension category for the first time since 2016 (DARES). Health, education and public action resist.<br><br><strong>The substitution vs augmentation debate is empirically settled in 2025-26</strong>. <strong>Stanford ADP</strong> (Brynjolfsson et al., November 2025) documents <strong>-16% employment for ages 22-25 in AI-exposed occupations ONLY where AI automates</strong>, not where it augments. <strong>NBER WP 33509</strong> (Hampole et al., September 2025) formalizes the mechanism · task-level substitution offset by within-occupation reallocation. <strong>Goldman Sachs Research</strong> (Briggs/Dong, August 2025) maintains a central scenario of <strong>6-7% US workforce displacement</strong> under wide adoption, +15% long-term productivity.<br><br><strong>For French HR leaders</strong> · alert signal on junior pipelines (software, consulting, finance) and opportunity signal on augmentable functions (analysis, design, governance).",
+    "fr.expgap.source": "Main sources · Coface & OEM (2026) · DARES (2024) · France Travail BMO 2025 · INSEE Première n°2061 (2025) · PwC AI Jobs Barometer 2025 · Microsoft AI Diffusion Q1 2026 · Writer Workplace Intelligence (2026) · OECD (G7 SMEs 2025; Miracle or Myth 2024) · Goldman Sachs (Briggs & Kodnani 2023; Briggs/Dong 2025) · NBER WP 33509 (Hampole et al., 2025) · Stanford Digital Economy Lab (Brynjolfsson et al., Canaries, 2025) · Brookings (Machines of Mind, 2023) · French Parliament · Mensch hearing (2026) · Serôdio (British Progress, 2026) · RAND (Shenk, 2026)",
   
   }
 };

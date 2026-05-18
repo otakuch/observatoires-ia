@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IA &amp; Métiers Suisses · Matrice automatisation / augmentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EFE6;          /* warm cream */
+    --sf:#FFFFFF;
+    --tx:#1A1A1A;
+    --tx-sec:#4A4A4A;
+    --tx-mut:#7A7A7A;
+    --br:#E5DDD0;
+    --br-strong:#1A1A1A;
+    --ac:#CC2936;          /* swiss-cross red */
+
+    /* HBS quadrant palette, refined */
+    --q-risk:#E0915F;      /* high auto, low aug – RISQUÉ (orange) */
+    --q-risk-deep:#B26430;
+    --q-boost:#1F406F;     /* high auto, high aug – BOOSTÉ (deep blue) */
+    --q-boost-deep:#0E2748;
+    --q-stagnant:#D4A436;  /* low auto, low aug – STAGNANT (gold) */
+    --q-stagnant-deep:#A37D1F;
+    --q-augmented:#9BB7C9; /* low auto, high aug – AVEC BOOST (light blue) */
+    --q-augmented-deep:#5F7E94;
+
+    --dot-label:#CC2936;
+    --dot-bg:rgba(255,255,255,0.75);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{padding:32px 24px 64px;min-height:100vh}
+
+  .wrap{max-width:1280px;margin:0 auto}
+
+  /* ─── HEADER ─── */
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--tx-mut);margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:14px;height:14px;background:var(--ac);position:relative}
+  .eyebrow::before{
+    background:
+      linear-gradient(var(--ac),var(--ac)) center/100% 30% no-repeat,
+      linear-gradient(var(--ac),var(--ac)) center/30% 100% no-repeat,
+      #fff;
+  }
+
+  h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4.6vw,56px);
+    line-height:1.04;letter-spacing:-0.02em;margin-bottom:14px;max-width:920px;
+  }
+  h1 em{font-style:italic;color:var(--ac);font-weight:400}
+  .sub{
+    font-size:15px;line-height:1.55;color:var(--tx-sec);max-width:760px;margin-bottom:32px;
+  }
+
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:18px 28px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--tx-mut);
+    margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--br);
+  }
+  .meta-row span{display:flex;align-items:center;gap:8px}
+  .meta-row b{color:var(--tx);font-weight:600;letter-spacing:0.08em}
+
+  /* ─── MATRIX ─── */
+  .matrix-card{
+    background:var(--sf);border:1px solid var(--br);
+    position:relative;
+  }
+
+  .matrix-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    padding:24px 28px 18px;border-bottom:1px solid var(--br);
+    flex-wrap:wrap;gap:16px;
+  }
+  .matrix-head h2{
+    font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.01em;
+  }
+  .matrix-head .legend{
+    display:flex;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--tx-mut);
+  }
+  .matrix-head .legend i{
+    display:inline-block;width:8px;height:8px;border-radius:50%;
+    margin-right:6px;vertical-align:middle;
+  }
+
+  .matrix-stage{position:relative;padding:32px 32px 8px}
+  @media(max-width:640px){.matrix-stage{padding:16px}}
+
+  svg.matrix{
+    display:block;width:100%;height:auto;font-family:'Inter',sans-serif;
+    background:transparent;
+  }
+
+  /* axis labels (outside svg, on the frame) */
+  .axis-y-label,.axis-x-label{
+    position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.16em;color:var(--tx);font-weight:500;
+  }
+  .axis-y-label{left:-12px;top:50%;transform:rotate(-90deg) translateX(50%);transform-origin:left top;white-space:nowrap}
+
+  /* ─── Quadrant labels overlay ─── */
+  .quad-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;
+    line-height:1.2;
+  }
+  .quad-label small{
+    display:block;font-weight:400;font-size:10px;letter-spacing:0.08em;margin-top:4px;opacity:0.8;
+  }
+
+  /* ─── dots ─── */
+  .bg-dot{fill:var(--dot-bg);stroke:none;opacity:0.7;transition:opacity .15s,r .15s}
+  .bg-dot:hover{opacity:1}
+  .key-dot{fill:var(--ac);stroke:#fff;stroke-width:1.5;cursor:pointer;transition:r .15s,filter .15s}
+  .key-dot:hover{filter:drop-shadow(0 2px 6px rgba(204,41,54,0.4))}
+
+  .label-line{stroke:var(--tx);stroke-width:0.6;opacity:0.45;fill:none;pointer-events:none}
+  .label-text{
+    font-family:'Inter',sans-serif;font-size:11.5px;font-weight:500;
+    fill:var(--tx);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;
+    cursor:pointer;transition:fill .15s;
+  }
+  .label-text.on-dark{fill:#fff;stroke:rgba(0,0,0,0.4)}
+
+  /* hover behavior shared by circle and label inside a dot-group */
+  .dot-group:hover .key-dot{r:9;filter:drop-shadow(0 2px 8px rgba(204,41,54,0.55))}
+  .dot-group:hover .label-text{fill:var(--ac)}
+  .dot-group:hover .label-text.on-dark{fill:#fff;stroke:rgba(204,41,54,0.7)}
+  .dot-group:hover .label-line{opacity:0.85;stroke:var(--ac);stroke-width:1}
+
+  /* ─── tooltip ─── */
+  .tt{
+    position:absolute;pointer-events:none;background:#1A1A1A;color:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.45;
+    padding:10px 12px;border-radius:2px;max-width:240px;
+    opacity:0;transform:translate(-50%,-110%);transition:opacity .12s;z-index:50;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+  }
+  .tt b{display:block;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+    margin-bottom:4px;letter-spacing:0;text-transform:none;color:#fff}
+  .tt .tt-meta{color:#B8B0A4;font-size:10px;text-transform:uppercase;letter-spacing:0.08em}
+  .tt .tt-vals{display:flex;gap:14px;margin-top:6px}
+  .tt .tt-vals span{display:flex;flex-direction:column;gap:1px}
+  .tt .tt-vals var{font-family:'Fraunces',serif;font-style:normal;font-size:15px;font-weight:500;color:#fff}
+  .tt .tt-vals em{font-style:normal;font-size:9px;color:#9A9080;text-transform:uppercase;letter-spacing:0.08em}
+  .tt .tt-ia{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .tt .tt-ia-label{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;
+    letter-spacing:0.10em;text-transform:uppercase;color:#9A9080;
+    margin-top:10px;margin-bottom:2px;
+  }
+  .tt .ia-chip{
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:500;
+    letter-spacing:0.04em;padding:2px 7px;border-radius:2px;
+    background:rgba(255,255,255,0.08);color:#E8E0D0;border:1px solid rgba(255,255,255,0.12);
+  }
+  .tt .ia-iagénérative      {background:rgba(204,41,54,0.18); color:#FFB8C0; border-color:rgba(204,41,54,0.35)}
+  .tt .ia-iaprédictive      {background:rgba(31,64,111,0.30); color:#A8C4E8; border-color:rgba(31,64,111,0.55)}
+  .tt .ia-iaspécialisée     {background:rgba(212,164,54,0.18); color:#F0D080; border-color:rgba(212,164,54,0.40)}
+  .tt .ia-automatisation    {background:rgba(224,145,95,0.20); color:#F8C8A0; border-color:rgba(224,145,95,0.40)}
+  .tt .ia-visionparordinateur{background:rgba(125,180,140,0.18); color:#B8E0C4; border-color:rgba(125,180,140,0.40)}
+  .tt .ia-robotique         {background:rgba(155,183,201,0.16); color:#C8DCE8; border-color:rgba(155,183,201,0.35)}
+  .tt .ia-aideàladécision   {background:rgba(180,140,200,0.18); color:#E0C8F0; border-color:rgba(180,140,200,0.40)}
+
+  /* ─── controls ─── */
+  .controls{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    padding:18px 28px;border-top:1px solid var(--br);background:#FAF6EE;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--tx-mut);
+  }
+  .controls .toggle{display:flex;gap:0;border:1px solid var(--br-strong)}
+  .controls .toggle button{
+    background:transparent;border:0;padding:8px 14px;cursor:pointer;
+    font-family:inherit;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--tx);border-right:1px solid var(--br-strong);
+  }
+  .controls .toggle button:last-child{border-right:0}
+  .controls .toggle button.on{background:var(--tx);color:#fff}
+  .controls .ia-legend{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    text-transform:none;letter-spacing:0;font-size:10.5px;
+  }
+  .controls .ia-legend .lg-lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.10em;color:var(--tx-mut);margin-right:4px;
+  }
+  .controls .ia-legend .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:500;
+    letter-spacing:0.04em;padding:3px 8px;border-radius:2px;
+    border:1px solid;text-transform:none;
+  }
+  .controls .ia-legend .chip-iagen   {background:rgba(204,41,54,0.10); color:#8A1F2E;border-color:rgba(204,41,54,0.30)}
+  .controls .ia-legend .chip-iapred  {background:rgba(31,64,111,0.10); color:#1F406F;border-color:rgba(31,64,111,0.30)}
+  .controls .ia-legend .chip-iaspec  {background:rgba(212,164,54,0.12);color:#7A5F1E;border-color:rgba(212,164,54,0.40)}
+  .controls .ia-legend .chip-auto    {background:rgba(224,145,95,0.14);color:#8A4F28;border-color:rgba(224,145,95,0.40)}
+  .controls .ia-legend .chip-vision  {background:rgba(125,180,140,0.14);color:#3F6B4C;border-color:rgba(125,180,140,0.45)}
+  .controls .ia-legend .chip-robo    {background:rgba(80,100,120,0.10); color:#3F4F60;border-color:rgba(80,100,120,0.30)}
+  .controls .ia-legend .chip-aide    {background:rgba(140,100,160,0.12);color:#5F3F70;border-color:rgba(140,100,160,0.35)}
+
+  /* ─── footer ─── */
+  footer{
+    margin-top:24px;padding-top:20px;border-top:1px solid var(--br);
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--tx-mut);
+  }
+  footer a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--br-strong)}
+  footer .sources{max-width:680px;line-height:1.7}
+  footer .sources b{color:var(--tx);font-weight:600}
+
+  /* ─── numbered badge alternative for mobile labels ─── */
+  .label-num{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    fill:#fff;text-anchor:middle;dominant-baseline:central;
+    pointer-events:none;display:none;
+  }
+
+  /* ─── mobile-only legend list ─── */
+  .mobile-legend{
+    display:none;padding:18px 20px 24px;border-top:1px solid var(--br);
+    background:#FAF6EE;
+  }
+  .mobile-legend h3{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.12em;color:var(--tx-mut);
+    margin-bottom:14px;
+  }
+  .mobile-legend ol{
+    list-style:none;display:grid;grid-template-columns:1fr;gap:8px 16px;
+    counter-reset:item;
+  }
+  .mobile-legend li{
+    display:grid;grid-template-columns:24px 1fr;align-items:start;gap:10px;
+    font-size:13px;line-height:1.35;
+  }
+  .mobile-legend li .num{
+    background:var(--ac);color:#fff;border-radius:50%;
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+  }
+  .mobile-legend li .info{display:flex;flex-direction:column;gap:4px}
+  .mobile-legend li .info b{font-weight:600;color:var(--tx)}
+  .mobile-legend li .info .chips{display:flex;flex-wrap:wrap;gap:4px}
+  .mobile-legend li .info .chips .ia-chip{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;
+    letter-spacing:0.02em;padding:2px 6px;border-radius:2px;
+    border:1px solid;
+  }
+  .mobile-legend .ia-iagénérative      {background:rgba(204,41,54,0.10); color:#8A1F2E; border-color:rgba(204,41,54,0.30)}
+  .mobile-legend .ia-iaprédictive      {background:rgba(31,64,111,0.10); color:#1F406F; border-color:rgba(31,64,111,0.30)}
+  .mobile-legend .ia-iaspécialisée     {background:rgba(212,164,54,0.12);color:#7A5F1E; border-color:rgba(212,164,54,0.40)}
+  .mobile-legend .ia-automatisation    {background:rgba(224,145,95,0.14);color:#8A4F28; border-color:rgba(224,145,95,0.40)}
+  .mobile-legend .ia-visionparordinateur{background:rgba(125,180,140,0.14);color:#3F6B4C;border-color:rgba(125,180,140,0.45)}
+  .mobile-legend .ia-robotique         {background:rgba(80,100,120,0.10); color:#3F4F60; border-color:rgba(80,100,120,0.30)}
+  .mobile-legend .ia-aideàladécision   {background:rgba(140,100,160,0.12);color:#5F3F70; border-color:rgba(140,100,160,0.35)}
+
+  /* ─── RESPONSIVE BREAKPOINTS ─── */
+
+  /* TABLET — 760-1024 : slight density reduction */
+  @media(max-width:1024px){
+    body{padding:28px 20px 56px}
+    h1{font-size:clamp(28px,4.4vw,44px)}
+    .sub{font-size:14px}
+    .matrix-head{padding:20px 22px 16px}
+    .matrix-head h2{font-size:19px}
+    .matrix-stage{padding:24px 24px 8px}
+    .label-text{font-size:10.5px}
+    .controls{padding:14px 22px}
+    .controls .ia-legend .chip{font-size:9px;padding:2px 6px}
+  }
+
+  /* SMALL TABLET / LARGE PHONE — 640-760 */
+  @media(max-width:760px){
+    body{padding:22px 14px 44px}
+    .eyebrow{font-size:10px;letter-spacing:0.10em}
+    h1{font-size:clamp(24px,6vw,32px);line-height:1.08}
+    .sub{font-size:13.5px;margin-bottom:24px}
+    .matrix-head{padding:16px 16px 12px;flex-direction:column;align-items:flex-start;gap:10px}
+    .matrix-head h2{font-size:16px}
+    .matrix-head .legend{font-size:9px}
+    .matrix-stage{padding:14px 12px 4px}
+    .controls{padding:12px 16px;flex-direction:column;align-items:flex-start;gap:10px}
+    .controls .ia-legend{font-size:9.5px}
+    footer{flex-direction:column;align-items:flex-start;font-size:9.5px}
+    footer .sources{max-width:none}
+  }
+
+  /* MOBILE PORTRAIT — <640 : switch to numbered dots + legend list */
+  @media(max-width:640px){
+    body{padding:18px 10px 40px}
+    .wrap{max-width:100%}
+    h1{font-size:26px;line-height:1.1}
+    .sub{font-size:13px;line-height:1.5;margin-bottom:20px}
+
+    .matrix .label-text,
+    .matrix .leader-line{display:none}
+    .matrix .key-dot{r:13}
+    .matrix .dot-group:hover .key-dot{r:14}
+    .matrix .label-num{display:block}
+
+    .axis-y-label,.axis-x-label{font-size:9px;letter-spacing:0.10em}
+    .matrix .quad-title{font-size:9px !important;letter-spacing:0.06em !important}
+    .matrix .quad-sub{font-size:8px !important;letter-spacing:0.06em !important}
+
+    .mobile-legend{display:block}
+
+    .controls .ia-legend{display:none}
+    .controls{padding:10px 14px}
+  }
+
+  /* ULTRA-SMALL — <380 */
+  @media(max-width:380px){
+    body{padding:14px 8px 32px}
+    h1{font-size:22px}
+    .sub{font-size:12.5px}
+    .mobile-legend{padding:14px 14px 18px}
+    .mobile-legend li{font-size:12px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow"><span>Observatoire IA &amp; Métiers Suisses · Naully Nicolas · Mai 2026</span></div>
+
+  <h1>L'IA va-t-elle <em>remplacer</em> ou <em>augmenter</em> ce métier&nbsp;? <br>Une lecture suisse &middot; 22&nbsp;métiers de l'observatoire.</h1>
+
+  <p class="sub">Adaptation suisse de la matrice <i>Harvard Business School / Brynjolfsson</i>. Chaque métier est positionné sur deux axes orthogonaux : le potentiel d'<b>automatisation</b> des tâches par l'IA (axe vertical) et le potentiel d'<b>augmentation</b> du travail humain par l'IA (axe horizontal). 22&nbsp;métiers parmi les 325 cartographiés sur observatoire.naullynicolas.ch, sélectionnés pour leur valeur pédagogique et leur poids dans l'emploi suisse.</p>
+
+  <!-- ===== MATRIX ===== -->
+  <div class="matrix-card">
+
+    <div class="matrix-head">
+      <h2>Matrice exposition &middot; 22&nbsp;métiers labellisés du marché suisse</h2>
+      <div class="legend">
+        <span><i style="background:var(--ac)"></i>Métier labellisé</span>
+      </div>
+    </div>
+
+    <div class="matrix-stage" id="stage">
+      <div class="tt" id="tt"></div>
+      <svg class="matrix" id="svg" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" aria-label="Matrice automatisation augmentation des métiers Suisse"></svg>
+    </div>
+
+    <div class="controls">
+      <div>Survolez un point pour afficher le métier &middot; cliquez pour épingler</div>
+      <div class="ia-legend">
+        <span class="lg-lbl">Catégories d'IA</span>
+        <span class="chip chip-iagen">IA générative</span>
+        <span class="chip chip-iapred">IA prédictive</span>
+        <span class="chip chip-iaspec">IA spécialisée</span>
+        <span class="chip chip-auto">Automatisation</span>
+        <span class="chip chip-vision">Vision par ordinateur</span>
+        <span class="chip chip-robo">Robotique</span>
+        <span class="chip chip-aide">Aide à la décision</span>
+      </div>
+    </div>
+
+    <!-- ===== MOBILE LEGEND ===== -->
+    <div class="mobile-legend">
+      <h3>22 métiers labellisés · liste détaillée</h3>
+      <ol id="mobile-legend-list"></ol>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="sources">
+      <b>Sources et méthodologie.</b>
+      Positionnement basé sur le scoring multi-sources pondéré T1–T4 de l'Observatoire IA &amp; Métiers Suisses :
+      Eloundou et&nbsp;al. NBER 2023 (β LLM exposure), Anthropic Economic Index 2026 (usage Claude), Brynjolfsson &amp; al. Stanford/NBER 2025 (Canaries in the Coal Mine), ILO WP140 2025 (Generative AI &amp; jobs), Bick · Blandin · Deming St.&nbsp;Louis Fed 2026, OCDE 2025. Données suisses : OFS ESPA 2024, ESS 2022, NP 2010. La position d'un métier reflète l'agrégation de ces sources, pas un score unique de la HBS.
+    </div>
+    <div style="text-align:right;line-height:1.7">
+      <div><a href="https://observatoire.naullynicolas.ch">observatoire.naullynicolas.ch</a></div>
+      <div style="margin-top:4px">Naully Nicolas · Consultant &amp; conférencier IA</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================
+   DATA — 91 professions suisses positionnées
+   Échelles : automation (0-100) et augmentation (0-100)
+   22 labellisées, 69 background
+   ========================================================= */
+
+const LABELED = [
+  /* ========= HIGH-LEFT — Quadrant 1 : EXPOSITION ÉLEVÉE, RISQUÉE (8) ========= */
+  { n:"Statisticiens",                   d:"Conseil & analyse",        auto:92, aug:18, q:1, ia:["IA générative","IA prédictive"] },
+  { n:"Interprètes & traducteurs",       d:"Services aux entreprises", auto:85, aug:32, q:1, ia:["IA générative"] },
+  { n:"Rédacteurs & journalistes",       d:"Médias & culture",         auto:78, aug:22, q:1, ia:["IA générative"] },
+  { n:"Data scientists",                 d:"Informatique",             auto:82, aug:44, q:1, ia:["IA générative","IA prédictive"] },
+  { n:"Ingénieurs sécurité informatique",d:"Informatique",             auto:72, aug:36, q:1, ia:["IA spécialisée","IA générative"] },
+  { n:"Gestionnaires de fortune",        d:"Banque & finance",         auto:66, aug:42, q:1, ia:["IA prédictive","IA générative"] },
+  { n:"Gestionnaires de paie & RH",      d:"Support entreprise",       auto:60, aug:30, q:1, ia:["Automatisation","IA générative"] },
+  { n:"Courtiers immobiliers",           d:"Commerce",                 auto:56, aug:22, q:1, ia:["IA prédictive","IA générative"] },
+
+  /* ========= HIGH-RIGHT — Quadrant 2 : EXPOSITION ÉLEVÉE, BOOSTÉE PAR IA (7) ========= */
+  { n:"Comptables & fiduciaires",        d:"Banque & finance",         auto:92, aug:62, q:2, ia:["Automatisation","IA générative"] },
+  { n:"Développeurs logiciels",          d:"Informatique",             auto:85, aug:88, q:2, ia:["IA générative"] },
+  { n:"Ingénieurs en robotique",         d:"Industrie",                auto:80, aug:72, q:2, ia:["Robotique","IA spécialisée"] },
+  { n:"Architectes",                     d:"Construction",             auto:70, aug:92, q:2, ia:["IA générative","Vision par ordinateur"] },
+  { n:"Avocats & notaires",              d:"Conseil juridique",        auto:64, aug:68, q:2, ia:["IA générative","Aide à la décision"] },
+  { n:"Infirmiers·ères diplômés·ées",    d:"Santé",                    auto:58, aug:82, q:2, ia:["IA spécialisée","Aide à la décision"] },
+  { n:"Parlementaires & cadres État",    d:"Administration",           auto:52, aug:58, q:2, ia:["IA générative","Aide à la décision"] },
+
+  /* ========= LOW-LEFT — Quadrant 3 : EXPOSITION FAIBLE, SANS BOOST IA (3) ========= */
+  { n:"Chauffeurs poids lourd",          d:"Transport",                auto:40, aug:18, q:3, ia:["Robotique","Vision par ordinateur"] },
+  { n:"Agents de sécurité",              d:"Services",                 auto:32, aug:38, q:3, ia:["Vision par ordinateur"] },
+  { n:"Installateurs sanitaires",        d:"Construction",             auto:18, aug:26, q:3, ia:["IA spécialisée"] },
+
+  /* ========= LOW-RIGHT — Quadrant 4 : EXPOSITION FAIBLE, AVEC BOOST IA (4) ========= */
+  { n:"Éducateurs petite enfance",       d:"Éducation",                auto:36, aug:58, q:4, ia:["IA générative"] },
+  { n:"Juges & magistrats",              d:"Justice",                  auto:30, aug:78, q:4, ia:["IA générative","Aide à la décision"] },
+  { n:"Pilotes de ligne",                d:"Transport",                auto:44, aug:88, q:4, ia:["IA spécialisée","Aide à la décision"] },
+  { n:"Architectes d'intérieur",         d:"Design",                   auto:18, aug:72, q:4, ia:["IA générative","Vision par ordinateur"] },
+];
+
+/* Pas de points d'arrière-plan : seuls les 22 métiers labellisés sont représentés
+   pour éviter toute confusion entre points labellisés et autres métiers du panel
+   de 325 occupations cartographiées sur observatoire.naullynicolas.ch. */
+LABELED.forEach(d=>d.label=true);
+const ALL = LABELED.slice();
+
+/* =========================================================
+   DRAW
+   ========================================================= */
+
+const svg = document.getElementById('svg');
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+const W = 1200, H = 760;
+const PAD = { l:90, r:32, t:60, b:78 };
+const innerW = W - PAD.l - PAD.r;
+const innerH = H - PAD.t - PAD.b;
+
+/* scales: auto on Y (inverted), aug on X */
+const xScale = v => PAD.l + (v/100)*innerW;
+const yScale = v => PAD.t + (1 - v/100)*innerH;
+
+function el(tag, attrs, parent){
+  const e = document.createElementNS(SVG_NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).appendChild(e);
+  return e;
+}
+
+/* ─── 1. Quadrant backgrounds ─── */
+const midX = xScale(50), midY = yScale(50);
+
+el('rect',{x:PAD.l,y:PAD.t,width:midX-PAD.l,height:midY-PAD.t,fill:'var(--q-risk)'});
+el('rect',{x:midX,y:PAD.t,width:PAD.l+innerW-midX,height:midY-PAD.t,fill:'var(--q-boost)'});
+el('rect',{x:PAD.l,y:midY,width:midX-PAD.l,height:PAD.t+innerH-midY,fill:'var(--q-stagnant)'});
+el('rect',{x:midX,y:midY,width:PAD.l+innerW-midX,height:PAD.t+innerH-midY,fill:'var(--q-augmented)'});
+
+/* ─── 2. Quadrant titles ─── */
+function quadLabel(x, y, anchor, title, sub, dark){
+  const fill = dark ? '#fff' : '#1A1A1A';
+  const op = dark ? 0.95 : 1;
+  const t1 = el('text',{x,y,'text-anchor':anchor,fill,'font-family':"'IBM Plex Mono',monospace",
+    'font-size':13,'font-weight':600,'letter-spacing':'0.10em',opacity:op,class:'quad-title'});
+  t1.textContent = title;
+  const t2 = el('text',{x,y:y+18,'text-anchor':anchor,fill,'font-family':"'IBM Plex Mono',monospace",
+    'font-size':10.5,'letter-spacing':'0.08em',opacity:dark?0.78:0.65,class:'quad-sub'});
+  t2.textContent = sub;
+}
+quadLabel(PAD.l+18, PAD.t+30, 'start', 'EXPOSITION ÉLEVÉE,', 'RISQUÉE', false);
+quadLabel(PAD.l+innerW-18, PAD.t+30, 'end', 'EXPOSITION ÉLEVÉE,', 'BOOSTÉE PAR IA', true);
+quadLabel(PAD.l+18, PAD.t+innerH-26, 'start', 'EXPOSITION FAIBLE,', 'SANS BOOST IA', false);
+quadLabel(PAD.l+innerW-18, PAD.t+innerH-26, 'end', 'EXPOSITION FAIBLE,', 'AVEC BOOST IA', false);
+
+/* ─── 3. Light grid ─── */
+for (let v=10; v<=90; v+=10){
+  el('line',{x1:xScale(v),y1:PAD.t,x2:xScale(v),y2:PAD.t+innerH,
+    stroke:'#fff',opacity:0.10,'stroke-width':0.5});
+  el('line',{x1:PAD.l,y1:yScale(v),x2:PAD.l+innerW,y2:yScale(v),
+    stroke:'#fff',opacity:0.10,'stroke-width':0.5});
+}
+
+/* ─── 4. Mid axes (white lines) ─── */
+el('line',{x1:midX,y1:PAD.t,x2:midX,y2:PAD.t+innerH,stroke:'#fff','stroke-width':1.2,opacity:0.9});
+el('line',{x1:PAD.l,y1:midY,x2:PAD.l+innerW,y2:midY,stroke:'#fff','stroke-width':1.2,opacity:0.9});
+
+/* ─── 5. Pas de points d'arrière-plan : version FR limitée aux 22 métiers labellisés ─── */
+
+/* ─── 6. Labeled dots with leader lines and names ─── */
+const LABEL_OFFSETS = {
+  /* Quadrant 1 — labels above-left */
+  "Statisticiens":              {dx:12, dy:-12, anchor:'start'},
+  "Interprètes & traducteurs":  {dx:12, dy:-12, anchor:'start'},
+  "Rédacteurs & journalistes":  {dx:12, dy:4,   anchor:'start'},
+  "Data scientists":            {dx:12, dy:4,   anchor:'start'},
+  "Ingénieurs sécurité informatique":{dx:-12, dy:-10, anchor:'end'},
+  "Gestionnaires de fortune":   {dx:12, dy:4,   anchor:'start'},
+  "Gestionnaires de paie & RH": {dx:-12, dy:-10, anchor:'end'},
+  "Courtiers immobiliers":      {dx:12, dy:4,   anchor:'start'},
+
+  /* Quadrant 2 — labels above-right (white text) */
+  "Comptables & fiduciaires":   {dx:12, dy:4,   anchor:'start', dark:true},
+  "Développeurs logiciels":     {dx:-12, dy:-10, anchor:'end',  dark:true},
+  "Ingénieurs en robotique":    {dx:-12, dy:-10, anchor:'end',  dark:true},
+  "Architectes":                {dx:-12, dy:-10, anchor:'end',  dark:true},
+  "Avocats & notaires":         {dx:-12, dy:4,   anchor:'end',  dark:true},
+  "Infirmiers·ères diplômés·ées":{dx:-12, dy:4,  anchor:'end',  dark:true},
+  "Parlementaires & cadres État":{dx:12, dy:4,   anchor:'start', dark:true},
+
+  /* Quadrant 3 — bottom-left */
+  "Chauffeurs poids lourd":     {dx:12, dy:-10, anchor:'start'},
+  "Agents de sécurité":         {dx:12, dy:4,   anchor:'start'},
+  "Installateurs sanitaires":   {dx:12, dy:4,   anchor:'start'},
+
+  /* Quadrant 4 — bottom-right */
+  "Éducateurs petite enfance":  {dx:12, dy:4,   anchor:'start'},
+  "Juges & magistrats":         {dx:-12, dy:-10, anchor:'end'},
+  "Pilotes de ligne":           {dx:-12, dy:-10, anchor:'end'},
+  "Architectes d'intérieur":    {dx:12, dy:4,   anchor:'start'},
+};
+
+LABELED.forEach((d, idx)=>{
+  const cx = xScale(d.aug);
+  const cy = yScale(d.auto);
+  const off = LABEL_OFFSETS[d.n] || {dx:8,dy:-8,anchor:'start'};
+
+  /* Group circle + leader + label so hover works on either the dot or the name */
+  const g = el('g',{class:'dot-group','data-name':d.n});
+
+  el('line',{x1:cx,y1:cy,x2:cx+off.dx*0.6,y2:cy+off.dy*0.5,class:'label-line leader-line'}, g);
+
+  const t = el('text',{
+    x:cx+off.dx, y:cy+off.dy,
+    'text-anchor':off.anchor,
+    class:'label-text' + (off.dark?' on-dark':'')
+  }, g);
+  t.textContent = d.n;
+
+  const c = el('circle',{cx,cy,r:6.5,class:'key-dot','data-name':d.n,
+    'data-auto':d.auto,'data-aug':d.aug,'data-domain':d.d}, g);
+
+  const num = el('text',{x:cx,y:cy,class:'label-num'}, g);
+  num.textContent = (idx+1);
+
+  d._idx = idx+1;
+  bindHover(g, d, true);
+  bindHover(c, d, true);
+  bindHover(t, d, true);
+});
+
+const ml = document.getElementById('mobile-legend-list');
+if (ml){
+  LABELED.forEach((d)=>{
+    const li = document.createElement('li');
+    const chips = (d.ia||[]).map(t=>{
+      const cls = 'ia-' + t.replace(/[^a-zA-ZÀ-ÿ]/g,'').toLowerCase();
+      return `<span class="ia-chip ${cls}">${t}</span>`;
+    }).join('');
+    li.innerHTML = `
+      <span class="num">${d._idx}</span>
+      <span class="info">
+        <b>${d.n}</b>
+        <span class="chips">${chips}</span>
+      </span>`;
+    ml.appendChild(li);
+  });
+}
+
+/* ─── 7. Axes — drawn last to stay on top ─── */
+el('line',{x1:PAD.l,y1:PAD.t,x2:PAD.l,y2:PAD.t+innerH,stroke:'#1A1A1A','stroke-width':1.5});
+el('line',{x1:PAD.l,y1:PAD.t+innerH,x2:PAD.l+innerW,y2:PAD.t+innerH,stroke:'#1A1A1A','stroke-width':1.5});
+
+/* arrows */
+function arrow(x,y,dir){
+  let p;
+  if (dir==='up')   p = `M${x-5},${y+8} L${x},${y} L${x+5},${y+8}`;
+  if (dir==='right')p = `M${x-8},${y-5} L${x},${y} L${x-8},${y+5}`;
+  el('path',{d:p,stroke:'#1A1A1A','stroke-width':1.5,fill:'none'});
+}
+arrow(PAD.l, PAD.t-2, 'up');
+arrow(PAD.l+innerW+2, PAD.t+innerH, 'right');
+
+/* axis labels */
+const yLab = el('text',{x:0,y:0,'text-anchor':'middle',
+  fill:'#1A1A1A','font-family':"'IBM Plex Mono',monospace",
+  'font-size':13,'font-weight':600,'letter-spacing':'0.16em',
+  transform:`translate(${PAD.l-50},${PAD.t+innerH/2}) rotate(-90)`});
+yLab.textContent = 'AUTOMATISATION →';
+
+const xLab = el('text',{x:PAD.l+innerW/2, y:PAD.t+innerH+44,'text-anchor':'middle',
+  fill:'#1A1A1A','font-family':"'IBM Plex Mono',monospace",
+  'font-size':13,'font-weight':600,'letter-spacing':'0.16em'});
+xLab.textContent = 'AUGMENTATION →';
+
+/* axis tick labels */
+['Faible','Élevée'].forEach((t,i)=>{
+  const tx = el('text',{x:PAD.l-14, y: i===0 ? PAD.t+innerH-2 : PAD.t+10,
+    'text-anchor':'end',fill:'#7A7A7A',
+    'font-family':"'IBM Plex Mono',monospace",'font-size':10,'letter-spacing':'0.06em'});
+  tx.textContent = t.toUpperCase();
+});
+['Faible','Élevée'].forEach((t,i)=>{
+  const tx = el('text',{x: i===0 ? PAD.l+4 : PAD.l+innerW-4, y:PAD.t+innerH+18,
+    'text-anchor': i===0 ? 'start' : 'end',fill:'#7A7A7A',
+    'font-family':"'IBM Plex Mono',monospace",'font-size':10,'letter-spacing':'0.06em'});
+  tx.textContent = t.toUpperCase();
+});
+
+/* =========================================================
+   INTERACTIVITY — tooltip
+   ========================================================= */
+const tt = document.getElementById('tt');
+const stage = document.getElementById('stage');
+let pinned = null;
+
+function bindHover(node, d, isLabeled){
+  node.addEventListener('mousemove', (e)=> {
+    if (pinned) return;
+    showTip(e, d, isLabeled);
+  });
+  node.addEventListener('mouseleave', ()=>{
+    if (pinned) return;
+    tt.style.opacity = 0;
+  });
+  node.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    if (pinned === node){
+      pinned = null;
+      tt.style.opacity = 0;
+    } else {
+      pinned = node;
+      showTip(e, d, isLabeled);
+    }
+  });
+}
+document.addEventListener('click', ()=>{
+  pinned = null;
+  tt.style.opacity = 0;
+});
+
+function showTip(e, d, isLabeled){
+  const rect = stage.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const qNames = {1:'Risquée',2:'Boostée par IA',3:'Sans boost IA',4:'Avec boost IA'};
+  const qDesc = {
+    1:'Tâches automatisables, faible complémentarité humaine',
+    2:'Tâches automatisables ET fortement augmentées par l\'IA',
+    3:'Peu d\'effet IA, transformation lente',
+    4:'L\'IA amplifie le métier sans remplacer l\'humain'
+  };
+  const q = d.q || (d.auto>=50 ? (d.aug>=50?2:1) : (d.aug>=50?4:3));
+  const iaChips = (d.ia && d.ia.length)
+    ? `<div class="tt-ia-label">Impactés par</div><div class="tt-ia">${d.ia.map(t=>`<span class="ia-chip ia-${t.replace(/[^a-zA-ZÀ-ÿ]/g,'').toLowerCase()}">${t}</span>`).join('')}</div>`
+    : '';
+  tt.innerHTML = `
+    <b>${d.n}</b>
+    ${iaChips}
+  `;
+  tt.style.left = x + 'px';
+  tt.style.top = (y-8) + 'px';
+  tt.style.opacity = 1;
+}
+
+/* Toggle supprimé : la version Suisse n'affiche que les 22 métiers labellisés. */
+
+</script>
+</body>
+</html>
