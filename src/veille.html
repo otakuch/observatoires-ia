@@ -27,6 +27,16 @@
     <button class="chip" data-filter="country" data-value="FR">🇫🇷</button>
     <button class="chip" data-filter="country" data-value="INT" data-i18n="vl.int"></button>
   </div>
+  <div class="filter-group">
+    <span class="filter-label mono" data-i18n="vl.search.label"></span>
+    <label class="search-wrap" id="searchWrap">
+      <input type="search" id="searchInput" class="search-input" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-clear" id="searchClear" aria-label="">×</button>
+    </label>
+  </div>
+  <div class="filter-group">
+    <span class="results-counter mono" id="resultsCounter"></span>
+  </div>
 </div>
 
 <section class="field-report" style="padding-top: 0;">
@@ -43,19 +53,49 @@ window.PAGE_I18N = {
     "vl.title": "Les rapports à lire <em>ce mois-ci</em>.",
     "vl.lede": "Sélection des publications les plus structurantes des 30 derniers jours sur l'IA et l'emploi. Sources primaires uniquement, vérifiées et liées vers leur publication d'origine.",
     "vl.int": "International",
-    "vl.read": "Lire le rapport →"
+    "vl.read": "Lire le rapport →",
+    "vl.search.label": "Recherche",
+    "vl.search.placeholder": "Rechercher par titre, source, mot-clé…",
+    "vl.search.clear": "Effacer la recherche",
+    "vl.search.results": "{n} sur {total}",
+    "vl.search.empty": "Aucun rapport ne correspond à votre recherche."
   },
   en: {
     "vl.tag": "",
     "vl.title": "Reports to read <em>this month</em>.",
     "vl.lede": "Selection of the most structuring publications from the last 30 days on AI and employment. Primary sources only, verified and linked to their original publication.",
     "vl.int": "International",
-    "vl.read": "Read the report →"
+    "vl.read": "Read the report →",
+    "vl.search.label": "Search",
+    "vl.search.placeholder": "Search by title, source, keyword…",
+    "vl.search.clear": "Clear search",
+    "vl.search.results": "{n} of {total}",
+    "vl.search.empty": "No report matches your search."
   }
 };
 
 let veilleData = [];
 let activeCountry = "all";
+let searchQuery = "";
+let searchDebounceTimer = null;
+
+function normalizeForSearch(s) {
+  return (s == null ? "" : String(s)).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+function matchesSearch(v, q, lang) {
+  if (!q) return true;
+  const qn = normalizeForSearch(q).trim();
+  if (qn === "") return true;
+  const haystack = normalizeForSearch([
+    v.source,
+    v.date,
+    v.title && v.title[lang],
+    v.summary && v.summary[lang],
+    v.excerpt && v.excerpt[lang]
+  ].filter(Boolean).join(" "));
+  return haystack.indexOf(qn) !== -1;
+}
 
 async function loadData() {
   veilleData = window.VEILLE_DATA;
@@ -67,13 +107,28 @@ function renderVeille() {
   if (!grid) return;
   grid.innerHTML = "";
   const lang = window.CURRENT_LANG;
-  const filtered = veilleData.filter((v) => activeCountry === "all" || v.country === activeCountry);
+  const filtered = veilleData
+    .filter((v) => activeCountry === "all" || v.country === activeCountry)
+    .filter((v) => matchesSearch(v, searchQuery, lang));
+
+  // Results counter — only shown when search or non-default country filter is active
+  const counterEl = document.getElementById("resultsCounter");
+  if (counterEl) {
+    const isFiltering = (searchQuery && searchQuery.trim() !== "") || activeCountry !== "all";
+    if (isFiltering) {
+      const tpl = window.t("vl.search.results");
+      counterEl.textContent = tpl.replace("{n}", filtered.length).replace("{total}", veilleData.length);
+    } else {
+      counterEl.textContent = "";
+    }
+  }
 
   if (filtered.length === 0) {
     const empty = document.createElement("div");
     empty.className = "card-empty-state";
     empty.style.gridColumn = "1 / -1";
-    empty.textContent = window.t("empty");
+    const emptyKey = (searchQuery && searchQuery.trim() !== "") ? "vl.search.empty" : "empty";
+    empty.textContent = window.t(emptyKey);
     grid.appendChild(empty);
     return;
   }
@@ -146,9 +201,64 @@ document.querySelectorAll(".chip").forEach((chip) => {
   });
 });
 
-window.onLangChange = renderVeille;
+function applyI18nToSearch() {
+  const input = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("searchClear");
+  if (input) {
+    const ph = window.t("vl.search.placeholder");
+    input.placeholder = ph;
+    input.setAttribute("aria-label", ph);
+  }
+  if (clearBtn) {
+    const lbl = window.t("vl.search.clear");
+    clearBtn.setAttribute("aria-label", lbl);
+    clearBtn.title = lbl;
+  }
+}
+
+function setupSearch() {
+  const input = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("searchClear");
+  const wrap = document.getElementById("searchWrap");
+  if (!input || !clearBtn || !wrap) return;
+
+  input.addEventListener("input", () => {
+    const v = input.value;
+    wrap.classList.toggle("has-value", v.length > 0);
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+      searchQuery = v;
+      renderVeille();
+    }, 200);
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && input.value !== "") {
+      e.preventDefault();
+      input.value = "";
+      searchQuery = "";
+      wrap.classList.remove("has-value");
+      renderVeille();
+    }
+  });
+
+  clearBtn.addEventListener("click", () => {
+    input.value = "";
+    searchQuery = "";
+    wrap.classList.remove("has-value");
+    input.focus();
+    renderVeille();
+  });
+}
+
+window.onLangChange = function () {
+  applyI18nToSearch();
+  renderVeille();
+};
 
 initSite("veille");
+setupSearch();
+applyI18nToSearch();
 loadData();
 </script>
 </body>

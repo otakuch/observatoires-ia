@@ -342,6 +342,45 @@ a { color: inherit; text-decoration: none; }
 .chip:hover { border-color: var(--ink); }
 .chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
+/* ───────── SEARCH BAR (veille) ───────── */
+.search-wrap {
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid var(--rule); border-radius: 999px;
+  background: transparent; padding: 0 4px 0 14px;
+  transition: border-color 0.18s;
+  min-width: 280px; flex: 1 1 320px; max-width: 480px;
+  cursor: text;
+}
+.search-wrap:focus-within { border-color: var(--ink); }
+.search-input {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; border: 0; outline: 0;
+  background: transparent; color: var(--ink);
+  padding: 8px 4px; flex: 1 1 auto; min-width: 0;
+  -webkit-appearance: none; appearance: none;
+}
+.search-input::placeholder { color: var(--muted); opacity: 1; }
+.search-input::-webkit-search-cancel-button { display: none; }
+.search-clear {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px; line-height: 1;
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--muted); padding: 4px 8px;
+  border-radius: 999px;
+  visibility: hidden;
+  transition: color 0.18s;
+}
+.search-wrap.has-value .search-clear { visibility: visible; }
+.search-clear:hover { color: var(--ink); }
+.results-counter {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+@media (max-width: 720px) {
+  .search-wrap { width: 100%; min-width: 0; max-width: none; flex: 1 1 100%; }
+}
+
 /* ───────── CARDS GRID ───────── */
 .cards-grid {
   max-width: var(--max-w); margin: 0 auto;
@@ -2307,9 +2346,10 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ============================================== */
 
 .reinvent-section {
-  padding: 60px 60px 80px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 60px 32px 80px;
   border-top: 1px solid var(--rule);
-  background: var(--paper);
 }
 @media (max-width: 960px) {
   .reinvent-section { padding: 48px 20px 56px; }
