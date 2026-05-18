@@ -327,9 +327,150 @@
     .mobile-legend{padding:14px 14px 18px}
     .mobile-legend li{font-size:12px}
   }
+
+  /* ───────── SITE NAV (shared with observatories) ───────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244, 239, 230, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--br);
+    margin: -32px -24px 28px;
+  }
+  .site-nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .site-nav .logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 24;
+    font-weight: 500; font-size: 18px;
+    letter-spacing: -0.01em; color: var(--tx); white-space: nowrap;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .site-nav .logo:hover { opacity: 0.7; }
+  .site-nav .logo .bracket { color: var(--ac); font-weight: 600; }
+  .site-nav .logo .dot { color: var(--tx-mut); margin: 0 0.15em; }
+  .site-nav-links {
+    display: flex; gap: 20px; align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 500;
+  }
+  .site-nav-links a {
+    color: var(--tx-sec); position: relative; padding: 4px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-nav-links a:hover, .site-nav-links a.current { color: var(--ac); }
+  .site-nav-links a.current::after {
+    content: ""; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 1.5px; background: var(--ac);
+  }
+  .site-nav .menu-btn {
+    display: none; background: transparent;
+    border: 1px solid var(--br);
+    width: 36px; height: 36px; border-radius: 8px;
+    cursor: pointer; align-items: center; justify-content: center;
+  }
+  .site-nav .menu-btn span { display: block; width: 16px; height: 1.5px; background: var(--tx); position: relative; }
+  .site-nav .menu-btn span::before, .site-nav .menu-btn span::after {
+    content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: var(--tx);
+  }
+  .site-nav .menu-btn span::before { top: -5px; }
+  .site-nav .menu-btn span::after { top: 5px; }
+  .site-mobile-menu {
+    display: none; position: fixed; inset: 0;
+    background: var(--bg); z-index: 100;
+    padding: 64px 32px 24px;
+    flex-direction: column; gap: 4px;
+    overflow-y: auto;
+  }
+  .site-mobile-menu.open { display: flex; }
+  .site-mobile-menu a {
+    font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--tx);
+    padding: 6px 0; text-decoration: none;
+    line-height: 1.18;
+  }
+  .site-mobile-menu .close-btn {
+    position: absolute; top: 18px; right: 18px;
+    background: transparent; border: 1px solid var(--br);
+    width: 36px; height: 36px; border-radius: 8px;
+    cursor: pointer; font-size: 20px; color: var(--tx);
+  }
+  @media (max-width: 880px) {
+    .site-nav-links { display: none; }
+    .site-nav .menu-btn { display: flex; }
+  }
+
+  /* ───────── SITE FOOTER ───────── */
+  .site-footer {
+    border-top: 1px solid var(--br);
+    margin: 64px -24px 0;
+    padding: 40px 32px 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--tx-mut);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .site-footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 36px;
+  }
+  .site-footer .foot-brand {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 28;
+    font-weight: 500; font-size: 22px;
+    color: var(--tx); letter-spacing: -0.01em;
+    text-transform: none;
+  }
+  .site-footer .foot-brand .bracket, .site-footer .foot-brand .dot { color: var(--ac); }
+  .site-footer .foot-tagline {
+    font-family: 'Inter', sans-serif; font-size: 13px; color: var(--tx-sec);
+    line-height: 1.5; margin-top: 6px; max-width: 280px;
+    text-transform: none; letter-spacing: 0;
+  }
+  .site-footer .foot-col-label { font-size: 11px; color: var(--tx-mut); margin-bottom: 6px; }
+  .site-footer .foot-col a {
+    display: block;
+    font-family: 'Inter', sans-serif; font-size: 13px; color: var(--tx-sec);
+    text-decoration: none; padding: 2px 0;
+    text-transform: none; letter-spacing: 0;
+    transition: color 0.2s;
+  }
+  .site-footer .foot-col a:hover { color: var(--ac); }
+  .site-footer .foot-meta-line { margin-bottom: 4px; }
+  .site-footer .foot-meta-line strong {
+    color: var(--tx); font-weight: 500;
+    font-family: 'Inter', sans-serif; font-size: 12px;
+    letter-spacing: 0; text-transform: none;
+  }
+  .site-footer-bottom {
+    max-width: 1280px; margin: 24px auto 0; padding-top: 18px;
+    border-top: 1px solid var(--br);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: var(--tx-mut); flex-wrap: wrap; gap: 10px;
+  }
+  .site-footer-bottom .bracket, .site-footer-bottom .dot { color: var(--ac); }
+  .site-footer-bottom a {
+    color: var(--tx-sec); text-decoration: underline;
+    text-decoration-thickness: 1px; text-underline-offset: 3px;
+  }
+  .site-footer-bottom a:hover { color: var(--ac); }
+  @media (max-width: 720px) {
+    .site-footer { margin: 48px -24px 0; padding: 32px 20px 22px; }
+    .site-footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    .site-footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
 </style>
 </head>
-<body>
+<body data-page="suisse">
+<nav class="site-nav" id="siteNav" aria-label="Navigation principale"></nav>
+<div class="site-mobile-menu" id="siteMobileMenu"></div>
+
 <div class="wrap">
 
   <div class="eyebrow"><span>Observatoire IA &amp; Métiers Suisses · Naully Nicolas · Mai 2026</span></div>
@@ -674,5 +815,110 @@ function showTip(e, d, isLabeled){
 /* Toggle supprimé : la version Suisse n'affiche que les 22 métiers labellisés. */
 
 </script>
+
+<footer class="site-footer" id="siteFooter"></footer>
+<script>
+(function(){
+  var ROOT = '../';
+  var CURRENT = (document.body.dataset.page || '');
+  // Map labels for the FR-only matrice pages
+  var L = {
+    accueil: 'Accueil',
+    suisse: 'Suisse',
+    france: 'France',
+    comparer: 'Comparer',
+    memos: 'Briefings',
+    veille: 'Veille',
+    data: 'Données',
+    method: 'Méthodologie',
+    about: 'À propos',
+    partner: 'Partenariats',
+    contact: 'Contact',
+    home: 'Retour à l\'accueil',
+    tagline: 'Observatoire indépendant des transitions emploi/IA en France et en Suisse.',
+    explore: 'Explorer',
+    about_col: 'À propos',
+    lastupdate: 'Dernière mise à jour',
+    license: 'Licence CC BY 4.0',
+    rights: 'Tous droits réservés.',
+    by: 'Conçu et opéré par'
+  };
+  var LINKS = [
+    ['index.html',                       'accueil'],
+    ['observatoires/suisse.html',        'suisse'],
+    ['observatoires/france.html',        'france'],
+    ['observatoires/comparer.html',      'comparer'],
+    ['briefings.html',                   'memos'],
+    ['veille.html',                      'veille'],
+    ['donnees.html',                     'data'],
+    ['methodologie.html',                'method'],
+    ['a-propos.html',                    'about'],
+    ['partenariats.html',                'partner'],
+    ['contact.html',                     'contact']
+  ];
+  function link(href, key) {
+    var cur = (CURRENT && key === CURRENT) ? ' class="current"' : '';
+    return '<a href="' + ROOT + href + '"' + cur + '>' + L[key] + '</a>';
+  }
+  // ─── NAV
+  var nav = document.getElementById('siteNav');
+  if (nav) {
+    nav.innerHTML =
+      '<div class="site-nav-inner">' +
+        '<a href="' + ROOT + 'index.html" class="logo" title="' + L.home + '">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a>' +
+        '<div class="site-nav-links">' + LINKS.map(function(l){return link(l[0], l[1]);}).join('') + '</div>' +
+        '<button class="menu-btn" id="siteMenuBtn" aria-label="Ouvrir le menu"><span></span></button>' +
+      '</div>';
+  }
+  // ─── MOBILE MENU
+  var mob = document.getElementById('siteMobileMenu');
+  if (mob) {
+    mob.innerHTML =
+      '<button class="close-btn" id="siteCloseMenu" aria-label="Fermer">\u00d7</button>' +
+      LINKS.map(function(l){return '<a href="' + ROOT + l[0] + '">' + L[l[1]] + '</a>';}).join('');
+  }
+  // ─── FOOTER
+  var f = document.getElementById('siteFooter');
+  if (f) {
+    f.innerHTML =
+      '<div class="site-footer-inner">' +
+        '<div class="foot-col">' +
+          '<div class="foot-brand">observatoire<span class="bracket">[s]</span><span class="dot">\u00b7</span>ia</div>' +
+          '<div class="foot-tagline">' + L.tagline + '</div>' +
+        '</div>' +
+        '<div class="foot-col">' +
+          '<div class="foot-col-label">' + L.explore + '</div>' +
+          '<a href="' + ROOT + 'observatoires/suisse.html">' + L.suisse + '</a>' +
+          '<a href="' + ROOT + 'observatoires/france.html">' + L.france + '</a>' +
+          '<a href="' + ROOT + 'observatoires/comparer.html">' + L.comparer + '</a>' +
+          '<a href="' + ROOT + 'briefings.html">' + L.memos + '</a>' +
+        '</div>' +
+        '<div class="foot-col">' +
+          '<div class="foot-col-label">' + L.about_col + '</div>' +
+          '<a href="' + ROOT + 'methodologie.html">' + L.method + '</a>' +
+          '<a href="' + ROOT + 'veille.html">' + L.veille + '</a>' +
+          '<a href="' + ROOT + 'partenariats.html">' + L.partner + '</a>' +
+          '<a href="' + ROOT + 'contact.html">' + L.contact + '</a>' +
+        '</div>' +
+        '<div class="foot-col">' +
+          '<div class="foot-meta-line">' + L.lastupdate + ' \u00b7 <strong>18 mai 2026</strong></div>' +
+          '<div class="foot-meta-line">' + L.license + '</div>' +
+          '<div class="foot-meta-line">v0.3.45 \u00b7 build 2026.05.18</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="site-footer-bottom">' +
+        '<span>\u00a9 2026 observatoire<span class="bracket">[s]</span><span class="dot">\u00b7</span>ia \u00b7 ' + L.rights + '</span>' +
+        '<span>' + L.by + ' <a href="https://naullynicolas.ch" target="_blank" rel="noopener">Naully Nicolas</a></span>' +
+      '</div>';
+  }
+  // ─── MOBILE TOGGLE
+  var btn = document.getElementById('siteMenuBtn');
+  var close = document.getElementById('siteCloseMenu');
+  if (btn && mob) btn.addEventListener('click', function(){ mob.classList.add('open'); });
+  if (close && mob) close.addEventListener('click', function(){ mob.classList.remove('open'); });
+  if (mob) mob.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mob.classList.remove('open'); }); });
+})();
+</script>
+
 </body>
 </html>
