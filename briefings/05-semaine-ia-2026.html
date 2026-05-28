@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dispatch spécial · Semaine de l'IA pour Tous 2026 · Veille Métiers IA</title>
+<meta name="description" content="Édition spéciale indépendante de Veille Métiers IA pour la Semaine de l'IA pour Tous (18-24 mai 2026). Quatre sources internationales croisées avec les données françaises sur l'impact de l'IA sur l'emploi et les métiers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!-- d3 loader with multi-CDN fallback (defer for ordered exec) -->
+<script>
+(function loadD3() {
+  var sources = [
+    'https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js',
+    'https://unpkg.com/d3@7.9.0/dist/d3.min.js',
+    'https://d3js.org/d3.v7.min.js'
+  ];
+  var idx = 0;
+  function tryNext() {
+    if (idx >= sources.length) {
+      try {
+        if (window.console && typeof window.console.info === 'function') {
+          window.console.info('[d3] all CDN sources unavailable, fallback chart will be rendered.');
+        }
+      } catch (e) {}
+      // Dispatch event so init can run with fallback
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (typeof window.initObviaChart === 'function') window.initObviaChart();
+        });
+      } else if (typeof window.initObviaChart === 'function') {
+        window.initObviaChart();
+      }
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = sources[idx++];
+    s.async = false;
+    s.onload = function() {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (typeof window.initObviaChart === 'function') window.initObviaChart();
+        });
+      } else if (typeof window.initObviaChart === 'function') {
+        window.initObviaChart();
+      }
+    };
+    s.onerror = function() {
+      tryNext();
+    };
+    document.head.appendChild(s);
+  }
+  tryNext();
+})();
+</script>
+<style>
+  :root {
+    /* === PALETTE NAULLY · ÉDITORIAL === */
+    --bg: #FAF7F2;
+    --bg-alt: #F2EDE3;
+    --bg-card: #FFFFFF;
+    --bg-dark: #1A1A1A;
+    --tx: #1A1A1A;
+    --tx-sec: #5B5B5B;
+    --tx-mut: #8A8A8A;
+    --br: #E5E0D8;
+    --br-strong: #C9C2B5;
+    --ac: #B8312F;                /* rouge éditorial Naully */
+    --ac-soft: #E8DCDA;
+    --green: #2D6A4F;
+    --amber: #BF6B04;
+
+    /* === PALETTE SEMAINE DE L'IA · RÉFÉRENCE INSTITUTIONNELLE === */
+    --sia-blue: #003081;          /* bleu officiel Semaine de l'IA */
+    --sia-coral: #f56476;         /* corail/rose coquille */
+    --sia-cream: #ffeed1;         /* crème */
+
+    --shadow: 0 1px 2px rgba(26,26,26,0.04), 0 4px 12px rgba(26,26,26,0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--tx);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === PROGRESS BAR === */
+  .progress {
+    position: fixed; top: 0; left: 0;
+    height: 2px; background: var(--ac);
+    z-index: 100; width: 0;
+    transition: width 0.1s;
+  }
+
+  /* === HEADER STICKY === */
+  header {
+    position: sticky; top: 0;
+    background: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--br);
+    z-index: 50; padding: 14px 0;
+  }
+  .header-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600; font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .brand span { color: var(--ac); }
+  nav.menu {
+    display: flex; gap: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  nav.menu a {
+    color: var(--tx-sec); text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav.menu a:hover { color: var(--ac); }
+  .header-actions {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .dispatch-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sia-blue);
+    border-left: 2px solid var(--sia-coral);
+    padding-left: 12px;
+    font-weight: 600;
+  }
+  .dispatch-tag b { color: var(--sia-blue); }
+
+  /* === BANDEAU DISPATCH SPÉCIAL === */
+  .dispatch-banner {
+    background: var(--sia-blue);
+    color: var(--sia-cream);
+    padding: 10px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .dispatch-banner-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .dispatch-banner b { color: var(--sia-coral); font-weight: 600; }
+  .dispatch-banner-dot {
+    display: inline-block; width: 6px; height: 6px;
+    background: var(--sia-coral); border-radius: 50%;
+    margin: 0 10px; vertical-align: middle;
+  }
+
+  /* === WRAP === */
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--br);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle at center, var(--sia-cream) 0%, transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .meta-row {
+    display: flex; align-items: center;
+    gap: 14px; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--tx-mut);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .badge {
+    background: var(--sia-blue); color: var(--sia-cream);
+    padding: 4px 10px;
+    font-weight: 600;
+  }
+  .badge-coral {
+    background: var(--sia-coral); color: var(--bg-dark);
+    padding: 4px 10px;
+    font-weight: 600;
+  }
+  .badge-edition {
+    background: transparent; color: var(--ac);
+    border: 1px solid var(--ac);
+    padding: 3px 9px;
+    font-weight: 600;
+  }
+  .meta-row .dot { color: var(--br-strong); }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    max-width: 1000px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--ac);
+    font-weight: 400;
+  }
+  .hero-title .sia-mark {
+    color: var(--sia-blue);
+    font-style: italic;
+  }
+  .hero-deck {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.5;
+    color: var(--tx-sec);
+    max-width: 760px;
+    margin-bottom: 36px;
+  }
+  .hero-author {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--br);
+    max-width: 760px;
+  }
+  .hero-author-mark {
+    width: 44px; height: 44px;
+    background: var(--bg-dark);
+    color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  .hero-author-info {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    letter-spacing: 0.04em;
+  }
+  .hero-author-info b {
+    color: var(--tx);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  /* === CADRE D'INDÉPENDANCE · PROÉMINENT === */
+  .indep-block {
+    margin-top: 40px;
+    background: var(--sia-cream);
+    border: 1px solid var(--sia-blue);
+    padding: 24px 28px;
+    position: relative;
+  }
+  .indep-block::before {
+    content: '⚠';
+    position: absolute;
+    top: -14px; left: 24px;
+    background: var(--sia-blue);
+    color: var(--sia-cream);
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .indep-block .indep-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sia-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .indep-block p {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--tx);
+  }
+  .indep-block p strong {
+    font-weight: 600;
+    color: var(--sia-blue);
+  }
+
+  /* === SECTIONS === */
+  section { padding: 52px 0 48px; border-bottom: 1px solid var(--br); }
+  section:nth-of-type(even) { background: var(--bg-alt); }
+  .section-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+    align-items: start;
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--tx-mut);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 12px;
+    border-top: 2px solid var(--bg-dark);
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 44px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-head h2 em { color: var(--ac); font-style: italic; }
+  .section-deck {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+    max-width: 720px;
+  }
+  .section-content {
+    margin-left: 248px;
+  }
+
+  /* === ENCART LIMITES (court, visible) · flag in-hero === */
+  .limites-strip {
+    margin-top: 24px;
+    background: var(--sia-cream);
+    border-left: 3px solid var(--amber);
+    padding: 16px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .limites-strip-mark {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    font-weight: 700;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .limites-strip p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tx);
+    margin: 0;
+  }
+  .limites-strip a {
+    color: var(--amber);
+    border-bottom: 1px solid var(--amber);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* === MANIFESTO BLOCK === */
+  .manifesto {
+    background: var(--bg-card);
+    border-left: 4px solid var(--sia-coral);
+    padding: 36px 40px;
+    margin-bottom: 40px;
+  }
+  .manifesto-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sia-blue);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .manifesto-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.35;
+    color: var(--tx);
+    margin-bottom: 24px;
+  }
+  .manifesto-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--br-strong);
+  }
+  .manifesto-stat .stat-fig {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    color: var(--sia-blue);
+    margin-bottom: 8px;
+  }
+  .manifesto-stat .stat-fig em {
+    color: var(--sia-coral);
+    font-style: normal;
+  }
+  .manifesto-stat .stat-lbl {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--tx-sec);
+  }
+  .manifesto-stat .stat-src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--tx-mut);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* === LEDE PARAGRAPHS · STYLE PRESSE === */
+  .lede {
+    font-family: 'Tinos', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--tx);
+    max-width: 760px;
+  }
+  .lede p { margin-bottom: 18px; }
+  .lede p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 72px;
+    float: left;
+    line-height: 0.85;
+    padding-right: 10px;
+    padding-top: 4px;
+    color: var(--ac);
+  }
+  .lede strong {
+    font-weight: 700;
+    color: var(--bg-dark);
+  }
+
+  /* === KEY FIGURE CARDS === */
+  .keyfigs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--br);
+    border: 1px solid var(--br);
+    margin: 40px 0;
+  }
+  .keyfig {
+    background: var(--bg-card);
+    padding: 28px 24px;
+  }
+  .keyfig-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .keyfig-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 46px;
+    line-height: 1;
+    color: var(--tx);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .keyfig-num small {
+    font-size: 20px;
+    color: var(--tx-mut);
+    font-weight: 400;
+  }
+  .keyfig-desc {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--tx-sec);
+    margin-bottom: 10px;
+  }
+  .keyfig-src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-top: 1px dotted var(--br);
+    padding-top: 8px;
+  }
+
+  /* === SOURCE CARDS · GROS PLAN === */
+  .source-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .source-card-meta {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    margin-bottom: 18px;
+    align-items: center;
+  }
+  .source-tier {
+    background: var(--bg-dark); color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .source-tier.t1 { background: var(--green); }
+  .source-tier.t2 { background: var(--bg-dark); }
+  .source-tier.t3 { background: var(--amber); }
+  .source-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    letter-spacing: 0.04em;
+  }
+  .source-new {
+    background: var(--sia-coral);
+    color: var(--bg-dark);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+  .source-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .source-card .source-title-fr {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--tx-sec);
+    margin-top: -4px;
+    margin-bottom: 10px;
+  }
+  .source-byline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--tx-sec);
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+  .source-byline .byline-gloss {
+    font-family: 'Inter', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--tx-mut);
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .source-card .source-byline a {
+    color: var(--ac);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ac);
+  }
+  .source-body {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--tx);
+    max-width: 760px;
+  }
+  .source-body p { margin-bottom: 14px; }
+  .source-body strong { font-weight: 600; }
+  .source-callout {
+    background: var(--bg-alt);
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-left: 3px solid var(--ac);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--tx);
+  }
+  .source-callout::before {
+    content: '« ';
+    color: var(--ac);
+    font-style: normal;
+  }
+  .source-callout::after {
+    content: ' »';
+    color: var(--ac);
+    font-style: normal;
+  }
+
+  /* === BULLET LIST PRESSE === */
+  .press-list {
+    list-style: none;
+    margin: 18px 0;
+  }
+  .press-list li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    border-bottom: 1px dotted var(--br-strong);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .press-list li:last-child { border-bottom: none; }
+  .press-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 6px;
+    color: var(--ac);
+    font-weight: 600;
+  }
+  .press-list li b {
+    font-weight: 700;
+    color: var(--bg-dark);
+  }
+  .press-list li .num {
+    display: inline-block;
+    background: var(--bg-dark);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 2px 6px;
+    margin-right: 6px;
+    font-weight: 600;
+  }
+
+  /* === DIVERGENCE / DEBATE BOX === */
+  .debate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .debate-col {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 28px 32px;
+  }
+  .debate-col.thesis {
+    border-top: 4px solid var(--ac);
+  }
+  .debate-col.antithesis {
+    border-top: 4px solid var(--sia-blue);
+  }
+  .debate-col h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .debate-col.thesis h4 { color: var(--ac); }
+  .debate-col.antithesis h4 { color: var(--sia-blue); }
+  .debate-col h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .debate-col p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+    margin-bottom: 12px;
+  }
+  .debate-col ul {
+    list-style: none;
+    margin-top: 14px;
+  }
+  .debate-col ul li {
+    padding: 8px 0 8px 18px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--tx-sec);
+    border-bottom: 1px dashed var(--br);
+  }
+  .debate-col ul li:last-child { border-bottom: none; }
+  .debate-col ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--tx-mut);
+  }
+  .debate-col ul li b { color: var(--bg-dark); font-weight: 600; }
+
+  /* === FIGURE SVG / CHARTS === */
+  .figure-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 28px;
+    margin: 32px 0;
+  }
+  .figure-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 6px;
+  }
+  .figure-card .figure-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .chart-svg {
+    width: 100%;
+    height: 280px;
+    overflow: visible;
+  }
+  .legend {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    margin-top: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-sec);
+  }
+  .legend .sw {
+    display: inline-block;
+    width: 12px; height: 12px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* === SCENARIOS === */
+  .scen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .scen {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 28px;
+    position: relative;
+  }
+  .scen-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .scen-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .scen h4 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--ac);
+    margin-bottom: 14px;
+  }
+  .scen p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--tx-sec);
+    margin-bottom: 14px;
+  }
+  .scen ul { list-style: none; padding-top: 12px; border-top: 1px dashed var(--br); }
+  .scen ul li {
+    padding: 6px 0 6px 16px;
+    position: relative;
+    font-size: 13px;
+    color: var(--tx-sec);
+  }
+  .scen ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--ac);
+  }
+
+  /* === AGENDA === */
+  .agenda {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 36px 40px;
+  }
+  .agenda-block {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--br);
+  }
+  .agenda-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .agenda-block:first-child { padding-top: 0; }
+  .agenda-when {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ac);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding-top: 4px;
+  }
+  .agenda-block h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  .agenda-block p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+  }
+  .agenda-block ul {
+    margin-top: 10px; list-style: none;
+  }
+  .agenda-block ul li {
+    padding: 6px 0 6px 18px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--tx-sec);
+  }
+  .agenda-block ul li::before {
+    content: '◇';
+    position: absolute;
+    left: 0;
+    color: var(--ac);
+  }
+
+  /* === CTA · OBSERVATOIRES === */
+  .obs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .obs-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 32px 36px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .obs-card:hover {
+    border-color: var(--ac);
+    transform: translateY(-2px);
+  }
+  .obs-flag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ac);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .obs-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .obs-card .obs-desc {
+    font-size: 14px;
+    color: var(--tx-sec);
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .obs-card .obs-url {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--bg-dark);
+    border-top: 1px solid var(--br);
+    padding-top: 14px;
+    display: block;
+    text-decoration: none;
+  }
+  .obs-card .obs-url::after {
+    content: ' →';
+    color: var(--ac);
+  }
+
+  /* === MÉTHODOLOGIE · DÉPLIABLE === */
+  details.method {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 0;
+    margin-bottom: 12px;
+  }
+  details.method summary {
+    cursor: pointer;
+    padding: 18px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style: none;
+    position: relative;
+  }
+  details.method summary::after {
+    content: '+';
+    position: absolute;
+    right: 24px;
+    top: 18px;
+    font-size: 18px;
+    color: var(--ac);
+  }
+  details.method[open] summary::after { content: '−'; }
+  details.method .method-body {
+    padding: 8px 24px 24px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--tx-sec);
+  }
+  details.method .method-body p { margin-bottom: 12px; }
+  details.method .method-body ul {
+    margin: 12px 0; padding-left: 20px;
+  }
+  details.method .method-body li {
+    margin-bottom: 6px;
+    font-size: 13.5px;
+  }
+  details.method .method-body b { color: var(--bg-dark); }
+
+  /* === CTA FINAL === */
+  .cta {
+    background: var(--bg-dark);
+    color: var(--bg);
+    padding: 80px 0;
+  }
+  .cta .wrap { max-width: 1280px; }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .cta-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sia-coral);
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .cta h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .cta h2 em { color: var(--sia-coral); font-style: italic; }
+  .cta-deck {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(250, 247, 242, 0.7);
+    margin-bottom: 24px;
+  }
+  .cta-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 32px;
+  }
+  .cta-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sia-coral);
+    margin-bottom: 12px;
+  }
+  .cta-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: var(--bg);
+  }
+  .cta-features {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .cta-features li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    font-size: 14px;
+    color: rgba(250, 247, 242, 0.8);
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+  }
+  .cta-features li:last-child { border-bottom: none; }
+  .cta-features li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--sia-coral);
+  }
+  .btn-cta {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: var(--sia-coral);
+    color: var(--bg-dark);
+    border: none;
+    padding: 16px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+  }
+  .btn-cta:hover { background: var(--bg); }
+  .cta-contact {
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-align: center;
+    color: rgba(250, 247, 242, 0.6);
+  }
+  .cta-contact a {
+    color: var(--bg);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+
+  /* === FOOTER === */
+  footer.foot {
+    background: var(--bg-alt);
+    padding: 56px 0 40px;
+    border-top: 1px solid var(--br);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 32px;
+  }
+  .foot-col h5 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .foot-col p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+    margin-bottom: 10px;
+  }
+  .foot-col ul { list-style: none; }
+  .foot-col ul li {
+    padding: 4px 0;
+    font-size: 13.5px;
+  }
+  .foot-col ul li a {
+    color: var(--tx);
+    text-decoration: none;
+    border-bottom: 1px solid var(--br-strong);
+  }
+  .foot-col ul li a:hover { color: var(--ac); border-color: var(--ac); }
+  .foot-bottom {
+    padding-top: 24px;
+    border-top: 1px solid var(--br);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 980px) {
+    nav.menu { display: none; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    .section-content { margin-left: 0; }
+    .manifesto-stats { grid-template-columns: 1fr; gap: 20px; }
+    .debate-grid { grid-template-columns: 1fr; }
+    .scen-grid { grid-template-columns: 1fr; }
+    .obs-grid { grid-template-columns: 1fr; }
+    .cta-grid { grid-template-columns: 1fr; gap: 32px; }
+    .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    .agenda-block { grid-template-columns: 1fr; gap: 8px; }
+    .hero-title { font-size: clamp(34px, 8vw, 56px); }
+    section { padding: 36px 0 32px; }
+    .manifesto { padding: 24px 22px; }
+    .source-card { padding: 24px 22px; }
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .header-inner { padding: 0 20px; }
+    .dispatch-banner-inner { padding: 0 20px; font-size: 10px; }
+    .hero { padding: 48px 0 40px; }
+    .keyfigs { grid-template-columns: 1fr 1fr; }
+    .keyfig { padding: 20px 16px; }
+    .keyfig-num { font-size: 36px; }
+    .tldr-grid { grid-template-columns: 1fr !important; }
+    .limits-grid { grid-template-columns: 1fr !important; }
+  }
+
+  /* === TL;DR · LECTURE 90 SECONDES (redesigned for readability v0.3.57) === */
+  section.tldr {
+    background: var(--bg-dark) !important;
+    color: #F5F1EA;
+    padding: 64px 0 56px;
+    border-bottom: 1px solid var(--br);
+  }
+  .tldr-head {
+    display: flex; align-items: baseline;
+    gap: 20px; margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .tldr-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--sia-coral);
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 1px solid var(--sia-coral);
+    border-radius: 2px;
+  }
+  .tldr-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(24px, 2.8vw, 34px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: #F5F1EA;
+    max-width: 760px;
+  }
+  .tldr-head h2 em { color: var(--sia-coral); font-style: italic; font-weight: 400; }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .tldr-item {
+    padding: 28px 24px 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 3px solid var(--sia-coral);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tldr-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--sia-coral);
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+  .tldr-num small {
+    font-size: 20px;
+    color: rgba(245, 241, 234, 0.6);
+    font-weight: 400;
+  }
+  .tldr-take {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #F5F1EA;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .tldr-take i {
+    font-style: italic;
+    color: rgba(245, 241, 234, 0.85);
+  }
+  .tldr-src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: rgba(245, 241, 234, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 12px;
+    margin-top: auto;
+    line-height: 1.5;
+  }
+  .tldr-anchor {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--sia-coral);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--sia-coral);
+    padding-bottom: 1px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .tldr-anchor:hover { opacity: 0.8; }
+  .tldr-foot {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(245, 241, 234, 0.7);
+    letter-spacing: 0;
+    max-width: 920px;
+  }
+  @media (max-width: 980px) {
+    .tldr-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  }
+  @media (max-width: 600px) {
+    .tldr { padding: 44px 0 36px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 16px; }
+    .tldr-num { font-size: 38px; }
+    .tldr-take { font-size: 14.5px; }
+  }
+
+  /* === ENCADRÉ HONNÊTETÉ MÉTHODO · INLINE === */
+  .honest-box {
+    background: var(--sia-cream);
+    border: 1px solid var(--br-strong);
+    border-left: 3px solid var(--sia-blue);
+    padding: 18px 22px;
+    margin: 24px 0;
+    max-width: 760px;
+  }
+  .honest-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sia-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .honest-box p {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--tx);
+  }
+  .honest-box p:not(:last-child) { margin-bottom: 10px; }
+
+  /* === SECTION LIMITES === */
+  .limits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .limit-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 24px 28px;
+    border-top: 3px solid var(--amber);
+  }
+  .limit-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .limit-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .limit-card p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+  }
+
+  /* === SCÉNARIOS QUALITATIFS · REMPLACE LES % === */
+  .scen-tag.qual-h { color: var(--green); border-color: var(--green); }
+  .scen-tag.qual-m { color: var(--amber); border-color: var(--amber); }
+  .scen-tag.qual-l { color: var(--tx-mut); border-color: var(--tx-mut); }
+  .scen-tag {
+    display: inline-block;
+    border: 1px solid var(--tx-mut);
+    padding: 3px 9px;
+    font-weight: 600;
+  }
+  .scen-meth {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+  }
+  .scen-meth b { color: var(--bg-dark); }
+
+  /* === APPEL PUBLIC FINAL === */
+  .call-public {
+    background: var(--bg-alt);
+    padding: 56px 0;
+    border-bottom: 1px solid var(--br);
+  }
+  .call-public-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .call-public h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .call-public p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--tx-sec);
+    margin-bottom: 14px;
+  }
+  .call-public .call-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .call-public a.call-link {
+    color: var(--bg-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ac);
+    font-weight: 500;
+  }
+  .call-public a.call-link:hover { color: var(--ac); }
+
+  @media (max-width: 980px) {
+    .call-public-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Site nav breadcrumb (added during site integration) -->
+<div style="background:var(--bg);border-bottom:1px solid var(--br);padding:10px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--tx-mut);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <a href="../index.html" style="color:var(--tx-mut);text-decoration:none;">observatoires<span style="color:var(--ac);">[s]</span>·ia</a>
+    <span style="margin:0 8px;">/</span>
+    <a href="../briefings.html" style="color:var(--tx-mut);text-decoration:none;">Briefings</a>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:var(--tx);">Dispatch #05 · Semaine de l'IA pour Tous</span>
+  </div>
+</div>
+<div class="progress" id="progress"></div>
+
+<!-- ===== BANDEAU DISPATCH ===== -->
+<div class="dispatch-banner">
+  <div class="dispatch-banner-inner">
+    <span>📡 Dispatch spécial<span class="dispatch-banner-dot"></span>Semaine de l'IA pour Tous<span class="dispatch-banner-dot"></span><b>18 → 24 mai 2026</b></span>
+    <span>Édition <b>indépendante</b> &middot; non sponsorisée</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">Veille <span>Métiers IA</span></div>
+    <nav class="menu">
+      <a href="#tldr">90s</a>
+      <a href="#manifeste">Manifeste</a>
+      <a href="#chantier">Chantier FR</a>
+      <a href="#decalage">Décalage</a>
+      <a href="#diplomes">Diplômés</a>
+      <a href="#debat">Débat</a>
+      <a href="#dialogue">Dialogue social</a>
+      <a href="#scenarios">Scénarios</a>
+      <a href="#limites">Limites</a>
+    </nav>
+    <div class="header-actions">
+      <div class="dispatch-tag">Dispatch<br>#01 · <b>Semaine IA</b></div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="border-bottom:1px solid var(--br);">
+  <div class="wrap">
+    <div class="meta-row">
+      <span class="badge">Dispatch #01</span>
+      <span class="badge-coral">Édition spéciale</span>
+      <span class="badge-edition">Indépendant · non sponsorisé</span>
+      <span class="dot">·</span>
+      <span>Mai 2026</span>
+      <span class="dot">·</span>
+      <span>France</span>
+    </div>
+    <h1 class="hero-title">
+      IA et métiers en France. <em>Quatre signaux faibles à lire</em> pendant la <span class="sia-mark">Semaine de l'IA pour Tous</span>.
+    </h1>
+    <p class="hero-deck">
+      Pendant que 1 500 événements démystifient l'IA dans les territoires du 18 au 24 mai 2026, ce dispatch indépendant rassemble quatre publications internationales récentes (États-Unis, Royaume-Uni, Québec, recherche académique) qui dessinent un tableau plus nuancé que les discours dominants. Pour les COMEX, DRH et fédérations professionnelles qui veulent prolonger la conversation avec des données.
+    </p>
+
+    <div class="hero-author">
+      <div class="hero-author-mark">NN</div>
+      <div class="hero-author-info">
+        <b>Naully Nicolas</b><br>
+        Consultant &amp; conférencier IA &middot; Auteur de <i>Guerill-iA</i> &middot; Éditeur de transitions-ia.fr et observatoire.naullynicolas.ch
+      </div>
+    </div>
+
+    <div class="indep-block">
+      <div class="indep-label">→ Cadre éditorial</div>
+      <p><strong>Ce dispatch est une initiative éditoriale strictement indépendante de Naully Nicolas.</strong> Il n'a été ni commandé, ni relu, ni financé par les organisateurs de la <i>Semaine de l'IA pour Tous</i> (La Mednum, Make.org foundation, Mission Café IA de la DGE / Ministère de l'Économie, Bercy). Aucun lien commercial, partenariat ni contrepartie ne lie cette publication aux institutions citées. Le choix des sources, des chiffres et des analyses relève de la responsabilité éditoriale exclusive de l'auteur.</p>
+    </div>
+
+    <div class="limites-strip">
+      <div class="limites-strip-mark">Limites</div>
+      <p>Les quatre sources nouvelles mobilisées sont étrangères (Québec, États-Unis, Royaume-Uni) et l'une est un preprint non encore peer-reviewé. Les transpositions à la France sont conjecturales, pas conclusives. Ce dispatch propose des <strong>signaux à surveiller</strong>, pas des vérités établies. Six limites assumées en <a href="#limites">§09.5</a>, synthèse 90 secondes ci-dessous.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TL;DR · LECTURE 90 SECONDES ===== -->
+<section class="tldr" id="tldr">
+  <div class="wrap">
+    <div class="tldr-head">
+      <span class="tldr-label">→ Lecture 90 secondes</span>
+      <h2>Les quatre signaux faibles <em>à retenir de ce dispatch</em>.</h2>
+    </div>
+    <div class="tldr-grid">
+      <div class="tldr-item">
+        <div class="tldr-num">21<small>%</small></div>
+        <div class="tldr-take">Une partie des salariés <i>ne sait pas</i> si elle est exposée à l'IA au travail. Le décalage entre usage et conscience d'exposition est massif.</div>
+        <div class="tldr-src">Obvia · QC · n=4 595 · <a class="tldr-anchor" href="#decalage">§03 →</a></div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">−15<small> pts</small></div>
+        <div class="tldr-take">Le taux d'emploi plein temps des diplômés US les plus exposés à l'IA est tombé de 70% à 55% en trois ans.</div>
+        <div class="tldr-src">The Economist · 13 mai 2026 · <a class="tldr-anchor" href="#diplomes">§04 →</a></div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">+18<small>%</small></div>
+        <div class="tldr-take">Au Royaume-Uni, l'emploi en programmation a crû trois fois plus vite que l'économie depuis 2019. Substitution ou augmentation ? Le débat n'est pas tranché.</div>
+        <div class="tldr-src">Pedro Serôdio · British Progress · <a class="tldr-anchor" href="#debat">§05 →</a></div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">37<small>%</small></div>
+        <div class="tldr-take">des travailleurs syndiqués se sentent bien représentés sur les questions d'IA. Là où la présence syndicale existe, transparence et formation augmentent.</div>
+        <div class="tldr-src">Obvia · 12 reco · <a class="tldr-anchor" href="#dialogue">§06 →</a></div>
+      </div>
+    </div>
+    <div class="tldr-foot">
+      → Quatre publications internationales d'avril-mai 2026, jamais croisées entre elles dans la littérature francophone à ce jour. Aucune n'est française. C'est précisément ce qui rend leur lecture exigeante : ce dispatch ne prétend pas démontrer pour la France, il propose des signaux à confronter avec les données nationales.
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 01 · MANIFESTE ===== -->
+<section id="manifeste">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 01 / Manifeste</div>
+      <div>
+        <h2>Un fossé de confiance et de compétences <em>que les chiffres documentent</em>.</h2>
+        <p class="section-deck">La Semaine de l'IA pour Tous, portée par La Mednum, Make.org foundation et la Mission Café IA, s'ouvre sur deux constats que ce dispatch prolonge avec quatre nouvelles publications internationales.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="manifesto">
+        <div class="manifesto-kicker">→ Extrait du manifeste · semaine-ia.fr</div>
+        <div class="manifesto-quote">
+          Et si l'intelligence artificielle devenait enfin une chance pour toutes et tous ? La France a l'ambition d'être un leader reconnu de l'IA. Cependant, cette transformation numérique ne peut être ni efficace ni bénéfique si elle laisse une large partie des citoyens sur le côté.
+        </div>
+
+        <div class="manifesto-stats">
+          <div class="manifesto-stat">
+            <div class="stat-fig">56<em>%</em></div>
+            <div class="stat-lbl">des citoyennes et citoyens n'ont pas confiance dans les IA</div>
+            <div class="stat-src">Baromètre du numérique 2025 · Arcom</div>
+          </div>
+          <div class="manifesto-stat">
+            <div class="stat-fig">76<em>%</em></div>
+            <div class="stat-lbl">n'ont pas été formés aux IA et en ressentent le besoin</div>
+            <div class="stat-src">Observatoire Pix · 2025</div>
+          </div>
+          <div class="manifesto-stat">
+            <div class="stat-fig">2<em> M</em></div>
+            <div class="stat-lbl">de Français à sensibiliser d'ici 2027 (objectif gouvernemental)</div>
+            <div class="stat-src">Mission Café IA · DGE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lede">
+        <p>L'objectif de la Semaine de l'IA pour Tous est clair : <strong>1 500 événements, 50 000 citoyens sensibilisés</strong>, partout en France, du 18 au 24 mai 2026. Démystifier l'IA par l'échange, la pratique, la démonstration. Dépolariser le débat. Promouvoir un usage responsable. Valoriser la médiation numérique.</p>
+        <p>Ce sont des objectifs nécessaires. Ils ne sont pas suffisants. Parce que les Cafés IA s'adressent au grand public sur le terrain, pendant ce temps les <strong>décideurs</strong> · COMEX, CODIR, DRH, fédérations professionnelles, OPCO · doivent prendre des décisions structurantes sur l'emploi, la formation, la gouvernance. Des décisions qui demandent des données documentées, internationales, croisées, et pas seulement les récits dominants des fournisseurs de technologie.</p>
+        <p>Ce dispatch propose donc une autre lecture, plus exigeante : <strong>quatre publications récentes (avril-mai 2026) que personne ne semble avoir croisées entre elles</strong>, alors qu'elles dessinent ensemble un tableau bien plus instructif que chacune prise séparément. The Economist sur la cohorte 2026 aux États-Unis. British Progress sur le marché du travail britannique. AI Objectives Institute sur l'exposition au reinforcement learning. Obvia sur le travail syndiqué au Québec.</p>
+        <p>Trois questions servent de fil : <strong>combien de Français utilisent vraiment l'IA</strong>, <strong>les diplômés sont-ils en train de payer la facture en premier</strong>, et <strong>le dialogue social peut-il faire une différence</strong>. Les réponses sont contre-intuitives. Elles ne tiennent pas dans un slogan.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 02 · CHANTIER FRANCE ===== -->
+<section id="chantier">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 02 / Chantier France</div>
+      <div>
+        <h2>Là où en est <em>vraiment</em> le chantier français.</h2>
+        <p class="section-deck">Avant de regarder à l'étranger, l'état des lieux français. Adoption en surface, industrialisation au ralenti, fracture par taille d'entreprise. Tous les chiffres ci-dessous sont issus d'études publiées entre mars et avril 2026.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="keyfigs">
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Adoption générale</div>
+          <div class="keyfig-num">40<small>%</small></div>
+          <div class="keyfig-desc">des entreprises françaises utilisent l'IA en 2026, soit 250 000 nouvelles entrantes en 12 mois.</div>
+          <div class="keyfig-src">AWS / Strand Partners · avril 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Industrialisation</div>
+          <div class="keyfig-num">13<small>%</small></div>
+          <div class="keyfig-desc">seulement des entreprises ont déployé l'IA agentique à l'échelle. L'écart adoption / industrialisation reste massif.</div>
+          <div class="keyfig-src">Adobe / Orange Digital Trends · 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Mesure du ROI</div>
+          <div class="keyfig-num">2<small>/3</small></div>
+          <div class="keyfig-desc">des entreprises savent désormais mesurer le ROI de leurs projets IA, contre 1/3 en 2025.</div>
+          <div class="keyfig-src">KPMG &amp; Les EnthousIAstes · janv. 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Usage citoyen</div>
+          <div class="keyfig-num">59<small>%</small></div>
+          <div class="keyfig-desc">des Français utilisent l'IA générative à titre personnel. Mais l'adoption est socialement très inégale.</div>
+          <div class="keyfig-src">Ifop x Converteo · mars 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Confiance utilisateur</div>
+          <div class="keyfig-num">30<small>%</small></div>
+          <div class="keyfig-desc">des Français accepteraient d'interagir avec l'agent IA d'une marque (40% au niveau européen).</div>
+          <div class="keyfig-src">Adobe Digital Trends · 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Maturité PME</div>
+          <div class="keyfig-num">81<small>%</small></div>
+          <div class="keyfig-desc">des TPE/PME se déclarent <i>non prêtes</i> à intégrer l'IA dans leurs opérations. Au rythme actuel : 2035 pour atteindre la moitié.</div>
+          <div class="keyfig-src">AWS / Strand Partners · 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Fracture formation</div>
+          <div class="keyfig-num">75<small>/37</small></div>
+          <div class="keyfig-desc">% des managers sont formés aux outils IA, contre 37% des collaborateurs. La fracture interne est plus large que prévu.</div>
+          <div class="keyfig-src">Baromètre Phygital Workplace · 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Cadre d'usage</div>
+          <div class="keyfig-num">34<small>%</small></div>
+          <div class="keyfig-desc">seulement des salariés disposent de règles d'usage formalisées sur l'IA dans leur entreprise. <i>Shadow AI</i> par défaut.</div>
+          <div class="keyfig-src">Baromètre Phygital Workplace · 2026</div>
+        </div>
+      </div>
+
+      <div class="lede" style="margin-top:32px;">
+        <p>La photographie est nette : la France adopte vite mais industrialise lentement, et la bascule se fait au détriment des TPE/PME. <strong>Quatre fonctions concentrent les usages</strong> matures : informatique, marketing-communication, finance-comptabilité, ressources humaines. Le reste de l'entreprise · production, qualité, logistique, juridique · reste à des stades de pilote.</p>
+        <p>Mais ces chiffres macroéconomiques masquent quelque chose de plus inquiétant que les publications grand public abordent rarement. Les quatre sources qui suivent permettent de le mettre au jour.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 03 · DÉCALAGE PERCEPTION / RÉALITÉ · OBVIA ===== -->
+<section id="decalage">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 03 / Décalage</div>
+      <div>
+        <h2>Un décalage massif entre <em>utiliser</em> et <em>se sentir exposé</em>.</h2>
+        <p class="section-deck">L'Obvia (Observatoire international sur les impacts sociaux de l'IA) vient de publier la plus grande enquête francophone à ce jour sur la perception de l'IA en milieu de travail. 4 595 travailleurs sondés au Québec, en partenariat avec onze organisations syndicales représentant plus de 1,4 million de membres.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t1">T1 · Académique</span>
+          <span class="source-new">Source nouvelle</span>
+          <span class="source-date">Avril 2026 · n = 4 595</span>
+        </div>
+        <h3>Cartographie de l'IA au travail : présence, usages et enjeux</h3>
+        <div class="source-byline">
+          Parent-Rocheleau · Pasquier · Garneau · De Broux · Michaud &middot; HEC Montréal / UQO / Université de Montréal &middot;
+          <a href="https://doi.org/10.61737/HMZO8746" target="_blank" rel="noopener">DOI : 10.61737/HMZO8746</a>
+        </div>
+
+        <div class="source-body">
+          <p>Le résultat le plus surprenant de l'étude : <strong>59% des sondés indiquent utiliser l'IA personnellement, mais seulement 41% se disent exposés à l'IA de manière générale au travail</strong>. Et 21% affirment <i>ne pas savoir</i> s'ils sont exposés ou non.</p>
+
+          <div class="source-callout">
+            Utiliser l'IA ne signifie pas nécessairement se sentir exposé à celle-ci. L'exposition semble renvoyer, pour une partie des répondants, à une intégration plus structurelle ou décisionnelle de l'IA dans l'organisation du travail.
+          </div>
+
+          <p>Autrement dit : les gens ouvrent ChatGPT le soir pour rédiger un mail, mais ils ne perçoivent pas que <strong>leur organisation est en train de transformer leur métier avec des systèmes algorithmiques de gestion</strong>. Ce décalage n'est pas anecdotique · il explique pourquoi le manifeste de la Semaine de l'IA estime à 76% les Français non formés qui en ressentent le besoin : la conscience de l'enjeu ne suit pas l'usage.</p>
+
+          <p>L'étude révèle aussi des variations sectorielles fortes. Dans <strong>l'éducation supérieure et la recherche</strong>, 78% des travailleurs se disent exposés à l'IA · c'est le secteur le plus impacté en perception. À l'inverse, la <strong>santé et services sociaux</strong> et <strong>l'industrie</strong> affichent 42% de non-exposés, alors même que ces secteurs voient arriver les systèmes algorithmiques (30% en santé, 25% en petite enfance).</p>
+
+          <p>Le constat des autrices et auteurs est sans appel : <strong>la gestion algorithmique n'est pas cantonnée aux secteurs taylorisés</strong>. Elle se diffuse de manière plus transversale, plus invisible, et moins communiquée que les enquêtes précédentes ne le laissaient penser.</p>
+
+          <ul class="press-list">
+            <li><span class="num">37%</span><b>Non, je ne suis pas exposé à l'IA au travail</b> (alors que 59% l'utilisent personnellement)</li>
+            <li><span class="num">21%</span><b>Je ne sais pas si je suis exposé</b> · un quart de la population sondée flotte dans l'incertitude</li>
+            <li><span class="num">42%</span><b>Santé et services sociaux</b> : un tiers seulement se sait exposé. Mais 30% rapportent déjà une gestion algorithmique.</li>
+            <li><span class="num">78%</span><b>Éducation supérieure et recherche</b> : le secteur où l'exposition perçue est la plus forte (vs 30% en industrie)</li>
+          </ul>
+
+          <p style="margin-top:18px;"><strong>Pour la France ?</strong> Le manifeste de la Semaine de l'IA pour Tous estime à 76% les Français non formés qui en ressentent le besoin et à 56% ceux qui n'ont pas confiance dans l'IA (Baromètre du numérique 2025, Observatoire Pix). Ces deux chiffres mesurent la <i>perception déclarée par les répondants</i>, pas l'écart entre exposition réelle et conscience d'exposition. L'apport spécifique de l'Obvia · la mesure de cet écart · n'a pas d'équivalent dans les enquêtes françaises actuelles. C'est précisément le type de question que les Cafés IA peuvent contribuer à objectiver sur le terrain.</p>
+
+          <div class="honest-box">
+            <div class="honest-label">⚠ Limite méthodologique inline</div>
+            <p>L'enquête Obvia est québécoise et passe par une distribution syndicale en cascade. <b>L'échantillon n'est donc pas représentatif de la population active</b> au sens d'une enquête Insee : il sur-représente le secteur public et parapublic syndiqué (~70% des répondants), sous-représente les TPE non syndiquées et les indépendants. Les pourcentages ne sont pas directement transposables à la France.</p>
+            <p>Mais le pattern qualitatif observé · décalage massif entre usage personnel et conscience d'exposition organisationnelle · est cohérent avec les signaux faibles remontés par les médiateurs numériques français en 2025-2026. Il mérite d'être confirmé par une enquête nationale dédiée (Dares, Insee Conditions de travail) plutôt qu'extrapolé.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <h4>Exposition perçue à l'IA au travail · par secteur d'activité</h4>
+        <div class="figure-sub">% des répondants déclarant se sentir exposés à l'IA · n = 4 554 · Obvia 2026</div>
+        <svg class="chart-svg" id="obvia-chart"></svg>
+        <div class="legend">
+          <span><span class="sw" style="background:var(--sia-coral)"></span>Oui · exposé</span>
+          <span><span class="sw" style="background:var(--br-strong)"></span>Neutre · ne sait pas</span>
+          <span><span class="sw" style="background:var(--sia-blue)"></span>Non · pas exposé</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 04 · FRACTURE DIPLÔMÉS · THE ECONOMIST ===== -->
+<section id="diplomes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 04 / Diplômés</div>
+      <div>
+        <h2>La cohorte 2026 face à <em>un effondrement du recrutement</em>.</h2>
+        <p class="section-deck">The Economist publie le 13 mai 2026 une analyse exclusive sur dix ans de sondages auprès des diplômés américains. Le diagnostic est sévère et concerne directement les filières les plus visibles de l'enseignement supérieur français.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t2">T2 · Presse économique</span>
+          <span class="source-new">Source nouvelle</span>
+          <span class="source-date">13 mai 2026 · NACE Survey</span>
+        </div>
+        <h3><i>Is AI putting graduates out of work already?</i></h3>
+        <div class="source-title-fr">L'IA met-elle déjà les jeunes diplômés au chômage ?</div>
+        <div class="source-byline">
+          <i>The Economist</i> · rubrique <i>Techno-economics</i> · analyse sur 10 ans de données du <i>National Association of Colleges and Employers</i> <span class="byline-gloss">(la grande enquête américaine annuelle sur l'insertion professionnelle des jeunes diplômés)</span>
+        </div>
+
+        <div class="source-body">
+          <p>Le journal a comparé les résultats des diplômés américains <strong>avant et après l'arrivée des grands modèles de langage</strong>, en classant les filières d'études par niveau d'exposition à l'IA. Les écarts mesurés sont nets.</p>
+
+          <p>Entre 2022 et 2024, <strong>les diplômés du quintile le moins exposé</strong> (sciences de l'éducation, philosophie, génie civil) ont vu leur taux d'emploi plein temps reculer de seulement <strong>1,5 point</strong>. Les diplômés du <strong>quintile le plus exposé</strong> (informatique, ingénierie informatique, sciences de l'information) ont perdu <strong>6,6 points</strong> sur la même période. Pour la cohorte 2025, le taux d'emploi plein temps des diplômés les plus exposés est tombé <strong>de près de 70% à 55% en trois ans</strong> · soit les trois années qui ont suivi le lancement de ChatGPT.</p>
+
+          <div class="source-callout">
+            Plus de la moitié des employeurs déclarent avoir envisagé de remplacer leurs postes en entrée de carrière par cette technologie. Un sondage récent du Harvard Kennedy School montre que plus de la moitié des jeunes Américains perçoivent l'IA comme une menace pour leurs perspectives professionnelles.
+          </div>
+
+          <p>Les conséquences sur les choix d'orientation sont immédiates. Les inscriptions en <strong>computer science ont chuté de 11% en 2025</strong>. Celles en <strong>programmation informatique de 26%</strong>. Les offres d'emploi sur Handshake · la plateforme principale de recrutement étudiant aux États-Unis · sont <strong>50% en dessous de leur pic de 2022</strong>.</p>
+
+          <p>Le débat académique reste néanmoins ouvert. Le papier de Brynjolfsson et coll. (Stanford / NBER 2025) trouve un recul de <strong>−16% de l'emploi des jeunes travailleurs dans les métiers exposés à l'IA</strong>. Mais un papier d'économistes de Google publié cette année (Iscenko &amp; Curto Millet) conteste cette interprétation : la baisse des offres concerne <strong>autant les seniors que les juniors</strong>, et la tendance précède même ChatGPT.</p>
+
+          <ul class="press-list">
+            <li><span class="num">−50%</span><b>Offres sur Handshake</b> · plateforme de recrutement étudiant US · pic 2022 → 2026</li>
+            <li><span class="num">−15 pts</span><b>Emploi plein temps des diplômés exposés à l'IA</b> · 70% → 55% en trois ans</li>
+            <li><span class="num">−11%</span><b>Inscriptions en computer science</b> en 2025 (National Student Clearinghouse)</li>
+            <li><span class="num">−26%</span><b>Inscriptions en programmation</b> · cours centré coding plutôt que théorie</li>
+            <li><span class="num">&lt;20%</span><b>Pensent que c'est un bon moment pour trouver un bon emploi</b> · taux le plus bas depuis 2013</li>
+          </ul>
+
+          <p style="margin-top:18px;"><strong>Pour la France ?</strong> Les écoles d'ingénieur, écoles informatiques (42 et consorts), écoles de commerce et universités de sciences ont vu les inscriptions en master IA exploser ces deux dernières années. Un retournement de cycle similaire à celui observé aux États-Unis n'est pas exclu, avec un effet retard de 12 à 24 mois.</p>
+
+          <div class="honest-box">
+            <div class="honest-label">⚠ Limite méthodologique inline</div>
+            <p>L'analyse Economist porte sur des données américaines (National Association of Colleges and Employers + Handshake + National Student Clearinghouse). <b>Aucun équivalent français public n'existe à ce jour</b> pour mesurer l'emploi des diplômés filière par filière avant/après ChatGPT. La projection vers la France est donc <i>conjecturale</i>, à confirmer par les enquêtes JEUNES de l'Apec ou les enquêtes Génération du Céreq, dont les prochaines vagues ne couvriront pas encore la cohorte 2025-2026.</p>
+
+          <p>Mais un signal français existe désormais · le <strong>Baromètre Talents 2026 SKEMA x EY</strong> publié le 13 avril 2026 (Ipsos-BVA) montre que <strong>74% des jeunes diplômés français considèrent que l'IA constitue une menace pour les postes des primo-entrants en entreprise</strong>. Cette prise de conscience est massive et ne vient pas des chiffres anglo-saxons · elle vient des étudiants eux-mêmes, en France, qui anticipent la transformation au moment même où elle se documente côté américain. <strong>96% l'utilisent déjà, 61% au moins une fois par jour, 79% demandent à être formés</strong>. Le décalage Economist n'est plus seulement un signal américain à transposer · les jeunes français en ont déjà la lecture.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 05 · DÉBAT EMPIRIQUE · SERÔDIO + SSRN ===== -->
+<section id="debat">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 05 / Débat empirique</div>
+      <div>
+        <h2>L'IA détruit-elle des emplois <em>ou en crée-t-elle d'autres</em> ?</h2>
+        <p class="section-deck">Deux publications majeures viennent de paraître coup sur coup, et elles racontent des histoires apparemment contradictoires. L'une depuis Londres (avril 2026), l'autre depuis New York (AI Objectives Institute, 2026). À tenir ensemble dans l'analyse.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t1">T1 · Recherche appliquée</span>
+          <span class="source-new">Source nouvelle</span>
+          <span class="source-date">Avril 2026 · UK ONS</span>
+        </div>
+        <h3>Is AI killing jobs? Le rapport britannique qui complique la narration</h3>
+        <div class="source-byline">
+          Pedro Serôdio &middot; British Progress (Centre for British Progress) &middot; Analyse sur quatre mesures d'exposition à l'IA · données ONS et ASHE
+        </div>
+
+        <div class="source-body">
+          <p>Trois ans après ChatGPT, le rapport de Pedro Serôdio pour le Centre for British Progress arrive à un constat inattendu : <strong>il n'existe pas de preuve d'un impact significatif de l'IA sur l'emploi global au Royaume-Uni</strong>. Plus surprenant encore · et c'est l'inverse du discours dominant · <strong>les métiers les plus exposés à l'IA ont crû plus vite que les moins exposés</strong>, et ce résultat tient sur quatre mesures différentes d'exposition et sur deux sources de données distinctes.</p>
+
+          <p>Le secteur du logiciel, qui devrait être le premier touché si l'hypothèse de la destruction d'emplois était vraie, montre des dynamiques opposées au récit dominant. <strong>L'emploi en programmation informatique a augmenté de 18% entre 2019 et 2025</strong>, soit trois fois le rythme de l'économie. La valeur ajoutée du secteur a grimpé de 35%. La productivité par travailleur s'est accélérée à <strong>3,8% par an depuis ChatGPT, près de cinq fois le rythme pré-ChatGPT</strong>.</p>
+
+          <div class="source-callout">
+            La composition interne du logiciel s'est déplacée : cybersécurité et business analyst progressent plus vite que les programmeurs depuis 2023. C'est cohérent avec une IA qui pousse le travail vers la conception, l'analyse et la sécurité plutôt que le code direct.
+          </div>
+
+          <p>Mais le tableau a une face plus sombre. <strong>Les salaires dans les métiers exposés à l'IA stagnent par rapport au reste du marché du travail depuis 2019</strong>. Cet écart s'est creusé <strong>trois ans avant ChatGPT</strong>, ce qui rend l'IA peu vraisemblable comme cause unique. Le rapport pointe une dynamique structurelle plus profonde, antérieure à la vague génératrice actuelle.</p>
+
+          <p>Côté américain en revanche, <strong>Crane et Soto (Federal Reserve Board) trouvent que l'emploi des codeurs US est trois points de pourcentage par an sous la tendance depuis ChatGPT</strong>. Ce serait l'une des preuves empiriques les plus nettes d'un déplacement d'emplois dans une profession précise. Mais Serôdio ne parvient pas à répliquer ce résultat au Royaume-Uni : la fenêtre pré-ChatGPT y est trop courte (changement de nomenclature en 2021) et le ralentissement se voit aussi dans des métiers sans aucune exposition à l'IA. Il s'agirait donc davantage d'<strong>un effet de récupération post-pandémie</strong> que d'un effet IA.</p>
+
+          <p>L'autre constat majeur du rapport : <strong>l'adoption est plus étroite que la plupart des projections ne le supposent</strong>. Selon l'Anthropic Economic Index, les conversations Claude au Royaume-Uni couvrent 385 tâches O*NET distinctes, soit environ <strong>2% du total</strong>. Le top 20% des tâches concentre 64% de l'activité. Les métiers managériaux et professionnels obtiennent des scores d'exposition prédite élevés mais montrent un usage réel beaucoup plus faible.</p>
+
+          <p style="margin-top:18px;"><strong>Pour la France ?</strong> L'Insee publie via l'enquête TIC entreprises des données d'adoption générale, mais sans la granularité métier de Serôdio. France Stratégie et la Dares produisent des analyses prospectives sur les transformations du travail, mais aucune n'a encore mesuré <i>par profession</i> l'écart entre exposition prédite et exposition réelle pour la France. La trajectoire FR des éditeurs SaaS (Doctolib, Mistral, Hugging Face, LightOn, Owkin) suggère une dynamique d'augmentation comparable au constat britannique sur le logiciel · sans qu'on puisse y attribuer une causalité IA isolée.</p>
+
+          <div class="honest-box">
+            <div class="honest-label">⚠ Limite méthodologique inline</div>
+            <p>Le rapport Serôdio s'appuie sur les nomenclatures britanniques <b>ONS APS et ASHE</b>, dont la nomenclature professionnelle a changé en 2021 (SOC2020). Cette rupture méthodologique <i>est notée par Serôdio lui-même</i> et l'empêche de répliquer au Royaume-Uni le résultat de Crane &amp; Soto sur la baisse de l'emploi des codeurs aux États-Unis. Toute comparaison France-Royaume-Uni doit aussi tenir compte des différences de structure productive : le poids des services financiers (Londres), de la défense (FR) et de l'industrie automobile (FR) crée des compositions sectorielles distinctes.</p>
+            <p>British Progress est un <b>think tank britannique</b>, pas une institution publique : ses analyses sont sérieuses et documentées mais n'ont pas la garantie méthodologique d'un ONS ou d'un Insee.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t1">T1 · Académique</span>
+          <span class="source-new">Source nouvelle</span>
+          <span class="source-date">2026 · n = 17 951 tâches O*NET</span>
+        </div>
+        <h3>What Jobs Can AI Learn? Le RL Feasibility Index</h3>
+        <div class="source-byline">
+          Philip Moreira Tomei &middot; Bouke Klein Teeselink &middot; AI Objectives Institute &amp; King's College London &middot; Preprint SSRN
+        </div>
+
+        <div class="source-body">
+          <p>Cette publication propose un nouvel indice d'exposition des métiers à l'IA, conçu pour mesurer ce que les indices précédents (Eloundou et coll. 2024, Felten et coll. 2018, Frey &amp; Osborne 2017) <strong>ne mesurent pas</strong> : non pas ce que les modèles savent déjà faire aujourd'hui, mais <strong>ce qu'ils peuvent apprendre à faire</strong> via le reinforcement learning, paradigme dominant des gains de capacités actuels.</p>
+
+          <p>Les auteurs ont scoré <strong>17 951 tâches O*NET sur 894 métiers américains</strong>. Chaque tâche est évaluée sur huit dimensions (vérifiabilité des récompenses, simulabilité de l'environnement, tractabilité de l'espace de décision, etc.) après un filtre de faisabilité physique éliminant les tâches qui exigent un corps. Les résultats divergent fortement des indices existants.</p>
+
+          <div class="source-callout">
+            Corrélation entre l'indice RL et l'indice Eloundou : 0,88 sur l'ensemble des tâches, mais 0,15 une fois restreint aux tâches digitalement faisables. Les deux indices s'accordent surtout sur les emplois que l'IA ne peut pas toucher ; ils divergent considérablement sur ceux qu'elle peut apprendre à faire.
+          </div>
+
+          <p>Le résultat structurel le plus important pour la France : <strong>l'exposition au RL suit une forme en cloche le long de la distribution salariale et de la séniorité</strong>. Elle culmine chez les <strong>salaires moyens-hauts et les profils mid-career</strong>. Elle est la plus basse aux deux extrémités · entrée de carrière et exécutifs.</p>
+
+          <p>Ce pattern est exactement celui qui a creusé les inégalités lors des vagues d'automatisation précédentes (Autor et coll. 2006, Goos &amp; Manning 2007, Autor &amp; Dorn 2013). Combiné aux effets de déplacement du travail intellectuel observés au sommet de la distribution (Klein Teeselink 2025), cela suggère <strong>un schéma de déplacement plus large qu'aucun des deux canaux pris isolément</strong>.</p>
+
+          <p>Une analyse en différence des différences sur les offres d'emploi américaines suggère que ces effets <strong>se matérialisent déjà</strong> : les métiers à forte exposition RL voient une baisse relative des offres d'emploi depuis le lancement de ChatGPT.</p>
+
+          <ul class="press-list">
+            <li><span class="num">49,2</span><b>Office &amp; Admin</b> · index RL le plus élevé · risque maximal pour le tertiaire administratif</li>
+            <li><span class="num">47,1</span><b>Computer &amp; Mathematical</b> · informatique et mathématiques · second du classement</li>
+            <li><span class="num">42,0</span><b>Business &amp; Financial</b> · métiers de la finance et du conseil de gestion</li>
+            <li><span class="num">41,8</span><b>Legal</b> · droit · proche du précédent malgré la perception de protection professionnelle</li>
+            <li><span class="num">8,2</span><b>Construction</b> · plus faible exposition · le filtre de faisabilité physique protège</li>
+            <li><span class="num">10,8</span><b>Agriculture, pêche, forêt</b> · même logique, ancrage corporel et terrain</li>
+          </ul>
+
+          <p style="margin-top:18px;"><strong>Implication possible pour la France ?</strong> Les métiers ROME M1605 (Assistance et secrétariat), M1607 (Secrétariat technique), M1203 (Comptabilité), M1205 (Conseil en gestion d'entreprise) figureraient parmi les plus exposés selon une transposition de cet indice. La grille ROME-IA de l'Observatoire transitions-ia.fr en a déjà repéré une partie ; les nouveaux entrants à forte exposition RL (opérateurs centrale, contrôleurs ferroviaires) sont à intégrer dans la prochaine mise à jour.</p>
+
+          <div class="honest-box">
+            <div class="honest-label">⚠ Statut probatoire de cette source</div>
+            <p>Cette publication est un <b>preprint sur SSRN</b>, non encore passé par une peer review formelle. Les auteurs sont affiliés à l'AI Objectives Institute et au King's College London. La méthodologie utilise des annotateurs LLM (Claude) pour scorer 17 951 tâches · ce qui peut introduire des biais corrélés à l'indice Eloundou auquel l'étude se compare.</p>
+            <p>L'indice s'applique à la nomenclature O*NET américaine. <b>Sa transposition au ROME français n'a pas été effectuée par les auteurs</b> ; les correspondances proposées ci-dessus sont une lecture personnelle de l'éditeur, à confirmer par un travail comparatif systématique. À considérer comme <i>hypothèse de travail</i>, pas comme classement validé.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-grid">
+        <div class="debate-col thesis">
+          <h4>Thèse · The Economist / Brynjolfsson</h4>
+          <h3>L'IA déplace déjà les jeunes travailleurs des filières exposées.</h3>
+          <p>Le signal le plus clair vient des cohortes 2023-2026. Les diplômés en informatique aux États-Unis font face à un effondrement du marché. Les inscriptions s'ajustent à la baisse.</p>
+          <ul>
+            <li><b>−16%</b> emploi jeunes travailleurs métiers exposés · Stanford / NBER</li>
+            <li><b>−3 pts/an</b> emploi codeurs US sous tendance · Crane &amp; Soto FRB</li>
+            <li><b>−50%</b> offres Handshake vs pic 2022</li>
+          </ul>
+        </div>
+        <div class="debate-col antithesis">
+          <h4>Antithèse · Serôdio / British Progress</h4>
+          <h3>Au Royaume-Uni, les métiers exposés à l'IA croissent plus vite.</h3>
+          <p>Trois ans après ChatGPT, aucune preuve d'un impact significatif sur l'emploi global. La productivité s'envole dans le logiciel (×5 vs pré-ChatGPT). L'effet observé fitte une histoire d'augmentation, pas de substitution.</p>
+          <ul>
+            <li><b>+18%</b> emploi programmation UK 2019-2025</li>
+            <li><b>+35%</b> valeur ajoutée du secteur logiciel</li>
+            <li><b>Salaires</b> stagnants depuis 2019 (avant ChatGPT)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lede">
+        <p><strong>Comment tenir ces deux récits ensemble ?</strong> Trois pistes méthodologiques. <strong>Premièrement</strong>, les contextes nationaux sont différents : le marché américain est plus sensible aux ajustements rapides, l'européen plus protégé. <strong>Deuxièmement</strong>, l'élasticité de la demande détermine si la productivité accrue se traduit en croissance ou en éviction · l'argument de <strong>James Bessen</strong> (économiste, Boston University School of Law, auteur de <i>AI &amp; Jobs</i> 2024) : les ATM ont fait baisser le coût d'une agence bancaire, donc les banques en ont ouvert davantage, et l'emploi des guichetiers a continué de croître pendant vingt ans. La direction de l'effet dépend de qui répond à quoi. <strong>Troisièmement</strong>, les effets sectoriels précèdent les effets globaux · les diplômés sont en première ligne avant que la statistique macro ne bouge.</p>
+        <p>Lecture probable pour la France à 18-24 mois : <strong>signal Economist sur les écoles d'ingénieur et les masters tech, signal Serôdio sur les ETI logicielles installées, signal SSRN sur le tertiaire administratif des grands groupes</strong>. Les trois ne s'excluent pas. Ils s'additionnent.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 06 · DIALOGUE SOCIAL · OBVIA ===== -->
+<section id="dialogue">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 06 / Dialogue social</div>
+      <div>
+        <h2>Quand le dialogue social est présent, <em>les pratiques s'améliorent</em>.</h2>
+        <p class="section-deck">L'autre apport majeur de l'étude Obvia : un faisceau de corrélations cohérent qui suggère que l'implication des représentants des travailleurs dans les décisions IA améliore la qualité du déploiement. Une donnée que le manifeste de la Semaine de l'IA pour Tous, axé grand public, ne traite pas directement.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="lede">
+        <p>L'enquête québécoise pose une question rare dans la littérature française : <strong>quel est l'effet de la présence syndicale sur le déploiement de l'IA dans l'organisation</strong> ? Les résultats sont prudents · il s'agit de corrélations, pas de causalité · mais le pattern est clair.</p>
+      </div>
+
+      <div class="keyfigs" style="margin-top:32px;">
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Représentation</div>
+          <div class="keyfig-num">37<small>%</small></div>
+          <div class="keyfig-desc">se sentent bien représentés par leur syndicat sur les questions d'IA. Marge de progression élevée.</div>
+          <div class="keyfig-src">Obvia 2026 · n = 3 734</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Présence dans les décisions</div>
+          <div class="keyfig-num">29<small>%</small></div>
+          <div class="keyfig-desc">estiment que leur syndicat fait partie des décisions sur l'implantation de l'IA. Plus de la moitié dit le contraire.</div>
+          <div class="keyfig-src">Obvia 2026 · n = 4 292</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Effet transparence</div>
+          <div class="keyfig-num">+</div>
+          <div class="keyfig-desc">Plus le syndicat est impliqué dans les décisions IA, plus les travailleurs perçoivent une transparence accrue de l'employeur.</div>
+          <div class="keyfig-src">Corrélation positive Obvia 2026</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">→ Effet formation</div>
+          <div class="keyfig-num">+</div>
+          <div class="keyfig-desc">Plus le syndicat est impliqué, plus les employeurs offrent des formations sur l'IA à leur personnel.</div>
+          <div class="keyfig-src">Corrélation positive · n = 559</div>
+        </div>
+      </div>
+
+      <div class="source-card" style="margin-top:32px;">
+        <div class="source-card-meta">
+          <span class="source-tier t1">T1 · Recommandations</span>
+          <span class="source-date">Obvia · 12 recommandations</span>
+        </div>
+        <h3>Les douze recommandations que les COMEX français peuvent intégrer.</h3>
+
+        <div class="source-body">
+          <p>Le rapport Obvia formule douze recommandations à destination de trois acteurs : syndicats, employeurs, décideurs publics. <strong>Quatre méritent un examen direct par les directions générales et DRH françaises</strong> dans les 90 jours qui suivent la Semaine de l'IA pour Tous.</p>
+
+          <ul class="press-list">
+            <li><span class="num">R3</span><b>Accentuer la sensibilisation des collaborateurs</b> · La méconnaissance génère méfiance et insécurité d'emploi. Développer la littératie IA en interne. <i>Aligné direct avec l'objectif manifeste Semaine de l'IA.</i></li>
+            <li><span class="num">R5</span><b>Mettre en place une gouvernance participative</b> · Définir des mécanismes formels d'information, consultation et participation lors de l'implantation de systèmes d'IA. Pas un audit formel : un dialogue structuré.</li>
+            <li><span class="num">R6</span><b>Garantir transparence et redevabilité</b> · Communiquer sur les systèmes en place, leur logique, leurs critères de décision. La gestion algorithmique opaque est le principal facteur de défiance documenté.</li>
+            <li><span class="num">R9</span><b>Répliquer la logique des comités SST au domaine IA</b> · Le rapport suggère explicitement de calquer la régulation Santé et Sécurité au Travail sur les enjeux IA. C'est probablement la piste française la plus directement opérationnalisable, via le CSE.</li>
+          </ul>
+
+          <p style="margin-top:18px;"><strong>Pour la France ?</strong> Le sujet est encore peu présent dans les négociations de branche et les accords d'entreprise. Quelques accords signés en 2025-2026 (BPCE, Orange, La Poste, selon la presse spécialisée RH) commencent à intégrer des clauses IA. Mais aucune branche ne dispose à ce jour d'un cadre comparable à ce que propose Obvia. <strong>Le législateur, l'AI Act européen et les partenaires sociaux ont une fenêtre 2026-2027 pour structurer ce volet</strong> avant que les pratiques de fait ne s'installent.</p>
+
+          <div class="honest-box">
+            <div class="honest-label">⚠ Limite méthodologique inline</div>
+            <p>L'enquête Obvia porte sur le <b>contexte québécois</b>, dont le cadre des relations professionnelles diffère sensiblement du modèle français (négociations sectorielles vs négociations d'entreprise, rôle du CSE, place de la convention collective). Les corrélations entre présence syndicale et qualité du déploiement IA ne sont pas automatiquement transposables.</p>
+            <p>Aucune étude française d'ampleur comparable n'a été publiée à ce jour. Les enquêtes Dares sur les conditions de travail et la base ESEM-IA en préparation pourraient combler ce manque dans les 18 mois.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 07 · SCÉNARIOS À 18 MOIS ===== -->
+<section id="scenarios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 07 / Trajectoires</div>
+      <div>
+        <h2>Trois trajectoires possibles à 18 mois.</h2>
+        <p class="section-deck">Pas une prédiction chiffrée. Un cadre qualitatif pour structurer la veille, identifier les marqueurs à surveiller mois après mois, et adapter les décisions de COMEX, CODIR et négociation collective au fur et à mesure que les signaux se confirment ou se contredisent.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="scen-meth">
+        <b>→ Note méthodologique.</b> Les versions antérieures de ce briefing chiffraient les probabilités à 25%/55%/20%. <b>Ce dispatch les retire</b>, par souci d'honnêteté épistémique : aucune méthode Delphi formelle ni panel d'experts pondéré ne justifierait des chiffres aussi précis sur un horizon 18 mois en environnement turbulent. Les trois scénarios sont désormais présentés en termes qualitatifs (<i>plausible</i>, <i>central</i>, <i>signaux faibles à surveiller</i>) avec, pour chacun, les marqueurs observables qui permettront de confirmer ou d'infirmer en cours de route.
+      </div>
+
+      <div class="scen-grid">
+        <div class="scen">
+          <div class="scen-tag qual-h">Plausible</div>
+          <div class="scen-name">Scénario A · Augmentation</div>
+          <h4>La synthèse Serôdio l'emporte.</h4>
+          <p>L'augmentation domine la substitution dans la plupart des secteurs. Les ETI passent en production, les freins gouvernance se desserrent, les agents matures. Le signal Economist reste cantonné aux <i>tech grad</i> américains.</p>
+          <p style="font-size:12.5px; color:var(--tx-mut); margin-top:10px; font-family:'IBM Plex Mono', monospace;">→ Marqueurs à surveiller</p>
+          <ul>
+            <li>Stabilisation AI Act sur les cas d'usage clés</li>
+            <li>Baisse documentée des coûts d'inférence</li>
+            <li>Trajectoire emploi tech FR (Apec) sans rupture</li>
+            <li>Croissance VA des éditeurs SaaS français</li>
+          </ul>
+        </div>
+        <div class="scen">
+          <div class="scen-tag qual-m">Central</div>
+          <div class="scen-name">Scénario B · Bifurcation</div>
+          <h4>Bifurcation par taille et fonction.</h4>
+          <p>Grands groupes et ETI matures avancent ; PME stagnent ; TPE décrochent. L'écart adoption se polarise. Les filières exposées au RL (administration, finance, légal) restructurent en interne sans annoncer de plans sociaux.</p>
+          <p style="font-size:12.5px; color:var(--tx-mut); margin-top:10px; font-family:'IBM Plex Mono', monospace;">→ Marqueurs à surveiller</p>
+          <ul>
+            <li>Statu quo réglementaire dominant</li>
+            <li>Pénurie compétences persiste sur l'IA opérationnelle</li>
+            <li>ROI démontré sur 3-4 fonctions seulement</li>
+            <li>Dialogue social inégal selon les branches</li>
+          </ul>
+        </div>
+        <div class="scen">
+          <div class="scen-tag qual-l">Signaux faibles</div>
+          <div class="scen-name">Scénario C · Désillusion</div>
+          <h4>Désillusion partielle.</h4>
+          <p>Multiplication des échecs de POC, retours en arrière, gel d'investissements. Le signal Brynjolfsson / Economist se confirme côté français : les cohortes 2026-2027 entrent dans un marché du travail dégradé. Pression politique forte.</p>
+          <p style="font-size:12.5px; color:var(--tx-mut); margin-top:10px; font-family:'IBM Plex Mono', monospace;">→ Marqueurs à surveiller</p>
+          <ul>
+            <li>Recul des inscriptions en master tech FR</li>
+            <li>Mobilisation syndicale autour de l'IA</li>
+            <li>Reflux des budgets IA chez les ETI prudentes</li>
+            <li>Régulation accélérée par l'AI Act</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lede" style="margin-top:32px;">
+        <p>Le scénario B (Bifurcation) reste le plus cohérent avec ce que les sources françaises mesurées documentent à mai 2026. Mais l'accumulation des publications depuis avril 2026 · Economist, British Progress, SSRN, Obvia · fait remonter <strong>le poids relatif des marqueurs du scénario C</strong>. La question n'est pas de prédire lequel l'emportera : c'est d'identifier rapidement, dans les six à douze mois, lequel <i>commence à dominer</i> dans les remontées terrain de chaque organisation. Le facteur clé reste la capacité des organisations à articuler montée en compétences interne, gouvernance participative et choix souverains.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 08 · AGENDA 90 JOURS ===== -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 08 / Agenda</div>
+      <div>
+        <h2>Un agenda gouvernance <em>90 jours après la Semaine de l'IA</em>.</h2>
+        <p class="section-deck">Pour les COMEX, CODIR et DRH qui veulent transformer les cinq prochains mois en avantage organisationnel concret. Format inspiré des recommandations Obvia, complétées par les leviers spécifiques au cadre français.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="agenda">
+        <div class="agenda-block">
+          <div class="agenda-when">J+0 → J+30</div>
+          <div>
+            <h4>Cartographier l'exposition réelle, pas la perception.</h4>
+            <p>Premier mois post-Semaine de l'IA : objectiver. L'apport Obvia est ici décisif : ne pas se fier à l'auto-déclaration des salariés sur leur exposition à l'IA, qui sous-estime massivement la réalité.</p>
+            <ul>
+              <li>Audit des systèmes algorithmiques déjà en place (RH, planification, scoring, RAG métier)</li>
+              <li>Cartographie des tâches O*NET / ROME avec l'indice RL Feasibility en sus de l'indice Eloundou</li>
+              <li>Identification des fonctions à exposition élevée (cf. cluster Office &amp; Admin, Computer &amp; Mathematical, Business &amp; Financial)</li>
+              <li>Lecture comparative avec les observatoires publics transitions-ia.fr (FR) et observatoire.naullynicolas.ch (CH)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="agenda-block">
+          <div class="agenda-when">J+30 → J+60</div>
+          <div>
+            <h4>Structurer le dialogue social IA.</h4>
+            <p>Reprendre la recommandation R9 d'Obvia : répliquer la logique des comités Santé Sécurité au Travail sur les enjeux IA. La fenêtre 2026 est ouverte avant que les pratiques ne se figent. Le CSE est le cadre français le plus immédiatement mobilisable.</p>
+            <ul>
+              <li>Inscription de l'IA à l'ordre du jour du CSE / CSE-C</li>
+              <li>Information-consultation préalable sur les outils déployés (déjà obligatoire mais peu pratiqué)</li>
+              <li>Définition de critères de transparence et de redevabilité (cf. R6 Obvia)</li>
+              <li>Premier accord-cadre sur l'usage de l'IA générative en interne (modèles existants : BPCE 2025, Orange 2026)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="agenda-block">
+          <div class="agenda-when">J+60 → J+90</div>
+          <div>
+            <h4>Programme de sensibilisation interne large, pas réservé aux experts.</h4>
+            <p>Aligné direct avec la recommandation R3 d'Obvia et l'objectif gouvernemental de sensibiliser 2 millions de Français. L'enjeu n'est pas de former des experts IA, mais de doter chaque collaborateur d'une littératie de base pour comprendre les outils déployés autour de lui.</p>
+            <ul>
+              <li>Format Café IA interne (sur le modèle proposé par la Mission Café IA / DGE pour le grand public)</li>
+              <li>Diffusion de cas d'usage métier documentés, pas de démonstrations marketing</li>
+              <li>Identification de 50 à 100 ambassadeurs internes par grand site, formés en cascade</li>
+              <li>Mesure d'impact à 6 mois (taux d'usage réel, qualité perçue, niveau de défiance résiduelle)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="agenda-block">
+          <div class="agenda-when">J+90 → J+180</div>
+          <div>
+            <h4>Investir là où l'élasticité de demande est forte, ralentir ailleurs.</h4>
+            <p>L'argument Bessen, rappelé par Serôdio : où la demande répond fortement à une production moins chère, l'automatisation fait croître le marché plus vite qu'elle réduit l'emploi par unité. Là où la demande est rigide, les gains de productivité sortent par les têtes.</p>
+            <ul>
+              <li>Identifier les fonctions de l'entreprise où la demande est élastique (commercial, support client, contenu, conception)</li>
+              <li>Identifier les fonctions à demande rigide (back-office stable, conformité standardisée, reporting récurrent) · y prévoir les transitions internes</li>
+              <li>Définir une politique explicite de redéploiement plutôt que de réduction des effectifs (Scénario A possible si volonté)</li>
+              <li>Lancer le suivi des cohortes diplômées entrantes en 2026-2027 sur les filières exposées (signal Economist)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 09 · OBSERVATOIRES OUVERTS ===== -->
+<section id="observatoires">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 09 / Ressources</div>
+      <div>
+        <h2>Deux observatoires <em>publics et gratuits</em> pour aller plus loin.</h2>
+        <p class="section-deck">Au-delà de ce dispatch, deux outils éditoriaux indépendants permettent à toute organisation de creuser l'exposition de ses métiers à l'IA. Mise à jour mensuelle, accès libre, données croisées T1-T4.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="obs-grid">
+        <div class="obs-card">
+          <div class="obs-flag">🇫🇷 France</div>
+          <h4>transitions-ia.fr</h4>
+          <div class="obs-desc">97 métiers cartographiés selon les nomenclatures ROME et FAP. Croisement avec Eloundou, Anthropic Economic Index, Coface/OEM, Karger-Tetlock, Bick-Blandin-Deming. Dashboard interactif, exposition sectorielle, scénarios.</div>
+          <a href="https://transitions-ia.fr" class="obs-url" target="_blank" rel="noopener">transitions-ia.fr</a>
+        </div>
+        <div class="obs-card">
+          <div class="obs-flag">🇨🇭 Suisse</div>
+          <h4>observatoire.naullynicolas.ch</h4>
+          <div class="obs-desc">91 occupations cartographiées selon la nomenclature NP 2010. Interface trilingue FR/DE/IT. Treemap D3 des secteurs, diagnostic individuel « Mon Bilan Métier », données OFS / ESPA / ESS.</div>
+          <a href="https://observatoire.naullynicolas.ch" class="obs-url" target="_blank" rel="noopener">observatoire.naullynicolas.ch</a>
+        </div>
+      </div>
+
+      <div class="lede" style="margin-top:36px;">
+        <p>Ces deux observatoires sont éditorialement indépendants. Aucun partenaire commercial, aucun sponsor institutionnel ne participe à leur production. Ils sont mis à jour mensuellement avec les nouvelles publications académiques et institutionnelles. Tous les codes sources et données sont disponibles sur GitHub <a href="https://github.com/otakuch/transitions-ia.fr" target="_blank" rel="noopener" style="color:var(--ac); border-bottom:1px solid var(--ac); text-decoration:none;">otakuch/transitions-ia.fr</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== § 09.5 · LIMITES ===== -->
+<section id="limites">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 09.5 / Limites</div>
+      <div>
+        <h2>Ce que <em>ce dispatch ne fait pas</em>.</h2>
+        <p class="section-deck">L'honnêteté est ce qui distingue un dispatch éditorial indépendant d'un livre blanc marketing. Voici cinq limites assumées de cette publication, à garder en tête pour la lecture comme pour la décision.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <div class="limits-grid">
+        <div class="limit-card">
+          <h4>→ Limite 01 · Données nationales</h4>
+          <h3>Aucune des quatre sources nouvelles n'est française.</h3>
+          <p>Obvia (Québec), The Economist (États-Unis), British Progress (Royaume-Uni), AI Objectives Institute (États-Unis). Les ponts vers la France sont signalés comme <i>conjecturaux</i> à chaque endroit où ils apparaissent. La cause n'est pas un biais éditorial : c'est l'absence, à mi-2026, d'études françaises d'ampleur comparable couvrant les mêmes questions.</p>
+        </div>
+        <div class="limit-card">
+          <h4>→ Limite 02 · Statut probatoire</h4>
+          <h3>Une source mobilisée ici est un preprint.</h3>
+          <p>Le <i>RL Feasibility Index</i> (Moreira Tomei &amp; Klein Teeselink) est un preprint SSRN non encore peer-reviewé. Sa méthodologie utilise des annotateurs LLM, ce qui peut générer des biais corrélés à l'indice Eloundou auquel l'étude se compare. À traiter comme <i>signal de recherche prometteur</i>, pas comme classification validée.</p>
+        </div>
+        <div class="limit-card">
+          <h4>→ Limite 03 · Causalité</h4>
+          <h3>Les corrélations Obvia ne sont pas des causalités.</h3>
+          <p>L'étude trouve que la présence syndicale est associée à plus de transparence, plus de consultation, plus de formation. <i>Association</i>, pas <i>causation</i>. Il est possible que les organisations qui adoptent l'IA de manière transparente attirent ou suscitent davantage de présence syndicale, et non l'inverse. Les autrices et auteurs l'écrivent explicitement.</p>
+        </div>
+        <div class="limit-card">
+          <h4>→ Limite 04 · Débat ouvert</h4>
+          <h3>La question principale n'est pas tranchée.</h3>
+          <p><i>L'IA détruit-elle des emplois ?</i> Trois ans après ChatGPT, l'évidence empirique reste contradictoire selon les pays, les méthodes et les sources. Le dispatch met côte à côte des thèses opposées sans en désigner une gagnante. Le lecteur qui cherche une réponse unique sera déçu · c'est volontaire et c'est ce que disent les données.</p>
+        </div>
+        <div class="limit-card">
+          <h4>→ Limite 05 · Public cible</h4>
+          <h3>Ce dispatch est calibré pour décideurs alphabétisés en IA.</h3>
+          <p>Le vocabulaire (RL, β, T1-T4, ROME, FAP, ONS, ASHE) et la densité analytique ne le rendent pas immédiatement accessible aux publics que vise la Semaine de l'IA pour Tous. Une <i>version courte grand public</i> et une <i>version pouvoirs publics</i> dédiées sont en réflexion pour les éditions ultérieures.</p>
+        </div>
+        <div class="limit-card">
+          <h4>→ Limite 06 · Cadre temporel</h4>
+          <h3>Snapshot, pas tendance lourde.</h3>
+          <p>Les chiffres ici présentés sont datés (avril-mai 2026). Les marqueurs documentés peuvent évoluer rapidement : nouveaux modèles, nouvelles régulations, nouveaux travaux empiriques. Une mise à jour est prévue au T3 2026 ; les analyses doivent être relues à la lumière des publications postérieures à la date de mise en ligne.</p>
+        </div>
+      </div>
+
+      <div class="lede" style="margin-top:32px;">
+        <p>L'objectif n'est pas de tout résoudre dans un dispatch de cinq mille mots. C'est <strong>de poser les questions que personne ne pose</strong> dans les contenus dominants de la Semaine de l'IA pour Tous, et d'inviter à la confrontation avec les données nationales qui manquent. Si une étude française d'ampleur comparable à celles citées ici est en cours de publication, ou si une donnée précise mériterait d'être ajoutée, le signaler à l'éditeur : <a href="mailto:sayhi@naullynicolas.ch" style="color:var(--ac); border-bottom:1px solid var(--ac); text-decoration:none;">sayhi@naullynicolas.ch</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 10 · MÉTHODOLOGIE ===== -->
+<section id="methodologie">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 10 / Méthodologie</div>
+      <div>
+        <h2>Indépendance, sources, ratings de confiance.</h2>
+        <p class="section-deck">La transparence sur les sources et la méthodologie est un engagement éditorial constant. Ce dispatch suit le même protocole que tous les briefings de Veille Métiers IA.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <details class="method">
+        <summary>Indépendance éditoriale · point de vigilance</summary>
+        <div class="method-body">
+          <p><b>Ce dispatch est une initiative éditoriale strictement personnelle de Naully Nicolas.</b> Il n'a été ni commandé, ni relu, ni financé, ni en aucune façon influencé par les organisateurs de la <i>Semaine de l'IA pour Tous</i>. Aucun lien commercial, partenariat formel, ou contrepartie de quelque nature ne lie cette publication aux institutions citées ci-après.</p>
+          <p>Les institutions mentionnées sont citées pour information dans la mesure où la <i>Semaine de l'IA pour Tous</i> est l'événement français de référence pour la sensibilisation citoyenne à l'IA en mai 2026. Elles sont :</p>
+          <ul>
+            <li><b>La Mednum</b> · porteuse de l'événement (médiation numérique)</li>
+            <li><b>Make.org foundation</b> · co-porteuse (mobilisation citoyenne)</li>
+            <li><b>Mission Café IA</b> · Direction Générale des Entreprises (DGE)</li>
+            <li><b>Ministère de l'Économie, des Finances et de la Souveraineté industrielle et numérique</b> · soutien institutionnel</li>
+          </ul>
+          <p>Le choix des sources, des chiffres, des analyses et des recommandations relève de la responsabilité éditoriale exclusive de l'auteur. Aucune représentation officielle ne doit être déduite de la publication de ce dispatch dans le calendrier de la Semaine de l'IA pour Tous.</p>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary>Sources tiérées T1-T4 · classification</summary>
+        <div class="method-body">
+          <p><b>T1</b> · Recherche académique et institutionnelle. Méthodologie publique, peer review ou équivalent, intervalle de confiance documenté. Maximum de rigueur, minimum de biais commercial.</p>
+          <p><b>T2</b> · Cabinets internationaux à méthodologie publique (McKinsey MGI, BCG, WEF), institutions économiques (Bpifrance Le Lab, France Stratégie), grands titres de presse économique avec analyse propre (Economist, FT).</p>
+          <p><b>T3</b> · Études d'éditeurs et fournisseurs (Salesforce, IBM IBV, HubSpot). Utilisées avec décote pour biais commercial.</p>
+          <p><b>T4</b> · Presse économique généraliste, témoignages terrain. Utilisés en illustration uniquement, jamais comme preuve.</p>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary>Quatre sources nouvelles mobilisées dans ce dispatch</summary>
+        <div class="method-body">
+          <p><b>Sources principales nouvelles · publiées en 2026 ·</b> jamais croisées entre elles dans la littérature francophone à ce jour :</p>
+          <ul>
+            <li><b>The Economist · 13 mai 2026 · T2</b> · <i>Is AI putting graduates out of work already?</i> (« L'IA met-elle déjà les jeunes diplômés au chômage ? »). Analyse exclusive sur dix ans de sondages auprès des diplômés américains (NACE Survey + 13 universités).</li>
+            <li><b>Centre for British Progress · Pedro Serôdio · avril 2026 · T1/T2</b> · <i>AI and the UK labour market</i> (« L'IA et le marché du travail britannique »). Analyse sur quatre mesures d'exposition à l'IA, données ONS et ASHE. Fil Twitter / X de présentation : @pdmsero.</li>
+            <li><b>AI Objectives Institute · Moreira Tomei &amp; Klein Teeselink · 2026 · T1</b> · <i>What Jobs Can AI Learn? Measuring Exposure by Reinforcement Learning</i> (« Quels métiers l'IA peut-elle apprendre ? Mesurer l'exposition via l'apprentissage par renforcement »). Preprint SSRN. 17 951 tâches O*NET, 894 métiers, indice RL Feasibility.</li>
+            <li><b>Obvia (Observatoire international sur les impacts sociaux de l'IA) · Parent-Rocheleau et coll. · avril 2026 · T1</b> · <i>Cartographie de l'IA au travail : présence, usages et enjeux</i>. Enquête CRIART, n = 4 595, 11 organisations syndicales québécoises. DOI : 10.61737/HMZO8746.</li>
+          </ul>
+          <p style="margin-top:12px;"><b>Sources de référence transversales utilisées en complément :</b></p>
+          <ul>
+            <li>KPMG &amp; Les EnthousIAstes · <i>Trends of AI 2026</i>, 356 décideurs FR (janvier 2026)</li>
+            <li>AWS &amp; Strand Partners · <i>Unlocking France's AI Potential 2026</i> (avril 2026)</li>
+            <li>Adobe / Orange · <i>Digital Trends 2026</i> (février 2026)</li>
+            <li>Ifop x Converteo · <i>Usage de l'IA générative en France</i>, n = 1 051 (mars 2026)</li>
+            <li>Anthropic Economic Index 2026 (CC BY 4.0)</li>
+            <li>Eloundou et coll. NBER 2023 (β LLM exposure)</li>
+            <li>Brynjolfsson et coll. Stanford / NBER 2025 (Canaries in the Coal Mine)</li>
+            <li>Karger · Kuusela · Tetlock FRB Chicago 2026</li>
+            <li>Bick · Blandin · Deming St. Louis Fed / BPEA 2026</li>
+            <li>ILO Working Paper 140 · Gmyrek et coll. 2025</li>
+            <li>Baromètre du numérique 2025 (Arcom) et Observatoire Pix des compétences numériques 2025 · sources du manifeste Semaine de l'IA</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary>Ratings de confiance C1-C4</summary>
+        <div class="method-body">
+          <p><b>C1</b> · Convergence T1 multiple, méthodologie reproductible, intervalle de confiance publié.</p>
+          <p><b>C2</b> · Convergence T1 ou T2 multiple, méthodologie publique.</p>
+          <p><b>C3</b> · Source unique ou non-convergence partielle. Lecture prudente.</p>
+          <p><b>C4</b> · Indicatif uniquement, signal à confirmer.</p>
+          <p style="margin-top:12px;"><b>Note de prudence sur les sources nouvelles</b> : les quatre publications nouvelles mobilisées ici sont récentes (avril-mai 2026). Elles n'ont pas encore fait l'objet d'une convergence multi-sources, ce qui les classe la plupart en C2-C3. Leur intérêt analytique est élevé, mais leur statut probatoire doit être réévalué quand d'autres travaux indépendants viendront les confirmer ou les contester. Le dispatch les présente donc comme <i>signaux à surveiller</i>, pas comme vérités établies.</p>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary>Mise à jour, contact, signalement d'erreur</summary>
+        <div class="method-body">
+          <p>Ce dispatch est publié à l'occasion de la Semaine de l'IA pour Tous, du 18 au 24 mai 2026. Une mise à jour est prévue pour le T3 2026 si de nouvelles publications viennent compléter ou contredire le tableau présenté ici.</p>
+          <p>Pour signaler une erreur factuelle, proposer une source manquante, ou simplement échanger sur les analyses : <a href="mailto:sayhi@naullynicolas.ch" style="color:var(--ac); border-bottom:1px solid var(--ac); text-decoration:none;">sayhi@naullynicolas.ch</a>.</p>
+          <p>Le code source de ce dispatch et les données mobilisées sont disponibles sur demande pour audit ou réutilisation académique sous licence CC BY 4.0.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPEL PUBLIC · ÉDITORIAL ===== -->
+<section class="call-public" id="appel-public">
+  <div class="wrap">
+    <div class="call-public-grid">
+      <div>
+        <div class="call-kicker">→ Appel à contribution publique</div>
+        <h3>Une donnée française manque ? Une lecture mérite débat ?</h3>
+        <p>Ce dispatch a été produit avec quatre sources internationales parce qu'aucune étude française d'ampleur comparable n'est publiée à ce jour sur le décalage usage/exposition, l'impact sur les diplômés ou le dialogue social IA. Si vous connaissez un travail en cours, une publication récente que ce dispatch aurait dû citer, ou un angle qui mériterait d'être ouvert : la conversation est ouverte.</p>
+        <p>Statisticiens publics (Insee, Dares, France Stratégie), chercheurs (Céreq, Apec, Cnam, sciences sociales), partenaires sociaux, syndicats, fédérations professionnelles, OPCO, équipes ministérielles · tous les regards sont bienvenus. Ce dispatch est un point de départ, pas une conclusion.</p>
+        <p>→ <a href="mailto:sayhi@naullynicolas.ch?subject=Contribution%20au%20Dispatch%20Semaine%20de%20l%27IA" class="call-link">sayhi@naullynicolas.ch</a></p>
+      </div>
+      <div>
+        <div class="call-kicker">→ Réutilisation et diffusion</div>
+        <h3>Licence ouverte. Citez et adaptez.</h3>
+        <p>Ce dispatch est publié sous licence <b>Creative Commons CC BY 4.0</b>. Vous pouvez le citer, en extraire des chiffres et des graphiques, le traduire, l'adapter pour vos propres communications internes ou externes · à condition d'attribuer correctement la source à Naully Nicolas et de lier à l'URL originale.</p>
+        <p>Les observatoires <a href="https://transitions-ia.fr" target="_blank" rel="noopener" class="call-link">transitions-ia.fr</a> et <a href="https://observatoire.naullynicolas.ch" target="_blank" rel="noopener" class="call-link">observatoire.naullynicolas.ch</a> sont également en accès libre. Les jeux de données et le code source des dashboards sont disponibles sur <a href="https://github.com/otakuch" target="_blank" rel="noopener" class="call-link">GitHub</a>.</p>
+        <p>Pour signaler une coquille ou demander un correctif : même adresse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h5>→ À propos</h5>
+        <p><b style="color:var(--bg-dark)">Veille Métiers IA</b> est une publication éditoriale indépendante de Naully Nicolas, consultant et conférencier IA. Elle suit l'impact de l'intelligence artificielle sur les métiers et l'emploi en France et en Suisse romande.</p>
+        <p>Ce dispatch spécial a été publié à l'occasion de la première édition de la <i>Semaine de l'IA pour Tous</i>, du 18 au 24 mai 2026, sans aucun lien institutionnel ni commercial avec ses organisateurs.</p>
+      </div>
+      <div class="foot-col">
+        <h5>→ Observatoires</h5>
+        <ul>
+          <li><a href="https://transitions-ia.fr" target="_blank" rel="noopener">transitions-ia.fr</a></li>
+          <li><a href="https://observatoire.naullynicolas.ch" target="_blank" rel="noopener">observatoire.naullynicolas.ch</a></li>
+          <li><a href="https://naullynicolas.ch" target="_blank" rel="noopener">naullynicolas.ch</a></li>
+        </ul>
+        <h5 style="margin-top:24px;">→ Semaine de l'IA</h5>
+        <ul>
+          <li><a href="https://semaine-ia.fr" target="_blank" rel="noopener">semaine-ia.fr · site officiel</a></li>
+          <li><a href="https://semaine-ia.fr/le-manifeste-de-la-semaine-de-lia-pour-tous/" target="_blank" rel="noopener">Manifeste complet</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>→ Contact</h5>
+        <ul>
+          <li><a href="mailto:sayhi@naullynicolas.ch">sayhi@naullynicolas.ch</a></li>
+          <li><a href="https://www.linkedin.com/in/naullynicolas/" target="_blank" rel="noopener">LinkedIn · Naully Nicolas</a></li>
+        </ul>
+        <h5 style="margin-top:24px;">→ Code source</h5>
+        <ul>
+          <li><a href="https://github.com/otakuch" target="_blank" rel="noopener">github.com/otakuch</a></li>
+        </ul>
+        <h5 style="margin-top:24px;">→ Briefings sur-mesure</h5>
+        <p style="font-size:13px; line-height:1.5; color:var(--tx-sec);">Pour les fédérations, OPCO, COMEX et DRH qui souhaitent un briefing <i>Veille Métiers IA</i> calibré sur leur secteur ou périmètre : <a href="mailto:sayhi@naullynicolas.ch?subject=Briefing%20Veille%20Métiers%20IA%20sur-mesure" style="color:var(--ac); text-decoration:none; border-bottom:1px solid var(--ac);">cadrage 30 min</a>.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>Dispatch spécial #01 · Édition Semaine de l'IA · Mai 2026 · © Naully Nicolas</div>
+      <div>Indépendant · Non sponsorisé · CC BY 4.0</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+/* === PROGRESS BAR === */
+(function() {
+  const bar = document.getElementById('progress');
+  function update() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* === OBVIA SECTOR CHART (deferred, d3-guarded, console-safe) === */
+window.initObviaChart = function() {
+  // Guard: skip if d3 didn't load (CDN blocked, offline, slow network, etc.)
+  if (typeof d3 === 'undefined') {
+    try {
+      if (window.console && typeof window.console.info === 'function') {
+        window.console.info('d3 not loaded · OBVIA chart skipped, rendering fallback table.');
+      } else if (window.console && typeof window.console.log === 'function') {
+        window.console.log('d3 not loaded · OBVIA chart skipped, rendering fallback table.');
+      }
+    } catch (e) {}
+    var fallbackContainer = document.getElementById('obvia-chart');
+    if (fallbackContainer && fallbackContainer.parentNode) {
+      var fallback = document.createElement('div');
+      fallback.style.cssText = 'padding:24px;background:var(--bg-alt);border-radius:8px;font-family:\'Inter\',sans-serif;';
+      var rows = [
+        ['Éducation sup. & recherche', 78, 7,  15],
+        ['Télécoms & culture',         51, 22, 27],
+        ['Éducation',                  49, 22, 30],
+        ['Services',                   42, 22, 36],
+        ['Petite enfance',             39, 25, 37],
+        ['Santé & services sociaux',   34, 24, 42],
+        ['Public & parapublic',        33, 22, 45],
+        ['Industrie',                  30, 28, 42]
+      ];
+      var html = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--tx-mut);margin-bottom:14px;">Données OBVIA · pertinence IA par secteur · n=4 595 travailleurs syndiqués · QC</div>';
+      html += '<div style="display:flex;gap:14px;font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:var(--tx-sec);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em;">';
+      html += '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#f56476;border-radius:2px;"></span>Pertinent</span>';
+      html += '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#C9C2B5;border-radius:2px;"></span>Neutre</span>';
+      html += '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#003081;border-radius:2px;"></span>Non pertinent</span>';
+      html += '</div>';
+      rows.forEach(function(r) {
+        html += '<div style="display:grid;grid-template-columns:180px 1fr auto;align-items:center;gap:12px;margin-bottom:8px;font-size:12px;">';
+        html += '<span style="font-weight:500;color:var(--tx);">' + r[0] + '</span>';
+        html += '<div style="display:flex;height:22px;border-radius:3px;overflow:hidden;background:var(--bg);">';
+        html += '<div style="width:' + r[1] + '%;background:#f56476;display:flex;align-items:center;padding:0 6px;color:#fff;font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:600;">' + (r[1] >= 10 ? r[1] + '%' : '') + '</div>';
+        html += '<div style="width:' + r[2] + '%;background:#C9C2B5;display:flex;align-items:center;padding:0 6px;color:#1A1A1A;font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:600;">' + (r[2] >= 10 ? r[2] + '%' : '') + '</div>';
+        html += '<div style="width:' + r[3] + '%;background:#003081;display:flex;align-items:center;padding:0 6px;color:#fff;font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:600;">' + (r[3] >= 10 ? r[3] + '%' : '') + '</div>';
+        html += '</div>';
+        html += '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--tx-sec);min-width:36px;text-align:right;font-weight:600;">' + r[1] + '%</span>';
+        html += '</div>';
+      });
+      fallback.innerHTML = html;
+      fallbackContainer.parentNode.replaceChild(fallback, fallbackContainer);
+    }
+    return;
+  }
+  const svg = d3.select('#obvia-chart');
+  if (svg.empty()) return;
+
+  const data = [
+    { sector: 'Éducation sup. & recherche', oui: 78, neutre: 7,  non: 15 },
+    { sector: 'Télécoms & culture',         oui: 51, neutre: 22, non: 27 },
+    { sector: 'Éducation',                  oui: 49, neutre: 22, non: 30 },
+    { sector: 'Services',                   oui: 42, neutre: 22, non: 36 },
+    { sector: 'Petite enfance',             oui: 39, neutre: 25, non: 37 },
+    { sector: 'Santé & services sociaux',   oui: 34, neutre: 24, non: 42 },
+    { sector: 'Public & parapublic',        oui: 33, neutre: 22, non: 45 },
+    { sector: 'Industrie',                  oui: 30, neutre: 28, non: 42 }
+  ];
+
+  const container = svg.node().parentNode;
+  const W = container.clientWidth;
+  const H = 320;
+  const margin = { top: 10, right: 20, bottom: 30, left: 200 };
+  const w = W - margin.left - margin.right;
+  const h = H - margin.top - margin.bottom;
+
+  svg.attr('viewBox', `0 0 ${W} ${H}`).style('height', H + 'px');
+  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  const y = d3.scaleBand().domain(data.map(d => d.sector)).range([0, h]).padding(0.32);
+  const x = d3.scaleLinear().domain([0, 100]).range([0, w]);
+
+  // grid
+  [0, 20, 40, 60, 80, 100].forEach(v => {
+    g.append('line')
+      .attr('x1', x(v)).attr('x2', x(v))
+      .attr('y1', 0).attr('y2', h)
+      .attr('stroke', '#E5E0D8').attr('stroke-width', 1);
+    g.append('text')
+      .attr('x', x(v)).attr('y', h + 18)
+      .attr('text-anchor', 'middle')
+      .style('font-family', "'IBM Plex Mono', monospace")
+      .style('font-size', '10px')
+      .style('fill', '#8A8A8A')
+      .text(v + '%');
+  });
+
+  // bars stacked
+  const colors = { oui: '#f56476', neutre: '#C9C2B5', non: '#003081' };
+  data.forEach(d => {
+    let cumul = 0;
+    ['oui', 'neutre', 'non'].forEach(key => {
+      g.append('rect')
+        .attr('x', x(cumul))
+        .attr('y', y(d.sector))
+        .attr('width', x(d[key]))
+        .attr('height', y.bandwidth())
+        .attr('fill', colors[key]);
+      if (d[key] >= 10) {
+        g.append('text')
+          .attr('x', x(cumul) + x(d[key]) / 2)
+          .attr('y', y(d.sector) + y.bandwidth() / 2 + 4)
+          .attr('text-anchor', 'middle')
+          .style('font-family', "'IBM Plex Mono', monospace")
+          .style('font-size', '10px')
+          .style('font-weight', '600')
+          .style('fill', key === 'neutre' ? '#1A1A1A' : '#fff')
+          .text(d[key] + '%');
+      }
+      cumul += d[key];
+    });
+
+    // sector label
+    g.append('text')
+      .attr('x', -10)
+      .attr('y', y(d.sector) + y.bandwidth() / 2 + 4)
+      .attr('text-anchor', 'end')
+      .style('font-family', "'Inter', sans-serif")
+      .style('font-size', '12px')
+      .style('font-weight', '500')
+      .style('fill', '#1A1A1A')
+      .text(d.sector);
+  });
+};
+</script>
+
+</body>
+</html>

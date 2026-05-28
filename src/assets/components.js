@@ -256,10 +256,10 @@ function renderFooter() {
       <div class="foot-col foot-col-meta">
         <div class="foot-update mono">
           <span data-i18n="foot.lastupdate">${t("foot.lastupdate")}</span>
-          <strong>18 mai 2026</strong>
+          <strong>24 mai 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.45 · build 2026.05.18</div>
+        <div class="foot-version mono">v0.3.63 · build 2026.05.28</div>
       </div>
     </div>
     <div class="foot-bottom">
