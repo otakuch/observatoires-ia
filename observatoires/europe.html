@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>observatoire[s]·ia · Comprendre l'impact des IA sur le travail · Suisse & France</title>
-<meta name="description" content="524 métiers cartographiés, 14 observatoires institutionnels CH et FR référencés, données ouvertes CC BY 4.0. Une lecture factuelle plutôt qu'émotionnelle de l'impact des IA sur le travail.">
+<title>Dashboard Europe · observatoire[s]·ia</title>
+<meta name="description" content="Cartographie de l'impact des IA sur le travail dans les 27 pays de l'Union europeenne : adoption Eurostat, typologie regionale, exposition modelisee et AI Act.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -279,7 +279,7 @@ html[data-theme="dark"] body{ background:var(--paper); color:var(--ink); }
 /* DS:END */</style>
 <style>
 :root {
-  /* tokens fournis par le design system · alias local conservé */
+  /* tokens fournis par le design system · spécifiques page conservés */
   --ink-2: var(--ink-sec);
 }
 
@@ -2679,7 +2679,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   font-family: inherit;
   transition: background-color 0.2s;
 }
-.reinvent-trigger:hover { background-color: rgba(var(--signal-rgb), 0.03); }
+.reinvent-trigger:hover { background-color: rgba(208, 60, 47, 0.03); }
 
 .reinvent-num {
   font-family: "JetBrains Mono", monospace;
@@ -2792,7 +2792,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .reinvent-formation {
   margin: 18px 0 0 0;
   padding: 14px 18px;
-  background: rgba(var(--signal-rgb), 0.04);
+  background: rgba(208, 60, 47, 0.04);
   border-left: 2px solid var(--signal);
 }
 .reinvent-formation-label {
@@ -2894,7 +2894,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ============================================== */
 .dispatch-tease {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .dispatch-tease-inner {
@@ -3092,7 +3092,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .brief-role-pivot {
   border-left: 3px solid var(--signal);
   padding: 10px 14px 10px 16px;
-  background: rgba(var(--signal-rgb), 0.04);
+  background: rgba(208, 60, 47, 0.04);
   margin-bottom: 18px;
 }
 .brief-role-pivot-label {
@@ -3305,14 +3305,13 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ============================================== */
 .frame-section {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .frame-head {
-  max-width: none;
-  margin-bottom: 32px;
+  max-width: 760px;
+  margin-bottom: 40px;
 }
-.frame-head .frame-lede { max-width: 880px; }
 .frame-eyebrow {
   font-size: 11px;
   text-transform: uppercase;
@@ -3831,7 +3830,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ============================================== */
 .warning-section {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .warning-inner {
@@ -4102,7 +4101,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ============================================== */
 .debate-section {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .debate-head {
@@ -4990,7 +4989,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .brief-modal-scroll {
   flex: 1 1 auto;
   overflow: auto;
-  background: var(--surface);
+  background: #FAFAF7;
   padding: 36px 24px;
 }
 
@@ -5606,7 +5605,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ───────── DIFFUSION CHART (Microsoft AI Adoption) ───────── */
 .diffusion-section {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .diff-chart-wrap {
@@ -5688,7 +5687,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 /* ───────── EXPOSURE GAP CHART (Anthropic Economic Index) ───────── */
 .expgap-section {
   max-width: var(--max-w);
-  margin: 48px auto;
+  margin: 64px auto;
   padding: 0 32px;
 }
 .expgap-chart-wrap {
@@ -5803,24 +5802,70 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 @media (max-width: 720px) { .mobile-menu a.mobile-sub { font-size: 17px; } }
 /* ===== end Pays dropdown ===== */
 
-/* ===== phase 1 · accueil ===== */
-.stat-source{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.manifesto .manifesto-text + .manifesto-text{ margin-top: var(--s-5); }
+/* ===== Europe page · rich sections ===== */
+.eu-block{max-width:var(--maxw,1180px);margin:48px auto;padding:0 24px}
+.eu-block .eu-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,var(--teal));margin-bottom:10px}
+.eu-block h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;margin:0 0 12px;color:var(--ink,#15201d)}
+.eu-block .eu-lede{font-size:1rem;line-height:1.6;color:var(--muted,#4a574f);max-width:760px;margin:0 0 26px}
+.eu-block .eu-src{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted,#6b766f);margin-top:18px;letter-spacing:.02em}
+.eu-layer{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:14px}
+.eu-layer.l1{background:var(--teal);color:#fff}
+.eu-layer.l2{background:#B5732A;color:#fff}
+.eu-layer.core{background:#2d4a44;color:#fff}
+.eu-layer.reg{background:#3a3357;color:#fff}
+/* bars */
+.eu-bars{display:flex;flex-direction:column;gap:9px;margin:6px 0 4px}
+.eu-bar{display:grid;grid-template-columns:118px 1fr 64px;align-items:center;gap:12px}
+.eu-bar .eu-bar-lab{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink,#15201d)}
+.eu-bar .eu-bar-track{background:rgba(31,58,61,.08);border-radius:5px;height:20px;overflow:hidden}
+.eu-bar .eu-bar-fill{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#2d5a52,#4f8278)}
+.eu-bar.is-avg .eu-bar-fill{background:repeating-linear-gradient(45deg,var(--teal),var(--teal) 6px,#2d4a44 6px,#2d4a44 12px)}
+.eu-bar.is-low .eu-bar-fill{background:linear-gradient(90deg,#9aa39c,#b9c1ba)}
+.eu-bar .eu-bar-val{font-family:'IBM Plex Mono',monospace;font-size:.8rem;text-align:right;color:var(--ink,#15201d);font-weight:600}
+@media(max-width:560px){.eu-bar{grid-template-columns:92px 1fr 54px;gap:8px}.eu-bar .eu-bar-lab{font-size:.7rem}}
+.eu-subgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px}
+@media(max-width:760px){.eu-subgrid{grid-template-columns:1fr;gap:20px}}
+.eu-sub h3{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--teal));margin:0 0 12px}
+.eu-mini{display:flex;flex-direction:column;gap:7px}
+.eu-mini-row{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:.86rem;color:var(--ink,#15201d);padding-bottom:6px;border-bottom:1px solid rgba(31,58,61,.08)}
+.eu-mini-row b{font-family:'IBM Plex Mono',monospace}
+/* clusters */
+.eu-clusters{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+@media(max-width:760px){.eu-clusters{grid-template-columns:1fr}}
+.eu-cluster{border:1px solid rgba(31,58,61,.14);border-radius:12px;padding:20px 22px;background:rgba(255,255,255,.5)}
+.eu-cluster .eu-c-geo{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--muted,#6b766f);margin:6px 0 10px}
+.eu-cluster h3{font-family:'Fraunces',serif;font-size:1.18rem;margin:0;color:var(--ink,#15201d)}
+.eu-cluster p{font-size:.9rem;line-height:1.55;color:var(--muted,#4a574f);margin:0}
+/* quadrant */
+.eu-quad-wrap{margin:6px 0}
+.eu-quad-wrap svg{width:100%;height:auto;display:block}
+.eu-caveat{border-left:3px solid #B5732A;background:rgba(181,115,42,.06);padding:16px 20px;border-radius:0 10px 10px 0;margin-top:22px;font-size:.9rem;line-height:1.6;color:var(--ink,#2a332e)}
+/* timeline */
+.eu-tl{position:relative;margin:6px 0 0;padding-left:26px}
+.eu-tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:rgba(58,51,87,.25)}
+.eu-tl-item{position:relative;padding:0 0 22px 14px}
+.eu-tl-item:before{content:"";position:absolute;left:-23px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #3a3357}
+.eu-tl-item.is-now:before{background:#3a3357}
+.eu-tl-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:#3a3357;font-weight:600;letter-spacing:.03em}
+.eu-tl-lab{font-size:.92rem;line-height:1.5;color:var(--ink,#15201d);margin-top:3px}
+
+
+/* ===== phase 3 · europe · cta de fin ===== */
 .closing-cta{ border-top:1px solid var(--rule); padding: var(--s-8) 24px; }
-.closing-cta-inner{ max-width: var(--max-w); margin: 0 auto; }
+.closing-cta-inner{ max-width: var(--max-w); margin:0 auto; }
 .closing-cta .ds-lede{ margin-bottom: var(--s-5); }
 .closing-cta-actions{ display:flex; gap: var(--s-3); flex-wrap:wrap; }
 </style>
 <!-- Canonical & Social -->
-<link rel="canonical" href="https://observatoire.naullynicolas.ch/">
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/contact.html">
 <meta property="og:site_name" content="observatoire[s]·ia">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://observatoire.naullynicolas.ch/">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/contact.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@naullyn">
-<meta name="theme-color" content="#D03C2F">
+<meta name="theme-color" content="var(--signal)">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q52TZ7QT84"></script>
 <script>
@@ -5832,220 +5877,184 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 </head>
 <body>
 
-<nav class="nav" id="siteNav"><div class="nav-inner"><a href="index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
+<nav class="nav" id="siteNav"><div class="nav-inner"><a href="../index.html" class="logo" title="Retour à l'accueil">observatoire<span class="bracket">[s]</span><span class="dot">·</span>ia</a></div></nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1 class="hero-title" data-i18n="home.title" data-i18n-html="true"></h1>
-  <p class="hero-pitch" data-i18n="home.pitch"></p>
-  
-  <div class="cta-row">
-        <a href="observatoires/france.html" class="btn btn-primary">
-          <span data-i18n="home.cta.fr"></span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="observatoires/suisse.html" class="btn btn-primary">
-          <span data-i18n="home.cta.ch"></span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="observatoires/comparer.html" class="btn btn-secondary">
-          <span data-i18n="home.cta.cmp"></span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="observatoires/europe.html" class="btn btn-secondary">
-          <span data-i18n="home.cta.eu"></span>
-          <span class="arrow">→</span>
-        </a>
-      </div>
+<style>
+.eu-eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--signal);margin-bottom:12px;}
+.eu-kpis{max-width:var(--max-w);margin:0 auto 10px;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.eu-kpi{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:20px;}
+.eu-kpi-num{font-family:"Fraunces",serif;font-variation-settings:"opsz" 56,"SOFT" 0;font-size:30px;font-weight:500;color:var(--ink);line-height:1.1;}
+.eu-kpi-lab{font-size:13px;color:var(--ink-2);margin-top:8px;line-height:1.45;}
+.eu-note{max-width:880px;font-size:15px;line-height:1.65;color:var(--ink-2);}
+.eu-note strong{color:var(--ink);font-weight:600;}
+.eu-sections{max-width:var(--max-w);margin:10px auto 48px;padding:0 32px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.eu-card{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px;}
+.eu-card-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.08em;color:var(--signal);text-transform:uppercase;}
+.eu-card h3{font-family:"Fraunces",serif;font-variation-settings:"opsz" 56,"SOFT" 0;font-size:21px;font-weight:500;color:var(--ink);margin:0;}
+.eu-card p{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0;}
+.eu-soon{margin-top:6px;align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:4px 10px;}
+@media(max-width:980px){.eu-kpis{grid-template-columns:repeat(2,1fr);}.eu-sections{grid-template-columns:1fr;}}
+@media(max-width:560px){.eu-kpis{grid-template-columns:1fr;}}
+</style>
+
+<section class="dash-header">
+  <div class="eu-eyebrow" data-i18n="eu.eyebrow"></div>
+  <h1 class="dash-title" data-i18n="eu.title" data-i18n-html="true"></h1>
+  <p class="dash-lede" data-i18n="eu.lede"></p>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="stats-grid">
-    <div class="stat">
-      <div class="stat-num">65<span class="unit">%</span></div>
-      <div class="stat-label" data-i18n="home.stat1.label"></div>
-      <div class="stat-source mono">Focaldata × FT Wave 1 · avril 2026 <span class="ds-badge ds-badge--t2" data-tip="Enquête Focaldata pour le Financial Times · avril 2026">T2</span></div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24<span class="unit">%</span></div>
-      <div class="stat-label" data-i18n="home.stat2.label"></div>
-      <div class="stat-source mono">DemoSCOPE / Angestellte Schweiz · avril 2026 <span class="ds-badge ds-badge--t2" data-tip="Enquête DemoSCOPE pour Angestellte Schweiz · avril 2026">T2</span></div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">524</div>
-      <div class="stat-label" data-i18n="home.stat3.label"></div>
-      <div class="stat-source mono"><span data-i18n="home.stat3.source"></span> <span class="ds-badge ds-badge--t1" data-tip="Nomenclatures officielles · France Travail / OFS">T1</span></div>
-    </div>
-  </div>
+<section class="eu-kpis">
+  <div class="eu-kpi"><div class="eu-kpi-num" data-i18n="eu.kpi1num"></div><div class="eu-kpi-lab" data-i18n="eu.kpi1"></div></div>
+  <div class="eu-kpi"><div class="eu-kpi-num" data-i18n="eu.kpi2num"></div><div class="eu-kpi-lab" data-i18n="eu.kpi2"></div></div>
+  <div class="eu-kpi"><div class="eu-kpi-num" data-i18n="eu.kpi3num"></div><div class="eu-kpi-lab" data-i18n="eu.kpi3"></div></div>
+  <div class="eu-kpi"><div class="eu-kpi-num" data-i18n="eu.kpi4num"></div><div class="eu-kpi-lab" data-i18n="eu.kpi4"></div></div>
 </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-tag mono" data-i18n="home.manifesto.tag"></div>
-  <div class="manifesto-body">
-    <div class="manifesto-text" data-i18n="home.lede"></div>
-    <div class="manifesto-text" data-i18n="home.manifesto.text" data-i18n-html="true"></div>
-  </div>
+<section class="context-block">
+  <p class="eu-note" data-i18n="eu.note" data-i18n-html="true"></p>
 </section>
 
-
-<!-- CADRE ANALYTIQUE · 3 dimensions de lecture -->
-<section class="frame-section">
-  <div class="frame-head">
-    <div class="frame-eyebrow mono" data-i18n="home.frame.eyebrow"></div>
-    <h2 class="frame-title" data-i18n="home.frame.title" data-i18n-html="true"></h2>
-    <p class="frame-lede" data-i18n="home.frame.lede"></p>
+<!-- ===== COUCHE 1 · ADOPTION ===== -->
+<section class="eu-block">
+  <span class="eu-layer l1" data-i18n="eu.a.layer"></span>
+  <div class="eu-eyebrow" data-i18n="eu.a.eyebrow"></div>
+  <h2 data-i18n="eu.a.title"></h2>
+  <p class="eu-lede" data-i18n="eu.a.lede"></p>
+  <div class="eu-bars">
+    <div class="eu-bar "><span class="eu-bar-lab" title="Danemark">DK</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:93.3%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.dk"></span></div>
+    <div class="eu-bar "><span class="eu-bar-lab" title="Finlande">FI</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:84.0%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.fi"></span></div>
+    <div class="eu-bar "><span class="eu-bar-lab" title="Suède">SE</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:77.8%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.se"></span></div>
+    <div class="eu-bar "><span class="eu-bar-lab" title="Belgique">BE</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:76.7%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.be"></span></div>
+    <div class="eu-bar "><span class="eu-bar-lab" title="Luxembourg">LU</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:74.7%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.lu"></span></div>
+    <div class="eu-bar "><span class="eu-bar-lab" title="Pays-Bas">NL</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:73.8%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.nl"></span></div>
+    <div class="eu-bar is-avg"><span class="eu-bar-lab" title="Moyenne UE-27">EU27</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:44.4%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.eu"></span></div>
+    <div class="eu-bar is-low"><span class="eu-bar-lab" title="Bulgarie">BG</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:18.9%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.bg"></span></div>
+    <div class="eu-bar is-low"><span class="eu-bar-lab" title="Pologne">PL</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:18.6%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.pl"></span></div>
+    <div class="eu-bar is-low"><span class="eu-bar-lab" title="Roumanie">RO</span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:11.6%"></span></span><span class="eu-bar-val" data-i18n="eu.bar.ro"></span></div>
   </div>
-
-  <div class="frame-grid">
-
-    <article class="frame-card">
-      <div class="frame-card-icon">↑ → ↓</div>
-      <div class="frame-card-tag mono" data-i18n="home.frame.d1.tag"></div>
-      <h3 class="frame-card-title" data-i18n="home.frame.d1.title"></h3>
-      <p class="frame-card-body" data-i18n="home.frame.d1.body"></p>
-      <p class="frame-card-example" data-i18n="home.frame.d1.example" data-i18n-html="true"></p>
-    </article>
-
-    <article class="frame-card">
-      <div class="frame-card-icon">⌭</div>
-      <div class="frame-card-tag mono" data-i18n="home.frame.d2.tag"></div>
-      <h3 class="frame-card-title" data-i18n="home.frame.d2.title"></h3>
-      <p class="frame-card-body" data-i18n="home.frame.d2.body" data-i18n-html="true"></p>
-      <p class="frame-card-example" data-i18n="home.frame.d2.example" data-i18n-html="true"></p>
-    </article>
-
-    <article class="frame-card">
-      <div class="frame-card-icon">✦ ◉ ⬡</div>
-      <div class="frame-card-tag mono" data-i18n="home.frame.d3.tag"></div>
-      <h3 class="frame-card-title" data-i18n="home.frame.d3.title"></h3>
-      <p class="frame-card-body" data-i18n="home.frame.d3.body" data-i18n-html="true"></p>
-      <p class="frame-card-example" data-i18n="home.frame.d3.example" data-i18n-html="true"></p>
-    </article>
-
-    <article class="frame-card">
-      <div class="frame-card-icon">$$ → $$$</div>
-      <div class="frame-card-tag mono" data-i18n="home.frame.d4.tag"></div>
-      <h3 class="frame-card-title" data-i18n="home.frame.d4.title"></h3>
-      <p class="frame-card-body" data-i18n="home.frame.d4.body" data-i18n-html="true"></p>
-      <p class="frame-card-example" data-i18n="home.frame.d4.example" data-i18n-html="true"></p>
-    </article>
-
-  </div>
-
-  <div class="frame-footer">
-    <p class="frame-footer-text" data-i18n="home.frame.footer" data-i18n-html="true"></p>
-  </div>
-</section>
-
-
-<!-- TCO + SOUVERAINETÉ · 4e angle mort -->
-<section class="warning-section">
-  <div class="warning-inner">
-    <div class="warning-meta">
-      <span class="warning-tag mono" data-i18n="home.warn.tag"></span>
-      <span class="warning-num mono" data-i18n="home.warn.num"></span>
-    </div>
-    <h2 class="warning-title" data-i18n="home.warn.title" data-i18n-html="true"></h2>
-    <p class="warning-lede" data-i18n="home.warn.lede"></p>
-
-    <div class="warning-grid">
-      <div class="warning-card">
-        <div class="warning-card-icon mono">$</div>
-        <h3 class="warning-card-title" data-i18n="home.warn.c1.title"></h3>
-        <p class="warning-card-body" data-i18n="home.warn.c1.body" data-i18n-html="true"></p>
-        <p class="warning-card-source mono" data-i18n="home.warn.c1.source"></p>
-      </div>
-      <div class="warning-card">
-        <div class="warning-card-icon mono">⌖</div>
-        <h3 class="warning-card-title" data-i18n="home.warn.c2.title"></h3>
-        <p class="warning-card-body" data-i18n="home.warn.c2.body" data-i18n-html="true"></p>
-        <p class="warning-card-source mono" data-i18n="home.warn.c2.source"></p>
+  <p class="eu-src" data-i18n="eu.a.note"></p>
+  <div class="eu-subgrid">
+    <div class="eu-sub">
+      <h3 data-i18n="eu.a.size.title"></h3>
+      <div class="eu-bars">
+        <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.a.size.small"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:30.9%"></span></span><span class="eu-bar-val">17,0%</span></div>
+        <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.a.size.med"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:55.3%"></span></span><span class="eu-bar-val">30,4%</span></div>
+        <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.a.size.large"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:100%"></span></span><span class="eu-bar-val">55,0%</span></div>
       </div>
     </div>
-
-    <p class="warning-footer" data-i18n="home.warn.footer" data-i18n-html="true"></p>
-  </div>
-</section>
-
-
-<!-- DÉBAT STRUCTURANT · Apocalypse vs Réfutation -->
-<section class="debate-section">
-  <div class="debate-head">
-    <div class="debate-eyebrow mono" data-i18n="home.debate.eyebrow"></div>
-    <h2 class="debate-title" data-i18n="home.debate.title" data-i18n-html="true"></h2>
-    <p class="debate-lede" data-i18n="home.debate.lede"></p>
-  </div>
-
-  <div class="debate-grid">
-
-    <article class="debate-col debate-col-thesis">
-      <div class="debate-col-tag mono" data-i18n="home.debate.t.tag"></div>
-      <h3 class="debate-col-title" data-i18n="home.debate.t.title"></h3>
-      <p class="debate-col-quote" data-i18n="home.debate.t.quote" data-i18n-html="true"></p>
-      <ul class="debate-col-points">
-        <li data-i18n="home.debate.t.p1" data-i18n-html="true"></li>
-        <li data-i18n="home.debate.t.p2" data-i18n-html="true"></li>
-        <li data-i18n="home.debate.t.p3" data-i18n-html="true"></li>
-      </ul>
-      <p class="debate-col-source mono" data-i18n="home.debate.t.source"></p>
-    </article>
-
-    <article class="debate-col debate-col-antithesis">
-      <div class="debate-col-tag mono" data-i18n="home.debate.a.tag"></div>
-      <h3 class="debate-col-title" data-i18n="home.debate.a.title"></h3>
-      <p class="debate-col-quote" data-i18n="home.debate.a.quote" data-i18n-html="true"></p>
-      <ul class="debate-col-points">
-        <li data-i18n="home.debate.a.p1" data-i18n-html="true"></li>
-        <li data-i18n="home.debate.a.p2" data-i18n-html="true"></li>
-        <li data-i18n="home.debate.a.p3" data-i18n-html="true"></li>
-      </ul>
-      <p class="debate-col-source mono" data-i18n="home.debate.a.source"></p>
-    </article>
-
-  </div>
-
-  <div class="debate-takeaway">
-    <p data-i18n="home.debate.takeaway" data-i18n-html="true"></p>
-  </div>
-</section>
-
-
-<!-- LATEST FROM FIELD REPORT -->
-<section class="field-report">
-  <div class="section-eyebrow mono" data-i18n="home.veille.eyebrow"></div>
-  <h2 class="section-title" data-i18n="home.veille.title"></h2>
-  <p class="section-sub" data-i18n="home.veille.sub"></p>
-  <div class="field-grid" id="fieldGrid"></div>
-  <div style="margin-top: 40px;">
-    <a href="veille.html" class="btn btn-secondary">
-      <span data-i18n="home.veille.cta"></span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-</section>
-
-<!-- LE DISPATCH·iA TEASE · last published dispatch -->
-<section class="dispatch-tease">
-  <div class="dispatch-tease-inner">
-    <div class="dispatch-tease-meta">
-      <span class="dispatch-tease-tag mono" data-i18n="home.dispatch.tag"></span>
-      <span class="dispatch-tease-num mono" data-i18n="home.dispatch.num"></span>
-    </div>
-    <h2 class="dispatch-tease-title" data-i18n="home.dispatch.title" data-i18n-html="true"></h2>
-    <p class="dispatch-tease-lede" data-i18n="home.dispatch.lede"></p>
-    <div class="dispatch-tease-actions">
-      <a href="briefings/dispatch-006.html" class="btn btn-primary">
-        <span data-i18n="home.dispatch.read"></span>
-        <span class="arrow">→</span>
-      </a>
-      <a href="briefings.html" class="btn btn-secondary">
-        <span data-i18n="home.dispatch.allcta"></span>
-      </a>
+    <div class="eu-sub">
+      <h3 data-i18n="eu.a.sector.title"></h3>
+      <div class="eu-mini">
+        <div class="eu-mini-row"><span data-i18n="eu.a.sec.ict"></span><b>62,5%</b></div>
+        <div class="eu-mini-row"><span data-i18n="eu.a.sec.prof"></span><b>40,4%</b></div>
+        <div class="eu-mini-row"><span data-i18n="eu.a.sec.realestate"></span><b>24,8%</b></div>
+        <div class="eu-mini-row"><span data-i18n="eu.a.sec.constr"></span><b>10,8%</b></div>
+      </div>
     </div>
   </div>
+  <p class="eu-src" data-i18n="eu.a.src"></p>
+</section>
+
+<!-- ===== CŒUR · TYPOLOGIE 4 CLUSTERS ===== -->
+<section class="eu-block">
+  <span class="eu-layer core" data-i18n="eu.t.layer"></span>
+  <div class="eu-eyebrow" data-i18n="eu.t.eyebrow"></div>
+  <h2 data-i18n="eu.t.title"></h2>
+  <p class="eu-lede" data-i18n="eu.t.lede"></p>
+  <div class="eu-clusters">
+    <div class="eu-cluster"><h3 data-i18n="eu.t.c1.name"></h3><div class="eu-c-geo" data-i18n="eu.t.c1.geo"></div><p data-i18n="eu.t.c1.desc"></p></div>
+    <div class="eu-cluster"><h3 data-i18n="eu.t.c2.name"></h3><div class="eu-c-geo" data-i18n="eu.t.c2.geo"></div><p data-i18n="eu.t.c2.desc"></p></div>
+    <div class="eu-cluster"><h3 data-i18n="eu.t.c3.name"></h3><div class="eu-c-geo" data-i18n="eu.t.c3.geo"></div><p data-i18n="eu.t.c3.desc"></p></div>
+    <div class="eu-cluster"><h3 data-i18n="eu.t.c4.name"></h3><div class="eu-c-geo" data-i18n="eu.t.c4.geo"></div><p data-i18n="eu.t.c4.desc"></p></div>
+  </div>
+  <p class="eu-src" data-i18n="eu.t.src"></p>
+</section>
+
+<!-- ===== COUCHE 2 · LECTURE D'EXPOSITION ===== -->
+<section class="eu-block">
+  <span class="eu-layer l2" data-i18n="eu.x.layer"></span>
+  <div class="eu-eyebrow" data-i18n="eu.x.eyebrow"></div>
+  <h2 data-i18n="eu.x.title"></h2>
+  <p class="eu-lede" data-i18n="eu.x.lede"></p>
+  <div class="eu-quad-wrap">
+      <svg viewBox="0 0 700 420" role="img" aria-label="Quadrant exposition vs adoption">
+        <rect x="70" y="20" width="600" height="340" fill="rgba(31,58,61,.03)" stroke="rgba(31,58,61,.18)"/>
+        <line x1="370" y1="20" x2="370" y2="360" stroke="rgba(31,58,61,.12)" stroke-dasharray="4 4"/>
+        <line x1="70" y1="190" x2="670" y2="190" stroke="rgba(31,58,61,.12)" stroke-dasharray="4 4"/>
+        <!-- modelled exposure band (range, not a point) -->
+        <rect x="70" y="120" width="600" height="140" fill="rgba(181,115,42,.10)"/>
+        <text x="80" y="113" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#B5732A" data-i18n="eu.xq.band"></text>
+        <!-- axes -->
+        <text x="370" y="395" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12" fill="#4a574f" data-i18n="eu.xq.xax"></text>
+        <text x="40" y="190" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12" fill="#4a574f" transform="rotate(-90 40 190)" data-i18n="eu.xq.yax"></text>
+        <!-- conceptual cluster zones -->
+        <text x="220" y="80" text-anchor="middle" font-family="'Fraunces',serif" font-size="14" fill="#2d4a44" data-i18n="eu.xq.z1"></text>
+        <text x="220" y="98" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b766f" data-i18n="eu.xq.z1b"></text>
+        <text x="520" y="80" text-anchor="middle" font-family="'Fraunces',serif" font-size="14" fill="#2d4a44" data-i18n="eu.xq.z2"></text>
+        <text x="520" y="98" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b766f">DK · FI · SE · NL</text>
+        <text x="520" y="348" text-anchor="middle" font-family="'Fraunces',serif" font-size="14" fill="#2d4a44" data-i18n="eu.xq.z3"></text>
+        <text x="520" y="364" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b766f">DE · AT · CZ</text>
+        <circle cx="600" cy="150" r="34" fill="rgba(79,130,120,.35)" stroke="#2d5a52"/>
+        <circle cx="180" cy="230" r="20" fill="rgba(154,163,156,.35)" stroke="#9aa39c"/>
+        <circle cx="500" cy="280" r="42" fill="rgba(79,130,120,.25)" stroke="#2d5a52"/>
+        <text x="640" y="375" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#6b766f" data-i18n="eu.xq.cap"></text>
+      </svg>
+  </div>
+  <div class="eu-subgrid">
+    <div class="eu-sub"><h3 data-i18n="eu.x.mgi.title"></h3><p style="font-size:.9rem;line-height:1.55;color:var(--muted,#4a574f);margin:0" data-i18n="eu.x.mgi"></p></div>
+    <div class="eu-sub"><h3 data-i18n="eu.x.ecb.title"></h3><p style="font-size:.9rem;line-height:1.55;color:var(--muted,#4a574f);margin:0" data-i18n="eu.x.ecb"></p></div>
+  </div>
+  <p class="eu-caveat" data-i18n="eu.x.caveat"></p>
+  <p class="eu-src" data-i18n="eu.x.src"></p>
+</section>
+
+<!-- ===== PILIER · AI ACT ===== -->
+<section class="eu-block">
+  <span class="eu-layer reg" data-i18n="eu.r.layer"></span>
+  <div class="eu-eyebrow" data-i18n="eu.r.eyebrow"></div>
+  <h2 data-i18n="eu.r.title"></h2>
+  <p class="eu-lede" data-i18n="eu.r.lede"></p>
+  <div class="eu-subgrid">
+    <div class="eu-sub">
+      <h3 data-i18n="eu.r.tl.title"></h3>
+      <div class="eu-tl">
+      <div class="eu-tl-item"><div class="eu-tl-date" data-i18n="eu.r.t1d"></div><div class="eu-tl-lab" data-i18n="eu.r.t1l"></div></div>
+      <div class="eu-tl-item"><div class="eu-tl-date" data-i18n="eu.r.t2d"></div><div class="eu-tl-lab" data-i18n="eu.r.t2l"></div></div>
+      <div class="eu-tl-item"><div class="eu-tl-date" data-i18n="eu.r.t3d"></div><div class="eu-tl-lab" data-i18n="eu.r.t3l"></div></div>
+      <div class="eu-tl-item is-now"><div class="eu-tl-date" data-i18n="eu.r.t4d"></div><div class="eu-tl-lab" data-i18n="eu.r.t4l"></div></div>
+      <div class="eu-tl-item"><div class="eu-tl-date" data-i18n="eu.r.t5d"></div><div class="eu-tl-lab" data-i18n="eu.r.t5l"></div></div>
+      </div>
+    </div>
+    <div class="eu-sub">
+      <h3 data-i18n="eu.r.work.title"></h3>
+      <p style="font-size:.9rem;line-height:1.6;color:var(--muted,#4a574f);margin:0 0 16px" data-i18n="eu.r.work"></p>
+      <h3 data-i18n="eu.r.dialogue.title"></h3>
+      <p style="font-size:.9rem;line-height:1.6;color:var(--muted,#4a574f);margin:0" data-i18n="eu.r.dialogue"></p>
+    </div>
+  </div>
+  <p class="eu-src" data-i18n="eu.r.src"></p>
+</section>
+
+<!-- ===== FREINS À L'ADOPTION ===== -->
+<section class="eu-block">
+  <span class="eu-layer l1" data-i18n="eu.f.layer"></span>
+  <div class="eu-eyebrow" data-i18n="eu.f.eyebrow"></div>
+  <h2 data-i18n="eu.f.title"></h2>
+  <p class="eu-lede" data-i18n="eu.f.lede"></p>
+  <div class="eu-bars">
+    <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.f.b1" style="width:auto"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:70.9%"></span></span><span class="eu-bar-val" data-i18n="eu.f.b1v"></span></div>
+    <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.f.b2"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:52.5%"></span></span><span class="eu-bar-val" data-i18n="eu.f.b2v"></span></div>
+    <div class="eu-bar"><span class="eu-bar-lab" data-i18n="eu.f.b3"></span><span class="eu-bar-track"><span class="eu-bar-fill" style="width:48.8%"></span></span><span class="eu-bar-val" data-i18n="eu.f.b3v"></span></div>
+  </div>
+  <p class="eu-src" data-i18n="eu.f.src"></p>
+</section>
+
+<!-- ===== SOURCES & MÉTHODOLOGIE ===== -->
+<section class="eu-block">
+  <div class="eu-eyebrow" data-i18n="eu.m.eyebrow"></div>
+  <h2 data-i18n="eu.m.title"></h2>
+  <p class="eu-lede" data-i18n="eu.m.body" data-i18n-html="true"></p>
 </section>
 
 <!-- CTA DE FIN · conversion discrète -->
@@ -6055,8 +6064,8 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     <h2 class="ds-title" data-i18n="home.close.title"></h2>
     <p class="ds-lede" data-i18n="home.close.lede"></p>
     <div class="closing-cta-actions">
-      <a class="ds-cta" href="contact.html"><span data-i18n="home.close.cta1"></span></a>
-      <a class="ds-cta ds-cta--secondary" href="methodologie.html"><span data-i18n="home.close.cta2"></span></a>
+      <a class="ds-cta" href="../contact.html"><span data-i18n="home.close.cta1"></span></a>
+      <a class="ds-cta ds-cta--secondary" href="../methodologie.html"><span data-i18n="home.close.cta2"></span></a>
     </div>
   </div>
 </section>
@@ -6695,293 +6704,347 @@ window.setupBriefActions = setupBriefActions;
 <script>
 window.PAGE_I18N = {
   fr: {
-    "home.cta.cmp": "Comparer",
-    "home.cta.eu": "Europe",
     "home.close.eyebrow": "Pour votre organisation",
     "home.close.title": "Mettre ces données au service de vos décisions.",
     "home.close.lede": "Un échange direct sur vos métiers, vos enjeux de gouvernance IA et les données qui les éclairent. Sans engagement.",
     "home.close.cta1": "Échanger sur votre organisation",
     "home.close.cta2": "Lire la méthodologie",
-    "home.eyebrow": "",
-    "home.title": "Ce que <em>les IA</em> font vraiment au travail<span class=\"accent-bracket\">.</span>",
-    "home.pitch": "Les IA ne menacent pas tous les métiers de la même façon. Ce n'est pas la même IA qui affecte un radiologue, un journaliste et un chauffeur. Et tous les métiers exposés ne sont pas sous pression : certains en bénéficient.",
-    "home.lede": "On entend tout et son contraire sur l'impact des IA sur l'emploi. Effondrement annoncé d'un côté, révolution productive de l'autre, et entre les deux les actifs essaient de décider de leur formation et de leur trajectoire. Le problème n'est pas le manque de données : les chiffres existent, dispersés entre une douzaine d'institutions, en plusieurs langues, sous autant de méthodologies. Cet observatoire les rassemble, les traduit, et les croise pour permettre une lecture factuelle plutôt qu'émotionnelle. Et parce que l'IA générative, l'IA discriminative et le machine learning ne produisent pas les mêmes effets sur les mêmes métiers, chaque chiffre est ici tagué par type d'IA.",
-    "home.cta.ch": "Observatoire Suisse",
-    "home.cta.fr": "Observatoire France",
-    "home.stat1.label": "des actifs UK+US ont déjà utilisé l'IA au travail. Mais moins d'1/5 quotidiennement.",
-    "home.stat2.label": "des grandes entreprises suisses ont introduit l'IA. Contre 9% pour les TPE : l'asymétrie est suisse.",
-    "home.stat3.label": "métiers cartographiés (200 ROME France + 324 NP 2010 Suisse). Données ouvertes.",
-    "home.stat3.source": "ROME 4.0 · NP 2010 OFS · CC BY 4.0",
-    "home.manifesto.tag": "¶ Manifeste",
-    "home.manifesto.text": "<p>Parler de « l'IA » au singulier est une commodité de langage qui produit des erreurs d'analyse. <strong>L'IA générative</strong> qui rédige un mail n'a pas le même impact qu'<strong>une IA discriminative</strong> qui trie des CV, ni qu'<strong>un système de machine learning</strong> qui optimise une chaîne logistique. Confondre ces familles, c'est se condamner à des prédictions imprécises et à des politiques publiques mal calibrées. C'est pourquoi chaque chiffre publié ici est explicitement tagué par type d'IA, et pourquoi nous parlons des <em>IA</em>, au pluriel.</p><p>Le second postulat de cet observatoire est plus simple : <strong>une seule source ne suffit jamais</strong>. La DARES quantifie l'exposition des emplois français à l'IA générative. France Travail mesure les tensions de recrutement. L'EPFL AI Center documente l'adoption en entreprise. L'OFS recense les postes vacants suisses. Coface modélise les risques sectoriels. Le Yale Budget Lab tracke mensuellement l'effet emploi américain. Le Financial Times publie son tracker Workforce AI. Aucune de ces sources, prise isolément, ne donne la vue d'ensemble. <em>Toutes ensemble, croisées et confrontées, elles permettent un tableau plus juste</em>, à la fois sur ce que les IA peuvent faire et ce qu'elles ne font pas.</p><p>L'observatoire ne cherche ni à rassurer ni à inquiéter. Il cherche à <strong>réduire la part émotionnelle du débat</strong> en redonnant aux actifs, aux responsables RH, aux décideurs publics et aux chercheurs un terrain partagé sur lequel raisonner. Tous les chiffres sont sourcés, traçables jusqu'à la publication primaire, et publiés en données ouvertes sous licence CC BY 4.0.</p>",
-
-    "home.frame.eyebrow": "Cadre analytique · 4 dimensions de lecture",
-    "home.frame.title": "Lire un métier face aux IA, c'est <em>croiser quatre axes</em>.",
-    "home.frame.lede": "Un score d'exposition isolé ne suffit jamais à décider. L'observatoire croise quatre dimensions complémentaires : trajectoire de demande, secteur relationnel, type d'IA et coût réel d'opération.",
-    "home.frame.d1.tag": "01 · Trajectoire de demande",
-    "home.frame.d1.title": "L'exposition ne prédit pas la trajectoire.",
-    "home.frame.d1.body": "Un métier très exposé peut voir sa demande augmenter si l'IA enrichit les ménages qui dépensent davantage dans ces services. Le score d'exposition seul est insuffisant pour anticiper la pression réelle sur l'emploi. Trois profils possibles : demande en hausse (soins, hospitalité, artisanat, formation, services personnels), demande stable (droit, architecture, management, ingénierie), pression baissière (saisie, contenu générique, traitement administratif).",
-    "home.frame.d1.example": "Exemple : un cuisinier gastronomique à 6/10 d'exposition est dans une meilleure position qu'un analyste crédit à 7/10. La différence vient de l'effet-revenu, pas de la capacité technique de l'IA (Imas & Comin, 2026).",
-
-    "home.frame.d2.tag": "02 · Secteur relationnel",
-    "home.frame.d2.title": "L'IA crée aussi des gagnants.",
-    "home.frame.d2.body": "Les métiers à forte nécessité humaine relationnelle (soins, hospitalité haut de gamme, artisanat, thérapie, formation, performance vivante) bénéficient structurellement de la transition IA. Quand l'IA baisse le coût des biens standardisés, les ménages réallouent leur budget vers la présence et l'attention humaines. Ce n'est pas « protégé de l'IA », c'est <em>bénéficiaire indirect</em> de l'IA via l'effet-revenu.",
-    "home.frame.d2.example": "Exemple : un éducateur·trice social·e (3/10 d'exposition) ne se contente pas d'être épargné. Sa demande structurelle augmente à mesure que l'IA enrichit les ménages investissant dans l'accompagnement humain.",
-
-    "home.frame.d3.tag": "03 · Type d'IA",
-    "home.frame.d3.title": "Toutes les IA n'affectent pas les mêmes métiers.",
-    "home.frame.d3.body": "Trois familles d'IA aux impacts très différents. <strong>L'IA générative</strong> (LLMs) affecte les métiers de production de contenu, de synthèse, de rédaction et de code standard. <strong>L'IA spécialisée</strong> (machine learning sur données structurées) affecte les métiers de détection, scoring et classification. <strong>La robotique IA</strong> affecte les métiers physiques répétitifs. Confondre ces familles fausse toute décision RH ou stratégique.",
-    "home.frame.d3.example": "Exemple : un radiologue n'est pas affecté par ChatGPT, il l'est par des modèles de vision entraînés sur des millions d'images médicales. Tableau détaillé sur la page <a href=\"methodologie.html\">Méthodologie</a>.",
-
-    "home.warn.tag": "Mise en garde · 4e angle mort",
-    "home.warn.num": "Court terme vs long terme · gouvernance des coûts et de la donnée",
-    "home.warn.title": "Le récit « IA = baisse mécanique des coûts » <em>ne tient déjà plus</em>.",
-    "home.warn.lede": "Réduire des postes en s'appuyant sur des prix par token bas peut donner l'illusion d'une économie immédiate. Mais deux dynamiques que les organisations sous-estiment encore renversent l'équation à 24-36 mois : l'envolée du coût total de possession (TCO) et la question de la souveraineté juridictionnelle des données. Ce sont les deux angles morts qui transforment un projet IA rentable sur le papier en passif technologique.",
-
-    "home.warn.c1.title": "Coûts cachés : Gartner prédit une sous-estimation de 500% à 1000%",
-    "home.warn.c1.body": "Le prix par token n'est qu'une couche du coût réel. Le <strong>coût total de possession (TCO)</strong> inclut l'orchestration, l'intégration, la gouvernance, la supervision humaine, l'évaluation, la vérification, la gestion des escalades et la refonte organisationnelle (Tomer 2026). Gartner prédit que d'ici 2030, le coût par résolution GenAI dans le service client dépassera 3$, plus cher que les agents humains offshore B2C. Trois facteurs structurels : explosion des coûts data centers, fin des prix subventionnés vers la rentabilité chez les éditeurs, complexité croissante des cas d'usage. <strong>72% des CIO interrogés par Gartner indiquent un breakeven ou une perte sur leurs investissements IA.</strong> 50% des projets GenAI sont abandonnés après PoC. 90% des CIO disent que la gestion des coûts limite désormais la valeur tirée de l'IA.",
-    "home.warn.c1.source": "Sources · Gartner Predicts 2026 · Singh Tomer 2026 · IBM",
-
-    "home.warn.c2.title": "Souveraineté : où vivent vos données, qui les juge",
-    "home.warn.c2.body": "Pour une organisation européenne, choisir un fournisseur LLM n'est plus seulement technique ou économique. C'est une décision de gouvernance. Les hyperscalers américains ne peuvent pas garantir une infrastructure sous juridiction européenne, ce qui crée un risque réglementaire (RGPD, NIS2, EU AI Act) et un risque de vendor lock-in. <strong>Mistral AI</strong> a levé en mars 2026 830 millions de dollars de dette auprès de 7 banques européennes pour 200 MW de capacité de calcul européenne en 2027. Côté Suisse, <strong>Apertus</strong> (EPFL, ETH Zurich, CSCS, septembre 2025) est le premier LLM public fully open conforme à l'EU AI Act et à la LPD suisse, hébergé par Swisscom. L'écosystème souverain européen 2026 (Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn) est devenu une option crédible, et pour les industries régulées, un prérequis.",
-    "home.warn.c2.source": "Sources · European Business Magazine · EPFL · ETH Zurich · Index.dev",
-
-    "home.warn.footer": "<strong>Conséquence concrète pour les COMEX et les directions RH.</strong> Les arbitrages d'aujourd'hui sur la substitution de postes par IA doivent intégrer dès le cadrage le TCO réel à 36 mois et le risque de souveraineté. Les Dispatches sectoriels d'observatoire[s]·ia traitent ces deux dimensions sur les périmètres concrets (banque, cadres, horlogerie premium). Les ressources sources sont en accès libre.",
-
-    "home.debate.eyebrow": "Le débat structurant 2026",
-    "home.debate.title": "Apocalypse ou réfutation : <em>deux récits, deux corpus de preuves</em>.",
-    "home.debate.lede": "En 2026, le débat public sur l'IA et l'emploi se structure autour de deux thèses irréconciliables. Les CEO IA annoncent une élimination massive et imminente. Les économistes du travail et les données empiriques racontent une autre histoire. Les deux corpus existent, sont vérifiables, et arrivent à des conclusions contradictoires. Voici comment l'observatoire les met côte à côte.",
-
-    "home.debate.t.tag": "Thèse · L'apocalypse de l'emploi",
-    "home.debate.t.title": "« 50% des cols blancs juniors disparus en 1 à 5 ans »",
-    "home.debate.t.quote": "<em>« L'essentiel du travail de bureau, où vous êtes assis devant un ordinateur en tant qu'avocat, comptable, chef de projet ou marketeur, sera entièrement automatisé par une IA dans les 12 à 18 prochains mois. »</em>",
-    "home.debate.t.p1": "<strong>Dario Amodei (Anthropic, mai 2025 puis Davos janvier 2026)</strong> annonce sur Fox News que l'IA éliminera jusqu'à 50% des cols blancs juniors en finance, conseil, droit et tech d'ici 1 à 5 ans, avec un taux de chômage qui pourrait atteindre 10 à 20%.",
-    "home.debate.t.p2": "<strong>Mustafa Suleyman (Microsoft AI, FT 2026)</strong> va plus loin : « la plupart des tâches de col blanc seront automatisées dans les 12 à 18 prochains mois ». Argument du moat : les vagues d'automatisation précédentes offraient des secteurs adjacents pour absorber les déplacés. L'IA frappe simultanément tous les secteurs cognitifs.",
-    "home.debate.t.p3": "<strong>Jamie Dimon (JPMorgan, février 2026)</strong> compare l'impact de l'IA à celui de l'électricité et avertit : 150 000 employés JPMorgan utilisent déjà des LLM hebdomadairement. <strong>Jack Dorsey (Block, février 2026)</strong> licencie 4 000 personnes (40% des effectifs) en attribuant explicitement à l'IA. <strong>Writer & Workplace Intelligence (avril 2026, 2 400 répondants dont la France)</strong> documente le revers empirique côté entreprises : <strong>69% annoncent des licenciements liés à l'IA</strong>, dont <strong>60% spécifiquement pour les non-adoptants</strong>, et <strong>48% considèrent leur adoption IA comme un échec majeur</strong> (vs 34% un an plus tôt).",
-    "home.debate.t.source": "Sources · Axios, Fox News, Financial Times, conférences CEO 2025-2026",
-
-    "home.debate.a.tag": "Antithèse · La tâche n'est pas le métier",
-    "home.debate.a.title": "Les données empiriques contredisent le récit Silicon Valley",
-    "home.debate.a.quote": "<em>« Presque toutes les entreprises qui licencient invoquent l'IA, que ce soit réellement à propos de l'IA ou non. »</em>",
-    "home.debate.a.p1": "<strong>Luis Garicano (LSE, avril 2026)</strong> formalise le bundles framework. Cas canonique : agents de voyage. Emploi -60% depuis 2000, mais salaires hebdomadaires moyens passés de 87% à 99% de la moyenne du secteur privé. Frey & Osborne 2013 prédisaient 94% d'automatisation des comptables : le BLS recense aujourd'hui 1,6 million de comptables actifs avec une croissance projetée de +5%.",
-    "home.debate.a.p2": "<strong>Washington Post (1er mai 2026)</strong> et <strong>NYT Opinion (3 mai 2026)</strong> documentent que Amazon, Google et Meta ont aujourd'hui à peu près le même nombre d'employés qu'en 2022, malgré 700 milliards de dollars de CapEx IA. Marc Andreessen (board Meta) et Sam Altman (CEO OpenAI) reconnaissent publiquement l'AI-washing.",
-    "home.debate.a.p3": "<strong>Goldfarb (Toronto Rotman, NBER WP 34639, avril 2026)</strong> formalise les O-ring tasks : automatiser une tâche complémentaire AUGMENTE la valeur des tâches humaines restantes. <strong>Microsoft AI Diffusion Q1 2026</strong> documente que les développeurs US sont à 2,2 millions (+8,5% en 2025, record historique). <strong>Trammell (Stanford Digital Economy Lab, mars 2026)</strong> théorise la part durable du travail humain via les biens « human-intrinsic ». <strong>Oxford Economics (janvier 2026)</strong> qualifie les preuves d'une perturbation IA de « patchwork au mieux ». Chômage US à 4,4%, bien en dessous des pics européens des années 1990. <em>The Economist (leader, 14 mai 2026)</em> publie en contrepoint un appel alarmiste à se préparer à une apocalypse de l'emploi cols blancs, principalement adossé à la baisse documentée de 13% de l'emploi des 22-25 ans dans les métiers exposés (Stanford via Dallas Fed). La cartographie traite cette divergence non comme une contradiction à arbitrer, mais comme deux lectures complémentaires de la même réalité : stabilité agrégée du marché américain, recomposition pour les jeunes diplômés.",
-    "home.debate.a.source": "Sources · Garicano (Silicon Continent), Trammell (Stanford), WaPo, NYT, Oxford Economics, Wharton · Goldfarb NBER 34639 · Imas/Shukla · Microsoft AI Diffusion · Gallup Workforce",
-
-    "home.debate.takeaway": "<strong>Posture de l'observatoire face à ce débat.</strong> Les deux corpus sont importants. Mais ils ne s'équivalent pas méthodologiquement. Les annonces des CEO IA sont des prédictions stratégiques (et parfois des outils de communication produit). Les travaux de Garicano, Trammell, Yale Budget Lab et NBER w35110 sont des analyses empiriques contradictoires soumises à la revue par les pairs. Pour un comité de direction, calibrer un plan de transformation sur la première catégorie sans confronter à la seconde, c'est arbitrer dans le bruit. La vocation de cette cartographie est de fournir le terrain de comparaison. <strong>Writer & Workplace Intelligence (avril 2026)</strong> ajoute une nuance décisive : le désordre actuel n'est pas une apocalypse de l'emploi, c'est un <strong>désordre organisationnel généralisé</strong>. 79% des entreprises peinent à adopter l'IA, 75% des executives reconnaissent que leur stratégie IA est « plus pour la galerie » que pour guider, 67% rapportent une fuite de données via une IA non autorisée, et 29% des employés (44% des Gen Z) admettent saboter activement la stratégie IA. La cartographie traite ce constat comme un signal de gouvernance · pas comme une preuve de destruction de l'emploi.",
-
-    "home.frame.d4.tag": "04 · Coût total de possession",
-    "home.frame.d4.title": "Le prix par token n'est pas le coût réel.",
-    "home.frame.d4.body": "Comparer le prix d'un token au salaire humain est l'erreur la plus répandue dans les COMEX en 2026. <strong>Gartner</strong> mesure que les organisations sous-estiment leurs coûts GenAI réels d'un facteur 5 à 10. Le coût total inclut l'orchestration, l'intégration, la gouvernance, le monitoring et le redesign organisationnel. Pour les organisations francophones, s'ajoute la « taxe linguistique » : le français consomme +60% de tokens vs anglais.",
-    "home.frame.d4.example": "Exemple : Gartner prédit que le coût par résolution GenAI dépassera 3$ d'ici 2030, au-dessus des agents humains offshore. 72% des CIO rapportent un break-even ou des pertes sur leurs investissements IA.",
-
-    "home.frame.footer": "<strong>Trois travaux récents valident ce cadre.</strong> <em>Garicano (Silicon Continent, avril 2026)</em> formalise le concept de <strong>bundle de tâches</strong> : un métier n'est pas la somme de ses tâches automatisables, c'est ce qui reste quand la commodity disparaît. Cas canonique : les agents de voyage ont vu leur emploi reculer de 60% depuis 2000, mais leurs salaires hebdomadaires sont passés de 87% à 99% de la moyenne du secteur privé. La machine a pris la partie faible du bundle, leur a laissé la partie forte. <em>Goldfarb (Toronto Rotman, NBER WP 34639, avril 2026)</em> approfondit avec le cadre <strong>O-ring tasks</strong> : les tâches au sein d'un job sont complémentaires plutôt que substituables, donc automatiser une tâche AUGMENTE la valeur des tâches humaines restantes. <em>Imas (Chicago Booth, mars 2026)</em> ajoute la <strong>dimensionnalité du job</strong> comme variable critique : les jobs basses dimensions (peu de tâches) sont massivement plus exposés que les jobs hautes dimensions. <em>Trammell (Stanford Digital Economy Lab, mars 2026)</em> apporte la formalisation théorique : une préférence même très faible pour les biens human-intrinsic (concert vivant, soin direct, performance) suffit à maintenir la part durable du travail élevée. <em>Microsoft AI Diffusion Q1 2026, NYT et Washington Post (mai 2026)</em> rappellent les données macro : chômage US à 4,4%, capex IA à 700 milliards, développeurs US 2,2 millions (+8,5%, record historique), mais effectif global tech qui ne se contracte pas. Le récit Silicon Valley d'apocalypse de l'emploi ne se vérifie pas dans les statistiques. La cartographie applique ces validations au quotidien : tout score d'exposition est lu en regard du bundle restant, du caractère O-ring du job, de sa dimensionnalité, du caractère human-intrinsic du métier, et des données macro disponibles. <strong>Trois publications de mai 2026 viennent renforcer cette grille.</strong> <em>Lombard Odier (Strobaek & Dumur, 22 avril 2026)</em> rappelle quatre siècles d'évidence : la technologie remodèle les tâches plus qu'elle ne détruit les emplois · <strong>60% des emplois américains actuels relèvent de professions qui n'existaient pas en 1940</strong> (Autor MIT), et la Corée déploie <strong>plus de 100 robots industriels pour 1 000 ouvriers</strong> avec un chômage inférieur à 3%. <em>McKinsey Global Institute (Agents, robots, and us · Europe, mai 2026)</em> documente que <strong>58% des heures de travail européennes</strong> sont théoriquement automatisables, mais que <strong>70% des compétences restent pertinentes</strong> en partenariat avec agents et robots. <em>OBVIA Québec (Parent-Rocheleau et al., avril 2026 · 4 595 syndiqués)</em> confirme l'écart entre usage individuel (60%) et déploiement organisationnel (41%), avec seulement <strong>15% de confiance totale</strong> en l'IA et 60% de littératie IA faible ou moyenne · l'enjeu n'est pas l'apocalypse, c'est la gouvernance. <em>Writer & Workplace Intelligence (avril 2026, 2 400 répondants dont la France)</em> élargit ce cadre côté entreprises : l'écart entre adoption (97% des executives ont déployé des agents IA) et transformation effective (29% seulement voient un ROI significatif) confirme que <strong>l'enjeu de la décennie est la gouvernance, pas le déploiement</strong>.",
-
-    "home.dash.eyebrow": "Deux dashboards · une méthodologie",
-    "home.dash.title": "Choisissez votre territoire.",
-    "home.dash.sub": "Chaque pays a sa propre architecture institutionnelle, ses propres taxonomies, ses propres rythmes. Deux dashboards dédiés, plus une vue comparative pour croiser les regards.",
-    "home.ch.flag": "Suisse · CH",
-    "home.ch.title": "Dashboard Suisse",
-    "home.ch.obs": "observatoires",
-    "home.ch.domains": "domaines couverts",
-    "home.ch.desc": "Confédération, OFS, SEFRI, EPFL AI Center, Digital Switzerland. L'écosystème suisse, accessible en un coup d'œil.",
-    "home.ch.cta": "Explorer le dashboard CH",
-    "home.fr.flag": "France · FR",
-    "home.fr.title": "Dashboard France",
-    "home.fr.obs": "observatoires",
-    "home.fr.domains": "domaines couverts",
-    "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. La galaxie française des observatoires emploi et IA.",
-    "home.fr.cta": "Explorer le dashboard FR",
-    "home.cmp.title": "Comparer les deux",
-    "home.cmp.systems": "modèles · Suisse et France",
-    "home.cmp.question": "même question · l'impact des IA",
-    "home.cmp.desc": "Là où la valeur ajoutée du projet apparaît : un dashboard transfrontalier qui croise les nomenclatures, les méthodologies et les chiffres pour que les bonnes pratiques d'un côté nourrissent l'autre.",
-    "home.cmp.cta": "Voir la comparaison",
-    "home.veille.eyebrow": "Veille · Avril 2026",
-    "home.veille.title": "Les rapports à lire ce mois-ci.",
-    "home.veille.sub": "Sélection des publications les plus structurantes des 30 derniers jours.",
-    "home.veille.cta": "Voir toute la veille",
-
-    "home.dispatch.tag": "Dernière dépêche",
-    "home.dispatch.num": "Le Dispatch·iA · #006 · mai 2026",
-    "home.dispatch.title": "L'IA dans les entreprises suisses · <em>état des lieux 2026</em>.",
-    "home.dispatch.lede": "Combien d'entreprises suisses utilisent vraiment l'IA en 2026 ? Plutôt qu'un chiffre unique, ce numéro croise les dernières enquêtes suisses pour distinguer adoption déclarée, effective et stratégique. À destination des COMEX, CODIR et DRH.",
-    "home.dispatch.read": "Lire la dépêche",
-    "home.dispatch.allcta": "Voir toutes les dépêches"
+    "eu.eyebrow": "Observatoire · Union européenne · 27 États membres",
+    "eu.title": "L'impact des IA sur le travail, <em>lu à l'échelle des Vingt-Sept</em>.",
+    "eu.lede": "Une lecture à deux couches : les données dures et harmonisées d'Eurostat sur l'adoption, et une lecture d'exposition modélisée présentée en fourchettes. Aucun score d'exposition n'est affiché comme un point fixe.",
+    "eu.kpi1num": "20,0%",
+    "eu.kpi1": "des entreprises de l'UE-27 (10+ salariés) utilisent l'IA · Eurostat, année 2025",
+    "eu.kpi2num": "5,2 à 42,0%",
+    "eu.kpi2": "écart entre la Roumanie et le Danemark sur l'adoption entreprises",
+    "eu.kpi3num": "+6,5 pts",
+    "eu.kpi3": "de progression en un an · 13,5% en 2024",
+    "eu.kpi4num": "août 2026",
+    "eu.kpi4": "entrée en application de l'AI Act · pilier réglementaire paneuropéen",
+    "eu.note": "<strong>Deux strates de données, jamais confondues.</strong> La couche 1 (contexte et adoption) s'appuie sur l'enquête ICT entreprises d'Eurostat, harmonisée sur les 27 États membres : c'est la référence comparable. La couche 2 (exposition et impact emploi) repose sur des scores modélisés, transposés d'O*NET, dont l'ILO et Yin, Vu et Persico rappellent l'instabilité (variance jusqu'à 3,6× selon le modèle). Elle est donc affichée en fourchettes, avec sa mise en garde. En Europe, les professions plus exposées ont d'ailleurs vu leur part d'emploi augmenter sur 2011-2019 (Albanesi et al., BCE) : exposition n'égale pas destruction.",
+    "eu.soon": "En intégration · v2",
+    "eu.xq.band": "fourchette d'exposition modélisée · couche 2",
+    "eu.xq.xax": "Adoption entreprises · Eurostat (axe dur) →",
+    "eu.xq.yax": "Exposition modélisée →",
+    "eu.xq.z1": "Périphérie est / sud",
+    "eu.xq.z1b": "faible adoption",
+    "eu.xq.z2": "Centres high-tech",
+    "eu.xq.z3": "Cœur manufacturier",
+    "eu.xq.cap": "bulle ∝ main-d'œuvre · positions indicatives",
+    "eu.a.layer": "Couche 1 · Données dures",
+    "eu.a.eyebrow": "Adoption des entreprises · Eurostat ICT, année 2025",
+    "eu.a.title": "Une zone à deux vitesses, d'abord par la taille.",
+    "eu.a.lede": "20,0% des entreprises de l'UE-27 (10 salariés et plus) utilisent l'IA en 2025, contre 13,5% un an plus tôt. Mais la moyenne masque un écart de 1 à 8 entre les Vingt-Sept.",
+    "eu.bar.dk": "42,0%",
+    "eu.bar.fi": "37,8%",
+    "eu.bar.se": "35,0%",
+    "eu.bar.be": "34,5%",
+    "eu.bar.lu": "33,6%",
+    "eu.bar.nl": "33,2%",
+    "eu.bar.eu": "20,0%",
+    "eu.bar.bg": "8,5%",
+    "eu.bar.pl": "8,4%",
+    "eu.bar.ro": "5,2%",
+    "eu.a.note": "Valeurs confirmées par les communiqués Eurostat (DDN-20251211-2). Les 18 autres États membres · dont l'Allemagne, la France, l'Italie et l'Espagne · ne figurent pas encore dans les communiqués Eurostat.",
+    "eu.a.size.title": "Le vrai clivage · par taille d'entreprise",
+    "eu.a.size.small": "Petites (10-49)",
+    "eu.a.size.med": "Moyennes (50-249)",
+    "eu.a.size.large": "Grandes (250+)",
+    "eu.a.sector.title": "Concentration sectorielle",
+    "eu.a.sec.ict": "Information et communication",
+    "eu.a.sec.prof": "Services scientifiques et techniques",
+    "eu.a.sec.realestate": "Activités immobilières",
+    "eu.a.sec.constr": "Construction",
+    "eu.a.src": "Source · Eurostat, enquête ICT entreprises (isoc_eb_ai), année de référence 2025, publiée décembre 2025 · T1.",
+    "eu.t.layer": "Cœur analytique",
+    "eu.t.eyebrow": "Typologie · 4 clusters plutôt qu'un faux score unique",
+    "eu.t.title": "Quatre Europes, pas une.",
+    "eu.t.lede": "Agréger 27 marchés du travail en un chiffre moyen efface l'essentiel. Nous lisons la zone en quatre archétypes structurels, dont la posture face à l'IA diffère par nature, pas seulement par degré.",
+    "eu.t.c1.name": "Centres de services high-tech et de capital",
+    "eu.t.c1.geo": "Danemark · Finlande · Suède · Pays-Bas · Luxembourg · Irlande",
+    "eu.t.c1.desc": "Adoption la plus forte (33 à 42%), économies de services et de finance, forte densité de talents numériques. L'enjeu y est l'industrialisation des usages, pas l'amorce. Exposition cognitive élevée mais capacité de recomposition la plus forte.",
+    "eu.t.c2.name": "Cœur manufacturier avancé",
+    "eu.t.c2.geo": "Allemagne · Autriche · Tchéquie · Slovénie · Italie du Nord",
+    "eu.t.c2.desc": "Industrie de précision et robotique déjà installées. L'IA s'y greffe sur l'automatisation physique existante. Exposition concentrée sur les fonctions support, l'ingénierie et la qualité plutôt que sur l'atelier.",
+    "eu.t.c3.name": "Périphérie sud",
+    "eu.t.c3.geo": "Espagne · Italie (sud) · Portugal · Grèce · Chypre · Malte",
+    "eu.t.c3.desc": "Tissu de PME et de très petites structures, poids du tourisme et des services à la personne. Adoption modérée, frein principal de compétences. Forte part d'emplois relationnels structurellement résistants.",
+    "eu.t.c4.name": "Périphérie est",
+    "eu.t.c4.geo": "Pologne · Roumanie · Bulgarie · Hongrie · Slovaquie · Croatie · Baltes",
+    "eu.t.c4.desc": "Adoption la plus basse (5 à 9% au bas de l'échelle), mais croissance rapide et coût du travail qui modifie l'équation d'automatisation. Les États baltes font figure d'exception, plus proches du cluster nordique.",
+    "eu.t.src": "Lecture analytique de l'observatoire (T3), adaptée de la littérature sur les clusters régionaux européens et calibrée sur les données d'adoption Eurostat 2025.",
+    "eu.x.layer": "Couche 2 · Modélisée · fourchettes",
+    "eu.x.eyebrow": "Lecture d'exposition · jamais un point fixe",
+    "eu.x.title": "Ce que l'IA pourrait toucher, en fourchette.",
+    "eu.x.lede": "L'adoption (axe horizontal) est dure et comparable. L'exposition (axe vertical) est modélisée et instable : nous l'affichons en bande, pas en point. Les positions ci-dessous sont indicatives, calibrées sur l'adoption Eurostat et la typologie.",
+    "eu.x.mgi.title": "Couche modélisée · McKinsey MGI Europe (2026)",
+    "eu.x.mgi": "58% des heures de travail européennes théoriquement automatisables ; la part d'emplois exigeant des compétences IA est passée de 4-10% à 10-27% en deux ans ; mais 70% des compétences restent pertinentes, utilisées autrement. Recomposition, pas remplacement.",
+    "eu.x.ecb.title": "Contrepoint empirique · BCE",
+    "eu.x.ecb": "Sur 2011-2019, les professions les plus exposées à l'IA ont vu leur part d'emploi augmenter en Europe, pas baisser (Albanesi et al., BCE). L'exposition mesure un potentiel technique, pas une destruction observée.",
+    "eu.x.caveat": "Mise en garde · les scores d'exposition dérivés d'O*NET varient jusqu'à 3,6× selon le modèle LLM interrogé (Yin, Vu et Persico, NBER WP 35110), et l'OIT rappelle qu'exposition n'égale pas prédiction de perte d'emploi. Aucun chiffre de cette couche ne doit être lu comme une projection actionnable à cinq ans.",
+    "eu.x.src": "Sources · McKinsey Global Institute Europe (mai 2026), Albanesi et al. (BCE), Yin/Vu/Persico (NBER WP 35110), OIT · T1-T2.",
+    "eu.r.layer": "Pilier réglementaire",
+    "eu.r.eyebrow": "AI Act · la dimension authentiquement paneuropéenne",
+    "eu.r.title": "Le seul cadre qu'aucune page pays ne porte.",
+    "eu.r.lede": "Premier régime horizontal de l'IA au monde, l'AI Act structure le marché européen par phases. Son application principale · août 2026 · est le repère central pour les directions RH et juridiques.",
+    "eu.r.tl.title": "Calendrier d'application",
+    "eu.r.t1d": "1 août 2024",
+    "eu.r.t1l": "Entrée en vigueur du règlement.",
+    "eu.r.t2d": "2 février 2025",
+    "eu.r.t2l": "Interdiction des pratiques à risque inacceptable ; obligation de littératie IA des personnels.",
+    "eu.r.t3d": "2 août 2025",
+    "eu.r.t3l": "Obligations pour les modèles d'usage général (GPAI) et gouvernance.",
+    "eu.r.t4d": "2 août 2026",
+    "eu.r.t4l": "Application générale, dont les systèmes à haut risque de l'Annexe III (emploi, RH, éducation).",
+    "eu.r.t5d": "2 août 2027",
+    "eu.r.t5l": "Haut risque intégré à des produits déjà régulés (Annexe I).",
+    "eu.r.work.title": "Ce qui change pour le travail",
+    "eu.r.work": "Les systèmes IA de recrutement, d'évaluation et de gestion des travailleurs sont classés à haut risque : évaluation de conformité, transparence, supervision humaine et information des salariés deviennent obligatoires. La littératie IA des équipes est une obligation, pas une option.",
+    "eu.r.dialogue.title": "Dialogue social · par pays",
+    "eu.r.dialogue": "L'application repose sur les autorités nationales et le dialogue social, très inégal selon les pays : accords d'entreprise pionniers dans les pays nordiques, cadre encore émergent dans la périphérie. Eurofound documente cette hétérogénéité.",
+    "eu.r.src": "Sources · Règlement (UE) 2024/1689 (AI Act), Commission européenne, Eurofound · T1.",
+    "eu.f.layer": "Couche 1 · Données dures",
+    "eu.f.eyebrow": "Freins · pourquoi les non-adoptants n'y vont pas",
+    "eu.f.title": "Le frein numéro un est humain, pas technique.",
+    "eu.f.lede": "Parmi les entreprises de l'UE-27 ayant envisagé l'IA sans l'adopter, les motifs de renoncement, dans l'ordre :",
+    "eu.f.b1": "Manque d'expertise",
+    "eu.f.b1v": "70,9%",
+    "eu.f.b2": "Conséquences juridiques floues",
+    "eu.f.b2v": "52,5%",
+    "eu.f.b3": "Protection des données",
+    "eu.f.b3v": "48,8%",
+    "eu.f.src": "Source · Eurostat, isoc_eb_ai 2025 · 14,2% des non-adoptants avaient envisagé l'IA · T1.",
+    "eu.m.eyebrow": "Transparence",
+    "eu.m.title": "Sources et méthodologie",
+    "eu.m.body": "Cette page assume deux strates jamais confondues. <strong>Couche 1</strong> (adoption, taille, secteur, freins) : enquête ICT entreprises d'Eurostat, harmonisée sur les 27 États membres, année de référence 2025 · T1, comparable. <strong>Couche 2</strong> (exposition, impact emploi) : scores modélisés transposés d'O*NET, affichés en fourchettes avec leur caveat · T1-T2. Tiering T1-T4 et notes de confiance C1-C4 appliqués à toutes les sorties.",
+    "eu.cl.title": "Lire à l'échelle nationale",
+    "eu.cl.desc": "L'échelle européenne donne le cadre. Les décisions se prennent au niveau national.",
+    "eu.cl.fr": "Observatoire France",
+    "eu.cl.ch": "Observatoire Suisse",
+    "eu.s1.tag": "Couche 1 · Données dures",
+    "eu.s1.title": "Adoption des entreprises",
+    "eu.s1.desc": "Choroplèthe UE-27 avec sélecteur d'indicateur : adoption IA par pays, par taille, par secteur. Source Eurostat ICT entreprises, année de référence 2025 (datasets isoc_eb_ai, isoc_eb_ain2).",
+    "eu.s2.tag": "Cœur analytique",
+    "eu.s2.title": "Typologie en 4 clusters",
+    "eu.s2.desc": "Quatre archétypes plutôt qu'un faux score par pays : centres de services high-tech et de capital, cœur manufacturier avancé, périphérie sud, périphérie est. Assumer l'hétérogénéité plutôt que la masquer.",
+    "eu.s3.tag": "Couche 2 · Modélisée",
+    "eu.s3.title": "Lecture d'exposition",
+    "eu.s3.desc": "Quadrant adoption (axe dur Eurostat) contre exposition (fourchette modélisée), bulle proportionnelle à la main-d'œuvre. Caveat Yin et ILO affiché en clair, jamais de point fixe.",
+    "eu.s4.tag": "Pilier réglementaire",
+    "eu.s4.title": "AI Act",
+    "eu.s4.desc": "Frise d'application (août 2026), ce qui change pour le travail et les RH, et l'état du dialogue social IA par pays. La dimension authentiquement paneuropéenne qu'aucune page pays ne peut porter.",
+    "eu.s5.tag": "Détail",
+    "eu.s5.title": "Matrice 27 × indicateurs",
+    "eu.s5.desc": "Heatmap complète des 27 États membres, alimentée surtout par la couche 1, dépliable pour les lectures rigoureuses.",
+    "eu.s6.tag": "Transparence",
+    "eu.s6.title": "Sources et méthodologie",
+    "eu.s6.desc": "Tiering T1-T4, sources datées et caveats explicites. Données ouvertes sous licence CC BY 4.0."
   },
   en: {
-    "home.cta.cmp": "Compare",
-    "home.cta.eu": "Europe",
     "home.close.eyebrow": "For your organization",
     "home.close.title": "Put this data to work for your decisions.",
     "home.close.lede": "A direct conversation about your occupations, your AI-governance questions and the data that informs them. No obligation.",
     "home.close.cta1": "Discuss your organization",
     "home.close.cta2": "Read the methodology",
-    "home.eyebrow": "",
-    "home.title": "What <em>AI systems</em> actually do to work<span class=\"accent-bracket\">.</span>",
-    "home.pitch": "AI systems do not threaten all occupations the same way. It is not the same AI that affects a radiologist, a journalist, and a driver. And not all exposed occupations are under pressure: some benefit from it.",
-    "home.lede": "On the impact of AI on jobs, we hear everything and its opposite. Looming collapse on one side, productive revolution on the other, and in between workers trying to decide on their training and trajectory. The problem is not a lack of data: figures exist, scattered across a dozen institutions, in several languages, under as many methodologies. This observatory gathers, translates, and cross-checks them to enable a factual reading rather than an emotional one. And because generative AI, discriminative AI, and machine learning do not produce the same effects on the same occupations, every figure here is tagged by AI type.",
-    "home.cta.ch": "Switzerland observatory",
-    "home.cta.fr": "France observatory",
-    "home.stat1.label": "of UK+US workers have already used AI at work. But fewer than 1/5 daily.",
-    "home.stat2.label": "of large Swiss firms have introduced AI. Against 9% for SMEs: the asymmetry is Swiss.",
-    "home.stat3.label": "occupations mapped (200 ROME France + 324 NP 2010 Switzerland). Open data.",
-    "home.stat3.source": "ROME 4.0 · NP 2010 FSO · CC BY 4.0",
-    "home.manifesto.tag": "¶ Manifesto",
-    "home.manifesto.text": "<p>Speaking of « AI » in the singular is a linguistic shortcut that produces analytical errors. <strong>Generative AI</strong> writing an email does not have the same impact as <strong>a discriminative AI</strong> screening résumés, nor as <strong>a machine learning system</strong> optimizing a supply chain. Conflating these families is to condemn oneself to imprecise predictions and ill-calibrated public policies. This is why every figure published here is explicitly tagged by AI type, and why we speak of <em>AI systems</em>, in the plural.</p><p>The second postulate of this observatory is simpler: <strong>a single source is never enough</strong>. France's DARES quantifies the exposure of jobs to generative AI. France Travail measures recruitment tensions. The EPFL AI Center documents company adoption. Switzerland's Federal Statistical Office tracks vacancies. Coface models sectoral risks. The Yale Budget Lab monthly tracks US employment effects. The Financial Times publishes its Workforce AI Tracker. No single source, taken in isolation, gives the full picture. <em>Together, cross-checked and confronted, they allow a fairer reading</em>, both of what AI systems can do and what they do not do.</p><p>The observatory seeks neither to reassure nor to alarm. It seeks to <strong>reduce the emotional share of the debate</strong> by giving workers, HR leaders, public decision-makers and researchers a shared ground on which to reason. All figures are sourced, traceable to the primary publication, and published as open data under CC BY 4.0 license.</p>",
-
-    "home.frame.eyebrow": "Analytical frame · 4 reading dimensions",
-    "home.frame.title": "Reading an occupation against AI means <em>crossing four axes</em>.",
-    "home.frame.lede": "An isolated exposure score is never enough to decide. The observatory cross-references four complementary dimensions: demand trajectory, relational sector, type of AI and real operating cost.",
-    "home.frame.d1.tag": "01 · Demand trajectory",
-    "home.frame.d1.title": "Exposure does not predict trajectory.",
-    "home.frame.d1.body": "A highly exposed occupation can see its demand grow if AI enriches the households who spend more on these services. The exposure score alone is insufficient to anticipate real employment pressure. Three possible profiles: rising demand (care, hospitality, craft, training, personal services), stable demand (law, architecture, management, engineering), declining pressure (data entry, generic content, standardized administrative processing).",
-    "home.frame.d1.example": "Example: a fine-dining chef at 6/10 exposure is in a better position than a credit analyst at 7/10. The difference comes from the income effect, not from AI's technical capability (Imas & Comin, 2026).",
-
-    "home.frame.d2.tag": "02 · Relational sector",
-    "home.frame.d2.title": "AI also creates winners.",
-    "home.frame.d2.body": "Occupations with strong human relational necessity (care, premium hospitality, craft, therapy, training, live performance) structurally benefit from the AI transition. When AI lowers the cost of standardized goods, households reallocate their budget toward presence and human attention. This is not « protected from AI », it is <em>indirect beneficiary</em> of AI through the income effect.",
-    "home.frame.d2.example": "Example: a social educator (3/10 exposure) is not merely spared by automation. Their structural demand grows as AI enriches households investing in human accompaniment.",
-
-    "home.frame.d3.tag": "03 · AI type",
-    "home.frame.d3.title": "Not all AI affects the same occupations.",
-    "home.frame.d3.body": "Three AI families with very different impacts. <strong>Generative AI</strong> (LLMs) affects content production, synthesis, writing and standard code occupations. <strong>Specialized AI</strong> (machine learning on structured data) affects detection, scoring and classification occupations. <strong>AI robotics</strong> affects repetitive physical occupations. Conflating these families distorts any HR or strategic decision.",
-    "home.frame.d3.example": "Example: a radiologist is not affected by ChatGPT, they are by vision models trained on millions of medical images. Detailed table on the <a href=\"methodologie.html\">Methodology</a> page.",
-
-    "home.warn.tag": "Warning · 4th blind spot",
-    "home.warn.num": "Short term vs long term · cost and data governance",
-    "home.warn.title": "The « AI = mechanical cost reduction » narrative <em>no longer holds</em>.",
-    "home.warn.lede": "Cutting positions based on cheap token prices may give the illusion of immediate savings. But two dynamics organizations still underestimate reverse the equation at 24-36 months: the surge in total cost of ownership (TCO) and the question of jurisdictional sovereignty over data. These are the two blind spots that turn a paper-profitable AI project into a technological liability.",
-
-    "home.warn.c1.title": "Hidden costs: Gartner predicts 500% to 1000% underestimation",
-    "home.warn.c1.body": "Token price is only one layer of real cost. <strong>Total cost of ownership (TCO)</strong> includes orchestration, integration, governance, human oversight, evaluation, verification, escalation handling, and organizational redesign (Tomer 2026). Gartner predicts that by 2030, GenAI cost per resolution in customer service will exceed $3, more expensive than B2C offshore human agents. Three structural drivers: exploding data center costs, end of subsidized pricing toward profitability, and rising use case complexity. <strong>72% of CIOs surveyed by Gartner report breakeven or losses on AI investments.</strong> 50% of GenAI projects are abandoned after PoC. 90% of CIOs say cost management now limits the value extracted from AI.",
-    "home.warn.c1.source": "Sources · Gartner Predicts 2026 · Singh Tomer 2026 · IBM",
-
-    "home.warn.c2.title": "Sovereignty: where your data lives, who judges it",
-    "home.warn.c2.body": "For a European organization, choosing an LLM vendor is no longer just technical or economic. It is a governance decision. US hyperscalers cannot guarantee European-jurisdiction infrastructure, creating regulatory risk (GDPR, NIS2, EU AI Act) and vendor lock-in risk. <strong>Mistral AI</strong> raised $830 million in debt from 7 European banks in March 2026 for 200 MW of European compute capacity by 2027. On the Swiss side, <strong>Apertus</strong> (EPFL, ETH Zurich, CSCS, September 2025) is the first public fully open LLM compliant with the EU AI Act and Swiss data protection law, hosted by Swisscom. The European sovereign ecosystem 2026 (Mistral, Aleph Alpha, Apertus, Minerva, PhariaAI, LightOn) has become a credible option, and for regulated industries, a prerequisite.",
-    "home.warn.c2.source": "Sources · European Business Magazine · EPFL · ETH Zurich · Index.dev",
-
-    "home.warn.footer": "<strong>Concrete consequence for executive committees and HR leadership.</strong> Today's arbitrages on AI position substitution must integrate the real 36-month TCO and sovereignty risk from the framing stage. The sectoral Dispatches of observatoire[s]·ia address these two dimensions on concrete perimeters (banking, executives, premium watchmaking). Source resources are openly accessible.",
-
-    "home.debate.eyebrow": "The structuring debate of 2026",
-    "home.debate.title": "Apocalypse or refutation: <em>two narratives, two evidence corpora</em>.",
-    "home.debate.lede": "In 2026, the public debate on AI and employment crystallizes around two irreconcilable theses. AI CEOs announce massive and imminent elimination. Labor economists and empirical data tell another story. Both corpora exist, are verifiable, and reach contradictory conclusions. Here is how the observatory places them side by side.",
-
-    "home.debate.t.tag": "Thesis · The jobs apocalypse",
-    "home.debate.t.title": "« 50% of junior white-collar jobs gone in 1 to 5 years »",
-    "home.debate.t.quote": "<em>« Most white collar work, where you're sitting down at a computer, either being a lawyer or an accountant or a project manager or a marketing person, most of those tasks will be fully automated by an AI within the next 12 to 18 months. »</em>",
-    "home.debate.t.p1": "<strong>Dario Amodei (Anthropic, May 2025 then Davos January 2026)</strong> announced on Fox News that AI will eliminate up to 50% of junior white-collar jobs in finance, consulting, law and tech within 1 to 5 years, with unemployment potentially reaching 10 to 20%.",
-    "home.debate.t.p2": "<strong>Mustafa Suleyman (Microsoft AI, FT 2026)</strong> goes further: « most white collar tasks will be fully automated within the next 12 to 18 months ». The moat argument: previous automation waves offered adjacent sectors to absorb displaced workers. AI hits all cognitive sectors simultaneously.",
-    "home.debate.t.p3": "<strong>Jamie Dimon (JPMorgan, February 2026)</strong> compares AI's impact to electricity and warns: 150,000 JPMorgan employees already use LLMs weekly. <strong>Jack Dorsey (Block, February 2026)</strong> lays off 4,000 people (40% of headcount), explicitly attributing to AI. <strong>Writer & Workplace Intelligence (April 2026, 2,400 respondents including France)</strong> documents the empirical flipside on the corporate side: <strong>69% announce AI-related layoffs</strong>, including <strong>60% specifically for non-adopters</strong>, and <strong>48% consider AI adoption a massive disappointment</strong> (vs 34% a year earlier).",
-    "home.debate.t.source": "Sources · Axios, Fox News, Financial Times, CEO conferences 2025-2026",
-
-    "home.debate.a.tag": "Antithesis · The task is not the job",
-    "home.debate.a.title": "Empirical data contradicts the Silicon Valley narrative",
-    "home.debate.a.quote": "<em>« Almost every company that does layoffs is blaming AI, whether or not it really is about AI. »</em>",
-    "home.debate.a.p1": "<strong>Luis Garicano (LSE, April 2026)</strong> formalizes the bundles framework. Canonical case: travel agents. Employment -60% since 2000, yet average weekly earnings rose from 87% to 99% of private-sector average. Frey & Osborne 2013 predicted 94% accountant automation: BLS now counts 1.6 million working accountants with projected +5% growth.",
-    "home.debate.a.p2": "<strong>Washington Post (May 1, 2026)</strong> and <strong>NYT Opinion (May 3, 2026)</strong> document that Amazon, Google, and Meta today have roughly the same headcount as in 2022, despite $700 billion in AI CapEx. Marc Andreessen (Meta board) and Sam Altman (OpenAI CEO) publicly acknowledge AI-washing.",
-    "home.debate.a.p3": "<strong>Goldfarb (Toronto Rotman, NBER WP 34639, April 2026)</strong> formalizes O-ring tasks: automating a complementary task INCREASES the value of remaining human tasks. <strong>Microsoft AI Diffusion Q1 2026</strong> documents US developers at 2.2 million (+8.5% in 2025, historic record). <strong>Trammell (Stanford Digital Economy Lab, March 2026)</strong> theorizes the durable share of human labor via human-intrinsic goods. <strong>Oxford Economics (January 2026)</strong> calls AI disruption evidence « patchy at best ». US unemployment at 4.4%, far below European 1990s peaks. <em>The Economist (leader, May 14, 2026)</em> publishes a counterpoint alarmist call to prepare for a white-collar jobs apocalypse, mainly built on the documented 13% drop in employment for 22-25 year-olds in exposed jobs (Stanford via Dallas Fed). The cartography treats this divergence not as a contradiction to arbitrate, but as two complementary readings of the same reality: aggregate US market stability, recomposition for young graduates.",
-    "home.debate.a.source": "Sources · Garicano (Silicon Continent), Trammell (Stanford), WaPo, NYT, Oxford Economics, Wharton · Goldfarb NBER 34639 · Imas/Shukla · Microsoft AI Diffusion · Gallup Workforce",
-
-    "home.debate.takeaway": "<strong>The observatory's posture on this debate.</strong> Both corpora matter. But they are not methodologically equivalent. The announcements of AI CEOs are strategic predictions (and sometimes product communication tools). The work of Garicano, Trammell, Yale Budget Lab, and NBER w35110 are contradictory empirical analyses subject to peer review. For an executive committee, calibrating a transformation plan on the first category without confronting the second is arbitrage in the noise. The vocation of this cartography is to provide the comparison ground. <strong>Writer & Workplace Intelligence (April 2026)</strong> adds a decisive nuance: the current disorder is not a jobs apocalypse, it is <strong>generalized organizational disorder</strong>. 79% of companies struggle to adopt AI, 75% of executives acknowledge their AI strategy is more for show than actual guidance, 67% report a data leak via unauthorized AI, and 29% of employees (44% Gen Z) admit actively sabotaging AI strategy. The cartography treats this finding as a governance signal · not as evidence of job destruction.",
-
-    "home.frame.d4.tag": "04 · Total cost of ownership",
-    "home.frame.d4.title": "The token price is not the real cost.",
-    "home.frame.d4.body": "Comparing token price to human salary is the most common error in 2026 executive committees. <strong>Gartner</strong> measures that organizations underestimate their real GenAI costs by a factor of 5 to 10. Total cost includes orchestration, integration, governance, monitoring and organizational redesign. For French-speaking organizations, the « linguistic tax » adds up: French consumes +60% tokens vs English.",
-    "home.frame.d4.example": "Example: Gartner predicts GenAI cost per resolution will exceed $3 by 2030, above offshore human agents. 72% of CIOs report break-even or losses on their AI investments.",
-
-    "home.frame.footer": "<strong>Three recent works validate this frame.</strong> <em>Garicano (Silicon Continent, April 2026)</em> formalizes the concept of <strong>task bundle</strong>: a job is not the sum of its automatable tasks, it is what remains when commodity tasks disappear. Canonical case: travel agents saw employment drop 60% since 2000, but their weekly wages rose from 87% to 99% of the private sector average. The machine took the weak part of the bundle and left them the strong one. <em>Goldfarb (Toronto Rotman, NBER WP 34639, April 2026)</em> deepens with the <strong>O-ring tasks</strong> framework: tasks within a job are complementary rather than substitutable, so automating a task INCREASES the value of remaining human tasks. <em>Imas (Chicago Booth, March 2026)</em> adds <strong>job dimensionality</strong> as critical variable: low-dimensional jobs (few tasks) are massively more exposed than high-dimensional jobs. <em>Trammell (Stanford Digital Economy Lab, March 2026)</em> provides the theoretical formalization: even a very mild preference for human-intrinsic goods (live concert, direct care, performance) is enough to keep labor's durable share high. <em>Microsoft AI Diffusion Q1 2026, NYT and Washington Post (May 2026)</em> remind us of macro data: US unemployment at 4.4%, AI capex at 700 billion, US developers 2.2 million (+8.5%, historic record), but tech overall headcount not contracting. The cartography applies these validations daily: every exposure score is read against the remaining bundle, O-ring character of the job, its dimensionality, the human-intrinsic character of the occupation, and available macro data. <strong>Three publications from May 2026 reinforce this framework.</strong> <em>Lombard Odier (Strobaek & Dumur, April 22, 2026)</em> reminds us of four centuries of evidence: technology reshapes tasks more than it destroys jobs · <strong>60% of current US jobs are in occupations that did not exist in 1940</strong> (Autor MIT), and Korea deploys <strong>over 100 industrial robots per 1,000 workers</strong> with unemployment below 3%. <em>McKinsey Global Institute (Agents, robots, and us · Europe, May 2026)</em> documents that <strong>58% of European work hours</strong> are theoretically automatable, but <strong>70% of skills remain relevant</strong> in partnership with agents and robots. <em>OBVIA Quebec (Parent-Rocheleau et al., April 2026 · 4,595 union members)</em> confirms the gap between individual use (60%) and organizational deployment (41%), with only <strong>15% full trust</strong> in AI and 60% low or medium AI literacy · the issue is not apocalypse, it is governance. <em>Writer & Workplace Intelligence (April 2026, 2,400 respondents including France)</em> extends this framework on the corporate side: the gap between adoption (97% of executives deployed AI agents) and actual transformation (only 29% see significant ROI) confirms that <strong>the decade's challenge is governance, not deployment</strong>.",
-
-    "home.dash.eyebrow": "Two dashboards · one methodology",
-    "home.dash.title": "Choose your territory.",
-    "home.dash.sub": "Each country has its own institutional architecture, its own taxonomies, its own rhythms. Two dedicated dashboards, plus a comparative view to cross-reference them.",
-    "home.ch.flag": "Switzerland · CH",
-    "home.ch.title": "Switzerland dashboard",
-    "home.ch.obs": "observatories",
-    "home.ch.domains": "domains covered",
-    "home.ch.desc": "Confederation, FSO, SERI, EPFL AI Center, Digital Switzerland. The Swiss ecosystem at a glance.",
-    "home.ch.cta": "Open CH dashboard",
-    "home.fr.flag": "France · FR",
-    "home.fr.title": "France dashboard",
-    "home.fr.obs": "observatories",
-    "home.fr.domains": "domains covered",
-    "home.fr.desc": "LaborIA, France Stratégie, DARES, France Travail, APEC, CNIL. The French galaxy of AI and employment observatories.",
-    "home.fr.cta": "Open FR dashboard",
-    "home.cmp.title": "Compare both",
-    "home.cmp.systems": "models · Switzerland and France",
-    "home.cmp.question": "same question · the impact of AI",
-    "home.cmp.desc": "Where the project's added value emerges: a cross-border dashboard that combines classifications, methodologies, and figures so that best practices on one side feed the other.",
-    "home.cmp.cta": "See the comparison",
-    "home.veille.eyebrow": "Field report · April 2026",
-    "home.veille.title": "What to read this month.",
-    "home.veille.sub": "A selection of the most structuring publications from the past 30 days.",
-    "home.veille.cta": "See all reports",
-
-    "home.dispatch.tag": "Latest dispatch",
-    "home.dispatch.num": "The Dispatch·iA · #006 · May 2026",
-    "home.dispatch.title": "AI in Swiss companies · <em>2026 state of play</em>.",
-    "home.dispatch.lede": "How many Swiss companies actually use AI in 2026? Rather than one headline figure, this issue cross-references the latest Swiss surveys to separate declared, effective and strategic adoption. Written for executive committees, boards and HR.",
-    "home.dispatch.read": "Read the dispatch",
-    "home.dispatch.allcta": "See all dispatches"
+    "eu.eyebrow": "Observatory · European Union · 27 member states",
+    "eu.title": "AI's impact on work, <em>read across the Twenty-Seven</em>.",
+    "eu.lede": "A two-layer reading: Eurostat's hard, harmonized adoption data, and a modeled exposure reading shown as ranges. No exposure score is displayed as a fixed point.",
+    "eu.kpi1num": "20.0%",
+    "eu.kpi1": "of EU-27 enterprises (10+ employees) use AI · Eurostat, 2025 reference year",
+    "eu.kpi2num": "5.2 to 42.0%",
+    "eu.kpi2": "gap between Romania and Denmark on enterprise adoption",
+    "eu.kpi3num": "+6.5 pts",
+    "eu.kpi3": "growth in one year · 13.5% in 2024",
+    "eu.kpi4num": "Aug 2026",
+    "eu.kpi4": "AI Act enters into application · pan-European regulatory pillar",
+    "eu.note": "<strong>Two data layers, never conflated.</strong> Layer 1 (context and adoption) draws on Eurostat's ICT enterprise survey, harmonized across all 27 member states: the comparable reference. Layer 2 (exposure and employment impact) rests on modeled scores transposed from O*NET, whose instability the ILO and Yin, Vu and Persico underline (variance up to 3.6× by model). It is therefore shown as ranges, with its caveat. In Europe, more exposed occupations actually saw their employment share rise over 2011-2019 (Albanesi et al., ECB): exposure does not equal destruction.",
+    "eu.soon": "In progress · v2",
+    "eu.xq.band": "modeled exposure band · layer 2",
+    "eu.xq.xax": "Enterprise adoption · Eurostat (hard axis) →",
+    "eu.xq.yax": "Modeled exposure →",
+    "eu.xq.z1": "Eastern / southern periphery",
+    "eu.xq.z1b": "low adoption",
+    "eu.xq.z2": "High-tech centres",
+    "eu.xq.z3": "Manufacturing core",
+    "eu.xq.cap": "bubble ∝ workforce · indicative positions",
+    "eu.a.layer": "Layer 1 · Hard data",
+    "eu.a.eyebrow": "Enterprise adoption · Eurostat ICT, 2025 reference year",
+    "eu.a.title": "A two-speed area, first of all by size.",
+    "eu.a.lede": "20.0% of EU-27 enterprises (10 employees and over) used AI in 2025, up from 13.5% a year earlier. But the average hides an eightfold gap across the Twenty-Seven.",
+    "eu.bar.dk": "42.0%",
+    "eu.bar.fi": "37.8%",
+    "eu.bar.se": "35.0%",
+    "eu.bar.be": "34.5%",
+    "eu.bar.lu": "33.6%",
+    "eu.bar.nl": "33.2%",
+    "eu.bar.eu": "20.0%",
+    "eu.bar.bg": "8.5%",
+    "eu.bar.pl": "8.4%",
+    "eu.bar.ro": "5.2%",
+    "eu.a.note": "Values confirmed by Eurostat releases (DDN-20251211-2). The other 18 member states · including Germany, France, Italy and Spain · are not yet in the Eurostat releases.",
+    "eu.a.size.title": "The real divide · by firm size",
+    "eu.a.size.small": "Small (10-49)",
+    "eu.a.size.med": "Medium (50-249)",
+    "eu.a.size.large": "Large (250+)",
+    "eu.a.sector.title": "Sectoral concentration",
+    "eu.a.sec.ict": "Information and communication",
+    "eu.a.sec.prof": "Professional, scientific, technical",
+    "eu.a.sec.realestate": "Real estate activities",
+    "eu.a.sec.constr": "Construction",
+    "eu.a.src": "Source · Eurostat ICT enterprise survey (isoc_eb_ai), 2025 reference year, published December 2025 · T1.",
+    "eu.t.layer": "Analytical core",
+    "eu.t.eyebrow": "Typology · four clusters rather than one false score",
+    "eu.t.title": "Four Europes, not one.",
+    "eu.t.lede": "Aggregating 27 labour markets into one average erases what matters. We read the area as four structural archetypes whose posture toward AI differs in kind, not only in degree.",
+    "eu.t.c1.name": "High-tech service and capital centres",
+    "eu.t.c1.geo": "Denmark · Finland · Sweden · Netherlands · Luxembourg · Ireland",
+    "eu.t.c1.desc": "Highest adoption (33 to 42%), service and finance economies, high digital-talent density. The challenge here is industrialising usage, not starting it. High cognitive exposure but the strongest recomposition capacity.",
+    "eu.t.c2.name": "Advanced manufacturing core",
+    "eu.t.c2.geo": "Germany · Austria · Czechia · Slovenia · Northern Italy",
+    "eu.t.c2.desc": "Precision industry and robotics already in place. AI grafts onto existing physical automation. Exposure concentrated on support functions, engineering and quality rather than the shop floor.",
+    "eu.t.c3.name": "Southern periphery",
+    "eu.t.c3.geo": "Spain · Italy (south) · Portugal · Greece · Cyprus · Malta",
+    "eu.t.c3.desc": "A fabric of SMEs and micro-firms, weight of tourism and personal services. Moderate adoption, skills the main barrier. High share of relational jobs that are structurally resistant.",
+    "eu.t.c4.name": "Eastern periphery",
+    "eu.t.c4.geo": "Poland · Romania · Bulgaria · Hungary · Slovakia · Croatia · Baltics",
+    "eu.t.c4.desc": "Lowest adoption (5 to 9% at the bottom), but fast growth and a labour cost that shifts the automation equation. The Baltic states are an exception, closer to the Nordic cluster.",
+    "eu.t.src": "Observatory analytical reading (T3), adapted from the European regional-cluster literature and calibrated on Eurostat 2025 adoption data.",
+    "eu.x.layer": "Layer 2 · Modeled · ranges",
+    "eu.x.eyebrow": "Exposure reading · never a fixed point",
+    "eu.x.title": "What AI could touch, as a range.",
+    "eu.x.lede": "Adoption (horizontal axis) is hard and comparable. Exposure (vertical axis) is modeled and unstable: we show it as a band, not a point. The positions below are indicative, calibrated on Eurostat adoption and the typology.",
+    "eu.x.mgi.title": "Modeled layer · McKinsey MGI Europe (2026)",
+    "eu.x.mgi": "58% of European work hours theoretically automatable; the share of jobs requiring AI skills rose from 4-10% to 10-27% in two years; but 70% of skills stay relevant, used differently. Recomposition, not replacement.",
+    "eu.x.ecb.title": "Empirical counterpoint · ECB",
+    "eu.x.ecb": "Over 2011-2019, the most AI-exposed occupations saw their employment share rise in Europe, not fall (Albanesi et al., ECB). Exposure measures technical potential, not observed destruction.",
+    "eu.x.caveat": "Caveat · O*NET-derived exposure scores vary up to 3.6× depending on the LLM queried (Yin, Vu and Persico, NBER WP 35110), and the ILO stresses that exposure does not equal a job-loss prediction. No figure in this layer should be read as an actionable five-year projection.",
+    "eu.x.src": "Sources · McKinsey Global Institute Europe (May 2026), Albanesi et al. (ECB), Yin/Vu/Persico (NBER WP 35110), ILO · T1-T2.",
+    "eu.r.layer": "Regulatory pillar",
+    "eu.r.eyebrow": "AI Act · the authentically pan-European dimension",
+    "eu.r.title": "The one frame no country page can carry.",
+    "eu.r.lede": "The world's first horizontal AI regime, the AI Act structures the European market in phases. Its main application · August 2026 · is the central marker for HR and legal leadership.",
+    "eu.r.tl.title": "Application timeline",
+    "eu.r.t1d": "1 August 2024",
+    "eu.r.t1l": "Regulation enters into force.",
+    "eu.r.t2d": "2 February 2025",
+    "eu.r.t2l": "Prohibition of unacceptable-risk practices; AI literacy obligation for staff.",
+    "eu.r.t3d": "2 August 2025",
+    "eu.r.t3l": "Obligations for general-purpose AI models (GPAI) and governance.",
+    "eu.r.t4d": "2 August 2026",
+    "eu.r.t4l": "General application, including Annex III high-risk systems (employment, HR, education).",
+    "eu.r.t5d": "2 August 2027",
+    "eu.r.t5l": "High-risk embedded in already-regulated products (Annex I).",
+    "eu.r.work.title": "What changes for work",
+    "eu.r.work": "AI systems for recruitment, evaluation and worker management are classified high-risk: conformity assessment, transparency, human oversight and worker information become mandatory. Team AI literacy is an obligation, not an option.",
+    "eu.r.dialogue.title": "Social dialogue · by country",
+    "eu.r.dialogue": "Enforcement rests on national authorities and social dialogue, highly uneven across countries: pioneering company agreements in the Nordics, still-emerging frameworks in the periphery. Eurofound documents this heterogeneity.",
+    "eu.r.src": "Sources · Regulation (EU) 2024/1689 (AI Act), European Commission, Eurofound · T1.",
+    "eu.f.layer": "Layer 1 · Hard data",
+    "eu.f.eyebrow": "Barriers · why non-adopters stay out",
+    "eu.f.title": "The number-one barrier is human, not technical.",
+    "eu.f.lede": "Among EU-27 enterprises that considered AI without adopting it, the reasons for holding back, in order:",
+    "eu.f.b1": "Lack of expertise",
+    "eu.f.b1v": "70.9%",
+    "eu.f.b2": "Unclear legal consequences",
+    "eu.f.b2v": "52.5%",
+    "eu.f.b3": "Data protection",
+    "eu.f.b3v": "48.8%",
+    "eu.f.src": "Source · Eurostat, isoc_eb_ai 2025 · 14.2% of non-adopters had considered AI · T1.",
+    "eu.m.eyebrow": "Transparency",
+    "eu.m.title": "Sources and methodology",
+    "eu.m.body": "This page owns two layers, never conflated. <strong>Layer 1</strong> (adoption, size, sector, barriers): Eurostat's ICT enterprise survey, harmonized across all 27 member states, 2025 reference year · T1, comparable. <strong>Layer 2</strong> (exposure, employment impact): modeled scores transposed from O*NET, shown as ranges with their caveat · T1-T2. T1-T4 tiering and C1-C4 confidence notes applied to all outputs.",
+    "eu.cl.title": "Read at national scale",
+    "eu.cl.desc": "The European scale gives the frame. Decisions are made at national level.",
+    "eu.cl.fr": "France observatory",
+    "eu.cl.ch": "Switzerland observatory",
+    "eu.s1.tag": "Layer 1 · Hard data",
+    "eu.s1.title": "Enterprise adoption",
+    "eu.s1.desc": "EU-27 choropleth with indicator selector: AI adoption by country, size, sector. Source Eurostat ICT enterprise survey, 2025 reference year (datasets isoc_eb_ai, isoc_eb_ain2).",
+    "eu.s2.tag": "Analytical core",
+    "eu.s2.title": "Four-cluster typology",
+    "eu.s2.desc": "Four archetypes rather than a false per-country score: high-tech service and capital centres, advanced manufacturing core, southern periphery, eastern periphery. Owning heterogeneity rather than hiding it.",
+    "eu.s3.tag": "Layer 2 · Modeled",
+    "eu.s3.title": "Exposure reading",
+    "eu.s3.desc": "Adoption (hard Eurostat axis) against exposure (modeled range), bubble sized by workforce. Yin and ILO caveat shown in clear, never a fixed point.",
+    "eu.s4.tag": "Regulatory pillar",
+    "eu.s4.title": "AI Act",
+    "eu.s4.desc": "Application timeline (August 2026), what changes for work and HR, and the state of AI social dialogue by country. The authentically pan-European dimension no country page can carry.",
+    "eu.s5.tag": "Detail",
+    "eu.s5.title": "27 × indicators matrix",
+    "eu.s5.desc": "Full heatmap of the 27 member states, fed mainly by layer 1, expandable for rigorous reading.",
+    "eu.s6.tag": "Transparency",
+    "eu.s6.title": "Sources and methodology",
+    "eu.s6.desc": "T1-T4 tiering, dated sources and explicit caveats. Open data under CC BY 4.0."
   }
 };
 
-let veilleData = [];
-
-async function loadVeille() {
-  veilleData = window.VEILLE_DATA || [];
-  renderVeille();
+function applyURLParams() {
+  const params = new URLSearchParams(window.location.search);
+  const typeMap = {
+    "custom": "dispatch-custom",
+    "ops": "dispatch-ops",
+    "notify": "dispatch-notify",
+    "conf": "conf",
+    "workshop": "workshop",
+    "strategy": "strategy",
+    "contrib": "contrib"
+  };
+  const typeParam = params.get("type");
+  if (typeParam && typeMap[typeParam]) {
+    const sel = document.getElementById("ct-type");
+    if (sel) sel.value = typeMap[typeParam];
+  }
+  const dispatchParam = params.get("dispatch");
+  if (dispatchParam) {
+    const tx = document.getElementById("ct-message");
+    const lang = window.CURRENT_LANG || "fr";
+    const prefix = lang === "fr"
+      ? "Concernant Le Dispatch·iA #" + dispatchParam + " :\n\n"
+      : "Regarding The Dispatch·iA #" + dispatchParam + ":\n\n";
+    if (tx && !tx.value) tx.value = prefix;
+  }
 }
 
-function renderVeille() {
-  const grid = document.getElementById("fieldGrid");
-  if (!grid) return;
-  grid.innerHTML = "";
-  const lang = window.CURRENT_LANG;
-  veilleData.slice(0, 3).forEach((v) => {
-    const card = document.createElement("a");
-    card.className = "field-card";
-    card.href = v.url;
-    card.target = "_blank";
-    card.rel = "noopener noreferrer";
-    card.style.textDecoration = "none";
-    card.style.color = "inherit";
-    card.style.display = "block";
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = (form.elements.name.value || "").trim();
+  const email = (form.elements.email.value || "").trim();
+  const org = (form.elements.org.value || "").trim();
+  const type = form.elements.type.value || "other";
+  const message = (form.elements.message.value || "").trim();
 
-    const meta = document.createElement("div");
-    meta.className = "field-card-meta";
-    const dateSpan = document.createElement("span");
-    const flag = v.country === "CH" ? "🇨🇭" : v.country === "FR" ? "🇫🇷" : "🌍";
-    dateSpan.textContent = flag + " · " + v.date;
-    meta.appendChild(dateSpan);
-    const sourceSpan = document.createElement("span");
-    sourceSpan.textContent = v.source;
-    meta.appendChild(sourceSpan);
-    card.appendChild(meta);
+  const feedback = document.getElementById("formFeedback");
 
-    const title = document.createElement("h3");
-    title.className = "field-card-title";
-    title.textContent = v.title[lang];
-    card.appendChild(title);
+  if (!name || !email || !message) {
+    feedback.textContent = window.t("ct.feedback.invalid");
+    feedback.classList.add("visible");
+    feedback.style.borderColor = "var(--signal)";
+    return;
+  }
 
-    const excerpt = document.createElement("p");
-    excerpt.className = "field-card-excerpt";
-    excerpt.textContent = (v.summary && v.summary[lang]) ? v.summary[lang] : v.excerpt[lang];
-    card.appendChild(excerpt);
+  const subject = window.t("ct.subject." + type.replace("dispatch-", ""));
 
-    const link = document.createElement("span");
-    link.className = "field-card-link mono";
-    link.textContent = lang === "fr" ? "Lire le rapport →" : "Read the report →";
-    card.appendChild(link);
+  const lang = window.CURRENT_LANG || "fr";
+  let body = message + "\n\n";
+  body += "--\n";
+  body += name + "\n";
+  if (org) body += org + "\n";
+  body += email;
 
-    grid.appendChild(card);
-  });
+  const mailto = "mailto:sayhi@naullynicolas.ch"
+    + "?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(body);
+
+  feedback.textContent = window.t("ct.feedback.opening");
+  feedback.classList.add("visible");
+  feedback.style.borderColor = "var(--ink)";
+
+  window.location.href = mailto;
 }
 
-window.onLangChange = renderVeille;
+initSite("europe");
 
-initSite("home");
-loadVeille();
+
 </script>
 </body>
 </html>

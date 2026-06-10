@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design system · observatoire[s]·ia · bibliothèque de composants</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300..700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem("obs-theme");if(!t&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<style id="designSystem">/* DS:BEGIN */
+/* ============================================================
+   observatoire[s]·ia · DESIGN SYSTEM · v0.1 · phase 0
+   Source canonique : assets/design-system.css
+   Injecté inline dans chaque page par tools/inject_ds.py
+   Ne pas éditer le bloc injecté · éditer cette source puis réinjecter.
+   ============================================================ */
+
+/* ---------- 1 · Tokens · thème clair (valeurs actuelles du site) ---------- */
+:root{
+  --paper:#F2EEE5;          /* fond principal */
+  --paper-2:#ECE7DA;        /* fond de section surélevée */
+  --surface:#FFFFFF;        /* cartes */
+  --ink:#11110F;            /* texte principal */
+  --ink-sec:#4A463D;        /* texte secondaire */
+  --muted:#8B8579;          /* texte atténué, métadonnées */
+  --rule:#D9D2C2;           /* filets */
+  --rule-strong:#11110F;    /* filets forts */
+  --signal:#D03C2F;         /* accent */
+  --signal-hover:#B53227;
+  --paper-rgb:242, 238, 229;
+  --ink-rgb:17, 17, 15;
+  --signal-rgb:208, 60, 47;
+  --on-signal:#FFFFFF;      /* texte sur accent */
+  --teal:#1F3A3D;
+  --highlight:#F7E27D;
+  /* quadrants · identiques aux graphiques, dans les deux thèmes */
+  --q-risque:#E0915F;   --q-risque-deep:#B26430;
+  --q-booste:#1F406F;   --q-booste-deep:#0E2748;
+  --q-stagnant:#D4A436; --q-stagnant-deep:#A37D1F;
+  --q-augmente:#9BB7C9; --q-augmente-deep:#5F7E94;
+  /* tiers de sources */
+  --t1:#1F3A3D; --t2:#4E6E64; --t3:#8A6F35; --t4:#9A5A50;
+  /* échelle */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px;
+  --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px;
+  --r-1:3px; --r-2:6px;
+  --shadow-1:0 1px 2px rgba(17,17,15,.05), 0 6px 18px rgba(17,17,15,.05);
+  --max-w:1280px;
+  --font-serif:'Fraunces',serif;
+  --font-sans:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+
+/* ---------- 1b · Tokens · thème sombre (dérivé, contrastes AA) ---------- */
+html[data-theme="dark"]{
+  --paper:#171511;
+  --paper-2:#201D17;
+  --surface:#1D1B15;
+  --ink:#ECE6D8;
+  --ink-sec:#C8C1B1;
+  --muted:#9C958A;
+  --rule:#3A362C;
+  --rule-strong:#ECE6D8;
+  --signal:#E2604D;
+  --signal-hover:#EC7363;
+  --paper-rgb:23, 21, 17;
+  --ink-rgb:236, 230, 216;
+  --signal-rgb:226, 96, 77;
+  --on-signal:#171511;
+  --teal:#9FC4BE;
+  --highlight:#564D1C;
+  --t1:#9FC4BE; --t2:#8FB3A6; --t3:#C9AC66; --t4:#D49186;
+  --shadow-1:0 1px 2px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+html[data-theme="dark"] body{ background:var(--paper); color:var(--ink); }
+
+/* ---------- 2 · Socle ---------- */
+.ds-cta:focus-visible, .ds-badge:focus-visible, .theme-toggle:focus-visible,
+.ds-src-link:focus-visible, .ds-disp-link:focus-visible{
+  outline:2px solid var(--signal); outline-offset:2px;
+}
+.ds-grid{ display:grid; gap:var(--s-5); }
+.ds-grid--2{ grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); }
+.ds-grid--3{ grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+.ds-grid--4{ grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); }
+
+/* ---------- 3 · En-tête de section ---------- */
+.ds-section-head{ margin:0 0 var(--s-6); }
+.ds-eyebrow{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--signal); margin:0 0 var(--s-2);
+}
+.ds-title{
+  font-family:var(--font-serif); font-weight:560;
+  font-size:clamp(26px, 3.4vw, 40px); line-height:1.12;
+  color:var(--ink); margin:0 0 var(--s-3);
+}
+.ds-lede{
+  font-family:var(--font-sans); font-size:16px; line-height:1.6;
+  color:var(--ink-sec); max-width:62ch; margin:0;
+}
+
+/* ---------- 4 · Statistique-clé ---------- */
+.ds-stat{ border-top:2px solid var(--rule-strong); padding-top:var(--s-3); }
+.ds-stat-num{
+  font-family:var(--font-serif); font-weight:500; line-height:1;
+  font-size:clamp(34px, 4.6vw, 56px); color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.ds-stat-num small{ font-size:.45em; color:var(--ink-sec); font-weight:400; }
+.ds-stat-label{
+  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-sec); margin-top:var(--s-2);
+}
+.ds-stat-src{
+  font-family:var(--font-mono); font-size:10.5px; color:var(--muted);
+  margin-top:var(--s-1); display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+}
+
+/* ---------- 5 · Badges tier + confiance (élément signature) ---------- */
+.ds-badge{
+  display:inline-flex; align-items:center; gap:5px;
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.08em;
+  line-height:1; padding:4px 7px; border:1px solid var(--rule);
+  border-radius:var(--r-1); color:var(--ink-sec); background:var(--surface);
+  text-transform:uppercase; position:relative; cursor:help;
+}
+.ds-badge--t1{ border-color:var(--t1); color:var(--t1); }
+.ds-badge--t2{ border-color:var(--t2); color:var(--t2); }
+.ds-badge--t3{ border-color:var(--t3); color:var(--t3); }
+.ds-badge--t4{ border-color:var(--t4); color:var(--t4); }
+.ds-badge--c1::before, .ds-badge--c2::before,
+.ds-badge--c3::before, .ds-badge--c4::before{
+  font-size:7px; letter-spacing:2px; transform:translateY(-.5px);
+}
+.ds-badge--c1::before{ content:"\25CF\25CF\25CF\25CF"; }
+.ds-badge--c2::before{ content:"\25CF\25CF\25CF\25CB"; }
+.ds-badge--c3::before{ content:"\25CF\25CF\25CB\25CB"; }
+.ds-badge--c4::before{ content:"\25CF\25CB\25CB\25CB"; }
+.ds-badge[data-tip]:hover::after, .ds-badge[data-tip]:focus-visible::after{
+  content:attr(data-tip); position:absolute; bottom:calc(100% + 7px); left:0;
+  background:var(--ink); color:var(--paper); font-size:10.5px; line-height:1.4;
+  letter-spacing:.02em; text-transform:none; padding:6px 9px;
+  border-radius:var(--r-1); white-space:nowrap; z-index:60; pointer-events:none;
+}
+
+/* ---------- 6 · Carte source ---------- */
+.ds-source-card{
+  background:var(--surface); border:1px solid var(--rule);
+  border-radius:var(--r-2); padding:var(--s-4); box-shadow:var(--shadow-1);
+  display:flex; flex-direction:column; gap:var(--s-2);
+}
+.ds-src-title{
+  font-family:var(--font-sans); font-weight:600; font-size:14.5px;
+  line-height:1.35; color:var(--ink); margin:0;
+}
+.ds-src-meta{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); }
+.ds-src-badges{ display:flex; gap:6px; flex-wrap:wrap; }
+.ds-src-link{
+  font-family:var(--font-mono); font-size:11px; color:var(--signal);
+  text-decoration:none; border-bottom:1px solid currentColor;
+  align-self:flex-start; padding-bottom:1px;
+}
+.ds-src-link:hover{ color:var(--signal-hover); }
+
+/* ---------- 7 · Carte métier ---------- */
+.ds-job-card{
+  --q:var(--rule); --q-deep:var(--ink-sec); --q-ink:#11110F;
+  background:var(--surface); border:1px solid var(--rule);
+  border-left:4px solid var(--q); border-radius:var(--r-2);
+  padding:var(--s-4); display:flex; flex-direction:column; gap:var(--s-2);
+}
+.ds-job-card--risque  { --q:var(--q-risque);   --q-deep:var(--q-risque-deep); }
+.ds-job-card--booste  { --q:var(--q-booste);   --q-deep:var(--q-booste-deep);   --q-ink:#FFFFFF; }
+.ds-job-card--stagnant{ --q:var(--q-stagnant); --q-deep:var(--q-stagnant-deep); }
+.ds-job-card--augmente{ --q:var(--q-augmente); --q-deep:var(--q-augmente-deep); }
+.ds-job-name{ font-family:var(--font-serif); font-size:18px; font-weight:560; color:var(--ink); margin:0; }
+.ds-job-code{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); }
+.ds-quad-chip{
+  align-self:flex-start; font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.08em; text-transform:uppercase; padding:4px 8px;
+  border-radius:var(--r-1); background:var(--q); color:var(--q-ink);
+}
+.ds-job-scores{
+  display:flex; gap:var(--s-5); flex-wrap:wrap;
+  font-family:var(--font-mono); font-size:11px; color:var(--ink-sec);
+}
+.ds-job-scores b{ color:var(--ink); font-weight:600; }
+.ds-job-ia{ display:flex; gap:6px; flex-wrap:wrap; }
+
+/* ---------- 8 · Carte Dispatch·iA ---------- */
+.ds-dispatch-card{
+  background:var(--surface); border:1px solid var(--rule);
+  border-radius:var(--r-2); overflow:hidden; box-shadow:var(--shadow-1);
+  display:flex; flex-direction:column;
+}
+.ds-disp-head{
+  display:flex; align-items:baseline; gap:var(--s-3);
+  padding:var(--s-4) var(--s-4) var(--s-3); border-bottom:1px solid var(--rule);
+}
+.ds-disp-num{ font-family:var(--font-serif); font-size:30px; color:var(--signal); line-height:1; }
+.ds-disp-meta{ font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+.ds-disp-body{ padding:var(--s-4); display:flex; flex-direction:column; gap:var(--s-3); flex:1; }
+.ds-disp-title{ font-family:var(--font-serif); font-size:19px; font-weight:560; line-height:1.25; color:var(--ink); margin:0; }
+.ds-disp-sum{ font-family:var(--font-sans); font-size:13.5px; line-height:1.55; color:var(--ink-sec); margin:0; }
+.ds-partner-tag{
+  align-self:flex-start; font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+  border:1px dashed var(--rule); padding:3px 8px; border-radius:var(--r-1);
+}
+.ds-disp-foot{ padding:0 var(--s-4) var(--s-4); margin-top:auto; }
+.ds-disp-link{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--signal); text-decoration:none;
+}
+.ds-disp-link:hover{ color:var(--signal-hover); }
+
+/* ---------- 9 · Bloc citation / méthodologie ---------- */
+.ds-note{
+  border-left:3px solid var(--teal); background:var(--paper-2);
+  padding:var(--s-4) var(--s-5); border-radius:0 var(--r-2) var(--r-2) 0;
+  font-family:var(--font-sans); font-size:14px; line-height:1.6; color:var(--ink-sec);
+}
+.ds-note-tag{
+  display:block; font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--teal);
+  margin-bottom:var(--s-2);
+}
+.ds-note b, .ds-note strong{ color:var(--ink); }
+
+/* ---------- 10 · Encadré « n.d. » · manque de données assumé ---------- */
+.ds-nd{
+  border:1.5px dashed var(--muted); border-radius:var(--r-2);
+  padding:var(--s-4) var(--s-5); display:flex; gap:var(--s-4);
+  align-items:flex-start; background:transparent;
+}
+.ds-nd-chip{
+  flex:none; font-family:var(--font-mono); font-weight:600; font-size:13px;
+  letter-spacing:.06em; color:var(--ink); border:1.5px solid var(--ink);
+  padding:5px 10px; border-radius:var(--r-1);
+}
+.ds-nd-body{ font-family:var(--font-sans); font-size:13.5px; line-height:1.55; color:var(--ink-sec); }
+.ds-nd-body .ds-nd-rule{
+  display:block; font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  margin-top:var(--s-2);
+}
+
+/* ---------- 11 · CTA ---------- */
+.ds-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:44px; padding:0 var(--s-5);
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; text-decoration:none; border-radius:var(--r-1);
+  background:var(--signal); color:var(--on-signal); border:1px solid var(--signal);
+  cursor:pointer; transition:background .15s ease;
+}
+.ds-cta:hover{ background:var(--signal-hover); border-color:var(--signal-hover); }
+.ds-cta--secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--rule-strong);
+}
+.ds-cta--secondary:hover{ background:var(--paper-2); }
+
+/* ---------- 12 · Bascule de thème (s'appuie sur .lang-toggle existant) ---------- */
+.theme-toggle span{ pointer-events:none; }
+
+/* ---------- 13 · Divers ---------- */
+.ds-footnote{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); }
+@media (prefers-reduced-motion: reduce){
+  .ds-cta{ transition:none; }
+}
+@media (max-width:640px){
+  .ds-nd{ flex-direction:column; gap:var(--s-3); }
+  .ds-job-scores{ gap:var(--s-3); }
+}
+/* DS:END */</style>
+<style>
+  *{ box-sizing:border-box; margin:0; }
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--font-sans); padding:var(--s-7) var(--s-5) var(--s-8);
+  }
+  .sg-wrap{ max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:var(--s-8); }
+  .sg-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:var(--s-5); }
+  .sg-block h3{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted); font-weight:500;
+    border-bottom:1px solid var(--rule); padding-bottom:var(--s-2); margin-bottom:var(--s-5);
+  }
+  .sg-swatches{ display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:var(--s-3); }
+  .sg-swatch{ border:1px solid var(--rule); border-radius:var(--r-2); overflow:hidden; }
+  .sg-swatch i{ display:block; height:52px; }
+  .sg-swatch span{ display:block; font-family:var(--font-mono); font-size:9.5px; color:var(--muted); padding:6px 8px; }
+  .lang-toggle{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+    background:transparent; color:var(--ink); border:1px solid var(--rule-strong);
+    border-radius:var(--r-1); padding:9px 14px; cursor:pointer; min-height:44px;
+  }
+  .sg-row{ display:flex; gap:var(--s-3); flex-wrap:wrap; align-items:center; }
+</style>
+</head>
+<body>
+<div class="sg-wrap">
+
+  <div class="sg-top">
+    <header class="ds-section-head" style="margin:0">
+      <p class="ds-eyebrow">Design system · v0.1 · phase 0</p>
+      <h1 class="ds-title">Bibliothèque de composants.</h1>
+      <p class="ds-lede">Un composant unique par pattern, appliqué ensuite à toutes les pages. Chaque élément ci-dessous fonctionne en thème clair et sombre à partir des mêmes tokens. Document interne, hors navigation.</p>
+    </header>
+    <button class="lang-toggle theme-toggle" id="themeToggle" aria-label="Basculer le thème clair/sombre" aria-pressed="false"><span id="themeToggleLabel">Sombre</span></button>
+  </div>
+
+  <section class="sg-block">
+    <h3>01 · Tokens couleur</h3>
+    <div class="sg-swatches">
+      <div class="sg-swatch"><i style="background:var(--paper)"></i><span>--paper</span></div>
+      <div class="sg-swatch"><i style="background:var(--paper-2)"></i><span>--paper-2</span></div>
+      <div class="sg-swatch"><i style="background:var(--surface)"></i><span>--surface</span></div>
+      <div class="sg-swatch"><i style="background:var(--ink)"></i><span>--ink</span></div>
+      <div class="sg-swatch"><i style="background:var(--muted)"></i><span>--muted</span></div>
+      <div class="sg-swatch"><i style="background:var(--rule)"></i><span>--rule</span></div>
+      <div class="sg-swatch"><i style="background:var(--signal)"></i><span>--signal</span></div>
+      <div class="sg-swatch"><i style="background:var(--teal)"></i><span>--teal</span></div>
+      <div class="sg-swatch"><i style="background:var(--q-risque)"></i><span>--q-risque</span></div>
+      <div class="sg-swatch"><i style="background:var(--q-booste)"></i><span>--q-booste</span></div>
+      <div class="sg-swatch"><i style="background:var(--q-stagnant)"></i><span>--q-stagnant</span></div>
+      <div class="sg-swatch"><i style="background:var(--q-augmente)"></i><span>--q-augmente</span></div>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>02 · En-tête de section</h3>
+    <header class="ds-section-head" style="margin:0">
+      <p class="ds-eyebrow">Couche 1 · Adoption · Eurostat</p>
+      <h2 class="ds-title">Ce que les entreprises déclarent.</h2>
+      <p class="ds-lede">Surtitre IBM Plex Mono, titre Fraunces, chapô Inter. Structure identique sur toutes les pages.</p>
+    </header>
+  </section>
+
+  <section class="sg-block">
+    <h3>03 · Statistique-clé</h3>
+    <div class="ds-grid ds-grid--3">
+      <div class="ds-stat">
+        <div class="ds-stat-num">20,0<small>%</small></div>
+        <div class="ds-stat-label">Entreprises UE-27 utilisant l'IA</div>
+        <div class="ds-stat-src">Eurostat · déc. 2025 <span class="ds-badge ds-badge--t1" data-tip="Source primaire officielle">T1</span></div>
+      </div>
+      <div class="ds-stat">
+        <div class="ds-stat-num">41<small>%</small></div>
+        <div class="ds-stat-label">Automatisation citée première opportunité</div>
+        <div class="ds-stat-src">UBS / Intervista · mai 2026 <span class="ds-badge ds-badge--t1" data-tip="Enquête ~2500 entreprises suisses">T1</span></div>
+      </div>
+      <div class="ds-stat">
+        <div class="ds-stat-num">3,6<small>×</small></div>
+        <div class="ds-stat-label">Divergence des scores d'exposition selon le LLM</div>
+        <div class="ds-stat-src">Yin, Vu &amp; Persico · NBER WP 35110 · 2026 <span class="ds-badge ds-badge--t1" data-tip="Working paper évalué">T1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>04 · Badges tier et confiance</h3>
+    <div class="sg-row">
+      <span class="ds-badge ds-badge--t1" data-tip="Source primaire · institution officielle ou étude évaluée">T1</span>
+      <span class="ds-badge ds-badge--t2" data-tip="Source institutionnelle secondaire">T2</span>
+      <span class="ds-badge ds-badge--t3" data-tip="Presse spécialisée, rapport privé">T3</span>
+      <span class="ds-badge ds-badge--t4" data-tip="Source indicative, à recouper">T4</span>
+      <span class="ds-badge ds-badge--c1" data-tip="Confiance élevée · recoupé multi-sources">C1</span>
+      <span class="ds-badge ds-badge--c2" data-tip="Confiance bonne · source unique solide">C2</span>
+      <span class="ds-badge ds-badge--c3" data-tip="Confiance limitée · méthodologie partielle">C3</span>
+      <span class="ds-badge ds-badge--c4" data-tip="Confiance faible · signal isolé">C4</span>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>05 · Carte source</h3>
+    <div class="ds-grid ds-grid--2">
+      <article class="ds-source-card">
+        <h4 class="ds-src-title">LLM exposure and the Swiss labour market</h4>
+        <p class="ds-src-meta">Klaeui J. &amp; Siegenthaler M. · KOF / ETH Zurich · décembre 2025</p>
+        <div class="ds-src-badges">
+          <span class="ds-badge ds-badge--t1" data-tip="Institut de recherche public">T1</span>
+          <span class="ds-badge ds-badge--c2" data-tip="Source unique solide, série courte">C2</span>
+        </div>
+        <a class="ds-src-link" href="#">Consulter la source</a>
+      </article>
+      <article class="ds-source-card">
+        <h4 class="ds-src-title">UBS Outlook Suisse · Intelligence artificielle</h4>
+        <p class="ds-src-meta">Bee A. &amp; Zumbühl P. · UBS CIO / Intervista · mai 2026</p>
+        <div class="ds-src-badges">
+          <span class="ds-badge ds-badge--t1" data-tip="Enquête ~2500 entreprises, mars 2026">T1</span>
+          <span class="ds-badge ds-badge--c2" data-tip="Auto-déclaratif, pondération documentée">C2</span>
+        </div>
+        <a class="ds-src-link" href="#">Consulter la source</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>06 · Carte métier</h3>
+    <div class="ds-grid ds-grid--2">
+      <article class="ds-job-card ds-job-card--booste">
+        <span class="ds-quad-chip">Boosté</span>
+        <h4 class="ds-job-name">Informatique et mathématiques</h4>
+        <p class="ds-job-code">FAP M · France</p>
+        <div class="ds-job-scores">
+          <span>Exposition <b>24,9 %</b> · Coface, mars 2026</span>
+          <span>Offres <b>-21 %</b> · BMO 2024-2025</span>
+        </div>
+        <div class="ds-job-ia">
+          <span class="ds-badge">IA générative</span>
+          <span class="ds-badge">IA prédictive</span>
+        </div>
+      </article>
+      <article class="ds-job-card ds-job-card--augmente">
+        <span class="ds-quad-chip">Augmenté</span>
+        <h4 class="ds-job-name">Santé et soins</h4>
+        <p class="ds-job-code">NP 2010 · Suisse</p>
+        <div class="ds-job-scores">
+          <span>Exposition <b>32 %</b> · KOF, déc. 2025</span>
+          <span>Offres <b>+4 %</b> · Adecco/KOF</span>
+        </div>
+        <div class="ds-job-ia">
+          <span class="ds-badge">IA spécialisée</span>
+          <span class="ds-badge">Aide décision</span>
+        </div>
+      </article>
+    </div>
+    <p class="ds-footnote" style="margin-top:var(--s-3)">Habillage de démonstration · l'affectation de quadrant réelle provient des pages pays. Variantes : risqué · boosté · stagnant · augmenté.</p>
+  </section>
+
+  <section class="sg-block">
+    <h3>07 · Carte Dispatch·iA</h3>
+    <div class="ds-grid ds-grid--2">
+      <article class="ds-dispatch-card">
+        <div class="ds-disp-head">
+          <span class="ds-disp-num">#006</span>
+          <span class="ds-disp-meta">2026-05-26 · Suisse · Tous secteurs</span>
+        </div>
+        <div class="ds-disp-body">
+          <h4 class="ds-disp-title">L'IA dans les entreprises suisses · état des lieux 2026.</h4>
+          <p class="ds-disp-sum">Plutôt qu'un chiffre unique, ce numéro croise les dernières enquêtes suisses pour distinguer adoption déclarée, effective et stratégique.</p>
+          <span class="ds-partner-tag">Édition indépendante</span>
+        </div>
+        <div class="ds-disp-foot"><a class="ds-disp-link" href="#">Lire la dépêche →</a></div>
+      </article>
+      <article class="ds-dispatch-card">
+        <div class="ds-disp-head">
+          <span class="ds-disp-num">#004</span>
+          <span class="ds-disp-meta">2026-05-12 · France · RH</span>
+        </div>
+        <div class="ds-disp-body">
+          <h4 class="ds-disp-title">Agents IA en entreprise · France 2026.</h4>
+          <p class="ds-disp-sum">Le contenu sponsorisé est clairement délimité : le partenaire n'apparaît jamais dans les sections analytiques.</p>
+          <span class="ds-partner-tag">Partenaire · myAuxilium</span>
+        </div>
+        <div class="ds-disp-foot"><a class="ds-disp-link" href="#">Lire la dépêche →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>08 · Bloc méthodologie / citation</h3>
+    <div class="ds-note">
+      <span class="ds-note-tag">Choix méthodologique</span>
+      Les scores d'exposition dérivés d'O*NET varient jusqu'à <strong>3,6×</strong> selon le LLM interrogé (Yin, Vu et Persico, NBER WP 35110, 2026). Aucune valeur de cette couche ne se lit comme une projection actionnable : nous l'affichons en fourchette, jamais en point.
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>09 · Encadré « n.d. » · manque de données assumé</h3>
+    <div class="ds-nd">
+      <span class="ds-nd-chip">n.d.</span>
+      <div class="ds-nd-body">
+        Les valeurs 2025 pour 18 États membres · dont l'Allemagne, la France, l'Italie et l'Espagne · ne figurent pas encore dans les communiqués Eurostat.
+        <span class="ds-nd-rule">Règle de l'observatoire · une donnée absente est affichée, jamais estimée.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-block">
+    <h3>10 · CTA</h3>
+    <div class="sg-row">
+      <a class="ds-cta" href="#">Échanger sur votre organisation</a>
+      <a class="ds-cta ds-cta--secondary" href="#">Lire la méthodologie</a>
+    </div>
+  </section>
+
+  <p class="ds-footnote">observatoire[s]·ia · design system v0.1 · les chiffres affichés proviennent des données publiées de l'observatoire (Eurostat, KOF, Coface, UBS/Intervista, NBER).</p>
+</div>
+
+<script>
+(function(){
+  function label(){
+    var d = document.documentElement.getAttribute("data-theme") === "dark";
+    var el = document.getElementById("themeToggleLabel");
+    if (el) el.textContent = d ? "Clair" : "Sombre";
+    var b = document.getElementById("themeToggle");
+    if (b) b.setAttribute("aria-pressed", d ? "true" : "false");
+  }
+  var b = document.getElementById("themeToggle");
+  if (b) b.addEventListener("click", function(){
+    var d = document.documentElement.getAttribute("data-theme") === "dark";
+    if (d) document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme","dark");
+    try{ localStorage.setItem("obs-theme", d ? "light" : "dark"); }catch(e){}
+    label();
+  });
+  label();
+})();
+</script>
+</body>
+</html>

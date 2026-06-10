@@ -22,7 +22,8 @@
       "fr_postings": -21,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Informatique et numérique"
+      "label": "Informatique et numérique",
+      "label_en": "IT & digital"
     },
     {
       "code": "MARKETING_MEDIA",
@@ -32,7 +33,8 @@
       "fr_postings": -22,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Créatifs, marketing, médias"
+      "label": "Créatifs, marketing, médias",
+      "label_en": "Creative, marketing & media"
     },
     {
       "code": "OFFICE_ADMIN",
@@ -42,7 +44,8 @@
       "fr_postings": -15,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Administration et soutien"
+      "label": "Administration et soutien",
+      "label_en": "Administration & support"
     },
     {
       "code": "FIN_INSURANCE",
@@ -52,7 +55,8 @@
       "fr_postings": -21,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Finance, banque, assurance"
+      "label": "Finance, banque, assurance",
+      "label_en": "Finance, banking & insurance"
     },
     {
       "code": "SCIENCE_TECH",
@@ -62,7 +66,8 @@
       "fr_postings": -16,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Sciences, ingénierie, architecture"
+      "label": "Sciences, ingénierie, architecture",
+      "label_en": "Science, engineering & architecture"
     },
     {
       "code": "LEGAL",
@@ -72,7 +77,8 @@
       "fr_postings": -12,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Juridique"
+      "label": "Juridique",
+      "label_en": "Legal"
     },
     {
       "code": "EDUCATION",
@@ -82,7 +88,8 @@
       "fr_postings": -3,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Enseignement et action publique"
+      "label": "Enseignement et action publique",
+      "label_en": "Education & public action"
     },
     {
       "code": "MANUFACTURING",
@@ -92,7 +99,8 @@
       "fr_postings": -16,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Industrie manufacturière"
+      "label": "Industrie manufacturière",
+      "label_en": "Manufacturing"
     },
     {
       "code": "HEALTHCARE",
@@ -102,7 +110,8 @@
       "fr_postings": -3,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Santé et soins"
+      "label": "Santé et soins",
+      "label_en": "Health & care"
     },
     {
       "code": "CONSTRUCTION",
@@ -112,7 +121,8 @@
       "fr_postings": -22,
       "ch_source": "KOF/Felten transposé NP 2010 · Adecco/KOF Swiss Job Market Index Q3 2025",
       "fr_source": "Coface/OEM mars 2026 · France Travail BMO 2025",
-      "label": "Construction et BTP"
+      "label": "Construction et BTP",
+      "label_en": "Construction"
     }
   ]
 }

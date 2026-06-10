@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dispatch·iA #006 — L'IA dans les entreprises suisses · État des lieux 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.__d3Ready=new Promise((res,rej)=>{window.__d3ReadyResolve=res;window.__d3ReadyReject=rej;});</script>
+<style>
+:root{
+  --bg:#FBF9F4; --bg-alt:#F3EFE7; --tx:#1A1A1A; --tx-sec:#5B5B5B; --tx-mut:#8A8A8A;
+  --br:#E5E0D8; --br-strong:#C9C2B5; --ac:#B8312F; --ac-soft:#E8DCDA;
+  --green:#2D6A4F; --amber:#BF6B04; --grid:#E9E4DB;
+  --shadow:0 1px 2px rgba(26,26,26,.04),0 6px 20px rgba(26,26,26,.05);
+  --gut:clamp(16px,4vw,40px); --maxw:820px; --measure:820px;
+}
+[data-theme="dark"]{
+  --bg:#14130E; --bg-alt:#1E1C16; --tx:#F2EEE6; --tx-sec:#BCB6AA; --tx-mut:#8C867B;
+  --br:#322F29; --br-strong:#47433B; --ac:#E0564F; --ac-soft:#3A2422;
+  --green:#5FAE89; --amber:#D98C2B; --grid:#2A2722;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;line-height:1.62;
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ac);z-index:100;transition:width .08s linear}
+
+/* full-bleed section, constrained inner */
+.band{width:100%;border-bottom:1px solid var(--br)}
+.band.alt{background:var(--bg-alt)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+section .wrap{padding-top:clamp(34px,5vw,56px);padding-bottom:clamp(34px,5vw,56px)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--br)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:11px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;font-weight:500;white-space:nowrap}
+.brand b{color:var(--ac)}
+.nav-ctrl{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid var(--br);border-radius:7px;overflow:hidden}
+.lang button{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 10px;background:transparent;border:none;color:var(--tx-mut);cursor:pointer;transition:.15s}
+.lang button:hover{color:var(--tx)}
+.lang button[aria-pressed="true"]{background:var(--ac);color:#fff}
+.theme-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 11px;background:transparent;border:1px solid var(--br);border-radius:7px;color:var(--tx-mut);cursor:pointer}
+.theme-btn:hover{color:var(--tx)}
+
+/* hero */
+.hero .wrap{padding-top:clamp(44px,7vw,72px);padding-bottom:clamp(30px,4vw,40px)}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ac);margin-bottom:18px}
+.hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(29px,5.4vw,52px);line-height:1.07;letter-spacing:-.01em;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--ac)}
+.hero-deck{font-size:clamp(15px,2.1vw,18px);color:var(--tx-sec);max-width:var(--measure)}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut)}
+.meta-row b{color:var(--tx-sec);font-weight:500}
+
+/* section heads */
+.section-num{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ac);margin-bottom:12px}
+.section-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,3.6vw,33px);line-height:1.14;margin-bottom:14px;max-width:var(--measure)}
+.section-deck{font-size:clamp(15px,1.9vw,16.5px);color:var(--tx-sec);max-width:var(--measure);margin-bottom:8px}
+p.body{font-size:15.5px;margin:14px 0;max-width:var(--measure)}
+p.body a{color:var(--ac);text-decoration:none;border-bottom:1px solid var(--ac-soft)}
+
+/* uniform blocks */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:8px 12px;border:1px solid var(--br);border-radius:8px;color:var(--tx-sec);background:var(--bg)}
+[data-theme] .band.alt .chip{background:var(--bg)}
+.chip b{color:var(--ac)}
+.card{background:var(--bg);border:1px solid var(--br);border-radius:14px;padding:clamp(16px,3vw,24px);margin-top:22px;box-shadow:var(--shadow);width:100%}
+.band.alt .card{background:var(--bg)}
+.card-head{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--tx-mut);margin-bottom:4px}
+.card-title{font-family:'Fraunces',serif;font-size:clamp(17px,2.4vw,20px);font-weight:500;margin-bottom:18px}
+.chart-holder{width:100%}
+svg.chart{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-sec)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.src{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut);margin-top:14px;line-height:1.55}
+.src b{color:var(--tx-sec);font-weight:500}
+.takeaway{border-left:3px solid var(--ac);padding:14px 18px;margin-top:20px;background:var(--ac-soft);border-radius:0 10px 10px 0;font-size:14.5px;width:100%;max-width:none}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:22px}
+.stat{border:1px solid var(--br);border-radius:14px;padding:18px;background:var(--bg);box-shadow:var(--shadow)}
+.band.alt .stat{background:var(--bg)}
+.stat .num{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,34px);color:var(--ac);line-height:1}
+.stat .lbl{font-size:13px;color:var(--tx-sec);margin-top:8px}
+.stat .meta{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tx-mut);margin-top:8px}
+
+/* two-col list (leaders/laggards, regions) */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.duo .col{border:1px solid var(--br);border-radius:14px;padding:16px 18px;background:var(--bg)}
+.band.alt .duo .col{background:var(--bg)}
+.duo h4{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.duo h4.up{color:var(--green)} .duo h4.dn{color:var(--amber)}
+.duo ul{list-style:none;font-size:14px;color:var(--tx-sec)}
+.duo li{padding:5px 0;border-bottom:1px dashed var(--br)}
+.duo li:last-child{border-bottom:none}
+
+.regions{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:18px}
+.region{border:1px solid var(--br);border-radius:14px;padding:16px;background:var(--bg)}
+.band.alt .region{background:var(--bg)}
+.region .rn{font-family:'Fraunces',serif;font-size:16px;margin-bottom:4px}
+.region .rnum{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--ac);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;margin-right:8px;vertical-align:middle}
+.region .tdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.region .rs{font-size:13px;color:var(--tx-sec)}
+.region .ri{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut);margin-top:8px}
+.nd{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);border:1px dashed var(--amber);border-radius:8px;padding:10px 12px;margin-top:16px;display:inline-block}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:20px}
+.road-item{border:1px solid var(--br);border-radius:14px;padding:15px;background:var(--bg)}
+.band.alt .road-item{background:var(--bg)}
+.road-item .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ac);margin-bottom:6px}
+.road-item .t{font-family:'Fraunces',serif;font-size:16px;margin-bottom:4px}
+.road-item .s{font-size:13px;color:var(--tx-mut)}
+.tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:3px 8px;border-radius:5px;margin-top:9px}
+.tag.ok{background:var(--green);color:#fff}
+.tag.soon{background:var(--bg);border:1px solid var(--br);color:var(--tx-mut)}
+
+/* decisions */
+.dec{counter-reset:d;margin-top:20px;display:grid;gap:12px}
+.dec .d{position:relative;border:1px solid var(--br);border-radius:14px;padding:16px 18px 16px 56px;background:var(--bg)}
+.band.alt .dec .d{background:var(--bg)}
+.dec .d::before{counter-increment:d;content:counter(d);position:absolute;left:16px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center}
+.dec .d b{font-family:'Fraunces',serif;font-weight:500;font-size:16px}
+.dec .d p{font-size:14px;color:var(--tx-sec);margin-top:4px}
+
+#chmap path{transition:opacity .15s,stroke-width .15s}
+.region{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.region.active{border-color:var(--ac);box-shadow:inset 0 0 0 1px var(--ac)}
+.mappanel{margin-top:14px;border-top:1px solid var(--br);padding-top:14px;min-height:60px}
+.mappanel .mk{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut);text-transform:uppercase;letter-spacing:.05em}
+.mappanel .mn{font-family:'Fraunces',serif;font-size:19px;margin:3px 0 4px}
+.mappanel .ms{font-size:14px;color:var(--tx-sec)}
+.mappanel .me{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--tx-sec);margin-top:9px;display:inline-flex;align-items:center;gap:7px}
+.mappanel .me i{width:10px;height:10px;border-radius:50%;flex:none}
+footer .wrap{padding-top:40px;padding-bottom:64px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.foot-h{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--tx-mut);margin-bottom:10px}
+.foot-list{list-style:none;font-size:13px;color:var(--tx-sec)}
+.foot-list li{margin-bottom:7px;line-height:1.45}
+.sig{font-family:'Fraunces',serif;font-size:20px;margin-top:6px}
+
+@media(max-width:760px){
+  .foot-grid{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .nav-inner{gap:8px}
+  .brand{font-size:11px}
+  .lang button{padding:6px 8px}
+  .meta-row{font-size:10px}
+}
+
+/* ===== chrome editorial (style dispatch 05) ===== */
+:root{ --sia-blue:#003081; --sia-coral:#f56476; --sia-cream:#ffeed1; }
+.breadcrumb{ background:var(--bg); border-bottom:1px solid var(--br); padding:10px 0; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--tx-mut); }
+.breadcrumb-inner{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gut); }
+.breadcrumb a{ color:var(--tx-mut); text-decoration:none; }
+.breadcrumb a:hover{ color:var(--ac); }
+.breadcrumb .sep{ margin:0 8px; }
+.breadcrumb .cur{ color:var(--tx); }
+.dispatch-banner{ background:var(--sia-blue); color:var(--sia-cream); padding:10px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
+.dispatch-banner-inner{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gut); display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+.dispatch-banner b{ color:#fff; }
+.dispatch-banner-dot{ display:inline-block; width:4px; height:4px; border-radius:50%; background:var(--sia-coral); margin:0 10px; vertical-align:middle; }
+.dispatch-tag{ font-family:'IBM Plex Mono',monospace; font-size:10px; line-height:1.3; text-transform:uppercase; letter-spacing:.08em; color:var(--sia-blue); border-left:2px solid var(--sia-coral); padding-left:11px; font-weight:600; }
+html[data-theme="dark"] .dispatch-tag{ color:var(--sia-cream); }
+.hero-badges{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:24px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; }
+.hb{ padding:4px 9px; border-radius:5px; }
+.hb-blue{ background:var(--sia-blue); color:var(--sia-cream); }
+.hb-coral{ background:var(--sia-coral); color:#fff; }
+.hb-edition{ border:1px solid var(--br-strong); color:var(--tx-mut); }
+.hero-badges .sep{ color:var(--tx-mut); }
+.hero-author{ display:flex; align-items:center; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--br); max-width:var(--measure); }
+.hero-author-mark{ flex:none; width:44px; height:44px; background:var(--bg-dark,#1A1A1A); color:var(--bg); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:500; font-size:18px; letter-spacing:-.02em; }
+html[data-theme="dark"] .hero-author-mark{ background:var(--ac); color:#fff; }
+.hero-author-info{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--tx-mut); letter-spacing:.04em; line-height:1.5; }
+.hero-author-info b{ color:var(--tx); }
+.indep-block{ max-width:var(--measure); margin:34px auto 0; background:var(--sia-cream); border:1px solid var(--sia-blue); padding:22px 26px; }
+html[data-theme="dark"] .indep-block{ background:rgba(0,48,129,.16); }
+.indep-label{ font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--sia-blue); font-weight:700; margin-bottom:8px; }
+html[data-theme="dark"] .indep-label{ color:var(--sia-coral); }
+.indep-block p{ font-size:14px; line-height:1.6; color:var(--tx); margin:0; }
+html[data-theme="dark"] .indep-block p{ color:var(--tx); }
+.indep-block strong{ color:var(--sia-blue); }
+html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
+.source-callout{ background:var(--bg-alt); padding:18px 22px; margin:20px 0; border-left:3px solid var(--ac); font-family:'Fraunces',serif; font-style:italic; font-size:17px; line-height:1.4; color:var(--tx); }
+.foot-about p{ font-size:13px; line-height:1.6; color:var(--tx-sec); margin:0 0 12px; }
+.foot-about b{ color:var(--tx); }
+.foot-sig{ font-family:'Fraunces',serif; font-size:19px; color:var(--tx); margin-top:10px; }
+.foot-sig small{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--tx-mut); text-transform:uppercase; letter-spacing:.06em; margin-top:6px; }
+@media(max-width:680px){ .dispatch-banner-inner{ font-size:10px; } .hero-author{ flex-direction:row; } }
+</style>
+</head>
+<body>
+<!-- fil d'Ariane + banniere editoriale (style dispatch 05) -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">observatoires<span style="color:var(--ac)">[s]</span>·ia</a>
+    <span class="sep">/</span>
+    <a href="../briefings.html">Briefings</a>
+    <span class="sep">/</span>
+    <span class="cur">Dispatch·iA #006 · L'IA dans les entreprises suisses</span>
+  </div>
+</div>
+<div class="dispatch-banner">
+  <div class="dispatch-banner-inner">
+    <span>📡 Dispatch·iA #006<span class="dispatch-banner-dot"></span>L'IA dans les entreprises suisses<span class="dispatch-banner-dot"></span><b>Mars – mai 2026</b></span>
+    <span>Édition <b>indépendante</b> &middot; sans sponsor</span>
+  </div>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand" style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:-.01em">Veille <span style="color:var(--ac)">Métiers IA</span></div>
+    <div class="nav-ctrl">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="it" aria-pressed="false">IT</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-btn" id="themeBtn" data-i18n="theme_dark">Sombre</button>
+      <div class="dispatch-tag">Dispatch<br>#06 · <b>Suisse</b></div>
+    </div>
+  </div>
+</nav>
+
+<header class="band hero">
+  <div class="wrap">
+    <div class="hero-badges">
+      <span class="hb hb-blue">Dispatch #06</span>
+      <span class="hb hb-coral">Édition indépendante</span>
+      <span class="hb hb-edition">Sans sponsor</span>
+      <span class="sep">·</span><span>Mai 2026</span>
+      <span class="sep">·</span><span>Suisse</span>
+    </div>
+    <h1 data-i18n-html="hero_title"></h1>
+    <p class="hero-deck" data-i18n="hero_deck"></p>
+    <div class="meta-row">
+      <span data-i18n-html="meta_date"></span>
+      <span data-i18n-html="meta_sources"></span>
+      <span data-i18n-html="meta_indep"></span>
+    </div>
+    <div class="hero-author">
+      <div class="hero-author-mark">NN</div>
+      <div class="hero-author-info">
+        <b>Naully Nicolas</b><br>
+        Consultant &amp; conférencier IA &middot; Auteur de <i>Guerill-iA</i> &middot; Éditeur de transitions-ia.fr et observatoire.naullynicolas.ch
+      </div>
+    </div>
+    <div class="indep-block">
+      <div class="indep-label">→ Cadre éditorial</div>
+      <p><strong>Ce dispatch est une publication éditoriale indépendante de Naully Nicolas.</strong> Il n'a été ni commandé, ni financé, ni relu par aucune des institutions ou entreprises citées. Le choix des sources, des chiffres et des analyses relève de la responsabilité éditoriale exclusive de l'auteur. Aucun lien commercial ni partenariat ne lie cette édition à ses sources.</p>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="methode">
+  <div class="wrap">
+    <div class="section-num" data-i18n="m_num"></div>
+    <h2 class="section-title" data-i18n="m_title"></h2>
+    <p class="section-deck" data-i18n="m_deck"></p>
+    <p class="body" data-i18n="m_body1"></p>
+    <div class="chips">
+      <span class="chip" data-i18n-html="chip_t1"></span>
+      <span class="chip" data-i18n-html="chip_t2"></span>
+      <span class="chip" data-i18n-html="chip_t3"></span>
+      <span class="chip" data-i18n-html="chip_t4"></span>
+      <span class="chip" data-i18n-html="chip_c"></span>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="adoption">
+  <div class="wrap">
+    <div class="section-num" data-i18n="a_num"></div>
+    <h2 class="section-title" data-i18n="a_title"></h2>
+    <p class="section-deck" data-i18n="a_deck"></p>
+    <p class="body" data-i18n="a_body1"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="a_card_head"></div>
+      <div class="card-title" data-i18n="a_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch1"></svg></div>
+      <div class="legend" id="lg1"></div>
+      <div class="src" id="sr1"></div>
+    </div>
+    <div class="takeaway" data-i18n="a_takeaway"></div>
+  </div>
+</section>
+
+<section class="band" id="taille">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s2_num"></div>
+    <h2 class="section-title" data-i18n="s2_title"></h2>
+    <p class="section-deck" data-i18n="s2_deck"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="s2_card_head"></div>
+      <div class="card-title" data-i18n="s2_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch2"></svg></div>
+      <div class="src" id="sr2"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">91,1 %</div><div class="lbl" data-i18n="s2_st1"></div><div class="meta">OFS · UBS 2026</div></div>
+      <div class="stat"><div class="num">0,3 %</div><div class="lbl" data-i18n="s2_st2"></div><div class="meta">OFS · UBS 2026</div></div>
+      <div class="stat"><div class="num">59–77 %</div><div class="lbl" data-i18n="s2_st3"></div><div class="meta">UBS 2026 (T1)</div></div>
+    </div>
+    <div class="takeaway" data-i18n="s2_take"></div>
+  </div>
+</section>
+
+<section class="band alt" id="secteur">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s3_num"></div>
+    <h2 class="section-title" data-i18n="s3_title"></h2>
+    <p class="section-deck" data-i18n="s3_deck"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="s3_card_head"></div>
+      <div class="card-title" data-i18n="s3_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch3"></svg></div>
+      <div class="src" id="sr3"></div>
+    </div>
+    <div class="duo">
+      <div class="col"><h4 class="up" data-i18n="s3_lead_h"></h4><ul id="lead-list"></ul></div>
+      <div class="col"><h4 class="dn" data-i18n="s3_lag_h"></h4><ul id="lag-list"></ul></div>
+    </div>
+    <div class="takeaway" data-i18n="s3_take"></div>
+  </div>
+</section>
+
+<section class="band" id="usages">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s4_num"></div>
+    <h2 class="section-title" data-i18n="s4_title"></h2>
+    <p class="section-deck" data-i18n="s4_deck"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="s4_card_head"></div>
+      <div class="card-title" data-i18n="s4_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch4"></svg></div>
+      <div class="src" id="sr4"></div>
+    </div>
+    <div class="card">
+      <div class="card-head" data-i18n="s4b_card_head"></div>
+      <div class="card-title" data-i18n="s4b_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch4b"></svg></div>
+      <div class="src" id="sr4b"></div>
+    </div>
+    <div class="takeaway" data-i18n="s4_take"></div>
+  </div>
+</section>
+
+<section class="band alt" id="freins">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s5_num"></div>
+    <h2 class="section-title" data-i18n="s5_title"></h2>
+    <p class="section-deck" data-i18n="s5_deck"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="s5_card_head"></div>
+      <div class="card-title" data-i18n="s5_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch5"></svg></div>
+      <div class="src" id="sr5"></div>
+    </div>
+    <div class="card">
+      <div class="card-head" data-i18n="s5b_card_head"></div>
+      <div class="card-title" data-i18n="s5b_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch5b"></svg></div>
+      <div class="src" id="sr5b"></div>
+    </div>
+    <div class="takeaway" data-i18n="s5_take"></div>
+  </div>
+</section>
+
+<section class="band" id="regions">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s6_num"></div>
+    <h2 class="section-title" data-i18n="s6_title"></h2>
+    <p class="section-deck" data-i18n="s6_deck"></p>
+    <p class="body" data-i18n="s6_body"></p>
+    <div class="card">
+      <div class="card-head" data-i18n="s6_card_head"></div>
+      <div class="card-title" data-i18n="s6_card_title"></div>
+      <div class="chart-holder"><svg class="chart" id="ch6"></svg></div>
+      <div class="src" id="sr6"></div>
+    </div>
+    <h3 class="card-title" style="margin-top:26px" data-i18n="s6_reg_h"></h3>
+    <div class="card">
+      <div class="card-head" data-i18n="s6_map_head"></div>
+      <div class="card-title" data-i18n="s6_map_title"></div>
+      <div class="chart-holder"><svg class="chart" id="chmap"></svg></div>
+      <div class="legend" id="lgmap"></div>
+      <div class="mappanel" id="mappanel"></div>
+    </div>
+    <div class="regions" id="region-cards"></div>
+    <div class="nd" data-i18n="s6_nd"></div>
+    <div class="takeaway" data-i18n="s6_take"></div>
+  </div>
+</section>
+
+<section class="band alt" id="emploi">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s7_num"></div>
+    <h2 class="section-title" data-i18n="s7_title"></h2>
+    <p class="section-deck" data-i18n="s7_deck"></p>
+    <div class="stats">
+      <div class="stat"><div class="num">&gt;50 %</div><div class="lbl" data-i18n="s7_st1"></div><div class="meta">UBS 2026 (T1)</div></div>
+      <div class="stat"><div class="num">2/3</div><div class="lbl" data-i18n="s7_st2"></div><div class="meta">UBS 2026 (T1)</div></div>
+      <div class="stat"><div class="num">×10</div><div class="lbl" data-i18n="s7_st3"></div><div class="meta">PwC 2025 (T2)</div></div>
+      <div class="stat"><div class="num">+56 %</div><div class="lbl" data-i18n="s7_st4"></div><div class="meta">PwC 2025 (T2)</div></div>
+    </div>
+    <p class="body" data-i18n="s7_body1"></p>
+    <p class="body" data-i18n="s7_body2"></p>
+    <div class="src" data-i18n-html="s7_src"></div>
+  </div>
+</section>
+
+<section class="band" id="gouvernance">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s8_num"></div>
+    <h2 class="section-title" data-i18n="s8_title"></h2>
+    <p class="section-deck" data-i18n="s8_deck"></p>
+    <div class="stats">
+      <div class="stat"><div class="num">8,7/10</div><div class="lbl" data-i18n="s8_st1"></div><div class="meta">EY 2026 (T1)</div></div>
+      <div class="stat"><div class="num">58 %</div><div class="lbl" data-i18n="s8_st2"></div><div class="meta">EY 2026 (T1)</div></div>
+      <div class="stat"><div class="num">56 %</div><div class="lbl" data-i18n="s8_st3"></div><div class="meta">EY 2026 (T1)</div></div>
+    </div>
+    <p class="body" data-i18n="s8_body1"></p>
+    <p class="body" data-i18n="s8_body2"></p>
+  </div>
+</section>
+
+<section class="band alt" id="decisions">
+  <div class="wrap">
+    <div class="section-num" data-i18n="s9_num"></div>
+    <h2 class="section-title" data-i18n="s9_title"></h2>
+    <p class="section-deck" data-i18n="s9_deck"></p>
+    <div class="dec">
+      <div class="d"><b data-i18n="s9_d1t"></b><p data-i18n="s9_d1p"></p></div>
+      <div class="d"><b data-i18n="s9_d2t"></b><p data-i18n="s9_d2p"></p></div>
+      <div class="d"><b data-i18n="s9_d3t"></b><p data-i18n="s9_d3p"></p></div>
+      <div class="d"><b data-i18n="s9_d4t"></b><p data-i18n="s9_d4p"></p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="band" style="background:var(--bg-alt);border-top:1px solid var(--br)">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <div class="foot-h">→ À propos</div>
+        <p><b>Veille Métiers IA</b> est une publication éditoriale indépendante de Naully Nicolas, consultant et conférencier IA. Elle suit l'impact de l'intelligence artificielle sur les métiers et l'emploi en France et en Suisse.</p>
+        <p>Ce numéro #006 dresse l'état des lieux de l'adoption de l'IA dans les entreprises suisses en 2026, sans aucun lien institutionnel ni commercial avec les sources citées.</p>
+        <div class="foot-sig">Naully<small>Dispatch·iA · édition indépendante</small></div>
+      </div>
+      <div>
+        <div class="foot-h" data-i18n="f_sources"></div>
+        <ul class="foot-list">
+          <li>EY AI Survey 2026 — Artificial Intelligence in Swiss Companies (604 entreprises CH, mai 2026). T1.</li>
+          <li>UBS Outlook Suisse Q2 2026 / Intervista (≈2500 entreprises CH, mars 2026). T1.</li>
+          <li>HEG Genève / Oracle — Observatoire Data & IA 2025. T2.</li>
+          <li>KOF ETH Zürich — Siegenthaler & Kläui, déc. 2025. T1.</li>
+          <li>PwC Suisse — AI Jobs Barometer 2025. T2.</li>
+          <li>OFS — STATENT / STATEM (structure de l'emploi par grande région).</li>
+          <li data-i18n="f_region_note"></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-h" data-i18n="f_editor"></div>
+        <div class="sig">Naully Nicolas</div>
+        <p class="body" style="font-size:13px;margin-top:8px;max-width:none" data-i18n="f_editor_note"></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===================== i18n ===================== */
+const I18N = {
+fr:{
+ theme_dark:"Sombre", theme_light:"Clair",
+ hero_kicker:"Dispatch·iA #006 · Édition indépendante",
+ hero_title:"L'IA dans les entreprises suisses. <em>État des lieux 2026.</em>",
+ hero_deck:"Combien d'entreprises suisses utilisent vraiment l'IA en 2026 ? Plutôt qu'un chiffre unique, ce numéro croise les dernières enquêtes suisses pour distinguer adoption déclarée, effective et stratégique. À destination des COMEX, CODIR et DRH.",
+ meta_date:"<b>Données :</b> mars–mai 2026",
+ meta_sources:"<b>Sources principales :</b> EY AI Survey 2026, UBS Outlook Q2 2026",
+ meta_indep:"<b>Statut :</b> indépendant, sans sponsor",
+ m_num:"§ 00 / Méthode",
+ m_title:"Pourquoi un état des lieux plutôt qu'un chiffre",
+ m_deck:"Les chiffres d'adoption de l'IA varient du simple au double selon ce qu'ils mesurent et qui est interrogé. Ce dispatch ne retient aucun chiffre isolé : il les confronte, hiérarchise les sources et explicite les écarts.",
+ m_body1:"Chaque donnée est rattachée à une source datée, classée par fiabilité (T1 à T4) et assortie d'un degré de confiance (C1 à C4). Les divergences entre enquêtes ne sont pas masquées : elles sont le signal le plus utile pour un décideur. Aucune donnée n'est inventée ; les manques sont signalés « n.d. ».",
+ chip_t1:"<b>T1</b> · Source primaire (enquête, institut officiel)",
+ chip_t2:"<b>T2</b> · Source secondaire reconnue",
+ chip_t3:"<b>T3</b> · Reprise presse / acteur",
+ chip_t4:"<b>T4</b> · Estimation / signal faible",
+ chip_c:"<b>C1–C4</b> · Confiance : robuste (C1) → indicatif (C4)",
+ a_num:"§ 01 / Adoption",
+ a_title:"L'adoption n'est pas un chiffre, c'est un éventail",
+ a_deck:"Selon la mesure retenue, « l'entreprise suisse et l'IA » passe de 89 % à 5 %. Le débat public retient souvent un seul barreau de cette échelle.",
+ a_body1:"Avoir accès à un outil d'IA, l'utiliser ponctuellement, l'intégrer à plusieurs processus ou en faire le cœur de son modèle d'affaires sont quatre réalités distinctes. Les confondre produit les écarts observés entre études.",
+ a_card_head:"Suisse · 2026 · part des entreprises",
+ a_card_title:"De l'accès à l'IA au cœur du modèle d'affaires",
+ a_takeaway:"À retenir : le « 53 % » fréquemment cité (HEG Genève / Oracle) est un point sur une échelle allant de 89 % d'entreprises ayant accès à l'IA à 5 % seulement qui en font le cœur de leur modèle. 14 % n'ont lancé aucune initiative concrète (EY 2026). L'enjeu n'est pas l'accès, c'est le passage à l'échelle.",
+ s2_num:"§ 02 / Taille",
+ s2_title:"La fracture se creuse avec l'intensité d'usage",
+ s2_deck:"Toutes les entreprises ou presque ont touché à l'IA. L'écart entre grandes et micro-entreprises n'apparaît pas dans l'accès, mais dans la profondeur d'intégration.",
+ s2_card_head:"Suisse · 2026 · usage de l'IA selon le nombre de domaines couverts",
+ s2_card_title:"Plus l'usage est profond, plus l'écart de taille est net",
+ s2_st1:"des entreprises suisses sont des micro-entreprises (<10 emplois)",
+ s2_st2:"seulement sont de grandes entreprises (>249 emplois)",
+ s2_st3:"d'adoption chez les PME selon UBS (vs <45 % selon HEG/Oracle)",
+ s2_take:"À retenir : la « moyenne » suisse est tirée par une masse de micro-entreprises. L'écart de taille ne se joue pas sur l'accès mais sur l'intégration : les grandes entreprises sont 5× plus nombreuses à exploiter l'IA dans au moins cinq domaines. Les estimations d'adoption PME divergent fortement selon la définition retenue (59–77 % UBS vs <45 % HEG/Oracle) : un signal, pas une erreur.",
+ s3_num:"§ 03 / Secteurs",
+ s3_title:"Beaucoup expérimentent, peu passent à l'échelle",
+ s3_deck:"La maturité des déploiements reste faible : l'IA est surtout testée ou cantonnée à des domaines isolés. L'intégration au modèle d'affaires demeure l'exception.",
+ s3_card_head:"Suisse · 2026 · stade de maturité des déploiements IA",
+ s3_card_title:"Où en sont les entreprises dans leurs projets IA",
+ s3_lead_h:"Secteurs en tête",
+ s3_lag_h:"Secteurs à la traîne",
+ s3_take:"À retenir : 63 % des entreprises sont au stade « domaines isolés » ou « pilotes » ; seules 14 % passent à l'échelle et 9 % ont intégré l'IA à leur modèle. L'adoption suit le degré de numérisation : TIC, finance et pharma devant, construction et industries traditionnelles derrière.",
+ s4_num:"§ 04 / Usages",
+ s4_title:"Ce que les entreprises font réellement avec l'IA",
+ s4_deck:"L'usage dominant n'est pas la disruption mais l'analyse et l'amélioration de l'existant. L'automatisation suit ; l'IA au cœur du modèle reste marginale.",
+ s4_card_head:"Suisse · 2026 · à quoi sert l'IA (plusieurs réponses)",
+ s4_card_title:"Finalités d'usage de l'IA",
+ s4b_card_head:"Suisse · 2026 · comment l'accès est fourni",
+ s4b_card_title:"Modes d'accès à l'IA",
+ s4_take:"À retenir : l'IA suisse est d'abord un outil d'analyse et d'amélioration de l'existant, pas de rupture. L'accès passe massivement par la bureautique intégrée (Copilot, Gemini) : 70 % des entreprises, bien avant les licences dédiées ou les solutions propres.",
+ s5_num:"§ 05 / Freins",
+ s5_title:"Le premier frein n'est pas la compétence, c'est la donnée",
+ s5_deck:"Contrairement au discours dominant qui place les compétences en tête, l'obstacle n°1 mesuré est la qualité des données, suivie de la sécurité. La compétence vient juste après.",
+ s5_card_head:"Suisse · 2026 · principal obstacle à l'usage de l'IA",
+ s5_card_title:"Obstacles à l'adoption (EY)",
+ s5b_card_head:"Suisse · 2026 · risques perçus (plusieurs réponses)",
+ s5b_card_title:"Risques et défis (UBS)",
+ s5_take:"À retenir : les freins sont d'abord opérationnels (données, sécurité) avant d'être humains (compétences) ou réglementaires. La réglementation n'est un frein que pour 10 % des entreprises (38 % parmi les grandes). Le vrai goulot d'étranglement est la maturité data.",
+ s6_num:"§ 06 / Régions",
+ s6_title:"Une exposition structurellement inégale selon les régions",
+ s6_deck:"Aucune enquête ne mesure l'adoption IA par région suisse. Mais la structure sectorielle de chaque grande région détermine son exposition : c'est un indice structurel, pas une mesure d'adoption.",
+ s6_body:"L'indice se calcule en deux couches : un score d'intensité IA par branche (ci-dessous, dérivé d'UBS) pondéré par la part d'emploi de chaque branche dans la région (OFS STATENT). La couche sectorielle est disponible ; la pondération régionale attend l'export OFS.",
+ s6_card_head:"Couche 1 · score d'intensité IA par branche (indice construit, C3)",
+ s6_card_title:"Le multiplicateur sectoriel",
+ s6_reg_h:"Couche 2 · spécialisation dominante des 7 grandes régions",
+ s6_map_head:"Exposition structurelle qualitative (C3) · par grande région", s6_map_title:"Carte de l'exposition à l'IA des 7 grandes régions", tier_high:"Élevée", tier_midhigh:"Moyenne à élevée", tier_mid:"Moyenne",
+ s6_nd:"Indice régional quantifié : n.d. · en attente de l'export STATENT (OFS) « emplois EPT par section NOGA et grande région ».",
+ s6_take:"À retenir : les régions à forte concentration finance / TIC / pharma (Zurich, Léman, Nord-Ouest) sont structurellement les plus exposées à l'IA ; les régions à dominante industrie traditionnelle, construction ou tourisme le sont moins. Le chiffre régional précis sera publié dès réception des données OFS.",
+ s7_num:"§ 07 / Emploi & compétences",
+ s7_title:"Évolution, pas effondrement",
+ s7_deck:"Les entreprises suisses anticipent une transformation des postes plutôt qu'une vague de suppressions. Mais la polarisation entre profils IA et autres se confirme déjà.",
+ s7_st1:"des entreprises prévoient un emploi inchangé sous l'effet de l'IA",
+ s7_st2:"voient l'IA comme un soulagement, 10 % seulement comme un substitut",
+ s7_st3:"offres d'emploi liées à l'IA depuis 2018 (2 000 → 20 000)",
+ s7_st4:"de prime salariale possible pour les profils maîtrisant l'IA",
+ s7_body1:"Le KOF de l'ETH Zürich (déc. 2025) montre pour la première fois que l'IA générative supprime déjà des emplois là où elle automatise le code et les tâches techniques, tout en créant des rôles ailleurs. Le solde net reste positif, mais la composition change.",
+ s7_body2:"Côté entreprises, EY mesure un impact encore flou : 42 % des répondants ne savent pas évaluer l'effet sur leurs effectifs, 18 % ont créé des postes liés à l'IA, 7 % en ont réduit. Les compétences les plus demandées (UBS) : informatique et numérique, capacité d'innovation et créativité, communication.",
+ s7_src:"<b>Sources :</b> UBS Outlook Q2 2026 (T1) · KOF ETH Zürich, Siegenthaler & Kläui déc. 2025 (T1) · PwC AI Jobs Barometer 2025 (T2) · EY AI Survey 2026 (T1). Repère mondial WEF Future of Jobs 2025 : 40 % des compétences transformées d'ici 2030 (T2, C3).",
+ s8_num:"§ 08 / Gouvernance & souveraineté",
+ s8_title:"La souveraineté des données comme préalable",
+ s8_deck:"En Suisse, l'usage de l'IA est encadré par la LPD et, indirectement, par l'AI Act européen pour qui opère dans l'UE. Le Conseil fédéral a choisi une approche sectorielle plutôt qu'une loi générale.",
+ s8_st1:"importance moyenne accordée à la souveraineté des données",
+ s8_st2:"veulent renforcer la formation IA (universités, apprentissage)",
+ s8_st3:"veulent une infrastructure IA souveraine suisse",
+ s8_body1:"La souveraineté des données n'est pas un détail de conformité : avec une note moyenne de 8,7/10, elle conditionne l'adoption dans la majorité des entreprises suisses, particulièrement dans la finance et les secteurs d'importance systémique.",
+ s8_body2:"Les attentes envers la politique sont claires : renforcer les compétences et bâtir une infrastructure performante priment sur le débat réglementaire, où les avis divergent entre alignement sur l'AI Act et voie suisse indépendante.",
+ s9_num:"§ 09 / Décisions",
+ s9_title:"Ce que le COMEX doit décider maintenant",
+ s9_deck:"Le retard ne se rattrape pas sur l'accès, qui est déjà acquis, mais sur le passage à l'échelle. Quatre décisions structurent l'avance.",
+ s9_d1t:"Mesurer son propre barreau d'échelle",
+ s9_d1p:"Se situer honnêtement sur l'éventail accès → stratégique, plutôt que se rassurer avec un taux d'adoption global.",
+ s9_d2t:"Investir la donnée avant l'outil",
+ s9_d2p:"Le frein n°1 est la qualité des données, pas la technologie. Qualité, gouvernance et sécurité conditionnent tout ROI durable.",
+ s9_d3t:"Cibler un cas d'usage à ROI mesurable",
+ s9_d3p:"Un projet à valeur démontrable en 6 mois crée l'élan interne et légitime l'investissement, sans risque technologique excessif.",
+ s9_d4t:"Former le management, pas seulement les experts",
+ s9_d4p:"La compétence IA des dirigeants reste moyenne. L'acculturation du COMEX et des métiers est le facteur limitant de la transformation.",
+ f_sources:"Sources de ce numéro",
+ f_region_note:"Infographie 6 (indice régional) : indice structurel STATENT, export CSV OFS en attente.",
+ f_editor:"Éditeur",
+ f_editor_note:"Dispatch·iA #006 · édition indépendante, sans sponsor. Reproduction et citation bienvenues avec mention de la source.",
+ // chart labels
+ c1_steps:["Accès à l'IA","Utilise l'IA","Usage structuré","Adoption stratégique","Cœur du modèle"],
+ c1_subs:["≥ 1 outil disponible","≥ 1 usage déclaré","≥ 3 des 6 domaines (gr. ent.)","mise à l'échelle ou intégrée","l'IA est le modèle"],
+ c1_ref:"HEG/Oracle : 53 %",
+ c1_src:"<b>Sources :</b> accès 89 % et adoption stratégique 23 % · EY AI Survey 2026 (T1, C2). Utilisation ~60 %, usage structuré et cœur du modèle 5 % · UBS Outlook Q2 2026 (T1, C2). Repère 53 % · HEG Genève/Oracle 2025 (T2, C2). Échantillons hétérogènes : EY surpondère les grands groupes, UBS un tissu composé à 91 % de micro-entreprises.",
+ c2_rows:["Grandes ent. · ≥3 domaines","Micro-ent. · ≥3 domaines","Grandes ent. · ≥5 domaines","Micro-ent. · ≥5 domaines"],
+ c2_src:"<b>Source :</b> UBS Outlook Q2 2026 / Intervista (T1, C2). « Domaines » = parmi 6 finalités d'usage mesurées.",
+ c3_rows:["Domaines isolés","Pilotes / POC","Mise à l'échelle","Rien lancé","Intégrée au modèle"],
+ c3_src:"<b>Source :</b> EY AI Survey 2026 (T1, C2). Stades de maturité, une réponse par entreprise.",
+ c3_lead:["TIC / information-communication","Services financiers & assurance","Pharma / sciences de la vie"],
+ c3_lag:["Construction / bâtiment","Transports & logistique","Santé & social","Commerce","Hôtellerie & culture","Bois, papier, textile"],
+ c4_rows:["Décision & analyse","Améliorer produits/services","Automatisation des processus","Nouveaux produits/services","Service & relation client","Cœur du modèle d'affaires"],
+ c4_src:"<b>Source :</b> UBS Outlook Q2 2026 (T1, C2). Entreprises utilisant l'IA, plusieurs réponses.",
+ c4b_rows:["Bureautique intégrée (Copilot/Gemini)","Licences entreprise (ChatGPT/Claude)","Solution développée en propre"],
+ c4b_src:"<b>Source :</b> EY AI Survey 2026 (T1, C2). Plusieurs réponses possibles.",
+ c5_rows:["Qualité des données / silos","Sécurité & protection des données","Manque de compétences / talents","Pas de cas d'usage à valeur claire","Budget insuffisant","Incertitude réglementaire","Résistance culturelle","Dette technique / legacy","Manque de soutien du top management"],
+ c5_src:"<b>Source :</b> EY AI Survey 2026 (T1, C2). Obstacle principal, une réponse par entreprise.",
+ c5b_rows:["Données & sécurité","Décisions erronées (données/algos)","Perte de contrôle / transparence","Dépendance aux fournisseurs","Risque de réputation","Pénurie de talents","Résistance des collaborateurs","Coûts élevés"],
+ c5b_src:"<b>Source :</b> UBS Outlook Q2 2026 (T1, C2). Entreprises utilisant l'IA, plusieurs réponses.",
+ c6_rows:["TIC / information-comm.","Services financiers & assurance","Pharma / sciences de la vie","Industrie (mécanique, électrique)","Commerce","Transports & logistique","Santé & social","Hôtellerie & culture","Construction","Bois, papier, textile"],
+ c6_unit:"/100",
+ c6_src:"<b>Indice construit (C3)</b> · pondération ordinale dérivée du classement d'adoption et d'adéquation par branche d'UBS Outlook Q2 2026. Ce n'est pas une mesure d'adoption mais un multiplicateur sectoriel destiné à être croisé avec la part d'emploi régionale (OFS).",
+ regions:[
+  {n:"Zurich",s:"Place financière, TIC, sièges",i:"exposition structurelle élevée"},
+  {n:"Région lémanique",s:"Finance, négoce, organisations internationales, pharma (VD/GE)",i:"exposition élevée, contrastée"},
+  {n:"Suisse du Nord-Ouest",s:"Pôle pharma / chimie (Bâle), sciences de la vie",i:"exposition élevée"},
+  {n:"Espace Mittelland",s:"Administration, industrie, agro, horlogerie (BE/NE/JU)",i:"exposition moyenne"},
+  {n:"Suisse centrale",s:"Finance / holdings (Zoug), PME, tourisme",i:"exposition moyenne à élevée"},
+  {n:"Suisse orientale",s:"Industrie d'exportation, mécanique, PME",i:"exposition moyenne"},
+  {n:"Tessin",s:"Finance transfrontalière, services, tourisme",i:"exposition moyenne"}
+ ]
+},
+de:{
+ theme_dark:"Dunkel", theme_light:"Hell",
+ hero_kicker:"Dispatch·iA #006 · Unabhängige Ausgabe",
+ hero_title:"KI in Schweizer Unternehmen. <em>Lagebild 2026.</em>",
+ hero_deck:"Wie viele Schweizer Unternehmen nutzen KI 2026 wirklich? Statt einer einzigen Zahl kombiniert diese Ausgabe die jüngsten Schweizer Studien und unterscheidet erklärte, tatsächliche und strategische Adoption. Für Geschäftsleitungen, Verwaltungsräte und HR.",
+ meta_date:"<b>Daten:</b> März–Mai 2026",
+ meta_sources:"<b>Hauptquellen:</b> EY AI Survey 2026, UBS Outlook Q2 2026",
+ meta_indep:"<b>Status:</b> unabhängig, ohne Sponsor",
+ m_num:"§ 00 / Methode",
+ m_title:"Warum ein Lagebild statt einer Zahl",
+ m_deck:"Die Zahlen zur KI-Adoption schwanken je nach Messgrösse und Befragten erheblich. Dieses Dispatch stützt sich auf keine isolierte Zahl: Es stellt sie gegenüber, gewichtet die Quellen und macht Abweichungen sichtbar.",
+ m_body1:"Jede Angabe ist mit einer datierten Quelle verknüpft, nach Verlässlichkeit (T1–T4) eingestuft und mit einem Vertrauensgrad (C1–C4) versehen. Abweichungen zwischen Studien werden nicht kaschiert: Sie sind für Entscheidungsträger das nützlichste Signal. Nichts wird erfunden; Lücken sind als «k.A.» markiert.",
+ chip_t1:"<b>T1</b> · Primärquelle (Studie, amtliches Institut)",
+ chip_t2:"<b>T2</b> · Anerkannte Sekundärquelle",
+ chip_t3:"<b>T3</b> · Presse / Akteur",
+ chip_t4:"<b>T4</b> · Schätzung / schwaches Signal",
+ chip_c:"<b>C1–C4</b> · Vertrauen: robust (C1) → indikativ (C4)",
+ a_num:"§ 01 / Adoption",
+ a_title:"Adoption ist keine Zahl, sondern ein Spektrum",
+ a_deck:"Je nach Messgrösse reicht «Schweizer Unternehmen und KI» von 89 % bis 5 %. Die öffentliche Debatte greift oft nur eine Sprosse dieser Leiter heraus.",
+ a_body1:"Zugang zu einem KI-Werkzeug haben, es gelegentlich nutzen, es in mehrere Prozesse einbinden oder daraus das Kerngeschäft machen sind vier verschiedene Realitäten. Werden sie vermischt, entstehen die beobachteten Abweichungen.",
+ a_card_head:"Schweiz · 2026 · Anteil der Unternehmen",
+ a_card_title:"Vom KI-Zugang zum Kern des Geschäftsmodells",
+ a_takeaway:"Fazit: Die oft zitierten «53 %» (HEG Genf / Oracle) sind ein Punkt auf einer Skala von 89 % Unternehmen mit KI-Zugang bis zu nur 5 %, die KI zum Kern ihres Modells machen. 14 % haben noch keine konkrete Initiative gestartet (EY 2026). Es geht nicht um den Zugang, sondern um die Skalierung.",
+ s2_num:"§ 02 / Grösse",
+ s2_title:"Die Kluft wächst mit der Nutzungstiefe",
+ s2_deck:"Fast alle Unternehmen haben KI berührt. Der Abstand zwischen Gross- und Mikrounternehmen zeigt sich nicht beim Zugang, sondern bei der Integrationstiefe.",
+ s2_card_head:"Schweiz · 2026 · KI-Nutzung nach Zahl der abgedeckten Bereiche",
+ s2_card_title:"Je tiefer die Nutzung, desto grösser die Grössenkluft",
+ s2_st1:"der Schweizer Unternehmen sind Mikrounternehmen (<10 Stellen)",
+ s2_st2:"sind nur Grossunternehmen (>249 Stellen)",
+ s2_st3:"Adoption bei KMU laut UBS (vs. <45 % laut HEG/Oracle)",
+ s2_take:"Fazit: Der Schweizer «Durchschnitt» wird von einer Masse Mikrounternehmen gezogen. Die Grössenkluft entscheidet sich nicht beim Zugang, sondern bei der Integration: Grossunternehmen nutzen KI 5× häufiger in mindestens fünf Bereichen. KMU-Schätzungen divergieren je nach Definition stark (59–77 % UBS vs. <45 % HEG/Oracle): ein Signal, kein Fehler.",
+ s3_num:"§ 03 / Branchen",
+ s3_title:"Viele experimentieren, wenige skalieren",
+ s3_deck:"Die Reife der Einführungen bleibt gering: KI wird vor allem getestet oder auf einzelne Bereiche beschränkt. Die Integration ins Geschäftsmodell bleibt die Ausnahme.",
+ s3_card_head:"Schweiz · 2026 · Reifegrad der KI-Einführungen",
+ s3_card_title:"Wo Unternehmen in ihren KI-Projekten stehen",
+ s3_lead_h:"Führende Branchen",
+ s3_lag_h:"Nachzüglerbranchen",
+ s3_take:"Fazit: 63 % der Unternehmen sind im Stadium «einzelne Bereiche» oder «Pilot»; nur 14 % skalieren, 9 % haben KI integriert. Adoption folgt dem Digitalisierungsgrad: IKT, Finanzen, Pharma voran, Bau und traditionelle Industrie hinten.",
+ s4_num:"§ 04 / Anwendungen",
+ s4_title:"Was Unternehmen wirklich mit KI tun",
+ s4_deck:"Die dominierende Nutzung ist nicht Disruption, sondern Analyse und Verbesserung des Bestehenden. Automatisierung folgt; KI als Kern des Modells bleibt marginal.",
+ s4_card_head:"Schweiz · 2026 · wozu KI dient (Mehrfachnennung)",
+ s4_card_title:"Einsatzzwecke der KI",
+ s4b_card_head:"Schweiz · 2026 · wie der Zugang bereitgestellt wird",
+ s4b_card_title:"Zugangsarten zur KI",
+ s4_take:"Fazit: Schweizer KI ist zuerst ein Werkzeug zur Analyse und Verbesserung des Bestehenden, nicht zum Umbruch. Der Zugang läuft überwiegend über integrierte Office-Lösungen (Copilot, Gemini): 70 % der Unternehmen, deutlich vor dedizierten Lizenzen oder Eigenentwicklungen.",
+ s5_num:"§ 05 / Hürden",
+ s5_title:"Die erste Hürde sind nicht Kompetenzen, sondern Daten",
+ s5_deck:"Anders als die gängige Erzählung, die Kompetenzen voranstellt, ist das gemessene Haupthindernis die Datenqualität, gefolgt von Sicherheit. Kompetenz folgt erst danach.",
+ s5_card_head:"Schweiz · 2026 · Haupthindernis für KI-Nutzung",
+ s5_card_title:"Adoptionshürden (EY)",
+ s5b_card_head:"Schweiz · 2026 · wahrgenommene Risiken (Mehrfachnennung)",
+ s5b_card_title:"Risiken und Herausforderungen (UBS)",
+ s5_take:"Fazit: Die Hürden sind zuerst operativ (Daten, Sicherheit), erst dann menschlich (Kompetenzen) oder regulatorisch. Regulierung ist nur für 10 % der Unternehmen eine Hürde (38 % bei den grossen). Das eigentliche Nadelöhr ist die Datenreife.",
+ s6_num:"§ 06 / Regionen",
+ s6_title:"Strukturell ungleiche Exposition nach Regionen",
+ s6_deck:"Keine Studie misst die KI-Adoption nach Schweizer Region. Aber die Branchenstruktur jeder Grossregion bestimmt ihre Exposition: ein Strukturindex, keine Adoptionsmessung.",
+ s6_body:"Der Index hat zwei Schichten: ein KI-Intensitätsscore je Branche (unten, aus UBS abgeleitet), gewichtet mit dem Beschäftigungsanteil der Branche in der Region (BFS STATENT). Die Branchenschicht liegt vor; die regionale Gewichtung wartet auf den BFS-Export.",
+ s6_card_head:"Schicht 1 · KI-Intensitätsscore je Branche (konstruierter Index, C3)",
+ s6_card_title:"Der Branchen-Multiplikator",
+ s6_reg_h:"Schicht 2 · dominante Spezialisierung der 7 Grossregionen",
+ s6_map_head:"Qualitative strukturelle Exposition (C3) · nach Grossregion", s6_map_title:"Karte der KI-Exposition der 7 Grossregionen", tier_high:"Hoch", tier_midhigh:"Mittel bis hoch", tier_mid:"Mittel",
+ s6_nd:"Quantifizierter Regionalindex: k.A. · wartet auf STATENT-Export (BFS) «VZÄ nach NOGA-Abschnitt und Grossregion».",
+ s6_take:"Fazit: Regionen mit hoher Konzentration von Finanzen / IKT / Pharma (Zürich, Genfersee, Nordwestschweiz) sind strukturell am stärksten KI-exponiert; Regionen mit traditioneller Industrie, Bau oder Tourismus weniger. Die genaue Regionalzahl folgt mit den BFS-Daten.",
+ s7_num:"§ 07 / Beschäftigung & Kompetenzen",
+ s7_title:"Wandel, kein Einbruch",
+ s7_deck:"Schweizer Unternehmen erwarten eher einen Umbau der Stellen als eine Entlassungswelle. Doch die Polarisierung zwischen KI-Profilen und übrigen zeigt sich bereits.",
+ s7_st1:"der Unternehmen erwarten unveränderte Beschäftigung durch KI",
+ s7_st2:"sehen KI als Entlastung, nur 10 % als Ersatz",
+ s7_st3:"KI-Stellenangebote seit 2018 (2'000 → 20'000)",
+ s7_st4:"mögliche Lohnprämie für Profile mit KI-Kompetenz",
+ s7_body1:"Das KOF der ETH Zürich (Dez. 2025) zeigt erstmals, dass generative KI dort bereits Stellen abbaut, wo sie Code und technische Aufgaben automatisiert, während andernorts Rollen entstehen. Der Nettosaldo bleibt positiv, doch die Zusammensetzung ändert sich.",
+ s7_body2:"Auf Unternehmensseite misst EY eine noch unscharfe Wirkung: 42 % können den Effekt auf den Personalbestand nicht beurteilen, 18 % haben KI-bezogene Stellen geschaffen, 7 % abgebaut. Am meisten gefragt (UBS): IT und Digitales, Innovations- und Kreativfähigkeit, Kommunikation.",
+ s7_src:"<b>Quellen:</b> UBS Outlook Q2 2026 (T1) · KOF ETH Zürich, Siegenthaler & Kläui Dez. 2025 (T1) · PwC AI Jobs Barometer 2025 (T2) · EY AI Survey 2026 (T1). Weltweite Referenz WEF Future of Jobs 2025: 40 % der Kompetenzen bis 2030 verändert (T2, C3).",
+ s8_num:"§ 08 / Governance & Souveränität",
+ s8_title:"Datensouveränität als Voraussetzung",
+ s8_deck:"In der Schweiz wird KI durch das DSG und indirekt durch den EU AI Act für EU-Tätige geregelt. Der Bundesrat wählte einen sektoriellen Ansatz statt eines allgemeinen Gesetzes.",
+ s8_st1:"durchschnittliche Bedeutung der Datensouveränität",
+ s8_st2:"wollen KI-Bildung stärken (Hochschulen, Berufsbildung)",
+ s8_st3:"wollen eine souveräne Schweizer KI-Infrastruktur",
+ s8_body1:"Datensouveränität ist kein Compliance-Detail: Mit einem Mittelwert von 8,7/10 bedingt sie die Adoption in der Mehrheit der Schweizer Unternehmen, besonders in Finanzen und systemrelevanten Sektoren.",
+ s8_body2:"Die Erwartungen an die Politik sind klar: Kompetenzen stärken und leistungsfähige Infrastruktur bauen haben Vorrang vor der Regulierungsdebatte, in der die Meinungen zwischen AI-Act-Angleichung und eigenständigem Schweizer Weg auseinandergehen.",
+ s9_num:"§ 09 / Entscheidungen",
+ s9_title:"Was die Geschäftsleitung jetzt entscheiden muss",
+ s9_deck:"Der Rückstand wird nicht beim Zugang aufgeholt, der schon da ist, sondern bei der Skalierung. Vier Entscheidungen strukturieren den Vorsprung.",
+ s9_d1t:"Die eigene Skalierungsstufe messen",
+ s9_d1p:"Sich ehrlich auf dem Spektrum Zugang → strategisch verorten, statt sich mit einer Gesamt-Adoptionsquote zu beruhigen.",
+ s9_d2t:"In Daten investieren, vor dem Werkzeug",
+ s9_d2p:"Hürde Nr. 1 ist die Datenqualität, nicht die Technik. Qualität, Governance und Sicherheit bedingen jeden nachhaltigen ROI.",
+ s9_d3t:"Einen Use Case mit messbarem ROI angehen",
+ s9_d3p:"Ein in 6 Monaten belegbares Projekt schafft internen Schwung und legitimiert die Investition, ohne übermässiges Technikrisiko.",
+ s9_d4t:"Das Management schulen, nicht nur Experten",
+ s9_d4p:"Die KI-Kompetenz der Führung bleibt mittelmässig. Die Akkulturation von GL und Fachbereichen ist der limitierende Faktor.",
+ f_sources:"Quellen dieser Ausgabe",
+ f_region_note:"Grafik 6 (Regionalindex): Strukturindex STATENT, BFS-CSV-Export ausstehend.",
+ f_editor:"Herausgeber",
+ f_editor_note:"Dispatch·iA #006 · unabhängige Ausgabe, ohne Sponsor. Wiedergabe und Zitat willkommen mit Quellenangabe.",
+ c1_steps:["KI-Zugang","Nutzt KI","Strukturierte Nutzung","Strategische Adoption","Kern des Modells"],
+ c1_subs:["≥ 1 Werkzeug verfügbar","≥ 1 Nutzung angegeben","≥ 3 der 6 Bereiche (Grossunt.)","skaliert oder integriert","KI ist das Modell"],
+ c1_ref:"HEG/Oracle: 53 %",
+ c1_src:"<b>Quellen:</b> Zugang 89 % und strategische Adoption 23 % · EY AI Survey 2026 (T1, C2). Nutzung ~60 %, strukturierte Nutzung und Kern 5 % · UBS Outlook Q2 2026 (T1, C2). Referenz 53 % · HEG Genf/Oracle 2025 (T2, C2). Heterogene Stichproben: EY übergewichtet Grosskonzerne, UBS ein zu 91 % aus Mikrounternehmen bestehendes Gefüge.",
+ c2_rows:["Grossunt. · ≥3 Bereiche","Mikrount. · ≥3 Bereiche","Grossunt. · ≥5 Bereiche","Mikrount. · ≥5 Bereiche"],
+ c2_src:"<b>Quelle:</b> UBS Outlook Q2 2026 / Intervista (T1, C2). «Bereiche» = von 6 gemessenen Einsatzzwecken.",
+ c3_rows:["Einzelne Bereiche","Pilot / POC","Skalierung","Nichts gestartet","Ins Modell integriert"],
+ c3_src:"<b>Quelle:</b> EY AI Survey 2026 (T1, C2). Reifegrade, eine Antwort pro Unternehmen.",
+ c3_lead:["IKT / Information-Kommunikation","Finanzdienste & Versicherung","Pharma / Life Sciences"],
+ c3_lag:["Bau","Transport & Logistik","Gesundheit & Soziales","Handel","Gastgewerbe & Kultur","Holz, Papier, Textil"],
+ c4_rows:["Entscheidung & Analyse","Bestehende Produkte verbessern","Prozessautomatisierung","Neue Produkte/Dienste","Service & Kundenkontakt","Kern des Geschäftsmodells"],
+ c4_src:"<b>Quelle:</b> UBS Outlook Q2 2026 (T1, C2). KI nutzende Unternehmen, Mehrfachnennung.",
+ c4b_rows:["Integriertes Office (Copilot/Gemini)","Enterprise-Lizenzen (ChatGPT/Claude)","Eigenentwickelte Lösung"],
+ c4b_src:"<b>Quelle:</b> EY AI Survey 2026 (T1, C2). Mehrfachnennung möglich.",
+ c5_rows:["Datenqualität / Silos","Sicherheit & Datenschutz","Mangel an Kompetenzen / Talenten","Kein Use Case mit klarem Wert","Unzureichendes Budget","Regulatorische Unsicherheit","Kultureller Widerstand","Technische Altlasten","Fehlende Unterstützung der Führung"],
+ c5_src:"<b>Quelle:</b> EY AI Survey 2026 (T1, C2). Haupthindernis, eine Antwort pro Unternehmen.",
+ c5b_rows:["Daten & Sicherheit","Fehlentscheide (Daten/Algorithmen)","Kontroll-/Transparenzverlust","Anbieterabhängigkeit","Reputationsrisiko","Talentmangel","Widerstand der Mitarbeitenden","Hohe Kosten"],
+ c5b_src:"<b>Quelle:</b> UBS Outlook Q2 2026 (T1, C2). KI nutzende Unternehmen, Mehrfachnennung.",
+ c6_rows:["IKT / Information-Komm.","Finanzdienste & Versicherung","Pharma / Life Sciences","Industrie (Maschinen, Elektro)","Handel","Transport & Logistik","Gesundheit & Soziales","Gastgewerbe & Kultur","Bau","Holz, Papier, Textil"],
+ c6_unit:"/100",
+ c6_src:"<b>Konstruierter Index (C3)</b> · ordinale Gewichtung aus der UBS-Rangfolge der Adoption und Eignung je Branche (UBS Outlook Q2 2026). Keine Adoptionsmessung, sondern ein Branchen-Multiplikator, der mit dem regionalen Beschäftigungsanteil (BFS) zu kreuzen ist.",
+ regions:[
+  {n:"Zürich",s:"Finanzplatz, IKT, Hauptsitze",i:"strukturell hohe Exposition"},
+  {n:"Genferseeregion",s:"Finanzen, Handel, internationale Organisationen, Pharma (VD/GE)",i:"hohe, kontrastreiche Exposition"},
+  {n:"Nordwestschweiz",s:"Pharma- / Chemiecluster (Basel), Life Sciences",i:"hohe Exposition"},
+  {n:"Espace Mittelland",s:"Verwaltung, Industrie, Agro, Uhren (BE/NE/JU)",i:"mittlere Exposition"},
+  {n:"Zentralschweiz",s:"Finanzen / Holdings (Zug), KMU, Tourismus",i:"mittlere bis hohe Exposition"},
+  {n:"Ostschweiz",s:"Exportindustrie, Maschinenbau, KMU",i:"mittlere Exposition"},
+  {n:"Tessin",s:"Grenzüberschreitende Finanzen, Dienste, Tourismus",i:"mittlere Exposition"}
+ ]
+},
+it:{
+ theme_dark:"Scuro", theme_light:"Chiaro",
+ hero_kicker:"Dispatch·iA #006 · Edizione indipendente",
+ hero_title:"L'IA nelle imprese svizzere. <em>Stato dell'arte 2026.</em>",
+ hero_deck:"Quante imprese svizzere usano davvero l'IA nel 2026? Invece di una cifra unica, questo numero incrocia le più recenti indagini svizzere per distinguere adozione dichiarata, effettiva e strategica. Per comitati esecutivi, direzioni e HR.",
+ meta_date:"<b>Dati:</b> marzo–maggio 2026",
+ meta_sources:"<b>Fonti principali:</b> EY AI Survey 2026, UBS Outlook Q2 2026",
+ meta_indep:"<b>Stato:</b> indipendente, senza sponsor",
+ m_num:"§ 00 / Metodo",
+ m_title:"Perché uno stato dell'arte e non una cifra",
+ m_deck:"Le cifre sull'adozione dell'IA variano del doppio a seconda di cosa misurano e di chi è interrogato. Questo dispatch non si basa su alcuna cifra isolata: le confronta, gerarchizza le fonti ed esplicita gli scarti.",
+ m_body1:"Ogni dato è collegato a una fonte datata, classificato per affidabilità (T1–T4) e con un grado di fiducia (C1–C4). Le divergenze tra le indagini non sono nascoste: per chi decide sono il segnale più utile. Nulla è inventato; le lacune sono indicate con «n.d.».",
+ chip_t1:"<b>T1</b> · Fonte primaria (indagine, istituto ufficiale)",
+ chip_t2:"<b>T2</b> · Fonte secondaria riconosciuta",
+ chip_t3:"<b>T3</b> · Ripresa stampa / attore",
+ chip_t4:"<b>T4</b> · Stima / segnale debole",
+ chip_c:"<b>C1–C4</b> · Fiducia: robusta (C1) → indicativa (C4)",
+ a_num:"§ 01 / Adozione",
+ a_title:"L'adozione non è una cifra, è un ventaglio",
+ a_deck:"A seconda della misura, «l'impresa svizzera e l'IA» passa dall'89 % al 5 %. Il dibattito pubblico trattiene spesso un solo gradino di questa scala.",
+ a_body1:"Avere accesso a uno strumento di IA, usarlo saltuariamente, integrarlo in più processi o farne il cuore del proprio modello di business sono quattro realtà distinte. Confonderle produce gli scarti osservati tra gli studi.",
+ a_card_head:"Svizzera · 2026 · quota delle imprese",
+ a_card_title:"Dall'accesso all'IA al cuore del modello di business",
+ a_takeaway:"Da ricordare: il «53 %» spesso citato (HEG Ginevra / Oracle) è un punto su una scala che va dall'89 % di imprese con accesso all'IA al solo 5 % che ne fa il cuore del modello. Il 14 % non ha avviato alcuna iniziativa concreta (EY 2026). La posta in gioco non è l'accesso, ma il passaggio in scala.",
+ s2_num:"§ 02 / Dimensione",
+ s2_title:"Il divario cresce con l'intensità d'uso",
+ s2_deck:"Quasi tutte le imprese hanno toccato l'IA. Il divario tra grandi e microimprese non emerge nell'accesso, ma nella profondità d'integrazione.",
+ s2_card_head:"Svizzera · 2026 · uso dell'IA per numero di ambiti coperti",
+ s2_card_title:"Più l'uso è profondo, più netto è il divario dimensionale",
+ s2_st1:"delle imprese svizzere sono microimprese (<10 addetti)",
+ s2_st2:"soltanto sono grandi imprese (>249 addetti)",
+ s2_st3:"di adozione tra le PMI secondo UBS (vs <45 % secondo HEG/Oracle)",
+ s2_take:"Da ricordare: la «media» svizzera è trainata da una massa di microimprese. Il divario dimensionale non si gioca sull'accesso ma sull'integrazione: le grandi imprese usano l'IA 5× più spesso in almeno cinque ambiti. Le stime di adozione PMI divergono molto secondo la definizione (59–77 % UBS vs <45 % HEG/Oracle): un segnale, non un errore.",
+ s3_num:"§ 03 / Settori",
+ s3_title:"Molti sperimentano, pochi passano in scala",
+ s3_deck:"La maturità delle implementazioni resta bassa: l'IA è soprattutto testata o limitata ad ambiti isolati. L'integrazione nel modello di business resta l'eccezione.",
+ s3_card_head:"Svizzera · 2026 · grado di maturità delle implementazioni IA",
+ s3_card_title:"A che punto sono le imprese nei progetti IA",
+ s3_lead_h:"Settori in testa",
+ s3_lag_h:"Settori in ritardo",
+ s3_take:"Da ricordare: il 63 % delle imprese è allo stadio «ambiti isolati» o «pilota»; solo il 14 % passa in scala e il 9 % ha integrato l'IA. L'adozione segue il grado di digitalizzazione: ICT, finanza e farma davanti, costruzioni e industrie tradizionali dietro.",
+ s4_num:"§ 04 / Usi",
+ s4_title:"Cosa fanno davvero le imprese con l'IA",
+ s4_deck:"L'uso dominante non è la disruption ma l'analisi e il miglioramento dell'esistente. L'automazione segue; l'IA al cuore del modello resta marginale.",
+ s4_card_head:"Svizzera · 2026 · a cosa serve l'IA (più risposte)",
+ s4_card_title:"Finalità d'uso dell'IA",
+ s4b_card_head:"Svizzera · 2026 · come è fornito l'accesso",
+ s4b_card_title:"Modalità d'accesso all'IA",
+ s4_take:"Da ricordare: l'IA svizzera è anzitutto uno strumento di analisi e miglioramento dell'esistente, non di rottura. L'accesso passa per lo più dall'office integrato (Copilot, Gemini): 70 % delle imprese, ben prima delle licenze dedicate o delle soluzioni proprie.",
+ s5_num:"§ 05 / Ostacoli",
+ s5_title:"Il primo ostacolo non sono le competenze, sono i dati",
+ s5_deck:"Contrariamente al discorso dominante che mette le competenze in testa, l'ostacolo n.1 misurato è la qualità dei dati, seguita dalla sicurezza. La competenza viene subito dopo.",
+ s5_card_head:"Svizzera · 2026 · principale ostacolo all'uso dell'IA",
+ s5_card_title:"Ostacoli all'adozione (EY)",
+ s5b_card_head:"Svizzera · 2026 · rischi percepiti (più risposte)",
+ s5b_card_title:"Rischi e sfide (UBS)",
+ s5_take:"Da ricordare: gli ostacoli sono prima operativi (dati, sicurezza) che umani (competenze) o normativi. La regolamentazione è un freno solo per il 10 % delle imprese (38 % tra le grandi). Il vero collo di bottiglia è la maturità dei dati.",
+ s6_num:"§ 06 / Regioni",
+ s6_title:"Un'esposizione strutturalmente diseguale tra regioni",
+ s6_deck:"Nessuna indagine misura l'adozione IA per regione svizzera. Ma la struttura settoriale di ogni grande regione ne determina l'esposizione: è un indice strutturale, non una misura di adozione.",
+ s6_body:"L'indice ha due strati: un punteggio d'intensità IA per ramo (sotto, derivato da UBS) ponderato con la quota d'occupazione del ramo nella regione (UST STATENT). Lo strato settoriale è disponibile; la ponderazione regionale attende l'export UST.",
+ s6_card_head:"Strato 1 · punteggio d'intensità IA per ramo (indice costruito, C3)",
+ s6_card_title:"Il moltiplicatore settoriale",
+ s6_reg_h:"Strato 2 · specializzazione dominante delle 7 grandi regioni",
+ s6_map_head:"Esposizione strutturale qualitativa (C3) · per grande regione", s6_map_title:"Mappa dell'esposizione all'IA delle 7 grandi regioni", tier_high:"Elevata", tier_midhigh:"Media-alta", tier_mid:"Media",
+ s6_nd:"Indice regionale quantificato: n.d. · in attesa dell'export STATENT (UST) «ETP per sezione NOGA e grande regione».",
+ s6_take:"Da ricordare: le regioni a forte concentrazione finanza / ICT / farma (Zurigo, Lemano, Nord-Ovest) sono strutturalmente le più esposte all'IA; le regioni a dominante industria tradizionale, edilizia o turismo lo sono meno. La cifra regionale precisa seguirà con i dati UST.",
+ s7_num:"§ 07 / Occupazione & competenze",
+ s7_title:"Evoluzione, non collasso",
+ s7_deck:"Le imprese svizzere prevedono una trasformazione dei posti più che un'ondata di soppressioni. Ma la polarizzazione tra profili IA e altri si conferma già.",
+ s7_st1:"delle imprese prevede un'occupazione invariata per effetto dell'IA",
+ s7_st2:"vede l'IA come sollievo, solo il 10 % come sostituto",
+ s7_st3:"offerte di lavoro legate all'IA dal 2018 (2'000 → 20'000)",
+ s7_st4:"di premio salariale possibile per i profili che padroneggiano l'IA",
+ s7_body1:"Il KOF dell'ETH di Zurigo (dic. 2025) mostra per la prima volta che l'IA generativa sopprime già posti dove automatizza il codice e i compiti tecnici, creando ruoli altrove. Il saldo netto resta positivo, ma la composizione cambia.",
+ s7_body2:"Lato imprese, EY misura un impatto ancora sfumato: il 42 % non sa valutare l'effetto sull'organico, il 18 % ha creato posti legati all'IA, il 7 % li ha ridotti. Le competenze più richieste (UBS): informatica e digitale, capacità d'innovazione e creatività, comunicazione.",
+ s7_src:"<b>Fonti:</b> UBS Outlook Q2 2026 (T1) · KOF ETH Zurigo, Siegenthaler & Kläui dic. 2025 (T1) · PwC AI Jobs Barometer 2025 (T2) · EY AI Survey 2026 (T1). Riferimento mondiale WEF Future of Jobs 2025: 40 % delle competenze trasformate entro il 2030 (T2, C3).",
+ s8_num:"§ 08 / Governance & sovranità",
+ s8_title:"La sovranità dei dati come premessa",
+ s8_deck:"In Svizzera l'uso dell'IA è regolato dalla LPD e, indirettamente, dall'AI Act europeo per chi opera nell'UE. Il Consiglio federale ha scelto un approccio settoriale anziché una legge generale.",
+ s8_st1:"importanza media attribuita alla sovranità dei dati",
+ s8_st2:"vuole rafforzare la formazione IA (università, apprendistato)",
+ s8_st3:"vuole un'infrastruttura IA sovrana svizzera",
+ s8_body1:"La sovranità dei dati non è un dettaglio di conformità: con una media di 8,7/10 condiziona l'adozione nella maggioranza delle imprese svizzere, in particolare nella finanza e nei settori di importanza sistemica.",
+ s8_body2:"Le attese verso la politica sono chiare: rafforzare le competenze e costruire un'infrastruttura performante prevalgono sul dibattito normativo, dove le opinioni divergono tra allineamento all'AI Act e via svizzera indipendente.",
+ s9_num:"§ 09 / Decisioni",
+ s9_title:"Cosa deve decidere ora il comitato esecutivo",
+ s9_deck:"Il ritardo non si recupera sull'accesso, già acquisito, ma sul passaggio in scala. Quattro decisioni strutturano il vantaggio.",
+ s9_d1t:"Misurare il proprio gradino di scala",
+ s9_d1p:"Posizionarsi onestamente sul ventaglio accesso → strategico, invece di rassicurarsi con un tasso di adozione globale.",
+ s9_d2t:"Investire nei dati prima dello strumento",
+ s9_d2p:"L'ostacolo n.1 è la qualità dei dati, non la tecnologia. Qualità, governance e sicurezza condizionano ogni ROI durevole.",
+ s9_d3t:"Mirare a un caso d'uso con ROI misurabile",
+ s9_d3p:"Un progetto con valore dimostrabile in 6 mesi crea slancio interno e legittima l'investimento, senza rischio tecnologico eccessivo.",
+ s9_d4t:"Formare il management, non solo gli esperti",
+ s9_d4p:"La competenza IA dei dirigenti resta media. L'acculturazione del comitato e dei mestieri è il fattore limitante della trasformazione.",
+ f_sources:"Fonti di questo numero",
+ f_region_note:"Infografica 6 (indice regionale): indice strutturale STATENT, export CSV UST in attesa.",
+ f_editor:"Editore",
+ f_editor_note:"Dispatch·iA #006 · edizione indipendente, senza sponsor. Riproduzione e citazione benvenute con menzione della fonte.",
+ c1_steps:["Accesso all'IA","Usa l'IA","Uso strutturato","Adozione strategica","Cuore del modello"],
+ c1_subs:["≥ 1 strumento disponibile","≥ 1 uso dichiarato","≥ 3 dei 6 ambiti (grandi imp.)","in scala o integrata","l'IA è il modello"],
+ c1_ref:"HEG/Oracle: 53 %",
+ c1_src:"<b>Fonti:</b> accesso 89 % e adozione strategica 23 % · EY AI Survey 2026 (T1, C2). Utilizzo ~60 %, uso strutturato e cuore del modello 5 % · UBS Outlook Q2 2026 (T1, C2). Riferimento 53 % · HEG Ginevra/Oracle 2025 (T2, C2). Campioni eterogenei: EY sovrappesa i grandi gruppi, UBS un tessuto composto al 91 % da microimprese.",
+ c2_rows:["Grandi imp. · ≥3 ambiti","Microimp. · ≥3 ambiti","Grandi imp. · ≥5 ambiti","Microimp. · ≥5 ambiti"],
+ c2_src:"<b>Fonte:</b> UBS Outlook Q2 2026 / Intervista (T1, C2). «Ambiti» = tra 6 finalità d'uso misurate.",
+ c3_rows:["Ambiti isolati","Pilota / POC","In scala","Nulla avviato","Integrata nel modello"],
+ c3_src:"<b>Fonte:</b> EY AI Survey 2026 (T1, C2). Stadi di maturità, una risposta per impresa.",
+ c3_lead:["ICT / informazione-comunicazione","Servizi finanziari & assicurazioni","Farma / scienze della vita"],
+ c3_lag:["Costruzioni / edilizia","Trasporti & logistica","Sanità & sociale","Commercio","Alberghiero & cultura","Legno, carta, tessile"],
+ c4_rows:["Decisione & analisi","Migliorare prodotti/servizi","Automazione dei processi","Nuovi prodotti/servizi","Servizio & relazione clienti","Cuore del modello di business"],
+ c4_src:"<b>Fonte:</b> UBS Outlook Q2 2026 (T1, C2). Imprese che usano l'IA, più risposte.",
+ c4b_rows:["Office integrato (Copilot/Gemini)","Licenze aziendali (ChatGPT/Claude)","Soluzione sviluppata internamente"],
+ c4b_src:"<b>Fonte:</b> EY AI Survey 2026 (T1, C2). Più risposte possibili.",
+ c5_rows:["Qualità dei dati / silos","Sicurezza & protezione dei dati","Mancanza di competenze / talenti","Nessun caso d'uso con valore chiaro","Budget insufficiente","Incertezza normativa","Resistenza culturale","Debito tecnico / legacy","Scarso sostegno del top management"],
+ c5_src:"<b>Fonte:</b> EY AI Survey 2026 (T1, C2). Ostacolo principale, una risposta per impresa.",
+ c5b_rows:["Dati & sicurezza","Decisioni errate (dati/algoritmi)","Perdita di controllo / trasparenza","Dipendenza dai fornitori","Rischio reputazionale","Carenza di talenti","Resistenza dei collaboratori","Costi elevati"],
+ c5b_src:"<b>Fonte:</b> UBS Outlook Q2 2026 (T1, C2). Imprese che usano l'IA, più risposte.",
+ c6_rows:["ICT / informazione-com.","Servizi finanziari & assic.","Farma / scienze della vita","Industria (meccanica, elettrica)","Commercio","Trasporti & logistica","Sanità & sociale","Alberghiero & cultura","Costruzioni","Legno, carta, tessile"],
+ c6_unit:"/100",
+ c6_src:"<b>Indice costruito (C3)</b> · ponderazione ordinale derivata dalla classifica di adozione e idoneità per ramo di UBS Outlook Q2 2026. Non è una misura di adozione ma un moltiplicatore settoriale da incrociare con la quota d'occupazione regionale (UST).",
+ regions:[
+  {n:"Zurigo",s:"Piazza finanziaria, ICT, sedi",i:"esposizione strutturale elevata"},
+  {n:"Regione del Lemano",s:"Finanza, commercio, organizzazioni internazionali, farma (VD/GE)",i:"esposizione elevata, contrastata"},
+  {n:"Svizzera nord-occidentale",s:"Polo farma / chimica (Basilea), scienze della vita",i:"esposizione elevata"},
+  {n:"Espace Mittelland",s:"Amministrazione, industria, agro, orologeria (BE/NE/JU)",i:"esposizione media"},
+  {n:"Svizzera centrale",s:"Finanza / holding (Zugo), PMI, turismo",i:"esposizione media-alta"},
+  {n:"Svizzera orientale",s:"Industria d'esportazione, meccanica, PMI",i:"esposizione media"},
+  {n:"Ticino",s:"Finanza transfrontaliera, servizi, turismo",i:"esposizione media"}
+ ]
+},
+en:{
+ theme_dark:"Dark", theme_light:"Light",
+ hero_kicker:"Dispatch·iA #006 · Independent edition",
+ hero_title:"AI in Swiss companies. <em>2026 state of play.</em>",
+ hero_deck:"How many Swiss companies actually use AI in 2026? Rather than one headline figure, this issue cross-references the latest Swiss surveys to separate declared, effective and strategic adoption. Written for executive committees, boards and HR.",
+ meta_date:"<b>Data:</b> March–May 2026",
+ meta_sources:"<b>Primary sources:</b> EY AI Survey 2026, UBS Outlook Q2 2026",
+ meta_indep:"<b>Status:</b> independent, no sponsor",
+ m_num:"§ 00 / Method",
+ m_title:"Why a state of play, not a single number",
+ m_deck:"AI adoption figures vary twofold depending on what they measure and who is surveyed. This dispatch relies on no isolated number: it confronts them, ranks the sources and makes the gaps explicit.",
+ m_body1:"Every data point is tied to a dated source, ranked for reliability (T1–T4) and given a confidence level (C1–C4). Divergences between surveys are not hidden: for a decision-maker they are the most useful signal. Nothing is fabricated; gaps are flagged \u201cn/a\u201d.",
+ chip_t1:"<b>T1</b> · Primary source (survey, official institute)",
+ chip_t2:"<b>T2</b> · Recognised secondary source",
+ chip_t3:"<b>T3</b> · Press / vendor relay",
+ chip_t4:"<b>T4</b> · Estimate / weak signal",
+ chip_c:"<b>C1–C4</b> · Confidence: robust (C1) → indicative (C4)",
+ a_num:"§ 01 / Adoption",
+ a_title:"Adoption is not a number, it's a spectrum",
+ a_deck:"Depending on the measure, \u201cSwiss company and AI\u201d ranges from 89 % to 5 %. Public debate often keeps just one rung of this ladder.",
+ a_body1:"Having access to an AI tool, using it occasionally, embedding it across several processes, or making it the core of the business model are four distinct realities. Conflating them produces the gaps seen between studies.",
+ a_card_head:"Switzerland · 2026 · share of companies",
+ a_card_title:"From AI access to the core of the business model",
+ a_takeaway:"Takeaway: the often-quoted \u201c53 %\u201d (HEG Geneva / Oracle) is one point on a ladder from 89 % of companies with AI access to only 5 % that make it the core of their model. 14 % have not launched any concrete initiative (EY 2026). The issue isn't access, it's scaling.",
+ s2_num:"§ 02 / Size",
+ s2_title:"The divide widens with usage depth",
+ s2_deck:"Almost every company has touched AI. The gap between large and micro firms shows up not in access, but in depth of integration.",
+ s2_card_head:"Switzerland · 2026 · AI use by number of areas covered",
+ s2_card_title:"The deeper the use, the sharper the size divide",
+ s2_st1:"of Swiss companies are micro-enterprises (<10 jobs)",
+ s2_st2:"only are large enterprises (>249 jobs)",
+ s2_st3:"SME adoption per UBS (vs <45 % per HEG/Oracle)",
+ s2_take:"Takeaway: the Swiss \u201caverage\u201d is pulled by a mass of micro-enterprises. The size gap isn't about access but integration: large firms are 5× more likely to use AI in at least five areas. SME adoption estimates diverge sharply by definition (59–77 % UBS vs <45 % HEG/Oracle): a signal, not an error.",
+ s3_num:"§ 03 / Sectors",
+ s3_title:"Many experiment, few scale",
+ s3_deck:"Deployment maturity remains low: AI is mostly tested or confined to isolated areas. Integration into the business model is still the exception.",
+ s3_card_head:"Switzerland · 2026 · maturity stage of AI deployments",
+ s3_card_title:"Where companies stand in their AI projects",
+ s3_lead_h:"Leading sectors",
+ s3_lag_h:"Lagging sectors",
+ s3_take:"Takeaway: 63 % of companies are at the \u201cisolated areas\u201d or \u201cpilot\u201d stage; only 14 % scale and 9 % have integrated AI into their model. Adoption tracks digital maturity: ICT, finance and pharma ahead, construction and traditional industry behind.",
+ s4_num:"§ 04 / Use cases",
+ s4_title:"What companies actually do with AI",
+ s4_deck:"The dominant use is not disruption but analysis and improvement of the existing. Automation follows; AI at the core of the model stays marginal.",
+ s4_card_head:"Switzerland · 2026 · what AI is used for (multiple answers)",
+ s4_card_title:"AI use purposes",
+ s4b_card_head:"Switzerland · 2026 · how access is provided",
+ s4b_card_title:"AI access modes",
+ s4_take:"Takeaway: Swiss AI is first a tool to analyse and improve the existing, not to disrupt. Access flows mostly through integrated office suites (Copilot, Gemini): 70 % of companies, well ahead of dedicated licences or in-house solutions.",
+ s5_num:"§ 05 / Barriers",
+ s5_title:"The first barrier isn't skills, it's data",
+ s5_deck:"Contrary to the common narrative that puts skills first, the measured number-one obstacle is data quality, followed by security. Skills come just after.",
+ s5_card_head:"Switzerland · 2026 · main obstacle to using AI",
+ s5_card_title:"Adoption barriers (EY)",
+ s5b_card_head:"Switzerland · 2026 · perceived risks (multiple answers)",
+ s5b_card_title:"Risks and challenges (UBS)",
+ s5_take:"Takeaway: barriers are operational first (data, security), then human (skills) or regulatory. Regulation is a barrier for only 10 % of companies (38 % among large ones). The real bottleneck is data maturity.",
+ s6_num:"§ 06 / Regions",
+ s6_title:"Structurally uneven exposure across regions",
+ s6_deck:"No survey measures AI adoption by Swiss region. But each major region's sector structure drives its exposure: this is a structural index, not an adoption measure.",
+ s6_body:"The index has two layers: an AI-intensity score per industry (below, derived from UBS) weighted by that industry's employment share in the region (FSO STATENT). The sector layer is available; the regional weighting awaits the FSO export.",
+ s6_card_head:"Layer 1 · AI-intensity score per industry (constructed index, C3)",
+ s6_card_title:"The sector multiplier",
+ s6_reg_h:"Layer 2 · dominant specialisation of the 7 major regions",
+ s6_map_head:"Qualitative structural exposure (C3) · by major region", s6_map_title:"Map of AI exposure across the 7 major regions", tier_high:"High", tier_midhigh:"Medium-to-high", tier_mid:"Medium",
+ s6_nd:"Quantified regional index: n/a · awaiting STATENT export (FSO) \u201cFTE by NOGA section and major region\u201d.",
+ s6_take:"Takeaway: regions with heavy finance / ICT / pharma concentration (Zurich, Lake Geneva, North-West) are structurally the most AI-exposed; regions led by traditional industry, construction or tourism less so. The precise regional figure will follow with the FSO data.",
+ s7_num:"§ 07 / Jobs & skills",
+ s7_title:"Evolution, not collapse",
+ s7_deck:"Swiss companies expect a reshaping of roles rather than a wave of cuts. But polarisation between AI profiles and the rest is already confirmed.",
+ s7_st1:"of companies expect unchanged employment due to AI",
+ s7_st2:"see AI as relief, only 10 % as a substitute",
+ s7_st3:"AI-related job postings since 2018 (2,000 → 20,000)",
+ s7_st4:"possible wage premium for AI-skilled profiles",
+ s7_body1:"ETH Zurich's KOF (Dec. 2025) shows for the first time that generative AI is already cutting jobs where it automates code and technical tasks, while creating roles elsewhere. The net balance stays positive, but the composition shifts.",
+ s7_body2:"On the company side, EY measures a still-blurry impact: 42 % of respondents can't assess the effect on headcount, 18 % created AI-related roles, 7 % cut them. Most in-demand skills (UBS): IT and digital, innovation and creativity, communication.",
+ s7_src:"<b>Sources:</b> UBS Outlook Q2 2026 (T1) · KOF ETH Zurich, Siegenthaler & Kläui Dec. 2025 (T1) · PwC AI Jobs Barometer 2025 (T2) · EY AI Survey 2026 (T1). Global reference WEF Future of Jobs 2025: 40 % of skills transformed by 2030 (T2, C3).",
+ s8_num:"§ 08 / Governance & sovereignty",
+ s8_title:"Data sovereignty as a prerequisite",
+ s8_deck:"In Switzerland, AI use is governed by the FADP and, indirectly, by the EU AI Act for those operating in the EU. The Federal Council chose a sector-based approach over a general law.",
+ s8_st1:"average importance given to data sovereignty",
+ s8_st2:"want stronger AI education (universities, vocational training)",
+ s8_st3:"want a sovereign Swiss AI infrastructure",
+ s8_body1:"Data sovereignty is not a compliance footnote: at an average of 8.7/10, it conditions adoption in most Swiss companies, especially in finance and systemically important sectors.",
+ s8_body2:"Expectations of policymakers are clear: building skills and high-performance infrastructure outrank the regulatory debate, where views split between EU AI Act alignment and an independent Swiss path.",
+ s9_num:"§ 09 / Decisions",
+ s9_title:"What the executive committee must decide now",
+ s9_deck:"Lost ground isn't recovered on access, already secured, but on scaling. Four decisions shape the lead.",
+ s9_d1t:"Measure your own rung on the ladder",
+ s9_d1p:"Locate yourself honestly on the access → strategic spectrum, rather than reassuring yourself with an overall adoption rate.",
+ s9_d2t:"Invest in data before the tool",
+ s9_d2p:"The number-one barrier is data quality, not technology. Quality, governance and security condition any lasting ROI.",
+ s9_d3t:"Target one use case with measurable ROI",
+ s9_d3p:"A project with value provable in 6 months builds internal momentum and legitimises investment, without excessive tech risk.",
+ s9_d4t:"Train management, not only experts",
+ s9_d4p:"Leadership AI competence remains mid-range. Up-skilling the executive committee and business lines is the limiting factor of the transformation.",
+ f_sources:"Sources for this issue",
+ f_region_note:"Chart 6 (regional index): structural index from STATENT, FSO CSV export pending.",
+ f_editor:"Editor",
+ f_editor_note:"Dispatch·iA #006 · independent edition, no sponsor. Reuse and citation welcome with source attribution.",
+ c1_steps:["AI access","Uses AI","Structured use","Strategic adoption","Core of model"],
+ c1_subs:["\u2265 1 tool available","\u2265 1 declared use","\u2265 3 of 6 areas (large cos.)","scaled or integrated","AI is the model"],
+ c1_ref:"HEG/Oracle: 53 %",
+ c1_src:"<b>Sources:</b> access 89 % and strategic adoption 23 % · EY AI Survey 2026 (T1, C2). Use ~60 %, structured use and core 5 % · UBS Outlook Q2 2026 (T1, C2). Reference 53 % · HEG Geneva/Oracle 2025 (T2, C2). Heterogeneous samples: EY over-weights large groups, UBS a fabric that is 91 % micro-enterprises.",
+ c2_rows:["Large cos. · \u22653 areas","Micro cos. · \u22653 areas","Large cos. · \u22655 areas","Micro cos. · \u22655 areas"],
+ c2_src:"<b>Source:</b> UBS Outlook Q2 2026 / Intervista (T1, C2). \u201cAreas\u201d = of 6 measured use purposes.",
+ c3_rows:["Isolated areas","Pilot / POC","Scaling","Nothing launched","Integrated in model"],
+ c3_src:"<b>Source:</b> EY AI Survey 2026 (T1, C2). Maturity stages, one answer per company.",
+ c3_lead:["ICT / information-communication","Financial services & insurance","Pharma / life sciences"],
+ c3_lag:["Construction","Transport & logistics","Health & social","Retail & trade","Hospitality & culture","Wood, paper, textile"],
+ c4_rows:["Decision & analysis","Improve existing products/services","Process automation","New products/services","Service & customer relations","Core of business model"],
+ c4_src:"<b>Source:</b> UBS Outlook Q2 2026 (T1, C2). Companies using AI, multiple answers.",
+ c4b_rows:["Integrated office (Copilot/Gemini)","Enterprise licences (ChatGPT/Claude)","In-house developed solution"],
+ c4b_src:"<b>Source:</b> EY AI Survey 2026 (T1, C2). Multiple answers possible.",
+ c5_rows:["Data quality / silos","Security & data protection","Lack of skills / talent","No use case with clear value","Insufficient budget","Regulatory uncertainty","Cultural resistance","Technical debt / legacy","Lack of top-management support"],
+ c5_src:"<b>Source:</b> EY AI Survey 2026 (T1, C2). Main obstacle, one answer per company.",
+ c5b_rows:["Data & security","Wrong decisions (data/algorithms)","Loss of control / transparency","Vendor dependency","Reputational risk","Talent shortage","Employee resistance","High costs"],
+ c5b_src:"<b>Source:</b> UBS Outlook Q2 2026 (T1, C2). Companies using AI, multiple answers.",
+ c6_rows:["ICT / information-comm.","Financial services & insurance","Pharma / life sciences","Industry (machinery, electrical)","Retail & trade","Transport & logistics","Health & social","Hospitality & culture","Construction","Wood, paper, textile"],
+ c6_unit:"/100",
+ c6_src:"<b>Constructed index (C3)</b> · ordinal weighting derived from UBS's ranking of adoption and fit by industry (UBS Outlook Q2 2026). Not an adoption measure but a sector multiplier to be crossed with regional employment shares (FSO).",
+ regions:[
+  {n:"Zurich",s:"Financial centre, ICT, headquarters",i:"high structural exposure"},
+  {n:"Lake Geneva region",s:"Finance, trading, international organisations, pharma (VD/GE)",i:"high, contrasted exposure"},
+  {n:"North-Western Switzerland",s:"Pharma / chemicals cluster (Basel), life sciences",i:"high exposure"},
+  {n:"Espace Mittelland",s:"Administration, industry, agri-food, watchmaking (BE/NE/JU)",i:"medium exposure"},
+  {n:"Central Switzerland",s:"Finance / holdings (Zug), SMEs, tourism",i:"medium-to-high exposure"},
+  {n:"Eastern Switzerland",s:"Export industry, machinery, SMEs",i:"medium exposure"},
+  {n:"Ticino",s:"Cross-border finance, services, tourism",i:"medium exposure"}
+ ]
+}
+};
+
+/* Switzerland 7 grandes régions (merged from swiss-maps@4 cantons, WGS84) */
+const CH_REGIONS={"type":"FeatureCollection","features":[{"type":"Feature","properties":{"key":"zurich","idx":0,"tier":3},"geometry":{"type":"MultiPolygon","coordinates":[[[[8.4275,47.569],[8.4652,47.5737],[8.4848,47.5786],[8.4881,47.5791],[8.4957,47.5825],[8.4881,47.5887],[8.47,47.5854],[8.4578,47.6037],[8.4789,47.6121],[8.5094,47.6189],[8.5175,47.6333],[8.5584,47.6259],[8.564,47.6008],[8.558,47.5988],[8.5488,47.5941],[8.5466,47.5934],[8.5392,47.5893],[8.5357,47.5825],[8.5558,47.5542],[8.5649,47.5589],[8.5688,47.5639],[8.5732,47.5756],[8.5941,47.597],[8.5967,47.6069],[8.6047,47.6126],[8.5965,47.6441],[8.6089,47.6538],[8.6246,47.6425],[8.6294,47.6501],[8.6156,47.6629],[8.6074,47.6704],[8.625,47.6777],[8.6263,47.693],[8.6333,47.6941],[8.6646,47.6873],[8.6716,47.6862],[8.6694,47.6791],[8.6792,47.6672],[8.6897,47.6508],[8.7182,47.6431],[8.733,47.6433],[8.7484,47.6401],[8.7872,47.6566],[8.7998,47.6664],[8.8039,47.6663],[8.8061,47.6537],[8.8275,47.6481],[8.8266,47.6385],[8.8053,47.6094],[8.7915,47.6098],[8.7506,47.6227],[8.7406,47.6095],[8.7493,47.5938],[8.7632,47.5942],[8.799,47.5865],[8.8114,47.5723],[8.8397,47.5724],[8.8523,47.565],[8.8314,47.5548],[8.8421,47.5342],[8.869,47.5319],[8.8749,47.5309],[8.8888,47.5296],[8.8998,47.5254],[8.896,47.5041],[8.8849,47.4716],[8.8947,47.4651],[8.8967,47.4646],[8.91,47.4495],[8.908,47.4401],[8.932,47.4332],[8.9204,47.4341],[8.9141,47.4295],[8.905,47.4039],[8.9074,47.4028],[8.9429,47.3887],[8.9448,47.3772],[8.962,47.3553],[8.9731,47.3538],[8.9862,47.3208],[8.9759,47.3083],[8.9585,47.3058],[8.9502,47.2935],[8.9348,47.2898],[8.949,47.2807],[8.9372,47.2619],[8.8863,47.2542],[8.8714,47.2466],[8.8298,47.2518],[8.8103,47.2494],[8.7968,47.2405],[8.809,47.2219],[8.7946,47.2238],[8.7419,47.213],[8.7156,47.2045],[8.6951,47.1977],[8.6825,47.185],[8.6933,47.1681],[8.6936,47.165],[8.667,47.1611],[8.662,47.1718],[8.6254,47.1746],[8.6293,47.181],[8.6167,47.2009],[8.6043,47.2045],[8.5795,47.2201],[8.5754,47.2184],[8.5445,47.2235],[8.4996,47.2134],[8.4911,47.2124],[8.4811,47.2099],[8.4474,47.2248],[8.4232,47.2247],[8.4193,47.2349],[8.4153,47.2454],[8.4117,47.2494],[8.4025,47.2696],[8.3927,47.2878],[8.3899,47.2914],[8.4158,47.2949],[8.4302,47.302],[8.4295,47.3025],[8.4371,47.3166],[8.4423,47.3172],[8.4552,47.336],[8.4339,47.3278],[8.4138,47.33],[8.4175,47.3385],[8.4079,47.3533],[8.4062,47.3654],[8.4092,47.3681],[8.4014,47.3719],[8.4006,47.3762],[8.3977,47.3952],[8.3635,47.4037],[8.3857,47.4076],[8.3888,47.4296],[8.3759,47.4337],[8.3851,47.4363],[8.3879,47.4508],[8.3668,47.4676],[8.3744,47.4828],[8.3646,47.4822],[8.3622,47.5116],[8.3781,47.5138],[8.3877,47.5302],[8.3931,47.5265],[8.3944,47.527],[8.4038,47.5347],[8.4186,47.5471],[8.4195,47.5658],[8.4275,47.569]]]]}},{"type":"Feature","properties":{"key":"lemanique","idx":1,"tier":3},"geometry":{"type":"MultiPolygon","coordinates":[[[[6.2324,46.3307],[6.2204,46.3131],[6.2422,46.3058],[6.245,46.2863],[6.2385,46.2778],[6.2509,46.2635],[6.2673,46.249],[6.296,46.2572],[6.311,46.2453],[6.2925,46.2247],[6.2457,46.2078],[6.2246,46.2026],[6.1869,46.1794],[6.1897,46.1675],[6.1762,46.1593],[6.1475,46.1471],[6.1362,46.1424],[6.1,46.1452],[6.0926,46.1529],[6.0754,46.1506],[6.0526,46.1526],[6.0485,46.1422],[6.0251,46.142],[5.9834,46.1434],[5.9771,46.1338],[5.9568,46.1333],[5.977,46.1616],[5.9931,46.1781],[5.9921,46.1887],[5.9644,46.1982],[5.9792,46.2182],[6.0008,46.2214],[6.0345,46.2397],[6.0471,46.2327],[6.0619,46.2464],[6.0889,46.2482],[6.1025,46.2387],[6.1244,46.2518],[6.1209,46.2624],[6.1031,46.2861],[6.122,46.2984],[6.1266,46.3188],[6.1321,46.3259],[6.1399,46.3359],[6.1588,46.3522],[6.171,46.3677],[6.1593,46.3808],[6.1506,46.3787],[6.099,46.4099],[6.0648,46.4175],[6.0757,46.4331],[6.085,46.4408],[6.0735,46.467],[6.0979,46.4829],[6.1136,46.5111],[6.1573,46.5465],[6.1118,46.578],[6.1268,46.5908],[6.1799,46.6174],[6.2202,46.6461],[6.2683,46.6777],[6.2838,46.6918],[6.3082,46.6999],[6.3532,46.7164],[6.3709,46.7317],[6.3863,46.7334],[6.3892,46.7445],[6.4179,46.754],[6.4397,46.7677],[6.4525,46.7752],[6.4593,46.7897],[6.4355,46.8034],[6.4432,46.8332],[6.4608,46.8529],[6.483,46.8479],[6.5283,46.86],[6.5636,46.877],[6.5881,46.8855],[6.6071,46.8881],[6.631,46.893],[6.648,46.912],[6.6693,46.9216],[6.7218,46.9375],[6.7175,46.9074],[6.7408,46.8961],[6.7388,46.8859],[6.7403,46.8807],[6.7575,46.8702],[6.781,46.8539],[6.7432,46.8288],[6.7682,46.8101],[6.7776,46.8039],[6.7769,46.791],[6.7834,46.7942],[6.7989,46.7841],[6.8141,46.7807],[6.8196,46.7789],[6.8263,46.7745],[6.8524,46.7872],[6.8648,46.7857],[6.8805,46.7767],[6.9073,46.7846],[6.9119,46.7812],[6.9175,46.7883],[6.9323,46.8067],[6.9082,46.8062],[6.906,46.829],[6.931,46.8552],[6.9138,46.8672],[6.9117,46.8819],[6.8925,46.8881],[6.8668,46.9109],[6.8971,46.9267],[6.9228,46.9067],[6.9269,46.894],[6.9395,46.8909],[6.9659,46.8665],[6.9707,46.8685],[6.9632,46.8855],[6.9746,46.8887],[6.987,46.8776],[6.9809,46.8676],[6.9783,46.8515],[6.9933,46.8318],[6.9861,46.8235],[6.9665,46.8294],[6.9595,46.8215],[6.9676,46.804],[6.9595,46.7915],[6.9397,46.7829],[6.9297,46.7687],[6.9153,46.7642],[6.9114,46.7545],[6.9312,46.7553],[6.9421,46.7463],[6.9365,46.7346],[6.923,46.7248],[6.9214,46.7232],[6.899,46.7098],[6.8932,46.7039],[6.8944,46.7011],[6.882,46.6914],[6.8655,46.6776],[6.8727,46.6748],[6.8544,46.6568],[6.845,46.6622],[6.8289,46.6616],[6.8193,46.6494],[6.7997,46.6506],[6.8043,46.6459],[6.7991,46.6013],[6.8022,46.5935],[6.8,46.5849],[6.796,46.5765],[6.8002,46.5754],[6.815,46.5868],[6.8296,46.5785],[6.8437,46.5836],[6.8535,46.5833],[6.8727,46.5708],[6.8988,46.5719],[6.9034,46.5624],[6.8944,46.5606],[6.8692,46.5431],[6.8673,46.5417],[6.862,46.5318],[6.8557,46.5426],[6.8333,46.5387],[6.8132,46.5274],[6.8254,46.5135],[6.8309,46.5136],[6.8337,46.5063],[6.859,46.4945],[6.8825,46.5138],[6.8842,46.5147],[6.8986,46.5216],[6.8969,46.5087],[6.9128,46.5142],[6.9347,46.5029],[6.963,46.4982],[6.9813,46.476],[6.9787,46.4745],[6.9929,46.45],[6.9848,46.4394],[7.0177,46.4489],[7.0288,46.4681],[7.0619,46.4886],[7.1013,46.4882],[7.1113,46.4961],[7.1366,46.5094],[7.1492,46.5297],[7.172,46.5341],[7.1931,46.5479],[7.2082,46.5341],[7.238,46.555],[7.2497,46.5189],[7.2371,46.4891],[7.2249,46.4879],[7.2319,46.4675],[7.2234,46.4433],[7.1958,46.4418],[7.2108,46.4174],[7.1945,46.3802],[7.2092,46.3801],[7.2238,46.3498],[7.2223,46.3305],[7.2543,46.3318],[7.263,46.3395],[7.2632,46.3595],[7.3112,46.3764],[7.309,46.3532],[7.3162,46.3452],[7.3601,46.3545],[7.3832,46.3665],[7.4006,46.3778],[7.4391,46.3875],[7.4631,46.3775],[7.4846,46.3828],[7.4879,46.372],[7.5273,46.3757],[7.5563,46.3903],[7.5297,46.4018],[7.5349,46.411],[7.5558,46.4148],[7.5844,46.4185],[7.5952,46.4126],[7.6272,46.4463],[7.6906,46.4258],[7.7061,46.4173],[7.7374,46.4253],[7.7452,46.4296],[7.769,46.4412],[7.7986,46.4593],[7.8445,46.4791],[7.8776,46.4798],[7.9122,46.4881],[7.9338,46.4994],[7.9431,46.509],[7.9688,46.5141],[7.974,46.5254],[7.9638,46.5405],[7.9984,46.5596],[8.0315,46.5638],[8.0637,46.5545],[8.0768,46.5569],[8.1151,46.5477],[8.1267,46.5385],[8.1754,46.5327],[8.1857,46.5221],[8.2592,46.5307],[8.3039,46.5468],[8.3182,46.5603],[8.3378,46.5623],[8.3657,46.5841],[8.3627,46.6024],[8.3736,46.6344],[8.4001,46.6553],[8.4114,46.6543],[8.423,46.6491],[8.4234,46.6285],[8.4092,46.6025],[8.4073,46.5873],[8.4301,46.5448],[8.4787,46.5289],[8.4439,46.4967],[8.3934,46.496],[8.387,46.4768],[8.3934,46.4692],[8.3859,46.4534],[8.3681,46.4532],[8.3265,46.4269],[8.3085,46.4272],[8.29,46.4094],[8.3169,46.4002],[8.3139,46.3783],[8.2854,46.3649],[8.2649,46.3653],[8.2669,46.3531],[8.251,46.342],[8.2251,46.3357],[8.226,46.3276],[8.2064,46.3073],[8.1624,46.2971],[8.1421,46.3031],[8.0814,46.2618],[8.1027,46.2507],[8.1252,46.2309],[8.1399,46.2274],[8.1543,46.1924],[8.1665,46.1835],[8.151,46.1638],[8.1563,46.1489],[8.1454,46.138],[8.1164,46.1316],[8.1093,46.1129],[8.0553,46.1025],[8.0354,46.102],[8.0248,46.0641],[8.0365,46.0453],[8.013,46.0325],[8.0133,46.0132],[8.0021,46.0135],[7.99,45.9972],[7.9098,45.9982],[7.8948,45.9798],[7.8785,45.9751],[7.8694,45.9375],[7.8741,45.9216],[7.8376,45.923],[7.8214,45.9281],[7.8005,45.9186],[7.7703,45.9384],[7.7487,45.9422],[7.7361,45.9252],[7.7215,45.9249],[7.7084,45.936],[7.7108,45.9493],[7.6806,45.959],[7.6691,45.9752],[7.6405,45.9713],[7.5898,45.9717],[7.5757,45.9888],[7.5511,45.9878],[7.5424,45.9773],[7.5437,45.9581],[7.5001,45.9637],[7.4884,45.957],[7.4723,45.9484],[7.4759,45.9379],[7.4455,45.9329],[7.4117,45.9099],[7.4026,45.9127],[7.3834,45.8977],[7.3453,45.9164],[7.3316,45.9117],[7.2953,45.923],[7.2778,45.9019],[7.2578,45.8894],[7.2504,45.8944],[7.2173,45.89],[7.1916,45.8598],[7.176,45.864],[7.1544,45.8804],[7.1187,45.8604],[7.1021,45.8604],[7.0961,45.8771],[7.0651,45.9011],[7.0653,45.9105],[7.0458,45.9236],[7.0366,45.9396],[7.0384,45.9555],[7.01,45.9706],[7.0231,45.9818],[7.0114,45.9985],[6.9855,46.0063],[6.9818,46.0215],[6.9637,46.0317],[6.9506,46.0529],[6.9247,46.066],[6.8916,46.0437],[6.8764,46.0489],[6.8816,46.0707],[6.8923,46.0751],[6.8838,46.0965],[6.9003,46.1253],[6.8522,46.1278],[6.8424,46.1333],[6.7987,46.138],[6.7932,46.1644],[6.8133,46.1826],[6.8078,46.1977],[6.8045,46.2043],[6.8217,46.2312],[6.8553,46.2602],[6.8657,46.2818],[6.8598,46.2916],[6.8479,46.2913],[6.8202,46.3166],[6.8015,46.3211],[6.7972,46.3341],[6.7852,46.3342],[6.7756,46.3485],[6.7725,46.3624],[6.8046,46.378],[6.8061,46.3953],[6.8218,46.4284],[6.6828,46.4556],[6.52,46.4576],[6.4264,46.417],[6.336,46.405],[6.2537,46.3617],[6.2422,46.3448],[6.2324,46.3307]],[[6.7871,46.749],[6.7739,46.7527],[6.7495,46.7331],[6.7634,46.7187],[6.7852,46.7368],[6.7871,46.749]],[[6.8673,46.7343],[6.8829,46.7511],[6.85,46.7767],[6.8453,46.7666],[6.813,46.7385],[6.7945,46.737],[6.8071,46.7283],[6.8122,46.7293],[6.8181,46.7344],[6.8292,46.7367],[6.8627,46.7259],[6.8673,46.7343]]],[[[7.0923,46.9048],[7.0841,46.8974],[7.0754,46.8968],[7.0628,46.8851],[7.0675,46.8701],[7.051,46.8559],[7.0382,46.8469],[7.0362,46.8749],[7.0173,46.8822],[6.9957,46.8796],[7.0103,46.8904],[6.985,46.9092],[6.9885,46.9195],[6.9622,46.9291],[6.9288,46.9545],[7.0031,46.9881],[7.0408,46.9812],[7.0527,46.9785],[7.0641,46.9725],[7.0606,46.9531],[7.0606,46.9379],[7.085,46.9145],[7.091,46.909],[7.0923,46.9048]]]]}},{"type":"Feature","properties":{"key":"nordwest","idx":2,"tier":3},"geometry":{"type":"MultiPolygon","coordinates":[[[[7.9579,47.4566],[7.9479,47.4447],[7.9627,47.4233],[7.9579,47.4203],[7.9416,47.4155],[7.9377,47.4094],[7.9107,47.3998],[7.8896,47.4087],[7.8807,47.4031],[7.8702,47.3968],[7.88,47.385],[7.8406,47.3755],[7.8347,47.3688],[7.8073,47.3638],[7.7945,47.341],[7.789,47.339],[7.7526,47.3458],[7.73,47.3683],[7.7013,47.3737],[7.6886,47.3727],[7.6451,47.3686],[7.6429,47.3798],[7.6427,47.3819],[7.6336,47.4115],[7.6645,47.4111],[7.6756,47.4161],[7.6858,47.4299],[7.6919,47.4543],[7.6995,47.457],[7.7111,47.4707],[7.7008,47.482],[7.6708,47.4868],[7.6693,47.4881],[7.6671,47.4982],[7.6516,47.496],[7.642,47.484],[7.6074,47.4909],[7.6077,47.4893],[7.6063,47.4728],[7.6272,47.4643],[7.6162,47.439],[7.6168,47.4341],[7.6092,47.4342],[7.5859,47.43],[7.5696,47.4379],[7.5691,47.424],[7.5813,47.4161],[7.5273,47.4134],[7.5299,47.4024],[7.5182,47.3899],[7.4932,47.3866],[7.4918,47.387],[7.4781,47.4026],[7.4609,47.4019],[7.4422,47.4021],[7.4378,47.3813],[7.4126,47.382],[7.4146,47.3909],[7.3767,47.4155],[7.4154,47.4124],[7.4483,47.4159],[7.4557,47.427],[7.4387,47.4476],[7.422,47.4478],[7.4311,47.4607],[7.4459,47.463],[7.4555,47.451],[7.4637,47.4528],[7.4855,47.4586],[7.4958,47.461],[7.5317,47.4626],[7.5301,47.4793],[7.5376,47.4864],[7.5328,47.4988],[7.5202,47.4983],[7.5119,47.504],[7.5045,47.5161],[7.5249,47.5166],[7.5325,47.5291],[7.5171,47.5339],[7.5034,47.5299],[7.5055,47.5443],[7.5561,47.566],[7.5672,47.5788],[7.5857,47.5771],[7.59,47.5913],[7.6055,47.5792],[7.6255,47.5808],[7.6468,47.5983],[7.6682,47.5934],[7.6821,47.5823],[7.6845,47.5725],[7.6556,47.5638],[7.6351,47.5626],[7.6464,47.554],[7.6764,47.5349],[7.6873,47.5339],[7.7148,47.5409],[7.7537,47.5464],[7.7968,47.5589],[7.813,47.5722],[7.8199,47.5884],[7.8386,47.584],[7.8861,47.5903],[7.899,47.5855],[7.9125,47.5704],[7.9096,47.5568],[7.9416,47.5459],[7.9658,47.5586],[8.0084,47.5564],[8.0093,47.5559],[8.0206,47.5518],[8.047,47.5566],[8.0723,47.5655],[8.0982,47.5624],[8.104,47.5775],[8.1271,47.5846],[8.1602,47.5956],[8.1855,47.6062],[8.2027,47.6217],[8.2223,47.6169],[8.2251,47.6083],[8.2623,47.6148],[8.2895,47.6118],[8.2993,47.5902],[8.3174,47.5803],[8.3383,47.5718],[8.3633,47.5708],[8.3846,47.5669],[8.3933,47.5764],[8.4175,47.5722],[8.4275,47.569],[8.4195,47.5658],[8.4186,47.5471],[8.4038,47.5347],[8.3944,47.527],[8.3931,47.5265],[8.3877,47.5302],[8.3781,47.5138],[8.3622,47.5116],[8.3646,47.4822],[8.3744,47.4828],[8.3668,47.4676],[8.3879,47.4508],[8.3851,47.4363],[8.3759,47.4337],[8.3888,47.4296],[8.3857,47.4076],[8.3635,47.4037],[8.3977,47.3952],[8.4006,47.3762],[8.4014,47.3719],[8.4092,47.3681],[8.4062,47.3654],[8.4079,47.3533],[8.4175,47.3385],[8.4138,47.33],[8.4339,47.3278],[8.4552,47.336],[8.4423,47.3172],[8.4371,47.3166],[8.4295,47.3025],[8.4302,47.302],[8.4158,47.2949],[8.3899,47.2914],[8.3927,47.2878],[8.4025,47.2696],[8.4117,47.2494],[8.4092,47.2441],[8.3975,47.2216],[8.4068,47.1974],[8.4014,47.1849],[8.4154,47.1585],[8.4132,47.1421],[8.4062,47.139],[8.3759,47.1443],[8.3631,47.1473],[8.3594,47.1547],[8.3594,47.1581],[8.3418,47.1751],[8.3404,47.1859],[8.3313,47.2037],[8.3285,47.2121],[8.3196,47.2247],[8.3159,47.2411],[8.3071,47.2519],[8.3002,47.2569],[8.2987,47.2734],[8.2597,47.2886],[8.2434,47.2736],[8.2292,47.2744],[8.2212,47.2539],[8.209,47.2491],[8.2039,47.2312],[8.1772,47.2232],[8.1756,47.229],[8.173,47.2296],[8.1571,47.2407],[8.1811,47.247],[8.1757,47.2548],[8.1439,47.2486],[8.1308,47.2448],[8.1262,47.2427],[8.1101,47.2459],[8.0894,47.2643],[8.0574,47.2569],[8.064,47.2479],[8.0161,47.2455],[8.0148,47.2634],[8.0058,47.2723],[7.9987,47.281],[7.9518,47.2762],[7.9625,47.2556],[7.9346,47.2373],[7.9233,47.2391],[7.8957,47.2439],[7.8547,47.2338],[7.8397,47.2358],[7.8289,47.255],[7.826,47.2669],[7.8291,47.2682],[7.8504,47.2903],[7.8517,47.2915],[7.863,47.3083],[7.8817,47.3127],[7.8933,47.3175],[7.9079,47.3429],[7.917,47.338],[7.9192,47.3368],[7.9323,47.3344],[7.949,47.3341],[7.9494,47.319],[7.9647,47.3221],[7.9928,47.3339],[8.0021,47.3362],[8.013,47.3512],[8.02,47.3655],[8.0239,47.3663],[8.0252,47.3691],[8.0278,47.3727],[8.0285,47.3945],[8.0276,47.397],[8.0115,47.3965],[8.0082,47.4085],[7.9638,47.424],[7.9882,47.4298],[7.983,47.4478],[7.9751,47.4611],[7.9579,47.4566]]],[[[7.3273,47.4412],[7.3819,47.4333],[7.3767,47.4155],[7.3641,47.4161],[7.3582,47.4164],[7.341,47.4309],[7.3268,47.4335],[7.3273,47.4412]]]]}},{"type":"Feature","properties":{"key":"mittelland","idx":3,"tier":1},"geometry":{"type":"MultiPolygon","coordinates":[[[[7.238,46.555],[7.2082,46.5341],[7.1931,46.5479],[7.172,46.5341],[7.1492,46.5297],[7.1366,46.5094],[7.1113,46.4961],[7.1013,46.4882],[7.0619,46.4886],[7.0288,46.4681],[7.0177,46.4489],[6.9848,46.4394],[6.9929,46.45],[6.9787,46.4745],[6.9813,46.476],[6.963,46.4982],[6.9347,46.5029],[6.9128,46.5142],[6.8969,46.5087],[6.8986,46.5216],[6.8842,46.5147],[6.8825,46.5138],[6.859,46.4945],[6.8337,46.5063],[6.8309,46.5136],[6.8254,46.5135],[6.8132,46.5274],[6.8333,46.5387],[6.8557,46.5426],[6.862,46.5318],[6.8673,46.5417],[6.8692,46.5431],[6.8944,46.5606],[6.9034,46.5624],[6.8988,46.5719],[6.8727,46.5708],[6.8535,46.5833],[6.8437,46.5836],[6.8296,46.5785],[6.815,46.5868],[6.8002,46.5754],[6.796,46.5765],[6.8,46.5849],[6.8022,46.5935],[6.7991,46.6013],[6.8043,46.6459],[6.7997,46.6506],[6.8193,46.6494],[6.8289,46.6616],[6.845,46.6622],[6.8544,46.6568],[6.8727,46.6748],[6.8655,46.6776],[6.882,46.6914],[6.8944,46.7011],[6.8932,46.7039],[6.899,46.7098],[6.9214,46.7232],[6.923,46.7248],[6.9365,46.7346],[6.9421,46.7463],[6.9312,46.7553],[6.9114,46.7545],[6.9153,46.7642],[6.9297,46.7687],[6.9397,46.7829],[6.9595,46.7915],[6.9676,46.804],[6.9595,46.8215],[6.9665,46.8294],[6.9861,46.8235],[6.9933,46.8318],[6.9783,46.8515],[6.9809,46.8676],[6.987,46.8776],[6.9746,46.8887],[6.9632,46.8855],[6.9707,46.8685],[6.9659,46.8665],[6.9395,46.8909],[6.9269,46.894],[6.9228,46.9067],[6.8971,46.9267],[6.8668,46.9109],[6.8925,46.8881],[6.9117,46.8819],[6.9138,46.8672],[6.931,46.8552],[6.906,46.829],[6.9082,46.8062],[6.9323,46.8067],[6.9175,46.7883],[6.9119,46.7812],[6.9073,46.7846],[6.8805,46.7767],[6.8648,46.7857],[6.8524,46.7872],[6.8263,46.7745],[6.8196,46.7789],[6.8141,46.7807],[6.7989,46.7841],[6.7834,46.7942],[6.7769,46.791],[6.7776,46.8039],[6.7682,46.8101],[6.7432,46.8288],[6.781,46.8539],[6.7575,46.8702],[6.7403,46.8807],[6.7388,46.8859],[6.7408,46.8961],[6.7175,46.9074],[6.7218,46.9375],[6.6693,46.9216],[6.648,46.912],[6.631,46.893],[6.6071,46.8881],[6.5881,46.8855],[6.5636,46.877],[6.5283,46.86],[6.483,46.8479],[6.4608,46.8529],[6.4636,46.8769],[6.4652,46.8918],[6.4336,46.9298],[6.4603,46.9444],[6.4725,46.957],[6.4869,46.9685],[6.5067,46.9675],[6.5644,46.9808],[6.5927,46.9921],[6.6177,46.993],[6.6447,47.0079],[6.6593,47.0277],[6.6998,47.0401],[6.7207,47.0537],[6.6926,47.0677],[6.7037,47.0829],[6.7268,47.0931],[6.7399,47.0918],[6.7408,47.11],[6.7932,47.1284],[6.8159,47.1368],[6.8598,47.1666],[6.8422,47.1728],[6.8646,47.1814],[6.8903,47.2064],[6.9436,47.2359],[6.9563,47.2443],[6.9474,47.2548],[6.9528,47.2704],[6.9417,47.2878],[6.9541,47.2937],[6.9974,47.2974],[7.0083,47.3026],[7.0172,47.3153],[7.0107,47.3257],[7.0353,47.3298],[7.0466,47.3282],[7.0625,47.3452],[7.0508,47.3486],[7.0499,47.3632],[7.0346,47.3692],[7.0133,47.3741],[6.9754,47.3612],[6.9027,47.3608],[6.8857,47.3542],[6.8845,47.3745],[6.906,47.3844],[6.9217,47.4066],[6.9395,47.4078],[6.94,47.4351],[6.9645,47.437],[6.9711,47.4485],[6.9911,47.4492],[7.002,47.4632],[7.0013,47.4682],[6.9874,47.4776],[6.9872,47.495],[7.0253,47.5056],[7.0379,47.4989],[7.0758,47.4896],[7.1128,47.4965],[7.1289,47.505],[7.1603,47.4921],[7.2019,47.4952],[7.1918,47.4896],[7.1797,47.4655],[7.1714,47.4448],[7.2071,47.4363],[7.2369,47.4383],[7.2465,47.4217],[7.2835,47.436],[7.3273,47.4412],[7.3268,47.4335],[7.341,47.4309],[7.3582,47.4164],[7.3641,47.4161],[7.3767,47.4155],[7.4146,47.3909],[7.4126,47.382],[7.4378,47.3813],[7.4422,47.4021],[7.4609,47.4019],[7.4781,47.4026],[7.4918,47.387],[7.4932,47.3866],[7.5182,47.3899],[7.5299,47.4024],[7.5273,47.4134],[7.5813,47.4161],[7.5691,47.424],[7.5696,47.4379],[7.5859,47.43],[7.6092,47.4342],[7.6168,47.4341],[7.6162,47.439],[7.6272,47.4643],[7.6063,47.4728],[7.6077,47.4893],[7.6074,47.4909],[7.642,47.484],[7.6516,47.496],[7.6671,47.4982],[7.6693,47.4881],[7.6708,47.4868],[7.7008,47.482],[7.7111,47.4707],[7.6995,47.457],[7.6919,47.4543],[7.6858,47.4299],[7.6756,47.4161],[7.6645,47.4111],[7.6336,47.4115],[7.6427,47.3819],[7.6429,47.3798],[7.6451,47.3686],[7.6886,47.3727],[7.7013,47.3737],[7.73,47.3683],[7.7526,47.3458],[7.789,47.339],[7.7945,47.341],[7.8073,47.3638],[7.8347,47.3688],[7.8406,47.3755],[7.88,47.385],[7.8702,47.3968],[7.8807,47.4031],[7.8896,47.4087],[7.9107,47.3998],[7.9377,47.4094],[7.9416,47.4155],[7.9579,47.4203],[7.9627,47.4233],[7.9479,47.4447],[7.9579,47.4566],[7.9751,47.4611],[7.983,47.4478],[7.9882,47.4298],[7.9638,47.424],[8.0082,47.4085],[8.0115,47.3965],[8.0276,47.397],[8.0285,47.3945],[8.0278,47.3727],[8.0252,47.3691],[8.0239,47.3663],[8.02,47.3655],[8.013,47.3512],[8.0021,47.3362],[7.9928,47.3339],[7.9647,47.3221],[7.9494,47.319],[7.949,47.3341],[7.9323,47.3344],[7.9192,47.3368],[7.917,47.338],[7.9079,47.3429],[7.8933,47.3175],[7.8817,47.3127],[7.863,47.3083],[7.8517,47.2915],[7.8504,47.2903],[7.8291,47.2682],[7.826,47.2669],[7.8289,47.255],[7.8397,47.2358],[7.8386,47.2249],[7.8572,47.2023],[7.8608,47.2003],[7.8813,47.1777],[7.8774,47.1671],[7.8824,47.1486],[7.8872,47.1298],[7.8741,47.1262],[7.8696,47.1134],[7.8817,47.0913],[7.88,47.0801],[7.8694,47.048],[7.8826,47.042],[7.9014,47.0194],[7.9031,47.0072],[7.9238,47.0121],[7.9421,47.0063],[7.9527,47.0074],[7.9534,46.9826],[7.9333,46.963],[7.9327,46.9519],[7.9162,46.936],[7.8989,46.9362],[7.8743,46.9265],[7.868,46.9159],[7.8842,46.9085],[7.8741,46.8909],[7.8596,46.8866],[7.8584,46.8728],[7.8706,46.8655],[7.8709,46.8486],[7.8781,46.8384],[7.9235,46.8214],[7.9519,46.8013],[7.954,46.7957],[7.9551,46.7929],[7.9854,46.7762],[8.0324,46.7915],[8.0479,46.7884],[8.0502,46.7893],[8.0699,46.7899],[8.0908,46.7891],[8.1034,46.7751],[8.123,46.7717],[8.1474,46.7565],[8.1685,46.7672],[8.2092,46.7707],[8.2231,46.7622],[8.2401,46.7708],[8.2845,46.7545],[8.317,46.7714],[8.3341,46.7822],[8.3699,46.7893],[8.3964,46.7728],[8.4156,46.7755],[8.4476,46.7715],[8.45,46.7658],[8.4399,46.7547],[8.4548,46.7121],[8.4534,46.69],[8.4158,46.6887],[8.4006,46.694],[8.3992,46.6754],[8.4114,46.6543],[8.4001,46.6553],[8.3736,46.6344],[8.3627,46.6024],[8.3657,46.5841],[8.3378,46.5623],[8.3182,46.5603],[8.3039,46.5468],[8.2592,46.5307],[8.1857,46.5221],[8.1754,46.5327],[8.1267,46.5385],[8.1151,46.5477],[8.0768,46.5569],[8.0637,46.5545],[8.0315,46.5638],[7.9984,46.5596],[7.9638,46.5405],[7.974,46.5254],[7.9688,46.5141],[7.9431,46.509],[7.9338,46.4994],[7.9122,46.4881],[7.8776,46.4798],[7.8445,46.4791],[7.7986,46.4593],[7.769,46.4412],[7.7452,46.4296],[7.7374,46.4253],[7.7061,46.4173],[7.6906,46.4258],[7.6272,46.4463],[7.5952,46.4126],[7.5844,46.4185],[7.5558,46.4148],[7.5349,46.411],[7.5297,46.4018],[7.5563,46.3903],[7.5273,46.3757],[7.4879,46.372],[7.4846,46.3828],[7.4631,46.3775],[7.4391,46.3875],[7.4006,46.3778],[7.3832,46.3665],[7.3601,46.3545],[7.3162,46.3452],[7.309,46.3532],[7.3112,46.3764],[7.2632,46.3595],[7.263,46.3395],[7.2543,46.3318],[7.2223,46.3305],[7.2238,46.3498],[7.2092,46.3801],[7.1945,46.3802],[7.2108,46.4174],[7.1958,46.4418],[7.2234,46.4433],[7.2319,46.4675],[7.2249,46.4879],[7.2371,46.4891],[7.2497,46.5189],[7.238,46.555]],[[7.0408,46.9812],[7.0031,46.9881],[6.9288,46.9545],[6.9622,46.9291],[6.9885,46.9195],[6.985,46.9092],[7.0103,46.8904],[6.9957,46.8796],[7.0173,46.8822],[7.0362,46.8749],[7.0382,46.8469],[7.051,46.8559],[7.0675,46.8701],[7.0628,46.8851],[7.0754,46.8968],[7.0841,46.8974],[7.0923,46.9048],[7.091,46.909],[7.085,46.9145],[7.0606,46.9379],[7.0606,46.9531],[7.0641,46.9725],[7.0527,46.9785],[7.0408,46.9812]]],[[[6.7739,46.7527],[6.7871,46.749],[6.7852,46.7368],[6.7634,46.7187],[6.7495,46.7331],[6.7739,46.7527]]],[[[6.8829,46.7511],[6.8673,46.7343],[6.8627,46.7259],[6.8292,46.7367],[6.8181,46.7344],[6.8122,46.7293],[6.8071,46.7283],[6.7945,46.737],[6.813,46.7385],[6.8453,46.7666],[6.85,46.7767],[6.8829,46.7511]]],[[[7.3819,47.4333],[7.422,47.4478],[7.4387,47.4476],[7.4557,47.427],[7.4483,47.4159],[7.4154,47.4124],[7.3767,47.4155],[7.3819,47.4333]]],[[[7.4459,47.463],[7.4563,47.4718],[7.4304,47.4839],[7.4357,47.4993],[7.4631,47.4904],[7.4718,47.4818],[7.4886,47.4836],[7.4984,47.4907],[7.5119,47.504],[7.5202,47.4983],[7.5328,47.4988],[7.5376,47.4864],[7.5301,47.4793],[7.5317,47.4626],[7.4958,47.461],[7.4855,47.4586],[7.4637,47.4528],[7.4555,47.451],[7.4459,47.463]]]]}},{"type":"Feature","properties":{"key":"zentral","idx":4,"tier":2},"geometry":{"type":"MultiPolygon","coordinates":[[[[8.667,47.1611],[8.6936,47.165],[8.6933,47.1681],[8.6825,47.185],[8.6951,47.1977],[8.7156,47.2045],[8.7419,47.213],[8.7946,47.2238],[8.809,47.2219],[8.8418,47.2094],[8.9424,47.2198],[8.967,47.2191],[8.9755,47.2142],[8.9629,47.1849],[8.9714,47.1802],[8.9836,47.1844],[9.0058,47.1745],[8.9685,47.138],[8.9749,47.1164],[8.9557,47.0926],[8.9672,47.0831],[8.9492,47.0507],[8.9219,47.0394],[8.9028,47.0391],[8.8963,47.0225],[8.9389,46.9878],[8.95,46.9702],[8.9651,46.9574],[8.9564,46.9402],[8.9642,46.9279],[8.9363,46.9215],[8.9546,46.902],[8.9572,46.8766],[8.8723,46.8433],[8.883,46.8306],[8.8784,46.8145],[8.8492,46.7956],[8.829,46.793],[8.8351,46.7682],[8.8188,46.7634],[8.8142,46.7386],[8.7831,46.7296],[8.7707,46.7457],[8.7489,46.7375],[8.7502,46.722],[8.7097,46.7005],[8.6938,46.7031],[8.6751,46.6935],[8.6748,46.678],[8.6798,46.6655],[8.6561,46.6512],[8.659,46.6274],[8.6781,46.6206],[8.6799,46.5804],[8.6492,46.567],[8.6318,46.5671],[8.6159,46.5794],[8.5917,46.5748],[8.5745,46.585],[8.5558,46.582],[8.5403,46.5881],[8.5224,46.5786],[8.5146,46.5601],[8.5207,46.5402],[8.4787,46.5289],[8.4301,46.5448],[8.4073,46.5873],[8.4092,46.6025],[8.4234,46.6285],[8.423,46.6491],[8.4114,46.6543],[8.3992,46.6754],[8.4006,46.694],[8.4158,46.6887],[8.4534,46.69],[8.4548,46.7121],[8.4399,46.7547],[8.45,46.7658],[8.4476,46.7715],[8.4156,46.7755],[8.3964,46.7728],[8.3699,46.7893],[8.3341,46.7822],[8.317,46.7714],[8.2845,46.7545],[8.2401,46.7708],[8.2231,46.7622],[8.2092,46.7707],[8.1685,46.7672],[8.1474,46.7565],[8.123,46.7717],[8.1034,46.7751],[8.0908,46.7891],[8.0699,46.7899],[8.0502,46.7893],[8.0479,46.7884],[8.0324,46.7915],[7.9854,46.7762],[7.9551,46.7929],[7.954,46.7957],[7.9519,46.8013],[7.9235,46.8214],[7.8781,46.8384],[7.8709,46.8486],[7.8706,46.8655],[7.8584,46.8728],[7.8596,46.8866],[7.8741,46.8909],[7.8842,46.9085],[7.868,46.9159],[7.8743,46.9265],[7.8989,46.9362],[7.9162,46.936],[7.9327,46.9519],[7.9333,46.963],[7.9534,46.9826],[7.9527,47.0074],[7.9421,47.0063],[7.9238,47.0121],[7.9031,47.0072],[7.9014,47.0194],[7.8826,47.042],[7.8694,47.048],[7.88,47.0801],[7.8817,47.0913],[7.8696,47.1134],[7.8741,47.1262],[7.8872,47.1298],[7.8824,47.1486],[7.8774,47.1671],[7.8813,47.1777],[7.8608,47.2003],[7.8572,47.2023],[7.8386,47.2249],[7.8397,47.2358],[7.8547,47.2338],[7.8957,47.2439],[7.9233,47.2391],[7.9346,47.2373],[7.9625,47.2556],[7.9518,47.2762],[7.9987,47.281],[8.0058,47.2723],[8.0148,47.2634],[8.0161,47.2455],[8.064,47.2479],[8.0574,47.2569],[8.0894,47.2643],[8.1101,47.2459],[8.1262,47.2427],[8.1308,47.2448],[8.1439,47.2486],[8.1757,47.2548],[8.1811,47.247],[8.1571,47.2407],[8.173,47.2296],[8.1756,47.229],[8.1772,47.2232],[8.2039,47.2312],[8.209,47.2491],[8.2212,47.2539],[8.2292,47.2744],[8.2434,47.2736],[8.2597,47.2886],[8.2987,47.2734],[8.3002,47.2569],[8.3071,47.2519],[8.3159,47.2411],[8.3196,47.2247],[8.3285,47.2121],[8.3313,47.2037],[8.3404,47.1859],[8.3418,47.1751],[8.3594,47.1581],[8.3594,47.1547],[8.3631,47.1473],[8.3759,47.1443],[8.4062,47.139],[8.4132,47.1421],[8.4154,47.1585],[8.4014,47.1849],[8.4068,47.1974],[8.3975,47.2216],[8.4092,47.2441],[8.4117,47.2494],[8.4153,47.2454],[8.4193,47.2349],[8.4232,47.2247],[8.4474,47.2248],[8.4811,47.2099],[8.4911,47.2124],[8.4996,47.2134],[8.5445,47.2235],[8.5754,47.2184],[8.5795,47.2201],[8.6043,47.2045],[8.6167,47.2009],[8.6293,47.181],[8.6254,47.1746],[8.662,47.1718],[8.667,47.1611]]]]}},{"type":"Feature","properties":{"key":"ost","idx":5,"tier":1},"geometry":{"type":"MultiPolygon","coordinates":[[[[8.876,47.656],[8.898,47.6492],[8.9417,47.6577],[8.9831,47.676],[9.023,47.688],[9.0961,47.6803],[9.1188,47.6698],[9.159,47.6674],[9.1643,47.6618],[9.1834,47.6573],[9.2577,47.6601],[9.3959,47.6217],[9.4969,47.5528],[9.5082,47.5511],[9.56,47.5433],[9.5624,47.5005],[9.5777,47.488],[9.596,47.465],[9.6129,47.4708],[9.6236,47.4589],[9.6558,47.4556],[9.6521,47.4441],[9.6456,47.4365],[9.6523,47.4178],[9.653,47.406],[9.6748,47.3926],[9.6637,47.3724],[9.6258,47.3675],[9.6019,47.3482],[9.5896,47.3189],[9.567,47.3056],[9.5448,47.2796],[9.5311,47.2707],[9.5217,47.2454],[9.5039,47.2241],[9.4915,47.1995],[9.4875,47.1793],[9.505,47.1485],[9.5183,47.1164],[9.5217,47.1015],[9.5135,47.0867],[9.4762,47.0672],[9.4773,47.0531],[9.5319,47.0644],[9.5411,47.0665],[9.5581,47.0506],[9.589,47.0565],[9.6042,47.0632],[9.6378,47.0531],[9.6463,47.0611],[9.6831,47.0634],[9.7087,47.0552],[9.7196,47.0447],[9.7494,47.0383],[9.7847,47.0397],[9.832,47.0157],[9.862,47.0246],[9.8816,47.0193],[9.8742,47.0078],[9.8936,46.9916],[9.8725,46.9644],[9.8801,46.9584],[9.8775,46.9359],[9.9136,46.9274],[9.9475,46.9136],[9.9793,46.9172],[9.9837,46.9076],[10.0192,46.9029],[10.054,46.8771],[10.0525,46.8653],[10.0888,46.8624],[10.0982,46.8501],[10.1065,46.8422],[10.1245,46.8497],[10.1705,46.8519],[10.1951,46.8677],[10.2341,46.8676],[10.2341,46.8729],[10.2271,46.8972],[10.2434,46.9201],[10.2419,46.9326],[10.2589,46.9311],[10.295,46.9231],[10.3176,46.9264],[10.3107,46.9515],[10.3292,46.9553],[10.3311,46.9653],[10.3564,46.9936],[10.3734,46.992],[10.3849,47.0005],[10.4,46.9982],[10.428,46.977],[10.4237,46.9612],[10.4344,46.9576],[10.4568,46.9542],[10.4909,46.9391],[10.4877,46.9168],[10.4661,46.8856],[10.4733,46.8501],[10.4522,46.8056],[10.4241,46.7896],[10.4431,46.7732],[10.4452,46.7586],[10.4015,46.7341],[10.4202,46.7204],[10.3947,46.6904],[10.3832,46.6856],[10.3938,46.6727],[10.3954,46.6559],[10.4037,46.638],[10.4448,46.6406],[10.464,46.6343],[10.4934,46.6166],[10.4894,46.5907],[10.4762,46.5677],[10.4737,46.5448],[10.4542,46.532],[10.4195,46.5526],[10.3987,46.5452],[10.3534,46.5569],[10.3399,46.5439],[10.3262,46.5529],[10.2968,46.5511],[10.288,46.5715],[10.245,46.5791],[10.243,46.5929],[10.2602,46.6117],[10.2463,46.6233],[10.2406,46.6365],[10.2167,46.6182],[10.1844,46.6252],[10.1298,46.6068],[10.1037,46.612],[10.0967,46.5786],[10.0629,46.5471],[10.0481,46.5453],[10.0529,46.5146],[10.0438,46.5113],[10.0466,46.4782],[10.0538,46.4617],[10.0433,46.4438],[10.0577,46.4421],[10.0616,46.4296],[10.0817,46.4222],[10.1019,46.4226],[10.1306,46.433],[10.1446,46.4295],[10.1491,46.4154],[10.1624,46.4167],[10.1651,46.3919],[10.1287,46.3789],[10.1306,46.3622],[10.1093,46.3521],[10.1056,46.3349],[10.1178,46.3153],[10.1389,46.3022],[10.1555,46.294],[10.1762,46.2559],[10.1474,46.2317],[10.1246,46.2249],[10.1049,46.2297],[10.0719,46.2183],[10.0449,46.231],[10.0619,46.2495],[10.0551,46.2682],[10.0303,46.2786],[9.9974,46.286],[10.002,46.3026],[9.9815,46.3243],[9.9974,46.3436],[9.9659,46.365],[9.9606,46.3793],[9.9356,46.3761],[9.9262,46.3671],[9.9092,46.3819],[9.8696,46.3637],[9.8333,46.3622],[9.8213,46.3519],[9.7858,46.3422],[9.771,46.3371],[9.7447,46.3531],[9.7244,46.342],[9.7187,46.3252],[9.7274,46.3209],[9.7157,46.2941],[9.704,46.292],[9.6778,46.3042],[9.6404,46.2873],[9.6118,46.2958],[9.5805,46.2961],[9.5404,46.3093],[9.5156,46.3336],[9.4976,46.3654],[9.4621,46.3772],[9.4699,46.3902],[9.4575,46.4172],[9.4634,46.4817],[9.4623,46.4861],[9.4656,46.509],[9.4353,46.4992],[9.4257,46.478],[9.412,46.4681],[9.3911,46.4744],[9.3696,46.4957],[9.3746,46.5048],[9.3635,46.5108],[9.3563,46.5055],[9.3123,46.5053],[9.284,46.4979],[9.2674,46.4528],[9.2483,46.448],[9.2511,46.4322],[9.2818,46.4143],[9.2766,46.3962],[9.2847,46.3849],[9.2773,46.3691],[9.2977,46.3569],[9.2936,46.3371],[9.3014,46.3276],[9.2866,46.3156],[9.2862,46.2982],[9.2605,46.2798],[9.2533,46.2686],[9.2496,46.2487],[9.2476,46.2332],[9.222,46.2301],[9.2156,46.212],[9.2034,46.2095],[9.1952,46.1797],[9.174,46.1722],[9.1699,46.1725],[9.1606,46.1708],[9.1405,46.1798],[9.1201,46.2016],[9.0905,46.2136],[9.0889,46.2146],[9.0772,46.2391],[9.0789,46.2616],[9.0639,46.2772],[9.0569,46.2973],[9.0711,46.309],[9.0648,46.3284],[9.0706,46.3448],[9.0724,46.3448],[9.0896,46.3508],[9.0965,46.3743],[9.0885,46.39],[9.1035,46.4121],[9.0907,46.4381],[9.0963,46.4617],[9.0798,46.4793],[9.0465,46.4825],[9.0402,46.4929],[9.0413,46.4952],[9.0247,46.5094],[9.0179,46.5333],[9.0278,46.5672],[9.0449,46.5846],[9.0439,46.59],[9.0073,46.6122],[8.9633,46.6039],[8.9585,46.6316],[8.9418,46.6199],[8.9243,46.6243],[8.9085,46.6169],[8.9182,46.5979],[8.9047,46.5859],[8.8329,46.5651],[8.8309,46.5727],[8.8018,46.5645],[8.7863,46.5688],[8.7519,46.5775],[8.7064,46.575],[8.6995,46.5823],[8.6799,46.5804],[8.6781,46.6206],[8.659,46.6274],[8.6561,46.6512],[8.6798,46.6655],[8.6748,46.678],[8.6751,46.6935],[8.6938,46.7031],[8.7097,46.7005],[8.7502,46.722],[8.7489,46.7375],[8.7707,46.7457],[8.7831,46.7296],[8.8142,46.7386],[8.8188,46.7634],[8.8351,46.7682],[8.829,46.793],[8.8492,46.7956],[8.8784,46.8145],[8.883,46.8306],[8.8723,46.8433],[8.9572,46.8766],[8.9546,46.902],[8.9363,46.9215],[8.9642,46.9279],[8.9564,46.9402],[8.9651,46.9574],[8.95,46.9702],[8.9389,46.9878],[8.8963,47.0225],[8.9028,47.0391],[8.9219,47.0394],[8.9492,47.0507],[8.9672,47.0831],[8.9557,47.0926],[8.9749,47.1164],[8.9685,47.138],[9.0058,47.1745],[8.9836,47.1844],[8.9714,47.1802],[8.9629,47.1849],[8.9755,47.2142],[8.967,47.2191],[8.9424,47.2198],[8.8418,47.2094],[8.809,47.2219],[8.7968,47.2405],[8.8103,47.2494],[8.8298,47.2518],[8.8714,47.2466],[8.8863,47.2542],[8.9372,47.2619],[8.949,47.2807],[8.9348,47.2898],[8.9502,47.2935],[8.9585,47.3058],[8.9759,47.3083],[8.9862,47.3208],[8.9731,47.3538],[8.962,47.3553],[8.9448,47.3772],[8.9429,47.3887],[8.9074,47.4028],[8.905,47.4039],[8.9141,47.4295],[8.9204,47.4341],[8.932,47.4332],[8.908,47.4401],[8.91,47.4495],[8.8967,47.4646],[8.8947,47.4651],[8.8849,47.4716],[8.896,47.5041],[8.8998,47.5254],[8.8888,47.5296],[8.8749,47.5309],[8.869,47.5319],[8.8421,47.5342],[8.8314,47.5548],[8.8523,47.565],[8.8397,47.5724],[8.8114,47.5723],[8.799,47.5865],[8.7632,47.5942],[8.7493,47.5938],[8.7406,47.6095],[8.7506,47.6227],[8.7915,47.6098],[8.8053,47.6094],[8.8266,47.6385],[8.8275,47.6481],[8.8061,47.6537],[8.8039,47.6663],[8.7998,47.6664],[8.7872,47.6566],[8.7484,47.6401],[8.733,47.6433],[8.7182,47.6431],[8.6897,47.6508],[8.6792,47.6672],[8.6694,47.6791],[8.6716,47.6862],[8.6908,47.6968],[8.7027,47.6934],[8.719,47.6921],[8.7058,47.7147],[8.6986,47.7152],[8.667,47.7093],[8.6777,47.6993],[8.6646,47.6873],[8.6333,47.6941],[8.6263,47.693],[8.625,47.6777],[8.6074,47.6704],[8.5788,47.663],[8.5647,47.6713],[8.5482,47.6685],[8.5425,47.6585],[8.5281,47.6618],[8.5327,47.6471],[8.4942,47.6485],[8.4685,47.6427],[8.4502,47.6561],[8.4068,47.6759],[8.4217,47.6852],[8.4055,47.6994],[8.4178,47.7114],[8.4563,47.7241],[8.4582,47.7306],[8.4508,47.7396],[8.4748,47.766],[8.5113,47.7776],[8.5212,47.7719],[8.5275,47.7796],[8.5538,47.7861],[8.5673,47.7794],[8.5782,47.7829],[8.5629,47.7942],[8.5647,47.8067],[8.5764,47.8012],[8.615,47.8025],[8.6189,47.7815],[8.6204,47.7687],[8.6344,47.7616],[8.6466,47.7664],[8.6505,47.7999],[8.6822,47.7881],[8.6938,47.7576],[8.7153,47.7669],[8.7423,47.7533],[8.7247,47.7471],[8.7125,47.7315],[8.7193,47.7229],[8.7343,47.7198],[8.7291,47.6941],[8.7578,47.691],[8.7968,47.677],[8.7946,47.7058],[8.7707,47.7082],[8.7711,47.7194],[8.8002,47.7286],[8.8076,47.7397],[8.8253,47.7124],[8.8468,47.7125],[8.8497,47.7048],[8.8725,47.7063],[8.8527,47.6823],[8.8747,47.6718],[8.8762,47.6574],[8.876,47.656]]],[[[8.564,47.6008],[8.5836,47.5976],[8.5967,47.6069],[8.5941,47.597],[8.5732,47.5756],[8.5688,47.5639],[8.5649,47.5589],[8.5558,47.5542],[8.5357,47.5825],[8.5392,47.5893],[8.5466,47.5934],[8.5488,47.5941],[8.558,47.5988],[8.564,47.6008]]]]}},{"type":"Feature","properties":{"key":"tessin","idx":6,"tier":1},"geometry":{"type":"MultiPolygon","coordinates":[[[[9.1606,46.1708],[9.1357,46.1545],[9.1227,46.136],[9.0798,46.1225],[9.0737,46.1193],[9.0904,46.0913],[9.0794,46.0664],[9.0513,46.0635],[9.0184,46.051],[9.0088,46.031],[9.0238,46.0172],[9.0256,46.0021],[9.0297,45.9948],[8.9966,45.9817],[8.9923,45.9728],[9.0151,45.9617],[9.0134,45.945],[9.0204,45.9296],[9.031,45.9276],[9.0439,45.9286],[9.0778,45.9126],[9.0863,45.8972],[9.0676,45.8766],[9.0584,45.8764],[9.0526,45.8567],[9.0365,45.8408],[9.0321,45.8259],[9.0177,45.8191],[8.9953,45.8274],[8.9986,45.8362],[8.9711,45.8336],[8.957,45.844],[8.9479,45.8439],[8.9134,45.8316],[8.9154,45.8434],[8.9405,45.8649],[8.9215,45.9101],[8.9174,45.9156],[8.8939,45.9342],[8.8949,45.9602],[8.8828,45.9581],[8.861,45.9675],[8.8549,45.9715],[8.8248,45.9888],[8.787,45.9903],[8.7942,46.0093],[8.7983,46.0133],[8.8209,46.0267],[8.8294,46.0354],[8.8366,46.045],[8.8558,46.0628],[8.8532,46.0768],[8.8072,46.1025],[8.7843,46.0953],[8.7569,46.1063],[8.7434,46.1235],[8.7151,46.0984],[8.6992,46.1029],[8.6588,46.114],[8.6492,46.1246],[8.613,46.1228],[8.5967,46.144],[8.6041,46.1566],[8.5775,46.1639],[8.5708,46.1783],[8.5375,46.2055],[8.5336,46.2195],[8.4698,46.2342],[8.4652,46.2458],[8.4434,46.2554],[8.4571,46.265],[8.4288,46.2995],[8.4417,46.3053],[8.4449,46.3207],[8.4665,46.335],[8.4654,46.3459],[8.4713,46.3638],[8.4619,46.3879],[8.4722,46.3972],[8.458,46.4244],[8.4674,46.4439],[8.4632,46.4519],[8.4397,46.4655],[8.3859,46.4534],[8.3934,46.4692],[8.387,46.4768],[8.3934,46.496],[8.4439,46.4967],[8.4787,46.5289],[8.5207,46.5402],[8.5146,46.5601],[8.5224,46.5786],[8.5403,46.5881],[8.5558,46.582],[8.5745,46.585],[8.5917,46.5748],[8.6159,46.5794],[8.6318,46.5671],[8.6492,46.567],[8.6799,46.5804],[8.6995,46.5823],[8.7064,46.575],[8.7519,46.5775],[8.7863,46.5688],[8.8018,46.5645],[8.8309,46.5727],[8.8329,46.5651],[8.9047,46.5859],[8.9182,46.5979],[8.9085,46.6169],[8.9243,46.6243],[8.9418,46.6199],[8.9585,46.6316],[8.9633,46.6039],[9.0073,46.6122],[9.0439,46.59],[9.0449,46.5846],[9.0278,46.5672],[9.0179,46.5333],[9.0247,46.5094],[9.0413,46.4952],[9.0402,46.4929],[9.0465,46.4825],[9.0798,46.4793],[9.0963,46.4617],[9.0907,46.4381],[9.1035,46.4121],[9.0885,46.39],[9.0965,46.3743],[9.0896,46.3508],[9.0724,46.3448],[9.0706,46.3448],[9.0648,46.3284],[9.0711,46.309],[9.0569,46.2973],[9.0639,46.2772],[9.0789,46.2616],[9.0772,46.2391],[9.0889,46.2146],[9.0905,46.2136],[9.1201,46.2016],[9.1405,46.1798],[9.1606,46.1708]],[[8.9685,45.9643],[8.9768,45.9629],[8.9786,45.9838],[8.9783,45.9841],[8.9681,45.9854],[8.9598,45.966],[8.9685,45.9643]]]]}}]};
+const TIERS=[3,3,3,1,2,1,1];
+function tcol(t){return t===3?'--ac':t===2?'--amber':'--tx-mut';}
+const RMAP={
+ fr:{hint:"Survolez ou touchez une région pour le détail.",spec:"Spécialisation",expo:"Exposition"},
+ de:{hint:"Fahren Sie über eine Region oder tippen Sie sie an.",spec:"Spezialisierung",expo:"Exposition"},
+ it:{hint:"Passa sopra o tocca una regione per il dettaglio.",spec:"Specializzazione",expo:"Esposizione"},
+ en:{hint:"Hover or tap a region for details.",spec:"Specialisation",expo:"Exposure"}
+};
+
+/* chart data (language-neutral values) */
+const DATA = {
+  ch1:[{v:89,c:'--ac'},{v:60,c:'--tx'},{v:50,c:'--tx-sec'},{v:23,c:'--amber'},{v:5,c:'--tx-mut'}],
+  ch1ref:53,
+  ch2:[{v:50,c:'--ac'},{v:15,c:'--tx-sec'},{v:10,c:'--amber'},{v:2,c:'--tx-mut'}],
+  ch3:[{v:32,c:'--tx-sec'},{v:31,c:'--tx-sec'},{v:14,c:'--ac'},{v:14,c:'--amber'},{v:9,c:'--green'}],
+  ch4:[{v:51,c:'--ac'},{v:47,c:'--ac'},{v:37,c:'--tx'},{v:26,c:'--tx-sec'},{v:23,c:'--tx-sec'},{v:5,c:'--tx-mut'}],
+  ch4b:[{v:70,c:'--ac'},{v:35,c:'--tx'},{v:33,c:'--tx-sec'}],
+  ch5:[{v:20,c:'--ac'},{v:19,c:'--ac'},{v:18,c:'--amber'},{v:10,c:'--tx'},{v:9,c:'--tx'},{v:6,c:'--tx-sec'},{v:5,c:'--tx-sec'},{v:4,c:'--tx-mut'},{v:2,c:'--tx-mut'}],
+  ch5b:[{v:59,c:'--ac'},{v:50,c:'--ac'},{v:38,c:'--tx'},{v:37,c:'--tx'},{v:31,c:'--tx-sec'},{v:18,c:'--tx-sec'},{v:15,c:'--tx-mut'},{v:15,c:'--tx-mut'}],
+  ch6:[{v:95,c:'--ac'},{v:88,c:'--ac'},{v:80,c:'--ac'},{v:55,c:'--amber'},{v:48,c:'--amber'},{v:42,c:'--tx-sec'},{v:38,c:'--tx-sec'},{v:35,c:'--tx-sec'},{v:28,c:'--tx-mut'},{v:25,c:'--tx-mut'}]
+};
+
+/* ===================== runtime ===================== */
+let LANG='fr';
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const cssvar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function applyI18n(lang){
+  LANG=lang; document.documentElement.lang=lang;
+  const d=I18N[lang];
+  $$('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k];});
+  $$('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html'); if(d[k]!=null) el.innerHTML=d[k];});
+  $('#themeBtn').textContent = (document.documentElement.getAttribute('data-theme')==='dark') ? d.theme_light : d.theme_dark;
+  $$('.lang button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===lang)));
+  // lists
+  const fill=(id,arr)=>{const el=$(id); if(el) el.innerHTML=arr.map(x=>'<li>'+x+'</li>').join('');};
+  fill('#lead-list', d.c3_lead); fill('#lag-list', d.c3_lag);
+  const rc=$('#region-cards');
+  if(rc) rc.innerHTML = d.regions.map((r,i)=>{const c=cssvar(tcol(TIERS[i]));return '<div class="region" data-idx="'+i+'"><div class="rn"><span class="rnum">'+(i+1)+'</span>'+r.n+'</div><div class="rs">'+r.s+'</div><div class="ri"><span class="tdot" style="background:'+c+'"></span>'+r.i+'</div></div>';}).join('');
+  if(window.__renderCharts) window.__renderCharts();
+}
+
+addEventListener('scroll',()=>{const h=document.documentElement;$('#progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+$$('.lang button').forEach(b=>b.addEventListener('click',()=>applyI18n(b.dataset.lang)));
+$('#themeBtn').addEventListener('click',()=>{const dk=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dk?'light':'dark');applyI18n(LANG);});
+(function(){const _rc=document.getElementById('region-cards');if(_rc){const pick=e=>{const c=e.target.closest('.region');if(c&&window.__selectRegion)window.__selectRegion(+c.dataset.idx);};_rc.addEventListener('mouseover',pick);_rc.addEventListener('click',pick);}})();
+
+/* D3 loader, cdnjs first */
+(function(){const urls=['https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js','https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js','https://unpkg.com/d3@7/dist/d3.min.js'];let i=0;(function load(){if(i>=urls.length){window.__d3ReadyReject(new Error('D3'));return;}const s=document.createElement('script');s.src=urls[i++];s.onload=()=>window.__d3ReadyResolve();s.onerror=load;document.head.appendChild(s);})();})();
+
+window.__d3Ready.then(()=>{
+
+  /* responsive horizontal bar renderer (pixel-based, re-renders on resize) */
+  function hbar(svgId, rows, labels, opts){
+    opts=opts||{};
+    const svg=d3.select(svgId); const node=svg.node(); if(!node) return;
+    svg.selectAll('*').remove();
+    const W=Math.max(260, node.clientWidth||640);
+    const stacked = W < 560;
+    const maxX = opts.maxX || 100;
+    const unit = opts.unit!=null ? opts.unit : ' %';
+    const top=8, bot=8, Rw=46;
+    const rh = stacked ? 48 : 34;
+    const Lw = stacked ? 0 : Math.min(240, Math.max(150, W*0.34));
+    const H = top + bot + rows.length*rh;
+    svg.attr('height',H).attr('viewBox',`0 0 ${W} ${H}`);
+    const x = d3.scaleLinear().domain([0,maxX]).range([Lw, W-Rw]);
+
+    rows.forEach((d,i)=>{
+      const color=cssvar(d.c), rowY=top+i*rh;
+      if(stacked){
+        const barY=rowY+22, barH=15;
+        svg.append('text').attr('x',0).attr('y',rowY+14).attr('font-family','Inter').attr('font-size',13).attr('font-weight',600).attr('fill',cssvar('--tx')).text(labels[i]);
+        svg.append('rect').attr('x',0).attr('y',barY).attr('width',Math.max(2,x(d.v)-Lw)).attr('height',barH).attr('rx',3).attr('fill',color);
+        svg.append('text').attr('x',Math.min(W-4,x(d.v)+6)).attr('y',barY+barH-2).attr('font-family','IBM Plex Mono').attr('font-size',12).attr('font-weight',500).attr('fill',cssvar('--tx')).text(d.v+unit);
+      } else {
+        const barH=16, barY=rowY+(rh-barH)/2;
+        svg.append('text').attr('x',Lw-10).attr('y',barY+barH-3).attr('text-anchor','end').attr('font-family','Inter').attr('font-size',13).attr('fill',cssvar('--tx')).text(labels[i]);
+        svg.append('rect').attr('x',Lw).attr('y',barY).attr('width',Math.max(2,x(d.v)-Lw)).attr('height',barH).attr('rx',3).attr('fill',color);
+        svg.append('text').attr('x',x(d.v)+6).attr('y',barY+barH-3).attr('font-family','IBM Plex Mono').attr('font-size',12).attr('font-weight',500).attr('fill',cssvar('--tx')).text(d.v+unit);
+      }
+    });
+
+    if(opts.ref!=null){
+      svg.append('line').attr('x1',x(opts.ref)).attr('x2',x(opts.ref)).attr('y1',top).attr('y2',H-bot).attr('stroke',cssvar('--ac')).attr('stroke-width',1).attr('stroke-dasharray','4,4').attr('opacity',.65);
+      svg.append('text').attr('x',x(opts.ref)).attr('y',top+9).attr('text-anchor','middle').attr('font-family','IBM Plex Mono').attr('font-size',10).attr('fill',cssvar('--ac')).text(opts.refLabel||'');
+    }
+  }
+
+  /* Switzerland choropleth: 7 grandes régions · interactive (hover/click -> highlight + panel) */
+  let activeRegion=null;
+  function tlabel(t){const d=I18N[LANG];return t===3?d.tier_high:t===2?d.tier_midhigh:d.tier_mid;}
+  function updateMapStyles(){
+    d3.select('#chmap').selectAll('path.reg')
+      .attr('opacity',f=>activeRegion==null||activeRegion===f.properties.idx?1:.32)
+      .attr('stroke',f=>activeRegion===f.properties.idx?cssvar('--tx'):cssvar('--bg'))
+      .attr('stroke-width',f=>activeRegion===f.properties.idx?2.4:1.4);
+    d3.select('#chmap').selectAll('g.badge').attr('opacity',f=>activeRegion==null||activeRegion===f.properties.idx?1:.4);
+    document.querySelectorAll('#region-cards .region').forEach((c,i)=>c.classList.toggle('active',i===activeRegion));
+  }
+  function updatePanel(){
+    const el=document.getElementById('mappanel'); if(!el) return; const d=I18N[LANG], r=RMAP[LANG];
+    if(activeRegion==null){ el.innerHTML='<div class="mk">'+r.hint+'</div>'; return; }
+    const reg=d.regions[activeRegion], col=cssvar(tcol(TIERS[activeRegion]));
+    el.innerHTML='<div class="mk">'+(activeRegion+1)+' \u00b7 '+r.spec+'</div><div class="mn">'+reg.n+'</div><div class="ms">'+reg.s+'</div><div class="me"><i style="background:'+col+'"></i>'+r.expo+' : '+tlabel(TIERS[activeRegion])+' \u00b7 '+reg.i+'</div>';
+  }
+  function selectRegion(idx){ activeRegion=idx; updateMapStyles(); updatePanel(); }
+  window.__selectRegion=selectRegion;
+  function renderMap(){
+    const svg=d3.select('#chmap'); const node=svg.node(); if(!node||typeof CH_REGIONS==='undefined') return;
+    svg.selectAll('*').remove();
+    const W=Math.max(280, node.clientWidth||640);
+    const H=Math.round(W*0.62);
+    svg.attr('height',H).attr('viewBox',`0 0 ${W} ${H}`);
+    const proj=d3.geoMercator().fitExtent([[10,10],[W-10,H-10]],CH_REGIONS);
+    const path=d3.geoPath(proj);
+    const d=I18N[LANG];
+    svg.selectAll('path.reg').data(CH_REGIONS.features).join('path').attr('class','reg')
+      .attr('d',path).attr('fill',f=>cssvar(tcol(f.properties.tier)))
+      .attr('stroke',cssvar('--bg')).attr('stroke-width',1.4).attr('stroke-linejoin','round')
+      .on('mouseenter',(e,f)=>selectRegion(f.properties.idx))
+      .on('click',(e,f)=>selectRegion(f.properties.idx))
+      .append('title').text(f=>(f.properties.idx+1)+' \u00b7 '+d.regions[f.properties.idx].n);
+    const badge=svg.selectAll('g.badge').data(CH_REGIONS.features).join('g').attr('class','badge')
+      .attr('transform',f=>`translate(${path.centroid(f)})`).attr('pointer-events','none');
+    badge.append('circle').attr('r',12).attr('fill',cssvar('--bg')).attr('stroke',cssvar('--tx')).attr('stroke-width',1.2).attr('opacity',.95);
+    badge.append('text').attr('text-anchor','middle').attr('y',4).attr('font-family','IBM Plex Mono').attr('font-size',13).attr('font-weight',500).attr('fill',cssvar('--tx')).text(f=>f.properties.idx+1);
+    updateMapStyles(); updatePanel();
+  }
+
+  function setSrc(id,html){const el=$(id); if(el) el.innerHTML=html;}
+
+  window.__renderCharts=function(){
+    const d=I18N[LANG];
+    hbar('#ch1',DATA.ch1,d.c1_steps,{ref:DATA.ch1ref,refLabel:d.c1_ref});
+    setSrc('#sr1',d.c1_src);
+    $('#lg1').innerHTML='<span><i style="background:'+cssvar('--ac')+'"></i>EY 2026 (T1)</span><span><i style="background:'+cssvar('--tx')+'"></i>UBS 2026 (T1)</span><span><i style="background:'+cssvar('--ac')+';opacity:.6"></i>'+d.c1_ref+' (T2)</span>';
+    hbar('#ch2',DATA.ch2,d.c2_rows,{}); setSrc('#sr2',d.c2_src);
+    hbar('#ch3',DATA.ch3,d.c3_rows,{maxX:35}); setSrc('#sr3',d.c3_src);
+    hbar('#ch4',DATA.ch4,d.c4_rows,{}); setSrc('#sr4',d.c4_src);
+    hbar('#ch4b',DATA.ch4b,d.c4b_rows,{}); setSrc('#sr4b',d.c4b_src);
+    hbar('#ch5',DATA.ch5,d.c5_rows,{maxX:25}); setSrc('#sr5',d.c5_src);
+    hbar('#ch5b',DATA.ch5b,d.c5b_rows,{maxX:60}); setSrc('#sr5b',d.c5b_src);
+    hbar('#ch6',DATA.ch6,d.c6_rows,{maxX:100,unit:d.c6_unit}); setSrc('#sr6',d.c6_src);
+    renderMap();
+    const sw=(v,t)=>'<span><i style="background:'+cssvar(v)+'"></i>'+t+'</span>';
+    const lg=$('#lgmap'); if(lg) lg.innerHTML = sw('--ac',d.tier_high)+sw('--amber',d.tier_midhigh)+sw('--tx-mut',d.tier_mid);
+  };
+
+  let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>window.__renderCharts(),160);});
+  window.__renderCharts();
+}).catch(()=>{ $$('.src').forEach(e=>e.textContent='Graphique indisponible (D3 non chargé).'); });
+
+applyI18n('fr');
+</script>
+</body>
+</html>

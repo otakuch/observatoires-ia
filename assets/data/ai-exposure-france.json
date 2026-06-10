@@ -33,7 +33,8 @@
       "job_posting_change_pct": -16,
       "fap_mapping": "H1 (études et conception) + F1 (études BTP)",
       "evidence_note": "Coface mars 2026 · 26,9% emplois exposés (pointes 31%) · cible centrale de l'IA agentique sur le raisonnement technique · industrie BMO 2025 -16,5% projets",
-      "label": "Architecture et ingénierie"
+      "label": "Architecture et ingénierie",
+      "label_en": "Architecture & engineering"
     },
     {
       "code": "ICT",
@@ -41,7 +42,8 @@
       "job_posting_change_pct": -21,
       "fap_mapping": "M18 (systèmes d'information et numérique)",
       "evidence_note": "Coface · 24,9% emplois exposés · DARES 2024 · informatique sortie de la tension très forte pour la première fois depuis 2016, plus forte baisse tous domaines · BMO 2025 · information-communication -21,5% projets",
-      "label": "Informatique et mathématiques"
+      "label": "Informatique et mathématiques",
+      "label_en": "IT & mathematics"
     },
     {
       "code": "ADMIN",
@@ -49,7 +51,8 @@
       "job_posting_change_pct": -15,
       "fap_mapping": "M15 (logistique) + M16 (comptabilité) + M17 (relations clients)",
       "evidence_note": "Coface · 23,8% emplois exposés · BMO 2025 · services aux entreprises -15,2% projets · automatisation des tâches administratives par IA générative",
-      "label": "Administration et soutien"
+      "label": "Administration et soutien",
+      "label_en": "Administration & support"
     },
     {
       "code": "CREATIVE",
@@ -57,7 +60,8 @@
       "job_posting_change_pct": -22,
       "fap_mapping": "E (communication, média) + L (arts et façonnage)",
       "evidence_note": "Coface · 23,8% emplois exposés · graphistes indépendants et traducteurs vivent déjà la désintégration partielle de leur activité (étude Coface citée par Le Monde et JdG)",
-      "label": "Métiers créatifs, design, médias"
+      "label": "Métiers créatifs, design, médias",
+      "label_en": "Creative, design & media"
     },
     {
       "code": "LEGAL",
@@ -65,7 +69,8 @@
       "job_posting_change_pct": -12,
       "fap_mapping": "K (services à la collectivité, professions juridiques)",
       "evidence_note": "Coface · 21,6% emplois exposés · l'IA oblige déjà les cabinets à repenser la formation des jeunes recrues (Le Monde mars 2026) · automatisation des recherches documentaires",
-      "label": "Juridique"
+      "label": "Juridique",
+      "label_en": "Legal"
     },
     {
       "code": "FINANCE",
@@ -73,7 +78,8 @@
       "job_posting_change_pct": -21,
       "fap_mapping": "C (banque, assurance, immobilier)",
       "evidence_note": "Coface · 20%+ emplois à haut revenu exposés · BMO 2025 · activités financières et d'assurance -21,1% projets · Harvard 2026 · IA reproduit 71% des décisions de trading",
-      "label": "Finance, banque et assurance"
+      "label": "Finance, banque et assurance",
+      "label_en": "Finance, banking & insurance"
     },
     {
       "code": "INDUSTRY",
@@ -81,7 +87,8 @@
       "job_posting_change_pct": -16,
       "fap_mapping": "B + C industrie manufacturière + énergie",
       "evidence_note": "BMO 2025 · industrie -16,5% projets · automatisation lignes de production + maintenance prédictive · exposition modérée car tâches physiques nombreuses",
-      "label": "Industrie manufacturière"
+      "label": "Industrie manufacturière",
+      "label_en": "Manufacturing"
     },
     {
       "code": "COMMERCE",
@@ -89,7 +96,8 @@
       "job_posting_change_pct": -13,
       "fap_mapping": "D (commerce, vente et grande distribution)",
       "evidence_note": "BMO 2025 · commerce -13% projets · exposition limitée pour la vente en magasin · forte exposition pour la vente à distance (chatbots IA niveau 1)",
-      "label": "Commerce et vente"
+      "label": "Commerce et vente",
+      "label_en": "Trade & sales"
     },
     {
       "code": "EDUCATION",
@@ -97,7 +105,8 @@
       "job_posting_change_pct": -3,
       "fap_mapping": "K2 (enseignement et formation)",
       "evidence_note": "BMO 2025 · administration publique et enseignement -3,5% projets · faible recul · transformation lente du métier · adoption massive chez les étudiants (4/5 utilisent l'IA générative)",
-      "label": "Enseignement et administration publique"
+      "label": "Enseignement et administration publique",
+      "label_en": "Education & public administration"
     },
     {
       "code": "HEALTHCARE",
@@ -105,7 +114,8 @@
       "job_posting_change_pct": -3,
       "fap_mapping": "J (santé) + V (services aux particuliers et collectivités)",
       "evidence_note": "BMO 2025 · santé-action sociale -3,5% projets, faible recul · DARES top tension · infirmiers, aides-soignants pénuriques · activités relationnelles protégées",
-      "label": "Santé et action sociale"
+      "label": "Santé et action sociale",
+      "label_en": "Health & social work"
     },
     {
       "code": "CONSTRUCTION",
@@ -113,7 +123,8 @@
       "job_posting_change_pct": -22,
       "fap_mapping": "F (BTP)",
       "evidence_note": "BMO 2025 · construction -22% projets (effet conjoncture immobilière, pas IA) · faible exposition IA · activités physiques et terrain · tension structurelle persistante",
-      "label": "Construction et BTP"
+      "label": "Construction et BTP",
+      "label_en": "Construction"
     },
     {
       "code": "HOSPITALITY",
@@ -121,7 +132,8 @@
       "job_posting_change_pct": -13,
       "fap_mapping": "S (hôtellerie, restauration, alimentation)",
       "evidence_note": "BMO 2025 · hôtellerie-restauration -12,6% projets · faible exposition IA · sanctuaire de l'humain selon Dynamique Mag mars 2026 · interaction physique et empathie immédiate",
-      "label": "Hôtellerie, restauration, tourisme"
+      "label": "Hôtellerie, restauration, tourisme",
+      "label_en": "Hospitality, food service & tourism"
     }
   ]
 }

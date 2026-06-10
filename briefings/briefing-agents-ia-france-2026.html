@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agents IA en entreprise — France 2026 · Veille Métiers IA</title>
+<meta name="description" content="État d'adoption et seuils de maturité des agents IA dans les entreprises françaises. Snapshot mai 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- D3 sera chargé dynamiquement par le loader en bas de page, multi-CDN avec fallback -->
+<script>window.__d3Ready = new Promise((resolve, reject) => { window.__d3ReadyResolve = resolve; window.__d3ReadyReject = reject; });</script>
+<style>
+  :root {
+    --bg: #FAF7F2;
+    --bg-alt: #F2EDE3;
+    --bg-card: #FFFFFF;
+    --bg-partner: #1A1A1A;
+    --tx: #1A1A1A;
+    --tx-sec: #5B5B5B;
+    --tx-mut: #8A8A8A;
+    --br: #E5E0D8;
+    --br-strong: #C9C2B5;
+    --ac: #B8312F;
+    --ac-soft: #E8DCDA;
+    --green: #2D6A4F;
+    --amber: #BF6B04;
+    --shadow: 0 1px 2px rgba(26,26,26,0.04), 0 4px 12px rgba(26,26,26,0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--tx);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === PROGRESS BAR === */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--ac);
+    z-index: 100;
+    width: 0;
+    transition: width 0.1s;
+  }
+
+  /* === HEADER STICKY === */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--br);
+    z-index: 50;
+    padding: 14px 0;
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .brand span { color: var(--ac); }
+  nav.menu {
+    display: flex;
+    gap: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  nav.menu a {
+    color: var(--tx-sec);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav.menu a:hover { color: var(--ac); }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .partner-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    border-left: 1px solid var(--br-strong);
+    padding-left: 12px;
+  }
+  .partner-tag b { color: var(--tx); font-weight: 600; }
+  .btn-pdf {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--tx);
+    color: var(--bg);
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-pdf:hover { background: var(--ac); }
+
+  @media (max-width: 900px) {
+    nav.menu { display: none; }
+    .partner-tag { display: none; }
+  }
+
+  /* === CONTAINERS === */
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  /* === HERO === */
+  .hero {
+    padding: 40px 0 32px;
+    border-bottom: 1px solid var(--br);
+  }
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    margin-bottom: 32px;
+  }
+  .badge {
+    background: var(--ac);
+    color: var(--bg);
+    padding: 4px 10px;
+    font-weight: 600;
+  }
+  .meta-row span.dot { color: var(--br-strong); }
+
+  h1.hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    max-width: 1000px;
+  }
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--ac);
+    font-weight: 400;
+  }
+  .hero-deck {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--tx-sec);
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+
+  /* === KPI GRID === */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--br);
+    border: 1px solid var(--br);
+  }
+  .kpi {
+    background: var(--bg);
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .kpi:hover { background: var(--bg-alt); }
+  .kpi-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    margin-bottom: 12px;
+  }
+  .kpi-value {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .kpi-value .unit { font-size: 22px; color: var(--tx-sec); margin-left: 2px; }
+  .kpi-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--tx-mut);
+  }
+  .conf {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--bg-alt);
+    border: 1px solid var(--br);
+    color: var(--tx-sec);
+    font-weight: 500;
+  }
+  .conf.c1 { color: var(--green); border-color: var(--green); }
+  .conf.c2 { color: var(--tx); border-color: var(--br-strong); }
+  .conf.c3 { color: var(--amber); border-color: var(--amber); }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--br);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 48px;
+    margin-bottom: 24px;
+    align-items: baseline;
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ac);
+    letter-spacing: 0.08em;
+    padding-top: 8px;
+    border-top: 1px solid var(--ac);
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 44px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-deck {
+    font-size: 17px;
+    color: var(--tx-sec);
+    max-width: 680px;
+    line-height: 1.55;
+  }
+  .section-content {
+    margin-left: 168px;
+    max-width: 1000px;
+  }
+  @media (max-width: 768px) {
+    .section-head { grid-template-columns: 1fr; gap: 12px; }
+    .section-content { margin-left: 0; }
+  }
+
+  /* === DEFINITIONS === */
+  .defs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--br);
+    border: 1px solid var(--br);
+  }
+  .def {
+    background: var(--bg);
+    padding: 24px 20px;
+  }
+  .def-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .def-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 12px;
+  }
+  .def-body {
+    font-size: 14px;
+    color: var(--tx-sec);
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) { .defs { grid-template-columns: 1fr 1fr; } }
+
+  /* === ADOPTION CHART + MAP === */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+  .chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 24px;
+  }
+  .chart-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .chart-card .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  svg.chart { width: 100%; height: 280px; }
+  .legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-sec);
+  }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 12px; height: 2px; }
+
+  /* === FUNCTION TREEMAP === */
+  .treemap-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 24px;
+  }
+  svg.treemap { width: 100%; height: 440px; }
+  .tm-cell rect { stroke: var(--bg); stroke-width: 1; cursor: pointer; transition: opacity 0.2s; }
+  .tm-cell:hover rect { opacity: 0.85; }
+  .tm-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    fill: white;
+    font-weight: 500;
+    pointer-events: none;
+  }
+  .tm-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    fill: rgba(255,255,255,0.85);
+    pointer-events: none;
+  }
+
+  /* === SIZE CARDS === */
+  .size-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .size-grid { grid-template-columns: 1fr 1fr; } }
+  .size-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 24px;
+  }
+  .size-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .size-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--tx-mut);
+    margin-bottom: 20px;
+  }
+  .size-big {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: var(--ac);
+  }
+  .size-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid var(--br);
+    font-size: 13px;
+  }
+  .size-row span:first-child { color: var(--tx-mut); }
+  .size-row span:last-child { font-weight: 500; }
+
+  /* === FREINS === */
+  .freins {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--br);
+    border: 1px solid var(--br);
+  }
+  .frein {
+    background: var(--bg);
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 60px 1fr 100px 80px;
+    gap: 24px;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .frein:hover { background: var(--bg-alt); }
+  .frein-rank {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    color: var(--ac);
+    font-weight: 500;
+  }
+  .frein-body h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .frein-body p {
+    font-size: 14px;
+    color: var(--tx-sec);
+  }
+  .frein-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: right;
+  }
+  .frein-pct small {
+    display: block;
+    font-size: 10px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .frein { grid-template-columns: 40px 1fr; }
+    .frein-pct, .frein .conf { display: none; }
+  }
+
+  /* === SCENARIOS === */
+  .scen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .scen-grid { grid-template-columns: 1fr; } }
+  .scen {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .scen-tag {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+  }
+  .scen-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 12px;
+  }
+  .scen h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .scen p {
+    font-size: 14px;
+    color: var(--tx-sec);
+    margin-bottom: 16px;
+  }
+  .scen ul {
+    list-style: none;
+    border-top: 1px solid var(--br);
+    padding-top: 12px;
+  }
+  .scen li {
+    font-size: 13px;
+    padding: 6px 0;
+    color: var(--tx-sec);
+    padding-left: 16px;
+    position: relative;
+  }
+  .scen li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--ac);
+  }
+
+  /* === AGENDA 90 === */
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--tx);
+    border: 1px solid var(--tx);
+  }
+  @media (max-width: 900px) { .agenda-grid { grid-template-columns: 1fr; } }
+  .ag-col {
+    background: var(--bg);
+    padding: 32px 24px;
+  }
+  .ag-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--tx);
+  }
+  .ag-day {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+  }
+  .ag-day-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--tx-mut);
+    letter-spacing: 0.08em;
+  }
+  .ag-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--br);
+    font-size: 14px;
+  }
+  .ag-item:last-child { border-bottom: none; }
+  .ag-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--tx);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .btn-copy {
+    margin-top: 32px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--tx);
+    color: var(--bg);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  /* === METHODO ACCORDION === */
+  details.method {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 0;
+    margin-bottom: 8px;
+  }
+  details.method summary {
+    padding: 20px 24px;
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.method summary::-webkit-details-marker { display: none; }
+  details.method summary:after { content: '+'; font-size: 24px; color: var(--ac); }
+  details.method[open] summary:after { content: '−'; }
+  details.method .method-body {
+    padding: 0 24px 24px;
+    font-size: 14px;
+    color: var(--tx-sec);
+    line-height: 1.6;
+  }
+  details.method ul { margin-left: 20px; margin-top: 8px; }
+  details.method li { margin-bottom: 6px; }
+
+  /* === PARTNER SECTION === */
+  section.partner {
+    background: var(--bg-partner);
+    color: var(--bg);
+    padding: 40px 0;
+    border: none;
+  }
+  section.partner .section-num {
+    color: var(--ac-soft);
+    border-color: var(--ac-soft);
+  }
+  section.partner h2 { color: var(--bg); }
+  section.partner .section-deck { color: rgba(250,247,242,0.7); }
+  .partner-banner {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--bg-partner);
+    background: var(--ac-soft);
+    padding: 6px 12px;
+    margin-bottom: 24px;
+  }
+  .partner-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 40px;
+  }
+  .partner-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    color: var(--bg);
+  }
+  .partner-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(250,247,242,0.85);
+  }
+  .partner-body p { margin-bottom: 16px; }
+  .partner-sig {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .partner-sig-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--bg);
+  }
+  .partner-sig-role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(250,247,242,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--bg-alt);
+    padding: 40px 0 24px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 768px) { .foot-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .foot-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .foot-text {
+    font-size: 14px;
+    color: var(--tx-sec);
+    margin-bottom: 20px;
+  }
+  .foot-form {
+    display: flex;
+    gap: 0;
+    max-width: 380px;
+  }
+  .foot-form input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--br-strong);
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  .foot-form button {
+    background: var(--tx);
+    color: var(--bg);
+    border: none;
+    padding: 0 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .foot-col h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    margin-bottom: 16px;
+  }
+  .foot-col ul { list-style: none; }
+  .foot-col li { margin-bottom: 8px; }
+  .foot-col a { color: var(--tx); text-decoration: none; font-size: 14px; }
+  .foot-col a:hover { color: var(--ac); }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--br);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 768px) { .foot-bottom { flex-direction: column; gap: 12px; align-items: flex-start; } }
+
+  /* === BACK TO TOP === */
+  .to-top {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 44px; height: 44px;
+    background: var(--tx);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 40;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+  }
+  .to-top.show { opacity: 1; }
+
+  /* === PLACEHOLDER WATERMARK === */
+  .placeholder-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--amber);
+    background: #FFF4E0;
+    padding: 2px 6px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* === COLLABORATION BANNER === */
+  .collab {
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--br);
+  }
+  .collab-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .collab-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .collab-mark {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 32px;
+    text-align: center;
+  }
+  .collab-cross {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--tx-mut);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+  }
+  .collab-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .collab-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .collab-logo span { color: var(--ac); }
+  .collab-x {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--tx-mut);
+    font-size: 20px;
+  }
+  .collab-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    border-top: 1px solid var(--br);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .collab-text h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .collab-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--tx-sec);
+    margin-bottom: 12px;
+  }
+  .collab-text p strong { color: var(--tx); font-weight: 600; }
+  .collab-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .collab-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    background: var(--bg);
+    border: 1px solid var(--br-strong);
+    padding: 4px 10px;
+    color: var(--tx);
+  }
+
+  /* === AGENT IA SECTION === */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 768px) { .what-grid { grid-template-columns: 1fr; } }
+  .what-card {
+    background: var(--bg-card);
+    border: 1px solid var(--br);
+    padding: 28px;
+  }
+  .what-card.is {
+    border-left: 3px solid var(--green);
+  }
+  .what-card.isnot {
+    border-left: 3px solid var(--ac);
+  }
+  .what-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tx-mut);
+    margin-bottom: 14px;
+  }
+  .what-card.is h4 { color: var(--green); }
+  .what-card.isnot h4 { color: var(--ac); }
+  .what-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+  .what-card ul { list-style: none; }
+  .what-card li {
+    padding: 10px 0;
+    padding-left: 24px;
+    position: relative;
+    font-size: 14px;
+    color: var(--tx-sec);
+    border-bottom: 1px solid var(--br);
+  }
+  .what-card li:last-child { border-bottom: none; }
+  .what-card.is li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+  .what-card.isnot li:before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: var(--ac);
+    font-weight: 600;
+  }
+  .what-card li b { color: var(--tx); font-weight: 600; }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--br);
+    border: 1px solid var(--br);
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) { .pros-cons { grid-template-columns: 1fr; } }
+  .pc-col {
+    background: var(--bg);
+    padding: 28px;
+  }
+  .pc-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--br);
+  }
+  .pc-col.pros h4 { color: var(--green); }
+  .pc-col.cons h4 { color: var(--ac); }
+  .pc-item {
+    margin-bottom: 16px;
+  }
+  .pc-item:last-child { margin-bottom: 0; }
+  .pc-item-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--tx);
+  }
+  .pc-item-desc {
+    font-size: 13px;
+    color: var(--tx-sec);
+    line-height: 1.5;
+  }
+
+  /* === CTA SECTION === */
+  section.cta {
+    background: var(--ac);
+    color: var(--bg);
+    padding: 40px 0;
+    border: none;
+  }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .cta-inner { grid-template-columns: 1fr; } }
+  .cta-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ac-soft);
+    margin-bottom: 16px;
+  }
+  .cta h2 {
+    color: var(--bg);
+    margin-bottom: 20px;
+  }
+  .cta-deck {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ac-soft);
+    margin-bottom: 0;
+    max-width: 580px;
+  }
+  .cta-card {
+    background: var(--bg);
+    color: var(--tx);
+    padding: 32px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .cta-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ac);
+    margin-bottom: 12px;
+  }
+  .cta-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .cta-features {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .cta-features li {
+    padding: 8px 0;
+    padding-left: 22px;
+    position: relative;
+    font-size: 14px;
+    color: var(--tx-sec);
+    border-bottom: 1px dashed var(--br);
+  }
+  .cta-features li:last-child { border-bottom: none; }
+  .cta-features li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--ac);
+  }
+  .btn-cta {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: var(--tx);
+    color: var(--bg);
+    border: none;
+    padding: 16px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-cta:hover { background: var(--ac); color: var(--bg); }
+  .cta-contact {
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-align: center;
+    color: var(--tx-mut);
+  }
+  .cta-contact a { color: var(--tx); text-decoration: none; border-bottom: 1px solid var(--br-strong); }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">Dispatch<span>·iA #004</span></div>
+    <nav class="menu">
+      <a href="#apropos">À propos</a>
+      <a href="#definitions">Cadre</a>
+      <a href="#adoption">Adoption</a>
+      <a href="#freins">Freins</a>
+      <a href="#debat">Débat</a>
+      <a href="#agenda">Agenda 90j</a>
+      <a href="#partner">Partenaire</a>
+      <a href="#cta" style="color: var(--ac); font-weight: 600;">→ Sur-mesure</a>
+    </nav>
+    <div class="header-actions">
+      <div class="partner-tag">Partenaire&nbsp;· <b>myAuxilium</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="border-bottom:1px solid var(--br); padding:40px 0 32px;">
+  <div class="wrap">
+    <div class="meta-row">
+      <span class="badge">Dispatch·iA #004</span>
+      <span>Snapshot mai 2026</span>
+      <span class="dot">·</span>
+      <span>France</span>
+      <span class="dot">·</span>
+      <span>Sponsorisé · indépendance éditoriale</span>
+    </div>
+    <h1 class="hero-title">Agents IA en entreprise. <em>État d'adoption et seuils de maturité.</em></h1>
+    <p class="hero-deck">Où en sont réellement les entreprises françaises dans le déploiement d'agents IA en mai 2026 ? Cartographie des usages par fonction et taille, freins documentés, et trajectoires probables à 12-24 mois. À destination des COMEX, CODIR et DRH.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi" onclick="document.getElementById('adoption').scrollIntoView()">
+        <div class="kpi-label">Adoption IA générative FR</div>
+        <div class="kpi-value">47,8<span class="unit">%</span></div>
+        <div class="kpi-foot"><span>Microsoft AI Diffusion Q1 2026, rang 5 mondial</span><span class="conf c1">C1</span></div>
+      </div>
+      <div class="kpi" onclick="document.getElementById('contexte').scrollIntoView()">
+        <div class="kpi-label">Français utilisant l'IA gén.</div>
+        <div class="kpi-value">64<span class="unit">%</span></div>
+        <div class="kpi-foot"><span>Ifop x Converteo 2026 (+20 pts en 1 an)</span><span class="conf c1">C1</span></div>
+      </div>
+      <div class="kpi" onclick="document.getElementById('maturite').scrollIntoView()">
+        <div class="kpi-label">IA agentique à l'échelle</div>
+        <div class="kpi-value">13<span class="unit">%</span></div>
+        <div class="kpi-foot"><span>Adobe / Orange Business 2026</span><span class="conf c1">C1</span></div>
+      </div>
+      <div class="kpi" onclick="document.getElementById('freins').scrollIntoView()">
+        <div class="kpi-label">Entreprises FR prêtes pour l'agentique</div>
+        <div class="kpi-value">19<span class="unit">%</span></div>
+        <div class="kpi-foot"><span>AWS / Strand 2026 (vs 67% startups)</span><span class="conf c1">C1</span></div>
+      </div>
+      <div class="kpi" onclick="document.getElementById('debat').scrollIntoView()">
+        <div class="kpi-label">Emploi diplômés exposés IA (US)</div>
+        <div class="kpi-value">−6,6<span class="unit">pts</span></div>
+        <div class="kpi-foot"><span>Sur 2022-2024 · The Economist 2026</span><span class="conf c2">C2</span></div>
+      </div>
+      <div class="kpi" onclick="document.getElementById('scenarios').scrollIntoView()">
+        <div class="kpi-label">Valeur potentielle FR à 2030</div>
+        <div class="kpi-value">30<span class="unit"> Mds€</span></div>
+        <div class="kpi-foot"><span>VAB · AWS / Strand 2026</span><span class="conf c1">C1</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 00 · À PROPOS DE CE NUMÉRO ===== -->
+<section id="apropos" style="background: var(--bg-alt); padding: 40px 0; border-bottom: 1px solid var(--br);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 00 / À propos</div>
+      <div>
+        <h2>Un Dispatch sponsorisé. <em style="font-style:italic; color:var(--ac);">Indépendance éditoriale préservée.</em></h2>
+        <p class="section-deck">Ce numéro est le quatrième de la série Dispatch·iA. Il est produit avec le soutien financier de myAuxilium, sans transfert de contrôle éditorial.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--br); padding: 28px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx-mut); margin-bottom: 14px;">Éditeur du dispatch</div>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 12px;">Naully Nicolas</h3>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--tx-sec); margin-bottom: 16px;">Consultant et conférencier IA, auteur de Guerill-iA. Édite deux observatoires publics sur l'impact de l'IA sur les métiers (France et Suisse).</p>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+            <a href="https://transitions-ia.fr" target="_blank" rel="noopener" style="color: var(--ac); text-decoration: none; border-bottom: 1px solid var(--ac);">transitions-ia.fr</a>
+            <span style="color: var(--tx-mut); margin: 0 8px;">·</span>
+            <a href="https://naullynicolas.ch" target="_blank" rel="noopener" style="color: var(--ac); text-decoration: none; border-bottom: 1px solid var(--ac);">naullynicolas.ch</a>
+          </div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--ac); border-left-width: 4px; padding: 28px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 14px;">Partenaire du numéro</div>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 12px;">myAuxilium</h3>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--tx-sec); margin-bottom: 16px;">Plateforme française d'agents IA destinée aux PME et ETI européennes. Architecture RAG souveraine avec citation des sources, hébergement chiffré et traçabilité documentaire, conçue pour les processus métiers nécessitant fiabilité et conformité.</p>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+            <a href="https://www.myauxilium.ai/" target="_blank" rel="noopener" style="color: var(--ac); text-decoration: none; border-bottom: 1px solid var(--ac);">myauxilium.ai</a>
+          </div>
+        </div>
+      </div>
+      <div style="background: var(--bg); border: 1px solid var(--br); padding: 24px 28px; margin-top: 24px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx-mut); margin-bottom: 10px;">Cadre éditorial</div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--tx); margin: 0;">L'intégralité du contenu analytique (chiffres, sources, scénarios, agenda) relève de la responsabilité éditoriale exclusive de Naully Nicolas. <strong>myAuxilium soutient la production de ce numéro mais n'intervient ni dans le choix des sources, ni dans la formulation des conclusions.</strong> La section §09 <em>Regard partenaire</em> est l'espace d'expression réservé à myAuxilium, clairement balisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 01 · CONTEXTE ===== -->
+<section id="contexte">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 01 / Contexte</div>
+      <div>
+        <h2>Pourquoi <em style="font-style:italic; color:var(--ac);">maintenant</em>, et pourquoi ce sujet est urgent.</h2>
+        <p class="section-deck">L'IA générative est entrée dans les usages individuels avant d'entrer dans les organisations. Cet écart crée trois pressions qui convergent sur les 12 prochains mois : un shadow IA structurel, un horizon réglementaire qui se ferme, et une bascule des cas d'usage du copilot vers l'agent métier.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <!-- Bloc narratif principal -->
+      <div style="background: var(--bg-card); border: 1px solid var(--br); padding: 32px 36px; margin-bottom: 24px;">
+        <h3 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 16px; line-height: 1.3;">L'écart entre adoption individuelle et adoption organisationnelle est devenu un risque opérationnel.</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--tx); margin-bottom: 14px;">En Q1 2026, <strong>47,8% des Français adultes utilisent l'IA générative</strong> (Microsoft AI Diffusion Report), et <strong>64% l'ont déjà essayée au moins une fois</strong> (Ifop x Converteo, mars 2026, +20 points en un an). Côté entreprises, seulement <strong>13% ont déployé l'IA agentique à l'échelle</strong> (Adobe / Orange Business 2026) et 19% se déclarent prêtes à le faire (AWS / Strand 2026).</p>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--tx); margin: 0;">L'écart entre ces deux chiffres n'est pas neutre. Il signifie que les collaborateurs utilisent massivement l'IA <strong>en dehors de tout cadre d'entreprise</strong> : avec leurs comptes personnels, sur des données pourtant professionnelles, sans politique d'usage, sans audit, sans souveraineté sur les corpus. C'est ce qu'on appelle le <em>shadow IA</em>, et c'est aujourd'hui la première vulnérabilité de gouvernance documentaire en entreprise.</p>
+      </div>
+
+      <!-- Trois pressions -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--br); border: 1px solid var(--br); margin-bottom: 24px;">
+        <div style="background: var(--bg); padding: 28px 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 12px;">Pression 01</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 10px;">Shadow IA structurel</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55;">L'usage personnel des LLMs grand public sur données d'entreprise crée des risques de fuite, d'entraînement non consenti, de coûts non maîtrisés et de productions sans traçabilité, sans qu'aucune politique d'usage ne soit applicable.</p>
+        </div>
+        <div style="background: var(--bg); padding: 28px 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 12px;">Pression 02</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 10px;">AI Act qui se déclenche</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55;">Application en France à partir d'août 2026, avec obligations de transparence, de gouvernance et de documentation des systèmes IA à haut risque. Sanctions jusqu'à 35 M€ ou 7% du CA mondial. La fenêtre de cadrage se ferme à 90 jours.</p>
+        </div>
+        <div style="background: var(--bg); padding: 28px 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 12px;">Pression 03</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 10px;">Bascule copilot → agent</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55;">Les POC qui réussissent partent désormais d'un workflow métier réel, d'une documentation existante et d'un sponsor COMEX. Les POC qui échouent restent au stade du test ChatGPT en libre-service. La bascule est organisationnelle, pas technologique.</p>
+        </div>
+      </div>
+
+      <!-- Six piliers du cadrage -->
+      <div style="background: var(--bg-alt); padding: 32px 36px; border: 1px solid var(--br);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx-mut); margin-bottom: 14px;">→ Les six piliers d'un cadrage défendable</div>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--tx); margin-bottom: 20px;">Quel que soit l'outil retenu, six exigences structurent un déploiement IA défendable face aux régulateurs, aux auditeurs, aux IRP et aux clients. Elles servent de grille de lecture pour évaluer les solutions du marché et arbitrer entre constructions internes et plateformes spécialisées.</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">01 · Sécurité</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">Chiffrement, isolation des données sensibles, gestion des accès</div>
+          </div>
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">02 · Souveraineté</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">Hébergement maîtrisé, indépendance vis-à-vis des hyperscalers extra-européens</div>
+          </div>
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">03 · Droits sur le corpus</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">Maîtrise de qui peut entraîner, lire et exploiter les documents internes</div>
+          </div>
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">04 · Travail collectif</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">L'outil sert l'équipe, pas l'individu isolé · partage des prompts et résultats</div>
+          </div>
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">05 · Validation humaine</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">Human in the loop systématique sur les étapes critiques · droit d'arrêt</div>
+          </div>
+          <div style="border-left: 2px solid var(--ac); padding-left: 14px;">
+            <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px;">06 · Adaptation métier</div>
+            <div style="font-size: 12px; color: var(--tx-sec); line-height: 1.5;">Encodage des workflows réels · pas des intentions abstraites ou trop ambitieuses</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 01 (SUITE) · TYPOLOGIE AGENTS IA ===== -->
+<section id="definitions" style="border-top: none; padding-top: 24px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num" style="color: var(--tx-mut); border-color: var(--br-strong);">§ 01 / Typologie</div>
+      <div>
+        <h2>Qu'est-ce qu'un agent IA, et ce que ce n'est pas.</h2>
+        <p class="section-deck">Tous les chiffres qui suivent dépendent de cette frontière. Sans clarification, les études se contredisent et les budgets se brûlent sur des objets mal identifiés.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <!-- Typologie 4 colonnes -->
+      <div class="defs">
+        <div class="def">
+          <div class="def-meta">Type 01</div>
+          <div class="def-title">Copilote IA</div>
+          <div class="def-body">Assistant qui répond à des sollicitations humaines, sans initiative ni mémoire persistante. Microsoft 365 Copilot, ChatGPT en mode chat, Claude, Gemini. <b>C'est le levier d'adoption dominant en 2026</b> (Unow, France Travail).</div>
+        </div>
+        <div class="def">
+          <div class="def-meta">Type 02</div>
+          <div class="def-title">Workflow IA</div>
+          <div class="def-body">Chaîne de traitements semi-automatisée, étapes prédéfinies, IA invoquée comme brique. n8n, Make + LLM, Zapier. Pas d'autonomie réelle, mais industrialisable et auditable.</div>
+        </div>
+        <div class="def">
+          <div class="def-meta">Type 03</div>
+          <div class="def-title">RAG métier</div>
+          <div class="def-body">Recherche augmentée sur corpus interne avec citation systématique des sources. Objectif : <b>zéro hallucination, traçabilité</b>. Modèle de la plupart des solutions B2B FR matures (incluant myAuxilium).</div>
+        </div>
+        <div class="def">
+          <div class="def-meta">Type 04</div>
+          <div class="def-title">Agent autonome</div>
+          <div class="def-body">Système qui planifie, exécute des actions sur des outils externes, et boucle jusqu'à l'objectif. Peut intégrer une logique Human In The Loop. <b>Seules 13% des entreprises FR déployées à l'échelle</b> (Adobe / Orange 2026).</div>
+        </div>
+      </div>
+
+      <!-- IS / IS NOT -->
+      <div class="what-grid" style="margin-top:32px">
+        <div class="what-card is">
+          <h4>— Ce qu'est un agent IA</h4>
+          <h3>Un système qui agit, pas seulement qui répond.</h3>
+          <ul>
+            <li><b>Un planificateur</b> qui décompose un objectif en sous-tâches</li>
+            <li><b>Un exécutant</b> qui appelle des outils (API, base de données, navigateur, code)</li>
+            <li><b>Un bouclage</b> qui évalue le résultat et reprend la main si nécessaire</li>
+            <li><b>Une mémoire</b> persistante du contexte et des étapes précédentes</li>
+            <li><b>Une supervision</b> humaine définie : validation, point d'arrêt, escalade</li>
+          </ul>
+        </div>
+        <div class="what-card isnot">
+          <h4>— Ce qu'un agent IA n'est pas</h4>
+          <h3>Ni un ChatGPT déguisé, ni une intelligence générale.</h3>
+          <ul>
+            <li><b>Pas un simple chatbot</b> qui répond et s'arrête là</li>
+            <li><b>Pas un système infaillible</b> : 20 à 40% d'hallucinations sur LLMs grand public hors RAG, jusqu'à 10% sur un RAG interne bien conçu</li>
+            <li><b>Pas une boîte noire autonome</b> sans supervision ni traçabilité</li>
+            <li><b>Pas une solution sans coût caché</b> : intégration, formation, maintenance</li>
+            <li><b>Pas un substitut au cadrage métier</b> : un agent sans objectif clair échoue</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Avantages / Inconvénients -->
+      <h3 style="font-family: 'Fraunces', serif; font-size:24px; font-weight:500; margin-top:32px; margin-bottom:8px;">Avantages et inconvénients documentés.</h3>
+      <p style="color: var(--tx-sec); font-size:15px; margin-bottom:16px;">Synthèse à partir de KPMG Trends of AI 2026, Adobe Digital Trends 2026, AWS / Strand Partners "Unlocking France's AI Potential 2026", Deloitte State of AI in the Enterprise.</p>
+
+      <div class="pros-cons">
+        <div class="pc-col pros">
+          <h4>Avantages</h4>
+          <div class="pc-item">
+            <div class="pc-item-title">Productivité mesurable</div>
+            <div class="pc-item-desc">2/3 des entreprises FR savent désormais mesurer le ROI de leurs projets IA, contre 1/3 en 2025 (KPMG). Gains documentés sur synthèse, traduction, génération de contenu.</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Démocratisation de la création</div>
+            <div class="pc-item-desc">67% des entreprises FR rapportent que des équipes non créatives produisent désormais du contenu (Adobe). 74% notent une accélération de la production éditoriale.</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Disponibilité continue</div>
+            <div class="pc-item-desc">Pas de congé, pas d'horaires, montée en charge instantanée. Pertinent pour relation client, support, recherche documentaire.</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Effet de seuil sur les fonctions support</div>
+            <div class="pc-item-desc">Marketing (59% résumé/traduction), IT, Risque & Conformité (44% détection anomalies) deviennent des leviers structurels (KPMG).</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Valeur économique potentielle</div>
+            <div class="pc-item-desc">30,1 milliards d'euros de valeur ajoutée brute pour la France à l'horizon 2030 si l'usage avancé se diffuse (AWS / Strand 2026).</div>
+          </div>
+        </div>
+        <div class="pc-col cons">
+          <h4>Inconvénients</h4>
+          <div class="pc-item">
+            <div class="pc-item-title">Fiabilité variable selon les outils</div>
+            <div class="pc-item-desc">Les LLMs grand public hallucinent dans 20 à 40% des cas (source : myAuxilium). Les architectures RAG avec citation de sources limitent ce risque, mais ne l'éliminent pas.</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Gouvernance immature</div>
+            <div class="pc-item-desc">Seule 1 entreprise sur 5 dispose d'un modèle mature de gouvernance des agents autonomes (Deloitte). 60% des FR ont un dispositif transverse, mais la maîtrise opérationnelle reste un chantier (KPMG).</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Confiance utilisateur fragile</div>
+            <div class="pc-item-desc">Seuls 30% des Français interagiraient avec l'agent IA d'une marque (vs 40% en Europe). 41% se disent fermés à l'idée d'un agent IA personnel (Adobe).</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Qualité des données limitante</div>
+            <div class="pc-item-desc">Seuls 36% des entreprises FR estiment leur qualité de données suffisante pour l'IA (Adobe). Sans corpus exploitable, les agents produisent du générique.</div>
+          </div>
+          <div class="pc-item">
+            <div class="pc-item-title">Risque réglementaire et exposition</div>
+            <div class="pc-item-desc">AI Act, RGPD, sanctions jusqu'à 35 M€ ou 7% du CA mondial. Les données envoyées vers les LLMs grand public peuvent servir à entraîner les modèles et être exposées (myAuxilium).</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADOPTION ===== -->
+<section id="adoption">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 02 / Adoption</div>
+      <div>
+        <h2>La France adopte vite, <em style="font-style:italic; color:var(--ac);">mais surface plus qu'elle ne s'industrialise.</em></h2>
+        <p class="section-deck">Avec 47,8% d'adoption en Q1 2026 (Microsoft AI Diffusion Report), la France est 5e mondiale et 4e européenne pour l'usage individuel d'IA générative. Mais seules 13% des entreprises ont déployé l'IA agentique à l'échelle (Adobe/Orange). L'écart entre adoption individuelle et industrialisation organisationnelle reste l'enjeu majeur, et le risque du shadow IA à l'orée de l'AI Act (août 2026 en application) reste entier. KPMG documente que 2/3 des entreprises mesurent désormais leur ROI IA, contre 1/3 en 2025. <b>Côté RH</b> (OpinionWay × Kelio 2026, 306 DRH FR) : l'adoption a triplé en 2 ans, passant de 9% en 2024 à 33% en 2026, mais <b>29% des directions RH déclarent désormais "ne pas avoir de projet IA"</b> (vs 7% en 2024). Le signal n'est pas un rejet, c'est un essoufflement après une vague d'expérimentations non concluantes.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="two-col">
+        <div class="chart-card">
+          <h3>Adoption de l'IA générative en France</h3>
+          <div class="sub">Trajectoire H1 2025 → Q1 2026 · Microsoft AI Diffusion, AWS / Strand, Adobe / Orange</div>
+          <svg class="chart" id="adoption-chart"></svg>
+          <div class="legend">
+            <span><span class="sw" style="background:#B8312F"></span>Population 16-74 ans (Microsoft)</span>
+            <span><span class="sw" style="background:#1A1A1A"></span>Entreprises FR (AWS / Strand)</span>
+            <span><span class="sw" style="background:#5B5B5B"></span>IA agentique à l'échelle (Adobe)</span>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>Adoption par fonction métier</h3>
+          <div class="sub">% entreprises ayant déployé · KPMG Trends of AI 2026 (356 décideurs FR)</div>
+          <svg class="chart" id="region-chart" style="height:280px"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAILLE ENTREPRISE ===== -->
+<section id="taille">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 03 / Taille</div>
+      <div>
+        <h2>Le fossé n'est pas générationnel, il est dimensionnel.</h2>
+        <p class="section-deck">Entre une TPE et un grand groupe, l'écart d'adoption est de 1 à 6. Les ETI émergent comme le segment le plus pragmatique.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="size-grid">
+        <div class="size-card">
+          <h4>TPE</h4>
+          <div class="size-meta">&lt; 10 salariés</div>
+          <div class="size-big">9%</div>
+          <div class="size-meta">adoption · 2026</div>
+          <div class="size-row"><span>Stade dominant</span><span>Exploration</span></div>
+          <div class="size-row"><span>Frein #1</span><span>Compétences</span></div>
+          <div class="size-row"><span>Levier #1</span><span>Outils prêts</span></div>
+        </div>
+        <div class="size-card">
+          <h4>PME</h4>
+          <div class="size-meta">10–249 salariés</div>
+          <div class="size-big">24%</div>
+          <div class="size-meta">adoption · 2026</div>
+          <div class="size-row"><span>Stade dominant</span><span>POC</span></div>
+          <div class="size-row"><span>Frein #1</span><span>ROI flou</span></div>
+          <div class="size-row"><span>Levier #1</span><span>Conseil externe</span></div>
+        </div>
+        <div class="size-card">
+          <h4>ETI</h4>
+          <div class="size-meta">250–4999 salariés</div>
+          <div class="size-big">47%</div>
+          <div class="size-meta">adoption · 2026</div>
+          <div class="size-row"><span>Stade dominant</span><span>POC élargi</span></div>
+          <div class="size-row"><span>Frein #1</span><span>Gouvernance</span></div>
+          <div class="size-row"><span>Levier #1</span><span>Sponsor COMEX</span></div>
+        </div>
+        <div class="size-card">
+          <h4>Grands groupes</h4>
+          <div class="size-meta">&gt; 5000 salariés</div>
+          <div class="size-big">62%</div>
+          <div class="size-meta">adoption · 2026</div>
+          <div class="size-row"><span>Stade dominant</span><span>Industrialisation</span></div>
+          <div class="size-row"><span>Frein #1</span><span>Legacy IT</span></div>
+          <div class="size-row"><span>Levier #1</span><span>Plateforme interne</span></div>
+        </div>
+      </div>
+
+      <!-- Bloc : pour qui ce sujet est critique -->
+      <div style="margin-top: 32px; background: var(--bg-card); border: 1px solid var(--br); border-left: 4px solid var(--tx); padding: 32px 36px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx-mut); margin-bottom: 14px;">→ Pour qui ce sujet est critique</div>
+        <h3 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 14px; line-height: 1.3;">Le sujet ne touche pas tous les métiers de la même manière.</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--tx-sec); margin-bottom: 14px;">Les fonctions à dominante <strong>textuelle et documentaire</strong> sont les premières exposées, à la fois comme bénéficiaires et comme zones de risque : études notariales, cabinets d'avocats, fonctions administratives, métiers du traitement de l'information, conseil. Sur ces périmètres, l'IA n'augmente pas un outil, elle reconfigure la chaîne de valeur documentaire elle-même.</p>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--tx); margin: 0;">C'est pourquoi les <strong>PME et ETI de 30 à 250 salariés</strong> du secteur des services intellectuels constituent l'épicentre du sujet en France comme en Suisse, avec une exposition simultanée aux gains de productivité et aux exigences de conformité AI Act, RGPD et secret professionnel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FREINS ===== -->
+<section id="freins">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 04 / Obstacles</div>
+      <div>
+        <h2>Cinq freins, par ordre d'impact.</h2>
+        <p class="section-deck">Hiérarchie consolidée à partir de cinq études convergentes (Adobe 2026, KPMG 2026, AWS/Strand 2026, Deloitte 2026, Gallup Q1 2026). Chaque frein est ce que les répondants citent en premier obstacle, pas ce qu'ils citent par défaut.</p>
+      </div>
+    </div>
+    <div class="section-content">
+
+      <!-- Encart d'alerte Shadow IA + AI Act -->
+      <div style="background: linear-gradient(90deg, var(--ac-soft) 0%, var(--bg-alt) 100%); border-left: 4px solid var(--ac); padding: 24px 28px; margin-bottom: 32px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ac); font-weight: 600;">⚠ Alerte calendrier</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--tx-mut); text-transform: uppercase; letter-spacing: 0.06em;">AI Act · application août 2026</div>
+        </div>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--tx); margin-top: 12px; margin-bottom: 0;">L'écart entre adoption individuelle (47,8%) et industrialisation organisationnelle (13%) <strong>crée mécaniquement du shadow IA</strong> : des collaborateurs qui utilisent l'IA en dehors de tout cadre d'entreprise. À 90 jours de l'application de l'AI Act en France, cet écart devient un risque réglementaire et opérationnel direct, pas une projection. C'est la fenêtre de cadrage qui se ferme.</p>
+      </div>
+      <div class="freins">
+        <div class="frein">
+          <div class="frein-rank">01</div>
+          <div class="frein-body">
+            <h4>Qualité et accessibilité des données</h4>
+            <p>Seules 36% des entreprises FR estiment que la qualité de leurs données est suffisante pour l'IA (vs 43% en Europe). Sans corpus exploitable, les agents produisent du générique.</p>
+          </div>
+          <div class="frein-pct">64%<small>Données insuffisantes · Adobe</small></div>
+          <div><span class="conf c1">C1</span></div>
+        </div>
+        <div class="frein">
+          <div class="frein-rank">02</div>
+          <div class="frein-body">
+            <h4>Compétences internes manquantes</h4>
+            <p>Le manque de compétences en IA est le principal frein à l'intégration opérationnelle (Deloitte 2026). 85% des organisations déclarent ne pas avoir formé leurs équipes (KPMG Trends of AI 2026). Le gap n'est pas entre Data Scientists, c'est entre opérationnels métiers et capacités IA. <b>Confirmation côté primo-entrants</b> (SKEMA x EY Talents 2026, avril 2026) : 79% des jeunes diplômés français demandent explicitement à être formés aux outils IA · 96% les utilisent déjà mais souvent sans cadre.</p>
+          </div>
+          <div class="frein-pct">85%<small>Sans formation · KPMG 2026</small></div>
+          <div><span class="conf c1">C1</span></div>
+        </div>
+        <div class="frein">
+          <div class="frein-rank">03</div>
+          <div class="frein-body">
+            <h4>Gouvernance des agents autonomes</h4>
+            <p>Seule 1 entreprise sur 5 dispose d'un modèle mature de gouvernance des agents IA autonomes (Deloitte). Le shadow IA se développe en marge des cadres officiels. <b>L'enquête Obvia (avril 2026, 4 595 travailleurs syndiqués francophones)</b> chiffre la fracture côté terrain : seuls 26% des travailleurs jugent leur organisation transparente sur les usages IA, 31% se sentent informés, et <b>12% seulement ont été consultés avant l'implantation</b>. La gouvernance reste descendante là où elle devrait être participative.</p>
+          </div>
+          <div class="frein-pct">80%<small>Gouvernance immature · Deloitte 2026</small></div>
+          <div><span class="conf c1">C1</span></div>
+        </div>
+        <div class="frein">
+          <div class="frein-rank">04</div>
+          <div class="frein-body">
+            <h4>Préparation à l'IA agentique</h4>
+            <p>Seules 19% des entreprises françaises se déclarent prêtes à adopter l'IA agentique, contre 67% des startups (AWS / Strand 2026). Au rythme actuel, il faudrait attendre 2035 pour que la moitié atteigne l'usage avancé.</p>
+          </div>
+          <div class="frein-pct">81%<small>Pas prêtes · AWS</small></div>
+          <div><span class="conf c1">C1</span></div>
+        </div>
+        <div class="frein">
+          <div class="frein-rank">05</div>
+          <div class="frein-body">
+            <h4>Confiance utilisateur fragile, et débat académique non tranché</h4>
+            <p>Seuls 30% des Français interagiraient avec l'agent IA d'une marque (vs 40% en Europe). 41% se disent fermés à l'idée d'un agent IA personnel, contre 27% en Europe (Adobe 2026). Côté travailleurs francophones (Obvia, avril 2026, n=4 595) : 38% se méfient de leur employeur sur l'IA contre 35% qui lui font confiance, et seulement <b>14% ont une forte confiance dans les systèmes d'IA eux-mêmes</b>. Côté juniors français : 74% des jeunes diplômés perçoivent l'IA comme une menace pour les primo-entrants en entreprise, 48% exigent qu'elle reste un outil de soutien et non de contrôle (SKEMA x EY Talents 2026). <b>Le débat académique sur l'impact réel reste vif</b> : Brynjolfsson et al. (Stanford 2025) documentent une baisse de 16% de l'emploi des jeunes dans les métiers exposés à l'IA, là où Iscenko & Curto Millet (Google 2026) et Frank (Pittsburgh 2026) montrent que la baisse de la demande pour les jeunes est antérieure à ChatGPT et touche aussi les seniors.</p>
+          </div>
+          <div class="frein-pct">70%<small>Réticents · Adobe 2026</small></div>
+          <div><span class="conf c1">C1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 04.5 · DÉBAT ACADÉMIQUE ===== -->
+<section id="debat" style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num" style="color: var(--tx-mut); border-color: var(--br-strong);">§ 04 / Débat</div>
+      <div>
+        <h2>L'IA détruit-elle déjà l'emploi des juniors ? <em style="font-style:italic; color:var(--ac);">Trois lectures non convergentes.</em></h2>
+        <p class="section-deck">La question divise les économistes en 2026. Présenter une seule lecture serait trahir la donnée. Ce qui suit n'est pas un consensus mais un état du désaccord, utile pour calibrer le discours en COMEX et en dialogue social.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+        <div style="background: var(--bg-card); border: 1px solid var(--br); border-top: 3px solid var(--ac); padding: 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 10px;">Thèse 01 · Causalité IA</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin-bottom: 12px; line-height: 1.3;">L'IA pèse spécifiquement sur les juniors exposés.</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55; margin-bottom: 12px;">Brynjolfsson, Chandar et Chen (Stanford 2025) documentent une baisse de 16% de l'emploi des jeunes dans les métiers exposés à l'IA générative (vs métiers non exposés), à partir des données ADP. The Economist (mai 2026) confirme sur la base de 10 ans d'enquêtes NACE : entre 2022 et 2024, les diplômés du quintile le plus exposé (computer science, computer engineering) ont vu leur taux d'emploi full-time chuter de 6,6 points, contre 1,5 point pour le quintile le moins exposé.</p>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--tx-mut); text-transform: uppercase; letter-spacing: 0.06em; border-top: 1px solid var(--br); padding-top: 8px;">Sources · Brynjolfsson 2025 · The Economist 2026</div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--br); border-top: 3px solid var(--tx); padding: 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx); margin-bottom: 10px;">Thèse 02 · Causalité antérieure</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin-bottom: 12px; line-height: 1.3;">La baisse précède ChatGPT et touche aussi les seniors.</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55; margin-bottom: 12px;">Iscenko & Curto Millet (Google, 2026) montrent que les job postings dans les métiers exposés à l'IA ont baissé autant pour les seniors que pour les juniors, et que cette tendance est antérieure à ChatGPT. Frank (Pittsburgh, 2026) confirme : les résultats du marché du travail se sont dégradés pour les travailleurs exposés à l'IA, mais cette tendance a commencé avant 2022. L'IA n'est pas le déclencheur exclusif.</p>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--tx-mut); text-transform: uppercase; letter-spacing: 0.06em; border-top: 1px solid var(--br); padding-top: 8px;">Sources · Iscenko & Curto Millet 2026 · Frank 2026</div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--br); border-top: 3px solid var(--amber); padding: 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 10px;">Thèse 03 · Contre-explication</div>
+          <h4 style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin-bottom: 12px; line-height: 1.3;">C'est le télétravail, plus que l'IA, qui pénalise les juniors.</h4>
+          <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.55; margin-bottom: 12px;">L'étude SSRN 6787638 (2026, 4 pays anglo-saxons) sépare l'effet de l'exposition à l'IA générative de l'effet du télétravail dans la baisse de l'embauche des juniors post-pandémie. Conclusion : <strong>l'exposition au télétravail prédit beaucoup mieux la baisse que l'exposition à l'IA générative</strong>. Le coefficient IA devient même statistiquement non significatif sous la plupart des spécifications robustes. L'étude critique aussi la fiabilité de l'Anthropic Economic Index.</p>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--tx-mut); text-transform: uppercase; letter-spacing: 0.06em; border-top: 1px solid var(--br); padding-top: 8px;">Source · SSRN 6787638 (2026)</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 24px; background: var(--bg); border-left: 4px solid var(--tx); padding: 20px 24px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx-mut); margin-bottom: 8px;">→ Lecture pour le COMEX</div>
+        <p style="font-size: 14px; color: var(--tx); line-height: 1.6; margin: 0;">Trois conséquences pratiques. Premièrement, en COMEX, présenter une seule thèse expose à des critiques internes immédiates. Deuxièmement, les décisions de réduction des embauches juniors présentées comme "rendues nécessaires par l'IA" sont juridiquement fragiles, d'autant que la causalité n'est pas établie. Troisièmement, l'IA reste un facteur identifié de transformation des métiers, et l'absence de consensus académique ne dispense ni du cadrage AI Act, ni du dialogue social, ni de l'investissement formation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCÉNARIOS ===== -->
+<section id="scenarios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 05 / Trajectoires</div>
+      <div>
+        <h2>Trois scénarios à 18 mois.</h2>
+        <p class="section-deck">Probabilités estimées à partir des déclencheurs documentés dans la veille de l'observatoire. Pas une prédiction, un cadre pour préparer ses décisions de COMEX.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="scen-grid">
+        <div class="scen">
+          <div class="scen-tag">P = 25%</div>
+          <div class="scen-name">Scénario A · Accéléré</div>
+          <h4>L'industrialisation l'emporte.</h4>
+          <p>Les ETI passent en production, les freins gouvernance se desserrent, les agents autonomes maturent. Adoption FR ~55% fin 2027, agentique à l'échelle ~25%.</p>
+          <ul>
+            <li>AI Act stabilisé sur cas d'usage clés</li>
+            <li>Baisse coûts inference 60% (post-GPT-5)</li>
+            <li>Offres souveraines clés-en-main qui maturent sur le marché européen</li>
+          </ul>
+        </div>
+        <div class="scen">
+          <div class="scen-tag">P = 55%</div>
+          <div class="scen-name">Scénario B · Central</div>
+          <h4>Bifurcation par taille.</h4>
+          <p>Grands groupes et ETI matures avancent ; PME stagnent ; TPE décrochent. Adoption FR ~50% fin 2027 mais polarisée. C'est le scénario qui correspond aux trajectoires observées en mai 2026.</p>
+          <ul>
+            <li>Statu quo réglementaire AI Act</li>
+            <li>Pénurie compétences persiste</li>
+            <li>ROI démontré sur 3-4 fonctions</li>
+          </ul>
+        </div>
+        <div class="scen">
+          <div class="scen-tag">P = 20%</div>
+          <div class="scen-name">Scénario C · Freiné</div>
+          <h4>Désillusion partielle.</h4>
+          <p>Multiplication des échecs de POC, retours en arrière, gel d'investissements. Adoption FR plafonne à ~45% fin 2027.</p>
+          <ul>
+            <li>Incident majeur réglementaire ou sécurité</li>
+            <li>Récession européenne prolongée</li>
+            <li>Plateau des capacités modèles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AGENDA 90 JOURS ===== -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 06 / Action</div>
+      <div>
+        <h2>Agenda gouvernance 90 jours.</h2>
+        <p class="section-deck">À destination des COMEX, CODIR et DRH. Ce qu'il faut décider, mesurer, lancer dans les trois prochains mois — quel que soit votre point de départ.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="agenda-grid">
+        <div class="ag-col">
+          <div class="ag-head">
+            <div class="ag-day">30j</div>
+            <div class="ag-day-label">Cadrer</div>
+          </div>
+          <div class="ag-item"><div class="ag-check"></div><div>Désigner un sponsor exécutif unique (rattachement COMEX)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Inventorier les usages déjà en cours, officiels et shadow</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Définir 3 KPI métier mesurables (pas techniques)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Cartographier les corpus de données mobilisables</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Identifier 1 cas d'usage à fort signal, faible risque</div></div>
+        </div>
+        <div class="ag-col">
+          <div class="ag-head">
+            <div class="ag-day">60j</div>
+            <div class="ag-day-label">Outiller</div>
+          </div>
+          <div class="ag-item"><div class="ag-check"></div><div>Politique d'usage IA validée et publiée en interne</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Comité éthique/gouvernance constitué (DRH + DSI + métier)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Cartographie AI Act des cas d'usage prioritaires</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Plan de montée en compétences sur 4 strates (COMEX, managers, experts, opérationnels)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>POC lancé avec critères d'arrêt explicites</div></div>
+        </div>
+        <div class="ag-col">
+          <div class="ag-head">
+            <div class="ag-day">90j</div>
+            <div class="ag-day-label">Décider</div>
+          </div>
+          <div class="ag-item"><div class="ag-check"></div><div>Premier bilan POC : passage à l'échelle, pivot ou arrêt</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Communication interne formalisée (impact métiers, pas seulement outils)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Dialogue social engagé sur le périmètre déployé</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Budget 2026/2027 cadré sur scénario explicite (A, B ou C)</div></div>
+          <div class="ag-item"><div class="ag-check"></div><div>Trajectoire 18 mois présentée au conseil d'administration</div></div>
+        </div>
+      </div>
+      <button class="btn-copy">Copier l'agenda complet →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 07 / MÉTHODE ===== -->
+<section id="methodologie">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 07 / Méthode</div>
+      <div>
+        <h2>Sources et tiérage T1–T4.</h2>
+        <p class="section-deck">Études primaires citées dans ce numéro. Tiérage T1 (académique, banques centrales, institutions publiques), T2 (cabinets à méthodologie publique), T3 (éditeurs avec décote commerciale), T4 (presse, témoignages).</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <details class="method" open>
+        <summary>Études primaires citées dans ce numéro</summary>
+        <div class="method-body">
+          <ul>
+            <li><b>T1</b> · Microsoft Research · AI Economy Institute · <i>Global AI Diffusion Report Q1 2026</i> · mai 2026 · France 47,8% adoption (rang 5 mondial)</li>
+            <li><b>T1</b> · Obvia & CRIMT · <i>Cartographie de l'IA au travail : présence, usages et enjeux</i> · 4 595 travailleurs syndiqués québécois · avril 2026</li>
+            <li><b>T1</b> · SSRN Working Paper 6787638 · <i>Generative AI vs Work-From-Home as drivers of junior hiring decline</i> · 4 pays anglo-saxons · 2026</li>
+            <li><b>T2</b> · KPMG France & Les EnthousIAstes · <i>Trends of AI 2026</i> · 356 décideurs (62% COMEX) · janvier 2026</li>
+            <li><b>T2</b> · AWS & Strand Partners · <i>Unlocking France's AI Potential 2026</i> · 1 000 entreprises + 1 000 citoyens FR · avril 2026</li>
+            <li><b>T2</b> · Adobe & Orange Business · <i>Rapport IA et tendances digitales 2026</i> · 7 000 répondants · février 2026</li>
+            <li><b>T2</b> · Deloitte · <i>State of AI in the Enterprise 2026</i></li>
+            <li><b>T2</b> · OpinionWay × Kelio · <i>Baromètre IA et RH 2026</i> · 306 DRH FR + 1 071 grand public · mars 2026</li>
+            <li><b>T2</b> · SKEMA Business School & EY · <i>Baromètre Talents 2026</i> · 1 546 étudiants et jeunes diplômés FR · avril 2026</li>
+            <li><b>T2</b> · EY Suisse · <i>AI Survey 2026 · Artificial Intelligence in Swiss Companies</i> · 604 entreprises suisses · mai 2026</li>
+            <li><b>T2</b> · Gallup · <i>Workforce Q1 2026</i> · 23 717 actifs · avril 2026</li>
+            <li><b>T1</b> · INSEE Première n°2061 · <i>Les TIC dans les entreprises en 2024</i> · juillet 2025</li>
+            <li><b>T1</b> · Brynjolfsson, Chandar & Chen · <i>Canaries in the Coal Mine</i> · Stanford Digital Economy Lab · 2025</li>
+            <li><b>T1</b> · Anthropic Economic Index · Massenkoff & McCrory · <i>Labor market impacts of AI</i> · mars 2026 (critiqué par SSRN 6787638)</li>
+            <li><b>T4</b> · The Economist · <i>Is AI putting graduates out of work already?</i> · mai 2026</li>
+          </ul>
+        </div>
+      </details>
+      <details class="method">
+        <summary>Explication du tiérage T1–T4 et des ratings C1–C4</summary>
+        <div class="method-body">
+          <p><b>Tiérage des sources</b></p>
+          <p><b>T1</b> · Sources académiques peer-reviewed, banques centrales, institutions statistiques publiques (INSEE, OFS, Eurostat, FRB, BIS). Maximum de rigueur, minimum de biais commercial.</p>
+          <p><b>T2</b> · Cabinets internationaux à méthodologie publique (McKinsey MGI, BCG, KPMG, Deloitte, Adobe, AWS/Strand), institutions économiques (Bpifrance Le Lab, France Stratégie).</p>
+          <p><b>T3</b> · Études d'éditeurs et fournisseurs. Utilisées avec décote pour biais commercial.</p>
+          <p><b>T4</b> · Presse économique, témoignages terrain. Utilisés en illustration uniquement, jamais comme preuve.</p>
+          <p style="margin-top:12px"><b>Ratings de confiance</b></p>
+          <p><b>C1</b> · Convergence T1 multiple, méthodologie reproductible, intervalle de confiance publié.</p>
+          <p><b>C2</b> · Convergence T1 ou T2 multiple, méthodologie publique.</p>
+          <p><b>C3</b> · Source unique ou non-convergence partielle. Lecture prudente.</p>
+          <p><b>C4</b> · Indicatif uniquement, signal à confirmer.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 08 / DISCLOSURE ÉDITORIALE ===== -->
+<section id="disclosure" style="background: var(--bg-alt); padding: 40px 0; border-bottom: 1px solid var(--br);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 08 / Disclosure</div>
+      <div>
+        <h2>Indépendance éditoriale.</h2>
+        <p class="section-deck">Le cadre exact du partenariat avec myAuxilium, posé noir sur blanc.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div style="background: var(--bg-card); border-left: 4px solid var(--ac); padding: 32px 36px;">
+        <p style="font-size: 15px; line-height: 1.7; color: var(--tx); margin-bottom: 16px;">Ce <strong>Dispatch·iA #004</strong> est un <strong>numéro sponsorisé par myAuxilium</strong>. Le sponsoring porte exclusivement sur le financement de la production éditoriale.</p>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--tx); margin-bottom: 16px;"><strong>L'intégralité du contenu analytique</strong> (chiffres, sources, scénarios, agenda gouvernance) <strong>relève de la responsabilité éditoriale exclusive de Naully Nicolas.</strong> myAuxilium n'a pas fourni de données, n'a pas relu les analyses avant publication, et n'intervient pas dans le choix des sources ni dans la formulation des conclusions.</p>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--tx); margin: 0;">La section §09 <em>Regard partenaire</em> est l'espace d'expression réservé à myAuxilium, clairement balisé comme contenu signé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== § 09 / REGARD PARTENAIRE ===== -->
+<section class="partner" id="partner">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 09 / Partenaire</div>
+      <div>
+        <span class="partner-banner">Contenu partenaire · signé myAuxilium</span>
+        <h2>Le regard d'un opérateur du terrain.</h2>
+        <p class="section-deck">Le point de vue de Martin Guichard, CEO de myAuxilium.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="partner-card">
+        <p class="partner-quote">« Le passage à l'échelle ne dépend pas de la puissance du modèle LLM. Il dépend de l'hygiène documentaire, de l'appréhension claire de ses workflows métiers existants, et d'un sponsorship interne fort. »</p>
+        <div class="partner-body">
+          <p>Ce qu'on observe chez nos clients ETI et PME françaises en 2026, c'est une bascule très nette entre deux types de POC. Le premier, qui a longtemps dominé, vise à tester ChatGPT, Claude ou Gemini en interne, ou la plupart du temps à laisser les collaborateurs tester en toute autonomie en autorisant un shadow IA incontrôlable. Cette approche est vouée à l'échec et fait peser sur l'entreprise des risques graves : sans corpus interne, sans cadrage métier, sans gouvernance, l'outil produit du générique dans des conditions de sécurité, de souveraineté et de traçabilité impossibles à maîtriser sur toute la chaîne, sans parler de la maîtrise des coûts liés à un accès sans limite à des automatisations dont le ROI est parfois très contestable.</p>
+          <p>Le second type, qui prend désormais le dessus, part de l'expression d'un workflow métier tel qu'il est aujourd'hui, de la prise en compte de la documentation existante (procédures, contenus, productions, guidelines, méthodologies) et de son organisation dans une architecture RAG souveraine avec mécanismes anti-hallucination et recherche documentaire approfondie et fiable, puis de son encodage dans un système IA 100% gouverné, fiabilisé et respectant les principes de l'entreprise, notamment les validations humaines.</p>
+          <p>La frontière entre les deux n'est pas technologique. Elle est <strong>organisationnelle et stratégique</strong>. Les clients qui réussissent ont systématiquement : (1) un sponsor unique au COMEX, qui peut décider et arbitrer ; (2) une hygiène documentaire minimale ; (3) quelques cas d'usage à fort signal pour démontrer la valeur avant de généraliser à tous les workflows, même les plus complexes.</p>
+          <p>Ce qu'il ne faut surtout pas sous-estimer, c'est le poids de l'<strong>auditabilité</strong>. L'AI Act, le RGPD et les exigences sectorielles particulières convergent vers une obligation de traçabilité et de sécurité sans concessions : qui a posé la question et qui a participé au workflow global, quand, quelles sources ont été mobilisées, quelle réponse a été produite, quel modèle ou outil a été appelé, comment a-t-il effectué ses choix et raisonné. Une plateforme qui n'enregistre pas ces éléments avec horodatage et liens vers les documents sources vous fait aujourd'hui courir un risque réglementaire majeur. C'est précisément la frontière entre une application LLM de chat issue du grand public comme ChatGPT ou Claude, et une plateforme souveraine capable d'encoder vos workflows métiers et de vous permettre de piloter et de gouverner l'ensemble sans compromis, comme myAuxilium.</p>
+        </div>
+
+        <!-- Bloc C : six piliers myAuxilium -->
+        <div style="margin-top: 32px; padding: 28px 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ac-soft); margin-bottom: 18px;">→ Six piliers au cœur de l'approche myAuxilium</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Sécurité</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Chiffrement et protection des données</div>
+            </div>
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Souveraineté</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Hébergement européen maîtrisé</div>
+            </div>
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Droits</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Contrôle du corpus documentaire</div>
+            </div>
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Travail collectif</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Collaboration équipe sur l'IA</div>
+            </div>
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Validation humaine</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Human in the loop systématique</div>
+            </div>
+            <div style="border-left: 2px solid var(--ac); padding-left: 12px;">
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--bg); margin-bottom: 2px;">Adaptation métier</div>
+              <div style="font-size: 12px; color: rgba(250,247,242,0.6); line-height: 1.4;">Encodage des workflows réels</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc B : accroche CTA -->
+        <p style="margin-top: 32px; font-size: 16px; line-height: 1.6; color: rgba(250,247,242,0.85); font-style: italic;">Si votre organisation est confrontée à ces enjeux et que vous souhaitez en discuter avec un opérateur du terrain, myAuxilium propose un échange direct avec un expert.</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15);">
+          <a href="https://calendly.com/rashomon-international-martinguichard/myauxilium-echangezavecunexpert" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: var(--ac); color: var(--bg); padding: 14px 24px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;">
+            Parler à un expert myAuxilium <span>→</span>
+          </a>
+          <a href="https://www.myauxilium.ai/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--bg); padding: 14px 24px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; border: 1px solid rgba(250,247,242,0.4);">
+            Découvrir la plateforme <span>→</span>
+          </a>
+        </div>
+
+        <!-- Bloc E : cycle de vente et méthode -->
+        <div style="margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(250,247,242,0.55); letter-spacing: 0.04em;">
+          Cycles de déploiement de l'ordre de 3 mois en moyenne · propositions concrètes couvrant l'implémentation de A à Z · partenaire Station F
+        </div>
+
+        <div class="partner-sig">
+          <div>
+            <div class="partner-sig-name">Martin Guichard</div>
+            <div class="partner-sig-role">CEO · myAuxilium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA · PROCHAINES ÉTAPES ===== -->
+<section id="cta" style="background: var(--bg); padding: 40px 0; border-bottom: none;">
+  <div class="wrap">
+    <div style="background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%); border: 1px solid var(--br-strong); padding: 48px 48px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: var(--ac); opacity: 0.04; border-radius: 50%; transform: translate(60px, -60px);"></div>
+      <div style="position: relative; max-width: 780px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ac); margin-bottom: 20px;">→ Prochaines étapes</div>
+        <h2 style="font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px;">Vous voulez un Dispatch <em style="color: var(--ac); font-style: italic;">calibré sur votre secteur ?</em></h2>
+        <p style="font-size: 18px; line-height: 1.55; color: var(--tx-sec); margin-bottom: 40px; max-width: 680px;">Fédérations professionnelles, OPCO, directions générales, DRH : briefings sur-mesure sur le périmètre de votre choix, format court, sourcé, exploitable en COMEX dans la semaine.</p>
+        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 32px;">
+          <div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 8px;">01</div>
+            <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 6px;">Cadrage éditorial</div>
+            <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.5;">Périmètre métier, indicateurs prioritaires, scénarios pertinents pour votre gouvernance.</p>
+          </div>
+          <div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 8px;">02</div>
+            <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 6px;">Collecte sourcée T1–T4</div>
+            <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.5;">Sources académiques et institutionnelles, ratings de confiance, traçabilité documentaire.</p>
+          </div>
+          <div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ac); margin-bottom: 8px;">03</div>
+            <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 6px;">Livrable activable</div>
+            <p style="font-size: 13px; color: var(--tx-sec); line-height: 1.5;">Microsite, PDF synthèse, présentation COMEX, agenda gouvernance 90 jours.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <a href="https://observatoire.naullynicolas.ch/contact.html?type=custom&dispatch=004" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; background: var(--tx); color: var(--bg); padding: 18px 32px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;">
+            Demander un Dispatch sur-mesure <span style="font-size: 16px;">→</span>
+          </a>
+          <a href="https://naullynicolas.ch" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tx); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--br-strong); padding-bottom: 2px;">
+            Découvrir mes travaux
+          </a>
+        </div>
+        <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--br); display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--tx-mut); text-transform: uppercase; letter-spacing: 0.06em;">
+          <div>
+            <div style="color: var(--tx); margin-bottom: 4px;">→ Audience cible</div>
+            <span>COMEX · CODIR · DRH</span>
+          </div>
+          <div>
+            <div style="color: var(--tx); margin-bottom: 4px;">→ Délai</div>
+            <span>3 à 6 semaines</span>
+          </div>
+          <div>
+            <div style="color: var(--tx); margin-bottom: 4px;">→ Contact direct</div>
+            <a href="mailto:sayhi@naullynicolas.ch" style="color: var(--tx); text-decoration: none; border-bottom: 1px solid var(--br-strong); text-transform: lowercase; letter-spacing: 0;">sayhi@naullynicolas.ch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Dispatch·iA</div>
+        <p class="foot-text">Briefings courts, sourcés, indépendants. À destination des décideurs COMEX, CODIR et DRH qui cherchent à se forger une lecture rigoureuse de la transformation des métiers par l'IA. Série éditée par Naully Nicolas, auteur de Guerill-iA.</p>
+        <form class="foot-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="votre.email@entreprise.fr">
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
+      <div class="foot-col">
+        <h4>Observatoires</h4>
+        <ul>
+          <li><a href="https://transitions-ia.fr">transitions-ia.fr · France</a></li>
+          <li><a href="https://observatoire.naullynicolas.ch">observatoire.naullynicolas.ch · Suisse</a></li>
+          <li><a href="https://naullynicolas.ch">naullynicolas.ch · Site auteur</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Briefings précédents</h4>
+        <ul>
+          <li><a href="#">#06 · IA & fonction RH (avril 2026)</a></li>
+          <li><a href="#">#05 · ROME-IA, méthodologie (mars 2026)</a></li>
+          <li><a href="#">#04 · Souveraineté & AI Act (février 2026)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Naully Nicolas · Auteur de Guerill-iA · sayhi@naullynicolas.ch</div>
+      <div>Snapshot mai 2026 · prochaine MAJ T3</div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* === PROGRESS + BACK TO TOP === */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+  document.getElementById('to-top').classList.toggle('show', h.scrollTop > 600);
+});
+
+/* === D3 LOADER MULTI-CDN AVEC FALLBACK === */
+(function loadD3() {
+  if (typeof d3 !== 'undefined') {
+    window.__d3ReadyResolve();
+    return;
+  }
+  const cdns = [
+    'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js',
+    'https://unpkg.com/d3@7/dist/d3.min.js',
+    'https://d3js.org/d3.v7.min.js'
+  ];
+  let idx = 0;
+  function tryNext() {
+    if (idx >= cdns.length) {
+      console.warn('D3 unavailable from all CDNs, charts will not render');
+      window.__d3ReadyReject(new Error('D3 unavailable'));
+      // Affiche un message dans les conteneurs de graphiques
+      document.querySelectorAll('svg.chart').forEach(svg => {
+        const parent = svg.parentElement;
+        const msg = document.createElement('div');
+        msg.style.cssText = 'padding: 40px 20px; text-align: center; color: #8A8A8A; font-family: IBM Plex Mono, monospace; font-size: 12px;';
+        msg.textContent = 'Graphique indisponible (D3 non chargé)';
+        parent.appendChild(msg);
+        svg.style.display = 'none';
+      });
+      return;
+    }
+    const s = document.createElement('script');
+    s.src = cdns[idx];
+    s.async = false;
+    s.onload = () => window.__d3ReadyResolve();
+    s.onerror = () => { idx++; tryNext(); };
+    document.head.appendChild(s);
+  }
+  tryNext();
+})();
+
+/* === GRAPHIQUES D3 (exécutés une fois D3 chargé) === */
+window.__d3Ready.then(() => {
+
+  /* === ADOPTION CHART : Microsoft AI Diffusion + AWS + Adobe === */
+  (function(){
+    // Sources : Microsoft AI Diffusion Q1 2026 (47.8% pop FR), AWS/Strand 2026 (40% entreprises), Adobe/Orange (13% agentique à l'échelle)
+    const data = [
+      {label: 'H1 2025', pop: 40.9, ent: 30, agent: 6},
+      {label: 'H2 2025', pop: 44.0, ent: 35, agent: 9},
+      {label: 'Q1 2026', pop: 47.8, ent: 40, agent: 13}
+    ];
+    const svg = d3.select('#adoption-chart');
+    const W = svg.node().clientWidth, H = 280;
+    const m = {t: 20, r: 20, b: 32, l: 36};
+    const x = d3.scalePoint().domain(data.map(d => d.label)).range([m.l + 20, W - m.r - 20]);
+    const y = d3.scaleLinear().domain([0, 60]).range([H - m.b, m.t]);
+
+    svg.append('g')
+      .attr('transform', `translate(0,${H - m.b})`)
+      .call(d3.axisBottom(x))
+      .call(g => g.select('.domain').attr('stroke', '#C9C2B5'))
+      .call(g => g.selectAll('text').attr('font-family', 'IBM Plex Mono').attr('font-size', 11).attr('fill', '#8A8A8A'));
+
+    svg.append('g')
+      .attr('transform', `translate(${m.l},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => d + '%'))
+      .call(g => g.select('.domain').attr('stroke', '#C9C2B5'))
+      .call(g => g.selectAll('line').attr('stroke', '#E5E0D8'))
+      .call(g => g.selectAll('text').attr('font-family', 'IBM Plex Mono').attr('font-size', 11).attr('fill', '#8A8A8A'));
+
+    const line = (key, color, dash) => {
+      const ln = d3.line().x(d => x(d.label)).y(d => y(d[key])).curve(d3.curveMonotoneX);
+      svg.append('path').datum(data).attr('d', ln).attr('fill', 'none').attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dash || '');
+      svg.selectAll('.pt-' + key).data(data).join('circle').attr('class', 'pt-' + key).attr('cx', d => x(d.label)).attr('cy', d => y(d[key])).attr('r', 4).attr('fill', color);
+      svg.selectAll('.tx-' + key).data(data).join('text').attr('class', 'tx-' + key).attr('x', d => x(d.label)).attr('y', d => y(d[key]) - 10).attr('text-anchor', 'middle').attr('font-family', 'IBM Plex Mono').attr('font-size', 10).attr('fill', color).text(d => d[key] + '%');
+    };
+    line('pop', '#B8312F');
+    line('ent', '#1A1A1A');
+    line('agent', '#5B5B5B', '3,3');
+  })();
+
+  /* === ADOPTION PAR FONCTION : KPMG Trends of AI 2026 === */
+  (function(){
+    // Source : KPMG Trends of AI 2026
+    const data = [
+      {r: 'Résumé / Traduction', v: 59},
+      {r: 'Génération contenu',  v: 55},
+      {r: 'Détect. anomalies',   v: 44},
+      {r: 'Formation / Dév.',    v: 38},
+      {r: 'Analyse documents',   v: 35},
+      {r: 'Support client',      v: 28},
+      {r: 'Recrutement / RH',    v: 19},
+      {r: 'Prévision ventes',    v: 7}
+    ];
+    const svg = d3.select('#region-chart');
+    const W = svg.node().clientWidth, H = 280;
+    const m = {t: 8, r: 32, b: 8, l: 120};
+    const y = d3.scaleBand().domain(data.map(d => d.r)).range([m.t, H - m.b]).padding(0.18);
+    const x = d3.scaleLinear().domain([0, 60]).range([m.l, W - m.r]);
+
+    svg.selectAll('rect.bar').data(data).join('rect')
+      .attr('class', 'bar')
+      .attr('x', m.l)
+      .attr('y', d => y(d.r))
+      .attr('height', y.bandwidth())
+      .attr('width', d => x(d.v) - m.l)
+      .attr('fill', d => d.v >= 50 ? '#B8312F' : (d.v >= 30 ? '#1A1A1A' : '#8A8A8A'));
+
+    svg.selectAll('text.lbl').data(data).join('text')
+      .attr('class', 'lbl')
+      .attr('x', m.l - 10)
+      .attr('y', d => y(d.r) + y.bandwidth() / 2 + 4)
+      .attr('text-anchor', 'end')
+      .attr('font-family', 'Inter')
+      .attr('font-size', 12)
+      .attr('fill', '#1A1A1A')
+      .text(d => d.r);
+
+    svg.selectAll('text.val').data(data).join('text')
+      .attr('class', 'val')
+      .attr('x', d => x(d.v) + 6)
+      .attr('y', d => y(d.r) + y.bandwidth() / 2 + 4)
+      .attr('font-family', 'IBM Plex Mono')
+      .attr('font-size', 11)
+      .attr('fill', '#5B5B5B')
+      .text(d => d.v + '%');
+  })();
+
+}).catch(err => {
+  console.warn('Charts disabled:', err.message);
+});
+
+/* Treemap supprimée pour aligner sur le doc Word - les données par fonction sont déjà visibles dans le bar chart §02 */
+</script>
+</body>
+</html>

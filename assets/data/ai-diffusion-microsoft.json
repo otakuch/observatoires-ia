@@ -37,6 +37,15 @@
       "rank_q1_2026": null,
       "color": "#11110F",
       "style": "dashed"
+    },
+    {
+      "code": "GN",
+      "name": {"fr": "Nord global", "en": "Global North"},
+      "values": [22.9, 24.7, 27.5],
+      "rank_q1_2026": null,
+      "color": "#B5732A",
+      "style": "dashed",
+      "note": "Agrégat Microsoft Nord global · repère régional, non UE-27"
     }
   ],
   "context": {
