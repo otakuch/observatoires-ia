@@ -262,6 +262,22 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
   </div>
 </header>
 
+<section class="band alt" id="maj-juillet">
+  <div class="wrap">
+    <div class="section-num" data-i18n="sj_num"></div>
+    <h2 class="section-title" data-i18n="sj_title"></h2>
+    <p class="section-deck" data-i18n="sj_deck"></p>
+    <div class="stats">
+      <div class="stat"><div class="num">82&nbsp;%</div><div class="lbl" data-i18n="sj_st1"></div><div class="meta">Observatoire Data &amp; IA CH 2026</div></div>
+      <div class="stat"><div class="num">11&nbsp;%</div><div class="lbl" data-i18n="sj_st2"></div><div class="meta">Observatoire Data &amp; IA CH 2026</div></div>
+      <div class="stat"><div class="num">47&nbsp;%</div><div class="lbl" data-i18n="sj_st3"></div><div class="meta">Observatoire Data &amp; IA CH 2026</div></div>
+      <div class="stat"><div class="num">8&nbsp;%</div><div class="lbl" data-i18n="sj_st4"></div><div class="meta">Observatoire Data &amp; IA CH 2026</div></div>
+      <div class="stat"><div class="num">62&nbsp;%</div><div class="lbl" data-i18n="sj_st5"></div><div class="meta">Observatoire Data &amp; IA CH 2026</div></div>
+    </div>
+    <div class="takeaway" data-i18n="sj_take"></div>
+  </div>
+</section>
+
 <section class="band" id="methode">
   <div class="wrap">
     <div class="section-num" data-i18n="m_num"></div>
@@ -331,6 +347,7 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
       <div class="col"><h4 class="dn" data-i18n="s3_lag_h"></h4><ul id="lag-list"></ul></div>
     </div>
     <div class="takeaway" data-i18n="s3_take"></div>
+        <div class="obs2026-callout" style="margin-top:22px;border-left:3px solid var(--ac);background:rgba(0,48,129,.05);padding:18px 22px;border-radius:0 6px 6px 0;"><div class="obs2026-callout-label" data-i18n="obs26_label" style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);font-weight:600;margin-bottom:8px;"></div><p data-i18n="obs26_text" style="margin:0;font-size:15px;line-height:1.6;"></p><a href="https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ac);text-decoration:none;">Observatoire Data &amp; IA en Suisse 2026 ↗</a></div>
   </div>
 </section>
 
@@ -463,6 +480,8 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
           <li>EY AI Survey 2026 — Artificial Intelligence in Swiss Companies (604 entreprises CH, mai 2026). T1.</li>
           <li>UBS Outlook Suisse Q2 2026 / Intervista (≈2500 entreprises CH, mars 2026). T1.</li>
           <li>HEG Genève / Oracle — Observatoire Data & IA 2025. T2.</li>
+          <li>Kharazian, Simon &amp; Stevens · Ramp / Revelio Labs — <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">A New Look at AI's Impact on Jobs</a> (21 559 firmes US, juin 2026). T2. Adopteurs intensifs : +10% emploi, +12% juniors ; adopteurs légers, aucun effet · contredit la destruction massive, effet en partie de sélection.</li>
+          <li>Colombus Consulting / Oracle / HEG-Genève — <a href="https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf" target="_blank" rel="noopener">Observatoire Data &amp; IA en Suisse 2026</a> (100+ organisations, janv.-avril 2026). T2. Orchestration durable : 82% jugent la conduite du changement critique mais 11% seulement refondent les rôles ; 47% intègrent l'IA en stratégie long terme (9% au cœur) ; maturité avancée 8% en 2026 vs 17% en 2024 ; 62% mesurent la souveraineté.</li>
           <li>KOF ETH Zürich — Siegenthaler & Kläui, déc. 2025. T1.</li>
           <li>PwC Suisse — AI Jobs Barometer 2025. T2.</li>
           <li>OFS — STATENT / STATEM (structure de l'emploi par grande région).</li>
@@ -482,6 +501,15 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
 /* ===================== i18n ===================== */
 const I18N = {
 fr:{
+    sj_num:"Édition juillet · nouvelle étude",
+    sj_title:"De l'adoption à l'orchestration durable",
+    sj_deck:"L'édition 2026 de l'Observatoire Data & IA en Suisse (Colombus Consulting, Oracle, HEG-Genève · plus de 100 organisations, janvier-avril 2026) acte un basculement : en Suisse, l'IA n'est plus une question d'adoption mais d'orchestration durable. Le paradoxe central de l'année : on le sait, mais on ne le fait pas encore.",
+    sj_st1:"des entreprises jugent la conduite du changement critique ou très importante",
+    sj_st2:"seulement engagent une refonte réelle des rôles autour de l'IA",
+    sj_st3:"intègrent l'IA en stratégie long terme · 9 % seulement au cœur de la stratégie",
+    sj_st4:"seulement à un stade de maturité avancée, contre 17 % en 2024",
+    sj_st5:"mesurent activement leur souveraineté ou la jugent bloquante",
+    sj_take:"Le vrai sujet 2026 n'est plus la technologie ni même l'adoption, mais le modèle opérationnel : organisation, compétences, gouvernance des données. Les fondations data, et non la technologie, deviennent le principal facteur limitant du passage à l'échelle.",
  theme_dark:"Sombre", theme_light:"Clair",
  hero_kicker:"Dispatch·iA #006 · Édition indépendante",
  hero_title:"L'IA dans les entreprises suisses. <em>État des lieux 2026.</em>",
@@ -521,7 +549,7 @@ fr:{
  s3_card_title:"Où en sont les entreprises dans leurs projets IA",
  s3_lead_h:"Secteurs en tête",
  s3_lag_h:"Secteurs à la traîne",
- s3_take:"À retenir : 63 % des entreprises sont au stade « domaines isolés » ou « pilotes » ; seules 14 % passent à l'échelle et 9 % ont intégré l'IA à leur modèle. L'adoption suit le degré de numérisation : TIC, finance et pharma devant, construction et industries traditionnelles derrière.",
+ s3_take:"À retenir : 63 % des entreprises sont au stade « domaines isolés » ou « pilotes » ; seules 14 % passent à l'échelle et 9 % ont intégré l'IA à leur modèle. L'adoption suit le degré de numérisation : TIC, finance et pharma devant, construction et industries traditionnelles derrière.",obs26_label:"Étude 2026 · Observatoire Data & IA en Suisse",obs26_text:"82 % des entreprises jugent la conduite du changement critique, mais 11 % seulement refondent réellement les rôles autour de l'IA. La maturité avancée recule même à 8 % (contre 17 % en 2024) : en 2026, le vrai sujet n'est plus l'adoption mais l'orchestration durable. 47 % intègrent l'IA en stratégie long terme, 9 % seulement au cœur de leur stratégie. Colombus Consulting / Oracle / HEG-Genève, 100+ organisations, janvier-avril 2026.",
  s4_num:"§ 04 / Usages",
  s4_title:"Ce que les entreprises font réellement avec l'IA",
  s4_deck:"L'usage dominant n'est pas la disruption mais l'analyse et l'amélioration de l'existant. L'automatisation suit ; l'IA au cœur du modèle reste marginale.",
@@ -614,6 +642,15 @@ fr:{
  ]
 },
 de:{
+    sj_num:"Juli-Ausgabe · neue Studie",
+    sj_title:"Von der Einführung zur nachhaltigen Orchestrierung",
+    sj_deck:"Die Ausgabe 2026 des Observatoriums Data & KI in der Schweiz (Colombus Consulting, Oracle, HEG Genf · über 100 Organisationen, Januar-April 2026) markiert einen Wandel: In der Schweiz ist KI keine Frage der Einführung mehr, sondern der nachhaltigen Orchestrierung. Das zentrale Paradox des Jahres: Man weiss es, tut es aber noch nicht.",
+    sj_st1:"der Unternehmen halten das Change-Management für kritisch oder sehr wichtig",
+    sj_st2:"gestalten die Rollen rund um KI tatsächlich neu",
+    sj_st3:"integrieren KI in ihre langfristige Strategie · nur 9 % im Kern der Strategie",
+    sj_st4:"nur auf einer fortgeschrittenen Reifestufe, gegenüber 17 % im Jahr 2024",
+    sj_st5:"messen aktiv ihre Souveränität oder sehen sie als blockierend an",
+    sj_take:"Das eigentliche Thema 2026 ist nicht mehr die Technologie oder gar die Einführung, sondern das Betriebsmodell: Organisation, Kompetenzen, Data Governance. Die Datengrundlagen, nicht die Technologie, werden zum wichtigsten limitierenden Faktor für die Skalierung.",
  theme_dark:"Dunkel", theme_light:"Hell",
  hero_kicker:"Dispatch·iA #006 · Unabhängige Ausgabe",
  hero_title:"KI in Schweizer Unternehmen. <em>Lagebild 2026.</em>",
@@ -653,7 +690,7 @@ de:{
  s3_card_title:"Wo Unternehmen in ihren KI-Projekten stehen",
  s3_lead_h:"Führende Branchen",
  s3_lag_h:"Nachzüglerbranchen",
- s3_take:"Fazit: 63 % der Unternehmen sind im Stadium «einzelne Bereiche» oder «Pilot»; nur 14 % skalieren, 9 % haben KI integriert. Adoption folgt dem Digitalisierungsgrad: IKT, Finanzen, Pharma voran, Bau und traditionelle Industrie hinten.",
+ s3_take:"Fazit: 63 % der Unternehmen sind im Stadium «einzelne Bereiche» oder «Pilot»; nur 14 % skalieren, 9 % haben KI integriert. Adoption folgt dem Digitalisierungsgrad: IKT, Finanzen, Pharma voran, Bau und traditionelle Industrie hinten.",obs26_label:"Studie 2026 · Observatorium Data & KI in der Schweiz",obs26_text:"82 % der Unternehmen halten das Change-Management für kritisch, aber nur 11 % gestalten die Rollen rund um die KI wirklich neu. Die fortgeschrittene Reife sinkt sogar auf 8 % (gegenüber 17 % im Jahr 2024): 2026 geht es nicht mehr um die Einführung, sondern um nachhaltige Orchestrierung. 47 % integrieren KI in die langfristige Strategie, nur 9 % ins Zentrum ihrer Strategie. Colombus Consulting / Oracle / HEG-Genf, 100+ Organisationen, Januar-April 2026.",
  s4_num:"§ 04 / Anwendungen",
  s4_title:"Was Unternehmen wirklich mit KI tun",
  s4_deck:"Die dominierende Nutzung ist nicht Disruption, sondern Analyse und Verbesserung des Bestehenden. Automatisierung folgt; KI als Kern des Modells bleibt marginal.",
@@ -745,6 +782,15 @@ de:{
  ]
 },
 it:{
+    sj_num:"Edizione luglio · nuovo studio",
+    sj_title:"Dall'adozione all'orchestrazione sostenibile",
+    sj_deck:"L'edizione 2026 dell'Osservatorio Data & IA in Svizzera (Colombus Consulting, Oracle, HEG-Ginevra · oltre 100 organizzazioni, gennaio-aprile 2026) segna un cambiamento: in Svizzera l'IA non è più una questione di adozione ma di orchestrazione sostenibile. Il paradosso centrale dell'anno: lo si sa, ma non lo si fa ancora.",
+    sj_st1:"delle imprese giudica la gestione del cambiamento critica o molto importante",
+    sj_st2:"soltanto ridisegna realmente i ruoli attorno all'IA",
+    sj_st3:"integra l'IA nella strategia a lungo termine · solo il 9 % al centro della strategia",
+    sj_st4:"soltanto a uno stadio di maturità avanzata, contro il 17 % nel 2024",
+    sj_st5:"misura attivamente la propria sovranità o la considera bloccante",
+    sj_take:"Il vero tema del 2026 non è più la tecnologia né l'adozione, ma il modello operativo: organizzazione, competenze, governance dei dati. Sono le fondamenta dei dati, non la tecnologia, a diventare il principale fattore limitante per la scalabilità.",
  theme_dark:"Scuro", theme_light:"Chiaro",
  hero_kicker:"Dispatch·iA #006 · Edizione indipendente",
  hero_title:"L'IA nelle imprese svizzere. <em>Stato dell'arte 2026.</em>",
@@ -784,7 +830,7 @@ it:{
  s3_card_title:"A che punto sono le imprese nei progetti IA",
  s3_lead_h:"Settori in testa",
  s3_lag_h:"Settori in ritardo",
- s3_take:"Da ricordare: il 63 % delle imprese è allo stadio «ambiti isolati» o «pilota»; solo il 14 % passa in scala e il 9 % ha integrato l'IA. L'adozione segue il grado di digitalizzazione: ICT, finanza e farma davanti, costruzioni e industrie tradizionali dietro.",
+ s3_take:"Da ricordare: il 63 % delle imprese è allo stadio «ambiti isolati» o «pilota»; solo il 14 % passa in scala e il 9 % ha integrato l'IA. L'adozione segue il grado di digitalizzazione: ICT, finanza e farma davanti, costruzioni e industrie tradizionali dietro.",obs26_label:"Studio 2026 · Osservatorio Data & IA in Svizzera",obs26_text:"L'82 % delle imprese giudica critica la gestione del cambiamento, ma solo l'11 % ridisegna davvero i ruoli attorno all'IA. La maturità avanzata scende addirittura all'8 % (contro il 17 % nel 2024): nel 2026 la vera questione non è più l'adozione ma l'orchestrazione sostenibile. Il 47 % integra l'IA nella strategia a lungo termine, solo il 9 % al centro della propria strategia. Colombus Consulting / Oracle / HEG-Ginevra, 100+ organizzazioni, gennaio-aprile 2026.",
  s4_num:"§ 04 / Usi",
  s4_title:"Cosa fanno davvero le imprese con l'IA",
  s4_deck:"L'uso dominante non è la disruption ma l'analisi e il miglioramento dell'esistente. L'automazione segue; l'IA al cuore del modello resta marginale.",
@@ -876,6 +922,15 @@ it:{
  ]
 },
 en:{
+    sj_num:"July edition · new study",
+    sj_title:"From adoption to sustainable orchestration",
+    sj_deck:"The 2026 edition of the Swiss Data & AI Observatory (Colombus Consulting, Oracle, HEG-Geneva · 100+ organisations, January-April 2026) marks a shift: in Switzerland, AI is no longer a question of adoption but of sustainable orchestration. The central paradox of the year: we know it, but we don't do it yet.",
+    sj_st1:"of companies rate change management as critical or very important",
+    sj_st2:"actually redesign roles around AI",
+    sj_st3:"embed AI in their long-term strategy · only 9 % at the core of strategy",
+    sj_st4:"only at an advanced maturity stage, versus 17 % in 2024",
+    sj_st5:"actively measure their sovereignty or see it as a blocker",
+    sj_take:"The real issue in 2026 is no longer technology, nor even adoption, but the operating model: organisation, skills, data governance. Data foundations, not technology, become the main factor limiting scale-up.",
  theme_dark:"Dark", theme_light:"Light",
  hero_kicker:"Dispatch·iA #006 · Independent edition",
  hero_title:"AI in Swiss companies. <em>2026 state of play.</em>",
@@ -915,7 +970,7 @@ en:{
  s3_card_title:"Where companies stand in their AI projects",
  s3_lead_h:"Leading sectors",
  s3_lag_h:"Lagging sectors",
- s3_take:"Takeaway: 63 % of companies are at the \u201cisolated areas\u201d or \u201cpilot\u201d stage; only 14 % scale and 9 % have integrated AI into their model. Adoption tracks digital maturity: ICT, finance and pharma ahead, construction and traditional industry behind.",
+ s3_take:"Takeaway: 63 % of companies are at the \u201cisolated areas\u201d or \u201cpilot\u201d stage; only 14 % scale and 9 % have integrated AI into their model. Adoption tracks digital maturity: ICT, finance and pharma ahead, construction and traditional industry behind.",obs26_label:"2026 study · Data & AI Observatory in Switzerland",obs26_text:"82% of companies see change management as critical, but only 11% actually redesign roles around AI. Advanced maturity even falls to 8% (vs 17% in 2024): in 2026 the real issue is no longer adoption but sustainable orchestration. 47% embed AI in long-term strategy, only 9% at the core of it. Colombus Consulting / Oracle / HEG-Geneva, 100+ organisations, January-April 2026.",
  s4_num:"§ 04 / Use cases",
  s4_title:"What companies actually do with AI",
  s4_deck:"The dominant use is not disruption but analysis and improvement of the existing. Automation follows; AI at the core of the model stays marginal.",

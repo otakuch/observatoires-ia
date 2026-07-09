@@ -1,839 +1,892 @@
 {
-  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-ch.schema.json",
-  "version": "0.3.0",
-  "compiled_at": "2026-04-26",
-  "country": "CH",
-  "scope": "Indicateurs prospectifs IA & emploi · Suisse",
-  "license": "CC BY 4.0",
-  "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
-  "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
-  "underlying_dashboard": "https://observatoire.naullynicolas.ch/ch/",
-  "count": 18,
-  "indicators": [
+ "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-ch.schema.json",
+ "version": "0.3.0",
+ "compiled_at": "2026-06-13",
+ "country": "CH",
+ "scope": "Indicateurs prospectifs IA & emploi · Suisse",
+ "license": "CC BY 4.0",
+ "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
+ "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
+ "underlying_dashboard": "https://observatoire.naullynicolas.ch/ch/",
+ "count": 18,
+ "indicators": [
+  {
+   "title": "% emplois suisses exposés à l'IA d'ici 2030",
+   "unit": "%",
+   "n_sources": 8,
+   "value_min": 11,
+   "value_max": 22,
+   "value_median": 15,
+   "summary_fr": "Un tiers des emplois en Suisse comprennent des tâches que l'IA maîtrise déjà. Le Stanford HAI AI Index 2026 confirme que le churn occupationnel depuis l'IA générative est plus rapide qu'après l'arrivée du PC ou d'Internet.",
+   "description_fr": "Proportion des emplois suisses dont les tâches sont partiellement exposées à l'IA générative d'ici 2030. La structure économique suisse (services financiers, pharma, place horlogère) et le faible taux de chômage (2.4%) suggèrent un impact différent de la moyenne européenne. Le Stanford HAI AI Index 2026 confirme que la rotation occupationnelle depuis l'introduction de l'IA générative est plus rapide qu'après l'arrivée des PCs ou d'Internet (Gimbel et al., 2025).",
+   "sources": [
     {
-      "title": "% emplois suisses exposés à l'IA d'ici 2030",
-      "unit": "%",
-      "n_sources": 8,
-      "value_min": 11,
-      "value_max": 22,
-      "value_median": 15,
-      "summary_fr": "Un tiers des emplois en Suisse comprennent des tâches que l'IA maîtrise déjà. Le Stanford HAI AI Index 2026 confirme que le churn occupationnel depuis l'IA générative est plus rapide qu'après l'arrivée du PC ou d'Internet.",
-      "description_fr": "Proportion des emplois suisses dont les tâches sont partiellement exposées à l'IA générative d'ici 2030. La structure économique suisse (services financiers, pharma, place horlogère) et le faible taux de chômage (2.4%) suggèrent un impact différent de la moyenne européenne. Le Stanford HAI AI Index 2026 confirme que la rotation occupationnelle depuis l'introduction de l'IA générative est plus rapide qu'après l'arrivée des PCs ou d'Internet (Gimbel et al., 2025).",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 14,
-          "year": 2026,
-          "citation": "Aldasoro et al. · BIS WP 1239 · firmes CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 12,
-          "year": 2025,
-          "citation": "Gmyrek & Berg · ILO WP140 · ISCO-08 CH",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 18,
-          "year": 2025,
-          "citation": "KOF/EPFZ · Digitalisierungsmonitor 2025",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 22,
-          "year": 2024,
-          "citation": "Avenir Suisse · IA & marché du travail CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 11,
-          "year": 2026,
-          "citation": "Massenkoff & McCrory · Anthropic Economic Index",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 2,
-          "value": 15,
-          "year": 2024,
-          "citation": "SECO · Observatoire marché du travail CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 15,
-          "year": 2026,
-          "citation": "Digital Planet Tufts · 15% professions US exposées >70/100 (réf. comparative)",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 16,
-          "year": 2026,
-          "citation": "Stanford HAI AI Index 2026 · churn occupationnel GenAI > PCs & Internet",
-          "ai_type": "generative"
-        }
-      ]
+     "tier": 1,
+     "value": 14,
+     "year": 2026,
+     "citation": "Aldasoro et al. · BIS WP 1239 · firmes CH",
+     "ai_type": "unspecified"
     },
     {
-      "title": "Adoption IA générative dans les entreprises suisses",
-      "unit": "%",
-      "n_sources": 7,
-      "value_min": 28,
-      "value_max": 88,
-      "value_median": 35,
-      "summary_fr": "88% des organisations mondiales ont adopté l'IA (HAI 2026 · McKinsey). La Suisse affiche 34.8% d'adoption populationnelle. L'adoption progresse surtout dans les grandes structures et les secteurs à forte intensité cognitive.",
-      "description_fr": "Proportion des entreprises suisses ayant intégré un ou plusieurs outils d'IA générative dans leurs processus en 2025. Stanford HAI AI Index 2026 : 88% des organisations mondiales ont adopté l'IA (McKinsey Survey), GenAI atteint 53% d'adoption populationnelle en 3 ans — plus vite que le PC ou Internet. La Suisse affiche 34.8% d'adoption GenAI au niveau population (rang 15e mondial). Les grandes entreprises (>250 collaborateurs) affichent un taux nettement supérieur à la moyenne. Fort écart alémanique/romand.",
-      "sources": [
-        {
-          "tier": 2,
-          "value": 34,
-          "year": 2025,
-          "citation": "Digitalswitzerland · Digital Health Check 2025",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 28,
-          "year": 2025,
-          "citation": "KPMG Suisse · IA & entreprises romandes 2025",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 38,
-          "year": 2025,
-          "citation": "Eurostat · ICT enterprises CH (score intensité)",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 31,
-          "year": 2024,
-          "citation": "OFS · Enquête ICT entreprises suisses 2024",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 3,
-          "value": 42,
-          "year": 2025,
-          "citation": "Swiss Digital Index · adoption GenAI CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 88,
-          "year": 2026,
-          "citation": "Stanford HAI AI Index 2026 · 88% org mondiale · McKinsey Survey 2025",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 35,
-          "year": 2026,
-          "citation": "Stanford HAI AI Index 2026 · Suisse 34.8% adoption GenAI population",
-          "ai_type": "generative"
-        }
-      ]
+     "tier": 1,
+     "value": 12,
+     "year": 2025,
+     "citation": "Gmyrek & Berg · ILO WP140 · ISCO-08 CH",
+     "ai_type": "automation_broad"
     },
     {
-      "title": "Gain de productivité annuel attendu · marché suisse",
-      "unit": "%",
-      "n_sources": 8,
-      "value_min": 0.9,
-      "value_max": 4.0,
-      "value_median": 1.8,
-      "summary_fr": "Les gains micro sont documentés : +55% comptables, +50% marketing, +26% développeurs (HAI 2026). Au macro : PTF USA +2.7% en 2025. La Suisse pourrait gagner 0.9 à 1.5 point de croissance en réorganisant ses flux de travail.",
-      "description_fr": "Gains observés micro-niveau (HAI 2026) : +55% comptables (Choi & Xie 2025), +50% équipes marketing (Ju & Aral 2025), +26% développeurs GitHub Copilot (Cui 2025), +14–15% agents support (Brynjolfsson et al. 2025). Mais -19% pour certains dev open-source (Becker 2025). Au niveau macro : PTF USA +2.7% en 2025 (quasi-double la moyenne 2015–2024). OCDE G7 projette +0.2 à +1.3pp/an sur 10 ans. 12 000 firmes européennes : +4% productivité du travail (Aldasoro et al. 2026). La Suisse bénéficie d'avantages structurels (capital humain, R&D, secteurs à haute valeur ajoutée) mais aussi de rigidités (formation duale, CCT).",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 1.2,
-          "year": 2025,
-          "citation": "FMI WP/2025/067 · IA & productivité Europe",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 1.8,
-          "year": 2025,
-          "citation": "McKinsey Global Institute · scénario CH",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 2.1,
-          "year": 2024,
-          "citation": "Brynjolfsson & Rock · productivité IA long terme",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 2,
-          "value": 1.5,
-          "year": 2025,
-          "citation": "KOF/EPFZ · estimation gains PTF Suisse",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 0.9,
-          "year": 2024,
-          "citation": "BNS · rapport annuel 2024 · croissance potentielle",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 2.7,
-          "year": 2026,
-          "citation": "Brynjolfsson · HAI 2026 · croissance PTF USA 2025 (quasi-double décennie préc.)",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 4.0,
-          "year": 2026,
-          "citation": "Aldasoro et al. · HAI 2026 · 12 000 firmes EU · +4% productivité travail",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 0.9,
-          "year": 2026,
-          "citation": "OCDE G7 · Filippucci et al. · fourchette basse 0.2–1.3pp/an sur 10 ans",
-          "ai_type": "automation_broad"
-        }
-      ]
+     "tier": 2,
+     "value": 18,
+     "year": 2025,
+     "citation": "KOF/EPFZ · Digitalisierungsmonitor 2025",
+     "ai_type": "automation_broad"
     },
     {
-      "title": "% emplois suisses où IA = augmentation vs substitution",
-      "unit": "%",
-      "n_sources": 5,
-      "value_min": 65,
-      "value_max": 74,
-      "value_median": 70,
-      "summary_fr": "Dans la grande majorité des cas, l'IA augmente les capacités des travailleurs plutôt qu'elle ne les remplace. La substitution complète reste l'exception — la coexistence humain-machine est la règle.",
-      "description_fr": "Proportion des emplois suisses où l'IA joue un rôle d'augmentation (productivité, qualité) plutôt que de substitution directe. La flexibilité du marché suisse et la formation duale favorisent ce scénario. Données BIS sur firmes européennes dont suisses.",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 71,
-          "year": 2026,
-          "citation": "Aldasoro et al. · BIS WP 1239 · firmes EU+CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 65,
-          "year": 2025,
-          "citation": "Albanesi et al. · Economic Policy · zone euro",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 74,
-          "year": 2025,
-          "citation": "Avenir Suisse · scénario complémentarité CH",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 68,
-          "year": 2024,
-          "citation": "Acemoglu & Restrepo · augmentation tâches",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 70,
-          "year": 2025,
-          "citation": "Commission européenne · IA Act impact assessment",
-          "ai_type": "unspecified"
-        }
-      ]
+     "tier": 2,
+     "value": 22,
+     "year": 2024,
+     "citation": "Avenir Suisse · IA & marché du travail CH",
+     "ai_type": "unspecified"
     },
     {
-      "title": "% emplois suisses refaçonnés par l'IA d'ici 2–3 ans (BCG 2026)",
-      "unit": "%",
-      "n_sources": 5,
-      "value_min": 18,
-      "value_max": 57,
-      "value_median": 42,
-      "summary_fr": "La moitié des emplois en Suisse vont changer en profondeur dans les deux à trois prochaines années. Pas disparaître, mais se transformer : nouvelles tâches, nouveaux outils, nouvelles attentes.",
-      "description_fr": "BCG (avril 2026) : 50 à 55% des emplois US seront refaçonnés en 2-3 ans. Correction suisse x0,8 (formation duale, CCT, FINMA/LaMal) : 40-44% des emplois suisses concernés. Refaçonner signifie que les travailleurs gardent leur rôle mais font face à de nouvelles exigences sur comment ils travaillent et ce qu'ils produisent.",
-      "sources": [
-        {
-          "tier": 2,
-          "value": 42,
-          "year": 2026,
-          "citation": "BCG · 50–55% US · correction CH x0,8",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 52,
-          "year": 2026,
-          "citation": "BCG · midpoint US sans correction",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 57,
-          "year": 2025,
-          "citation": "McKinsey GI · potentiel technique US",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 18,
-          "year": 2026,
-          "citation": "Coface/OEM · tâches à risque CH",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 34,
-          "year": 2026,
-          "citation": "BCG · 43% emplois x0,8 correction CH",
-          "ai_type": "automation_broad"
-        }
-      ]
+     "tier": 1,
+     "value": 11,
+     "year": 2026,
+     "citation": "Massenkoff & McCrory · Anthropic Economic Index",
+     "ai_type": "generative"
     },
     {
-      "title": "% emplois suisses à risque de suppression par l'IA d'ici 5 ans (BCG 2026)",
-      "unit": "%",
-      "n_sources": 8,
-      "value_min": 5.5,
-      "value_max": 20,
-      "value_median": 12,
-      "summary_fr": "Signal d'alerte précoce (HAI 2026) : emplois des 22–25 ans dans les professions exposées en baisse de 16% aux USA · développeurs logiciels junior -20% vs 2022. L'impact se concentre sur les travailleurs en début de carrière, pas encore sur l'emploi global.",
-      "description_fr": "BCG (avril 2026) projette 10 à 15% des emplois US supprimés d'ici 5 ans. Avec correction CH x0,8 : 8-12% du marché du travail suisse, soit 400 000 à 600 000 postes. Signal avancé (HAI 2026, Brynjolfsson et al. 2025) : emplois des 22–25 ans dans les professions les plus exposées en baisse de 16% depuis mi-2024 aux USA ; développeurs logiciels 22–25 ans : -20% vs pic 2022. 1/3 des organisations anticipent des réductions d'effectifs dans l'année (McKinsey Survey 2025). Alerte : les entreprises qui coupent au-delà de ce que l'IA peut livrer perdent productivité, savoir institutionnel et talents.",
-      "sources": [
-        {
-          "tier": 2,
-          "value": 10,
-          "year": 2026,
-          "citation": "BCG · borne basse US · correction CH x0,8",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 12,
-          "year": 2026,
-          "citation": "BCG · midpoint 12,5% US · correction CH x0,8",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 5.5,
-          "year": 2023,
-          "citation": "ILO WP140 · emplois CH haut risque",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 13,
-          "year": 2026,
-          "citation": "Coface/OEM · Phase 2 · >30% tâches",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 7,
-          "year": 2024,
-          "citation": "KPMG Swiss AI Survey",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 16,
-          "year": 2026,
-          "citation": "Brynjolfsson et al. · HAI 2026 · -16% emplois 22-25 ans professions exposées",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 20,
-          "year": 2026,
-          "citation": "HAI 2026 · -20% dev logiciel 22-25 ans vs pic 2022 (Brynjolfsson et al. 2025)",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 11,
-          "year": 2026,
-          "citation": "OpenAI · AI Jobs Transition Framework · capability overhang filtre impact court terme",
-          "ai_type": "generative"
-        }
-      ]
+     "tier": 2,
+     "value": 15,
+     "year": 2024,
+     "citation": "SECO · Observatoire marché du travail CH",
+     "ai_type": "unspecified"
     },
     {
-      "title": "% contenu tâches à risque · main-d'oeuvre suisse · scénario Special Agent (Coface/OEM)",
-      "unit": "%",
-      "n_sources": 5,
-      "value_min": 16,
-      "value_max": 20,
-      "value_median": 18,
-      "summary_fr": "Dix-huit pour cent du contenu des tâches de la main-d'oeuvre suisse est exposé dans le scénario d'IA agentique actuel. La Suisse est parmi les pays les plus touchés d'Europe, du fait de sa concentration en finance, droit et conseil.",
-      "description_fr": "Coface/OEM (avril 2026) : la Suisse affiche 18% de contenu des tâches à risque dans le scénario 'Special Agent' (IA agentique orchestrée), la plaçant dans le cluster 'headquarters trap' avec Luxembourg (21%), UK (20%), Pays-Bas (19%). La concentration suisse de travailleurs cognitifs dans la finance, le droit, l'IT et le conseil explique cette position élevée. Les secteurs les plus exposés : droit/comptabilité (27%), IT (27%), finance (25%), conseil en management (24%). Les plus protégés : agriculture (<8%), hôtellerie (<9%), construction (~15%), santé (~15%). Le buffer réglementaire (FINMA, LaMal, CCT) atténue le score net mais ne supprime pas le risque structurel.",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 18,
-          "year": 2026,
-          "citation": "Coface/OEM · Arquié et al. · Suisse (extension ISCO 2 chiffres)",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 17,
-          "year": 2025,
-          "citation": "McKinsey GI · scénario médian 27% adoption USA (proxy CH)",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 16,
-          "year": 2026,
-          "citation": "Coface/OEM · France (données directes comparables)",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 20,
-          "year": 2025,
-          "citation": "Digitalswitzerland · secteurs cognitifs CH (estimation)",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 18,
-          "year": 2025,
-          "citation": "KPMG Swiss AI Survey · exposition secteurs finance/IT CH",
-          "ai_type": "unspecified"
-        }
-      ]
+     "tier": 1,
+     "value": 15,
+     "year": 2026,
+     "citation": "Digital Planet Tufts · 15% professions US exposées >70/100 (réf. comparative)",
+     "ai_type": "automation_broad"
     },
     {
-      "title": "% experts mondiaux : IA rôle majeur en ≤10 ans (ITDF 2026)",
-      "unit": "%",
-      "n_sources": 4,
-      "value_min": 56,
-      "value_max": 82,
-      "value_median": 80,
-      "summary_fr": "Huit experts mondiaux sur dix estiment que l'IA jouera un rôle central dans l'économie d'ici dix ans. Ce consensus souligne l'urgence d'anticiper les transitions plutôt que de les subir.",
-      "description_fr": "386 experts mondiaux (Anderson & Rainie, ITDF/Elon University, avril 2026) : 82% estiment qu'IA jouera un rôle significativement plus grand en ≤10 ans · 56% prévoient influence sur 'presque toutes' ou 'la plupart' des activités humaines · 53% estiment une résilience modérée à forte. Compétences 'unmachineables' identifiées : jugement, sens critique, raisonnement éthique, imagination. Taxonomie travail futur : Care / Service / Experience. ⚠ Canvassing non-scientifique (échantillon non-aléatoire), experts internationaux (62% Amérique du Nord).",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 82,
-          "year": 2026,
-          "citation": "Anderson & Rainie · ITDF Elon Univ. · 386 experts",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 56,
-          "year": 2026,
-          "citation": "ITDF · IA influence 'presque toutes/la plupart' des décisions",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 75,
-          "year": 2025,
-          "citation": "WEF Future of Jobs 2025",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 1,
-          "value": 80,
-          "year": 2023,
-          "citation": "Eloundou et al. · 80% travailleurs ≥10% tâches exposées",
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "% emplois dans le secteur relationnel · croissance attendue",
-      "unit": "%",
-      "n_sources": 4,
-      "value_min": 18,
-      "value_max": 30,
-      "value_median": 25,
-      "summary_fr": "Alex Imas (U. Chicago, 2026) : quand l'IA commoditise tout, ce qui devient rare et précieux, c'est l'humain lui-même. Gastronomie de chef, arts vivants, artisanat horloger : des emplois durables par nature en Suisse.",
-      "description_fr": "Alex Imas (U. Chicago, avr. 2026) modélise formellement que l'automatisation de la production commoditisée redirige la demande vers le 'secteur relationnel' où l'élément humain EST le produit. Basé sur le désir mimétique (Girard) et les données Comin/Lashkari/Mestieri (Econometrica 2021) : les effets de revenu expliquent >75% des réallocations sectorielles historiques. En Suisse, ce secteur inclut : gastronomie de chef, arts vivants, guidage montagne, artisanat horloger/joaillier, conciergerie de luxe, soins à la personne. Les emplois dans ce secteur sont structurellement protégés — non parce qu'ils sont difficiles à automatiser techniquement, mais parce que la demande pour 'l'humain fait par un humain' est non-saturable (mimétique).",
-      "sources": [
-        {
-          "tier": 2,
-          "value": 25,
-          "year": 2026,
-          "citation": "Imas · U. Chicago · modèle secteur relationnel 2026",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 18,
-          "year": 2025,
-          "citation": "McKinsey GI · People-centric 34% de la main-d'oeuvre",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 1,
-          "value": 22,
-          "year": 2026,
-          "citation": "ITDF 2026 · Care / Service / Experience taxonomy",
-          "ai_type": "unspecified"
-        },
-        {
-          "tier": 2,
-          "value": 30,
-          "year": 2026,
-          "citation": "BCG · 10-15% suppression → redéploiement vers métiers relationnels",
-          "ai_type": "automation_broad"
-        }
-      ]
-    },
-    {
-      "title": "Écart potentiel IA / usage réel en Suisse · capability overhang",
-      "unit": "%",
-      "n_sources": 5,
-      "value_min": 60,
-      "value_max": 72,
-      "value_median": 68,
-      "summary_fr": "OpenAI (avr. 2026) révèle le 'capability overhang' : l'IA peut techniquement automatiser ~90% des tâches des métiers exposés, mais l'usage réel plafonne à 20–24%. Cet écart explique pourquoi les prédictions catastrophistes ne se matérialisent pas. En Suisse, les freins FINMA/LaMal/CCT élargissent encore l'écart — le temps d'adaptation est plus long que celui annoncé.",
-      "description_fr": "OpenAI (avril 2026) mesure le 'capability overhang' : l'écart entre ce que l'IA peut techniquement automatiser (~90% des tâches dans les métiers les plus exposés) et ce qui est réellement utilisé en pratique (20–24%). Cet écart de ~68 points est encore plus marqué en Suisse en raison des freins réglementaires (FINMA, Swissmedic, LPD), des exigences de qualité (CCT, formation duale) et d'une culture d'adoption prudente. Implication : le choc d'emploi annoncé ne se matérialise pas immédiatement — l'adoption réelle est filtrée par des frictions organisationnelles, sécuritaires et culturelles. C'est le mécanisme central qui explique pourquoi les scores d'exposition théoriques ne se traduisent pas en pertes d'emplois proportionnelles.",
-      "sources": [
-        {
-          "tier": 1,
-          "value": 68,
-          "year": 2026,
-          "citation": "OpenAI · AI Jobs Transition Framework · écart US",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 72,
-          "year": 2026,
-          "citation": "OpenAI · métiers hautement exposés · écart 90% − 22%",
-          "ai_type": "generative"
-        },
-        {
-          "tier": 1,
-          "value": 60,
-          "year": 2026,
-          "citation": "Massenkoff & McCrory · exposition observée vs théorique Claude",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 65,
-          "year": 2026,
-          "citation": "KOF/EPFZ · adoption IA entreprises CH (projection)",
-          "ai_type": "automation_broad"
-        },
-        {
-          "tier": 2,
-          "value": 70,
-          "year": 2025,
-          "citation": "Digitalswitzerland · usage GenAI vs potentiel",
-          "ai_type": "unspecified"
-        }
-      ]
-    },
-    {
-      "title": "% gain de productivité IA · effet concentré secteur tertiaire haut",
-      "unit": "%",
-      "n_sources": 3,
-      "value_min": 2.5,
-      "value_max": 8.0,
-      "value_median": 4.0,
-      "description_fr": "Estimation du gain de productivité IA en Suisse. Reconstitution à partir de l'asymétrie observée par DemoSCOPE (avril 2026) entre les secteurs : 24% d'introduction IA dans les grandes entreprises (+250 collaborateurs) vs 9% dans les TPE. Cet écart est cohérent avec les +7,8% de productivité observés par Focaldata UK+US dans le secteur Tech vs +2,1% dans Health & Social Care. Pour la Suisse, dont la structure productive concentre la valeur dans le tertiaire haut de gamme (banque privée, pharma, horlogerie), la concentration des gains sera mécaniquement plus marquée.",
-      "sources": [
-        {
-          "name": "Angestellte Schweiz · DemoSCOPE",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
-          "url": "https://focaldata.com",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Swiss AI Center · HES-SO",
-          "url": "https://www.hes-so.ch/",
-          "tier": 2,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Écart formation IA · point d'appui empirique pour les politiques de formation continue",
-      "unit": "points",
-      "n_sources": 2,
-      "value_min": 24,
-      "value_max": 37,
-      "value_median": 30,
-      "description_fr": "L'effet de la formation IA sur l'usage quotidien (+24 à +37 points selon Focaldata UK+US) constitue le levier le plus puissant identifié dans la littérature 2026. Pour la Suisse, ce constat empirique converge avec celui de DemoSCOPE : la formation continue est la mesure considérée comme la plus efficace par les actifs eux-mêmes (M=3,27/4 sur 4). Levier d'action prioritaire pour les fédérations professionnelles, les associations syndicales (Angestellte Schweiz), et les pouvoirs publics cantonaux et fédéraux.",
-      "sources": [
-        {
-          "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
-          "url": "https://focaldata.com",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Angestellte Schweiz · DemoSCOPE",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Robustesse des prédictions IA appliquées au tissu suisse",
-      "unit": "facteur de divergence",
-      "n_sources": 4,
-      "value_min": 1.6,
-      "value_max": 3.6,
-      "value_median": 2.4,
-      "description_fr": "Pour la Suisse, la (dé)stabilité internationale des scores d'exposition à l'IA a une portée pratique. <strong>Yin, Vu, Persico (NBER w35110, avril 2026)</strong> et <strong>Yale Budget Lab (février 2026)</strong> démontrent que les scores qui circulent dans le débat public divergent fortement entre méthodes. Pour la Suisse, qui doit construire ses politiques de formation continue cantonales et fédérales sans données natives suisses sur l'exposition, cela impose une lecture prudente : ne jamais s'appuyer sur un score isolé, toujours croiser plusieurs sources, et reconnaître que la nomenclature NP 2010 ne dispose pas encore d'un score d'exposition propre, calibré sur la structure productive helvétique. Le constat DemoSCOPE 2026 (M=3,27/4 pour la formation continue comme mesure prioritaire) reste plus robuste empiriquement que les scores d'exposition par tâches.",
-      "sources": [
-        {
-          "name": "Yin, Vu, Persico · NBER w35110",
-          "url": "https://www.nber.org/papers/w35110",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Gimbel, Kendall, Kulsakdinun · Yale Budget Lab",
-          "url": "https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Angestellte Schweiz · DemoSCOPE",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Burn-Murdoch & O'Connor · Financial Times",
-          "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Coûts cachés de l'IA en entreprise · l'enjeu pour le tissu économique suisse",
-      "unit": "facteur de sous-estimation",
-      "n_sources": 5,
-      "value_min": 5,
-      "value_max": 10,
-      "value_median": 7,
-      "description_fr": "Pour la Suisse, dont le tissu économique est dominé par les PME (99,7% des entreprises) et où DemoSCOPE 2026 montre une asymétrie d'adoption frappante (24% pour les grandes entreprises, 9% pour les TPE), la question des coûts réels de l'IA est centrale. Les sources internationales convergent vers un constat : <strong>Gartner (octobre 2024)</strong> mesure 500% à 1000% d'erreur potentielle de calcul des coûts IA, 72% des CIO en break-even ou perte. <strong>Gartner (janvier 2026)</strong> prédit un coût par résolution GenAI > 3$ d'ici 2030. <strong>Tomer (avril 2026)</strong> formalise que le coût total de possession (orchestration, gouvernance, vérification, escalade, redesign organisationnel) est ce qui décide de la viabilité économique, pas le prix par token. Pour les PME suisses, ce constat impose une vigilance particulière : les coûts d'intégration et de gouvernance sont relativement plus lourds proportionnellement à un budget PME qu'à un budget de grande entreprise. C'est aussi pourquoi la formation continue (M=3,27/4 chez DemoSCOPE comme priorité) est plus robuste comme stratégie cantonale que les déploiements technologiques massifs et coûteux.",
-      "sources": [
-        {
-          "name": "Gartner · Mesaglio & LeHong",
-          "url": "https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Gartner · Quinlan",
-          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Tomer · TCO Framework",
-          "url": "https://x.com/i/trending/2046697397959663779",
-          "tier": 2,
-          "ai_type": "generative"
-        },
-        {
-          "name": "DemoSCOPE / Angestellte Schweiz 2026",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Gartner · Chandrasekaran (Blind Spots)",
-          "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Coût total réel de l'IA · vulnérabilité spécifique des PME suisses",
-      "unit": "facteur de sous-estimation",
-      "n_sources": 5,
-      "value_min": 5,
-      "value_max": 10,
-      "value_median": 7,
-      "description_fr": "Pour la Suisse, l'enjeu du coût total de l'IA prend une dimension particulière. Les <strong>4 sources Gartner et académiques convergentes (2025-2026)</strong> documentent une sous-estimation systématique de 500% à 1000% du coût total réel de l'IA en entreprise. Mais en Suisse, la structure du tissu économique amplifie le risque : <strong>DemoSCOPE 2026</strong> a montré que seules 9% des TPE-PME suisses ont introduit l'IA, contre 24% des grandes entreprises. La raison principale invoquée : ressources limitées. Si les PME suisses sous-estiment le coût total comme les grandes entreprises (Gartner), elles n'ont pas les marges pour absorber les dérapages : 50% des projets GenAI sont abandonnés après proof of concept selon Gartner. <strong>Roboto (avril 2026)</strong> ajoute une couche spécifique pour la Suisse romande : la « taxe linguistique » du français en LLM coûte 60% de tokens supplémentaires vs anglais sur les mêmes tâches. Conséquence pour les conseils cantonaux et SECO : les politiques d'incitation à l'adoption IA en PME doivent inclure un volet d'aide au calcul du TCO réel, faute de quoi les budgets PME seront mal calibrés et les abandons précoces se multiplieront.",
-      "sources": [
-        {
-          "name": "Gartner · 4 emerging challenges",
-          "url": "https://www.gartner.com/en/articles/ai-value",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Gartner · GenAI cost prediction CS",
-          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "DemoSCOPE / Angestellte Schweiz",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Tomer · TCO framework academic paper",
-          "url": "https://arxiv.org/abs/2511.tomer-tco-framework",
-          "tier": 2,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Roboto · French linguistic tax",
-          "url": "https://www.roboto.fr/blog/tokens-ia-comment-les-fournisseurs-vous-font-payer-60-de-plus",
-          "tier": 3,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Souveraineté IA helvétique · Apertus et l'écosystème suisse de l'IA fully open",
-      "unit": "engagement et investissement public",
-      "n_sources": 5,
-      "value_min": 20,
-      "value_max": 20,
-      "value_median": 20,
-      "description_fr": "La Suisse joue une carte distinctive sur la souveraineté numérique IA : non pas la concurrence frontière mais la <strong>transparence radicale</strong>. <strong>Apertus</strong>, lancé le 2 septembre 2025 par la Swiss AI Initiative (EPFL, ETH Zurich, CSCS) avec un financement de 20 millions CHF de la Confédération jusqu'en 2028, est le premier LLM public suisse fully open : 8B et 70B paramètres, 15 trillions de tokens d'entraînement dont 40% non anglophones, plus de 1000 langues incluant le suisse-allemand et le romanche. Architecture, poids, données et recettes documentées. Hébergé sur la plateforme IA souveraine de Swisscom. Conforme dès l'origine à l'EU AI Act, à la LPD suisse et aux opt-outs créateurs. Plus d'un million de téléchargements en six mois. En mai 2026, Meditron est déployé au CHUV pour la décision clinique aux urgences. Pour les PME suisses, les administrations cantonales et les industries régulées, c'est la première option qui combine souveraineté juridictionnelle helvétique et transparence totale. Les contradictions persistent : 140 millions CHF de licences Microsoft renouvelées par la Confédération sur 2026-2028 montrent la difficulté du basculement réel.",
-      "sources": [
-        {
-          "name": "Apertus · ETH Zurich press release",
-          "url": "https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Apertus · EPFL release",
-          "url": "https://actu.epfl.ch/news/apertus-a-fully-open-transparent-multilingual-lang/",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Swissinfo · AI in Switzerland 2026",
-          "url": "https://www.swissinfo.ch/eng/swiss-ai/artificial-intelligence-in-switzerland-whats-new-in-2026/90701795",
-          "tier": 2,
-          "ai_type": "generative"
-        },
-        {
-          "name": "GGBa · Apertus launch",
-          "url": "https://ggba.swiss/en/switzerland-launches-apertus-a-fully-open-multilingual-large-language-model/",
-          "tier": 2,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Apertus website",
-          "url": "https://apertvs.ai/",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Pour les organisations suisses · l'écart entre annonces Silicon Valley et indicateurs nationaux",
-      "unit": "lecture pour le tissu suisse",
-      "n_sources": 5,
-      "value_min": 1,
-      "value_max": 1,
-      "value_median": 1,
-      "description_fr": "Pour les organisations suisses, le décalage entre la rhétorique d'apocalypse de l'emploi (Amodei, Suleyman, Dimon, Block) et les données empiriques 2026 doit être lu à l'aune des spécificités helvétiques. <strong>Premièrement</strong>, le marché du travail suisse est structurellement plus stable que le marché US (taux de chômage 2,4-2,8% en 2026 selon SECO, contre 4,4% aux US). <strong>Deuxièmement</strong>, la formation continue suisse (CFC, brevet fédéral, ES, HES) crée des trajectoires de réinvention plus institutionnalisées que dans la plupart des pays. DemoSCOPE 2026 confirme M=3,27/4 pour la formation continue comme mesure prioritaire perçue par les actifs. <strong>Troisièmement</strong>, la structure productive suisse (horlogerie, pharma, finance, machines de précision, hospitalité haut de gamme) est dominée par des métiers à forte composante relationnelle ou high-craft, exactement les bénéficiaires théorisés par Trammell (mars 2026) via les biens « human-intrinsic » et confirmés par Garicano (avril 2026) sur les bundles forts. <strong>Conséquence pratique</strong> : les comités exécutifs suisses qui calibrent leur plan de transformation sur les annonces Silicon Valley (50% des cols blancs juniors disparus en 1-5 ans) risquent de surestimer dramatiquement l'impact réel et de sous-investir dans les leviers helvétiques classiques (apprentissage, formation continue, montée en gamme).",
-      "sources": [
-        {
-          "name": "Garicano · Silicon Continent · The task is not the job",
-          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Trammell · Stanford DEL · Is labor a luxury?",
-          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Washington Post · Tech layoffs hide future of jobs",
-          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Angestellte Schweiz · DemoSCOPE 2026",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "NYT Opinion · The AI jobs apocalypse is a Silicon Valley story",
-          "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
-    },
-    {
-      "title": "Confondre tâche et métier · le piège analytique pour les organisations suisses",
-      "unit": "écart narratif et statistique",
-      "n_sources": 5,
-      "value_min": 1,
-      "value_max": 1,
-      "value_median": 1,
-      "description_fr": "Pour les organisations suisses, la prudence est doublement justifiée. Le décalage entre les annonces de la Silicon Valley (Amodei, Suleyman) et la réalité du marché américain documenté par le NYT et le Washington Post en mai 2026 trouve un écho direct dans la posture suisse. <strong>DemoSCOPE 2026</strong> mesure 24% d'adoption IA dans les grandes entreprises suisses contre 9% dans les TPE : le déploiement effectif est lent, structuré, et les licenciements massifs ne sont pas en cours. Trois cadres théoriques importés (Garicano · LSE, Trammell · Oxford GPI, Imas · Stanford) convergent pour expliquer pourquoi les transitions technologiques produisent rarement des effondrements binaires d'emploi : la tâche n'est pas le métier, l'effet-revenu réalloue la dépense vers les biens human-intrinsic, l'économie est ce que les organisations doivent faire pour livrer ce que les consommateurs veulent. Pour les directions cantonales et fédérales chargées de la formation continue, l'enjeu n'est pas de réagir aux prédictions médiatiques mais de calibrer les programmes sur l'évidence empirique des données OFS, ESPA, et des observatoires sectoriels comme DemoSCOPE et l'EPFL AI Center.",
-      "sources": [
-        {
-          "name": "Trammell · Is labor a luxury in the long run?",
-          "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Garicano · Why desk jobs survive and Amodei is wrong",
-          "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Trammell & Korinek · Economic Growth under Transformative AI",
-          "url": "https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf",
-          "tier": 1,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Washington Post · What Silicon Valley layoffs hide",
-          "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
-          "tier": 2,
-          "ai_type": "generative"
-        },
-        {
-          "name": "Angestellte Schweiz · DemoSCOPE",
-          "url": "https://www.angestellte.ch",
-          "tier": 1,
-          "ai_type": "generative"
-        }
-      ]
+     "tier": 1,
+     "value": 16,
+     "year": 2026,
+     "citation": "Stanford HAI AI Index 2026 · churn occupationnel GenAI > PCs & Internet",
+     "ai_type": "generative"
     }
-  ]
+   ]
+  },
+  {
+   "title": "Adoption IA générative dans les entreprises suisses",
+   "unit": "%",
+   "n_sources": 8,
+   "value_min": 28,
+   "value_max": 88,
+   "value_median": 35,
+   "summary_fr": "88% des organisations mondiales ont adopté l'IA (HAI 2026 · McKinsey). La Suisse affiche 34.8% d'adoption populationnelle. L'adoption progresse surtout dans les grandes structures et les secteurs à forte intensité cognitive.",
+   "description_fr": "Proportion des entreprises suisses ayant intégré un ou plusieurs outils d'IA générative dans leurs processus en 2025. Stanford HAI AI Index 2026 : 88% des organisations mondiales ont adopté l'IA (McKinsey Survey), GenAI atteint 53% d'adoption populationnelle en 3 ans — plus vite que le PC ou Internet. La Suisse affiche 34.8% d'adoption GenAI au niveau population (rang 15e mondial). Les grandes entreprises (>250 collaborateurs) affichent un taux nettement supérieur à la moyenne. Fort écart alémanique/romand. L'édition 2026 de l'Observatoire Data & IA en Suisse (Colombus / Oracle / HEG-Genève, 100+ organisations) confirme un marché plus mature en ambition qu'en exécution : 47% des entreprises intègrent l'IA dans leur stratégie long terme mais 9% seulement la placent au cœur de leur stratégie, et le déploiement de la GenAI à l'échelle recule à 46% (▼29 pts), signe d'un recentrage sur la valeur plutôt que d'un désengagement.",
+   "sources": [
+    {
+     "tier": 2,
+     "value": 34,
+     "year": 2025,
+     "citation": "Digitalswitzerland · Digital Health Check 2025",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 28,
+     "year": 2025,
+     "citation": "KPMG Suisse · IA & entreprises romandes 2025",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 38,
+     "year": 2025,
+     "citation": "Eurostat · ICT enterprises CH (score intensité)",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 31,
+     "year": 2024,
+     "citation": "OFS · Enquête ICT entreprises suisses 2024",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 3,
+     "value": 42,
+     "year": 2025,
+     "citation": "Swiss Digital Index · adoption GenAI CH",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 88,
+     "year": 2026,
+     "citation": "Stanford HAI AI Index 2026 · 88% org mondiale · McKinsey Survey 2025",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 35,
+     "year": 2026,
+     "citation": "Stanford HAI AI Index 2026 · Suisse 34.8% adoption GenAI population",
+     "ai_type": "generative"
+    },
+    {
+     "name": "Observatoire Data & IA en Suisse 2026 · Colombus Consulting / Oracle / HEG-Genève",
+     "url": "https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Observatoire Data & IA en Suisse 2026 · Colombus Consulting / Oracle / HEG-Genève · 100+ organisations, janv.-avril 2026 · 47% intègrent l'IA dans leur stratégie long terme (9% seulement au cœur de la stratégie), 65% disposent d'au moins une petite équipe IA interne, mais 46% seulement ont déployé la GenAI à l'échelle (▼29 pts) · marché plus mature en ambition qu'en exécution · https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf",
+     "value": 47
+    }
+   ]
+  },
+  {
+   "title": "Gain de productivité annuel attendu · marché suisse",
+   "unit": "%",
+   "n_sources": 9,
+   "value_min": 0.9,
+   "value_max": 4.0,
+   "value_median": 1.8,
+   "summary_fr": "Les gains micro sont documentés : +55% comptables, +50% marketing, +26% développeurs (HAI 2026). Au macro : PTF USA +2.7% en 2025. La Suisse pourrait gagner 0.9 à 1.5 point de croissance en réorganisant ses flux de travail.",
+   "description_fr": "Gains observés micro-niveau (HAI 2026) : +55% comptables (Choi & Xie 2025), +50% équipes marketing (Ju & Aral 2025), +26% développeurs GitHub Copilot (Cui 2025), +14–15% agents support (Brynjolfsson et al. 2025). Mais -19% pour certains dev open-source (Becker 2025). Au niveau macro : PTF USA +2.7% en 2025 (quasi-double la moyenne 2015–2024). OCDE G7 projette +0.2 à +1.3pp/an sur 10 ans. 12 000 firmes européennes : +4% productivité du travail (Aldasoro et al. 2026). La Suisse bénéficie d'avantages structurels (capital humain, R&D, secteurs à haute valeur ajoutée) mais aussi de rigidités (formation duale, CCT). Au niveau mondial, le PwC 2026 Global AI Jobs Barometer mesure une productivité 40% plus rapide dans les entreprises les plus exposées à l'IA (effet superstar : top 20% à +163%). La Suisse fait partie des 27 pays analysés (8,7 M annonces) mais le baromètre ne publie pas de chiffre de productivité propre à la Suisse · à lire comme repère international.",
+   "sources": [
+    {
+     "tier": 1,
+     "value": 1.2,
+     "year": 2025,
+     "citation": "FMI WP/2025/067 · IA & productivité Europe",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 1.8,
+     "year": 2025,
+     "citation": "McKinsey Global Institute · scénario CH",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 2.1,
+     "year": 2024,
+     "citation": "Brynjolfsson & Rock · productivité IA long terme",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 2,
+     "value": 1.5,
+     "year": 2025,
+     "citation": "KOF/EPFZ · estimation gains PTF Suisse",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 0.9,
+     "year": 2024,
+     "citation": "BNS · rapport annuel 2024 · croissance potentielle",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 2.7,
+     "year": 2026,
+     "citation": "Brynjolfsson · HAI 2026 · croissance PTF USA 2025 (quasi-double décennie préc.)",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 4.0,
+     "year": 2026,
+     "citation": "Aldasoro et al. · HAI 2026 · 12 000 firmes EU · +4% productivité travail",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 0.9,
+     "year": 2026,
+     "citation": "OCDE G7 · Filippucci et al. · fourchette basse 0.2–1.3pp/an sur 10 ans",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "PwC 2026 Global AI Jobs Barometer · benchmark mondial · productivité 40% plus rapide dans les entreprises les plus exposées à l'IA (effet superstar +163%) · la Suisse figure dans le jeu de données (8,7 M annonces), sans chiffre productivité CH spécifique · https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html"
+    }
+   ]
+  },
+  {
+   "title": "% emplois suisses où IA = augmentation vs substitution",
+   "unit": "%",
+   "n_sources": 7,
+   "value_min": 65,
+   "value_max": 74,
+   "value_median": 70,
+   "summary_fr": "Dans la grande majorité des cas, l'IA augmente les capacités des travailleurs plutôt qu'elle ne les remplace. La substitution complète reste l'exception — la coexistence humain-machine est la règle.",
+   "description_fr": "Proportion des emplois suisses où l'IA joue un rôle d'augmentation (productivité, qualité) plutôt que de substitution directe. La flexibilité du marché suisse et la formation duale favorisent ce scénario. Données BIS sur firmes européennes dont suisses. Le PwC 2026 Global AI Jobs Barometer va dans le même sens à l'échelle mondiale : loin de remplacer l'emploi, les entreprises les plus exposées à l'IA font croître leurs effectifs plus vite que les moins exposées (+52% contre +36%), signe d'une logique d'augmentation. À l'échelle internationale, le working paper Ramp / Revelio Labs (2026, 21 559 firmes US) va dans le sens de l'augmentation plutôt que de la substitution : l'adoption intensive de l'IA s'accompagne d'une hausse de l'emploi (+10%) et des effectifs juniors (+12%), avec une réserve de sélection assumée. La Suisse n'est pas couverte · repère international.",
+   "sources": [
+    {
+     "tier": 1,
+     "value": 71,
+     "year": 2026,
+     "citation": "Aldasoro et al. · BIS WP 1239 · firmes EU+CH",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 65,
+     "year": 2025,
+     "citation": "Albanesi et al. · Economic Policy · zone euro",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 74,
+     "year": 2025,
+     "citation": "Avenir Suisse · scénario complémentarité CH",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 68,
+     "year": 2024,
+     "citation": "Acemoglu & Restrepo · augmentation tâches",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 70,
+     "year": 2025,
+     "citation": "Commission européenne · IA Act impact assessment",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "PwC 2026 Global AI Jobs Barometer · mondial · les entreprises les plus exposées à l'IA font croître leurs effectifs plus vite (+52% vs +36%) · l'IA amplifie le travail plutôt qu'elle ne le remplace · https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html"
+    },
+    {
+     "name": "Ramp / Revelio Labs · A New Look at AI's Impact on Jobs",
+     "url": "https://ramp.com/data/ai-jobs-impact/paper",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative",
+     "citation": "Ramp / Revelio Labs 2026 · benchmark international (21 559 firmes US) · l'adoption intensive de l'IA s'accompagne d'une croissance de l'emploi (+10%) et des effectifs juniors (+12%), non d'une substitution · effet en partie de sélection · la Suisse n'est pas dans l'échantillon, à lire comme repère international · https://ramp.com/data/ai-jobs-impact/paper"
+    }
+   ]
+  },
+  {
+   "title": "% emplois suisses refaçonnés par l'IA d'ici 2–3 ans (BCG 2026)",
+   "unit": "%",
+   "n_sources": 5,
+   "value_min": 18,
+   "value_max": 57,
+   "value_median": 42,
+   "summary_fr": "La moitié des emplois en Suisse vont changer en profondeur dans les deux à trois prochaines années. Pas disparaître, mais se transformer : nouvelles tâches, nouveaux outils, nouvelles attentes.",
+   "description_fr": "BCG (avril 2026) : 50 à 55% des emplois US seront refaçonnés en 2-3 ans. Correction suisse x0,8 (formation duale, CCT, FINMA/LaMal) : 40-44% des emplois suisses concernés. Refaçonner signifie que les travailleurs gardent leur rôle mais font face à de nouvelles exigences sur comment ils travaillent et ce qu'ils produisent.",
+   "sources": [
+    {
+     "tier": 2,
+     "value": 42,
+     "year": 2026,
+     "citation": "BCG · 50–55% US · correction CH x0,8",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 52,
+     "year": 2026,
+     "citation": "BCG · midpoint US sans correction",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 57,
+     "year": 2025,
+     "citation": "McKinsey GI · potentiel technique US",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 18,
+     "year": 2026,
+     "citation": "Coface/OEM · tâches à risque CH",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 34,
+     "year": 2026,
+     "citation": "BCG · 43% emplois x0,8 correction CH",
+     "ai_type": "automation_broad"
+    }
+   ]
+  },
+  {
+   "title": "% emplois suisses à risque de suppression par l'IA d'ici 5 ans (BCG 2026)",
+   "unit": "%",
+   "n_sources": 8,
+   "value_min": 5.5,
+   "value_max": 20,
+   "value_median": 12,
+   "summary_fr": "Signal d'alerte précoce (HAI 2026) : emplois des 22–25 ans dans les professions exposées en baisse de 16% aux USA · développeurs logiciels junior -20% vs 2022. L'impact se concentre sur les travailleurs en début de carrière, pas encore sur l'emploi global.",
+   "description_fr": "BCG (avril 2026) projette 10 à 15% des emplois US supprimés d'ici 5 ans. Avec correction CH x0,8 : 8-12% du marché du travail suisse, soit 400 000 à 600 000 postes. Signal avancé (HAI 2026, Brynjolfsson et al. 2025) : emplois des 22–25 ans dans les professions les plus exposées en baisse de 16% depuis mi-2024 aux USA ; développeurs logiciels 22–25 ans : -20% vs pic 2022. 1/3 des organisations anticipent des réductions d'effectifs dans l'année (McKinsey Survey 2025). Alerte : les entreprises qui coupent au-delà de ce que l'IA peut livrer perdent productivité, savoir institutionnel et talents.",
+   "sources": [
+    {
+     "tier": 2,
+     "value": 10,
+     "year": 2026,
+     "citation": "BCG · borne basse US · correction CH x0,8",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 12,
+     "year": 2026,
+     "citation": "BCG · midpoint 12,5% US · correction CH x0,8",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 5.5,
+     "year": 2023,
+     "citation": "ILO WP140 · emplois CH haut risque",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 13,
+     "year": 2026,
+     "citation": "Coface/OEM · Phase 2 · >30% tâches",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 7,
+     "year": 2024,
+     "citation": "KPMG Swiss AI Survey",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 16,
+     "year": 2026,
+     "citation": "Brynjolfsson et al. · HAI 2026 · -16% emplois 22-25 ans professions exposées",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 20,
+     "year": 2026,
+     "citation": "HAI 2026 · -20% dev logiciel 22-25 ans vs pic 2022 (Brynjolfsson et al. 2025)",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 11,
+     "year": 2026,
+     "citation": "OpenAI · AI Jobs Transition Framework · capability overhang filtre impact court terme",
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "% contenu tâches à risque · main-d'oeuvre suisse · scénario Special Agent (Coface/OEM)",
+   "unit": "%",
+   "n_sources": 5,
+   "value_min": 16,
+   "value_max": 20,
+   "value_median": 18,
+   "summary_fr": "Dix-huit pour cent du contenu des tâches de la main-d'oeuvre suisse est exposé dans le scénario d'IA agentique actuel. La Suisse est parmi les pays les plus touchés d'Europe, du fait de sa concentration en finance, droit et conseil.",
+   "description_fr": "Coface/OEM (avril 2026) : la Suisse affiche 18% de contenu des tâches à risque dans le scénario 'Special Agent' (IA agentique orchestrée), la plaçant dans le cluster 'headquarters trap' avec Luxembourg (21%), UK (20%), Pays-Bas (19%). La concentration suisse de travailleurs cognitifs dans la finance, le droit, l'IT et le conseil explique cette position élevée. Les secteurs les plus exposés : droit/comptabilité (27%), IT (27%), finance (25%), conseil en management (24%). Les plus protégés : agriculture (<8%), hôtellerie (<9%), construction (~15%), santé (~15%). Le buffer réglementaire (FINMA, LaMal, CCT) atténue le score net mais ne supprime pas le risque structurel.",
+   "sources": [
+    {
+     "tier": 1,
+     "value": 18,
+     "year": 2026,
+     "citation": "Coface/OEM · Arquié et al. · Suisse (extension ISCO 2 chiffres)",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 17,
+     "year": 2025,
+     "citation": "McKinsey GI · scénario médian 27% adoption USA (proxy CH)",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 16,
+     "year": 2026,
+     "citation": "Coface/OEM · France (données directes comparables)",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 20,
+     "year": 2025,
+     "citation": "Digitalswitzerland · secteurs cognitifs CH (estimation)",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 18,
+     "year": 2025,
+     "citation": "KPMG Swiss AI Survey · exposition secteurs finance/IT CH",
+     "ai_type": "unspecified"
+    }
+   ]
+  },
+  {
+   "title": "% experts mondiaux : IA rôle majeur en ≤10 ans (ITDF 2026)",
+   "unit": "%",
+   "n_sources": 4,
+   "value_min": 56,
+   "value_max": 82,
+   "value_median": 80,
+   "summary_fr": "Huit experts mondiaux sur dix estiment que l'IA jouera un rôle central dans l'économie d'ici dix ans. Ce consensus souligne l'urgence d'anticiper les transitions plutôt que de les subir.",
+   "description_fr": "386 experts mondiaux (Anderson & Rainie, ITDF/Elon University, avril 2026) : 82% estiment qu'IA jouera un rôle significativement plus grand en ≤10 ans · 56% prévoient influence sur 'presque toutes' ou 'la plupart' des activités humaines · 53% estiment une résilience modérée à forte. Compétences 'unmachineables' identifiées : jugement, sens critique, raisonnement éthique, imagination. Taxonomie travail futur : Care / Service / Experience. ⚠ Canvassing non-scientifique (échantillon non-aléatoire), experts internationaux (62% Amérique du Nord).",
+   "sources": [
+    {
+     "tier": 1,
+     "value": 82,
+     "year": 2026,
+     "citation": "Anderson & Rainie · ITDF Elon Univ. · 386 experts",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 56,
+     "year": 2026,
+     "citation": "ITDF · IA influence 'presque toutes/la plupart' des décisions",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 75,
+     "year": 2025,
+     "citation": "WEF Future of Jobs 2025",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 1,
+     "value": 80,
+     "year": 2023,
+     "citation": "Eloundou et al. · 80% travailleurs ≥10% tâches exposées",
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "% emplois dans le secteur relationnel · croissance attendue",
+   "unit": "%",
+   "n_sources": 4,
+   "value_min": 18,
+   "value_max": 30,
+   "value_median": 25,
+   "summary_fr": "Alex Imas (U. Chicago, 2026) : quand l'IA commoditise tout, ce qui devient rare et précieux, c'est l'humain lui-même. Gastronomie de chef, arts vivants, artisanat horloger : des emplois durables par nature en Suisse.",
+   "description_fr": "Alex Imas (U. Chicago, avr. 2026) modélise formellement que l'automatisation de la production commoditisée redirige la demande vers le 'secteur relationnel' où l'élément humain EST le produit. Basé sur le désir mimétique (Girard) et les données Comin/Lashkari/Mestieri (Econometrica 2021) : les effets de revenu expliquent >75% des réallocations sectorielles historiques. En Suisse, ce secteur inclut : gastronomie de chef, arts vivants, guidage montagne, artisanat horloger/joaillier, conciergerie de luxe, soins à la personne. Les emplois dans ce secteur sont structurellement protégés — non parce qu'ils sont difficiles à automatiser techniquement, mais parce que la demande pour 'l'humain fait par un humain' est non-saturable (mimétique).",
+   "sources": [
+    {
+     "tier": 2,
+     "value": 25,
+     "year": 2026,
+     "citation": "Imas · U. Chicago · modèle secteur relationnel 2026",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 18,
+     "year": 2025,
+     "citation": "McKinsey GI · People-centric 34% de la main-d'oeuvre",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 1,
+     "value": 22,
+     "year": 2026,
+     "citation": "ITDF 2026 · Care / Service / Experience taxonomy",
+     "ai_type": "unspecified"
+    },
+    {
+     "tier": 2,
+     "value": 30,
+     "year": 2026,
+     "citation": "BCG · 10-15% suppression → redéploiement vers métiers relationnels",
+     "ai_type": "automation_broad"
+    }
+   ]
+  },
+  {
+   "title": "Écart potentiel IA / usage réel en Suisse · capability overhang",
+   "unit": "%",
+   "n_sources": 6,
+   "value_min": 60,
+   "value_max": 72,
+   "value_median": 68,
+   "summary_fr": "OpenAI (avr. 2026) révèle le 'capability overhang' : l'IA peut techniquement automatiser ~90% des tâches des métiers exposés, mais l'usage réel plafonne à 20–24%. Cet écart explique pourquoi les prédictions catastrophistes ne se matérialisent pas. En Suisse, les freins FINMA/LaMal/CCT élargissent encore l'écart — le temps d'adaptation est plus long que celui annoncé.",
+   "description_fr": "OpenAI (avril 2026) mesure le 'capability overhang' : l'écart entre ce que l'IA peut techniquement automatiser (~90% des tâches dans les métiers les plus exposés) et ce qui est réellement utilisé en pratique (20–24%). Cet écart de ~68 points est encore plus marqué en Suisse en raison des freins réglementaires (FINMA, Swissmedic, LPD), des exigences de qualité (CCT, formation duale) et d'une culture d'adoption prudente. Implication : le choc d'emploi annoncé ne se matérialise pas immédiatement — l'adoption réelle est filtrée par des frictions organisationnelles, sécuritaires et culturelles. C'est le mécanisme central qui explique pourquoi les scores d'exposition théoriques ne se traduisent pas en pertes d'emplois proportionnelles. L'Observatoire Data & IA en Suisse 2026 objective cet écart côté entreprises : 69% restent en exploration ou expérimentation de l'IA agentique et 8% seulement atteignent une maturité avancée (contre 17% en 2024), les limites de qualité et de gouvernance des données devenant plus visibles que les limites technologiques.",
+   "sources": [
+    {
+     "tier": 1,
+     "value": 68,
+     "year": 2026,
+     "citation": "OpenAI · AI Jobs Transition Framework · écart US",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 72,
+     "year": 2026,
+     "citation": "OpenAI · métiers hautement exposés · écart 90% − 22%",
+     "ai_type": "generative"
+    },
+    {
+     "tier": 1,
+     "value": 60,
+     "year": 2026,
+     "citation": "Massenkoff & McCrory · exposition observée vs théorique Claude",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 65,
+     "year": 2026,
+     "citation": "KOF/EPFZ · adoption IA entreprises CH (projection)",
+     "ai_type": "automation_broad"
+    },
+    {
+     "tier": 2,
+     "value": 70,
+     "year": 2025,
+     "citation": "Digitalswitzerland · usage GenAI vs potentiel",
+     "ai_type": "unspecified"
+    },
+    {
+     "name": "Observatoire Data & IA en Suisse 2026 · Colombus Consulting / Oracle / HEG-Genève",
+     "url": "https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Observatoire Data & IA en Suisse 2026 · Colombus / Oracle / HEG-Genève · 69% des entreprises encore en exploration ou expérimentation de l'IA agentique, 8% seulement à un stade de maturité avancée (vs 17% en 2024) · l'écart entre ambition stratégique et passage à l'échelle se creuse, les fondations data devenant le principal facteur limitant · https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf"
+    }
+   ]
+  },
+  {
+   "title": "% gain de productivité IA · effet concentré secteur tertiaire haut",
+   "unit": "%",
+   "n_sources": 3,
+   "value_min": 2.5,
+   "value_max": 8.0,
+   "value_median": 4.0,
+   "description_fr": "Estimation du gain de productivité IA en Suisse. Reconstitution à partir de l'asymétrie observée par DemoSCOPE (avril 2026) entre les secteurs : 24% d'introduction IA dans les grandes entreprises (+250 collaborateurs) vs 9% dans les TPE. Cet écart est cohérent avec les +7,8% de productivité observés par Focaldata UK+US dans le secteur Tech vs +2,1% dans Health & Social Care. Pour la Suisse, dont la structure productive concentre la valeur dans le tertiaire haut de gamme (banque privée, pharma, horlogerie), la concentration des gains sera mécaniquement plus marquée.",
+   "sources": [
+    {
+     "name": "Angestellte Schweiz · DemoSCOPE",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+     "url": "https://focaldata.com",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Swiss AI Center · HES-SO",
+     "url": "https://www.hes-so.ch/",
+     "tier": 2,
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "Écart formation IA · point d'appui empirique pour les politiques de formation continue",
+   "unit": "points",
+   "n_sources": 3,
+   "value_min": 24,
+   "value_max": 37,
+   "value_median": 30,
+   "description_fr": "L'effet de la formation IA sur l'usage quotidien (+24 à +37 points selon Focaldata UK+US) constitue le levier le plus puissant identifié dans la littérature 2026. Pour la Suisse, ce constat empirique converge avec celui de DemoSCOPE : la formation continue est la mesure considérée comme la plus efficace par les actifs eux-mêmes (M=3,27/4 sur 4). Levier d'action prioritaire pour les fédérations professionnelles, les associations syndicales (Angestellte Schweiz), et les pouvoirs publics cantonaux et fédéraux. En Suisse, l'Observatoire Data & IA 2026 chiffre le déficit d'accompagnement : 34% des organisations n'offrent aucune formation formelle aux enjeux IA (▲14 pts), 46% se limitent à de la formation sans toucher à l'organisation, et 11% seulement redessinent réellement les rôles autour de l'IA · le paradoxe « on le sait, on ne le fait pas ».",
+   "sources": [
+    {
+     "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
+     "url": "https://focaldata.com",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Angestellte Schweiz · DemoSCOPE",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Observatoire Data & IA en Suisse 2026 · Colombus Consulting / Oracle / HEG-Genève",
+     "url": "https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Observatoire Data & IA en Suisse 2026 · Colombus / Oracle / HEG-Genève · déficit d'accompagnement : 34% des organisations n'offrent toujours aucune formation formelle aux enjeux IA (▲14 pts), 46% se limitent à de la formation sans refonte des rôles, 11% seulement redessinent activement les rôles autour de l'IA · https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf"
+    }
+   ]
+  },
+  {
+   "title": "Robustesse des prédictions IA appliquées au tissu suisse",
+   "unit": "facteur de divergence",
+   "n_sources": 4,
+   "value_min": 1.6,
+   "value_max": 3.6,
+   "value_median": 2.4,
+   "description_fr": "Pour la Suisse, la (dé)stabilité internationale des scores d'exposition à l'IA a une portée pratique. <strong>Yin, Vu, Persico (NBER w35110, avril 2026)</strong> et <strong>Yale Budget Lab (février 2026)</strong> démontrent que les scores qui circulent dans le débat public divergent fortement entre méthodes. Pour la Suisse, qui doit construire ses politiques de formation continue cantonales et fédérales sans données natives suisses sur l'exposition, cela impose une lecture prudente : ne jamais s'appuyer sur un score isolé, toujours croiser plusieurs sources, et reconnaître que la nomenclature NP 2010 ne dispose pas encore d'un score d'exposition propre, calibré sur la structure productive helvétique. Le constat DemoSCOPE 2026 (M=3,27/4 pour la formation continue comme mesure prioritaire) reste plus robuste empiriquement que les scores d'exposition par tâches.",
+   "sources": [
+    {
+     "name": "Yin, Vu, Persico · NBER w35110",
+     "url": "https://www.nber.org/papers/w35110",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Gimbel, Kendall, Kulsakdinun · Yale Budget Lab",
+     "url": "https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Angestellte Schweiz · DemoSCOPE",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Burn-Murdoch & O'Connor · Financial Times",
+     "url": "https://www.ft.com/content/f55c4eba-6e10-4283-8eae-e9f475048b37",
+     "tier": 1,
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "Coûts cachés de l'IA en entreprise · l'enjeu pour le tissu économique suisse",
+   "unit": "facteur de sous-estimation",
+   "n_sources": 5,
+   "value_min": 5,
+   "value_max": 10,
+   "value_median": 7,
+   "description_fr": "Pour la Suisse, dont le tissu économique est dominé par les PME (99,7% des entreprises) et où DemoSCOPE 2026 montre une asymétrie d'adoption frappante (24% pour les grandes entreprises, 9% pour les TPE), la question des coûts réels de l'IA est centrale. Les sources internationales convergent vers un constat : <strong>Gartner (octobre 2024)</strong> mesure 500% à 1000% d'erreur potentielle de calcul des coûts IA, 72% des CIO en break-even ou perte. <strong>Gartner (janvier 2026)</strong> prédit un coût par résolution GenAI > 3$ d'ici 2030. <strong>Tomer (avril 2026)</strong> formalise que le coût total de possession (orchestration, gouvernance, vérification, escalade, redesign organisationnel) est ce qui décide de la viabilité économique, pas le prix par token. Pour les PME suisses, ce constat impose une vigilance particulière : les coûts d'intégration et de gouvernance sont relativement plus lourds proportionnellement à un budget PME qu'à un budget de grande entreprise. C'est aussi pourquoi la formation continue (M=3,27/4 chez DemoSCOPE comme priorité) est plus robuste comme stratégie cantonale que les déploiements technologiques massifs et coûteux.",
+   "sources": [
+    {
+     "name": "Gartner · Mesaglio & LeHong",
+     "url": "https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-identifies-four-emerging-challenges-to-delivering-value-from-ai-safely-and-at-scale",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Gartner · Quinlan",
+     "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Tomer · TCO Framework",
+     "url": "https://x.com/i/trending/2046697397959663779",
+     "tier": 2,
+     "ai_type": "generative"
+    },
+    {
+     "name": "DemoSCOPE / Angestellte Schweiz 2026",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Gartner · Chandrasekaran (Blind Spots)",
+     "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-19-gartner-identifies-critical-genai-blind-spots-that-cios-must-urgently-address0",
+     "tier": 1,
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "Coût total réel de l'IA · vulnérabilité spécifique des PME suisses",
+   "unit": "facteur de sous-estimation",
+   "n_sources": 5,
+   "value_min": 5,
+   "value_max": 10,
+   "value_median": 7,
+   "description_fr": "Pour la Suisse, l'enjeu du coût total de l'IA prend une dimension particulière. Les <strong>4 sources Gartner et académiques convergentes (2025-2026)</strong> documentent une sous-estimation systématique de 500% à 1000% du coût total réel de l'IA en entreprise. Mais en Suisse, la structure du tissu économique amplifie le risque : <strong>DemoSCOPE 2026</strong> a montré que seules 9% des TPE-PME suisses ont introduit l'IA, contre 24% des grandes entreprises. La raison principale invoquée : ressources limitées. Si les PME suisses sous-estiment le coût total comme les grandes entreprises (Gartner), elles n'ont pas les marges pour absorber les dérapages : 50% des projets GenAI sont abandonnés après proof of concept selon Gartner. <strong>Roboto (avril 2026)</strong> ajoute une couche spécifique pour la Suisse romande : la « taxe linguistique » du français en LLM coûte 60% de tokens supplémentaires vs anglais sur les mêmes tâches. Conséquence pour les conseils cantonaux et SECO : les politiques d'incitation à l'adoption IA en PME doivent inclure un volet d'aide au calcul du TCO réel, faute de quoi les budgets PME seront mal calibrés et les abandons précoces se multiplieront.",
+   "sources": [
+    {
+     "name": "Gartner · 4 emerging challenges",
+     "url": "https://www.gartner.com/en/articles/ai-value",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Gartner · GenAI cost prediction CS",
+     "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-26-gartner-predicts-genai-cost-per-resolution-for-customer-service-will-exceed-offshore-human-agent-costs-by-2030",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "DemoSCOPE / Angestellte Schweiz",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Tomer · TCO framework academic paper",
+     "url": "https://arxiv.org/abs/2511.tomer-tco-framework",
+     "tier": 2,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Roboto · French linguistic tax",
+     "url": "https://www.roboto.fr/blog/tokens-ia-comment-les-fournisseurs-vous-font-payer-60-de-plus",
+     "tier": 3,
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "Souveraineté IA helvétique · Apertus et l'écosystème suisse de l'IA fully open",
+   "unit": "engagement et investissement public",
+   "n_sources": 6,
+   "value_min": 20,
+   "value_max": 20,
+   "value_median": 20,
+   "description_fr": "La Suisse joue une carte distinctive sur la souveraineté numérique IA : non pas la concurrence frontière mais la <strong>transparence radicale</strong>. <strong>Apertus</strong>, lancé le 2 septembre 2025 par la Swiss AI Initiative (EPFL, ETH Zurich, CSCS) avec un financement de 20 millions CHF de la Confédération jusqu'en 2028, est le premier LLM public suisse fully open : 8B et 70B paramètres, 15 trillions de tokens d'entraînement dont 40% non anglophones, plus de 1000 langues incluant le suisse-allemand et le romanche. Architecture, poids, données et recettes documentées. Hébergé sur la plateforme IA souveraine de Swisscom. Conforme dès l'origine à l'EU AI Act, à la LPD suisse et aux opt-outs créateurs. Plus d'un million de téléchargements en six mois. En mai 2026, Meditron est déployé au CHUV pour la décision clinique aux urgences. Pour les PME suisses, les administrations cantonales et les industries régulées, c'est la première option qui combine souveraineté juridictionnelle helvétique et transparence totale. Les contradictions persistent : 140 millions CHF de licences Microsoft renouvelées par la Confédération sur 2026-2028 montrent la difficulté du basculement réel. L'Observatoire Data & IA en Suisse 2026 montre que la souveraineté devient un critère opérationnel : 62% des organisations la mesurent activement ou la considèrent comme un point bloquant, au-delà du seul projet Apertus.",
+   "sources": [
+    {
+     "name": "Apertus · ETH Zurich press release",
+     "url": "https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Apertus · EPFL release",
+     "url": "https://actu.epfl.ch/news/apertus-a-fully-open-transparent-multilingual-lang/",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Swissinfo · AI in Switzerland 2026",
+     "url": "https://www.swissinfo.ch/eng/swiss-ai/artificial-intelligence-in-switzerland-whats-new-in-2026/90701795",
+     "tier": 2,
+     "ai_type": "generative"
+    },
+    {
+     "name": "GGBa · Apertus launch",
+     "url": "https://ggba.swiss/en/switzerland-launches-apertus-a-fully-open-multilingual-large-language-model/",
+     "tier": 2,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Apertus website",
+     "url": "https://apertvs.ai/",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Observatoire Data & IA en Suisse 2026 · Colombus Consulting / Oracle / HEG-Genève",
+     "url": "https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Observatoire Data & IA en Suisse 2026 · Colombus / Oracle / HEG-Genève · 62% des organisations mesurent activement leur niveau de souveraineté ou le considèrent comme un point bloquant · souveraineté, éthique et supervision humaine deviennent des conditions de passage à l'échelle, notamment avec l'IA agentique · https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf"
+    }
+   ]
+  },
+  {
+   "title": "Pour les organisations suisses · l'écart entre annonces Silicon Valley et indicateurs nationaux",
+   "unit": "lecture pour le tissu suisse",
+   "n_sources": 5,
+   "value_min": 1,
+   "value_max": 1,
+   "value_median": 1,
+   "description_fr": "Pour les organisations suisses, le décalage entre la rhétorique d'apocalypse de l'emploi (Amodei, Suleyman, Dimon, Block) et les données empiriques 2026 doit être lu à l'aune des spécificités helvétiques. <strong>Premièrement</strong>, le marché du travail suisse est structurellement plus stable que le marché US (taux de chômage 2,4-2,8% en 2026 selon SECO, contre 4,4% aux US). <strong>Deuxièmement</strong>, la formation continue suisse (CFC, brevet fédéral, ES, HES) crée des trajectoires de réinvention plus institutionnalisées que dans la plupart des pays. DemoSCOPE 2026 confirme M=3,27/4 pour la formation continue comme mesure prioritaire perçue par les actifs. <strong>Troisièmement</strong>, la structure productive suisse (horlogerie, pharma, finance, machines de précision, hospitalité haut de gamme) est dominée par des métiers à forte composante relationnelle ou high-craft, exactement les bénéficiaires théorisés par Trammell (mars 2026) via les biens « human-intrinsic » et confirmés par Garicano (avril 2026) sur les bundles forts. <strong>Conséquence pratique</strong> : les comités exécutifs suisses qui calibrent leur plan de transformation sur les annonces Silicon Valley (50% des cols blancs juniors disparus en 1-5 ans) risquent de surestimer dramatiquement l'impact réel et de sous-investir dans les leviers helvétiques classiques (apprentissage, formation continue, montée en gamme).",
+   "sources": [
+    {
+     "name": "Garicano · Silicon Continent · The task is not the job",
+     "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Trammell · Stanford DEL · Is labor a luxury?",
+     "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Washington Post · Tech layoffs hide future of jobs",
+     "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Angestellte Schweiz · DemoSCOPE 2026",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "NYT Opinion · The AI jobs apocalypse is a Silicon Valley story",
+     "url": "https://www.nytimes.com/2026/05/03/opinion/ai-jobs-unemployment-silicon-valley.html",
+     "tier": 1,
+     "ai_type": "generative"
+    }
+   ]
+  },
+  {
+   "title": "Confondre tâche et métier · le piège analytique pour les organisations suisses",
+   "unit": "écart narratif et statistique",
+   "n_sources": 5,
+   "value_min": 1,
+   "value_max": 1,
+   "value_median": 1,
+   "description_fr": "Pour les organisations suisses, la prudence est doublement justifiée. Le décalage entre les annonces de la Silicon Valley (Amodei, Suleyman) et la réalité du marché américain documenté par le NYT et le Washington Post en mai 2026 trouve un écho direct dans la posture suisse. <strong>DemoSCOPE 2026</strong> mesure 24% d'adoption IA dans les grandes entreprises suisses contre 9% dans les TPE : le déploiement effectif est lent, structuré, et les licenciements massifs ne sont pas en cours. Trois cadres théoriques importés (Garicano · LSE, Trammell · Oxford GPI, Imas · Stanford) convergent pour expliquer pourquoi les transitions technologiques produisent rarement des effondrements binaires d'emploi : la tâche n'est pas le métier, l'effet-revenu réalloue la dépense vers les biens human-intrinsic, l'économie est ce que les organisations doivent faire pour livrer ce que les consommateurs veulent. Pour les directions cantonales et fédérales chargées de la formation continue, l'enjeu n'est pas de réagir aux prédictions médiatiques mais de calibrer les programmes sur l'évidence empirique des données OFS, ESPA, et des observatoires sectoriels comme DemoSCOPE et l'EPFL AI Center.",
+   "sources": [
+    {
+     "name": "Trammell · Is labor a luxury in the long run?",
+     "url": "https://philiptrammell.substack.com/p/is-labor-a-luxury-in-the-long-run",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Garicano · Why desk jobs survive and Amodei is wrong",
+     "url": "https://www.siliconcontinent.com/p/why-desk-jobs-survive-and-amodei",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Trammell & Korinek · Economic Growth under Transformative AI",
+     "url": "https://www.globalprioritiesinstitute.org/wp-content/uploads/Philip-Trammell-and-Anton-Korinek-Economic-growth-under-transformative-AI-October-2023.pdf",
+     "tier": 1,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Washington Post · What Silicon Valley layoffs hide",
+     "url": "https://www.washingtonpost.com/technology/2026/05/01/ai-jobs-tech-layoffs-austerity/",
+     "tier": 2,
+     "ai_type": "generative"
+    },
+    {
+     "name": "Angestellte Schweiz · DemoSCOPE",
+     "url": "https://www.angestellte.ch",
+     "tier": 1,
+     "ai_type": "generative"
+    }
+   ]
+  }
+ ]
 }
