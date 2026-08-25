@@ -1,13 +1,49 @@
 {
  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/timeline-ia-emploi.schema.json",
  "version": "0.3.0",
- "compiled_at": "2026-06-13",
+ "compiled_at": "2026-08-25",
  "scope": "Jalons IA & emploi · 2019-2026 · monde + France",
  "license": "CC BY 4.0",
  "source_aggregator": "Naully Nicolas · observatoire[s]·ia",
  "documentation_url": "https://observatoire-ia.naullynicolas.ch/methodologie.html",
- "count": 96,
+ "count": 100,
  "events": [
+  {
+   "year": "Août 2026",
+   "title": "Stanford · Canaries in the Coal Mine? · Six Facts (mise à jour, données ADP jusqu'à juin 2026)",
+   "summary_fr": "Version d'août 2026 de l'étude de référence de Brynjolfsson, Chandar & Chen (Stanford Digital Economy Lab), sur données administratives de paie ADP couvrant des millions de travailleurs américains jusqu'à juin 2026. Elle consolide le constat en six faits. Fait 1 : aucune preuve de destruction d'emplois généralisée à l'échelle de l'économie. Fait 2 : l'emploi des jeunes travailleurs (22-25 ans) dans les métiers exposés à l'IA est désormais 19% en dessous de sa trajectoire attendue s'il avait suivi celle de leurs pairs moins exposés (contre −16% dans la version d'août 2025) ; les travailleurs expérimentés ne montrent aucun écart comparable. Fait 3 : cette divergence se creuse continûment depuis son premier signalement en août 2025. Fait 4 : elle passe principalement par une baisse des embauches de jeunes, non par une hausse des licenciements. Fait 5 : les reculs se concentrent dans les métiers où l'IA substitue les tâches humaines ; là où l'IA complète les travailleurs, l'emploi est stable ou en hausse, surtout pour les expérimentés. Fait 6 : l'ajustement se fait par le volume d'emploi, non par le salaire de base. La divergence résiste à plusieurs explications alternatives : elle persiste en excluant les firmes technologiques et les métiers informatiques, en contrôlant l'exposition aux hausses de taux d'intérêt et le télétravail, et selon différentes mesures d'exposition. Donnée américaine (ADP), pas de ventilation France, Suisse ou Europe · ancre internationale de la thèse « canaris ».",
+   "headline_value": "Jeunes 22-25 ans en métiers exposés : 19% sous la trajectoire attendue (−16% en août 2025), écart qui se creuse · pas de destruction généralisée · substitution recule l'emploi, complémentation le soutient · ajustement par le volume, pas le salaire",
+   "tier": "T1",
+   "citation": "Brynjolfsson E., Chandar B. & Chen R. · Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of AI · Stanford Digital Economy Lab · août 2026 · https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+   "ai_type": "generative"
+  },
+  {
+   "year": "Juillet 2026",
+   "title": "jobs.ch · KI-Report 2026 · le marché du travail suisse en mutation",
+   "summary_fr": "Rapport de jobs.ch (JobCloud AG, avec jobup.ch et JobScout24.ch), 9 juillet 2026, repris par la presse suisse le 20 août. Analyse de 7,3 millions d'annonces sur trois plateformes, comparaison phase pré-IA 2019-2022 vs post-IA 2023-2025, complétée d'une enquête auprès de salariés et d'entreprises. Chiffres clés : les postes d'entrée reculent de 32% en 2025 par rapport à la moyenne 2019-2022 ; 41% des moins de 25 ans expriment une crainte de déclassement (« AI FOBO ») ; 34% des entreprises peinent à recruter des profils IA ; 33% des salariés se disent prêts pour l'IA ; les postes de soins sont environ 8 fois plus difficiles à pourvoir qu'en 2023. Rare mesure suisse fondée sur le volume d'annonces plutôt que sur une enquête déclarative seule, documentant la contraction des postes d'entrée concomitante à la diffusion des LLM. Réserves importantes : émetteur commercial (plateforme d'emploi), source unique (données issues des seules plateformes du groupe, non indépendantes), méthodologie d'exposition non détaillée publiquement, « post-IA » assimilé à 2023-2025 sans contrôle explicite des cycles, part d'enquête déclarative, pas de nomenclature métiers officielle. Converge avec l'étude KOF/ETH (Kläui & Siegenthaler, octobre 2025) sans en constituer une confirmation indépendante.",
+   "headline_value": "Suisse : postes d'entrée −32% en 2025 vs 2019-2022 · 41% des moins de 25 ans craignent le déclassement (AI FOBO) · réserves fortes : émetteur commercial, source unique, converge avec KOF/ETH sans le confirmer",
+   "tier": "T3",
+   "citation": "jobs.ch (JobCloud AG) · KI-Report 2026 · Der Schweizer Arbeitsmarkt im Wandel · 7,3 M annonces · 9 juillet 2026 · https://www.jobs.ch/de/job-coach/ki-report-2026/",
+   "ai_type": "generative_and_agentic"
+  },
+  {
+   "year": "Juillet 2026",
+   "title": "INSEE · Insee Première n°2120 · usage de l'IA dans les entreprises françaises ×3 entre 2023 et 2025",
+   "summary_fr": "Note statistique de l'INSEE (Insee Première n°2120, 21 juillet 2026), tirée de l'enquête TIC 2025 auprès d'environ 11 000 entreprises (représentant ~194 000 unités, 13,5 M salariés), secteurs marchands, entreprises de 10 salariés et plus. Mesure officielle et représentative de la diffusion de l'IA : 18% des entreprises de 10 salariés et plus utilisent au moins une technologie d'IA en 2025, contre 10% en 2024, soit un triplement depuis 2023. Forte gradation par taille (10-49 salariés 15%, 50-249 salariés 31%, 250+ salariés 58%) et par secteur (information-communication 59%, activités spécialisées et scientifiques 33%, immobilier 26%, construction 10%, transport 9%). Les entreprises utilisatrices concentrent 66% du chiffre d'affaires et 59% de l'emploi des secteurs couverts. Réserves : mesure l'usage déclaré d'« au moins une technologie d'IA » (périmètre large, pas seulement l'IA générative), porte sur l'adoption et non sur les effets emploi, et exclut les entreprises de moins de 10 salariés. Source T1, base de référence pour le suivi annuel de l'adoption française.",
+   "headline_value": "18% des entreprises FR de 10+ salariés utilisent l'IA en 2025 (×3 depuis 2023) · 250+ salariés 58%, info-communication 59%, construction 10% · mesure officielle d'adoption, non d'effets emploi",
+   "tier": "T1",
+   "citation": "INSEE · Insee Première n°2120 · Les TIC dans les entreprises en 2025 · enquête TIC 2025 · 21 juillet 2026 · https://www.insee.fr/fr/statistiques/9025878",
+   "ai_type": "generative_and_agentic"
+  },
+  {
+   "year": "Août 2026",
+   "title": "OpenAI · De la demande à l'action : comment le monde met ChatGPT au travail (OpenAI Signals)",
+   "summary_fr": "Rapport de première partie d'OpenAI (6 août 2026) publiant, pour la première fois, des données d'usage de ChatGPT par pays, issues d'OpenAI Signals (équipe de recherche économique d'OpenAI). Le jeu de données porte sur les messages des comptes grand public (Free, Go, Plus, Pro), pas des comptes d'organisations. À manier avec la décote propre à une source vendeur documentant l'usage de son propre produit. Enseignements : au travail, l'« action » domine · les utilisateurs sont plus de deux fois plus susceptibles d'utiliser ChatGPT pour accomplir une tâche ou créer quelque chose (rédaction, codage, analyse) au travail qu'en dehors, où « demander » reste dominant. L'écart d'adoption mondial se réduit, des régions d'Amérique latine, d'Afrique et d'Océanie rattrapant les premiers utilisateurs (Pérou, Uruguay, Costa Rica en tête au T2 2026). Le multimédia est le cas d'usage à plus forte croissance (7,8% des messages, plus d'un sur dix au Brésil et en Colombie). L'adoption progresse chez les 35 ans et plus dans presque tous les pays (+5% de part de messages sur un an). France : la part des messages envoyés par les 35 ans et plus a augmenté de plus de 10 points de pourcentage sur l'année écoulée, et près des trois quarts des pays européens ont connu une hausse supérieure à la moyenne. Télémétrie d'usage grand public · pas une mesure d'emploi, d'exposition des métiers ni de prédiction, et pas de chiffre spécifique à la Suisse.",
+   "headline_value": "France : +10 points de part des messages ChatGPT chez les 35 ans et plus sur un an · au travail, 2× plus d'usage pour « agir » (rédiger, coder, analyser) qu'en dehors · télémétrie d'usage OpenAI (T3)",
+   "tier": "T3",
+   "citation": "OpenAI · De la demande à l'action : comment le monde met ChatGPT au travail · OpenAI Signals · 6 août 2026 · https://openai.com/fr-FR/index/how-the-world-is-putting-chatgpt-to-work/",
+   "ai_type": "generative"
+  },
   {
    "year": "Juin 2026",
    "title": "Ipsos · AI Monitor 2026 · enquête mondiale Global Advisor (32 pays)",

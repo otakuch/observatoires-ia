@@ -1,7 +1,7 @@
 {
  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-fr.schema.json",
  "version": "0.3.0",
- "compiled_at": "2026-06-13",
+ "compiled_at": "2026-08-25",
  "country": "FR",
  "scope": "Indicateurs prospectifs IA & emploi · France",
  "license": "CC BY 4.0",
@@ -122,11 +122,11 @@
   {
    "title": "Adoption IA générative en entreprise française",
    "unit": "%",
-   "n_sources": 9,
+   "n_sources": 10,
    "value_min": 24,
    "value_max": 88,
    "value_median": 38,
-   "description_fr": "L'IA s'est installée dans les entreprises françaises, mais à deux vitesses. La quasi-totalité des grandes organisations mondiales (88%) déclarent l'utiliser dans au moins une fonction. La GenAI a atteint 53% d'adoption populaire en seulement 3 ans plus vite que l'ordinateur personnel ou internet. Pourtant, seuls 7% des salariés français l'activent quotidiennement dans leur travail. Ce retard d'adoption n'est pas culturel : c'est un écart structurel qui se traduit par un différentiel de productivité croissant par rapport aux États-Unis (24ème rang mondial à 28,3%). La note DG Trésor n°391 (juin 2026) situe la France en position intermédiaire en Europe : 18% d'adoption de l'IA par les entreprises (OCDE 2025), proche de la moyenne européenne (20%) mais en deçà des pays nordiques, avec un rattrapage en cours (+8 pp entre 2024 et 2025 contre +6 pp pour l'UE).",
+   "description_fr": "L'IA s'est installée dans les entreprises françaises, mais à deux vitesses. La quasi-totalité des grandes organisations mondiales (88%) déclarent l'utiliser dans au moins une fonction. La GenAI a atteint 53% d'adoption populaire en seulement 3 ans plus vite que l'ordinateur personnel ou internet. Pourtant, seuls 7% des salariés français l'activent quotidiennement dans leur travail. Ce retard d'adoption n'est pas culturel : c'est un écart structurel qui se traduit par un différentiel de productivité croissant par rapport aux États-Unis (24ème rang mondial à 28,3%). La note DG Trésor n°391 (juin 2026) situe la France en position intermédiaire en Europe : 18% d'adoption de l'IA par les entreprises (OCDE 2025), proche de la moyenne européenne (20%) mais en deçà des pays nordiques, avec un rattrapage en cours (+8 pp entre 2024 et 2025 contre +6 pp pour l'UE). Mesure officielle et représentative : selon l'INSEE (Insee Première n°2120, enquête TIC 2025), 18% des entreprises françaises de 10 salariés et plus utilisent au moins une technologie d'IA en 2025, un triplement depuis 2023 (10% en 2024). L'adoption croît fortement avec la taille (58% pour les 250+ salariés) et varie selon les secteurs (59% dans l'information-communication, 10% dans la construction). À périmètre large (pas seulement l'IA générative) et sur l'adoption, non sur les effets emploi.",
    "sources": [
     {
      "tier": 1,
@@ -192,6 +192,15 @@
      "ai_type": "generative_and_agentic",
      "citation": "DG Trésor · Trésor-Éco n°391 (juin 2026) · taux d'adoption de l'IA par les entreprises françaises 18% (OCDE 2025), proche de la moyenne européenne (20%), avec un rattrapage en cours : +8 points de pourcentage entre 2024 et 2025 contre +6 pp pour la moyenne européenne · https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi",
      "value": 18
+    },
+    {
+     "name": "INSEE · Insee Première n°2120",
+     "url": "https://www.insee.fr/fr/statistiques/9025878",
+     "tier": 1,
+     "year": 2026,
+     "value": 18,
+     "ai_type": "generative_and_agentic",
+     "citation": "INSEE · Insee Première n°2120 (21 juillet 2026, enquête TIC 2025) · 18% des entreprises de 10+ salariés utilisent au moins une technologie d'IA en 2025 (vs 10% en 2024, ×3 depuis 2023) · 10-49 sal. 15%, 50-249 sal. 31%, 250+ sal. 58% · info-communication 59%, construction 10%, transport 9% · mesure officielle d'adoption, périmètre large (pas seulement GenAI), non des effets emploi · https://www.insee.fr/fr/statistiques/9025878"
     }
    ]
   },
@@ -430,11 +439,11 @@
   {
    "title": "% emplois où IA = complémentarité (non-substitution)",
    "unit": "%",
-   "n_sources": 12,
+   "n_sources": 13,
    "value_min": 44,
    "value_max": 87,
    "value_median": 68,
-   "description_fr": "La grande majorité des emplois ne sont pas voués à disparaître mais à se transformer profondément. Aux États-Unis, 57% des postes ont moins de 40% de leurs tâches automatisables ils appartiennent aux catégories les moins perturbées. En France, ce seuil est encore plus élevé en raison de la composition sectorielle. La substitution complète est structurellement plus lente que l'augmentation : remplacer un humain par l'IA exige un redesign total des processus et la formalisation des savoirs tacites. L'augmentation diffuse rapidement car l'humain reste dans la boucle et gère les exceptions. À ce stade, aucune preuve statistique d'impact emploi n'a été détectée au niveau des industries, ni en Europe ni aux États-Unis. Imas & Mandel 2026 (SSRN) apportent une preuve expérimentale décisive : lorsque l'humain est le producteur, la valeur d'exclusivité est 2x plus forte que pour un bien généré par IA. Le secteur relationnel (soins, hospitalité, artisanat, performance vivante) résiste non par contrainte technique mais parce que l'automatisation en détruirait la valeur. Le working paper Ramp / Revelio Labs (2026, 21 559 firmes américaines) apporte un contrepoint empirique fort à l'échelle firme : les adopteurs intensifs de l'IA voient leur emploi croître d'environ 10% et leurs effectifs juniors de 12% après adoption, quand les adopteurs légers ne bougent pas. Les auteurs soulignent toutefois un effet de sélection (les adopteurs sont déjà des firmes plus grandes et en croissance rapide) et une concentration sectorielle sur l'Information · la relation est descriptive autant que causale. Donnée américaine, sans équivalent France.",
+   "description_fr": "La grande majorité des emplois ne sont pas voués à disparaître mais à se transformer profondément. Aux États-Unis, 57% des postes ont moins de 40% de leurs tâches automatisables ils appartiennent aux catégories les moins perturbées. En France, ce seuil est encore plus élevé en raison de la composition sectorielle. La substitution complète est structurellement plus lente que l'augmentation : remplacer un humain par l'IA exige un redesign total des processus et la formalisation des savoirs tacites. L'augmentation diffuse rapidement car l'humain reste dans la boucle et gère les exceptions. À ce stade, aucune preuve statistique d'impact emploi n'a été détectée au niveau des industries, ni en Europe ni aux États-Unis. Imas & Mandel 2026 (SSRN) apportent une preuve expérimentale décisive : lorsque l'humain est le producteur, la valeur d'exclusivité est 2x plus forte que pour un bien généré par IA. Le secteur relationnel (soins, hospitalité, artisanat, performance vivante) résiste non par contrainte technique mais parce que l'automatisation en détruirait la valeur. Le working paper Ramp / Revelio Labs (2026, 21 559 firmes américaines) apporte un contrepoint empirique fort à l'échelle firme : les adopteurs intensifs de l'IA voient leur emploi croître d'environ 10% et leurs effectifs juniors de 12% après adoption, quand les adopteurs légers ne bougent pas. Les auteurs soulignent toutefois un effet de sélection (les adopteurs sont déjà des firmes plus grandes et en croissance rapide) et une concentration sectorielle sur l'Information · la relation est descriptive autant que causale. Donnée américaine, sans équivalent France. La version d'août 2026 de l'étude Canaries (Stanford, données ADP US jusqu'à juin 2026) objective la distinction au cœur de cet indicateur : là où l'IA complète les travailleurs, l'emploi est stable ou en hausse, en particulier pour les expérimentés ; les reculs se concentrent dans les métiers où l'IA substitue les tâches humaines. Donnée américaine, sans équivalent France, mais qui ancre empiriquement la logique de complémentarité.",
    "sources": [
     {
      "tier": 1,
@@ -520,6 +529,14 @@
      "year": 2026,
      "ai_type": "generative",
      "citation": "Ramp / Revelio Labs 2026 · benchmark international (21 559 firmes US) · les firmes qui adoptent l'IA croissent plus vite : +10% d'emploi et +12% d'effectifs juniors chez les adopteurs intensifs, aucun effet chez les adopteurs légers · contrepoint à la substitution, mais effet en partie de sélection (adopteurs déjà plus grands et en croissance rapide) · pas de chiffre France · https://ramp.com/data/ai-jobs-impact/paper"
+    },
+    {
+     "name": "Stanford · Canaries in the Coal Mine? Six Facts",
+     "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+     "tier": 1,
+     "year": 2026,
+     "ai_type": "generative",
+     "citation": "Stanford · Canaries in the Coal Mine? Six Facts (août 2026, données ADP jusqu'à juin 2026) · Fait 5 : là où l'IA complète les travailleurs, l'emploi est stable ou en hausse (surtout pour les expérimentés) ; les reculs se concentrent là où l'IA substitue les tâches · ancre internationale de la distinction substitution/complémentation · donnée US, sans chiffre France · https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf"
     }
    ]
   },

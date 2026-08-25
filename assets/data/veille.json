@@ -1,5 +1,69 @@
 [
  {
+  "date": "2026-08-01",
+  "source": "Stanford Digital Economy Lab · Brynjolfsson, Chandar & Chen · Canaries in the Coal Mine? Six Facts",
+  "country": "INT",
+  "title": {
+   "fr": "Stanford · Canaries in the Coal Mine? Six Facts · les 22-25 ans en métiers exposés 19% sous leur trajectoire",
+   "en": "Stanford · Canaries in the Coal Mine? Six Facts · ages 22-25 in exposed jobs 19% below trend"
+  },
+  "excerpt": {
+   "fr": "Version d'août 2026 de l'étude de référence de Brynjolfsson, Chandar & Chen (Stanford Digital Economy Lab), sur données de paie ADP couvrant des millions de travailleurs américains jusqu'à juin 2026. Six faits : (1) pas de destruction d'emplois généralisée ; (2) l'emploi des 22-25 ans en métiers exposés est 19% sous sa trajectoire attendue (contre −16% en août 2025), sans écart chez les expérimentés ; (3) la divergence se creuse depuis août 2025 ; (4) elle passe par une baisse des embauches, non par des licenciements ; (5) elle se concentre là où l'IA substitue les tâches, quand la complémentation soutient l'emploi ; (6) l'ajustement se fait par le volume d'emploi, non par le salaire. Robuste à l'exclusion des firmes tech, au contrôle des taux d'intérêt et du télétravail. Donnée américaine (ADP), pas de ventilation FR/CH/EU · ancre internationale de la thèse « canaris ».",
+   "en": "August 2026 version of the reference study by Brynjolfsson, Chandar & Chen (Stanford Digital Economy Lab), on ADP payroll data covering millions of US workers through June 2026. Six facts: (1) no economy-wide job displacement; (2) employment of 22-25 year-olds in exposed occupations is 19% below trend (vs −16% in August 2025), with no gap for experienced workers; (3) the divergence has widened since August 2025; (4) it works through reduced hiring, not increased separations; (5) it concentrates where AI substitutes tasks, while complementation sustains employment; (6) adjustment is through employment quantity, not base pay. Robust to excluding tech firms, controlling for interest rates and remote work. US data (ADP), no FR/CH/EU breakdown · international anchor of the 'canaries' thesis."
+  },
+  "summary": "",
+  "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+  "ai_type": "generative"
+ },
+ {
+  "date": "2026-07-09",
+  "source": "jobs.ch (JobCloud AG) · KI-Report 2026",
+  "country": "CH",
+  "title": {
+   "fr": "jobs.ch · KI-Report 2026 · postes d'entrée −32% en Suisse, « AI FOBO » chez les jeunes",
+   "en": "jobs.ch · KI-Report 2026 · Swiss entry-level postings −32%, youth 'AI FOBO'"
+  },
+  "excerpt": {
+   "fr": "Rapport de jobs.ch (JobCloud AG, avec jobup.ch et JobScout24.ch), 9 juillet 2026, repris par la presse suisse le 20 août. Analyse de 7,3 millions d'annonces, comparaison pré-IA 2019-2022 vs post-IA 2023-2025, complétée d'une enquête. Postes d'entrée −32% en 2025 vs moyenne 2019-2022 ; 41% des moins de 25 ans craignent le déclassement (« AI FOBO ») ; 34% des entreprises peinent à recruter des profils IA ; 33% des salariés se disent prêts pour l'IA ; postes de soins ~8× plus difficiles à pourvoir qu'en 2023. Rare mesure suisse basée sur le volume d'annonces. Réserves fortes : émetteur commercial, source unique (plateformes du groupe, non indépendantes), méthodologie d'exposition non publiée, converge avec KOF/ETH sans confirmation indépendante.",
+   "en": "Report by jobs.ch (JobCloud AG, with jobup.ch and JobScout24.ch), 9 July 2026, picked up by the Swiss press on 20 August. Analysis of 7.3 million job ads, pre-AI 2019-2022 vs post-AI 2023-2025, plus a survey. Entry-level postings −32% in 2025 vs 2019-2022 average; 41% of under-25s fear downgrading ('AI FOBO'); 34% of firms struggle to recruit AI profiles; 33% of employees feel ready for AI; care roles ~8× harder to fill than in 2023. A rare Swiss measure based on job-ad volume. Strong caveats: commercial issuer, single source (group platforms, not independent), undisclosed exposure methodology, converges with KOF/ETH without independent confirmation."
+  },
+  "summary": "",
+  "url": "https://www.jobs.ch/de/job-coach/ki-report-2026/",
+  "ai_type": "generative_and_agentic"
+ },
+ {
+  "date": "2026-07-21",
+  "source": "INSEE · Insee Première n°2120 · enquête TIC 2025",
+  "country": "FR",
+  "title": {
+   "fr": "INSEE · usage de l'IA dans les entreprises françaises multiplié par trois entre 2023 et 2025",
+   "en": "INSEE · AI use in French firms tripled between 2023 and 2025"
+  },
+  "excerpt": {
+   "fr": "Insee Première n°2120 (21 juillet 2026), enquête TIC 2025 auprès d'environ 11 000 entreprises (secteurs marchands, 10 salariés et plus). Mesure officielle : 18% des entreprises de 10+ salariés utilisent au moins une technologie d'IA en 2025 (vs 10% en 2024, triplement depuis 2023). Par taille : 10-49 sal. 15%, 50-249 sal. 31%, 250+ sal. 58%. Par secteur : information-communication 59%, activités spécialisées 33%, immobilier 26%, construction 10%, transport 9%. Les entreprises utilisatrices concentrent 66% du chiffre d'affaires et 59% de l'emploi des secteurs couverts. Réserves : usage déclaré d'« au moins une technologie d'IA » (périmètre large, pas seulement GenAI), adoption et non effets emploi, moins de 10 salariés hors champ.",
+   "en": "Insee Première no.2120 (21 July 2026), 2025 ICT survey of about 11,000 firms (market sectors, 10+ employees). Official measure: 18% of firms with 10+ employees use at least one AI technology in 2025 (vs 10% in 2024, tripled since 2023). By size: 10-49 emp. 15%, 50-249 emp. 31%, 250+ emp. 58%. By sector: information-communication 59%, specialised activities 33%, real estate 26%, construction 10%, transport 9%. User firms concentrate 66% of turnover and 59% of employment. Caveats: declared use of 'at least one AI technology' (broad scope, not only GenAI), adoption not employment effects, firms under 10 employees out of scope."
+  },
+  "summary": "",
+  "url": "https://www.insee.fr/fr/statistiques/9025878",
+  "ai_type": "generative_and_agentic"
+ },
+ {
+  "date": "2026-08-06",
+  "source": "OpenAI · OpenAI Signals · De la demande à l'action",
+  "country": "INT",
+  "title": {
+   "fr": "OpenAI · comment le monde met ChatGPT au travail · au travail « l'action » domine, l'adoption gagne les 35 ans et plus",
+   "en": "OpenAI · how the world is putting ChatGPT to work · at work 'action' dominates, adoption spreads to over-35s"
+  },
+  "excerpt": {
+   "fr": "Rapport de première partie d'OpenAI (6 août 2026), premières données d'usage de ChatGPT par pays via OpenAI Signals (comptes grand public Free/Go/Plus/Pro). Au travail, les utilisateurs sont plus de deux fois plus susceptibles d'utiliser ChatGPT pour « agir » (rédiger, coder, analyser) qu'en dehors. L'écart d'adoption mondial se réduit (Pérou, Uruguay, Costa Rica en tête au T2 2026). Le multimédia est le cas d'usage à plus forte croissance (7,8% des messages). L'adoption progresse chez les 35 ans et plus dans presque tous les pays ; en France, leur part des messages a augmenté de plus de 10 points sur un an, et près des trois quarts des pays européens ont dépassé la moyenne. Télémétrie d'usage grand public, à décote vendeur · pas une mesure d'emploi ni d'exposition des métiers, pas de chiffre suisse.",
+   "en": "OpenAI first-party report (6 August 2026), first country-level ChatGPT usage data via OpenAI Signals (consumer Free/Go/Plus/Pro accounts). At work, users are more than twice as likely to use ChatGPT to 'act' (write, code, analyse) than outside work. The global adoption gap is narrowing (Peru, Uruguay, Costa Rica leading in Q2 2026). Multimedia is the fastest-growing use case (7.8% of messages). Adoption rises among over-35s in almost every country; in France their message share rose by more than 10 points over the year, and nearly three-quarters of European countries were above average. Consumer usage telemetry with a vendor discount · not an employment or occupational-exposure measure, no Switzerland figure."
+  },
+  "summary": "",
+  "url": "https://openai.com/fr-FR/index/how-the-world-is-putting-chatgpt-to-work/",
+  "ai_type": "generative"
+ },
+ {
   "date": "2026-06-08",
   "source": "Ipsos · AI Monitor 2026 · Global Advisor (32 pays)",
   "country": "INT",
