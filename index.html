@@ -5810,6 +5810,154 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .closing-cta-inner{ max-width: var(--max-w); margin: 0 auto; }
 .closing-cta .ds-lede{ margin-bottom: var(--s-5); }
 .closing-cta-actions{ display:flex; gap: var(--s-3); flex-wrap:wrap; }
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · lots A + B · bloc purement additif · v0.3.75       */
+/* Retirer ce bloc dans son intégralité restitue v0.3.73 octet pour     */
+/* octet. Aucune règle antérieure n'est réécrite : surcharge par ordre  */
+/* de source uniquement.                                                */
+/* Principe : une couleur, un sens.                                     */
+/*   bleu  --signal  = interactif, et rien d'autre                      */
+/*   teal  --accent  = emphase éditoriale                               */
+/*   chaud --exp-*   = exposition et risque, réservé à l'analyse        */
+/* ==================================================================== */
+
+/* --- Lot A · socle de tokens ---------------------------------------- */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF; --rule:#D5D5CE;
+  --rule-strong:#14181C; --paper-rgb:244,244,241;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec); --ink-rgb:20,24,28;
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --signal-rgb:27,77,143;
+  --accent:#1F4B4E; --teal:#1F4B4E;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --on-exp:#14181C; --on-exp-5:#FFFFFF;
+  --risk:#8E3D1B;
+  --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C21; --surface:#1A1F25; --rule:#2C333A;
+  --rule-strong:#E8EAEC; --paper-rgb:16,20,24;
+  --ink:#E8EAEC; --ink-sec:#B4BAC1; --ink-3:#8B9299; --muted:#7E858C;
+  --ink-rgb:232,234,236;
+  --signal:#7FA8DC; --signal-hover:#A3C1E8; --on-signal:#101418;
+  --signal-rgb:127,168,220;
+  --accent:#7FB3AF; --teal:#7FB3AF;
+  --risk:#D89765;
+  --t1:#9FC4DE; --t2:#8FB0BC; --t3:#C7AC72; --t4:#D49186;
+}
+
+/* --- Lot B · reciblage sémantique ------------------------------------ */
+/* Surtitres */
+.ds-eyebrow,
+.section-eyebrow,
+.synthese .section-eyebrow,
+.frame-eyebrow,
+.debate-eyebrow{ color:var(--accent); }
+
+/* Emphase typographique dans les titres et le corps éditorial */
+.hero-title em,
+.frame-title em,
+.debate-title em,
+.dispatch-tease-title em,
+.warning-title em,
+.frame-card-body em,
+.frame-footer-text em{ color:var(--accent); }
+
+/* Pictogrammes de carte */
+.frame-card-icon,
+.warning-card-icon{ color:var(--accent); }
+
+/* Unités et signes des chiffres clés */
+.stat-num .unit,
+.stat-num .sign,
+.kpi-num .unit{ color:var(--accent); }
+
+/* Marque · crochets et points de la signature typographique */
+.hero-title .accent-bracket,
+.logo .bracket,
+.logo:hover .bracket,
+.foot-bottom .bracket,
+.foot-bottom .dot,
+.foot-col-brand .foot-brand .bracket,
+.foot-col-brand .foot-brand .dot{ color:var(--accent); }
+
+/* Filets et pastilles de section */
+.dispatch-tease-tag{ color:var(--accent); border:1px solid var(--accent); }
+.dispatch-tease-inner::before{ background:var(--accent); }
+.warning-inner::before{ background:var(--accent); }
+.warning-tag{ background:var(--accent); }
+.debate-takeaway{ border-left:4px solid var(--accent); }
+
+/* --- Débat · l'opposition reste lisible ------------------------------ */
+/* La thèse porte le risque, donc le chaud. L'antithèse garde le teal.  */
+.debate-col-thesis::before{ background:var(--risk); }
+.debate-col-thesis .debate-col-tag{ color:var(--risk); }
+.debate-col-thesis .debate-col-quote{ border-left-color:var(--risk); }
+.debate-col-thesis .debate-col-points li::before{ color:var(--risk); }
+
+/* --- Dette d'affichage · plancher de lisibilité ---------------------- */
+.mono{ font-size:max(11px, 0.78em); }
+
+/* ==================================================================== */
+/* CORRECTIF DE DÉBORDEMENT MOBILE · additif · août 2026                */
+/* Cause : 1fr vaut minmax(auto,1fr) et le minimum auto est tiré par un */
+/* contenu insécable, ce qui rend la colonne plus large que la grille.  */
+/* Aucune couleur touchée · la charte Encre & ardoise est préservée.    */
+/* ==================================================================== */
+@media (max-width: 640px){
+  .field-grid,
+  .size-grid,
+  .brief-size-grid{ grid-template-columns: minmax(0, 1fr); }
+  .field-grid > *,
+  .size-grid > *,
+  .brief-size-grid > *{ min-width: 0; }
+}
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/">

@@ -1,0 +1,62 @@
+/* ==================================================================== */
+/* PONT DE TOKENS · modèles Dispatch -> charte « Encre & ardoise »      */
+/* ==================================================================== */
+/* Les deux modèles de dépêche utilisent leur propre espace de noms      */
+/* (--ink-paper, --ink-1, --ink-warm-*). Ce bloc les redéfinit comme     */
+/* des alias de la charte, sans toucher au balisage des modèles.         */
+/*                                                                       */
+/* Règle conservée : bleu = interactif · chaud = exposition et risque ·   */
+/* teal = emphase éditoriale · encres = structure.                       */
+/*                                                                       */
+/* Deux écarts volontaires par rapport aux modèles :                     */
+/*  1. --ink-editorial valait #B8312F, un rouge d'emphase éditoriale.    */
+/*     Le rouge est réservé à l'analyse. Remappé sur --accent (8,76).    */
+/*  2. --ink-caution mappé sur --exp-5 et non --exp-4 : --exp-4 ne donne */
+/*     que 3,59 sur le fond clair, sous le seuil de 4,5 pour du texte.   */
+/*     --exp-5 donne 6,73. Vérifié par calcul, non supposé.              */
+/*                                                                       */
+/* À charger APRÈS le bloc de tokens de la charte.                       */
+/* ==================================================================== */
+
+:root{
+  /* Surfaces */
+  --ink-paper:        var(--paper);
+  --ink-paper-alt:    var(--paper-2);
+  --ink-rule:         var(--rule);
+  --ink-rule-strong:  var(--rule-strong);
+  --ink-grid:         var(--rule);
+
+  /* Encres */
+  --ink-1:            var(--ink);
+  --ink-2:            var(--ink-sec);
+  --ink-3:            var(--ink-3);
+
+  /* Interactif · et rien d'autre */
+  --ink-signal:       var(--signal);
+  --ink-signal-soft:  var(--highlight);
+
+  /* Emphase éditoriale · jamais rouge, jamais bleue */
+  --ink-editorial:      var(--accent);
+  --ink-editorial-soft: var(--paper-2);
+  --ink-positive:       var(--teal);
+
+  /* Analytique · exposition et risque */
+  --ink-caution:      var(--exp-5);
+  --ink-warm-1:       var(--exp-1);
+  --ink-warm-2:       var(--exp-2);
+  --ink-warm-3:       var(--exp-3);
+  --ink-warm-4:       var(--exp-4);
+  --ink-warm-5:       var(--exp-5);
+
+  /* Alias courts utilisés dans les modèles */
+  --tx:               var(--ink);
+  --tx-sec:           var(--ink-sec);
+  --tx-mut:           var(--ink-3);
+
+  --ink-shadow:       var(--shadow-1);
+}
+
+/* Le thème sombre est porté par la charte : les alias ci-dessus         */
+/* suivent automatiquement html[data-theme="dark"], il n'y a donc rien   */
+/* à redéclarer ici. C'est l'intérêt du pont par alias plutôt que par    */
+/* valeurs littérales.                                                   */

@@ -194,6 +194,49 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
 .foot-sig{ font-family:'Fraunces',serif; font-size:19px; color:var(--tx); margin-top:10px; }
 .foot-sig small{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--tx-mut); text-transform:uppercase; letter-spacing:.06em; margin-top:6px; }
 @media(max-width:680px){ .dispatch-banner-inner{ font-size:10px; } .hero-author{ flex-direction:row; } }
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
 </style>
 </head>
 <body>
@@ -480,6 +523,7 @@ html[data-theme="dark"] .indep-block strong{ color:var(--sia-cream); }
           <li>EY AI Survey 2026 — Artificial Intelligence in Swiss Companies (604 entreprises CH, mai 2026). T1.</li>
           <li>UBS Outlook Suisse Q2 2026 / Intervista (≈2500 entreprises CH, mars 2026). T1.</li>
           <li>HEG Genève / Oracle — Observatoire Data & IA 2025. T2.</li>
+          <li>Massenkoff &amp; McCrory · Anthropic — <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener">Labor market impacts of AI</a> (mars 2026). T2, source de première partie. Exposition observée : 94% de tâches théoriquement automatisables contre 33% couvertes ; aucun effet chômage, −14% d'accès à l'emploi chez les 22-25 ans exposés.</li>
           <li>Stanford Digital Economy Lab — <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" target="_blank" rel="noopener">Canaries in the Coal Mine? Six Facts</a> (données ADP US jusqu'à juin 2026). T1. Les 22-25 ans en métiers exposés 19% sous leur trajectoire (−16% en 2025) ; substitution recule l'emploi, complémentation le soutient. Ancre internationale.</li>
           <li>jobs.ch (JobCloud AG) — <a href="https://www.jobs.ch/de/job-coach/ki-report-2026/" target="_blank" rel="noopener">KI-Report 2026</a> (7,3 M annonces, juillet 2026). T3. Postes d'entrée −32% en 2025 vs 2019-2022 ; « AI FOBO » chez 41% des moins de 25 ans. Réserves : émetteur commercial, source unique, converge avec KOF/ETH sans confirmation indépendante.</li>
           <li>Kharazian, Simon &amp; Stevens · Ramp / Revelio Labs — <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">A New Look at AI's Impact on Jobs</a> (21 559 firmes US, juin 2026). T2. Adopteurs intensifs : +10% emploi, +12% juniors ; adopteurs légers, aucun effet · contredit la destruction massive, effet en partie de sélection.</li>

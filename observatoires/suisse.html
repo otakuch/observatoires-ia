@@ -6121,6 +6121,62 @@ html[data-theme="dark"] .matrix-mini{
   --muted:#8B8579; --rule:#D9D2C2; --teal:#1F3A3D; --signal:#D03C2F; --highlight:#F7E27D;
   background:#F2EEE5; border:1px solid #D9D2C2; border-radius:var(--r-2); padding:14px;
 }
+
+/* ==================================================================== */
+/* CORRECTIF DE DÉBORDEMENT MOBILE · additif · août 2026                */
+/* Cause : 1fr vaut minmax(auto,1fr) et le minimum auto est tiré par un */
+/* contenu insécable, ce qui rend la colonne plus large que la grille.  */
+/* Aucune couleur touchée · la charte Encre & ardoise est préservée.    */
+/* ==================================================================== */
+@media (max-width: 640px){
+  .field-grid,
+  .size-grid,
+  .brief-size-grid{ grid-template-columns: minmax(0, 1fr); }
+  .field-grid > *,
+  .size-grid > *,
+  .brief-size-grid > *{ min-width: 0; }
+}
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/observatoires/suisse.html">
@@ -6324,13 +6380,13 @@ html[data-theme="dark"] .matrix-mini{
     <div class="rdr-eyebrow">🇨🇭 Observatoire · Suisse · Radar exposition vs adoption</div>
     <h2 class="rdr-title">Exposition technique de l'IA <em>vs taux d'adoption</em>.</h2>
     <p class="rdr-sub">22 catégories d'occupation, <b>deux indicateurs distincts à lire axe par axe</b>. En vert · l'exposition technique estimée par tâche (échelle 0–0,5, référence académique internationale). En rouge · le taux d'adoption observé ou estimé par catégorie (échelle 0–100 %). Les deux courbes ne se comparent pas directement · chacune est ramenée à son propre maximum.</p>
-    <p class="rdr-sub" style="border-left: 3px solid var(--signal); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les scores d'exposition affichés s'appuient sur des coefficients LLM-dérivés (Karger, Kuusela, Tetlock · FRB Chicago/SSRN 2026, n=894 occupations O*NET). L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles d'IA différents sur des tâches identiques. À lire comme une fourchette indicative · le classement relatif entre métiers reste robuste, mais les niveaux absolus comportent une variance documentée.</p>
+    <p class="rdr-sub" style="border-left: 3px solid var(--accent); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les scores d'exposition affichés s'appuient sur des coefficients LLM-dérivés (Karger, Kuusela, Tetlock · FRB Chicago/SSRN 2026, n=894 occupations O*NET). L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles d'IA différents sur des tâches identiques. À lire comme une fourchette indicative · le classement relatif entre métiers reste robuste, mais les niveaux absolus comportent une variance documentée.</p>
 
     <div class="rdr-grid" id="chRadarCard">
       <div class="rdr-main">
         <div class="rdr-legend" id="chRadarLegend">
           <span data-layer="blue"><i style="background:var(--teal)"></i><span data-i18n="rdr.lay.exp">Exposition technique</span> <small>(0–0,5)</small></span>
-          <span data-layer="red"><i style="background:var(--signal)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
+          <span data-layer="red"><i style="background:var(--accent)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
         </div>
         <div class="rdr-chips" id="chRadarChips">
           <span class="rdr-chips-lbl" data-i18n="rdr.chips.lbl">Famille d'IA</span>
@@ -6755,12 +6811,12 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">De l'adoption à l'orchestration durable : le paradoxe suisse 2026.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">L'édition 2026 de l'<b>Observatoire Data &amp; IA en Suisse</b> (Colombus Consulting, Oracle, HEG-Genève · 100+ organisations, janvier-avril 2026) acte un basculement : en Suisse, l'IA n'est plus une question d'adoption mais d'orchestration durable. Le paradoxe central de l'année : <b>82% des entreprises jugent la conduite du changement critique, mais 11% seulement engagent une refonte réelle des rôles autour de l'IA</b>. On le sait, on ne le fait pas.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);">
-      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--signal); line-height:1;">47%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">intègrent l'IA en stratégie long terme (▲12 pts), mais <b>9% seulement</b> la placent au cœur de leur stratégie.</p></div>
-      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--signal); line-height:1;">46%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">ont déployé la GenAI à l'échelle (▼29 pts) · un recentrage sur la valeur, pas un désengagement.</p></div>
-      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--signal); line-height:1;">8%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">seulement à une maturité avancée (contre 17% en 2024) · les fondations data deviennent le facteur limitant.</p></div>
-      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--signal); line-height:1;">62%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">mesurent activement leur souveraineté ou la jugent bloquante · la confiance devient condition de passage à l'échelle.</p></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--accent); line-height:1;">47%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">intègrent l'IA en stratégie long terme (▲12 pts), mais <b>9% seulement</b> la placent au cœur de leur stratégie.</p></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--accent); line-height:1;">46%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">ont déployé la GenAI à l'échelle (▼29 pts) · un recentrage sur la valeur, pas un désengagement.</p></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--accent); line-height:1;">8%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">seulement à une maturité avancée (contre 17% en 2024) · les fondations data deviennent le facteur limitant.</p></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; color:var(--accent); line-height:1;">62%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">mesurent activement leur souveraineté ou la jugent bloquante · la confiance devient condition de passage à l'échelle.</p></div>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Enquête d'adoption, de maturité et de gouvernance d'entreprise · elle éclaire l'écart entre ambition et exécution, non l'exposition des métiers ou des prédictions d'emploi. <a href="https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf" target="_blank" rel="noopener" style="color: var(--signal);">Observatoire Data &amp; IA en Suisse 2026 ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Enquête d'adoption, de maturité et de gouvernance d'entreprise · elle éclaire l'écart entre ambition et exécution, non l'exposition des métiers ou des prédictions d'emploi. <a href="https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Observatoire Data &amp; IA en Suisse 2026 ↗</a></p>
   </div>
 </section>
 
@@ -6771,11 +6827,11 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Adopter l'IA, c'est croître plutôt que substituer.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">Le working paper <b>Ramp / Revelio Labs</b> (30 juin 2026), sur les dépenses IA réelles de 21 559 firmes américaines, apporte un contrepoint empirique fort : l'adoption intensive de l'IA s'accompagne d'une hausse de l'emploi (+10%) et des effectifs juniors (+12%), non d'une substitution. Un éclairage utile pour lire le paradoxe suisse de l'orchestration durable : la valeur vient de l'intensité et de l'intégration, pas de la seule adoption.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);">
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+10&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emploi chez les adopteurs intensifs après adoption · aucun effet chez les adopteurs légers.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+12&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'effectifs <b>en début de carrière</b> chez ces mêmes adopteurs intensifs.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">21 559</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">firmes américaines, dépenses IA réelles (Ramp) reliées aux effectifs (Revelio Labs).</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+10&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emploi chez les adopteurs intensifs après adoption · aucun effet chez les adopteurs légers.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+12&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'effectifs <b>en début de carrière</b> chez ces mêmes adopteurs intensifs.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">21 559</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">firmes américaines, dépenses IA réelles (Ramp) reliées aux effectifs (Revelio Labs).</p></div>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Réserve méthodologique : effet en partie de sélection (adopteurs déjà plus grands et en croissance rapide), concentré sur l'Information. La Suisse n'est pas dans l'échantillon · repère international. <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener" style="color: var(--signal);">Ramp / Revelio Labs · A New Look at AI's Impact on Jobs ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Réserve méthodologique : effet en partie de sélection (adopteurs déjà plus grands et en croissance rapide), concentré sur l'Information. La Suisse n'est pas dans l'échantillon · repère international. <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener" style="color:var(--accent);">Ramp / Revelio Labs · A New Look at AI's Impact on Jobs ↗</a></p>
   </div>
 </section>
 
@@ -6785,8 +6841,8 @@ html[data-theme="dark"] .matrix-mini{
     <div class="ds-eyebrow">Signal marché du travail · à manier avec prudence</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">En Suisse, les postes d'entrée se contractent à mesure que les LLM se diffusent.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">Le <b>KI-Report 2026</b> de jobs.ch (JobCloud AG), fondé sur 7,3 millions d'annonces, est une rare mesure suisse basée sur le volume d'annonces plutôt que sur une enquête déclarative seule. Il documente une contraction des postes d'entrée concomitante à la diffusion des LLM — un écho helvétique au déclin d'entrée de carrière observé aux États-Unis par Stanford.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">−32&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de postes d'entrée en 2025 vs moyenne 2019-2022, concomitant à la diffusion des LLM.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">41&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des moins de 25 ans expriment une crainte de déclassement (« AI FOBO »).</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">~8×</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">postes de soins plus difficiles à pourvoir qu'en 2023 · 34% des entreprises peinent à recruter des profils IA.</p></div></div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Réserves importantes, assumées : émetteur commercial (plateforme d'emploi), <b>source unique</b> (données des seules plateformes du groupe, non indépendantes), méthodologie d'exposition non publiée, « post-IA » assimilé à 2023-2025 sans contrôle des cycles. Le résultat converge avec l'étude KOF/ETH (Kläui & Siegenthaler, 2025) sans en constituer une confirmation indépendante. <a href="https://www.jobs.ch/de/job-coach/ki-report-2026/" target="_blank" rel="noopener" style="color: var(--signal);">jobs.ch · KI-Report 2026 ↗</a></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">−32&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de postes d'entrée en 2025 vs moyenne 2019-2022, concomitant à la diffusion des LLM.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">41&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des moins de 25 ans expriment une crainte de déclassement (« AI FOBO »).</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">~8×</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">postes de soins plus difficiles à pourvoir qu'en 2023 · 34% des entreprises peinent à recruter des profils IA.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Réserves importantes, assumées : émetteur commercial (plateforme d'emploi), <b>source unique</b> (données des seules plateformes du groupe, non indépendantes), méthodologie d'exposition non publiée, « post-IA » assimilé à 2023-2025 sans contrôle des cycles. Le résultat converge avec l'étude KOF/ETH (Kläui & Siegenthaler, 2025) sans en constituer une confirmation indépendante. <a href="https://www.jobs.ch/de/job-coach/ki-report-2026/" target="_blank" rel="noopener" style="color:var(--accent);">jobs.ch · KI-Report 2026 ↗</a></p>
   </div>
 </section>
 
@@ -6797,10 +6853,21 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Les « canaris » : six faits, et un écho suisse direct.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">La version d'août 2026 de l'étude Stanford (données ADP US jusqu'à juin 2026) consolide en <b>six faits</b> le décrochage des jeunes en début de carrière dans les métiers exposés. L'écho suisse est direct : le KI-Report 2026 de jobs.ch mesure des postes d'entrée en recul de 32% en Suisse. Convergence de signaux — mais prudence : jobs.ch est une source unique commerciale, Canaris une donnée américaine ; ce n'est pas une triangulation indépendante.</p>
     <div style="display:flex; gap: var(--s-6); flex-wrap:wrap; margin-top: var(--s-5); align-items:flex-start;">
-      <div style="flex:0 0 auto;"><div style="font-family:var(--font-display,serif); font-size:52px; color:var(--signal); line-height:1;">−19&nbsp;%</div><p style="font-size:13px; color:var(--muted); margin-top:8px; max-width:220px;">emploi des 22-25 ans en métiers exposés vs trajectoire attendue · contre −16% en août 2025.</p></div>
+      <div style="flex:0 0 auto;"><div style="font-family:var(--font-display,serif); font-size:52px; color:var(--accent); line-height:1;">−19&nbsp;%</div><p style="font-size:13px; color:var(--muted); margin-top:8px; max-width:220px;">emploi des 22-25 ans en métiers exposés vs trajectoire attendue · contre −16% en août 2025.</p></div>
       <ul style="flex:1 1 320px; list-style:none; padding:0; margin:0; font-size:14px; color:var(--muted); line-height:1.5;"><li style="margin-bottom:6px;"><b>1.</b> Pas de destruction d'emplois généralisée à l'échelle de l'économie.</li><li style="margin-bottom:6px;"><b>2.</b> Les 22-25 ans en métiers exposés décrochent ; les expérimentés, non.</li><li style="margin-bottom:6px;"><b>3.</b> L'écart se creuse continûment depuis août 2025.</li><li style="margin-bottom:6px;"><b>4.</b> Il passe par une baisse des embauches, non par des licenciements.</li><li style="margin-bottom:6px;"><b>5.</b> Il se concentre là où l'IA substitue ; là où elle complète, l'emploi tient ou monte.</li><li style="margin-bottom:6px;"><b>6.</b> L'ajustement se fait par le volume d'emploi, pas par le salaire.</li></ul>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Donnée US (ADP), la Suisse n'est pas couverte · repère international à croiser avec les mesures suisses (jobs.ch, KOF/ETH). <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" target="_blank" rel="noopener" style="color: var(--signal);">Stanford · Canaries in the Coal Mine? (août 2026) ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Donnée US (ADP), la Suisse n'est pas couverte · repère international à croiser avec les mesures suisses (jobs.ch, KOF/ETH). <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Stanford · Canaries in the Coal Mine? (août 2026) ↗</a></p>
+  </div>
+</section>
+
+<!-- NOTE · Anthropic exposition observée 2026 -->
+<section style="border-top:1px solid var(--rule); padding: var(--s-8) 24px;">
+  <div style="max-width: var(--max-w); margin:0 auto;">
+    <div class="ds-eyebrow">Écart potentiel / usage · mesure 2026</div>
+    <h2 class="ds-title" style="margin-bottom: var(--s-3);">Le plafond d'usage, mesuré tâche par tâche.</h2>
+    <p class="ds-lede" style="max-width: var(--measure);">La mesure d'<b>exposition observée</b> de Massenkoff et McCrory (mars 2026) donne un appui empirique à l'indicateur suisse d'écart entre potentiel et usage réel. Elle montre que la capacité théorique surestime largement la pénétration effective, ce qui rejoint le paradoxe de l'Observatoire Data &amp; IA suisse : l'obstacle n'est pas la technologie mais l'organisation, les fondations de données et la refonte des rôles.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">94 → 33&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des tâches informatiques et mathématiques sont théoriquement automatisables, mais 33% seulement réellement couvertes.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">30&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des actifs ont une couverture <b>nulle</b> · cuisiniers, mécaniciens, barmen, maîtres-nageurs.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">−0,6&nbsp;pt</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de croissance projetée 2024-2034 par tranche de +10 points de couverture (BLS) · corrélation réelle mais faible.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Aucune hausse significative du chômage chez les actifs exposés, mais un recul d'environ 14% de l'accès à l'emploi des 22-25 ans dans les métiers exposés, à la limite de la significativité. À rapprocher avec prudence du recul de 32% des postes d'entrée mesuré par jobs.ch · les deux sources ne se confirment pas mutuellement. Données américaines, la Suisse n'est pas couverte. Source de première partie. <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener" style="color:var(--accent);">Massenkoff &amp; McCrory · Labor market impacts of AI ↗</a></p>
   </div>
 </section>
 

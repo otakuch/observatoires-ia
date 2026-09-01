@@ -290,9 +290,9 @@
   {
    "year": "Mars 2026",
    "title": "Anthropic · 0 impact chômage, −14% embauches jeunes exposés",
-   "summary_fr": "Massenkoff & McCrory (Anthropic Economic Index) : aucun effet significatif sur le chômage depuis ChatGPT. Signal précoce : −14% de nouvelles embauches chez les 22-25 ans dans les métiers exposés (2024). Top exposés : programmeurs 74,5%, service client 70,1%, data entry 67,1%, analystes financiers 57,2%.",
+   "summary_fr": "Massenkoff & McCrory (Anthropic Economic Index) : aucun effet significatif sur le chômage depuis ChatGPT. Signal précoce : −14% de nouvelles embauches chez les 22-25 ans dans les métiers exposés (2024). Top exposés : programmeurs 74,5%, service client 70,1%, data entry 67,1%, analystes financiers 57,2%. Mesure nouvelle · l'exposition observée combine la capacité théorique des LLM (Eloundou et al. 2023, tâches O*NET) et l'usage réel constaté, en pondérant plus fortement les usages automatisés et professionnels que les usages augmentatifs. Constat central : l'IA reste très en deçà de sa capacité théorique. Dans l'informatique et les mathématiques, 94% des tâches sont théoriquement automatisables mais 33% seulement sont réellement couvertes. 30% des actifs ont une couverture nulle. La corrélation avec les projections du BLS existe mais est faible : +10 points de couverture correspondent à -0,6 point de croissance projetée 2024-2034. Les actifs les plus exposés sont plus âgés, plus souvent des femmes, plus diplômés et mieux payés (+47% de salaire moyen). RÉSERVE DE MÉTHODE : source de première partie, l'exposition observée étant dérivée du trafic Claude, donc dépendante de la part de marché et du profil d'usage d'un seul fournisseur. Tiérage T2 et non T1 pour cette raison, malgré une conception économétrique solide et des données externes (CPS, BLS, O*NET).",
    "headline_value": "−14% embauches 22-25 ans",
-   "tier": 1,
+   "tier": "T2",
    "citation": "Massenkoff & McCrory · Anthropic Economic Index, 5 mars 2026",
    "ai_type": "generative"
   },

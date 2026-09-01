@@ -6764,6 +6764,67 @@ footer {
   color: var(--pf-deep);
 }
 
+
+/* ==================================================================== */
+/* CORRECTIF DE DÉBORDEMENT MOBILE · additif · août 2026                */
+/* Cause : 1fr vaut minmax(auto,1fr) et le minimum auto est tiré par un */
+/* contenu insécable, ce qui rend la colonne plus large que la grille.  */
+/* Aucune couleur touchée · la charte Encre & ardoise est préservée.    */
+/* ==================================================================== */
+@media (max-width: 640px){
+  .field-grid,
+  .size-grid,
+  .brief-size-grid{ grid-template-columns: minmax(0, 1fr); }
+  .field-grid > *,
+  .size-grid > *,
+  .brief-size-grid > *{ min-width: 0; }
+}
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
+
+/* Rattachement du jeu de tokens local a la charte */
+:root{ --pf-paper:#F4F4F1; --pf-paper-2:#EBEBE6; }
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/02-cadres-france-postfactum.html">
@@ -7260,6 +7321,7 @@ footer {
         <p class="brief-chempirie-src-body" data-i18n="b2.fre.src6.body" data-i18n-html="true"></p>
       </article>
         <article class="brief-chempirie-src"><div class="brief-chempirie-src-tier mono">T2 · benchmark international</div><h3 class="brief-chempirie-src-name" data-i18n="b2.fre.src7.name"></h3><p class="brief-chempirie-src-body" data-i18n="b2.fre.src7.body" data-i18n-html="true"></p></article>
+        <article class="brief-chempirie-src"><div class="brief-chempirie-src-tier mono">T2 · mesure d'exposition</div><h3 class="brief-chempirie-src-name" data-i18n="b2.fre.src8.name"></h3><p class="brief-chempirie-src-body" data-i18n="b2.fre.src8.body" data-i18n-html="true"></p></article>
     </div>
 
     <div class="brief-chempirie-synthesis">
@@ -8370,6 +8432,8 @@ window.PAGE_I18N = {
     "b2.fre.src6.body": "Baromètre annuel SKEMA Business School en partenariat avec EY France, réalisé par Ipsos-BVA sur <strong>1 609 étudiants et jeunes diplômés français</strong> (3-22 février 2026). Source la plus complète sur l'anticipation IA des futurs cadres. <strong>96% utilisent déjà l'IA générative, 61% au moins une fois par jour</strong>. Usages dominants · 70% gain de temps, 56% apprentissage, 41% aide à la décision. <strong>Signal d'alerte décisif · 74% considèrent que l'IA constitue une menace pour les postes des primo-entrants en entreprise</strong>. Attentes · 79% demandent à être formés aux outils IA, 40% attendent une charte éthique, 48% exigent que l'IA reste un outil de soutien et non de contrôle. 60% misent sur l'esprit critique comme compétence-clé.",
     "b2.fre.src7.name": "Ramp / Revelio Labs · A New Look at AI's Impact on Jobs",
     "b2.fre.src7.body": "Working paper de Kharazian (Ramp), Simon (Revelio Labs) et Stevens, 30 juin 2026, sur les dépenses IA réelles de 21 559 firmes américaines. Les adopteurs intensifs de l'IA voient leur emploi croître de 10% et leurs effectifs juniors de 12%, les adopteurs légers aucun effet significatif. Le résultat contredit la destruction massive d'emplois, avec une réserve de sélection assumée (adopteurs déjà plus grands et en croissance rapide). Donnée américaine, benchmark international. <a href=\"https://ramp.com/data/ai-jobs-impact/paper\" target=\"_blank\" rel=\"noopener\">ramp.com/data/ai-jobs-impact</a>",
+    "b2.fre.src8.name": "Anthropic · Massenkoff & McCrory · exposition observée (mars 2026)",
+    "b2.fre.src8.body": "Mesure d'<b>exposition observée</b> croisant la capacité théorique des LLM (Eloundou et al.) et l'usage réel, pondéré vers l'automatisé et le professionnel. Écart massif entre potentiel et réalité : 94% des tâches informatiques théoriquement automatisables, 33% réellement couvertes ; 30% des actifs à couverture nulle. Aucune hausse significative du chômage chez les plus exposés, mais un recul d'environ 14% de l'accès à l'emploi pour les 22-25 ans, à la limite de la significativité. Données US. Source de première partie, tierée T2 à ce titre. <a href=\"https://www.anthropic.com/research/labor-market-impacts\" target=\"_blank\" rel=\"noopener\">anthropic.com/research/labor-market-impacts</a>",
     "b2.fre.syn.tag": "Synthèse pour les directions RH et comités exécutifs français · ce que ces 6 sources changent pour la décision 2026-2030",
     "b2.fre.syn.title": "Le marché du travail français présente désormais une image empirique complète et à deux temps.",
     "b2.fre.syn.body": "Pour les directions RH et les comités exécutifs français, la convergence des six sources permet de quitter le terrain des conjectures et d'arbitrer sur des chiffres locaux différenciés grandes entreprises vs PME. <strong>Aujourd'hui</strong> (Coface/OEM 3,8%, Kelio 33% adoption DRH) : effet réel mais limité, surtout sur les fonctions support (paie, comptabilité, juridique, marketing). <strong>À 2-5 ans</strong> (Coface/OEM 16,3%, soit 5 millions d'emplois) : accélération anticipée avec l'IA agentique, ciblant spécifiquement le top 10% salarial · c'est l'inverse des vagues d'automatisation précédentes. <strong>Risque structurel</strong> (Marquier INSEE) : effet ciseaux sur les finances publiques si les hauts salaires disparaissent même temporairement. <strong>Contrepoids structurel</strong> (PwC France 1re Europe, LinkedIn 523 milliards $) : création massive d'emplois IA spécialisés, prime salariale +56%, 42% des emplois français protégés. <strong>Réalité PME</strong> (Alegria 2026) : 9% seulement des PME ont intégré l'IA dans la majorité de leurs processus, 68% ont un budget IA ≤ 5 000 €, 34% n'ont aucun plan de formation · le tissu économique français est en phase d'exploration, pas de transformation industrielle, ce qui exige une approche progressive et adaptée à la taille. <strong>Levier managérial</strong> (Goulard 30%/70% shadow IA) : le clivage adoption ne se résout pas par l'âge mais par l'équipement cognitif des équipes (4C selon Lamri). <em>Le pivot 2026-2030 d'une organisation française</em> n'est pas combien couper mais comment recomposer les fiches de poste autour de la tâche forte du bundle, accélérer le pipeline junior pour défendre le stock de talent senior 2030, et investir massivement dans la formation aux 4C pour les 70% bloqués dans le réflexe Google. <em>Note de lecture méta-épistémologique (Davenport et Paredes, HDSR automne 2025)</em> : ces cinq sources empiriques françaises sont précisément le type d'indicateurs locaux que toute prédiction globale chiffrée doit traverser pour devenir actionnable · les sources globales (Amodei 50% en 1-5 ans, Eloundou OpenAI, projections sectorielles internationales) restent des hypothèses de scénarisation tant qu'elles n'ont pas été confrontées aux conditions sectorielles et organisationnelles locales que ces cinq sources documentent. <strong>Signal complémentaire SKEMA x EY (Baromètre Talents 2026, Ipsos-BVA, 13 avril 2026)</strong> · 74% des jeunes diplômés français considèrent désormais l'IA comme une menace pour les postes des primo-entrants, 96% utilisent déjà l'IA générative dans leurs études, 79% demandent à être formés. <strong>L'arrivée massive d'une génération opérationnelle sur l'IA percute simultanément l'inversion de la cible de l'automatisation</strong> · la question pour les COMEX français n'est plus de savoir si la transition aura lieu, mais d'organiser le pacte de confiance avec les juniors qui entrent dans un marché qu'ils anticipent déjà mieux que leurs aînés. <strong>Précaution méthodologique majeure · Yin, Vu & Persico (NBER WP 35110, avril 2026)</strong> · les chiffres Coface/OEM (3,8% et 16,3%) reposent sur des coefficients d'exposition LLM-dérivés (méthodologie Eloundou et al. 2024). L'étude NBER documente une instabilité de mesure de 3,6× entre modèles LLM différents · ces points doivent être lus comme des fourchettes indicatives. Cela ne change pas le diagnostic structurel (cibler le top 10% salarial pour la première fois) mais invite à formaliser des mécanismes de recalibrage continu plutôt que des plans figés à 5 ans.",
@@ -8724,6 +8788,8 @@ window.PAGE_I18N = {
     "b2.fre.src6.body": "Annual SKEMA Business School barometer in partnership with EY France, conducted by Ipsos-BVA on <strong>1,609 French students and young graduates</strong> (February 3-22, 2026). Most complete source on AI anticipation by future executives. <strong>96% already use generative AI, 61% at least once a day</strong>. Dominant uses · 70% time savings, 56% learning, 41% decision support. <strong>Decisive alert signal · 74% consider AI a threat to entry-level positions in companies</strong>. Expectations · 79% demand training on AI tools, 40% expect an ethics charter, 48% require AI to remain a support tool rather than a control tool. 60% bet on critical thinking as the key competency.",
     "b2.fre.src7.name": "Ramp / Revelio Labs · A New Look at AI's Impact on Jobs",
     "b2.fre.src7.body": "Working paper by Kharazian (Ramp), Simon (Revelio Labs) and Stevens, 30 June 2026, on real AI spending across 21,559 US firms. High-intensity AI adopters grow employment by 10% and entry-level headcount by 12%; low-intensity adopters see no significant effect. The result counters broad job loss, with an acknowledged selection caveat (adopters are already larger and faster-growing). US data, international benchmark. <a href=\"https://ramp.com/data/ai-jobs-impact/paper\" target=\"_blank\" rel=\"noopener\">ramp.com/data/ai-jobs-impact</a>",
+    "b2.fre.src8.name": "Anthropic · Massenkoff & McCrory · observed exposure (March 2026)",
+    "b2.fre.src8.body": "An <b>observed exposure</b> measure combining theoretical LLM capability (Eloundou et al.) with actual usage, weighted toward automated and work-related use. A wide gap between potential and reality: 94% of computer and maths tasks are theoretically automatable, only 33% actually covered; 30% of workers have zero coverage. No significant rise in unemployment among the most exposed, but a roughly 14% drop in job finding for 22-25 year-olds in exposed occupations, barely significant. US data. First-party source, tiered T2 accordingly. <a href=\"https://www.anthropic.com/research/labor-market-impacts\" target=\"_blank\" rel=\"noopener\">anthropic.com/research/labor-market-impacts</a>",
     "b2.fre.syn.tag": "Synthesis for French HR leadership and executive committees · what these 6 sources change for 2026-2030 decisions",
     "b2.fre.syn.title": "The French labor market now presents a complete empirical image in two phases.",
     "b2.fre.syn.body": "For French HR leadership and executive committees, the convergence of the six sources allows leaving the conjectural ground and arbitrating on local figures differentiated between large companies and SMEs. <strong>Today</strong> (Coface/OEM 3.8%, Kelio 33% HR adoption): real but limited effect, mainly on support functions (payroll, accounting, legal, marketing). <strong>At 2-5 years</strong> (Coface/OEM 16.3%, i.e. 5 million jobs): anticipated acceleration with agentic AI, specifically targeting the top 10% salary scale, the opposite of previous automation waves. <strong>Structural risk</strong> (Marquier INSEE): scissors effect on public finances if high salaries disappear even temporarily. <strong>Structural counterweight</strong> (PwC France 1st Europe, LinkedIn 523 billion $): massive creation of specialized AI jobs, +56% salary premium, 42% of French jobs protected. <strong>SME reality</strong> (Alegria 2026): only 9% of SMEs have integrated AI in most processes, 68% have an AI budget ≤ €5,000, 34% have no training plan · the French economic fabric is in an exploration phase, not industrial transformation, requiring a progressive size-adapted approach. <strong>Managerial lever</strong> (Goulard 30%/70% shadow AI): the adoption divide is not solved by age but by the cognitive equipment of teams (4C per Lamri). <em>The 2026-2030 pivot of a French organization</em> is not how much to cut but how to recompose job descriptions around the strong task of the bundle, accelerate the junior pipeline to defend the 2030 senior talent stock, and massively invest in 4C training for the 70% stuck in the Google reflex. <em>Meta-epistemological reading note (Davenport and Paredes, HDSR Fall 2025)</em>: these five French empirical sources are precisely the type of local indicators that any global quantified prediction must traverse to become actionable · global sources (Amodei 50% in 1-5 years, Eloundou OpenAI, international sectoral projections) remain scenario hypotheses until they are confronted with the local sectoral and organizational conditions these five sources document. <strong>Complementary SKEMA x EY signal (Talents Barometer 2026, Ipsos-BVA, April 13, 2026)</strong> · 74% of French young graduates now consider AI as a threat to entry-level positions, 96% already use generative AI in their studies, 79% demand to be trained. <strong>The massive arrival of an AI-operational generation hits simultaneously with the inversion of the automation target</strong> · the question for French executive committees is no longer whether the transition will occur, but how to organize the pact of trust with juniors entering a market they already anticipate better than their elders. <strong>Major methodological caveat · Yin, Vu & Persico (NBER WP 35110, April 2026)</strong> · the Coface/OEM figures (3.8% and 16.3%) rest on LLM-derived exposure coefficients (Eloundou et al. 2024 methodology). The NBER study documents a measurement instability of 3.6× across different LLMs · these points must be read as indicative ranges. This does not change the structural diagnosis (targeting the top 10% salary scale for the first time) but calls for formalizing continuous recalibration mechanisms rather than 5-year frozen plans.",

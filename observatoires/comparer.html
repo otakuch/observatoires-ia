@@ -6177,6 +6177,62 @@ html[data-theme="dark"] .matrix-mini{
   --muted:#8B8579; --rule:#D9D2C2; --teal:#1F3A3D; --signal:#D03C2F; --highlight:#F7E27D;
   background:#F2EEE5; border:1px solid #D9D2C2; border-radius:var(--r-2); padding:14px;
 }
+
+/* ==================================================================== */
+/* CORRECTIF DE DÉBORDEMENT MOBILE · additif · août 2026                */
+/* Cause : 1fr vaut minmax(auto,1fr) et le minimum auto est tiré par un */
+/* contenu insécable, ce qui rend la colonne plus large que la grille.  */
+/* Aucune couleur touchée · la charte Encre & ardoise est préservée.    */
+/* ==================================================================== */
+@media (max-width: 640px){
+  .field-grid,
+  .size-grid,
+  .brief-size-grid{ grid-template-columns: minmax(0, 1fr); }
+  .field-grid > *,
+  .size-grid > *,
+  .brief-size-grid > *{ min-width: 0; }
+}
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/observatoires/comparer.html">
@@ -6274,7 +6330,7 @@ html[data-theme="dark"] .matrix-mini{
     <div class="rdr-eyebrow">🇫🇷🇨🇭 Comparaison · Radar exposition vs adoption</div>
     <h2 class="rdr-title">Le même métier, <em>deux pays</em>.</h2>
     <p class="rdr-sub">22 catégories d'occupation, comparées entre la France et la Suisse sur deux indicateurs · l'<b>exposition technique</b> (potentiel d'IA par tâche, vert, échelle 0–0,5) et le <b>taux d'adoption</b> observé (rouge, échelle 0–100 %). Basculez entre les vues pour isoler un pays ou les superposer. Les exposition techniques sont quasi identiques (même référentiel O*NET) · ce sont les courbes d'adoption qui révèlent les écarts nationaux.</p>
-    <p class="rdr-sub" style="border-left: 3px solid var(--signal); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les expositions techniques FR et CH partagent le même référentiel académique (Karger, Kuusela, Tetlock 2026 sur O*NET), c'est pourquoi elles apparaissent quasi identiques. L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles LLM sur ces scores · à lire comme une fourchette. Les écarts FR/CH d'adoption (rouge) sont en revanche issus de mesures comportementales directes (Ifop/Converteo et OFS/EY/Qualinsight) et ne souffrent pas du même biais.</p>
+    <p class="rdr-sub" style="border-left: 3px solid var(--accent); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les expositions techniques FR et CH partagent le même référentiel académique (Karger, Kuusela, Tetlock 2026 sur O*NET), c'est pourquoi elles apparaissent quasi identiques. L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles LLM sur ces scores · à lire comme une fourchette. Les écarts FR/CH d'adoption (rouge) sont en revanche issus de mesures comportementales directes (Ifop/Converteo et OFS/EY/Qualinsight) et ne souffrent pas du même biais.</p>
 
     <div class="rdr-grid" id="cmpRadarCard">
       <div class="rdr-main">
@@ -6285,7 +6341,7 @@ html[data-theme="dark"] .matrix-mini{
         </div>
         <div class="rdr-legend" id="cmpRadarLegend">
           <span data-layer="blue"><i style="background:var(--teal)"></i><span data-i18n="rdr.lay.exp">Exposition technique</span> <small>(0–0,5)</small></span>
-          <span data-layer="red"><i style="background:var(--signal)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
+          <span data-layer="red"><i style="background:var(--accent)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
         </div>
         <div class="rdr-chips" id="cmpRadarChips">
           <span class="rdr-chips-lbl" data-i18n="rdr.chips.lbl">Famille d'IA</span>
@@ -6556,7 +6612,7 @@ html[data-theme="dark"] .matrix-mini{
     <div id="diffChart" class="diff-chart"></div>
     <div class="diff-chart-legend mono">
       <span class="diff-legend-item"><span class="diff-dot" style="background: var(--teal)"></span><span data-i18n="cmp.diff.legend.fr"></span></span>
-      <span class="diff-legend-item"><span class="diff-dot" style="background: var(--signal)"></span><span data-i18n="cmp.diff.legend.ch"></span></span>
+      <span class="diff-legend-item"><span class="diff-dot" style="background: var(--accent)"></span><span data-i18n="cmp.diff.legend.ch"></span></span>
       <span class="diff-legend-item"><span class="diff-dot diff-dot-dashed"></span><span data-i18n="cmp.diff.legend.world"></span></span>
       <span class="diff-legend-item"><span class="diff-dot" style="background: #B5732A"></span><span data-i18n="cmp.diff.legend.gn"></span></span>
     </div>
@@ -6609,7 +6665,7 @@ html[data-theme="dark"] .matrix-mini{
               <span data-i18n="cmp.eumap.tier.emerging.range"></span>
             </div>
             <div class="eumap-legend-row" style="margin-top:6px;">
-              <span class="eumap-swatch" style="background:var(--signal)"></span>
+              <span class="eumap-swatch" style="background:var(--accent)"></span>
               <span>🇨🇭 CH</span>
               <span class="mono">37,8 %</span>
             </div>
@@ -6706,7 +6762,7 @@ html[data-theme="dark"] .matrix-mini{
     <div class="ds-eyebrow">Benchmark international</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Lire la comparaison France · Suisse à l'aune du baromètre mondial PwC 2026.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">Le <b>PwC 2026 Global AI Jobs Barometer</b> (« Two futures for jobs in an AI era ») analyse plus d'un milliard d'annonces d'emploi sur 27 pays. La France (79,4 M annonces) et la Suisse (8,7 M) y figurent toutes deux, ce qui en fait un repère commun pertinent pour cette page, même si le baromètre ne publie pas de chiffres ventilés par pays.</p>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:15px; line-height:1.6; margin-top: var(--s-3);">Ses enseignements 2026 sont mondiaux : la productivité croît <b>40% plus vite</b> dans les entreprises les plus exposées à l'IA (effet superstar : top 20% à +163%), ces entreprises font croître leurs effectifs (<b>+52% contre +36%</b>) et leurs salaires (<b>+24% contre +17%</b>) plus vite que les autres, la prime salariale des compétences IA atteint <b>62%</b>, et un marché à deux vitesses se dessine — métiers professionnalisés par l'IA en tête (+42% de croissance salariale depuis 2021), métiers démocratisés en retrait. À lire comme une toile de fond internationale, non comme une mesure France ou Suisse. <a href="https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html" target="_blank" rel="noopener" style="color: var(--signal);">PwC AI Jobs Barometer ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:15px; line-height:1.6; margin-top: var(--s-3);">Ses enseignements 2026 sont mondiaux : la productivité croît <b>40% plus vite</b> dans les entreprises les plus exposées à l'IA (effet superstar : top 20% à +163%), ces entreprises font croître leurs effectifs (<b>+52% contre +36%</b>) et leurs salaires (<b>+24% contre +17%</b>) plus vite que les autres, la prime salariale des compétences IA atteint <b>62%</b>, et un marché à deux vitesses se dessine — métiers professionnalisés par l'IA en tête (+42% de croissance salariale depuis 2021), métiers démocratisés en retrait. À lire comme une toile de fond internationale, non comme une mesure France ou Suisse. <a href="https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html" target="_blank" rel="noopener" style="color:var(--accent);">PwC AI Jobs Barometer ↗</a></p>
   </div>
 </section>
 
@@ -6715,7 +6771,7 @@ html[data-theme="dark"] .matrix-mini{
   <div style="max-width: var(--max-w); margin:0 auto;">
     <div class="ds-eyebrow">Positionnement européen · France</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">La France, position intermédiaire et rattrapage en cours.</h2>
-    <p class="ds-lede" style="max-width: var(--measure);">Selon la DG Trésor (<b>Trésor-Éco n°391</b>, juin 2026), la France occupe une position intermédiaire en Europe pour l'adoption de l'IA par les entreprises : <b>18 %</b> (OCDE 2025), proche de la moyenne européenne (<b>20 %</b>) mais en deçà des pays nordiques. La progression est toutefois plus rapide que la moyenne européenne — <b>+8 points de pourcentage</b> entre 2024 et 2025 contre <b>+6 pp</b> pour l'UE — ce qui suggère un rattrapage. Un repère utile pour situer l'écart France / Suisse dans le contexte européen. <a href="https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi" target="_blank" rel="noopener" style="color: var(--signal);">DG Trésor · Trésor-Éco n°391 ↗</a></p>
+    <p class="ds-lede" style="max-width: var(--measure);">Selon la DG Trésor (<b>Trésor-Éco n°391</b>, juin 2026), la France occupe une position intermédiaire en Europe pour l'adoption de l'IA par les entreprises : <b>18 %</b> (OCDE 2025), proche de la moyenne européenne (<b>20 %</b>) mais en deçà des pays nordiques. La progression est toutefois plus rapide que la moyenne européenne — <b>+8 points de pourcentage</b> entre 2024 et 2025 contre <b>+6 pp</b> pour l'UE — ce qui suggère un rattrapage. Un repère utile pour situer l'écart France / Suisse dans le contexte européen. <a href="https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi" target="_blank" rel="noopener" style="color:var(--accent);">DG Trésor · Trésor-Éco n°391 ↗</a></p>
   </div>
 </section>
 

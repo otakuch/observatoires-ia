@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing · 40 métiers face à l'IA · la relecture par les chiffres français</title>
+<meta name="description" content="Relecture du carrousel GUILD4AI « 40 métiers face à l'IA » à partir des seules sources françaises : AMF février 2026, Observatoire des métiers du BTP, BPI France Le Lab, Ipsos AI Monitor 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
+<style>
+:root{
+  --bg:#FAF7F2; --bg-alt:#F2EDE3; --bg-card:#FFFFFF; --bg-dark:#1A1A1A;
+  --tx:#1A1A1A; --tx-sec:#5B5B5B; --tx-mut:#8A8A8A;
+  --br:#E5E0D8; --br-strong:#C9C2B5;
+  --ac:#B8312F; --ac-soft:#E8DCDA;
+  --amber:#BF6B04; --green:#2D6A4F; --blue:#2C5578;
+  --g4-gold:#E3B23C; --g4-slate:#2A2F36;
+  --shadow:0 1px 2px rgba(26,26,26,0.04), 0 4px 12px rgba(26,26,26,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--ac);z-index:100;width:0;transition:width .1s}
+
+header{position:sticky;top:0;background:rgba(250,247,242,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--br);z-index:50;padding:14px 0}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:-.01em;
+  color:var(--tx);text-decoration:none}
+.brand span{color:var(--ac)}
+nav.menu{display:flex;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em}
+nav.menu a{color:var(--tx-sec);text-decoration:none;transition:color .2s}
+nav.menu a:hover{color:var(--ac)}
+.dispatch-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut);
+  text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.dispatch-tag b{color:var(--ac);font-weight:600}
+
+.crumb{border-bottom:1px solid var(--br);background:var(--bg-alt)}
+.crumb .wrap{padding-top:10px;padding-bottom:10px;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;color:var(--tx-mut);text-transform:uppercase;letter-spacing:.06em}
+.crumb a{color:var(--tx-sec);text-decoration:none}
+.crumb a:hover{color:var(--ac)}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--br);position:relative;overflow:hidden}
+.meta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;color:var(--tx-mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px}
+.badge{background:var(--g4-slate);color:#F5F1EA;padding:4px 10px;font-weight:600}
+.badge-alt{background:var(--ac);color:#FFF;padding:4px 10px;font-weight:600}
+.hero-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(38px,6vw,76px);line-height:1.02;
+  letter-spacing:-.025em;margin-bottom:28px;max-width:1000px}
+.hero-title em{font-style:italic;color:var(--ac)}
+.hero-deck{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(18px,2vw,22px);line-height:1.5;
+  color:var(--tx-sec);max-width:760px;margin-bottom:36px}
+.hero-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--br);max-width:760px}
+.hero-author-mark{width:44px;height:44px;flex:0 0 44px;background:var(--bg-dark);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;
+  font-size:13px;font-weight:600;letter-spacing:.04em}
+.hero-author-info{font-size:13px;color:var(--tx-sec);line-height:1.45}
+.hero-author-info b{display:block;color:var(--tx);font-size:14px;font-weight:600}
+
+.indep-block{background:var(--bg-alt);border-left:3px solid var(--ac);padding:22px 26px;margin:36px 0 0;max-width:900px}
+.indep-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--ac);font-weight:600;margin-bottom:10px}
+.indep-block p{font-size:14px;line-height:1.6;color:var(--tx-sec)}
+.indep-block p strong{color:var(--tx);font-weight:600}
+
+section{padding:52px 0 48px;border-bottom:1px solid var(--br)}
+section:nth-of-type(2n){background:var(--bg-alt)}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:48px;margin-bottom:56px;align-items:start}
+.section-num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--tx-mut);letter-spacing:.08em;
+  text-transform:uppercase;padding-top:12px;border-top:2px solid var(--bg-dark)}
+.section-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,3.5vw,44px);
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
+.section-head h2 em{font-style:italic;color:var(--ac)}
+.section-deck{font-size:17px;line-height:1.55;color:var(--tx-sec);max-width:720px}
+.section-content{margin-left:248px}
+.lede p{margin-bottom:18px;max-width:780px;color:var(--tx-sec)}
+.lede p strong{color:var(--tx);font-weight:600}
+
+/* TL;DR band */
+section.tldr{background:var(--bg-dark);color:#F5F1EA;padding:64px 0 56px;border-bottom:1px solid var(--br)}
+.tldr-head{margin-bottom:40px}
+.tldr-label{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--g4-gold);font-weight:600;padding:6px 12px;border:1px solid var(--g4-gold);
+  border-radius:2px;margin-bottom:20px}
+.tldr-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);
+  line-height:1.12;letter-spacing:-.02em;max-width:900px}
+.tldr-head h2 em{font-style:italic;color:var(--g4-gold)}
+.tldr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.tldr-item{padding:28px 24px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-top:3px solid var(--g4-gold);border-radius:4px;display:flex;flex-direction:column}
+.tldr-num{font-family:'Fraunces',serif;font-weight:500;font-size:44px;line-height:1;color:var(--g4-gold);
+  margin-bottom:18px;letter-spacing:-.02em}
+.tldr-num small{font-size:22px}
+.tldr-take{font-size:14px;line-height:1.5;color:#D9D3C8;flex:1}
+.tldr-take i{font-style:italic;color:#F5F1EA}
+.tldr-src{margin-top:16px;padding-top:10px;border-top:1px dotted rgba(255,255,255,.18);
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:#9A948A}
+.tldr-foot{margin-top:32px;font-size:14px;color:#B5AFA4;max-width:820px;line-height:1.6}
+
+/* key figures */
+.keyfigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;
+  background:var(--br);border:1px solid var(--br);margin:40px 0}
+.keyfig{background:var(--bg-card);padding:28px 24px}
+.keyfig-cat{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ac);margin-bottom:14px;font-weight:600}
+.keyfig-num{font-family:'Fraunces',serif;font-weight:500;font-size:46px;line-height:1;color:var(--tx);
+  margin-bottom:10px;letter-spacing:-.02em}
+.keyfig-num small{font-size:24px;color:var(--tx-sec)}
+.keyfig-desc{font-size:13px;line-height:1.4;color:var(--tx-sec);margin-bottom:10px}
+.keyfig-src{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--tx-mut);text-transform:uppercase;
+  letter-spacing:.04em;border-top:1px dotted var(--br);padding-top:8px}
+
+/* source cards */
+.source-card{background:var(--bg-card);border:1px solid var(--br);padding:36px 40px;margin-bottom:32px;position:relative}
+.source-card-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.source-tier{background:var(--bg-dark);color:var(--bg);font-family:'IBM Plex Mono',monospace;font-size:10px;
+  padding:3px 8px;letter-spacing:.06em;font-weight:600}
+.source-tier.t2{background:var(--blue)}
+.source-tier.t3{background:var(--amber)}
+.source-date{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tx-mut);
+  text-transform:uppercase;letter-spacing:.06em}
+.source-card h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.25;margin-bottom:8px}
+.source-byline{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx-mut);line-height:1.5;margin-bottom:20px}
+.source-body p{margin-bottom:16px;color:var(--tx-sec);line-height:1.6}
+.source-body p:last-child{margin-bottom:0}
+.source-body strong{color:var(--tx);font-weight:600}
+.source-callout{background:var(--bg-alt);padding:18px 22px;margin:20px 0;border-left:3px solid var(--ac);
+  font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.4;color:var(--tx)}
+
+.press-list{list-style:none;margin:24px 0}
+.press-list li{padding:10px 0 10px 4px;position:relative;border-bottom:1px dotted var(--br-strong);
+  font-size:15px;line-height:1.5;color:var(--tx-sec)}
+.press-list li:last-child{border-bottom:none}
+.press-list li .num{display:inline-block;background:var(--bg-dark);color:var(--bg);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:2px 6px;margin-right:8px;font-weight:600}
+.press-list li b{color:var(--tx);font-weight:600}
+
+/* warning box */
+.warn{background:#FFF8E8;border:1px solid #E8D9AF;padding:20px 24px;margin:24px 0}
+.warn-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--amber);font-weight:600;margin-bottom:10px}
+.warn p{font-size:14px;line-height:1.6;color:var(--tx-sec);margin-bottom:10px}
+.warn p:last-child{margin-bottom:0}
+.warn strong{color:var(--tx);font-weight:600}
+
+/* charts */
+.chartbox{background:var(--bg-card);border:1px solid var(--br);padding:28px 30px;margin:32px 0}
+.chart-t{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:6px}
+.chart-s{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--tx-mut);
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:22px}
+svg{width:100%;display:block;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;padding-top:14px;border-top:1px dotted var(--br);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--tx-sec);text-transform:uppercase;letter-spacing:.04em}
+.legend .sw{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+
+/* table */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:28px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--tx-mut);border-bottom:2px solid var(--bg-dark);padding:10px 14px 10px 0}
+td{padding:14px 14px 14px 0;border-bottom:1px solid var(--br);color:var(--tx-sec);vertical-align:top;line-height:1.5}
+td.n{font-family:'IBM Plex Mono',monospace;color:var(--tx);white-space:nowrap}
+.nd{font-family:'IBM Plex Mono',monospace;color:var(--tx-mut)}
+
+/* honest / pending */
+.honest-box{background:#FFF8E8;border:1px solid #E8D9AF;padding:26px 28px;margin:32px 0}
+.honest-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--amber);font-weight:600;margin-bottom:12px}
+.honest-box h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin-bottom:10px}
+.honest-box p{font-size:14.5px;line-height:1.6;color:var(--tx-sec);margin-bottom:12px}
+.honest-box p:last-child{margin-bottom:0}
+
+/* debate grid */
+.debate-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:40px 0}
+.debate{background:var(--bg-card);border:1px solid var(--br);padding:28px}
+.debate-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--tx-mut);margin-bottom:10px}
+.debate h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;line-height:1.25;margin-bottom:12px}
+.debate p{font-size:14.5px;line-height:1.6;color:var(--tx-sec);margin-bottom:14px}
+.debate ul{list-style:none}
+.debate li{font-size:13.5px;color:var(--tx-sec);padding:6px 0 6px 16px;position:relative;border-top:1px dotted var(--br)}
+.debate li::before{content:"·";position:absolute;left:2px;color:var(--ac);font-weight:700}
+.debate li b{color:var(--tx);font-family:'IBM Plex Mono',monospace;font-weight:600}
+
+/* agenda */
+.agenda-block{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--br)}
+.agenda-block:last-child{border-bottom:none}
+.agenda-when{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ac);text-transform:uppercase;
+  letter-spacing:.06em;font-weight:600;padding-top:4px}
+.agenda-block h4{font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.25;margin-bottom:10px}
+.agenda-block p{font-size:14.5px;color:var(--tx-sec);line-height:1.6;margin-bottom:14px;max-width:760px}
+.agenda-block ul{list-style:none}
+.agenda-block li{font-size:14px;color:var(--tx-sec);padding:7px 0 7px 18px;position:relative}
+.agenda-block li::before{content:"·";position:absolute;left:4px;color:var(--ac);font-weight:700}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+  padding:2px 8px;margin-right:8px;letter-spacing:.05em;vertical-align:2px}
+.p-ghitl{background:var(--ac-soft);color:var(--ac)}
+.p-grca{background:rgba(191,107,4,.14);color:var(--amber)}
+.p-scep{background:rgba(45,106,79,.14);color:var(--green)}
+
+/* limits */
+.limits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:24px}
+.limit-card{background:var(--bg-card);border:1px solid var(--br);padding:26px}
+.limit-card h4{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--tx-mut);margin-bottom:12px}
+.limit-card h3{font-family:'Fraunces',serif;font-weight:500;font-size:19px;line-height:1.25;margin-bottom:12px}
+.limit-card p{font-size:14px;line-height:1.6;color:var(--tx-sec)}
+
+/* method details */
+details.method{border:1px solid var(--br);background:var(--bg-card);margin-bottom:14px}
+details.method summary{cursor:pointer;padding:18px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--tx);font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px}
+details.method summary::-webkit-details-marker{display:none}
+details.method summary::after{content:"+";color:var(--ac);font-size:16px}
+details.method[open] summary::after{content:"−"}
+details.method summary:focus-visible{outline:2px solid var(--ac);outline-offset:-2px}
+.method-body{padding:0 24px 22px;font-size:14px;color:var(--tx-sec);line-height:1.6}
+.method-body p{margin-bottom:12px}
+.method-body ul{list-style:none;margin-bottom:12px}
+.method-body li{padding:6px 0 6px 16px;position:relative;border-bottom:1px dotted var(--br)}
+.method-body li:last-child{border-bottom:none}
+.method-body li::before{content:"·";position:absolute;left:2px;color:var(--ac);font-weight:700}
+.method-body b{color:var(--tx);font-weight:600}
+
+/* CTA / houses */
+.cta{background:var(--bg-dark);color:#F5F1EA;padding:64px 0;border-bottom:none}
+.cta-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--g4-gold);margin-bottom:18px}
+.cta h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.12;
+  letter-spacing:-.02em;margin-bottom:16px;max-width:880px}
+.cta h2 em{font-style:italic;color:var(--g4-gold)}
+.cta-deck{font-size:16px;color:#B5AFA4;max-width:760px;margin-bottom:40px;line-height:1.6}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cta-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:28px}
+.cta-card-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--g4-gold);margin-bottom:12px}
+.cta-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin-bottom:12px}
+.cta-card p{font-size:14px;color:#B5AFA4;line-height:1.6;margin-bottom:16px}
+.cta-card a{color:#F5F1EA;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12px;
+  border-bottom:1px solid var(--g4-gold);padding-bottom:2px}
+.cta-card a:hover{color:var(--g4-gold)}
+
+footer.foot{background:var(--bg-alt);padding:56px 0 40px;border-top:1px solid var(--br)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:32px}
+.foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--tx-mut);margin-bottom:14px}
+.foot-col p{font-size:13.5px;color:var(--tx-sec);line-height:1.6;margin-bottom:10px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:8px;font-size:13.5px}
+.foot-col li a{color:var(--tx-sec);text-decoration:none;border-bottom:1px solid transparent}
+.foot-col li a:hover{color:var(--ac);border-bottom-color:var(--ac)}
+.foot-bottom{border-top:1px solid var(--br);padding-top:20px;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;color:var(--tx-mut);text-transform:uppercase;letter-spacing:.06em;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+a:focus-visible,summary:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+@media(max-width:980px){
+  nav.menu{display:none}
+  .section-head{grid-template-columns:1fr;gap:16px}
+  .section-content{margin-left:0}
+  .tldr-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .debate-grid,.cta-grid,.foot-grid{grid-template-columns:1fr;gap:28px}
+  .agenda-block{grid-template-columns:1fr;gap:8px}
+  .hero-title{font-size:clamp(34px,8vw,56px)}
+  section{padding:36px 0 32px}
+  .source-card{padding:24px 22px}
+  .chartbox{padding:22px 18px}
+}
+@media(max-width:640px){
+  .wrap,.header-inner{padding:0 16px}
+  .tldr-grid{grid-template-columns:1fr}
+  .keyfigs{grid-template-columns:1fr}
+  .hero{padding:40px 0 36px}
+  .dispatch-tag{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle" aria-label="Switch language" style="position:fixed;top:16px;right:16px;z-index:99;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;font-family:var(--font-mono);font-size:12px;cursor:pointer;color:var(--ink-sec);min-height:44px;"><span class="active" data-lang="fr">FR</span> <span data-lang="en">EN</span></button>
+
+
+<div class="progress" id="prog"></div>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="https://observatoire.naullynicolas.ch/index.html">observatoire<span>[s]·ia</span></a>
+    <nav class="menu">
+      <a href="#tldr">90s</a>
+      <a href="#grille">Grille</a>
+      <a href="#ecart">Écart</a>
+      <a href="#taille">Taille</a>
+      <a href="#freins">Freins</a>
+      <a href="#usage">Usage</a>
+      <a href="#familles">Familles</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#limites">Limites</a>
+    </nav>
+    <div class="dispatch-tag">Briefing <b>GUILD4AI</b></div>
+  </div>
+</header>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="https://observatoire.naullynicolas.ch/index.html">observatoire[s]·ia</a> / <a href="https://observatoire.naullynicolas.ch/briefings.html">Briefings</a> / Hors-série · GUILD4AI
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="meta-row">
+      <span class="badge">Briefing hors-série</span>
+      <span class="badge-alt">Sources françaises uniquement</span>
+      <span>29 août 2026</span>
+      <span>France</span>
+    </div>
+    <h1 class="hero-title" data-i18n="d7.001" data-i18n-html="true">40 métiers face à l'IA. <em>Ce que les chiffres français</em> disent de la grille GUILD4AI.</h1>
+    <p class="hero-deck" data-i18n="d7.002">Un carrousel classe 40 métiers en trois régimes de gouvernance : ce qui s'automatise sous supervision, ce qui déplace un risque à auditer, ce qui relève d'un narratif à nuancer. Ce briefing confronte cette grille aux seules sources françaises disponibles. Le résultat tient en une phrase : l'écart entre la capacité technique annoncée et l'usage réellement installé reste le premier facteur explicatif, très loin devant l'automatisabilité des tâches.</p>
+    <div class="hero-author">
+      <div class="hero-author-mark">NN</div>
+      <div class="hero-author-info">
+        <b>Naully Nicolas</b>
+        Consultant et conférencier IA · Auteur de <i>Guerill-iA</i> · Éditeur de transitions-ia.fr et observatoire.naullynicolas.ch
+      </div>
+    </div>
+    <div class="indep-block">
+      <div class="indep-label">→ Cadre éditorial</div>
+      <p data-i18n="d7.003" data-i18n-html="true"><strong>La grille de lecture GHITL©, GRCA© et Scepticisme Actif est une production GUILD4AI.</strong> Le choix des sources, le décompte des fiches, la sélection des chiffres et les réserves méthodologiques relèvent de la responsabilité éditoriale exclusive de l'Observatoire. Aucune donnée n'a été ajoutée sans lecture de la source primaire ou du document qui la cite. Les absences sont signalées « n.d. », jamais estimées.</p>
+    </div>
+  </div>
+</div>
+
+<section class="tldr" id="tldr">
+  <div class="wrap">
+    <div class="tldr-head">
+      <div class="tldr-label">→ Lecture 90 secondes</div>
+      <h2 data-i18n="d7.004" data-i18n-html="true">Quatre chiffres français <em>qui déplacent la lecture</em> du carrousel.</h2>
+    </div>
+    <div class="tldr-grid">
+      <div class="tldr-item">
+        <div class="tldr-num">90<small>%</small></div>
+        <div class="tldr-take">des entités financières supervisées par l'AMF utilisent déjà l'IA ou prévoient de le faire sous douze mois. <i>L'adoption est réelle, dans un secteur en avance.</i></div>
+        <div class="tldr-src">AMF · février 2026 · n = 69</div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">43<small>%</small></div>
+        <div class="tldr-take">des micro-entreprises prévoient d'augmenter leurs investissements IA, contre 95 % des grandes. <i>Le gradient par taille écrase la logique métier.</i></div>
+        <div class="tldr-src">AMF · février 2026</div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">30,5<small>%</small></div>
+        <div class="tldr-take">des non-utilisateurs ne voient tout simplement pas l'usage ni l'intérêt de l'IA. <i>Le premier frein n'est ni technique ni financier.</i></div>
+        <div class="tldr-src">Observatoire des métiers du BTP · 2026 · n = 308</div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">73<small>%</small></div>
+        <div class="tldr-take">des Français refusent l'idée de faire confiance à une IA sans vérifier son travail. <i>Le scepticisme est déjà le comportement dominant.</i></div>
+        <div class="tldr-src">Ipsos AI Monitor · juin 2026</div>
+      </div>
+    </div>
+    <p class="tldr-foot" data-i18n="d7.005">→ Aucune source américaine, suisse ou internationale agrégée n'est mobilisée ici, à l'exception du volet français de l'Ipsos AI Monitor, isolé de la moyenne 32 pays. C'est une contrainte volontaire : elle réduit le nombre de chiffres disponibles et rend visibles les trous de la statistique française sur les métiers.</p>
+  </div>
+</section>
+
+<section id="grille">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 01 / Grille</div>
+      <div>
+        <h2 data-i18n="d7.006" data-i18n-html="true">La grille de départ, <em>enfin quantifiée</em>.</h2>
+        <p class="section-deck" data-i18n="d7.007">Le carrousel répartit 40 fiches entre trois régimes de gouvernance. Cette répartition n'avait pas été chiffrée. Elle l'est ici, à partir du document lui-même.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="keyfigs">
+        <div class="keyfig">
+          <div class="keyfig-cat">GHITL© · augmentation gouvernée</div>
+          <div class="keyfig-num">16</div>
+          <div class="keyfig-desc">fiches où la tâche s'automatise à condition qu'un humain reste dans la boucle décisionnelle.</div>
+          <div class="keyfig-src">40 % du corpus</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">GRCA© · risque à auditer</div>
+          <div class="keyfig-num">14</div>
+          <div class="keyfig-desc">fiches où l'automatisation ne supprime pas le risque mais le déplace vers la conformité, le biais ou la fraude.</div>
+          <div class="keyfig-src">35 % du corpus</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">Scepticisme · narratif à nuancer</div>
+          <div class="keyfig-num">10</div>
+          <div class="keyfig-desc">fiches où le jugement, la relation ou le contexte humain restent le facteur limitant.</div>
+          <div class="keyfig-src">25 % du corpus</div>
+        </div>
+      </div>
+
+      <div class="chartbox">
+        <div class="chart-t">Régime de gouvernance par famille de métiers</div>
+        <div class="chart-s">40 fiches · 7 familles · décompte du carrousel GUILD4AI</div>
+        <svg id="svg-families" role="img" aria-label="Répartition des trois régimes de gouvernance par famille de métiers"></svg>
+        <div class="legend">
+          <span><i class="sw" style="background:#B8312F"></i>GHITL©</span>
+          <span><i class="sw" style="background:#BF6B04"></i>GRCA©</span>
+          <span><i class="sw" style="background:#2D6A4F"></i>Scepticisme</span>
+        </div>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.008" data-i18n-html="true">Deux enseignements structurels. Le régime GRCA© domine dès qu'un métier touche une obligation légale ou financière : la famille juridique et conformité compte <strong>3 fiches sur 4</strong> en risque à auditer, et c'est la seule famille sans aucune fiche en scepticisme.</p>
+        <p data-i18n="d7.009" data-i18n-html="true">À l'inverse, aucune famille n'est intégralement automatisable. Même le support administratif, présenté comme le terrain le plus mûr, conserve <strong>2 fiches sur 8</strong> en scepticisme. La grille résiste donc à sa propre simplification, ce qui est plutôt bon signe pour une grille.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ecart">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 02 / Écart</div>
+      <div>
+        <h2 data-i18n="d7.010" data-i18n-html="true">Un métier automatisable <em>n'est pas un métier automatisé</em>.</h2>
+        <p class="section-deck" data-i18n="d7.011">C'est dans cet intervalle que se joue l'essentiel du débat français. Et c'est un observatoire de branche, pas un cabinet de conseil, qui le documente le plus précisément.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t2">T2 · Observatoire de branche</span>
+          <span class="source-date">2026 · n = 621 · base 45 000</span>
+        </div>
+        <h3 data-i18n="d7.012">Étude sur la perception et l'intégration des outils d'IA dans les entreprises du BTP</h3>
+        <div class="source-byline">Observatoire des métiers du BTP · questionnaire en ligne, entretiens qualitatifs, analyse de l'offre Constructys</div>
+        <div class="source-body">
+          <p data-i18n="d7.013">Le rapport formule le point avec une netteté rare : l'existence d'une solution technologique fondée sur l'IA ne se traduit ni systématiquement ni rapidement par une intégration dans l'activité courante, à une échelle telle que l'usage transforme réellement un métier.</p>
+          <p data-i18n="d7.014" data-i18n-html="true">Trois raisons sont avancées. <strong>Les coûts</strong> d'installation, de maintenance et d'usage peuvent dépasser le coût salarial du poste, sans compter l'accompagnement, la formation et les risques d'une technologie encore peu mature. <strong>Les pratiques individuelles</strong> des salariés sont bien plus diverses que ce qu'anticipent les concepteurs de solutions, ce qui installe la shadow IA par défaut. <strong>Les conditions d'intégration</strong> enfin, infrastructures, qualité des données, compétences, ne sont pas réunies dans la majorité des structures.</p>
+          <div class="source-callout">L'IA nous fait gagner du temps mais parfois nous trompe.</div>
+          <p data-i18n="d7.015">Ce verbatim de dirigeant de PME, recueilli à propos des réponses aux appels d'offres publics, résume la position réelle du terrain : ni rejet, ni adhésion. Un usage sous surveillance, faute de mieux. C'est déjà du scepticisme actif, pratiqué sans le nom.</p>
+        </div>
+      </div>
+
+      <div class="warn">
+        <div class="warn-label">⚠ Statut probatoire d'un chiffre très cité</div>
+        <p data-i18n="d7.016" data-i18n-html="true">Le même rapport reprend un ordre de grandeur devenu viral : un taux de non-réalisation des projets pilotes d'IA d'environ <strong>80 %</strong>, toutes catégories confondues, et davantage encore pour l'IA générative.</p>
+        <p data-i18n="d7.017" data-i18n-html="true">Ce chiffre est attribué à un rapport RAND Corporation d'août 2024. Il est donc mobilisé ici <strong>en source secondaire, non revérifiée à la source primaire</strong>, et classé T3 · C3. À manier comme un ordre de grandeur, pas comme une mesure.</p>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.018" data-i18n-html="true">Conséquence directe pour la grille : les 10 fiches classées en scepticisme ne sont pas les seules à mériter ce traitement. Sur les <strong>16 fiches GHITL©</strong>, la question opérationnelle n'est pas « la tâche est-elle automatisable » mais « l'organisation a-t-elle les moyens de l'automatiser proprement ». Pour une TPE, la réponse est majoritairement non, et ce n'est pas un problème technique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="taille">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 03 / Taille</div>
+      <div>
+        <h2 data-i18n="d7.019" data-i18n-html="true">Le gradient qui <em>écrase la logique métier</em>.</h2>
+        <p class="section-deck" data-i18n="d7.020">La même fiche métier ne décrit pas la même réalité selon la taille de l'employeur. L'enquête AMF le montre dans un secteur pourtant homogène et fortement régulé.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier">T1 · Régulateur</span>
+          <span class="source-date">Février 2026 · 80 entités sollicitées · 69 réponses</span>
+        </div>
+        <h3 data-i18n="d7.021">IA et acteurs des marchés financiers</h3>
+        <div class="source-byline">Autorité des marchés financiers · enquête auprès des entités fournissant des services financiers supervisées</div>
+        <div class="source-body">
+          <p data-i18n="d7.022" data-i18n-html="true">Le niveau d'adoption est très élevé. <strong>90 %</strong> des entités sondées ont déjà recours à l'IA ou prévoient de le faire dans les douze prochains mois. <strong>54 %</strong> ont des cas d'usage en production, <strong>36 %</strong> sont au stade du développement ou de l'expérimentation, <strong>10 %</strong> n'envisagent aucun usage.</p>
+          <p data-i18n="d7.023" data-i18n-html="true">La taille joue un rôle déterminant. Parmi les entités recourant déjà à l'IA, <strong>51 % sont de grandes entreprises</strong>. À l'inverse, parmi celles n'ayant déclaré aucun cas d'usage, <strong>57 % sont de petites entreprises et 28 % des micro-entreprises</strong>. Le même gradient structure les intentions d'investissement.</p>
+        </div>
+      </div>
+
+      <div class="chartbox">
+        <div class="chart-t">Part des entités prévoyant d'augmenter leurs investissements IA d'ici deux ans</div>
+        <div class="chart-s">en % des répondants · par taille d'entité · AMF février 2026</div>
+        <svg id="svg-size" role="img" aria-label="Prévisions d'investissement en IA par taille d'entreprise"></svg>
+      </div>
+
+      <div class="warn">
+        <div class="warn-label">⚠ Limite méthodologique inline</div>
+        <p data-i18n="d7.024" data-i18n-html="true">L'enquête AMF porte sur <strong>69 réponses</strong> dans un secteur en avance sur le reste de l'économie, doté de moyens et d'une culture du contrôle. Elle décrit une frontière, pas une moyenne nationale. Les pourcentages ne sont pas transposables à l'économie française dans son ensemble.</p>
+        <p data-i18n="d7.025" data-i18n-html="true">Son intérêt est ailleurs : elle montre que même là où les moyens existent, <strong>l'écart par taille reste de plus de 50 points</strong> sur les intentions d'investissement. Dans un tissu économique moins doté, cet écart peut difficilement être plus faible.</p>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.026" data-i18n-html="true">C'est le principal correctif à apporter à toute lecture fiche par fiche. Un commis à la saisie de données dans une grande banque et le même intitulé dans une entreprise de dix salariés ne vivent pas la même transformation, ni au même rythme, ni sous le même régime de gouvernance. <strong>La fiche est identique, l'exposition réelle ne l'est pas.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="freins">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 04 / Freins</div>
+      <div>
+        <h2 data-i18n="d7.027" data-i18n-html="true">Ce qui bloque n'est ni le coût, <em>ni la réglementation</em>.</h2>
+        <p class="section-deck" data-i18n="d7.028">Sur 621 réponses complètes, 308 entreprises déclarent ne pas utiliser l'IA et ne pas l'envisager. Leurs motifs déplacent complètement le débat.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="chartbox">
+        <div class="chart-t">Motifs déclarés de non-usage de l'IA</div>
+        <div class="chart-s">base 308 répondants non-utilisateurs · secteur BTP · 2026</div>
+        <svg id="svg-freins" role="img" aria-label="Motifs déclarés de non-usage de l'IA dans le BTP"></svg>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.029">Le premier frein est cognitif : ne pas voir l'usage. Vient ensuite le manque d'expertise, puis seulement les moyens financiers. Trois modalités supplémentaires figurent dans l'enquête mais ne sont pas explicitement chiffrées dans le corps du rapport : elles ne sont pas reprises ici.</p>
+      </div>
+
+      <div class="source-card">
+        <div class="source-card-meta">
+          <span class="source-tier t2">T2 · C3 · source secondaire</span>
+          <span class="source-date">n = 1 209 dirigeants PME et ETI</span>
+        </div>
+        <h3 data-i18n="d7.030">Le vide de gouvernance, mesuré par BPI France Le Lab</h3>
+        <div class="source-byline">BPI France Le Lab, cité par l'Observatoire des métiers du BTP · échantillon représentatif des PME et ETI françaises</div>
+        <div class="source-body">
+          <p data-i18n="d7.031" data-i18n-html="true"><strong>53 % des dirigeants n'ont pas encore pris position</strong> sur l'usage des IA en libre accès par leurs collaborateurs. Les difficultés exprimées portent sur le coût jugé trop élevé (30 %), la crainte de mauvais usages (30 %) et l'incertitude sur les applications concrètes (23 %).</p>
+          <div class="source-callout">Le vide de gouvernance précède le risque. Il ne le suit pas.</div>
+          <p data-i18n="d7.032" data-i18n-html="true">C'est exactement le terrain du cadre GRCA©, mais pas pour la raison qu'on avance d'habitude. Le problème n'est pas qu'une IA ait été déployée sans contrôle. C'est qu'aucune position n'a été prise <strong>pendant que l'usage individuel s'installait</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usage">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 05 / Usage</div>
+      <div>
+        <h2 data-i18n="d7.033" data-i18n-html="true">Pendant ce temps, <em>les salariés n'attendent pas</em>.</h2>
+        <p class="section-deck" data-i18n="d7.034">Enquête Ipsos pour Greenworking, mars 2025, 1 000 salariés du privé représentatifs de cette population.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="keyfigs">
+        <div class="keyfig">
+          <div class="keyfig-cat">Pénétration</div>
+          <div class="keyfig-num">63<small>%</small></div>
+          <div class="keyfig-desc">ont utilisé l'IA générative au moins une fois dans un cadre professionnel.</div>
+          <div class="keyfig-src">Ipsos × Greenworking · mars 2025</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">Fréquence hebdomadaire</div>
+          <div class="keyfig-num">42<small>%</small></div>
+          <div class="keyfig-desc">l'utilisent au moins une fois par semaine au travail.</div>
+          <div class="keyfig-src">n = 1 000 salariés du privé</div>
+        </div>
+        <div class="keyfig">
+          <div class="keyfig-cat">Usage quotidien</div>
+          <div class="keyfig-num">20<small>%</small></div>
+          <div class="keyfig-desc">l'utilisent chaque jour dans leur activité professionnelle.</div>
+          <div class="keyfig-src">Repris par Ipsos bva × Epita · février 2026</div>
+        </div>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.035" data-i18n-html="true">Deux salariés sur cinq utilisent l'IA générative chaque semaine au travail. Un dirigeant de PME ou ETI sur deux n'a pas tranché ce qu'il en pense. <strong>L'écart entre ces deux chiffres est la variable opérationnelle immédiate</strong>, et aucune fiche métier ne le rend visible.</p>
+        <p data-i18n="d7.036">C'est aussi la limite structurelle de tout classement par métier : il décrit une exposition théorique de la tâche, quand la question qui se pose aux directions est celle d'un usage déjà installé, non cadré, et souvent invisible dans les outils officiels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="scepticisme">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 06 / Doctrine</div>
+      <div>
+        <h2 data-i18n="d7.037" data-i18n-html="true">Le scepticisme français <em>est mesurable</em>.</h2>
+        <p class="section-deck" data-i18n="d7.038">L'Ipsos AI Monitor 2026 interroge 23 532 adultes dans 32 pays, dont environ 1 000 en France. Deux résultats concernent directement la doctrine du Scepticisme Actif.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="debate-grid">
+        <div class="debate">
+          <div class="debate-tag">Vérification</div>
+          <h4 data-i18n="d7.039">La France est parmi les pays qui vérifient le plus.</h4>
+          <p data-i18n="d7.040" data-i18n-html="true">Sur l'affirmation « je fais confiance aux outils d'IA, donc je ne vérifie pas leur travail », la France se classe au 30<sup>e</sup> rang sur 33 pays et moyennes mesurés. Seuls les Pays-Bas, l'Allemagne et le Canada sont plus vérificateurs.</p>
+          <ul>
+            <li data-i18n="d7.041" data-i18n-html="true"><b>19 %</b> se déclarent d'accord</li>
+            <li data-i18n="d7.042" data-i18n-html="true"><b>73 %</b> se déclarent en désaccord</li>
+            <li data-i18n="d7.043" data-i18n-html="true"><b>31 %</b> de moyenne sur 32 pays</li>
+          </ul>
+        </div>
+        <div class="debate">
+          <div class="debate-tag">Enthousiasme</div>
+          <h4 data-i18n="d7.044">Et parmi ceux dont l'enthousiasme recule le plus.</h4>
+          <p data-i18n="d7.045">Sur l'affirmation « les produits et services utilisant l'IA me rendent enthousiaste », l'évolution nette entre 2025 et 2026 place la France dans les trois pays au recul le plus marqué, avec le Royaume-Uni et l'Allemagne.</p>
+          <ul>
+            <li data-i18n="d7.046" data-i18n-html="true"><b>−7 pts</b> France, 2025 vers 2026</li>
+            <li data-i18n="d7.047" data-i18n-html="true"><b>17 / 28</b> pays où le solde bénéfices / inconvénients se dégrade</li>
+            <li data-i18n="d7.048" data-i18n-html="true"><b>± 3,5 pts</b> intervalle de crédibilité pour n = 1 000</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lede">
+        <p data-i18n="d7.049" data-i18n-html="true">Pour une doctrine qui revendique « ni hype ni technophobie », c'est une donnée de positionnement plus qu'un argument de vente. <strong>Le public visé n'a pas besoin d'être convaincu de douter.</strong> Il doute déjà, majoritairement, et son enthousiasme se dégrade.</p>
+        <p data-i18n="d7.050">Ce dont il manque, c'est d'une méthode pour que ce doute produise autre chose qu'un frein à l'adoption. C'est précisément la différence entre le scepticisme comme humeur et le scepticisme comme procédure, et c'est là que se situe la valeur d'une architecture GHITL© ou d'un cadre GRCA©.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="familles">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 07 / Familles</div>
+      <div>
+        <h2 data-i18n="d7.051" data-i18n-html="true">Les sept familles <em>relues source par source</em>.</h2>
+        <p class="section-deck" data-i18n="d7.052">Correspondance entre les familles du carrousel et les sources françaises effectivement mobilisables. Les cases non documentées sont marquées « n.d. » et le restent.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="tscroll">
+        <table>
+          <thead data-i18n="d7.053" data-i18n-html="true"><tr><th>Famille</th><th data-i18n="d7.054">Fiches</th><th data-i18n="d7.055">Régimes</th><th data-i18n="d7.056">Source française mobilisable</th><th data-i18n="d7.057">Portée</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n="d7.058">Support administratif</td><td class="n">8</td><td class="n" data-i18n="d7.059">3 / 3 / 2</td><td data-i18n="d7.060">Observatoire des métiers du BTP · repositionnement des fonctions ADV, comptables et administratives vers la supervision, le contrôle et la fiabilisation des données</td><td data-i18n="d7.061">qualitatif</td></tr>
+            <tr><td data-i18n="d7.062">Service client &amp; ventes</td><td class="n">7</td><td class="n" data-i18n="d7.063">3 / 3 / 1</td><td data-i18n="d7.064">AMF 2026 · support client cité parmi les bénéfices déclarés dans le secteur financier</td><td data-i18n="d7.065">partiel</td></tr>
+            <tr><td data-i18n="d7.066">Rédaction &amp; communication</td><td class="n">5</td><td class="n" data-i18n="d7.067">2 / 1 / 2</td><td data-i18n="d7.068">Observatoire des métiers du BTP · production de mémoires techniques et réponses aux appels d'offres assistées, avec relecture de conformité</td><td data-i18n="d7.069">qualitatif</td></tr>
+            <tr><td data-i18n="d7.070">Tech, données &amp; analytique</td><td class="n">6</td><td class="n" data-i18n="d7.071">2 / 2 / 2</td><td data-i18n="d7.072">AMF 2026 · traitement de grands volumes de données cité comme premier bénéfice attendu</td><td data-i18n="d7.073">partiel</td></tr>
+            <tr><td data-i18n="d7.074">Juridique &amp; conformité</td><td class="n">4</td><td class="n" data-i18n="d7.075">1 / 3 / 0</td><td data-i18n="d7.076">AMF 2026 · automatisation de vérifications de conformité, LCB-FT et abus de marché, sous processus de relecture et validation humaine</td><td data-i18n="d7.077">documenté</td></tr>
+            <tr><td data-i18n="d7.078">Création &amp; médias</td><td class="n">4</td><td class="n" data-i18n="d7.079">2 / 1 / 1</td><td data-i18n="d7.080">Observatoire des métiers du BTP · génération d'images et modélisation 3D en phase d'avant-vente</td><td data-i18n="d7.081">indirect</td></tr>
+            <tr><td data-i18n="d7.082">Logistique, commerce &amp; opérations</td><td class="n">6</td><td class="n" data-i18n="d7.083">3 / 1 / 2</td><td data-i18n="d7.084" data-i18n-html="true"><span class="nd">n.d.</span></td><td data-i18n="d7.085" data-i18n-html="true"><span class="nd">n.d.</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--tx-mut);text-transform:uppercase;letter-spacing:.05em" data-i18n="d7.086">Colonne régimes · GHITL© / GRCA© / Scepticisme</p>
+
+      <div class="honest-box">
+        <div class="honest-label">→ Couche en attente</div>
+        <h4 data-i18n="d7.087">Aucun score d'exposition par métier n'est produit dans cette version.</h4>
+        <p data-i18n="d7.088">Aucune des sources françaises réunies ici ne fournit d'exposition métier par métier pour les 40 fiches. La couche de correspondance ROME et FAP sera injectée depuis le référentiel de l'Observatoire des transitions IA, ce qui permettra d'attacher à chaque fiche un code ROME, un effectif et un niveau d'exposition sourcé.</p>
+        <p data-i18n="d7.089" data-i18n-html="true">Tant que cette injection n'a pas eu lieu, aucune valeur n'est estimée, aucun ordre de grandeur n'est proposé. <strong>« n.d. » signifie non documenté, pas non pertinent.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 08 / Agenda</div>
+      <div>
+        <h2 data-i18n="d7.090" data-i18n-html="true">Un agenda de gouvernance <em>à 90 jours</em>.</h2>
+        <p class="section-deck" data-i18n="d7.091">Ce que les chiffres français rendent prioritaire, dans l'ordre. Pour les COMEX, CODIR et DRH qui veulent transformer une grille de lecture en décisions datées.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="agenda">
+        <div class="agenda-block">
+          <div class="agenda-when">J+0 → J+30</div>
+          <div>
+            <h4 data-i18n="d7.092" data-i18n-html="true"><span class="pill p-grca">GRCA©</span>Combler le vide de position.</h4>
+            <p data-i18n="d7.093">C'est la décision que 53 % des dirigeants de PME et ETI n'ont pas prise, et elle ne coûte rien d'autre qu'un arbitrage. La prendre tard revient à valider rétroactivement des usages qu'on n'a jamais examinés.</p>
+            <ul>
+              <li data-i18n="d7.094">Trancher explicitement l'usage des IA en libre accès par les collaborateurs, dans un sens ou dans l'autre</li>
+              <li data-i18n="d7.095">Recenser l'usage réel avant de réglementer : deux salariés sur cinq utilisent déjà l'IA générative chaque semaine au travail</li>
+              <li data-i18n="d7.096">Ouvrir l'audit sur les 14 fiches classées GRCA©, en commençant par celles portant une obligation légale directe : conformité, souscription, paie, tri de candidatures</li>
+            </ul>
+          </div>
+        </div>
+        <div class="agenda-block">
+          <div class="agenda-when">J+30 → J+60</div>
+          <div>
+            <h4 data-i18n="d7.097" data-i18n-html="true"><span class="pill p-ghitl">GHITL©</span>Tracer la validation humaine.</h4>
+            <p data-i18n="d7.098">Sur les 16 fiches en augmentation gouvernée, l'enjeu n'est pas d'automatiser mais de nommer le point de contrôle. Une automatisation sans validateur identifié n'est pas gouvernée, elle est simplement non surveillée.</p>
+            <ul>
+              <li data-i18n="d7.099">Documenter, pour chaque automatisation en production, qui valide, à quel moment, et sur quelle trace conservée</li>
+              <li data-i18n="d7.100">Traiter en priorité le tri de candidatures et la tarification assurantielle, seuls cas de la liste où le biais produit un effet juridique direct sur une personne</li>
+              <li data-i18n="d7.101">Vérifier la réversibilité : une chaîne qu'on ne peut pas repasser en manuel n'a pas de plan de repli</li>
+            </ul>
+          </div>
+        </div>
+        <div class="agenda-block">
+          <div class="agenda-when">J+60 → J+90</div>
+          <div>
+            <h4 data-i18n="d7.102" data-i18n-html="true"><span class="pill p-scep">Scepticisme</span>Mesurer avant de conclure.</h4>
+            <p data-i18n="d7.103">Le premier frein documenté étant l'absence d'usage perçu, la réponse n'est pas la démonstration commerciale mais la preuve interne, sur un périmètre restreint et mesuré.</p>
+            <ul>
+              <li data-i18n="d7.104">Confronter chaque promesse de gain à un coût complet incluant maintenance, accompagnement, formation et correction, comme le recommande l'Observatoire des métiers du BTP</li>
+              <li data-i18n="d7.105">Poser une règle de vérification systématique des sorties : elle sera comprise, 73 % des Français la pratiquent déjà spontanément</li>
+              <li data-i18n="d7.106">Documenter les pilotes qui échouent au même niveau que ceux qui réussissent, faute de quoi le taux d'échec réel restera un chiffre de rapport américain</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="limites">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 09 / Limites</div>
+      <div>
+        <h2 data-i18n="d7.107" data-i18n-html="true">Ce que <em>ce briefing ne fait pas</em>.</h2>
+        <p class="section-deck" data-i18n="d7.108">L'honnêteté méthodologique est ce qui distingue un briefing éditorial d'un livre blanc. Quatre limites assumées, à garder en tête pour la lecture comme pour la décision.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="limits-grid">
+        <div class="limit-card">
+          <h4 data-i18n="d7.109">→ Limite 01 · Représentativité</h4>
+          <h3 data-i18n="d7.110">Deux enquêtes sectorielles ne font pas une économie.</h3>
+          <p data-i18n="d7.111">L'AMF décrit la finance supervisée, l'Observatoire des métiers du BTP décrit le bâtiment et les travaux publics. Ces deux secteurs encadrent le spectre par le haut et par le bas de la maturité numérique, mais ne le remplissent pas. Les services, le commerce et l'industrie manquent.</p>
+        </div>
+        <div class="limit-card">
+          <h4 data-i18n="d7.112">→ Limite 02 · Micro-structures</h4>
+          <h3 data-i18n="d7.113">Les plus petites structures restent sous-observées.</h3>
+          <p data-i18n="d7.114">L'échantillon BTP surreprésente les entreprises de 10 à 49 salariés par rapport à la structure réelle du secteur, où 61,5 % des établissements n'ont aucun salarié. Le biais de mesure est constant : ceux qui répondent aux enquêtes sont ceux qui ont le temps d'y répondre.</p>
+        </div>
+        <div class="limit-card">
+          <h4 data-i18n="d7.115">→ Limite 03 · Statut probatoire</h4>
+          <h3 data-i18n="d7.116">Un chiffre central est de seconde main.</h3>
+          <p data-i18n="d7.117">Le taux de 80 % d'échec des projets pilotes est repris d'une citation, pas d'une lecture de la source primaire RAND. Il est classé T3 · C3 et signalé comme tel à chaque occurrence. Il n'appuie aucune conclusion de ce briefing.</p>
+        </div>
+        <div class="limit-card">
+          <h4 data-i18n="d7.118">→ Limite 04 · Granularité métier</h4>
+          <h3 data-i18n="d7.119">Aucun score par fiche n'est calculé.</h3>
+          <p data-i18n="d7.120">Les 40 fiches ne reçoivent pas d'exposition chiffrée dans cette version. La statistique française publique ne produit pas, à ce jour, d'équivalent métier par métier des indices d'exposition anglo-saxons. C'est le trou principal que ce briefing rend visible plutôt que de le combler par estimation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="methodo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">§ 10 / Méthodologie</div>
+      <div>
+        <h2 data-i18n="d7.121" data-i18n-html="true">Sources, tiers, <em>ratings de confiance</em>.</h2>
+        <p class="section-deck" data-i18n="d7.122">Ce briefing suit le même protocole que tous les dispatchs de l'Observatoire : sourcing tiéré, confiance explicite, non-fabrication.</p>
+      </div>
+    </div>
+    <div class="section-content">
+      <details class="method" open>
+        <summary data-i18n="d7.123">Sources mobilisées · toutes françaises</summary>
+        <div class="method-body">
+          <ul>
+            <li data-i18n="d7.124" data-i18n-html="true"><b>AMF · février 2026 · T1 · C2</b> · rapport « IA et acteurs des marchés financiers ». 80 entités sollicitées, 69 réponses. Adoption, gradient par taille, cas d'usage, bénéfices et risques perçus.</li>
+            <li data-i18n="d7.125" data-i18n-html="true"><b>Observatoire des métiers du BTP · 2026 · T2 · C2</b> · étude sur la perception et l'intégration des outils d'IA. 621 réponses complètes sur une base de 45 000 professionnels, complétées d'entretiens qualitatifs.</li>
+            <li data-i18n="d7.126" data-i18n-html="true"><b>BPI France Le Lab · T2 · C3</b> · enquête auprès de 1 209 dirigeants représentatifs des PME et ETI françaises. Citée par l'Observatoire des métiers du BTP, non consultée en source primaire.</li>
+            <li data-i18n="d7.127" data-i18n-html="true"><b>Ipsos pour Greenworking · mars 2025 · T2 · C2</b> · 1 000 salariés du privé représentatifs. Usage de l'IA générative en cadre personnel et professionnel. Reprise dans le rapport Ipsos bva × Epita de février 2026.</li>
+            <li data-i18n="d7.128" data-i18n-html="true"><b>Ipsos AI Monitor · juin 2026 · T2 · C1</b> · Global Advisor 32 pays, terrain du 20 mars au 3 avril 2026, n = 23 532 dont environ 1 000 en France. Volet français isolé de la moyenne internationale.</li>
+            <li data-i18n="d7.129" data-i18n-html="true"><b>Carrousel GUILD4AI · 29 août 2026 · T1 · C1</b> · document source des 40 fiches. Décompte des régimes établi par l'Observatoire.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary data-i18n="d7.130">Niveaux de source T1 à T4</summary>
+        <div class="method-body">
+          <p data-i18n="d7.131" data-i18n-html="true"><b>T1</b> · autorité publique, régulateur, institut statistique, recherche académique. Méthodologie publique, échantillon documenté.</p>
+          <p data-i18n="d7.132" data-i18n-html="true"><b>T2</b> · observatoire de branche, institut d'études à méthodologie publique, grande enquête sectorielle, presse économique avec analyse propre.</p>
+          <p data-i18n="d7.133" data-i18n-html="true"><b>T3</b> · source secondaire, citation non revérifiée à la source primaire, étude d'éditeur ou de fournisseur. Utilisée avec décote.</p>
+          <p data-i18n="d7.134" data-i18n-html="true"><b>T4</b> · presse généraliste, témoignage terrain. Illustration uniquement, jamais preuve.</p>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary data-i18n="d7.135">Ratings de confiance C1 à C4</summary>
+        <div class="method-body">
+          <p data-i18n="d7.136" data-i18n-html="true"><b>C1</b> · convergence multiple, méthodologie reproductible, intervalle de confiance publié.</p>
+          <p data-i18n="d7.137" data-i18n-html="true"><b>C2</b> · source unique de qualité, méthodologie publique, échantillon documenté mais non répliqué.</p>
+          <p data-i18n="d7.138" data-i18n-html="true"><b>C3</b> · source unique, non-convergence partielle ou citation de seconde main. Lecture prudente.</p>
+          <p data-i18n="d7.139" data-i18n-html="true"><b>C4</b> · indicatif uniquement, signal à confirmer.</p>
+        </div>
+      </details>
+
+      <details class="method">
+        <summary data-i18n="d7.140">Protocole de non-fabrication</summary>
+        <div class="method-body">
+          <p data-i18n="d7.141" data-i18n-html="true">Aucune donnée n'est ajoutée sans lecture de la source qui la porte. Aucune valeur absente n'est estimée, interpolée ou déduite d'un ordre de grandeur voisin. Les gaps sont notés <b>n.d.</b> et restent visibles dans les tableaux.</p>
+          <p data-i18n="d7.142">Chaque figure porte sa source et son tier au point où elle apparaît, et non dans une bibliographie de fin. Les chiffres repris de seconde main sont signalés comme tels à chaque occurrence, y compris quand ils sont largement diffusés par ailleurs.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-kicker">→ Pour aller plus loin</div>
+    <h2 data-i18n="d7.143" data-i18n-html="true">Deux maisons, <em>deux fonctions distinctes</em>.</h2>
+    <p class="cta-deck" data-i18n="d7.144">Une grille de gouvernance et un observatoire de données ne font pas le même travail. La première dit comment décider, le second dit sur quoi. Ce briefing est le point de contact entre les deux.</p>
+    <div class="cta-grid">
+      <div class="cta-card">
+        <div class="cta-card-title">Gouvernance</div>
+        <h4 data-i18n="d7.145">GUILD4AI</h4>
+        <p data-i18n="d7.146">Doctrine du Scepticisme Actif, architecture GHITL© de gouvernance humaine dans la boucle, cadre GRCA© aligné sur l'AI Act, le RGPD, NIS2 et DORA. Assessment de maturité IA sur 8 axes.</p>
+        <a href="https://guild4ai.ai">guild4ai.ai</a>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-title">Données</div>
+        <h4 data-i18n="d7.147">Observatoire des transitions IA</h4>
+        <p data-i18n="d7.148">Observatoires publics France et Suisse de l'exposition des métiers à l'IA. Nomenclatures ROME et FAP côté français, NP 2010 côté suisse. Sourcing tiéré, mise à jour mensuelle, accès libre.</p>
+        <a href="https://transitions-ia.fr">transitions-ia.fr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h5>→ À propos</h5>
+        <p data-i18n="d7.149">Briefing hors-série produit par l'Observatoire des transitions IA à partir du carrousel GUILD4AI « 40 métiers face à l'IA ». Contrainte éditoriale : sources françaises uniquement.</p>
+        <p data-i18n="d7.150">La grille GHITL© · GRCA© · Scepticisme Actif appartient à GUILD4AI. L'analyse des sources et les réserves méthodologiques relèvent de l'Observatoire.</p>
+      </div>
+      <div class="foot-col">
+        <h5>→ Observatoires</h5>
+        <ul>
+          <li data-i18n="d7.151" data-i18n-html="true"><a href="https://transitions-ia.fr">transitions-ia.fr</a></li>
+          <li data-i18n="d7.152" data-i18n-html="true"><a href="https://observatoire.naullynicolas.ch">observatoire.naullynicolas.ch</a></li>
+          <li data-i18n="d7.153" data-i18n-html="true"><a href="https://naullynicolas.ch">naullynicolas.ch</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>→ GUILD4AI</h5>
+        <ul>
+          <li data-i18n="d7.154" data-i18n-html="true"><a href="https://guild4ai.ai">guild4ai.ai</a></li>
+          <li data-i18n="d7.155" data-i18n-html="true"><a href="https://www.linkedin.com/company/guild4ai">LinkedIn · GUILD4AI</a></li>
+          <li data-i18n="d7.156" data-i18n-html="true"><a href="https://www.linkedin.com/in/jumeletchristian">LinkedIn · Christian Jumelet</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Briefing hors-série · GUILD4AI × Observatoire · 29.08.2026</span>
+      <span>Naully</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var prog = document.getElementById('prog');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+(function(){
+  var FAMILIES = [
+    {name:"Support administratif", v:[3,3,2]},
+    {name:"Service client & ventes", v:[3,3,1]},
+    {name:"Rédaction & communication", v:[2,1,2]},
+    {name:"Tech, données & analytique", v:[2,2,2]},
+    {name:"Juridique & conformité", v:[1,3,0]},
+    {name:"Création & médias", v:[2,1,1]},
+    {name:"Logistique & opérations", v:[3,1,2]}
+  ];
+  var SIZE = [
+    {name:"Grandes entreprises", v:95},
+    {name:"Entreprises moyennes", v:75},
+    {name:"Petites entreprises", v:63},
+    {name:"Micro-entreprises", v:43}
+  ];
+  var FREINS = [
+    {name:"Pas d'usage ni d'intérêt perçu", v:30.5},
+    {name:"Manque d'expertise sur l'IA", v:22.4},
+    {name:"Moyens financiers insuffisants", v:15.6}
+  ];
+  var COLS = ['#B8312F', '#BF6B04', '#2D6A4F'];
+
+  function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function parentW(id){ var el = document.getElementById(id); return el ? el.parentNode.clientWidth : 600; }
+
+  function drawFamilies(){
+    var w = parentW('svg-families'), narrow = w < 560;
+    var labelW = narrow ? 0 : 200, rowH = narrow ? 58 : 40, top = 4;
+    var h = FAMILIES.length * rowH + top + 6;
+    var svg = d3.select('#svg-families').attr('viewBox', '0 0 ' + w + ' ' + h).html('');
+    var barW = w - labelW - 34;
+    var x = d3.scaleLinear().domain([0, 8]).range([0, barW]);
+
+    FAMILIES.forEach(function(d, i){
+      var y = top + i * rowH;
+      var g = svg.append('g');
+      g.append('text').attr('x', 0).attr('y', narrow ? y + 12 : y + 18)
+        .attr('font-family', 'Inter, sans-serif').attr('font-size', 13)
+        .attr('fill', css('--tx')).text(d.name);
+      var bx = narrow ? 0 : labelW;
+      var by = narrow ? y + 24 : y + 8;
+      var acc = 0, total = d.v[0] + d.v[1] + d.v[2];
+      d.v.forEach(function(v, k){
+        if (v <= 0) return;
+        g.append('rect')
+          .attr('x', bx + x(acc)).attr('y', by)
+          .attr('width', Math.max(0, x(v) - 2)).attr('height', 18)
+          .attr('fill', COLS[k]);
+        if (x(v) > 22) {
+          g.append('text')
+            .attr('x', bx + x(acc) + (x(v) - 2) / 2).attr('y', by + 12.5)
+            .attr('text-anchor', 'middle')
+            .attr('font-family', 'IBM Plex Mono, monospace').attr('font-size', 11)
+            .attr('fill', '#FFFFFF').text(v);
+        }
+        acc += v;
+      });
+      g.append('text').attr('x', bx + x(total) + 8).attr('y', by + 13)
+        .attr('font-family', 'IBM Plex Mono, monospace').attr('font-size', 11)
+        .attr('fill', css('--tx-mut')).text(total);
+    });
+  }
+
+  function drawBars(svgId, data, opts){
+    var w = parentW(svgId), narrow = w < 560;
+    var step = narrow ? 58 : 48, top = 4;
+    var h = data.length * step + top;
+    var labelW = narrow ? 0 : 210;
+    var svg = d3.select('#' + svgId).attr('viewBox', '0 0 ' + w + ' ' + h).html('');
+    var barW = w - labelW - 58;
+    var x = d3.scaleLinear().domain([0, opts.max]).range([0, barW]);
+
+    data.forEach(function(d, i){
+      var y = top + i * step;
+      var g = svg.append('g');
+      g.append('text').attr('x', 0).attr('y', narrow ? y + 12 : y + 19)
+        .attr('font-family', 'Inter, sans-serif').attr('font-size', 13)
+        .attr('fill', css('--tx')).text(d.name);
+      var bx = narrow ? 0 : labelW;
+      var by = narrow ? y + 24 : y + 8;
+      g.append('rect').attr('x', bx).attr('y', by).attr('width', 0).attr('height', 18)
+        .attr('fill', opts.color)
+        .transition().duration(550).attr('width', x(d.v));
+      g.append('text').attr('x', bx + x(d.v) + 10).attr('y', by + 13)
+        .attr('font-family', 'IBM Plex Mono, monospace').attr('font-size', 12)
+        .attr('fill', css('--tx')).text(String(d.v).replace('.', ',') + ' %');
+    });
+  }
+
+  function redraw(){
+    if (typeof d3 === 'undefined') return;
+    drawFamilies();
+    drawBars('svg-size', SIZE, {max:100, color:'#B8312F'});
+    drawBars('svg-freins', FREINS, {max:35, color:'#2C5578'});
+  }
+
+  function boot(tries){
+    if (typeof d3 !== 'undefined') { redraw(); return; }
+    if (tries > 40) return;
+    setTimeout(function(){ boot(tries + 1); }, 100);
+  }
+  document.addEventListener('DOMContentLoaded', function(){ boot(0); });
+  if (document.readyState !== 'loading') boot(0);
+
+  var t;
+  window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(redraw, 160); });
+})();
+</script>
+
+
+<script>
+window.PAGE_I18N = { fr: {"d7.001": "40 métiers face à l'IA. <em>Ce que les chiffres français</em> disent de la grille GUILD4AI.", "d7.002": "Un carrousel classe 40 métiers en trois régimes de gouvernance : ce qui s'automatise sous supervision, ce qui déplace un risque à auditer, ce qui relève d'un narratif à nuancer. Ce briefing confronte cette grille aux seules sources françaises disponibles. Le résultat tient en une phrase : l'écart entre la capacité technique annoncée et l'usage réellement installé reste le premier facteur explicatif, très loin devant l'automatisabilité des tâches.", "d7.003": "<strong>La grille de lecture GHITL©, GRCA© et Scepticisme Actif est une production GUILD4AI.</strong> Le choix des sources, le décompte des fiches, la sélection des chiffres et les réserves méthodologiques relèvent de la responsabilité éditoriale exclusive de l'Observatoire. Aucune donnée n'a été ajoutée sans lecture de la source primaire ou du document qui la cite. Les absences sont signalées « n.d. », jamais estimées.", "d7.004": "Quatre chiffres français <em>qui déplacent la lecture</em> du carrousel.", "d7.005": "→ Aucune source américaine, suisse ou internationale agrégée n'est mobilisée ici, à l'exception du volet français de l'Ipsos AI Monitor, isolé de la moyenne 32 pays. C'est une contrainte volontaire : elle réduit le nombre de chiffres disponibles et rend visibles les trous de la statistique française sur les métiers.", "d7.006": "La grille de départ, <em>enfin quantifiée</em>.", "d7.007": "Le carrousel répartit 40 fiches entre trois régimes de gouvernance. Cette répartition n'avait pas été chiffrée. Elle l'est ici, à partir du document lui-même.", "d7.008": "Deux enseignements structurels. Le régime GRCA© domine dès qu'un métier touche une obligation légale ou financière : la famille juridique et conformité compte <strong>3 fiches sur 4</strong> en risque à auditer, et c'est la seule famille sans aucune fiche en scepticisme.", "d7.009": "À l'inverse, aucune famille n'est intégralement automatisable. Même le support administratif, présenté comme le terrain le plus mûr, conserve <strong>2 fiches sur 8</strong> en scepticisme. La grille résiste donc à sa propre simplification, ce qui est plutôt bon signe pour une grille.", "d7.010": "Un métier automatisable <em>n'est pas un métier automatisé</em>.", "d7.011": "C'est dans cet intervalle que se joue l'essentiel du débat français. Et c'est un observatoire de branche, pas un cabinet de conseil, qui le documente le plus précisément.", "d7.012": "Étude sur la perception et l'intégration des outils d'IA dans les entreprises du BTP", "d7.013": "Le rapport formule le point avec une netteté rare : l'existence d'une solution technologique fondée sur l'IA ne se traduit ni systématiquement ni rapidement par une intégration dans l'activité courante, à une échelle telle que l'usage transforme réellement un métier.", "d7.014": "Trois raisons sont avancées. <strong>Les coûts</strong> d'installation, de maintenance et d'usage peuvent dépasser le coût salarial du poste, sans compter l'accompagnement, la formation et les risques d'une technologie encore peu mature. <strong>Les pratiques individuelles</strong> des salariés sont bien plus diverses que ce qu'anticipent les concepteurs de solutions, ce qui installe la shadow IA par défaut. <strong>Les conditions d'intégration</strong> enfin, infrastructures, qualité des données, compétences, ne sont pas réunies dans la majorité des structures.", "d7.015": "Ce verbatim de dirigeant de PME, recueilli à propos des réponses aux appels d'offres publics, résume la position réelle du terrain : ni rejet, ni adhésion. Un usage sous surveillance, faute de mieux. C'est déjà du scepticisme actif, pratiqué sans le nom.", "d7.016": "Le même rapport reprend un ordre de grandeur devenu viral : un taux de non-réalisation des projets pilotes d'IA d'environ <strong>80 %</strong>, toutes catégories confondues, et davantage encore pour l'IA générative.", "d7.017": "Ce chiffre est attribué à un rapport RAND Corporation d'août 2024. Il est donc mobilisé ici <strong>en source secondaire, non revérifiée à la source primaire</strong>, et classé T3 · C3. À manier comme un ordre de grandeur, pas comme une mesure.", "d7.018": "Conséquence directe pour la grille : les 10 fiches classées en scepticisme ne sont pas les seules à mériter ce traitement. Sur les <strong>16 fiches GHITL©</strong>, la question opérationnelle n'est pas « la tâche est-elle automatisable » mais « l'organisation a-t-elle les moyens de l'automatiser proprement ». Pour une TPE, la réponse est majoritairement non, et ce n'est pas un problème technique.", "d7.019": "Le gradient qui <em>écrase la logique métier</em>.", "d7.020": "La même fiche métier ne décrit pas la même réalité selon la taille de l'employeur. L'enquête AMF le montre dans un secteur pourtant homogène et fortement régulé.", "d7.021": "IA et acteurs des marchés financiers", "d7.022": "Le niveau d'adoption est très élevé. <strong>90 %</strong> des entités sondées ont déjà recours à l'IA ou prévoient de le faire dans les douze prochains mois. <strong>54 %</strong> ont des cas d'usage en production, <strong>36 %</strong> sont au stade du développement ou de l'expérimentation, <strong>10 %</strong> n'envisagent aucun usage.", "d7.023": "La taille joue un rôle déterminant. Parmi les entités recourant déjà à l'IA, <strong>51 % sont de grandes entreprises</strong>. À l'inverse, parmi celles n'ayant déclaré aucun cas d'usage, <strong>57 % sont de petites entreprises et 28 % des micro-entreprises</strong>. Le même gradient structure les intentions d'investissement.", "d7.024": "L'enquête AMF porte sur <strong>69 réponses</strong> dans un secteur en avance sur le reste de l'économie, doté de moyens et d'une culture du contrôle. Elle décrit une frontière, pas une moyenne nationale. Les pourcentages ne sont pas transposables à l'économie française dans son ensemble.", "d7.025": "Son intérêt est ailleurs : elle montre que même là où les moyens existent, <strong>l'écart par taille reste de plus de 50 points</strong> sur les intentions d'investissement. Dans un tissu économique moins doté, cet écart peut difficilement être plus faible.", "d7.026": "C'est le principal correctif à apporter à toute lecture fiche par fiche. Un commis à la saisie de données dans une grande banque et le même intitulé dans une entreprise de dix salariés ne vivent pas la même transformation, ni au même rythme, ni sous le même régime de gouvernance. <strong>La fiche est identique, l'exposition réelle ne l'est pas.</strong>", "d7.027": "Ce qui bloque n'est ni le coût, <em>ni la réglementation</em>.", "d7.028": "Sur 621 réponses complètes, 308 entreprises déclarent ne pas utiliser l'IA et ne pas l'envisager. Leurs motifs déplacent complètement le débat.", "d7.029": "Le premier frein est cognitif : ne pas voir l'usage. Vient ensuite le manque d'expertise, puis seulement les moyens financiers. Trois modalités supplémentaires figurent dans l'enquête mais ne sont pas explicitement chiffrées dans le corps du rapport : elles ne sont pas reprises ici.", "d7.030": "Le vide de gouvernance, mesuré par BPI France Le Lab", "d7.031": "<strong>53 % des dirigeants n'ont pas encore pris position</strong> sur l'usage des IA en libre accès par leurs collaborateurs. Les difficultés exprimées portent sur le coût jugé trop élevé (30 %), la crainte de mauvais usages (30 %) et l'incertitude sur les applications concrètes (23 %).", "d7.032": "C'est exactement le terrain du cadre GRCA©, mais pas pour la raison qu'on avance d'habitude. Le problème n'est pas qu'une IA ait été déployée sans contrôle. C'est qu'aucune position n'a été prise <strong>pendant que l'usage individuel s'installait</strong>.", "d7.033": "Pendant ce temps, <em>les salariés n'attendent pas</em>.", "d7.034": "Enquête Ipsos pour Greenworking, mars 2025, 1 000 salariés du privé représentatifs de cette population.", "d7.035": "Deux salariés sur cinq utilisent l'IA générative chaque semaine au travail. Un dirigeant de PME ou ETI sur deux n'a pas tranché ce qu'il en pense. <strong>L'écart entre ces deux chiffres est la variable opérationnelle immédiate</strong>, et aucune fiche métier ne le rend visible.", "d7.036": "C'est aussi la limite structurelle de tout classement par métier : il décrit une exposition théorique de la tâche, quand la question qui se pose aux directions est celle d'un usage déjà installé, non cadré, et souvent invisible dans les outils officiels.", "d7.037": "Le scepticisme français <em>est mesurable</em>.", "d7.038": "L'Ipsos AI Monitor 2026 interroge 23 532 adultes dans 32 pays, dont environ 1 000 en France. Deux résultats concernent directement la doctrine du Scepticisme Actif.", "d7.039": "La France est parmi les pays qui vérifient le plus.", "d7.040": "Sur l'affirmation « je fais confiance aux outils d'IA, donc je ne vérifie pas leur travail », la France se classe au 30<sup>e</sup> rang sur 33 pays et moyennes mesurés. Seuls les Pays-Bas, l'Allemagne et le Canada sont plus vérificateurs.", "d7.041": "<b>19 %</b> se déclarent d'accord", "d7.042": "<b>73 %</b> se déclarent en désaccord", "d7.043": "<b>31 %</b> de moyenne sur 32 pays", "d7.044": "Et parmi ceux dont l'enthousiasme recule le plus.", "d7.045": "Sur l'affirmation « les produits et services utilisant l'IA me rendent enthousiaste », l'évolution nette entre 2025 et 2026 place la France dans les trois pays au recul le plus marqué, avec le Royaume-Uni et l'Allemagne.", "d7.046": "<b>−7 pts</b> France, 2025 vers 2026", "d7.047": "<b>17 / 28</b> pays où le solde bénéfices / inconvénients se dégrade", "d7.048": "<b>± 3,5 pts</b> intervalle de crédibilité pour n = 1 000", "d7.049": "Pour une doctrine qui revendique « ni hype ni technophobie », c'est une donnée de positionnement plus qu'un argument de vente. <strong>Le public visé n'a pas besoin d'être convaincu de douter.</strong> Il doute déjà, majoritairement, et son enthousiasme se dégrade.", "d7.050": "Ce dont il manque, c'est d'une méthode pour que ce doute produise autre chose qu'un frein à l'adoption. C'est précisément la différence entre le scepticisme comme humeur et le scepticisme comme procédure, et c'est là que se situe la valeur d'une architecture GHITL© ou d'un cadre GRCA©.", "d7.051": "Les sept familles <em>relues source par source</em>.", "d7.052": "Correspondance entre les familles du carrousel et les sources françaises effectivement mobilisables. Les cases non documentées sont marquées « n.d. » et le restent.", "d7.053": "<tr><th>Famille", "d7.054": "Fiches", "d7.055": "Régimes", "d7.056": "Source française mobilisable", "d7.057": "Portée", "d7.058": "Support administratif", "d7.059": "3 / 3 / 2", "d7.060": "Observatoire des métiers du BTP · repositionnement des fonctions ADV, comptables et administratives vers la supervision, le contrôle et la fiabilisation des données", "d7.061": "qualitatif", "d7.062": "Service client &amp; ventes", "d7.063": "3 / 3 / 1", "d7.064": "AMF 2026 · support client cité parmi les bénéfices déclarés dans le secteur financier", "d7.065": "partiel", "d7.066": "Rédaction &amp; communication", "d7.067": "2 / 1 / 2", "d7.068": "Observatoire des métiers du BTP · production de mémoires techniques et réponses aux appels d'offres assistées, avec relecture de conformité", "d7.069": "qualitatif", "d7.070": "Tech, données &amp; analytique", "d7.071": "2 / 2 / 2", "d7.072": "AMF 2026 · traitement de grands volumes de données cité comme premier bénéfice attendu", "d7.073": "partiel", "d7.074": "Juridique &amp; conformité", "d7.075": "1 / 3 / 0", "d7.076": "AMF 2026 · automatisation de vérifications de conformité, LCB-FT et abus de marché, sous processus de relecture et validation humaine", "d7.077": "documenté", "d7.078": "Création &amp; médias", "d7.079": "2 / 1 / 1", "d7.080": "Observatoire des métiers du BTP · génération d'images et modélisation 3D en phase d'avant-vente", "d7.081": "indirect", "d7.082": "Logistique, commerce &amp; opérations", "d7.083": "3 / 1 / 2", "d7.084": "<span class=\"nd\">n.d.</span>", "d7.085": "<span class=\"nd\">n.d.</span>", "d7.086": "Colonne régimes · GHITL© / GRCA© / Scepticisme", "d7.087": "Aucun score d'exposition par métier n'est produit dans cette version.", "d7.088": "Aucune des sources françaises réunies ici ne fournit d'exposition métier par métier pour les 40 fiches. La couche de correspondance ROME et FAP sera injectée depuis le référentiel de l'Observatoire des transitions IA, ce qui permettra d'attacher à chaque fiche un code ROME, un effectif et un niveau d'exposition sourcé.", "d7.089": "Tant que cette injection n'a pas eu lieu, aucune valeur n'est estimée, aucun ordre de grandeur n'est proposé. <strong>« n.d. » signifie non documenté, pas non pertinent.</strong>", "d7.090": "Un agenda de gouvernance <em>à 90 jours</em>.", "d7.091": "Ce que les chiffres français rendent prioritaire, dans l'ordre. Pour les COMEX, CODIR et DRH qui veulent transformer une grille de lecture en décisions datées.", "d7.092": "<span class=\"pill p-grca\">GRCA©</span>Combler le vide de position.", "d7.093": "C'est la décision que 53 % des dirigeants de PME et ETI n'ont pas prise, et elle ne coûte rien d'autre qu'un arbitrage. La prendre tard revient à valider rétroactivement des usages qu'on n'a jamais examinés.", "d7.094": "Trancher explicitement l'usage des IA en libre accès par les collaborateurs, dans un sens ou dans l'autre", "d7.095": "Recenser l'usage réel avant de réglementer : deux salariés sur cinq utilisent déjà l'IA générative chaque semaine au travail", "d7.096": "Ouvrir l'audit sur les 14 fiches classées GRCA©, en commençant par celles portant une obligation légale directe : conformité, souscription, paie, tri de candidatures", "d7.097": "<span class=\"pill p-ghitl\">GHITL©</span>Tracer la validation humaine.", "d7.098": "Sur les 16 fiches en augmentation gouvernée, l'enjeu n'est pas d'automatiser mais de nommer le point de contrôle. Une automatisation sans validateur identifié n'est pas gouvernée, elle est simplement non surveillée.", "d7.099": "Documenter, pour chaque automatisation en production, qui valide, à quel moment, et sur quelle trace conservée", "d7.100": "Traiter en priorité le tri de candidatures et la tarification assurantielle, seuls cas de la liste où le biais produit un effet juridique direct sur une personne", "d7.101": "Vérifier la réversibilité : une chaîne qu'on ne peut pas repasser en manuel n'a pas de plan de repli", "d7.102": "<span class=\"pill p-scep\">Scepticisme</span>Mesurer avant de conclure.", "d7.103": "Le premier frein documenté étant l'absence d'usage perçu, la réponse n'est pas la démonstration commerciale mais la preuve interne, sur un périmètre restreint et mesuré.", "d7.104": "Confronter chaque promesse de gain à un coût complet incluant maintenance, accompagnement, formation et correction, comme le recommande l'Observatoire des métiers du BTP", "d7.105": "Poser une règle de vérification systématique des sorties : elle sera comprise, 73 % des Français la pratiquent déjà spontanément", "d7.106": "Documenter les pilotes qui échouent au même niveau que ceux qui réussissent, faute de quoi le taux d'échec réel restera un chiffre de rapport américain", "d7.107": "Ce que <em>ce briefing ne fait pas</em>.", "d7.108": "L'honnêteté méthodologique est ce qui distingue un briefing éditorial d'un livre blanc. Quatre limites assumées, à garder en tête pour la lecture comme pour la décision.", "d7.109": "→ Limite 01 · Représentativité", "d7.110": "Deux enquêtes sectorielles ne font pas une économie.", "d7.111": "L'AMF décrit la finance supervisée, l'Observatoire des métiers du BTP décrit le bâtiment et les travaux publics. Ces deux secteurs encadrent le spectre par le haut et par le bas de la maturité numérique, mais ne le remplissent pas. Les services, le commerce et l'industrie manquent.", "d7.112": "→ Limite 02 · Micro-structures", "d7.113": "Les plus petites structures restent sous-observées.", "d7.114": "L'échantillon BTP surreprésente les entreprises de 10 à 49 salariés par rapport à la structure réelle du secteur, où 61,5 % des établissements n'ont aucun salarié. Le biais de mesure est constant : ceux qui répondent aux enquêtes sont ceux qui ont le temps d'y répondre.", "d7.115": "→ Limite 03 · Statut probatoire", "d7.116": "Un chiffre central est de seconde main.", "d7.117": "Le taux de 80 % d'échec des projets pilotes est repris d'une citation, pas d'une lecture de la source primaire RAND. Il est classé T3 · C3 et signalé comme tel à chaque occurrence. Il n'appuie aucune conclusion de ce briefing.", "d7.118": "→ Limite 04 · Granularité métier", "d7.119": "Aucun score par fiche n'est calculé.", "d7.120": "Les 40 fiches ne reçoivent pas d'exposition chiffrée dans cette version. La statistique française publique ne produit pas, à ce jour, d'équivalent métier par métier des indices d'exposition anglo-saxons. C'est le trou principal que ce briefing rend visible plutôt que de le combler par estimation.", "d7.121": "Sources, tiers, <em>ratings de confiance</em>.", "d7.122": "Ce briefing suit le même protocole que tous les dispatchs de l'Observatoire : sourcing tiéré, confiance explicite, non-fabrication.", "d7.123": "Sources mobilisées · toutes françaises", "d7.124": "<b>AMF · février 2026 · T1 · C2</b> · rapport « IA et acteurs des marchés financiers ». 80 entités sollicitées, 69 réponses. Adoption, gradient par taille, cas d'usage, bénéfices et risques perçus.", "d7.125": "<b>Observatoire des métiers du BTP · 2026 · T2 · C2</b> · étude sur la perception et l'intégration des outils d'IA. 621 réponses complètes sur une base de 45 000 professionnels, complétées d'entretiens qualitatifs.", "d7.126": "<b>BPI France Le Lab · T2 · C3</b> · enquête auprès de 1 209 dirigeants représentatifs des PME et ETI françaises. Citée par l'Observatoire des métiers du BTP, non consultée en source primaire.", "d7.127": "<b>Ipsos pour Greenworking · mars 2025 · T2 · C2</b> · 1 000 salariés du privé représentatifs. Usage de l'IA générative en cadre personnel et professionnel. Reprise dans le rapport Ipsos bva × Epita de février 2026.", "d7.128": "<b>Ipsos AI Monitor · juin 2026 · T2 · C1</b> · Global Advisor 32 pays, terrain du 20 mars au 3 avril 2026, n = 23 532 dont environ 1 000 en France. Volet français isolé de la moyenne internationale.", "d7.129": "<b>Carrousel GUILD4AI · 29 août 2026 · T1 · C1</b> · document source des 40 fiches. Décompte des régimes établi par l'Observatoire.", "d7.130": "Niveaux de source T1 à T4", "d7.131": "<b>T1</b> · autorité publique, régulateur, institut statistique, recherche académique. Méthodologie publique, échantillon documenté.", "d7.132": "<b>T2</b> · observatoire de branche, institut d'études à méthodologie publique, grande enquête sectorielle, presse économique avec analyse propre.", "d7.133": "<b>T3</b> · source secondaire, citation non revérifiée à la source primaire, étude d'éditeur ou de fournisseur. Utilisée avec décote.", "d7.134": "<b>T4</b> · presse généraliste, témoignage terrain. Illustration uniquement, jamais preuve.", "d7.135": "Ratings de confiance C1 à C4", "d7.136": "<b>C1</b> · convergence multiple, méthodologie reproductible, intervalle de confiance publié.", "d7.137": "<b>C2</b> · source unique de qualité, méthodologie publique, échantillon documenté mais non répliqué.", "d7.138": "<b>C3</b> · source unique, non-convergence partielle ou citation de seconde main. Lecture prudente.", "d7.139": "<b>C4</b> · indicatif uniquement, signal à confirmer.", "d7.140": "Protocole de non-fabrication", "d7.141": "Aucune donnée n'est ajoutée sans lecture de la source qui la porte. Aucune valeur absente n'est estimée, interpolée ou déduite d'un ordre de grandeur voisin. Les gaps sont notés <b>n.d.</b> et restent visibles dans les tableaux.", "d7.142": "Chaque figure porte sa source et son tier au point où elle apparaît, et non dans une bibliographie de fin. Les chiffres repris de seconde main sont signalés comme tels à chaque occurrence, y compris quand ils sont largement diffusés par ailleurs.", "d7.143": "Deux maisons, <em>deux fonctions distinctes</em>.", "d7.144": "Une grille de gouvernance et un observatoire de données ne font pas le même travail. La première dit comment décider, le second dit sur quoi. Ce briefing est le point de contact entre les deux.", "d7.145": "GUILD4AI", "d7.146": "Doctrine du Scepticisme Actif, architecture GHITL© de gouvernance humaine dans la boucle, cadre GRCA© aligné sur l'AI Act, le RGPD, NIS2 et DORA. Assessment de maturité IA sur 8 axes.", "d7.147": "Observatoire des transitions IA", "d7.148": "Observatoires publics France et Suisse de l'exposition des métiers à l'IA. Nomenclatures ROME et FAP côté français, NP 2010 côté suisse. Sourcing tiéré, mise à jour mensuelle, accès libre.", "d7.149": "Briefing hors-série produit par l'Observatoire des transitions IA à partir du carrousel GUILD4AI « 40 métiers face à l'IA ». Contrainte éditoriale : sources françaises uniquement.", "d7.150": "La grille GHITL© · GRCA© · Scepticisme Actif appartient à GUILD4AI. L'analyse des sources et les réserves méthodologiques relèvent de l'Observatoire.", "d7.151": "<a href=\"https://transitions-ia.fr\">transitions-ia.fr</a>", "d7.152": "<a href=\"https://observatoire.naullynicolas.ch\">observatoire.naullynicolas.ch</a>", "d7.153": "<a href=\"https://naullynicolas.ch\">naullynicolas.ch</a>", "d7.154": "<a href=\"https://guild4ai.ai\">guild4ai.ai</a>", "d7.155": "<a href=\"https://www.linkedin.com/company/guild4ai\">LinkedIn · GUILD4AI</a>", "d7.156": "<a href=\"https://www.linkedin.com/in/jumeletchristian\">LinkedIn · Christian Jumelet</a>"}, en: {} };
+(function(){
+  var LANG = localStorage.getItem("obs-lang") || "fr";
+  function t(k){ var d = window.PAGE_I18N[LANG] || {}; return d[k] || (window.PAGE_I18N.fr[k] || k); }
+  function apply(){
+    document.documentElement.lang = LANG;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var v = t(el.getAttribute("data-i18n"));
+      if (el.hasAttribute("data-i18n-html")) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll(".lang-toggle span").forEach(function(sp){
+      sp.classList.toggle("active", sp.getAttribute("data-lang") === LANG);
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function(){
+    var b = document.getElementById("langToggle");
+    if (b) b.addEventListener("click", function(){
+      LANG = (LANG === "fr") ? "en" : "fr";
+      localStorage.setItem("obs-lang", LANG); apply();
+    });
+    apply();
+  });
+})();
+</script>
+<style>.lang-toggle span{opacity:.45}.lang-toggle span.active{opacity:1;color:var(--signal);font-weight:600}</style>
+</body>
+</html>

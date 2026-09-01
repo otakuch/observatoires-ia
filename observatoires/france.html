@@ -6113,6 +6113,62 @@ html[data-theme="dark"] .matrix-mini{
   --muted:#8B8579; --rule:#D9D2C2; --teal:#1F3A3D; --signal:#D03C2F; --highlight:#F7E27D;
   background:#F2EEE5; border:1px solid #D9D2C2; border-radius:var(--r-2); padding:14px;
 }
+
+/* ==================================================================== */
+/* CORRECTIF DE DÉBORDEMENT MOBILE · additif · août 2026                */
+/* Cause : 1fr vaut minmax(auto,1fr) et le minimum auto est tiré par un */
+/* contenu insécable, ce qui rend la colonne plus large que la grille.  */
+/* Aucune couleur touchée · la charte Encre & ardoise est préservée.    */
+/* ==================================================================== */
+@media (max-width: 640px){
+  .field-grid,
+  .size-grid,
+  .brief-size-grid{ grid-template-columns: minmax(0, 1fr); }
+  .field-grid > *,
+  .size-grid > *,
+  .brief-size-grid > *{ min-width: 0; }
+}
+
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
 </style>
 <!-- Canonical & Social -->
 <link rel="canonical" href="https://observatoire.naullynicolas.ch/observatoires/france.html">
@@ -6304,13 +6360,13 @@ html[data-theme="dark"] .matrix-mini{
     <div class="rdr-eyebrow">🇫🇷 Observatoire · France · Radar exposition vs adoption</div>
     <h2 class="rdr-title">Exposition technique de l'IA <em>vs taux d'adoption</em>.</h2>
     <p class="rdr-sub">22 catégories d'occupation, <b>deux indicateurs distincts à lire axe par axe</b>. En vert · l'exposition technique estimée par tâche (échelle 0–0,5, référence académique internationale). En rouge · le taux d'adoption observé ou estimé par catégorie (échelle 0–100 %). Les deux courbes ne se comparent pas directement · chacune est ramenée à son propre maximum.</p>
-    <p class="rdr-sub" style="border-left: 3px solid var(--signal); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les scores d'exposition affichés s'appuient sur des coefficients LLM-dérivés (Karger, Kuusela, Tetlock · FRB Chicago/SSRN 2026, n=894 occupations O*NET). L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles d'IA différents sur des tâches identiques. À lire comme une fourchette indicative · le classement relatif entre métiers reste robuste, mais les niveaux absolus comportent une variance documentée.</p>
+    <p class="rdr-sub" style="border-left: 3px solid var(--accent); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les scores d'exposition affichés s'appuient sur des coefficients LLM-dérivés (Karger, Kuusela, Tetlock · FRB Chicago/SSRN 2026, n=894 occupations O*NET). L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles d'IA différents sur des tâches identiques. À lire comme une fourchette indicative · le classement relatif entre métiers reste robuste, mais les niveaux absolus comportent une variance documentée.</p>
 
     <div class="rdr-grid" id="frRadarCard">
       <div class="rdr-main">
         <div class="rdr-legend" id="frRadarLegend">
           <span data-layer="blue"><i style="background:var(--teal)"></i><span data-i18n="rdr.lay.exp">Exposition technique</span> <small>(0–0,5)</small></span>
-          <span data-layer="red"><i style="background:var(--signal)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
+          <span data-layer="red"><i style="background:var(--accent)"></i><span data-i18n="rdr.lay.adopt">Taux d'adoption</span> <small>(0–100%)</small></span>
         </div>
         <div class="rdr-chips" id="frRadarChips">
           <span class="rdr-chips-lbl" data-i18n="rdr.chips.lbl">Famille d'IA</span>
@@ -6710,12 +6766,12 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Le point de vue de la DG Trésor : deux canaux, pas de verdict.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">La note <b>Trésor-Éco n°391</b> (Direction générale du Trésor, 30 juin 2026) pose un cadre équilibré : l'IA agit sur l'emploi par <b>deux canaux opposés</b> · la substitution des tâches automatisables d'un côté, les gains de productivité et la hausse de la demande de travail de l'autre. Faute de recul et d'adoption suffisante, les études empiriques ne permettent pas encore de trancher l'effet net.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);">
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">18&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'adoption de l'IA par les entreprises (OCDE 2025) · proche de la moyenne UE (20 %), rattrapage <b>+8 pp</b> vs +6 pp.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+14 à +26&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de productivité sur usages ciblés · du service client aux développeurs, possiblement sous-estimé.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">5–60&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emplois exposés selon les méthodes · emplois menacés (substituables) vs valorisés (augmentés).</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">21,1&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de chômage des 15-24 ans (T1 2026, vs 19,1 % un an plus tôt) · sans lien causal établi avec l'IA.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">18&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'adoption de l'IA par les entreprises (OCDE 2025) · proche de la moyenne UE (20 %), rattrapage <b>+8 pp</b> vs +6 pp.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+14 à +26&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de productivité sur usages ciblés · du service client aux développeurs, possiblement sous-estimé.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">5–60&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emplois exposés selon les méthodes · emplois menacés (substituables) vs valorisés (augmentés).</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">21,1&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de chômage des 15-24 ans (T1 2026, vs 19,1 % un an plus tôt) · sans lien causal établi avec l'IA.</p></div>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Signaux relevés : premières vagues de licenciements dans la finance et l'informatique (l'IA parfois prétexte), insertion des jeunes qui ralentit. Conclusion : accompagnement public (formation, reconversion) nécessaire, et risque réel de décrochage par sous-adoption face aux économies concurrentes. <a href="https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi" target="_blank" rel="noopener" style="color: var(--signal);">DG Trésor · Trésor-Éco n°391 ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Signaux relevés : premières vagues de licenciements dans la finance et l'informatique (l'IA parfois prétexte), insertion des jeunes qui ralentit. Conclusion : accompagnement public (formation, reconversion) nécessaire, et risque réel de décrochage par sous-adoption face aux économies concurrentes. <a href="https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi" target="_blank" rel="noopener" style="color:var(--accent);">DG Trésor · Trésor-Éco n°391 ↗</a></p>
   </div>
 </section>
 
@@ -6726,11 +6782,11 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Quand les firmes qui adoptent l'IA embauchent plus.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">Le working paper <b>Ramp / Revelio Labs</b> (30 juin 2026) mesure l'adoption réelle de l'IA à partir des dépenses observées de 21 559 firmes américaines. Résultat qui tranche avec la thèse de destruction d'emplois : les adopteurs intensifs voient leur emploi croître d'environ 10% et leurs effectifs juniors de 12% après adoption. À mettre en regard du déclin d'emploi des jeunes actifs mesuré par Stanford sur l'exposition par profession : ici, ce sont des firmes adoptantes qui recrutent davantage de juniors.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);">
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+10&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emploi chez les adopteurs intensifs après adoption · aucun effet chez les adopteurs légers.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+12&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'effectifs <b>en début de carrière</b> chez ces mêmes adopteurs intensifs.</p></div>
-      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">21 559</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">firmes américaines, dépenses IA réelles (Ramp) reliées aux effectifs (Revelio Labs).</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+10&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'emploi chez les adopteurs intensifs après adoption · aucun effet chez les adopteurs légers.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+12&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'effectifs <b>en début de carrière</b> chez ces mêmes adopteurs intensifs.</p></div>
+      <div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">21 559</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">firmes américaines, dépenses IA réelles (Ramp) reliées aux effectifs (Revelio Labs).</p></div>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Prudence assumée par les auteurs : l'effet est en partie de sélection (les adopteurs sont déjà des firmes plus grandes, plus techniques et en croissance rapide) et concentré sur le secteur de l'Information. Donnée américaine, sans équivalent France · à lire comme repère international. <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener" style="color: var(--signal);">Ramp / Revelio Labs · A New Look at AI's Impact on Jobs ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Prudence assumée par les auteurs : l'effet est en partie de sélection (les adopteurs sont déjà des firmes plus grandes, plus techniques et en croissance rapide) et concentré sur le secteur de l'Information. Donnée américaine, sans équivalent France · à lire comme repère international. <a href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener" style="color:var(--accent);">Ramp / Revelio Labs · A New Look at AI's Impact on Jobs ↗</a></p>
   </div>
 </section>
 
@@ -6740,8 +6796,8 @@ html[data-theme="dark"] .matrix-mini{
     <div class="ds-eyebrow">Perception · opinion France</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Les Français peu convaincus que l'IA remplacera leur emploi.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">L'<b>Ipsos AI Monitor 2026</b> (Global Advisor, 23 532 adultes dans 32 pays, mars-avril 2026) place la France parmi les pays les <b>moins inquiets</b> d'un remplacement de leur propre emploi par l'IA. Un résultat à nuancer avec la lecture institutionnelle : la DG Trésor rappelle que 62% des Français voient l'IA comme un risque pour l'emploi en général. Risque sociétal perçu élevé, risque personnel perçu faible : le grand écart de la perception française.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">18&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">pensent que l'IA va remplacer <b>leur</b> emploi (76% non) · en recul, contre 27% en 2025, l'un des plus bas des 32 pays.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">42&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">déclarent que l'IA leur a fait gagner du temps au travail · sous la moyenne mondiale de 62%.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">48&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">pensent que l'IA va changer leur façon de travailler.</p></div></div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Enquête d'opinion · elle mesure la perception, non l'exposition réelle des métiers. La Suisse n'est pas couverte par le panel. <a href="https://www.ipsos.com/en/global-attitudes-ai-2026-wonder-vs-worry-divide-deepens" target="_blank" rel="noopener" style="color: var(--signal);">Ipsos AI Monitor 2026 ↗</a></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">18&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">pensent que l'IA va remplacer <b>leur</b> emploi (76% non) · en recul, contre 27% en 2025, l'un des plus bas des 32 pays.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">42&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">déclarent que l'IA leur a fait gagner du temps au travail · sous la moyenne mondiale de 62%.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">48&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">pensent que l'IA va changer leur façon de travailler.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Enquête d'opinion · elle mesure la perception, non l'exposition réelle des métiers. La Suisse n'est pas couverte par le panel. <a href="https://www.ipsos.com/en/global-attitudes-ai-2026-wonder-vs-worry-divide-deepens" target="_blank" rel="noopener" style="color:var(--accent);">Ipsos AI Monitor 2026 ↗</a></p>
   </div>
 </section>
 
@@ -6751,8 +6807,8 @@ html[data-theme="dark"] .matrix-mini{
     <div class="ds-eyebrow">Diffusion d'usage · télémétrie</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">En France, l'IA se diffuse au-delà des premiers utilisateurs.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">Le rapport d'usage d'OpenAI (<b>OpenAI Signals</b>, 6 août 2026) documente comment ChatGPT est réellement utilisé, à partir des messages des comptes grand public. Signal français notable : l'adoption gagne les tranches d'âge plus élevées. À lire avec la décote d'une source vendeur documentant son propre produit · c'est de la télémétrie d'usage, pas une mesure d'emploi.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">+10&nbsp;pts</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de part des messages ChatGPT envoyés par les <b>35 ans et plus</b> en France sur un an.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">×2</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'usage pour « agir » (rédiger, coder, analyser) au travail qu'en dehors, à l'échelle mondiale.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">Free–Pro</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">comptes grand public uniquement · les comptes d'organisations ne sont pas dans le jeu de données.</p></div></div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Signal d'adoption et de diffusion, non d'exposition des métiers. Source de première partie (OpenAI) · à croiser avec des sources indépendantes. <a href="https://openai.com/fr-FR/index/how-the-world-is-putting-chatgpt-to-work/" target="_blank" rel="noopener" style="color: var(--signal);">OpenAI · comment le monde met ChatGPT au travail ↗</a></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">+10&nbsp;pts</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de part des messages ChatGPT envoyés par les <b>35 ans et plus</b> en France sur un an.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">×2</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'usage pour « agir » (rédiger, coder, analyser) au travail qu'en dehors, à l'échelle mondiale.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">Free–Pro</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">comptes grand public uniquement · les comptes d'organisations ne sont pas dans le jeu de données.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Signal d'adoption et de diffusion, non d'exposition des métiers. Source de première partie (OpenAI) · à croiser avec des sources indépendantes. <a href="https://openai.com/fr-FR/index/how-the-world-is-putting-chatgpt-to-work/" target="_blank" rel="noopener" style="color:var(--accent);">OpenAI · comment le monde met ChatGPT au travail ↗</a></p>
   </div>
 </section>
 
@@ -6762,8 +6818,8 @@ html[data-theme="dark"] .matrix-mini{
     <div class="ds-eyebrow">Mesure officielle · INSEE 2026</div>
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">L'adoption de l'IA a triplé dans les entreprises françaises en deux ans.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">L'<b>INSEE</b> (Insee Première n°2120, enquête TIC 2025 auprès d'environ 11 000 entreprises) fournit la mesure officielle et représentative de la diffusion de l'IA en France : 18% des entreprises de 10 salariés et plus utilisent au moins une technologie d'IA en 2025, contre 10% en 2024 — un triplement depuis 2023. C'est la base de référence pour le suivi annuel de l'adoption française, et elle recoupe le 18% cité par la DG Trésor.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">×3</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'usage de l'IA entre 2023 et 2025 · 18% des entreprises de 10+ salariés en 2025 (10% en 2024).</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">58&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des entreprises de 250 salariés et plus · contre 15% pour les 10-49 salariés : l'adoption croît avec la taille.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--signal); line-height:1;">59&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">dans l'information-communication · mais 10% dans la construction, 9% dans le transport : forte disparité sectorielle.</p></div></div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Mesure l'adoption déclarée d'« au moins une technologie d'IA » (périmètre large, pas seulement l'IA générative), non les effets emploi · entreprises de moins de 10 salariés hors champ. <a href="https://www.insee.fr/fr/statistiques/9025878" target="_blank" rel="noopener" style="color: var(--signal);">INSEE · Insee Première n°2120 ↗</a></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">×3</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">d'usage de l'IA entre 2023 et 2025 · 18% des entreprises de 10+ salariés en 2025 (10% en 2024).</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">58&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des entreprises de 250 salariés et plus · contre 15% pour les 10-49 salariés : l'adoption croît avec la taille.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">59&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">dans l'information-communication · mais 10% dans la construction, 9% dans le transport : forte disparité sectorielle.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Mesure l'adoption déclarée d'« au moins une technologie d'IA » (périmètre large, pas seulement l'IA générative), non les effets emploi · entreprises de moins de 10 salariés hors champ. <a href="https://www.insee.fr/fr/statistiques/9025878" target="_blank" rel="noopener" style="color:var(--accent);">INSEE · Insee Première n°2120 ↗</a></p>
   </div>
 </section>
 
@@ -6774,10 +6830,21 @@ html[data-theme="dark"] .matrix-mini{
     <h2 class="ds-title" style="margin-bottom: var(--s-3);">Les « canaris » : six faits sur l'effet emploi de l'IA.</h2>
     <p class="ds-lede" style="max-width: var(--measure);">La version d'août 2026 de l'étude de référence de Stanford (Brynjolfsson, Chandar & Chen, données de paie ADP jusqu'à juin 2026) consolide en <b>six faits</b> l'effet le plus net observé à ce jour : un décrochage de l'emploi des jeunes en début de carrière dans les métiers exposés. Donnée américaine, mais elle éclaire les signaux français : la DG Trésor documente un chômage des 15-24 ans passé de 19,1% à 21,1%, sans lien causal établi.</p>
     <div style="display:flex; gap: var(--s-6); flex-wrap:wrap; margin-top: var(--s-5); align-items:flex-start;">
-      <div style="flex:0 0 auto;"><div style="font-family:var(--font-display,serif); font-size:52px; color:var(--signal); line-height:1;">−19&nbsp;%</div><p style="font-size:13px; color:var(--muted); margin-top:8px; max-width:220px;">emploi des 22-25 ans en métiers exposés vs trajectoire attendue · contre −16% en août 2025.</p></div>
+      <div style="flex:0 0 auto;"><div style="font-family:var(--font-display,serif); font-size:52px; color:var(--accent); line-height:1;">−19&nbsp;%</div><p style="font-size:13px; color:var(--muted); margin-top:8px; max-width:220px;">emploi des 22-25 ans en métiers exposés vs trajectoire attendue · contre −16% en août 2025.</p></div>
       <ul style="flex:1 1 320px; list-style:none; padding:0; margin:0; font-size:14px; color:var(--muted); line-height:1.5;"><li style="margin-bottom:6px;"><b>1.</b> Pas de destruction d'emplois généralisée à l'échelle de l'économie.</li><li style="margin-bottom:6px;"><b>2.</b> Les 22-25 ans en métiers exposés décrochent ; les expérimentés, non.</li><li style="margin-bottom:6px;"><b>3.</b> L'écart se creuse continûment depuis août 2025.</li><li style="margin-bottom:6px;"><b>4.</b> Il passe par une baisse des embauches, non par des licenciements.</li><li style="margin-bottom:6px;"><b>5.</b> Il se concentre là où l'IA substitue ; là où elle complète, l'emploi tient ou monte.</li><li style="margin-bottom:6px;"><b>6.</b> L'ajustement se fait par le volume d'emploi, pas par le salaire.</li></ul>
     </div>
-    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Donnée US (ADP), sans ventilation France · à lire comme repère international de la thèse « canaris », non comme une mesure française. <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" target="_blank" rel="noopener" style="color: var(--signal);">Stanford · Canaries in the Coal Mine? (août 2026) ↗</a></p>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Donnée US (ADP), sans ventilation France · à lire comme repère international de la thèse « canaris », non comme une mesure française. <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Stanford · Canaries in the Coal Mine? (août 2026) ↗</a></p>
+  </div>
+</section>
+
+<!-- NOTE · Anthropic exposition observée 2026 -->
+<section style="border-top:1px solid var(--rule); padding: var(--s-8) 24px;">
+  <div style="max-width: var(--max-w); margin:0 auto;">
+    <div class="ds-eyebrow">Écart théorie / usage · mesure 2026</div>
+    <h2 class="ds-title" style="margin-bottom: var(--s-3);">L'exposition théorique n'est pas l'exposition réelle.</h2>
+    <p class="ds-lede" style="max-width: var(--measure);">L'étude de Massenkoff et McCrory (mars 2026) introduit une mesure d'<b>exposition observée</b> qui croise la capacité théorique des LLM avec l'usage effectivement constaté, en pondérant plus lourdement les usages automatisés et professionnels. Elle chiffre ainsi ce que cet observatoire nomme la friction : entre ce qu'une IA <i>pourrait</i> faire et ce qu'elle fait, l'écart reste considérable. C'est le contrepoint direct aux scores d'exposition théorique, et une mise en garde contre la lecture des fourchettes de 5 à 60% citées par la DG Trésor comme si elles étaient déjà réalisées.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap: var(--s-4); margin-top: var(--s-5);"><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">94 → 33&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des tâches informatiques et mathématiques sont théoriquement automatisables, mais 33% seulement réellement couvertes.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">30&nbsp;%</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">des actifs ont une couverture <b>nulle</b> · cuisiniers, mécaniciens, barmen, maîtres-nageurs.</p></div><div><div style="font-family:var(--font-display,serif); font-size:34px; color:var(--accent); line-height:1;">−0,6&nbsp;pt</div><p style="font-size:14px; color:var(--muted); margin-top:8px;">de croissance projetée 2024-2034 par tranche de +10 points de couverture (BLS) · corrélation réelle mais faible.</p></div></div>
+    <p style="max-width: var(--measure); color: var(--muted); font-size:14px; line-height:1.6; margin-top: var(--s-5);">Côté emploi, l'étude ne trouve <b>aucune hausse significative du chômage</b> pour les actifs les plus exposés depuis fin 2022, mais un signal précoce sur les 22-25 ans, dont le taux d'accès à l'emploi dans les métiers exposés recule d'environ 14%, à la limite de la significativité. Données américaines (CPS, BLS, O*NET), sans déclinaison France. Source de première partie · l'usage observé provient du seul trafic Claude. <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener" style="color:var(--accent);">Massenkoff &amp; McCrory · Labor market impacts of AI ↗</a></p>
   </div>
 </section>
 
