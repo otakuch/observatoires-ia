@@ -1,7 +1,7 @@
 {
  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-fr.schema.json",
  "version": "0.3.0",
- "compiled_at": "2026-08-25",
+ "compiled_at": "2026-09-08",
  "country": "FR",
  "scope": "Indicateurs prospectifs IA & emploi · France",
  "license": "CC BY 4.0",
@@ -122,11 +122,11 @@
   {
    "title": "Adoption IA générative en entreprise française",
    "unit": "%",
-   "n_sources": 10,
+   "n_sources": 11,
    "value_min": 24,
    "value_max": 88,
    "value_median": 38,
-   "description_fr": "L'IA s'est installée dans les entreprises françaises, mais à deux vitesses. La quasi-totalité des grandes organisations mondiales (88%) déclarent l'utiliser dans au moins une fonction. La GenAI a atteint 53% d'adoption populaire en seulement 3 ans plus vite que l'ordinateur personnel ou internet. Pourtant, seuls 7% des salariés français l'activent quotidiennement dans leur travail. Ce retard d'adoption n'est pas culturel : c'est un écart structurel qui se traduit par un différentiel de productivité croissant par rapport aux États-Unis (24ème rang mondial à 28,3%). La note DG Trésor n°391 (juin 2026) situe la France en position intermédiaire en Europe : 18% d'adoption de l'IA par les entreprises (OCDE 2025), proche de la moyenne européenne (20%) mais en deçà des pays nordiques, avec un rattrapage en cours (+8 pp entre 2024 et 2025 contre +6 pp pour l'UE). Mesure officielle et représentative : selon l'INSEE (Insee Première n°2120, enquête TIC 2025), 18% des entreprises françaises de 10 salariés et plus utilisent au moins une technologie d'IA en 2025, un triplement depuis 2023 (10% en 2024). L'adoption croît fortement avec la taille (58% pour les 250+ salariés) et varie selon les secteurs (59% dans l'information-communication, 10% dans la construction). À périmètre large (pas seulement l'IA générative) et sur l'adoption, non sur les effets emploi.",
+   "description_fr": "L'IA s'est installée dans les entreprises françaises, mais à deux vitesses. La quasi-totalité des grandes organisations mondiales (88%) déclarent l'utiliser dans au moins une fonction. La GenAI a atteint 53% d'adoption populaire en seulement 3 ans plus vite que l'ordinateur personnel ou internet. Pourtant, seuls 7% des salariés français l'activent quotidiennement dans leur travail. Ce retard d'adoption n'est pas culturel : c'est un écart structurel qui se traduit par un différentiel de productivité croissant par rapport aux États-Unis (24ème rang mondial à 28,3%). La note DG Trésor n°391 (juin 2026) situe la France en position intermédiaire en Europe : 18% d'adoption de l'IA par les entreprises (OCDE 2025), proche de la moyenne européenne (20%) mais en deçà des pays nordiques, avec un rattrapage en cours (+8 pp entre 2024 et 2025 contre +6 pp pour l'UE). Mesure officielle et représentative : selon l'INSEE (Insee Première n°2120, enquête TIC 2025), 18% des entreprises françaises de 10 salariés et plus utilisent au moins une technologie d'IA en 2025, un triplement depuis 2023 (10% en 2024). L'adoption croît fortement avec la taille (58% pour les 250+ salariés) et varie selon les secteurs (59% dans l'information-communication, 10% dans la construction). À périmètre large (pas seulement l'IA générative) et sur l'adoption, non sur les effets emploi. La Banque de France (Bulletin 266/1, septembre 2026) mesure une diffusion bien plus large sur un périmètre différent : début 2026, plus des deux tiers des entreprises de 20 salariés et plus déclarent utiliser l'IA générative, de 64% chez les 20-49 salariés à 83% chez les 1 000 et plus. L'écart avec le 18% de l'INSEE ne traduit pas une contradiction mais deux mesures distinctes : seuil de taille, millésime et définition de l'usage diffèrent. Ces deux chiffres ne doivent pas être comparés directement.",
    "sources": [
     {
      "tier": 1,
@@ -201,17 +201,25 @@
      "value": 18,
      "ai_type": "generative_and_agentic",
      "citation": "INSEE · Insee Première n°2120 (21 juillet 2026, enquête TIC 2025) · 18% des entreprises de 10+ salariés utilisent au moins une technologie d'IA en 2025 (vs 10% en 2024, ×3 depuis 2023) · 10-49 sal. 15%, 50-249 sal. 31%, 250+ sal. 58% · info-communication 59%, construction 10%, transport 9% · mesure officielle d'adoption, périmètre large (pas seulement GenAI), non des effets emploi · https://www.insee.fr/fr/statistiques/9025878"
+    },
+    {
+     "name": "Banque de France · Bulletin 266/1",
+     "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite",
+     "tier": 1,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Banque de France · Bulletin 266/1 (sept.-oct. 2026) · début 2026, plus des deux tiers des entreprises de 20 salariés et plus déclarent utiliser l'IA générative · 64% chez les 20-49 salariés, 83% chez les 1 000 et plus · IA non générative 31% à 60% · information-communication 91%, activités spécialisées 84% · ATTENTION AU PÉRIMÈTRE : non comparable au 18% de l'INSEE, qui porte sur les entreprises de 10 salariés et plus en 2025 et sur l'usage d'au moins une technologie d'IA · https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite"
     }
    ]
   },
   {
    "title": "Gain de productivité annuel attendu d'ici 2030",
    "unit": "%",
-   "n_sources": 16,
+   "n_sources": 17,
    "value_min": 0.5,
    "value_max": 4,
    "value_median": 2.5,
-   "description_fr": "Les données macroéconomiques commencent à montrer les premiers signes de matérialisation. Aux États-Unis, la productivité a crû de 2,7% en 2025 presque le double de la moyenne décennale de 1,4% ce que Brynjolfsson appelle le début de la 'J-curve'. Parmi 12 000 firmes européennes, l'adoption de l'IA a généré +4% de productivité du travail, avec un multiplicateur formation remarquable : chaque 1% du budget investi en formation IA génère +5,9 points de productivité supplémentaires. Ces gains ne seront pas distribués uniformément les secteurs à demande expansible verront de nouveaux volumes, les secteurs à demande bornée des réductions d'effectifs. Côté perception terrain française, l'Observatoire Impact AI / Viavoice 2026 (1 000 salariés privés) nuance l'emballement : selon le DRH du groupe Bouygues, l'IA fait surtout gagner 5, 10 ou 15% sur certaines tâches sans remplacement massif des emplois. Les effets observés restent incrémentaux, l'enjeu se déplaçant vers l'organisation du travail et la valeur captée par le capital plutôt que vers une destruction d'emplois immédiate. Le PwC 2026 Global AI Jobs Barometer confirme le lien à l'échelle mondiale : la productivité croît 40% plus vite dans les entreprises les plus exposées à l'IA que dans les moins exposées, avec un effet superstar marqué (top 20% à +163%). Ces entreprises font croître leurs effectifs (+52% contre +36%) et leurs salaires (+24% contre +17%) plus vite que les autres, ce qui plaide pour une logique d'amplification du travail plutôt que de substitution. France et Suisse figurent dans le jeu de données (79,4 M et 8,7 M annonces), sans ventilation par pays. La DG Trésor (Trésor-Éco n°391, juin 2026) rappelle que les gains mesurés restent ciblés : +14% de productivité pour les agents de service client, +26% pour les développeurs, sur des usages précis et possiblement sous-estimés faute de modèles récents.",
+   "description_fr": "Les données macroéconomiques commencent à montrer les premiers signes de matérialisation. Aux États-Unis, la productivité a crû de 2,7% en 2025 presque le double de la moyenne décennale de 1,4% ce que Brynjolfsson appelle le début de la 'J-curve'. Parmi 12 000 firmes européennes, l'adoption de l'IA a généré +4% de productivité du travail, avec un multiplicateur formation remarquable : chaque 1% du budget investi en formation IA génère +5,9 points de productivité supplémentaires. Ces gains ne seront pas distribués uniformément les secteurs à demande expansible verront de nouveaux volumes, les secteurs à demande bornée des réductions d'effectifs. Côté perception terrain française, l'Observatoire Impact AI / Viavoice 2026 (1 000 salariés privés) nuance l'emballement : selon le DRH du groupe Bouygues, l'IA fait surtout gagner 5, 10 ou 15% sur certaines tâches sans remplacement massif des emplois. Les effets observés restent incrémentaux, l'enjeu se déplaçant vers l'organisation du travail et la valeur captée par le capital plutôt que vers une destruction d'emplois immédiate. Le PwC 2026 Global AI Jobs Barometer confirme le lien à l'échelle mondiale : la productivité croît 40% plus vite dans les entreprises les plus exposées à l'IA que dans les moins exposées, avec un effet superstar marqué (top 20% à +163%). Ces entreprises font croître leurs effectifs (+52% contre +36%) et leurs salaires (+24% contre +17%) plus vite que les autres, ce qui plaide pour une logique d'amplification du travail plutôt que de substitution. France et Suisse figurent dans le jeu de données (79,4 M et 8,7 M annonces), sans ventilation par pays. La DG Trésor (Trésor-Éco n°391, juin 2026) rappelle que les gains mesurés restent ciblés : +14% de productivité pour les agents de service client, +26% pour les développeurs, sur des usages précis et possiblement sous-estimés faute de modèles récents. La Banque de France (Bulletin 266/1, septembre 2026) documente le décalage entre diffusion et rendement : 31% seulement des entreprises utilisatrices d'IA générative constatent des gains de productivité, 41% pour l'IA non générative, et 22% si l'on rapporte la mesure à l'ensemble des entreprises interrogées. Les auteurs concluent que les gains dépendent moins de l'adoption que du degré d'intégration aux processus métier · une quantification directe de la friction organisationnelle.",
    "sources": [
     {
      "tier": 1,
@@ -327,6 +335,14 @@
      "year": 2026,
      "ai_type": "generative_and_agentic",
      "citation": "DG Trésor · Trésor-Éco n°391 (juin 2026) · gains de productivité observés sur usages ciblés : +14% pour les agents de service client, +26% pour les développeurs informatiques · résultats possiblement sous-estimés (modèles dépassés) · https://www.tresor.economie.gouv.fr/Articles/2026/06/30/l-intelligence-artificielle-quels-effets-sur-l-emploi"
+    },
+    {
+     "name": "Banque de France · Bulletin 266/1",
+     "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite",
+     "tier": 1,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Banque de France · Bulletin 266/1 (sept.-oct. 2026) · une minorité seulement des entreprises utilisatrices constate des gains de productivité : 31% pour l'IA générative, 41% pour l'IA non générative · rapporté à l'ensemble des entreprises interrogées, la proportion tombe à 22% · les gains dépendent moins de l'adoption que du degré d'intégration aux processus métier · 6% des utilisatrices d'IA générative imputent à la technologie une baisse de leurs effectifs · https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite"
     }
    ]
   },
@@ -439,11 +455,11 @@
   {
    "title": "% emplois où IA = complémentarité (non-substitution)",
    "unit": "%",
-   "n_sources": 13,
+   "n_sources": 14,
    "value_min": 44,
    "value_max": 87,
    "value_median": 68,
-   "description_fr": "La grande majorité des emplois ne sont pas voués à disparaître mais à se transformer profondément. Aux États-Unis, 57% des postes ont moins de 40% de leurs tâches automatisables ils appartiennent aux catégories les moins perturbées. En France, ce seuil est encore plus élevé en raison de la composition sectorielle. La substitution complète est structurellement plus lente que l'augmentation : remplacer un humain par l'IA exige un redesign total des processus et la formalisation des savoirs tacites. L'augmentation diffuse rapidement car l'humain reste dans la boucle et gère les exceptions. À ce stade, aucune preuve statistique d'impact emploi n'a été détectée au niveau des industries, ni en Europe ni aux États-Unis. Imas & Mandel 2026 (SSRN) apportent une preuve expérimentale décisive : lorsque l'humain est le producteur, la valeur d'exclusivité est 2x plus forte que pour un bien généré par IA. Le secteur relationnel (soins, hospitalité, artisanat, performance vivante) résiste non par contrainte technique mais parce que l'automatisation en détruirait la valeur. Le working paper Ramp / Revelio Labs (2026, 21 559 firmes américaines) apporte un contrepoint empirique fort à l'échelle firme : les adopteurs intensifs de l'IA voient leur emploi croître d'environ 10% et leurs effectifs juniors de 12% après adoption, quand les adopteurs légers ne bougent pas. Les auteurs soulignent toutefois un effet de sélection (les adopteurs sont déjà des firmes plus grandes et en croissance rapide) et une concentration sectorielle sur l'Information · la relation est descriptive autant que causale. Donnée américaine, sans équivalent France. La version d'août 2026 de l'étude Canaries (Stanford, données ADP US jusqu'à juin 2026) objective la distinction au cœur de cet indicateur : là où l'IA complète les travailleurs, l'emploi est stable ou en hausse, en particulier pour les expérimentés ; les reculs se concentrent dans les métiers où l'IA substitue les tâches humaines. Donnée américaine, sans équivalent France, mais qui ancre empiriquement la logique de complémentarité.",
+   "description_fr": "La grande majorité des emplois ne sont pas voués à disparaître mais à se transformer profondément. Aux États-Unis, 57% des postes ont moins de 40% de leurs tâches automatisables ils appartiennent aux catégories les moins perturbées. En France, ce seuil est encore plus élevé en raison de la composition sectorielle. La substitution complète est structurellement plus lente que l'augmentation : remplacer un humain par l'IA exige un redesign total des processus et la formalisation des savoirs tacites. L'augmentation diffuse rapidement car l'humain reste dans la boucle et gère les exceptions. À ce stade, aucune preuve statistique d'impact emploi n'a été détectée au niveau des industries, ni en Europe ni aux États-Unis. Imas & Mandel 2026 (SSRN) apportent une preuve expérimentale décisive : lorsque l'humain est le producteur, la valeur d'exclusivité est 2x plus forte que pour un bien généré par IA. Le secteur relationnel (soins, hospitalité, artisanat, performance vivante) résiste non par contrainte technique mais parce que l'automatisation en détruirait la valeur. Le working paper Ramp / Revelio Labs (2026, 21 559 firmes américaines) apporte un contrepoint empirique fort à l'échelle firme : les adopteurs intensifs de l'IA voient leur emploi croître d'environ 10% et leurs effectifs juniors de 12% après adoption, quand les adopteurs légers ne bougent pas. Les auteurs soulignent toutefois un effet de sélection (les adopteurs sont déjà des firmes plus grandes et en croissance rapide) et une concentration sectorielle sur l'Information · la relation est descriptive autant que causale. Donnée américaine, sans équivalent France. La version d'août 2026 de l'étude Canaries (Stanford, données ADP US jusqu'à juin 2026) objective la distinction au cœur de cet indicateur : là où l'IA complète les travailleurs, l'emploi est stable ou en hausse, en particulier pour les expérimentés ; les reculs se concentrent dans les métiers où l'IA substitue les tâches humaines. Donnée américaine, sans équivalent France, mais qui ancre empiriquement la logique de complémentarité. Le dossier de The Economist (septembre 2026) documente la coexistence des deux mouvements aux États-Unis : environ un million d'emplois créés par l'IA et des métiers en nette progression, assistants juridiques +11%, analystes d'études de marché +6%, quand le service client recule de 10% et le secrétariat de 15% depuis janvier 2023. La complémentarité et la substitution ne s'excluent pas, elles se répartissent par métier. Source de presse, données américaines.",
    "sources": [
     {
      "tier": 1,
@@ -537,6 +553,14 @@
      "year": 2026,
      "ai_type": "generative",
      "citation": "Stanford · Canaries in the Coal Mine? Six Facts (août 2026, données ADP jusqu'à juin 2026) · Fait 5 : là où l'IA complète les travailleurs, l'emploi est stable ou en hausse (surtout pour les expérimentés) ; les reculs se concentrent là où l'IA substitue les tâches · ancre internationale de la distinction substitution/complémentation · donnée US, sans chiffre France · https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf"
+    },
+    {
+     "name": "The Economist · The jobs apocalypse is postponed",
+     "url": "https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here",
+     "tier": 4,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "The Economist (4 sept. 2026, T4, agrège BLS/Census/Goldman/Indeed) · benchmark américain · environ 1 M d'emplois créés par l'IA, chômage 4,1%, écart des 20-24 ans proche d'un plus bas pluri-décennal · mais substitution nette sur certains métiers : service client -10%, secrétariat et assistance administrative -15% depuis janvier 2023 · assistants juridiques +11% et analystes d'études de marché +6% entre 2023 et 2025 contre 2,5% en moyenne · pas de chiffre France ni Suisse · https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here"
     }
    ]
   },

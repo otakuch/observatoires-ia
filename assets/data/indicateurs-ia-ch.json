@@ -1,7 +1,7 @@
 {
  "$schema": "https://github.com/otakuch/observatoires-ia/blob/main/schemas/indicateurs-ia-ch.schema.json",
  "version": "0.3.0",
- "compiled_at": "2026-08-25",
+ "compiled_at": "2026-09-07",
  "country": "CH",
  "scope": "Indicateurs prospectifs IA & emploi · Suisse",
  "license": "CC BY 4.0",
@@ -225,12 +225,12 @@
   {
    "title": "% emplois suisses où IA = augmentation vs substitution",
    "unit": "%",
-   "n_sources": 8,
+   "n_sources": 9,
    "value_min": 65,
    "value_max": 74,
    "value_median": 70,
    "summary_fr": "Dans la grande majorité des cas, l'IA augmente les capacités des travailleurs plutôt qu'elle ne les remplace. La substitution complète reste l'exception — la coexistence humain-machine est la règle.",
-   "description_fr": "Proportion des emplois suisses où l'IA joue un rôle d'augmentation (productivité, qualité) plutôt que de substitution directe. La flexibilité du marché suisse et la formation duale favorisent ce scénario. Données BIS sur firmes européennes dont suisses. Le PwC 2026 Global AI Jobs Barometer va dans le même sens à l'échelle mondiale : loin de remplacer l'emploi, les entreprises les plus exposées à l'IA font croître leurs effectifs plus vite que les moins exposées (+52% contre +36%), signe d'une logique d'augmentation. À l'échelle internationale, le working paper Ramp / Revelio Labs (2026, 21 559 firmes US) va dans le sens de l'augmentation plutôt que de la substitution : l'adoption intensive de l'IA s'accompagne d'une hausse de l'emploi (+10%) et des effectifs juniors (+12%), avec une réserve de sélection assumée. La Suisse n'est pas couverte · repère international. La distinction augmentation vs substitution trouve un appui empirique international dans la version d'août 2026 de l'étude Canaries (Stanford, données ADP US) : l'emploi est stable ou en hausse là où l'IA complète les travailleurs, il recule là où elle substitue les tâches. La Suisse n'est pas couverte · repère international.",
+   "description_fr": "Proportion des emplois suisses où l'IA joue un rôle d'augmentation (productivité, qualité) plutôt que de substitution directe. La flexibilité du marché suisse et la formation duale favorisent ce scénario. Données BIS sur firmes européennes dont suisses. Le PwC 2026 Global AI Jobs Barometer va dans le même sens à l'échelle mondiale : loin de remplacer l'emploi, les entreprises les plus exposées à l'IA font croître leurs effectifs plus vite que les moins exposées (+52% contre +36%), signe d'une logique d'augmentation. À l'échelle internationale, le working paper Ramp / Revelio Labs (2026, 21 559 firmes US) va dans le sens de l'augmentation plutôt que de la substitution : l'adoption intensive de l'IA s'accompagne d'une hausse de l'emploi (+10%) et des effectifs juniors (+12%), avec une réserve de sélection assumée. La Suisse n'est pas couverte · repère international. La distinction augmentation vs substitution trouve un appui empirique international dans la version d'août 2026 de l'étude Canaries (Stanford, données ADP US) : l'emploi est stable ou en hausse là où l'IA complète les travailleurs, il recule là où elle substitue les tâches. La Suisse n'est pas couverte · repère international. À l'échelle internationale, The Economist (septembre 2026) relève un solde d'emploi positif aux États-Unis, environ un million de postes créés par l'IA, portés par l'infrastructure, tout en documentant des reculs marqués sur le service client et le secrétariat. Le partage augmentation contre substitution se joue au niveau du métier, non de l'économie. Source de presse, la Suisse n'est pas couverte.",
    "sources": [
     {
      "tier": 1,
@@ -288,6 +288,14 @@
      "year": 2026,
      "ai_type": "generative",
      "citation": "Stanford · Canaries in the Coal Mine? Six Facts (août 2026) · Fait 5 : l'emploi est stable ou en hausse là où l'IA complète les travailleurs, il recule là où elle substitue · repère international de la logique augmentation vs substitution · donnée US, la Suisse n'est pas couverte · https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf"
+    },
+    {
+     "name": "The Economist · The jobs apocalypse is postponed",
+     "url": "https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here",
+     "tier": 4,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "The Economist (4 sept. 2026, T4, agrège BLS/Census/Goldman/Indeed) · benchmark américain · environ 1 M d'emplois créés par l'IA, chômage 4,1%, écart des 20-24 ans proche d'un plus bas pluri-décennal · mais substitution nette sur certains métiers : service client -10%, secrétariat et assistance administrative -15% depuis janvier 2023 · assistants juridiques +11% et analystes d'études de marché +6% entre 2023 et 2025 contre 2,5% en moyenne · pas de chiffre France ni Suisse · https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here"
     }
    ]
   },
@@ -628,11 +636,11 @@
   {
    "title": "Écart formation IA · point d'appui empirique pour les politiques de formation continue",
    "unit": "points",
-   "n_sources": 3,
+   "n_sources": 4,
    "value_min": 24,
    "value_max": 37,
    "value_median": 30,
-   "description_fr": "L'effet de la formation IA sur l'usage quotidien (+24 à +37 points selon Focaldata UK+US) constitue le levier le plus puissant identifié dans la littérature 2026. Pour la Suisse, ce constat empirique converge avec celui de DemoSCOPE : la formation continue est la mesure considérée comme la plus efficace par les actifs eux-mêmes (M=3,27/4 sur 4). Levier d'action prioritaire pour les fédérations professionnelles, les associations syndicales (Angestellte Schweiz), et les pouvoirs publics cantonaux et fédéraux. En Suisse, l'Observatoire Data & IA 2026 chiffre le déficit d'accompagnement : 34% des organisations n'offrent aucune formation formelle aux enjeux IA (▲14 pts), 46% se limitent à de la formation sans toucher à l'organisation, et 11% seulement redessinent réellement les rôles autour de l'IA · le paradoxe « on le sait, on ne le fait pas ».",
+   "description_fr": "L'effet de la formation IA sur l'usage quotidien (+24 à +37 points selon Focaldata UK+US) constitue le levier le plus puissant identifié dans la littérature 2026. Pour la Suisse, ce constat empirique converge avec celui de DemoSCOPE : la formation continue est la mesure considérée comme la plus efficace par les actifs eux-mêmes (M=3,27/4 sur 4). Levier d'action prioritaire pour les fédérations professionnelles, les associations syndicales (Angestellte Schweiz), et les pouvoirs publics cantonaux et fédéraux. En Suisse, l'Observatoire Data & IA 2026 chiffre le déficit d'accompagnement : 34% des organisations n'offrent aucune formation formelle aux enjeux IA (▲14 pts), 46% se limitent à de la formation sans toucher à l'organisation, et 11% seulement redessinent réellement les rôles autour de l'IA · le paradoxe « on le sait, on ne le fait pas ». L'événement de lancement de l'observatoire (30 juin 2026) précise où se situe le déficit : 55% des comités de direction déclarent une bonne compréhension de l'IA, mais 38% des équipes dirigeantes n'en ont qu'une compréhension basique. Le sujet n'est donc pas seulement la formation des collaborateurs, c'est aussi la littératie des dirigeants.",
    "sources": [
     {
      "name": "Focaldata × Financial Times Workforce AI Tracker Wave 1",
@@ -653,6 +661,14 @@
      "year": 2026,
      "ai_type": "generative_and_agentic",
      "citation": "Observatoire Data & IA en Suisse 2026 · Colombus / Oracle / HEG-Genève · déficit d'accompagnement : 34% des organisations n'offrent toujours aucune formation formelle aux enjeux IA (▲14 pts), 46% se limitent à de la formation sans refonte des rôles, 11% seulement redessinent activement les rôles autour de l'IA · https://ai-observatory.ch/wp-content/uploads/2026/06/Observatoire-suisse-Data-et-IA-2026.pdf"
+    },
+    {
+     "name": "Observatoire Data & IA en Suisse 2026 · événement de lancement (HEG-Genève)",
+     "url": "https://youtu.be/_UPMH4ajbZg",
+     "tier": 2,
+     "year": 2026,
+     "ai_type": "generative_and_agentic",
+     "citation": "Observatoire Data & IA en Suisse 2026 · événement de lancement, HEG-Genève, 30 juin 2026 (transcription vidéo) · compléments non publiés dans le white paper : 55% des comités de direction déclarent une bonne compréhension de l'IA mais 11% seulement redessinent les rôles, 38% des équipes dirigeantes n'ont qu'une compréhension basique · 81% jugent que l'IA peut résoudre au moins partiellement leurs défis métier · l'optimisme dépend de la qualité des données perçue : 87% chez ceux qui la jugent bonne contre 74% sinon · priorités par modèle d'affaires : service client 58% en B2C contre 26% en B2B, finance 30% en B2B contre 8% en B2C · https://youtu.be/_UPMH4ajbZg"
     }
    ]
   },

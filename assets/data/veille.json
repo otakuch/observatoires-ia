@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-09-08",
+  "source": "Banque de France · Bulletin 266/1",
+  "country": "FR",
+  "title": {
+   "fr": "Banque de France · l'IA s'installe dans les entreprises françaises · diffusion rapide, gains de productivité encore limités",
+   "en": "Banque de France · AI takes hold in French firms · fast diffusion, still limited productivity gains"
+  },
+  "excerpt": {
+   "fr": "Bulletin de la Banque de France 266/1, septembre-octobre 2026, sur enquête auprès des entreprises de 20 salariés et plus, résultats redressés par secteur et par taille. Thèse : la diffusion est rapide, les gains mesurables ne suivent pas encore. Début 2026, plus des deux tiers des entreprises de 20 salariés et plus déclarent utiliser des outils d'IA générative, avec une forte gradation par taille : 64% chez les 20 à 49 salariés contre 83% chez les 1 000 salariés et plus. L'IA non générative, ou prédictive, reste moins répandue : 31% chez les plus petites contre 60% chez les plus grandes. Les écarts sectoriels sont marqués, l'information-communication et les activités spécialisées, scientifiques et techniques atteignant 91% et 84% pour l'IA générative, contre 67% et 53% pour l'IA non générative. L'usage reste concentré sur des applications généralistes, dans les fonctions support ou transversales, pour 85% à 95% des utilisateurs d'IA générative. Résultat central : une minorité seulement constate des gains de productivité, 31% des utilisatrices d'IA générative et 41% des utilisatrices d'IA non générative. Rapporté à l'ensemble des entreprises interrogées et non aux seules utilisatrices, la proportion tombe à 22%. Effets emploi limités et ambivalents : 6% des entreprises utilisatrices d'IA générative imputent à la technologie une diminution de leurs effectifs. En comparaison internationale, la France se situe entre l'Allemagne, où 1% des entreprises anticipent une baisse de l'emploi en solde net, et le Royaume-Uni, où elles sont 33%. Les auteurs concluent que les gains dépendent moins de l'adoption elle-même que du degré d'intégration de l'IA aux processus métier. Source institutionnelle française de premier rang.",
+   "en": "Banque de France Bulletin 266/1, September-October 2026, surveying firms with 20 or more employees, results weighted by sector and size. Thesis: diffusion is fast, measurable gains are not following yet. In early 2026 more than two-thirds of firms with 20+ employees report using generative AI tools, with a steep size gradient: 64% among firms with 20-49 employees against 83% among those with 1,000 or more. Non-generative, predictive AI remains less widespread, 31% against 60%. Sector gaps are wide, information-communication and specialised scientific and technical activities reaching 91% and 84% for generative AI. Use stays concentrated on general-purpose applications in support or cross-functional roles, for 85% to 95% of generative AI users. Central finding: only a minority report productivity gains, 31% of generative AI users and 41% of non-generative users, falling to 22% when measured across all surveyed firms rather than users only. Employment effects are limited: 6% of generative AI users attribute a headcount reduction to the technology. Internationally France sits between Germany, where 1% of firms expect a net employment decline, and the United Kingdom at 33%. The authors conclude that gains depend less on adoption itself than on how deeply AI is integrated into business processes."
+  },
+  "summary": "",
+  "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite",
+  "ai_type": "generative_and_agentic"
+ },
+ {
   "date": "2026-08-01",
   "source": "Stanford Digital Economy Lab · Brynjolfsson, Chandar & Chen · Canaries in the Coal Mine? Six Facts",
   "country": "INT",
