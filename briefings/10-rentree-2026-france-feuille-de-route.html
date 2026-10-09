@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ZONE A · VALEURS LITTÉRALES · À ÉDITER À CHAQUE NUMÉRO
+     Sept lignes, et sept seulement. Ne pas déplacer ce bloc.
+     Le scraper LinkedIn n'exécute pas JavaScript : ces valeurs doivent
+     rester en dur dans le document, jamais injectées au chargement.
+     ═══════════════════════════════════════════════════════════════════ -->
+<title>Dispatch·iA #010 · Feuille de route France 2026-2027 · Observatoire[s]·ia</title>
+<meta name="description" content="Spécial rentrée 2026 · France. Six rubriques, six pistes chacune pour les CODIR et les pouvoirs publics, et une feuille de route en quatre trimestres jusqu&#x27;à l&#x27;été 2027.">
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/10-rentree-2026-france-feuille-de-route.html">
+<meta property="og:title" content="Dispatch·iA #010 · Feuille de route France 2026-2027">
+<meta property="og:description" content="Spécial rentrée 2026 · France. Six rubriques, six pistes chacune pour les CODIR et les pouvoirs publics, et une feuille de route en quatre trimestres jusqu&#x27;à l&#x27;été 2027.">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/briefings/10-rentree-2026-france-feuille-de-route.html">
+<meta property="og:image" content="https://observatoire.naullynicolas.ch/assets/og/10-rentree-2026-france-feuille-de-route.png">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Observatoire[s]·ia">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- RÈGLE DE PARITÉ TYPOGRAPHIQUE : toute famille présente dans ce lien
+     doit être déclarée dans --font-display / --font-sans / --font-mono,
+     et réciproquement. Vérifié par grep dans le script QA. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>window.__d3Ready=new Promise((res,rej)=>{window.__d3ReadyResolve=res;window.__d3ReadyReject=rej;});</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+        onload="window.__d3ReadyResolve()" onerror="window.__d3ReadyReject()"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   1 · COUCHE CANONIQUE · NOMENCLATURE ENCRE & ARDOISE
+   Ces noms font foi. Toute nouvelle règle CSS les utilise directement.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  /* Surfaces et encre */
+  --ink-paper:#FBF9F4;
+  --ink-paper-alt:#F3EFE7;
+  --ink-1:#1A1A1A;          /* texte principal */
+  --ink-2:#5B5B5B;          /* texte secondaire */
+  --ink-3:#8A8A8A;          /* texte tertiaire, légendes, tiers */
+  --ink-rule:#E5E0D8;       /* filets, bordures */
+  --ink-rule-strong:#C9C2B5;
+
+  /* Signal · INTERACTIF UNIQUEMENT · liens, boutons, focus, contrôles */
+  --ink-signal:#1B4D8F;
+  --ink-signal-soft:#DDE5F0;
+
+  /* Éditorial · accent de série Dispatch·iA · titres de rang, marqueurs */
+  --ink-editorial:#B8312F;
+  --ink-editorial-soft:#E8DCDA;
+
+  /* Statut · sémantique stricte, jamais décoratif */
+  --ink-positive:#2D6A4F;
+  --ink-caution:#BF6B04;
+
+  /* Rampe d'exposition · ANALYSE UNIQUEMENT · encodage de valeur
+     À RÉCONCILIER avec la rampe du site porteur lors de la propagation. */
+  --ink-warm-1:#F2E4DC;
+  --ink-warm-2:#E4BFAF;
+  --ink-warm-3:#D18F78;
+  --ink-warm-4:#C25E4C;
+  --ink-warm-5:#B8312F;
+
+  --ink-grid:#E5E0D8;
+  --ink-shadow:0 1px 2px rgba(26,26,26,.04),0 4px 12px rgba(26,26,26,.04);
+
+  /* Typographie · trois rôles, trois variables, rien d'autre */
+  --font-display:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  /* Échelle typographique · ratio 1.25, base 17px */
+  --fs-xs:12px; --fs-sm:14px; --fs-base:17px; --fs-md:19px;
+  --fs-lg:23px; --fs-xl:29px; --fs-2xl:36px; --fs-3xl:46px;
+
+  /* Rythme vertical et gouttières */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+
+  /* Largeurs */
+  --w-col:820px;      /* colonne de lecture */
+  --gutter:24px;      /* gouttière latérale, une seule fois dans l'arbre */
+}
+
+[data-theme="dark"]{
+  --ink-paper:#15140F;
+  --ink-paper-alt:#1F1D17;
+  --ink-1:#F2EEE6;
+  --ink-2:#B8B2A6;
+  --ink-3:#8A8479;
+  --ink-rule:#33302A;
+  --ink-rule-strong:#47433B;
+  --ink-signal:#7BA7DB;
+  --ink-signal-soft:#1E2A3A;
+  --ink-editorial:#E0564F;
+  --ink-editorial-soft:#3A2624;
+  --ink-positive:#5FAE89;
+  --ink-caution:#D98C2B;
+  --ink-warm-1:#3A2624;
+  --ink-warm-2:#5C3730;
+  --ink-warm-3:#8A4A3E;
+  --ink-warm-4:#B35047;
+  --ink-warm-5:#E0564F;
+  --ink-grid:#2A2823;
+  --ink-shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2 · COUCHE D'ALIAS HISTORIQUES · #001 à #006
+   Ne pas utiliser dans du code neuf. Se supprime en un bloc le jour où
+   aucun grep ne trouve plus ces noms dans les dispatchs publiés.
+   ═══════════════════════════════════════════════════════════════════ */
+:root,[data-theme="dark"]{
+  --bg:var(--ink-paper);      --bg-alt:var(--ink-paper-alt);
+  --tx:var(--ink-1);          --tx-sec:var(--ink-2);      --tx-mut:var(--ink-3);
+  --br:var(--ink-rule);       --br-strong:var(--ink-rule-strong);
+  --ac:var(--ink-editorial);  --ac-soft:var(--ink-editorial-soft);
+  --green:var(--ink-positive);--amber:var(--ink-caution);
+  --grid:var(--ink-grid);     --shadow:var(--ink-shadow);
+}
+
+/* ═══════════════════════════════ 3 · SOCLE ════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink-paper);color:var(--ink-1);
+  font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+  overflow-x:hidden;   /* jamais overflow:hidden seul : casserait le sticky */
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4 · SYSTÈME DE MISE EN PAGE · DEUX NIVEAUX, JAMAIS FUSIONNÉS
+   .wrap  pleine largeur, porte la gouttière · fond et filets pleine page
+   .col   colonne de lecture centrée · porte le contenu
+   Règle : .wrap et .col ne sont JAMAIS sur le même élément, et .wrap
+   n'est jamais imbriqué dans .wrap. Sinon la gouttière se cumule et la
+   colonne rétrécit à chaque niveau.
+   ═══════════════════════════════════════════════════════════════════ */
+.wrap{width:100%;padding-left:var(--gutter);padding-right:var(--gutter)}
+.col{width:100%;max-width:var(--w-col);margin-left:auto;margin-right:auto;min-width:0}
+
+/* Le premier et le dernier enfant d'une colonne ne créent jamais
+   d'espace mort : c'est le conteneur qui porte le rythme vertical. */
+.col > :first-child{margin-top:0}
+.col > :last-child{margin-bottom:0}
+
+/* Section · le filet et la respiration haute sont portés par la colonne,
+   pour que le trait s'arrête aux 820px et ne traverse pas l'écran. */
+.sec{padding-bottom:var(--sp-7)}
+.sec > .wrap > .col{padding-top:var(--sp-7);border-top:1px solid var(--ink-rule)}
+.sec--flush > .wrap > .col{border-top:none}
+.band .sec > .wrap > .col{border-top:none;padding-top:0}
+
+/* Bande pleine largeur · enfant direct de main, jamais de la colonne */
+.band{background:var(--ink-paper-alt);padding:var(--sp-7) 0}
+.band > .wrap > .col > :last-child{margin-bottom:0}
+
+a{color:var(--ink-signal);text-decoration:none;border-bottom:1px solid var(--ink-signal-soft)}
+a:hover{border-bottom-color:var(--ink-signal)}
+:focus-visible{outline:2px solid var(--ink-signal);outline-offset:2px}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:var(--fs-3xl)}
+h2{font-size:var(--fs-2xl);margin-bottom:var(--sp-4)}
+h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
+p{margin-bottom:var(--sp-4)}
+p:last-child{margin-bottom:0}
+
+/* Les médias remplacés sont en blocs : sinon la ligne de base laisse
+   un espace fantôme de 4 à 6px sous chaque svg. */
+svg,img,canvas{display:block;max-width:100%}
+
+.mono{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ink-editorial);z-index:100;transition:width .1s linear}
+
+/* ═══════════════════ 5 · BIBLIOTHÈQUE DE BLOCS ═══════════════════
+   Chaque bloc occupe 100 % de la colonne. Aucune largeur en dur, aucun
+   float, aucune marge latérale : la largeur vient toujours du parent.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* BLOC · contrôles langue et thème */
+.controls{position:sticky;top:0;z-index:50;background:var(--ink-paper);border-bottom:1px solid var(--ink-rule)}
+.controls .col{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
+  padding-top:var(--sp-3);padding-bottom:var(--sp-3);flex-wrap:wrap}
+.ctrl-set{display:flex;gap:var(--sp-4);flex-wrap:wrap}
+.ctrl-group{display:flex;gap:var(--sp-1)}
+.ctrl{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink-rule);color:var(--ink-2);
+  padding:var(--sp-2) var(--sp-3);cursor:pointer;border-radius:2px}
+.ctrl:hover{border-color:var(--ink-signal);color:var(--ink-signal)}
+.ctrl[aria-pressed="true"]{background:var(--ink-signal);border-color:var(--ink-signal);color:#fff}
+
+/* BLOC · en-tête de dispatch */
+.masthead{padding:var(--sp-8) 0 var(--sp-7);border-bottom:1px solid var(--ink-rule)}
+.masthead .kicker{color:var(--ink-editorial);display:block;margin-bottom:var(--sp-4)}
+.masthead h1{margin-bottom:var(--sp-4)}
+.masthead .standfirst{font-size:var(--fs-md);color:var(--ink-2);max-width:62ch}
+.masthead .meta{margin-top:var(--sp-5);color:var(--ink-3);display:flex;flex-wrap:wrap;gap:var(--sp-4)}
+
+/* BLOC · TL;DR · lecture non linéaire */
+.tldr{background:var(--ink-paper-alt);border-left:3px solid var(--ink-editorial);
+  padding:var(--sp-5);width:100%}
+.tldr .mono{color:var(--ink-3);margin-bottom:var(--sp-3);display:block}
+.tldr ul{list-style:none}
+.tldr li{padding-left:var(--sp-5);position:relative;margin-bottom:var(--sp-3)}
+.tldr li:last-child{margin-bottom:0}
+.tldr li::before{content:"·";position:absolute;left:var(--sp-2);color:var(--ink-editorial);font-weight:600}
+
+/* BLOC · grille KPI · auto-fit, les cartes remplissent la colonne */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.kpi{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  box-shadow:var(--ink-shadow);min-width:0;display:flex;flex-direction:column}
+.kpi .fig{font-family:var(--font-display);font-size:var(--fs-2xl);line-height:1;margin-bottom:var(--sp-2)}
+.kpi .lab{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-3);flex:1}
+.kpi .src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* BLOC · numéro de section */
+.num{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.08em;
+  color:var(--ink-editorial);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · citation inline */
+.cite{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap}
+
+/* BLOC · encadré méthodologique */
+.note{border:1px solid var(--ink-rule);border-left:3px solid var(--ink-caution);
+  padding:var(--sp-5);margin:var(--sp-6) 0;background:var(--ink-paper);width:100%}
+.note .mono{color:var(--ink-caution);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · figure */
+.fig-block{margin:var(--sp-6) 0;width:100%}
+.fig-title{font-family:var(--font-display);font-size:var(--fs-md);margin-bottom:var(--sp-2)}
+.fig-sub{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-5)}
+.chart{width:100%;min-width:0}
+.chart svg{width:100%;height:auto}
+.fig-src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--ink-rule)}
+
+/* BLOC · débat · colonnes de hauteur égale */
+.debate{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:var(--sp-5);margin:var(--sp-6) 0;align-items:stretch}
+.pos{border-top:2px solid var(--ink-rule-strong);padding-top:var(--sp-4);min-width:0}
+.pos .mono{color:var(--ink-3);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · cartes métier · auto-fill et non auto-fit : avec cinq cartes,
+   la dernière rangée garde la largeur d'une carte au lieu de s'étirer. */
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.role{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  min-width:0;display:flex;flex-direction:column}
+.role .code{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  display:block;margin-bottom:var(--sp-2)}
+.role h3{font-size:var(--fs-md);margin-bottom:var(--sp-3)}
+.role .expo{height:6px;background:var(--ink-rule);margin:var(--sp-3) 0;position:relative;width:100%}
+.role .expo span{position:absolute;inset:0 auto 0 0;background:var(--ink-warm-4)}
+.role .desc{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:0}
+
+/* BLOC · agenda 90 jours */
+.agenda{list-style:none;counter-reset:step;margin:var(--sp-6) 0}
+.agenda li{counter-increment:step;padding-left:var(--sp-7);position:relative;margin-bottom:var(--sp-5)}
+.agenda li:last-child{margin-bottom:0}
+.agenda li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-editorial)}
+.agenda strong{display:block;margin-bottom:var(--sp-1)}
+.agenda span{color:var(--ink-2)}
+
+/* BLOC · table des sources */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--sp-6) 0;width:100%}
+.sources{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.sources th{text-align:left;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--ink-rule-strong);
+  padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;white-space:nowrap}
+.sources td{border-bottom:1px solid var(--ink-rule);padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;vertical-align:top}
+.sources td:last-child,.sources th:last-child{padding-right:0}
+.sources .tier{font-family:var(--font-mono);font-size:var(--fs-xs);white-space:nowrap}
+
+/* BLOC · disclosure éditoriale */
+.disclosure{border:1px solid var(--ink-rule-strong);padding:var(--sp-5);
+  margin:var(--sp-6) 0 0;background:var(--ink-paper-alt);width:100%}
+.disclosure .mono{display:block;margin-bottom:var(--sp-3);color:var(--ink-3)}
+
+/* BLOC · double appel à l'action · cartes de hauteur égale */
+.cta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  gap:var(--sp-4);margin:0;align-items:stretch}
+.cta a{display:flex;flex-direction:column;border:1px solid var(--ink-signal);
+  padding:var(--sp-5);min-width:0}
+.cta a:hover{background:var(--ink-signal-soft);border-color:var(--ink-signal)}
+.cta strong{font-family:var(--font-display);font-size:var(--fs-md);color:var(--ink-1);margin-bottom:var(--sp-2)}
+.cta span{font-size:var(--fs-sm);color:var(--ink-2)}
+
+/* BLOC · signature et pied de page */
+.sig{font-family:var(--font-display);font-size:var(--fs-md);margin-top:var(--sp-7)}
+footer{border-top:1px solid var(--ink-rule);padding:var(--sp-6) 0 var(--sp-8);
+  color:var(--ink-3);font-size:var(--fs-sm)}
+footer .ver{font-family:var(--font-mono);font-size:var(--fs-xs);margin-top:var(--sp-2)}
+
+/* ═══════════════════════════ 6 · RESPONSIVE ═══════════════════════
+   Aucune piste de grille en 1fr nu : minmax(min(100%,X),1fr) partout,
+   sinon un contenu long étire la piste et déborde horizontalement.   */
+@media (max-width:640px){
+  :root{--fs-3xl:32px;--fs-2xl:27px;--fs-xl:23px;--gutter:16px}
+  .masthead{padding:var(--sp-6) 0 var(--sp-5)}
+  .band{padding:var(--sp-6) 0}
+  .sec{padding-bottom:var(--sp-6)}
+  .sec > .wrap > .col{padding-top:var(--sp-6)}
+  .controls .col{gap:var(--sp-3)}
+}
+
+/* BLOC · pistes · deux colonnes CODIR / pouvoirs publics, hauteur égale */
+.pistes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:var(--sp-5);margin:var(--sp-6) 0;align-items:stretch}
+.pistes-col{border-top:2px solid var(--ink-rule-strong);padding-top:var(--sp-4);min-width:0}
+.pistes-col .mono{display:block;color:var(--ink-3);margin-bottom:var(--sp-3)}
+.pistes-col ol{list-style:none;counter-reset:piste}
+.pistes-col li{counter-increment:piste;position:relative;padding-left:var(--sp-6);margin-bottom:var(--sp-3);
+  font-size:var(--fs-sm);color:var(--ink-1)}
+.pistes-col li:last-child{margin-bottom:0}
+.pistes-col li::before{content:counter(piste);position:absolute;left:0;top:1px;
+  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-editorial)}
+
+/* BLOC · feuille de route · quatre trimestres, colonne verticale */
+.roadmap{list-style:none;margin:var(--sp-6) 0;border-left:1px solid var(--ink-rule-strong);padding-left:var(--sp-6)}
+.roadmap li{position:relative;padding-bottom:var(--sp-6)}
+.roadmap li:last-child{padding-bottom:0}
+.roadmap li::before{content:"";position:absolute;left:calc(-1 * var(--sp-6) - 5px);top:6px;width:9px;height:9px;
+  border-radius:50%;background:var(--ink-editorial);border:2px solid var(--ink-paper)}
+.roadmap .q{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.08em;color:var(--ink-editorial);
+  display:block;margin-bottom:var(--sp-2)}
+.roadmap h3{font-size:var(--fs-md);margin-bottom:var(--sp-2)}
+.roadmap ul{list-style:none}
+.roadmap ul li{padding:0 0 var(--sp-1) var(--sp-4);position:relative;font-size:var(--fs-sm);color:var(--ink-2)}
+.roadmap ul li::before{content:"·";position:absolute;left:0;top:0;width:auto;height:auto;border:none;border-radius:0;
+  background:none;color:var(--ink-editorial);font-weight:600}
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
+</style>
+</head>
+
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ═══════════ CONTRÔLES ═══════════ -->
+<div class="controls">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono" data-i18n="ui.series">Observatoire[s]·ia · Dispatch·iA</span>
+      <div class="ctrl-set">
+        <div class="ctrl-group" id="langSwitch" role="group" aria-label="Langue"></div>
+        <button class="ctrl" id="themeToggle" data-i18n="ui.theme">Thème</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ EN-TÊTE ═══════════ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono kicker" data-i18n="hero.kicker">Dispatch·iA #010 · Spécial rentrée · Édition du 16 septembre 2026</span>
+      <h1 data-i18n="hero.title">La France a adopté l'IA. Elle ne l'a pas encore transformée en organisation.</h1>
+      <p class="standfirst" data-i18n="hero.standfirst">Deux tiers des entreprises françaises de vingt salariés et plus utilisent l'IA générative, un tiers seulement en tire un gain de productivité mesurable. L'écart entre ces deux chiffres est le sujet de l'année 2026-2027. Ce numéro propose six rubriques, six pistes chacune, et une séquence en quatre trimestres pour les comités de direction et les décideurs publics.</p>
+      <div class="meta mono">
+        <span data-i18n="hero.author">Naully Nicolas</span>
+        <span data-i18n="hero.reading">12 min de lecture</span>
+        <span data-i18n="hero.scope">Périmètre · France · horizon 2026-2027</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════ TL;DR ═══════════ -->
+  <section class="sec sec--flush">
+    <div class="wrap"><div class="col">
+      <div class="tldr">
+        <span class="mono" data-i18n="tldr.label">En bref</span>
+        <ul>
+          <li data-i18n="tldr.1">67 % des entreprises de 20 salariés et plus utilisent l'IA générative début 2026, 31 % des utilisatrices constatent un gain de productivité, 38 % citent le manque de cas d'usage comme premier frein (Banque de France, septembre 2026).</li>
+          <li data-i18n="tldr.2">L'exposition réelle de l'emploi français reste faible (3,8 %) mais quadruple à horizon 2-5 ans (16,3 %, Coface/OEM, avril 2026). Les scores d'exposition fondés sur les LLM divergent entre eux jusqu'à 3,6 fois : aucune décision RH ne devrait reposer sur une source unique.</li>
+          <li data-i18n="tldr.3">Le signal le plus sous-estimé de la rentrée concerne les juniors : non-recrutement plutôt que licenciement dans les métiers exposés. Il se lit aux États-Unis, il se surveille en France.</li>
+        </ul>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §00 · REPÈRES ═══════════ -->
+  <section class="sec" id="s00">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s00.num">§00 · Repères</span>
+      <h2 data-i18n="s00.title">Quatre chiffres pour cadrer l'année</h2>
+      <p data-i18n="s00.body">L'enquête de conjoncture de la Banque de France menée du 25 février au 3 avril 2026 auprès de 7 000 entreprises fournit, pour la première fois à cette échelle, une photographie de la diffusion de l'IA dans le tissu productif français. Elle sert d'ossature à ce numéro. Chaque chiffre porte sa source et son tier, aucune valeur n'est estimée.</p>
+      <div class="kpis">
+        <div class="kpi"><span class="fig">67 %</span><span class="lab" data-i18n="s00.kpi1">des entreprises de 20 salariés et plus utilisent l'IA générative début 2026</span><span class="src">Banque de France, 2026 · T1</span></div>
+        <div class="kpi"><span class="fig">31 %</span><span class="lab" data-i18n="s00.kpi2">des utilisatrices d'IA générative constatent déjà un gain de productivité</span><span class="src">Banque de France, 2026 · T1</span></div>
+        <div class="kpi"><span class="fig">38 %</span><span class="lab" data-i18n="s00.kpi3">citent le manque de cas d'usage comme premier frein à aller plus loin</span><span class="src">Banque de France, 2026 · T1</span></div>
+        <div class="kpi"><span class="fig">3,8 %</span><span class="lab" data-i18n="s00.kpi4">de l'emploi français exposé aujourd'hui, 16,3 % à horizon 2-5 ans</span><span class="src">Coface/OEM, avril 2026 · T2</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §01 ═══════════ -->
+  <section class="sec" id="s01">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s01.num">§01 · Diffusion sans transformation</span>
+      <h2 data-i18n="s01.title">Le problème n'est plus l'adoption, c'est l'intégration</h2>
+      <p data-i18n="s01.body">Plus des deux tiers des entreprises françaises de vingt salariés et plus déclarent utiliser l'IA générative, mais l'usage reste majoritairement généraliste, concentré sur les fonctions support et transversales, et souvent expérimental. Seules 31 % des utilisatrices constatent un gain de productivité, 41 % pour l'IA non générative. Le premier frein cité n'est ni le coût ni la réglementation : c'est l'absence de cas d'usage identifiés, pour 38 % des entreprises <span class="cite">Banque de France, 2026 · T1/C1</span>. La Banque de France conclut elle-même que l'enjeu réside désormais moins dans l'adoption que dans la capacité à transformer durablement l'organisation. Autrement dit, la courbe d'adoption est acquise, la courbe d'intégration ne l'est pas.</p>
+      <div class="fig-block">
+        <div class="fig-title" data-i18n="fig1.title">Figure 1 · Utilisation de l'IA générative par taille d'entreprise</div>
+        <div class="fig-sub" data-i18n="fig1.sub">Part des entreprises déclarant un usage intensif, limité ou expérimental, début 2026. Total corrigé des effets sectoriels : 67 %.</div>
+        <div class="chart" id="fig1" data-chart="bars"></div>
+        <div class="fig-src" data-i18n="fig1.src">Source · Banque de France, Bulletin 266/1, enquête du 25 février au 3 avril 2026 · n = 7 000 · T1/C1</div>
+      </div>
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s01.c1">Remplacer l'inventaire d'outils par un portefeuille de cas d'usage chiffrés : coût, gain attendu, indicateur de suivi, propriétaire.</li>
+          <li data-i18n="s01.c2">Confier chaque cas d'usage à un responsable métier, pas à la DSI. La DSI sécurise, le métier répond du résultat.</li>
+          <li data-i18n="s01.c3">Donner une date de fin à toute expérimentation sans indicateur de mesure. Ce qui n'est pas mesuré en juin 2027 est arrêté.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s01.p1">Réorienter les dispositifs d'aide de l'équipement et de l'abonnement vers l'intégration dans les processus et la formation associée.</li>
+          <li data-i18n="s01.p2">Publier un référentiel national de cas d'usage par filière, alimenté par les branches et les OPCO, en accès libre.</li>
+          <li data-i18n="s01.p3">Reconduire l'enquête Banque de France à cadence annuelle pour suivre le passage des usages expérimentaux aux déploiements structurés.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §02 · bande pleine largeur ═══════════ -->
+  <div class="band">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s02.num">§02 · L'exposition réelle n'est pas le score</span>
+      <h2 data-i18n="s02.title">Piloter sur une source unique, c'est piloter à l'aveugle</h2>
+      <p data-i18n="s02.body">Selon Coface et l'Observatoire de l'emploi et des métiers, 3,8 % de l'emploi français est exposé aujourd'hui, 16,3 % à horizon deux à cinq ans <span class="cite">Coface/OEM, avril 2026 · T2/C2</span>. Ce quadruplement annoncé mérite d'être lu avec la mise en garde de Yin, Vu et Persico : les mesures d'exposition construites à partir de grands modèles de langage divergent entre elles jusqu'à 3,6 fois pour un même métier, selon le modèle et la consigne utilisés <span class="cite">Yin, Vu, Persico, 2026 · T1/C1</span>. La Banque de France observe par ailleurs que les secteurs qui déclarent le plus de gains sont ceux où la donnée est déjà centrale, ce qui ne recoupe pas nécessairement les métiers les plus exposés sur le papier.</p>
+      <div class="note">
+        <span class="mono" data-i18n="note.label">Note de lecture</span>
+        <p data-i18n="note.body">Les scores d'exposition mesurent ce qu'un modèle pourrait techniquement faire, pas ce que les entreprises font. L'écart entre exposition théorique et pratique observée est précisément ce que ce numéro appelle la friction organisationnelle. Il est documenté, il n'est pas encore mesuré en France à l'échelle des métiers.</p>
+      </div>
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s02.c1">Ne jamais fonder un plan RH sur une seule mesure d'exposition. Exiger au moins deux sources de nature différente avant toute décision d'effectifs.</li>
+          <li data-i18n="s02.c2">Croiser le score de tâches avec les données d'usage réelles de l'entreprise : licences activées, requêtes, temps déclaré.</li>
+          <li data-i18n="s02.c3">Documenter, métier par métier, l'écart entre exposition théorique et pratique observée dans ses propres équipes. C'est le premier livrable d'une GEPP crédible.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s02.p1">Financer une mesure française d'exposition observée, à partir de données d'usage et non de scores de tâches seuls, sur la nomenclature ROME/FAP.</li>
+          <li data-i18n="s02.p2">Exiger la transparence méthodologique des baromètres cités dans le débat public : modèle, consigne, base, période.</li>
+          <li data-i18n="s02.p3">Signaler explicitement, dans toute communication institutionnelle, le caractère non transposable des données américaines au marché du travail français.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ §03 ═══════════ -->
+  <section class="sec sec--flush" id="s03">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s03.num">§03 · Les juniors, canaris français</span>
+      <h2 data-i18n="s03.title">Le premier effet emploi ne sera pas un licenciement, mais un poste non ouvert</h2>
+      <p data-i18n="s03.body">Aux États-Unis, l'emploi relatif des 22-25 ans dans les métiers les plus exposés a reculé de 19 % depuis fin 2022, et ce recul passe par le non-recrutement plutôt que par les départs <span class="cite">Brynjolfsson et al., août 2026 · T1/C1</span>. Ce résultat n'est pas transposable à la France : droit du travail, poids de l'alternance et structure sectorielle diffèrent. Il constitue en revanche un signal d'alerte précoce, d'autant que les cohortes jeunes se déclarent partout plus nerveuses et moins enthousiastes face à l'IA que leurs aînés <span class="cite">Ipsos AI Monitor, juin 2026 · T2/C2</span>. En France, la Banque de France note que les tâches absorbées relèvent d'abord des fonctions support et transversales, qui sont historiquement des portes d'entrée dans l'emploi qualifié. Cette mesure existe désormais pour la France. Sur les mouvements de main-d'œuvre de la Dares, les embauches en CDI des 21-29 ans reculent de 28,3 % depuis novembre 2022 dans les métiers les plus exposés à l'IA générative, contre 7,5 % dans les moins exposés, soit un écart de 20,8 points, et de 23,1 points tous contrats confondus : le report vers les contrats courts n'explique pas le phénomène. Les entreprises qui déclarent un usage intensif de l'IA recrutent 17 à 25 % de jeunes en moins en CDI, sans que leur effectif total s'écarte nettement de celui des autres <span class="cite">LIFT HEC Paris, Policy Paper 2026-02, octobre 2026 · T1/C2</span>. L'hypothèse de ce numéro, le poste non ouvert avant le licenciement, est donc mesurée sur données françaises, avec la réserve posée par les auteurs : le résultat est descriptif et ne neutralise ni le cycle, ni le télétravail, ni l'essor de l'apprentissage.</p>
+
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s03.c1">Mesurer le ratio junior/senior des recrutements 2026 par rapport à 2024, métier par métier. Un recul silencieux se voit d'abord dans ce ratio.</li>
+          <li data-i18n="s03.c2">Fixer un volume plancher de premiers postes et de contrats d'alternance pour 2027, indépendant des gains de productivité attendus.</li>
+          <li data-i18n="s03.c3">Redessiner les parcours d'apprentissage là où l'IA absorbe les tâches d'entrée : ce qui formait par la répétition doit être formé autrement.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s03.p1">Ajouter un indicateur de premier emploi par métier exposé au suivi Dares et France Travail, publié à cadence semestrielle.</li>
+          <li data-i18n="s03.p2">Conditionner une part des aides à l'alternance au maintien du niveau de recrutement junior dans les métiers les plus exposés.</li>
+          <li data-i18n="s03.p3">Ouvrir avec les branches un chantier sur la formation initiale des métiers dont le socle « débutant » se réduit.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §04 ═══════════ -->
+  <section class="sec" id="s04">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s04.num">§04 · Réallocation plutôt que destruction</span>
+      <h2 data-i18n="s04.title">Un effet emploi faible aujourd'hui, une réallocation annoncée demain</h2>
+      <p data-i18n="s04.body">L'effet observé de l'IA sur les effectifs est à ce stade modérément négatif : 2 % des entreprises utilisatrices d'IA générative, en solde net, lui imputent une baisse. À horizon trois ans, 21 % des entreprises prévoyant d'utiliser l'IA anticipent une baisse d'effectifs, 14 % en solde net, tandis que 60 % anticipent un gain de productivité <span class="cite">Banque de France, 2026 · T1/C1</span>. La Banque de France y voit un réel effet de réallocation plus qu'une substitution directe : l'IA est perçue comme un outil d'assistance, les gains passent par la qualité et les marges plutôt que par les volumes ou les prix. Pour un comité de direction, cela signifie que le travail de transition doit commencer avant que l'effet emploi ne devienne visible, pas après. À l'international, The Economist documente le versant création : environ un million d'emplois attribués à l'IA aux États-Unis, contre environ 200 000 suppressions depuis mi-2023, et une destruction concentrée sur l'administratif, où le BLS projette 752 000 suppressions d'ici 2035 <span class="cite">The Economist, 4 septembre 2026 · T4/C3</span>. Données américaines, sans équivalent français : aucune série de l'INSEE ou de la DARES ne ventile l'emploi créé ou détruit par l'IA.</p>
+      <div class="fig-block">
+        <div class="fig-title" data-i18n="fig2.title">Figure 2 · Effets anticipés de l'IA à trois ans</div>
+        <div class="fig-sub" data-i18n="fig2.sub">Part des entreprises de 20 salariés et plus déclarant utiliser ou prévoir d'utiliser l'IA en 2026.</div>
+        <div class="chart" id="fig2" data-chart="bars"></div>
+        <div class="fig-src" data-i18n="fig2.src">Source · Banque de France, Bulletin 266/1, 2026 · n = 7 000 · T1/C1</div>
+      </div>
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s04.c1">Relancer une GEPP orientée tâches et non postes : quelles tâches partent, quelles tâches restent, quelles tâches apparaissent.</li>
+          <li data-i18n="s04.c2">Identifier les trois métiers internes à passerelle prioritaire et construire le parcours de transition avant la première suppression de poste.</li>
+          <li data-i18n="s04.c3">Inscrire au budget 2027 la formation de transition comme ligne propre, distincte du plan de développement des compétences courant.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s04.p1">Adapter le FNE-Formation et les transitions collectives aux reconversions intra-entreprise, aujourd'hui mal couvertes.</li>
+          <li data-i18n="s04.p2">Doter les branches de cartographies tâches vers métiers, réutilisables par les PME qui n'ont pas de fonction RH structurée.</li>
+          <li data-i18n="s04.p3">Suivre le solde réel d'emploi par secteur exposé plutôt que les annonces de plans, qui surestiment systématiquement l'effet.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §05 ═══════════ -->
+  <section class="sec" id="s05">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s05.num">§05 · PME et TPE · compétences et donnée avant les outils</span>
+      <h2 data-i18n="s05.title">Sans donnée fiable et sans référent interne, l'outil ne change rien</h2>
+      <p data-i18n="s05.body">L'écart par taille est net : 64 % d'usage chez les 20 à 49 salariés contre 83 % au-delà de 1 000 <span class="cite">Banque de France, 2026 · T1/C1</span>. Il se creuse encore sous vingt salariés. Dans le BTP, 31,4 % seulement des dirigeants de très petites entreprises disent savoir précisément ce que recouvre l'IA, contre 53,1 % au-delà de 50 salariés, et l'étude identifie une donnée dispersée, non standardisée et difficilement exploitable comme frein premier à toute automatisation <span class="cite">Étude IA dans le BTP, janvier 2026 · T2/C3</span>. Ses recommandations, référents IA internes, formation en situation de travail, référentiel de pratiques data, valent bien au-delà du secteur.</p>
+
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s05.c1">Désigner un référent IA et données interne, même à temps partiel, avant de contracter le moindre outil.</li>
+          <li data-i18n="s05.c2">Fiabiliser trois jeux de données métier prioritaires (devis, clients, production) avant tout projet d'automatisation.</li>
+          <li data-i18n="s05.c3">Prévoir un budget de formation du dirigeant lui-même, incluant les volets AI Act et RGPD, pas seulement celui des équipes.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s05.p1">Sectoriser l'offre de formation via les OPCO sur le modèle du Cléa numérique, en modules courts adossés à des situations réelles de travail.</li>
+          <li data-i18n="s05.p2">Soutenir l'interopérabilité des outils métier par filière, condition d'une donnée exploitable par des solutions concurrentes.</li>
+          <li data-i18n="s05.p3">Installer des relais territoriaux de premier niveau (CCI, chambres de métiers, agences régionales) plutôt qu'un guichet national unique.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §06 ═══════════ -->
+  <section class="sec" id="s06">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s06.num">§06 · Gouvernance, coûts et dépendances</span>
+      <h2 data-i18n="s06.title">L'IA coûte plus qu'annoncé, et dépend de peu de fournisseurs</h2>
+      <p data-i18n="s06.body">Les entreprises anticipent davantage de hausses que de baisses de leurs prix de vente à horizon 2026-2029 (6 % en solde net), un tiers d'entre elles prévoit d'augmenter ses investissements, et la Banque de France pointe le renchérissement récent des coûts de l'IA comme un enjeu à documenter <span class="cite">Banque de France, 2026 · T1/C1</span>. Deux régulateurs français ont ouvert le dossier des dépendances en début d'année : l'AMF sur l'usage de l'IA par les acteurs des marchés financiers <span class="cite">AMF, février 2026 · T1/C2</span> et l'Arcep sur les effets de l'IA générative pour l'internet ouvert <span class="cite">Arcep, janvier 2026 · T1/C2</span>. La montée en application de l'AI Act s'ajoute à ce paysage. La gouvernance IA cesse d'être une affaire de conformité pour devenir une affaire de coûts et de réversibilité.</p>
+
+      <div class="pistes">
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.codir">Pistes CODIR</span>
+          <ol>
+          <li data-i18n="s06.c1">Instituer une revue coûts-bénéfices IA au budget 2027 : abonnements, infrastructure, formation, réorganisation, en face des gains observés.</li>
+          <li data-i18n="s06.c2">Cartographier ses dépendances fournisseurs, modèles et hébergement, et vérifier les clauses de réversibilité et de portabilité des données.</li>
+          <li data-i18n="s06.c3">Installer un comité gouvernance IA réunissant RH, juridique, métiers et DSI, avec un mandat sur les usages et pas seulement sur les risques.</li>
+          </ol>
+        </div>
+        <div class="pistes-col">
+          <span class="mono" data-i18n="p.pub">Pistes pouvoirs publics</span>
+          <ol>
+          <li data-i18n="s06.p1">Clarifier pour les PME le calendrier français d'application de l'AI Act, en un document unique et daté.</li>
+          <li data-i18n="s06.p2">Documenter la balance coûts-bénéfices de l'IA à l'échelle nationale, comme le suggère la Banque de France, et la publier.</li>
+          <li data-i18n="s06.p3">Traiter la souveraineté comme une question de dépendance opérationnelle (réversibilité, alternatives crédibles) et pas seulement de localisation des données.</li>
+          </ol>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §07 · FEUILLE DE ROUTE · bande ═══════════ -->
+  <div class="band">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s07.num">§07 · Feuille de route 2026-2027</span>
+      <h2 data-i18n="s07.title">Quatre trimestres, dix-huit pistes, une séquence</h2>
+      <p data-i18n="s07.body">Les dix-huit pistes CODIR ci-dessus ne se traitent pas en parallèle. La séquence suivante les ordonne : mesurer avant de décider, décider avant de former, former avant de réduire. Elle court de la rentrée 2026 à la rentrée 2027.</p>
+      <ol class="roadmap">
+        <li>
+          <span class="q" data-i18n="q1.q">T4 2026 · Mesurer</span>
+          <h3 data-i18n="q1.t">Établir la base de départ</h3>
+          <ul>
+            <li data-i18n="q1.1">Inventaire des cas d'usage existants, chiffrés (§01).</li>
+            <li data-i18n="q1.2">Ratio junior/senior des recrutements 2026 vs 2024 (§03).</li>
+            <li data-i18n="q1.3">Revue coûts-bénéfices IA inscrite au budget 2027 (§06).</li>
+            <li data-i18n="q1.4">Référent IA et données nommé, en PME comme en ETI (§05).</li>
+          </ul>
+        </li>
+        <li>
+          <span class="q" data-i18n="q2.q">T1 2027 · Décider</span>
+          <h3 data-i18n="q2.t">Arbitrer et attribuer</h3>
+          <ul>
+            <li data-i18n="q2.1">Portefeuille de cas d'usage avec propriétaires métier (§01).</li>
+            <li data-i18n="q2.2">GEPP orientée tâches lancée, écart exposition théorique / observée documenté (§02, §04).</li>
+            <li data-i18n="q2.3">Cartographie des dépendances fournisseurs et clauses de réversibilité (§06).</li>
+            <li data-i18n="q2.4">Trois jeux de données métier fiabilisés (§05).</li>
+          </ul>
+        </li>
+        <li>
+          <span class="q" data-i18n="q3.q">T2 2027 · Former</span>
+          <h3 data-i18n="q3.t">Ouvrir les passerelles</h3>
+          <ul>
+            <li data-i18n="q3.1">Comité gouvernance IA installé, mandat sur les usages (§06).</li>
+            <li data-i18n="q3.2">Trois métiers passerelle identifiés, parcours de transition budgétés (§04).</li>
+            <li data-i18n="q3.3">Plancher de premiers postes et d'alternances fixé pour 2027-2028 (§03).</li>
+            <li data-i18n="q3.4">Formation du dirigeant réalisée, AI Act et RGPD compris (§05).</li>
+          </ul>
+        </li>
+        <li>
+          <span class="q" data-i18n="q4.q">T3 2027 · Trancher</span>
+          <h3 data-i18n="q4.t">Arrêter ce qui ne mesure rien</h3>
+          <ul>
+            <li data-i18n="q4.1">Fin des expérimentations sans indicateur (§01).</li>
+            <li data-i18n="q4.2">Bilan à douze mois : gains observés contre gains anticipés, effectifs, coûts (§04, §06).</li>
+            <li data-i18n="q4.3">Deuxième mesure du ratio junior (§03).</li>
+            <li data-i18n="q4.4">Préparation de la rentrée 2027 sur données propres, pas sur baromètres.</li>
+          </ul>
+        </li>
+      </ol>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ §08 · MÉTHODE ═══════════ -->
+  <section class="sec sec--flush" id="s08">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s08.num">§08 · Méthode</span>
+      <h2 data-i18n="s08.title">Sources et niveaux de confiance</h2>
+      <p data-i18n="s08.body">Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse spécialisée. La confiance, de C1 à C4, qualifie la transparence méthodologique. Une valeur absente est notée n.d. et n'est jamais estimée. Les données américaines sont signalées comme non transposables.</p>
+      <div class="table-scroll">
+        <table class="sources">
+          <thead><tr>
+            <th data-i18n="tbl.src">Source</th><th data-i18n="tbl.nat">Nature</th>
+            <th data-i18n="tbl.base">Base</th><th data-i18n="tbl.tier">Tier</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Genre V., Parpais L., « L'IA s'installe dans les entreprises françaises », Bulletin de la Banque de France 266/1, septembre-octobre 2026</td><td data-i18n="tbl.r1n">Enquête de conjoncture, institution monétaire</td><td>n = 7 000</td><td class="tier">T1/C1</td></tr>
+            <tr><td>Coface / Observatoire de l'emploi et des métiers, exposition de l'emploi français à l'IA, avril 2026</td><td data-i18n="tbl.r2n">Étude d'exposition, assureur-crédit et observatoire</td><td>n.d.</td><td class="tier">T2/C2</td></tr>
+            <tr><td>Yin, Vu, Persico, NBER Working Paper 35110, 2026</td><td data-i18n="tbl.r3n">Working paper académique, méta-critique</td><td>métiers US, multi-modèles</td><td class="tier">T1/C1</td></tr>
+            <tr><td>Brynjolfsson, Chandar, Chen, « Canaries in the Coal Mine », mise à jour août 2026</td><td data-i18n="tbl.r4n">Working paper académique, données paie · États-Unis, non transposable</td><td>données ADP</td><td class="tier">T1/C1</td></tr>
+            <tr><td>Ipsos, AI Monitor 2026, juin 2026</td><td data-i18n="tbl.r5n">Enquête d'opinion internationale</td><td>n = 23 532 · 32 pays</td><td class="tier">T2/C2</td></tr>
+            <tr><td>Étude sur la perception et l'intégration des outils d'IA dans les entreprises du BTP, janvier 2026</td><td data-i18n="tbl.r6n">Étude sectorielle, dirigeants du BTP</td><td>n = 609 dirigeants</td><td class="tier">T2/C3</td></tr>
+            <tr><td>AMF, IA et acteurs des marchés financiers, février 2026</td><td data-i18n="tbl.r7n">Rapport de régulateur</td><td>n.d.</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Arcep, IA générative et défis pour l'internet ouvert, janvier 2026</td><td data-i18n="tbl.r8n">Rapport de régulateur</td><td>n.d.</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Bergeaud, Bertheau, Bunel, Degos &amp; Palladino, LIFT Policy Paper 2026-02, HEC Paris, octobre 2026</td><td>Papier académique · HEC Paris et Banque de France</td><td>Dares MMO · secteur privé · janvier 2019 à mars 2026</td><td class="tier">T1/C2</td></tr>
+            <tr><td>The Economist, The jobs apocalypse is postponed, 4 septembre 2026</td><td>Presse économique · agrège BLS, US Census Bureau, Goldman Sachs, Indeed, LinkedIn, Burning Glass Institute et Challenger Gray &amp; Christmas</td><td>États-Unis · août 2026</td><td class="tier">T4/C3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="disclosure">
+        <span class="mono" data-i18n="disc.label">Indépendance éditoriale</span>
+        <p data-i18n="disc.body">Ce numéro ne comporte aucun partenariat ni financement externe. Le contenu analytique est produit indépendamment de tout client de conseil, dont aucun n'apparaît dans les sections analytiques.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ CLÔTURE ═══════════ -->
+  <section class="sec">
+    <div class="wrap"><div class="col">
+      <div class="cta">
+        <a href="contact.html?type=custom"><strong data-i18n="cta1.t">Dispatch sur mesure</strong><span data-i18n="cta1.b">La même feuille de route, sur votre périmètre métiers et vos données d'usage.</span></a>
+        <a href="contact.html?type=ops"><strong data-i18n="cta2.t">Mise en œuvre opérationnelle</strong><span data-i18n="cta2.b">Du diagnostic au premier trimestre exécuté.</span></a>
+      </div>
+      <p class="sig" data-i18n="sig">Naully</p>
+    </div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <p data-i18n="foot.body">Observatoire[s]·ia · publication indépendante · transitions-ia.fr</p>
+      <p class="ver">Dispatch·iA #010 · v1.0 · 2026-09-16</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   ZONE B · CONFIGURATION ET CONTENU
+   Tout le corps du document se pilote ici. Aucune édition dispersée.
+   Numéro monolingue : langs réduit à ['fr'], moteur inchangé.
+   ═══════════════════════════════════════════════════════════════════ */
+
+const DISPATCH_CONFIG = {
+  number: '010',
+  slug: '10-rentree-2026-france-feuille-de-route',
+  date: '2026-09-16',
+  version: '1.0',
+  langs: ['fr'],
+  defaultLang: 'fr'
+};
+
+const LANGS = DISPATCH_CONFIG.langs;
+
+const PAGE_I18N = {
+  fr: {
+    "ui.series":"Observatoire[s]·ia · Dispatch·iA",
+    "ui.theme":"Thème",
+    "hero.kicker":"Dispatch·iA #010 · Spécial rentrée · Édition du 16 septembre 2026",
+    "hero.title":"La France a adopté l'IA. Elle ne l'a pas encore transformée en organisation.",
+    "hero.standfirst":"Deux tiers des entreprises françaises de vingt salariés et plus utilisent l'IA générative, un tiers seulement en tire un gain de productivité mesurable. L'écart entre ces deux chiffres est le sujet de l'année 2026-2027. Ce numéro propose six rubriques, six pistes chacune, et une séquence en quatre trimestres pour les comités de direction et les décideurs publics.",
+    "hero.author":"Naully Nicolas",
+    "hero.reading":"12 min de lecture",
+    "hero.scope":"Périmètre · France · horizon 2026-2027",
+    "tldr.label":"En bref",
+    "tldr.1":"67 % des entreprises de 20 salariés et plus utilisent l'IA générative début 2026, 31 % des utilisatrices constatent un gain de productivité, 38 % citent le manque de cas d'usage comme premier frein (Banque de France, septembre 2026).",
+    "tldr.2":"L'exposition réelle de l'emploi français reste faible (3,8 %) mais quadruple à horizon 2-5 ans (16,3 %, Coface/OEM, avril 2026). Les scores d'exposition fondés sur les LLM divergent entre eux jusqu'à 3,6 fois : aucune décision RH ne devrait reposer sur une source unique.",
+    "tldr.3":"Le signal le plus sous-estimé de la rentrée concerne les juniors : non-recrutement plutôt que licenciement dans les métiers exposés. Il se lit aux États-Unis, il se surveille en France.",
+    "s00.num":"§00 · Repères",
+    "s00.title":"Quatre chiffres pour cadrer l'année",
+    "s00.body":"L'enquête de conjoncture de la Banque de France menée du 25 février au 3 avril 2026 auprès de 7 000 entreprises fournit, pour la première fois à cette échelle, une photographie de la diffusion de l'IA dans le tissu productif français. Elle sert d'ossature à ce numéro. Chaque chiffre porte sa source et son tier, aucune valeur n'est estimée.",
+    "s00.kpi1":"des entreprises de 20 salariés et plus utilisent l'IA générative début 2026",
+    "s00.kpi2":"des utilisatrices d'IA générative constatent déjà un gain de productivité",
+    "s00.kpi3":"citent le manque de cas d'usage comme premier frein à aller plus loin",
+    "s00.kpi4":"de l'emploi français exposé aujourd'hui, 16,3 % à horizon 2-5 ans",
+    "s01.num":"§01 · Diffusion sans transformation",
+    "s01.title":"Le problème n'est plus l'adoption, c'est l'intégration",
+    "s01.body":"Plus des deux tiers des entreprises françaises de vingt salariés et plus déclarent utiliser l'IA générative, mais l'usage reste majoritairement généraliste, concentré sur les fonctions support et transversales, et souvent expérimental. Seules 31 % des utilisatrices constatent un gain de productivité, 41 % pour l'IA non générative. Le premier frein cité n'est ni le coût ni la réglementation : c'est l'absence de cas d'usage identifiés, pour 38 % des entreprises <span class=\"cite\">Banque de France, 2026 · T1/C1</span>. La Banque de France conclut elle-même que l'enjeu réside désormais moins dans l'adoption que dans la capacité à transformer durablement l'organisation. Autrement dit, la courbe d'adoption est acquise, la courbe d'intégration ne l'est pas.",
+    "fig1.title":"Figure 1 · Utilisation de l'IA générative par taille d'entreprise",
+    "fig1.sub":"Part des entreprises déclarant un usage intensif, limité ou expérimental, début 2026. Total corrigé des effets sectoriels : 67 %.",
+    "fig1.src":"Source · Banque de France, Bulletin 266/1, enquête du 25 février au 3 avril 2026 · n = 7 000 · T1/C1",
+    "fig1.d1":"20 à 49 salariés",
+    "fig1.d2":"50 à 99 salariés",
+    "fig1.d3":"100 à 249 salariés",
+    "fig1.d4":"250 à 499 salariés",
+    "fig1.d5":"500 à 999 salariés",
+    "fig1.d6":"1 000 salariés et plus",
+    "p.codir":"Pistes CODIR",
+    "p.pub":"Pistes pouvoirs publics",
+    "s01.c1":"Remplacer l'inventaire d'outils par un portefeuille de cas d'usage chiffrés : coût, gain attendu, indicateur de suivi, propriétaire.",
+    "s01.c2":"Confier chaque cas d'usage à un responsable métier, pas à la DSI. La DSI sécurise, le métier répond du résultat.",
+    "s01.c3":"Donner une date de fin à toute expérimentation sans indicateur de mesure. Ce qui n'est pas mesuré en juin 2027 est arrêté.",
+    "s01.p1":"Réorienter les dispositifs d'aide de l'équipement et de l'abonnement vers l'intégration dans les processus et la formation associée.",
+    "s01.p2":"Publier un référentiel national de cas d'usage par filière, alimenté par les branches et les OPCO, en accès libre.",
+    "s01.p3":"Reconduire l'enquête Banque de France à cadence annuelle pour suivre le passage des usages expérimentaux aux déploiements structurés.",
+    "s02.num":"§02 · L'exposition réelle n'est pas le score",
+    "s02.title":"Piloter sur une source unique, c'est piloter à l'aveugle",
+    "s02.body":"Selon Coface et l'Observatoire de l'emploi et des métiers, 3,8 % de l'emploi français est exposé aujourd'hui, 16,3 % à horizon deux à cinq ans <span class=\"cite\">Coface/OEM, avril 2026 · T2/C2</span>. Ce quadruplement annoncé mérite d'être lu avec la mise en garde de Yin, Vu et Persico : les mesures d'exposition construites à partir de grands modèles de langage divergent entre elles jusqu'à 3,6 fois pour un même métier, selon le modèle et la consigne utilisés <span class=\"cite\">Yin, Vu, Persico, 2026 · T1/C1</span>. La Banque de France observe par ailleurs que les secteurs qui déclarent le plus de gains sont ceux où la donnée est déjà centrale, ce qui ne recoupe pas nécessairement les métiers les plus exposés sur le papier.",
+    "note.label":"Note de lecture",
+    "note.body":"Les scores d'exposition mesurent ce qu'un modèle pourrait techniquement faire, pas ce que les entreprises font. L'écart entre exposition théorique et pratique observée est précisément ce que ce numéro appelle la friction organisationnelle. Il est documenté, il n'est pas encore mesuré en France à l'échelle des métiers.",
+    "s02.c1":"Ne jamais fonder un plan RH sur une seule mesure d'exposition. Exiger au moins deux sources de nature différente avant toute décision d'effectifs.",
+    "s02.c2":"Croiser le score de tâches avec les données d'usage réelles de l'entreprise : licences activées, requêtes, temps déclaré.",
+    "s02.c3":"Documenter, métier par métier, l'écart entre exposition théorique et pratique observée dans ses propres équipes. C'est le premier livrable d'une GEPP crédible.",
+    "s02.p1":"Financer une mesure française d'exposition observée, à partir de données d'usage et non de scores de tâches seuls, sur la nomenclature ROME/FAP.",
+    "s02.p2":"Exiger la transparence méthodologique des baromètres cités dans le débat public : modèle, consigne, base, période.",
+    "s02.p3":"Signaler explicitement, dans toute communication institutionnelle, le caractère non transposable des données américaines au marché du travail français.",
+    "s03.num":"§03 · Les juniors, canaris français",
+    "s03.title":"Le premier effet emploi ne sera pas un licenciement, mais un poste non ouvert",
+    "s03.body":"Aux États-Unis, l'emploi relatif des 22-25 ans dans les métiers les plus exposés a reculé de 19 % depuis fin 2022, et ce recul passe par le non-recrutement plutôt que par les départs <span class=\"cite\">Brynjolfsson et al., août 2026 · T1/C1</span>. Ce résultat n'est pas transposable à la France : droit du travail, poids de l'alternance et structure sectorielle diffèrent. Il constitue en revanche un signal d'alerte précoce, d'autant que les cohortes jeunes se déclarent partout plus nerveuses et moins enthousiastes face à l'IA que leurs aînés <span class=\"cite\">Ipsos AI Monitor, juin 2026 · T2/C2</span>. En France, la Banque de France note que les tâches absorbées relèvent d'abord des fonctions support et transversales, qui sont historiquement des portes d'entrée dans l'emploi qualifié. Cette mesure existe désormais pour la France. Sur les mouvements de main-d'œuvre de la Dares, les embauches en CDI des 21-29 ans reculent de 28,3 % depuis novembre 2022 dans les métiers les plus exposés à l'IA générative, contre 7,5 % dans les moins exposés, soit un écart de 20,8 points, et de 23,1 points tous contrats confondus : le report vers les contrats courts n'explique pas le phénomène. Les entreprises qui déclarent un usage intensif de l'IA recrutent 17 à 25 % de jeunes en moins en CDI, sans que leur effectif total s'écarte nettement de celui des autres <span class=\"cite\">LIFT HEC Paris, Policy Paper 2026-02, octobre 2026 · T1/C2</span>. L'hypothèse de ce numéro, le poste non ouvert avant le licenciement, est donc mesurée sur données françaises, avec la réserve posée par les auteurs : le résultat est descriptif et ne neutralise ni le cycle, ni le télétravail, ni l'essor de l'apprentissage.",
+    "s03.c1":"Mesurer le ratio junior/senior des recrutements 2026 par rapport à 2024, métier par métier. Un recul silencieux se voit d'abord dans ce ratio.",
+    "s03.c2":"Fixer un volume plancher de premiers postes et de contrats d'alternance pour 2027, indépendant des gains de productivité attendus.",
+    "s03.c3":"Redessiner les parcours d'apprentissage là où l'IA absorbe les tâches d'entrée : ce qui formait par la répétition doit être formé autrement.",
+    "s03.p1":"Ajouter un indicateur de premier emploi par métier exposé au suivi Dares et France Travail, publié à cadence semestrielle.",
+    "s03.p2":"Conditionner une part des aides à l'alternance au maintien du niveau de recrutement junior dans les métiers les plus exposés.",
+    "s03.p3":"Ouvrir avec les branches un chantier sur la formation initiale des métiers dont le socle « débutant » se réduit.",
+    "s04.num":"§04 · Réallocation plutôt que destruction",
+    "s04.title":"Un effet emploi faible aujourd'hui, une réallocation annoncée demain",
+    "s04.body":"L'effet observé de l'IA sur les effectifs est à ce stade modérément négatif : 2 % des entreprises utilisatrices d'IA générative, en solde net, lui imputent une baisse. À horizon trois ans, 21 % des entreprises prévoyant d'utiliser l'IA anticipent une baisse d'effectifs, 14 % en solde net, tandis que 60 % anticipent un gain de productivité <span class=\"cite\">Banque de France, 2026 · T1/C1</span>. La Banque de France y voit un réel effet de réallocation plus qu'une substitution directe : l'IA est perçue comme un outil d'assistance, les gains passent par la qualité et les marges plutôt que par les volumes ou les prix. Pour un comité de direction, cela signifie que le travail de transition doit commencer avant que l'effet emploi ne devienne visible, pas après. À l'international, The Economist documente le versant création : environ un million d'emplois attribués à l'IA aux États-Unis, contre environ 200 000 suppressions depuis mi-2023, et une destruction concentrée sur l'administratif, où le BLS projette 752 000 suppressions d'ici 2035 <span class=\"cite\">The Economist, 4 septembre 2026 · T4/C3</span>. Données américaines, sans équivalent français : aucune série de l'INSEE ou de la DARES ne ventile l'emploi créé ou détruit par l'IA.",
+    "fig2.title":"Figure 2 · Effets anticipés de l'IA à trois ans",
+    "fig2.sub":"Part des entreprises de 20 salariés et plus déclarant utiliser ou prévoir d'utiliser l'IA en 2026.",
+    "fig2.src":"Source · Banque de France, Bulletin 266/1, 2026 · n = 7 000 · T1/C1",
+    "fig2.d1":"Anticipent une hausse de productivité",
+    "fig2.d2":"dont un effet significatif",
+    "fig2.d3":"Anticipent une baisse d'effectifs (part brute)",
+    "fig2.d4":"Baisse d'effectifs, solde net",
+    "s04.c1":"Relancer une GEPP orientée tâches et non postes : quelles tâches partent, quelles tâches restent, quelles tâches apparaissent.",
+    "s04.c2":"Identifier les trois métiers internes à passerelle prioritaire et construire le parcours de transition avant la première suppression de poste.",
+    "s04.c3":"Inscrire au budget 2027 la formation de transition comme ligne propre, distincte du plan de développement des compétences courant.",
+    "s04.p1":"Adapter le FNE-Formation et les transitions collectives aux reconversions intra-entreprise, aujourd'hui mal couvertes.",
+    "s04.p2":"Doter les branches de cartographies tâches vers métiers, réutilisables par les PME qui n'ont pas de fonction RH structurée.",
+    "s04.p3":"Suivre le solde réel d'emploi par secteur exposé plutôt que les annonces de plans, qui surestiment systématiquement l'effet.",
+    "s05.num":"§05 · PME et TPE · compétences et donnée avant les outils",
+    "s05.title":"Sans donnée fiable et sans référent interne, l'outil ne change rien",
+    "s05.body":"L'écart par taille est net : 64 % d'usage chez les 20 à 49 salariés contre 83 % au-delà de 1 000 <span class=\"cite\">Banque de France, 2026 · T1/C1</span>. Il se creuse encore sous vingt salariés. Dans le BTP, 31,4 % seulement des dirigeants de très petites entreprises disent savoir précisément ce que recouvre l'IA, contre 53,1 % au-delà de 50 salariés, et l'étude identifie une donnée dispersée, non standardisée et difficilement exploitable comme frein premier à toute automatisation <span class=\"cite\">Étude IA dans le BTP, janvier 2026 · T2/C3</span>. Ses recommandations, référents IA internes, formation en situation de travail, référentiel de pratiques data, valent bien au-delà du secteur.",
+    "s05.c1":"Désigner un référent IA et données interne, même à temps partiel, avant de contracter le moindre outil.",
+    "s05.c2":"Fiabiliser trois jeux de données métier prioritaires (devis, clients, production) avant tout projet d'automatisation.",
+    "s05.c3":"Prévoir un budget de formation du dirigeant lui-même, incluant les volets AI Act et RGPD, pas seulement celui des équipes.",
+    "s05.p1":"Sectoriser l'offre de formation via les OPCO sur le modèle du Cléa numérique, en modules courts adossés à des situations réelles de travail.",
+    "s05.p2":"Soutenir l'interopérabilité des outils métier par filière, condition d'une donnée exploitable par des solutions concurrentes.",
+    "s05.p3":"Installer des relais territoriaux de premier niveau (CCI, chambres de métiers, agences régionales) plutôt qu'un guichet national unique.",
+    "s06.num":"§06 · Gouvernance, coûts et dépendances",
+    "s06.title":"L'IA coûte plus qu'annoncé, et dépend de peu de fournisseurs",
+    "s06.body":"Les entreprises anticipent davantage de hausses que de baisses de leurs prix de vente à horizon 2026-2029 (6 % en solde net), un tiers d'entre elles prévoit d'augmenter ses investissements, et la Banque de France pointe le renchérissement récent des coûts de l'IA comme un enjeu à documenter <span class=\"cite\">Banque de France, 2026 · T1/C1</span>. Deux régulateurs français ont ouvert le dossier des dépendances en début d'année : l'AMF sur l'usage de l'IA par les acteurs des marchés financiers <span class=\"cite\">AMF, février 2026 · T1/C2</span> et l'Arcep sur les effets de l'IA générative pour l'internet ouvert <span class=\"cite\">Arcep, janvier 2026 · T1/C2</span>. La montée en application de l'AI Act s'ajoute à ce paysage. La gouvernance IA cesse d'être une affaire de conformité pour devenir une affaire de coûts et de réversibilité.",
+    "s06.c1":"Instituer une revue coûts-bénéfices IA au budget 2027 : abonnements, infrastructure, formation, réorganisation, en face des gains observés.",
+    "s06.c2":"Cartographier ses dépendances fournisseurs, modèles et hébergement, et vérifier les clauses de réversibilité et de portabilité des données.",
+    "s06.c3":"Installer un comité gouvernance IA réunissant RH, juridique, métiers et DSI, avec un mandat sur les usages et pas seulement sur les risques.",
+    "s06.p1":"Clarifier pour les PME le calendrier français d'application de l'AI Act, en un document unique et daté.",
+    "s06.p2":"Documenter la balance coûts-bénéfices de l'IA à l'échelle nationale, comme le suggère la Banque de France, et la publier.",
+    "s06.p3":"Traiter la souveraineté comme une question de dépendance opérationnelle (réversibilité, alternatives crédibles) et pas seulement de localisation des données.",
+    "s07.num":"§07 · Feuille de route 2026-2027",
+    "s07.title":"Quatre trimestres, dix-huit pistes, une séquence",
+    "s07.body":"Les dix-huit pistes CODIR ci-dessus ne se traitent pas en parallèle. La séquence suivante les ordonne : mesurer avant de décider, décider avant de former, former avant de réduire. Elle court de la rentrée 2026 à la rentrée 2027.",
+    "q1.q":"T4 2026 · Mesurer",
+    "q1.t":"Établir la base de départ",
+    "q1.1":"Inventaire des cas d'usage existants, chiffrés (§01).",
+    "q1.2":"Ratio junior/senior des recrutements 2026 vs 2024 (§03).",
+    "q1.3":"Revue coûts-bénéfices IA inscrite au budget 2027 (§06).",
+    "q1.4":"Référent IA et données nommé, en PME comme en ETI (§05).",
+    "q2.q":"T1 2027 · Décider",
+    "q2.t":"Arbitrer et attribuer",
+    "q2.1":"Portefeuille de cas d'usage avec propriétaires métier (§01).",
+    "q2.2":"GEPP orientée tâches lancée, écart exposition théorique / observée documenté (§02, §04).",
+    "q2.3":"Cartographie des dépendances fournisseurs et clauses de réversibilité (§06).",
+    "q2.4":"Trois jeux de données métier fiabilisés (§05).",
+    "q3.q":"T2 2027 · Former",
+    "q3.t":"Ouvrir les passerelles",
+    "q3.1":"Comité gouvernance IA installé, mandat sur les usages (§06).",
+    "q3.2":"Trois métiers passerelle identifiés, parcours de transition budgétés (§04).",
+    "q3.3":"Plancher de premiers postes et d'alternances fixé pour 2027-2028 (§03).",
+    "q3.4":"Formation du dirigeant réalisée, AI Act et RGPD compris (§05).",
+    "q4.q":"T3 2027 · Trancher",
+    "q4.t":"Arrêter ce qui ne mesure rien",
+    "q4.1":"Fin des expérimentations sans indicateur (§01).",
+    "q4.2":"Bilan à douze mois : gains observés contre gains anticipés, effectifs, coûts (§04, §06).",
+    "q4.3":"Deuxième mesure du ratio junior (§03).",
+    "q4.4":"Préparation de la rentrée 2027 sur données propres, pas sur baromètres.",
+    "s08.num":"§08 · Méthode",
+    "s08.title":"Sources et niveaux de confiance",
+    "s08.body":"Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse spécialisée. La confiance, de C1 à C4, qualifie la transparence méthodologique. Une valeur absente est notée n.d. et n'est jamais estimée. Les données américaines sont signalées comme non transposables.",
+    "tbl.src":"Source",
+    "tbl.nat":"Nature",
+    "tbl.base":"Base",
+    "tbl.tier":"Tier",
+    "tbl.r1n":"Enquête de conjoncture, institution monétaire",
+    "tbl.r2n":"Étude d'exposition, assureur-crédit et observatoire",
+    "tbl.r3n":"Working paper académique, méta-critique",
+    "tbl.r4n":"Working paper académique, données paie · États-Unis, non transposable",
+    "tbl.r5n":"Enquête d'opinion internationale",
+    "tbl.r6n":"Étude sectorielle, dirigeants du BTP",
+    "tbl.r7n":"Rapport de régulateur",
+    "tbl.r8n":"Rapport de régulateur",
+    "disc.label":"Indépendance éditoriale",
+    "disc.body":"Ce numéro ne comporte aucun partenariat ni financement externe. Le contenu analytique est produit indépendamment de tout client de conseil, dont aucun n'apparaît dans les sections analytiques.",
+    "cta1.t":"Dispatch sur mesure",
+    "cta1.b":"La même feuille de route, sur votre périmètre métiers et vos données d'usage.",
+    "cta2.t":"Mise en œuvre opérationnelle",
+    "cta2.b":"Du diagnostic au premier trimestre exécuté.",
+    "sig":"Naully",
+    "foot.body":"Observatoire[s]·ia · publication indépendante · transitions-ia.fr"
+  }
+};
+
+/* Données de figure · les libellés sont des clés i18n, jamais du texte en dur. */
+const FIG1_DATA = [
+  { key:'fig1.d1', value:64 },
+  { key:'fig1.d2', value:68 },
+  { key:'fig1.d3', value:75 },
+  { key:'fig1.d4', value:73 },
+  { key:'fig1.d5', value:84 },
+  { key:'fig1.d6', value:83 }
+];
+const FIG2_DATA = [
+  { key:'fig2.d1', value:60 },
+  { key:'fig2.d2', value:17 },
+  { key:'fig2.d3', value:21 },
+  { key:'fig2.d4', value:14 }
+];
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOTEUR · ne pas modifier d'un numéro à l'autre
+   ═══════════════════════════════════════════════════════════════════ */
+let currentLang = DISPATCH_CONFIG.defaultLang;
+
+function t(key){
+  const dict = PAGE_I18N[currentLang] || PAGE_I18N[LANGS[0]];
+  return dict[key] != null ? dict[key] : key;
+}
+
+function applyI18n(lang){
+  if(!PAGE_I18N[lang]) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n')];
+    if(v == null) return;
+    if(/<[a-z][\s\S]*?>/i.test(v)) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n-aria')];
+    if(v != null) el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('#langSwitch .ctrl').forEach(b=>{
+    b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  });
+  try{ localStorage.setItem('dispatch-lang', lang); }catch(e){}
+  renderAllCharts();
+}
+
+function buildLangSwitch(){
+  const host = document.getElementById('langSwitch');
+  host.innerHTML = '';
+  LANGS.forEach(l=>{
+    const b = document.createElement('button');
+    b.className = 'ctrl'; b.dataset.lang = l; b.textContent = l.toUpperCase();
+    b.addEventListener('click', ()=>applyI18n(l));
+    host.appendChild(b);
+  });
+}
+
+function setTheme(mode){
+  document.documentElement.setAttribute('data-theme', mode);
+  try{ localStorage.setItem('dispatch-theme', mode); }catch(e){}
+  renderAllCharts();
+}
+
+/* Renderer barres horizontales · mesures en pixels prises sur la largeur
+   réelle du conteneur, donc toujours calées sur la colonne parente.
+   Se re-rend au redimensionnement, au changement de langue et de thème.
+   Sous 560px : libellé au-dessus de la barre, valeur alignée à droite. */
+function renderBars(mountId, data, opts){
+  const o = Object.assign({ unit:'%', max:null, color:'var(--ink-warm-4)' }, opts||{});
+  const el = document.getElementById(mountId);
+  if(!el || typeof d3 === 'undefined') return;
+  el.innerHTML = '';
+
+  const W = Math.max(240, el.clientWidth || 640);
+
+  /* CORRECTIF · gouttiere de libelles MESUREE sur les textes reels, jamais
+     estimee. Sonde SVG posee dans le conteneur, donc meme contexte de police.
+     L'ancien plafond en dur de 220px coupait les libelles longs a gauche.
+     Si la place manque malgre la mesure, bascule en libelle au-dessus. */
+  let labelNeed = 0;
+  try{
+    const probe = d3.select(el).append('svg')
+      .attr('aria-hidden','true')
+      .style('position','absolute').style('visibility','hidden')
+      .style('width','0').style('height','0').style('overflow','visible');
+    data.forEach(d=>{
+      const n = probe.append('text')
+        .style('font-family','var(--font-sans)').style('font-size','14px')
+        .text(t(d.key)).node();
+      labelNeed = Math.max(labelNeed, n.getComputedTextLength());
+    });
+    probe.remove();
+  }catch(e){ labelNeed = 0; }
+  labelNeed = labelNeed > 0 ? Math.ceil(labelNeed) + 12 : Math.min(220, Math.round(W * 0.32));
+
+  const stacked = W < 560 || labelNeed > W * 0.50;
+  const labelW = stacked ? 0 : labelNeed;
+  const valueW = 58;
+  const rowH = stacked ? 56 : 34;
+  const gap = 10;
+  const H = data.length * (rowH + gap) - gap;
+  const barMax = Math.max(20, W - labelW - valueW);
+  const max = o.max != null ? o.max : d3.max(data, d=>d.value);
+  const x = d3.scaleLinear().domain([0, max]).range([0, barMax]);
+
+  const svg = d3.select(el).append('svg')
+    .attr('width', W).attr('height', H)
+    .attr('viewBox', '0 0 ' + W + ' ' + H)
+    .attr('preserveAspectRatio','xMinYMin meet')
+    .attr('role','img');
+
+  const g = svg.selectAll('g').data(data).enter().append('g')
+    .attr('transform', (d,i)=>'translate(0,' + i*(rowH+gap) + ')');
+
+  g.append('text')
+    .attr('x', stacked ? 0 : labelW - 12)
+    .attr('y', stacked ? 14 : rowH/2 + 5)
+    .attr('text-anchor', stacked ? 'start' : 'end')
+    .attr('fill','var(--ink-2)')
+    .style('font-family','var(--font-sans)').style('font-size','14px')
+    .text(d=>t(d.key));
+
+  g.append('rect')
+    .attr('x', labelW).attr('y', stacked ? 28 : 8)
+    .attr('height', 18).attr('rx', 1)
+    .attr('fill', o.color)
+    .attr('width', 0)
+    .transition().duration(500)
+    .attr('width', d=>Math.max(1, x(d.value)));
+
+  g.append('text')
+    .attr('x', d=>Math.min(W, labelW + x(d.value) + 10))
+    .attr('y', stacked ? 42 : rowH/2 + 5)
+    .attr('fill','var(--ink-1)')
+    .style('font-family','var(--font-mono)').style('font-size','13px')
+    .text(d=>d.value + o.unit);
+}
+
+function renderAllCharts(){
+  renderBars('fig1', FIG1_DATA, { unit:' %', max:100 });
+  renderBars('fig2', FIG2_DATA, { unit:' %', max:100 });
+}
+
+function initProgress(){
+  const bar = document.getElementById('progress');
+  const onScroll = ()=>{
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let lang = DISPATCH_CONFIG.defaultLang, theme = 'light';
+  try{
+    lang = localStorage.getItem('dispatch-lang') || lang;
+    theme = localStorage.getItem('dispatch-theme') || theme;
+  }catch(e){}
+  if(!PAGE_I18N[lang]) lang = DISPATCH_CONFIG.defaultLang;
+
+  document.documentElement.setAttribute('data-theme', theme);
+  buildLangSwitch();
+  applyI18n(lang);
+  initProgress();
+
+  document.getElementById('themeToggle').addEventListener('click', ()=>{
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  window.__d3Ready.then(renderAllCharts).catch(()=>{
+    document.querySelectorAll('[data-chart]').forEach(el=>{
+      el.innerHTML = '<p class="mono" style="color:var(--ink-3)">Graphique indisponible · d3 non chargé</p>';
+    });
+  });
+
+  let rt;
+  window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(renderAllCharts, 150); });
+});
+</script>
+</body>
+</html>

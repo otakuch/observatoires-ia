@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ZONE A · VALEURS LITTÉRALES · À ÉDITER À CHAQUE NUMÉRO
+     Sept lignes, et sept seulement. Ne pas déplacer ce bloc.
+     Le scraper LinkedIn n'exécute pas JavaScript : ces valeurs doivent
+     rester en dur dans le document, jamais injectées au chargement.
+     ═══════════════════════════════════════════════════════════════════ -->
+<title>Dispatch·iA #009 · Rentrée 2026 · l'IA en Suisse entre orchestration et vigilance · Observatoire[s]·ia</title>
+<meta name="description" content="Rentrée 2026 en Suisse : maturité Data & IA, IA agentique sous supervision humaine, signaux sur l'emploi des jeunes et pistes pour CODIR et pouvoirs publics.">
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/09-rentree-2026-suisse.html">
+<meta property="og:title" content="Dispatch·iA #009 · Rentrée 2026 · l'IA en Suisse entre orchestration et vigilance">
+<meta property="og:description" content="Rentrée 2026 en Suisse : maturité Data & IA, IA agentique sous supervision humaine, signaux sur l'emploi des jeunes et pistes pour CODIR et pouvoirs publics.">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/briefings/09-rentree-2026-suisse.html">
+<meta property="og:image" content="https://observatoire.naullynicolas.ch/assets/og/09-rentree-2026-suisse.png">
+<!-- ═══════════════════════════════ FIN ZONE A ═══════════════════════ -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Observatoire[s]·ia">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- RÈGLE DE PARITÉ TYPOGRAPHIQUE : toute famille présente dans ce lien
+     doit être déclarée dans --font-display / --font-sans / --font-mono,
+     et réciproquement. Vérifié par grep dans le script QA. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>window.__d3Ready=new Promise((res,rej)=>{window.__d3ReadyResolve=res;window.__d3ReadyReject=rej;});</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+        onload="window.__d3ReadyResolve()" onerror="window.__d3ReadyReject()"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   1 · COUCHE CANONIQUE · NOMENCLATURE ENCRE & ARDOISE
+   Ces noms font foi. Toute nouvelle règle CSS les utilise directement.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  /* Surfaces et encre */
+  --ink-paper:#FBF9F4;
+  --ink-paper-alt:#F3EFE7;
+  --ink-1:#1A1A1A;          /* texte principal */
+  --ink-2:#5B5B5B;          /* texte secondaire */
+  --ink-3:#8A8A8A;          /* texte tertiaire, légendes, tiers */
+  --ink-rule:#E5E0D8;       /* filets, bordures */
+  --ink-rule-strong:#C9C2B5;
+
+  /* Signal · INTERACTIF UNIQUEMENT · liens, boutons, focus, contrôles */
+  --ink-signal:#1B4D8F;
+  --ink-signal-soft:#DDE5F0;
+
+  /* Éditorial · accent de série Dispatch·iA · titres de rang, marqueurs */
+  --ink-editorial:#B8312F;
+  --ink-editorial-soft:#E8DCDA;
+
+  /* Statut · sémantique stricte, jamais décoratif */
+  --ink-positive:#2D6A4F;
+  --ink-caution:#BF6B04;
+
+  /* Rampe d'exposition · ANALYSE UNIQUEMENT · encodage de valeur
+     À RÉCONCILIER avec la rampe du site porteur lors de la propagation. */
+  --ink-warm-1:#F2E4DC;
+  --ink-warm-2:#E4BFAF;
+  --ink-warm-3:#D18F78;
+  --ink-warm-4:#C25E4C;
+  --ink-warm-5:#B8312F;
+
+  --ink-grid:#E5E0D8;
+  --ink-shadow:0 1px 2px rgba(26,26,26,.04),0 4px 12px rgba(26,26,26,.04);
+
+  /* Typographie · trois rôles, trois variables, rien d'autre */
+  --font-display:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  /* Échelle typographique · ratio 1.25, base 17px */
+  --fs-xs:12px; --fs-sm:14px; --fs-base:17px; --fs-md:19px;
+  --fs-lg:23px; --fs-xl:29px; --fs-2xl:36px; --fs-3xl:46px;
+
+  /* Rythme vertical et gouttières */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+
+  /* Largeurs */
+  --w-col:820px;      /* colonne de lecture */
+  --gutter:24px;      /* gouttière latérale, une seule fois dans l'arbre */
+}
+
+[data-theme="dark"]{
+  --ink-paper:#15140F;
+  --ink-paper-alt:#1F1D17;
+  --ink-1:#F2EEE6;
+  --ink-2:#B8B2A6;
+  --ink-3:#8A8479;
+  --ink-rule:#33302A;
+  --ink-rule-strong:#47433B;
+  --ink-signal:#7BA7DB;
+  --ink-signal-soft:#1E2A3A;
+  --ink-editorial:#E0564F;
+  --ink-editorial-soft:#3A2624;
+  --ink-positive:#5FAE89;
+  --ink-caution:#D98C2B;
+  --ink-warm-1:#3A2624;
+  --ink-warm-2:#5C3730;
+  --ink-warm-3:#8A4A3E;
+  --ink-warm-4:#B35047;
+  --ink-warm-5:#E0564F;
+  --ink-grid:#2A2823;
+  --ink-shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2 · COUCHE D'ALIAS HISTORIQUES · #001 à #006
+   Ne pas utiliser dans du code neuf. Se supprime en un bloc le jour où
+   aucun grep ne trouve plus ces noms dans les dispatchs publiés.
+   ═══════════════════════════════════════════════════════════════════ */
+:root,[data-theme="dark"]{
+  --bg:var(--ink-paper);      --bg-alt:var(--ink-paper-alt);
+  --tx:var(--ink-1);          --tx-sec:var(--ink-2);      --tx-mut:var(--ink-3);
+  --br:var(--ink-rule);       --br-strong:var(--ink-rule-strong);
+  --ac:var(--ink-editorial);  --ac-soft:var(--ink-editorial-soft);
+  --green:var(--ink-positive);--amber:var(--ink-caution);
+  --grid:var(--ink-grid);     --shadow:var(--ink-shadow);
+}
+
+/* ═══════════════════════════════ 3 · SOCLE ════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink-paper);color:var(--ink-1);
+  font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+  overflow-x:hidden;   /* jamais overflow:hidden seul : casserait le sticky */
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4 · SYSTÈME DE MISE EN PAGE · DEUX NIVEAUX, JAMAIS FUSIONNÉS
+   .wrap  pleine largeur, porte la gouttière · fond et filets pleine page
+   .col   colonne de lecture centrée · porte le contenu
+   Règle : .wrap et .col ne sont JAMAIS sur le même élément, et .wrap
+   n'est jamais imbriqué dans .wrap. Sinon la gouttière se cumule et la
+   colonne rétrécit à chaque niveau.
+   ═══════════════════════════════════════════════════════════════════ */
+.wrap{width:100%;padding-left:var(--gutter);padding-right:var(--gutter)}
+.col{width:100%;max-width:var(--w-col);margin-left:auto;margin-right:auto;min-width:0}
+
+/* Le premier et le dernier enfant d'une colonne ne créent jamais
+   d'espace mort : c'est le conteneur qui porte le rythme vertical. */
+.col > :first-child{margin-top:0}
+.col > :last-child{margin-bottom:0}
+
+/* Section · le filet et la respiration haute sont portés par la colonne,
+   pour que le trait s'arrête aux 820px et ne traverse pas l'écran. */
+.sec{padding-bottom:var(--sp-7)}
+.sec > .wrap > .col{padding-top:var(--sp-7);border-top:1px solid var(--ink-rule)}
+.sec--flush > .wrap > .col{border-top:none}
+.band .sec > .wrap > .col{border-top:none;padding-top:0}
+
+/* Bande pleine largeur · enfant direct de main, jamais de la colonne */
+.band{background:var(--ink-paper-alt);padding:var(--sp-7) 0}
+.band > .wrap > .col > :last-child{margin-bottom:0}
+
+a{color:var(--ink-signal);text-decoration:none;border-bottom:1px solid var(--ink-signal-soft)}
+a:hover{border-bottom-color:var(--ink-signal)}
+:focus-visible{outline:2px solid var(--ink-signal);outline-offset:2px}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:var(--fs-3xl)}
+h2{font-size:var(--fs-2xl);margin-bottom:var(--sp-4)}
+h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
+p{margin-bottom:var(--sp-4)}
+p:last-child{margin-bottom:0}
+
+/* Les médias remplacés sont en blocs : sinon la ligne de base laisse
+   un espace fantôme de 4 à 6px sous chaque svg. */
+svg,img,canvas{display:block;max-width:100%}
+
+.mono{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ink-editorial);z-index:100;transition:width .1s linear}
+
+/* ═══════════════════ 5 · BIBLIOTHÈQUE DE BLOCS ═══════════════════
+   Chaque bloc occupe 100 % de la colonne. Aucune largeur en dur, aucun
+   float, aucune marge latérale : la largeur vient toujours du parent.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* BLOC · contrôles langue et thème */
+.controls{position:sticky;top:0;z-index:50;background:var(--ink-paper);border-bottom:1px solid var(--ink-rule)}
+.controls .col{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
+  padding-top:var(--sp-3);padding-bottom:var(--sp-3);flex-wrap:wrap}
+.ctrl-set{display:flex;gap:var(--sp-4);flex-wrap:wrap}
+.ctrl-group{display:flex;gap:var(--sp-1)}
+.ctrl{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink-rule);color:var(--ink-2);
+  padding:var(--sp-2) var(--sp-3);cursor:pointer;border-radius:2px}
+.ctrl:hover{border-color:var(--ink-signal);color:var(--ink-signal)}
+.ctrl[aria-pressed="true"]{background:var(--ink-signal);border-color:var(--ink-signal);color:#fff}
+
+/* BLOC · en-tête de dispatch */
+.masthead{padding:var(--sp-8) 0 var(--sp-7);border-bottom:1px solid var(--ink-rule)}
+.masthead .kicker{color:var(--ink-editorial);display:block;margin-bottom:var(--sp-4)}
+.masthead h1{margin-bottom:var(--sp-4)}
+.masthead .standfirst{font-size:var(--fs-md);color:var(--ink-2);max-width:62ch}
+.masthead .meta{margin-top:var(--sp-5);color:var(--ink-3);display:flex;flex-wrap:wrap;gap:var(--sp-4)}
+
+/* BLOC · TL;DR · lecture non linéaire */
+.tldr{background:var(--ink-paper-alt);border-left:3px solid var(--ink-editorial);
+  padding:var(--sp-5);width:100%}
+.tldr .mono{color:var(--ink-3);margin-bottom:var(--sp-3);display:block}
+.tldr ul{list-style:none}
+.tldr li{padding-left:var(--sp-5);position:relative;margin-bottom:var(--sp-3)}
+.tldr li:last-child{margin-bottom:0}
+.tldr li::before{content:"·";position:absolute;left:var(--sp-2);color:var(--ink-editorial);font-weight:600}
+
+/* BLOC · grille KPI · auto-fit, les cartes remplissent la colonne */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.kpi{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  box-shadow:var(--ink-shadow);min-width:0;display:flex;flex-direction:column}
+.kpi .fig{font-family:var(--font-display);font-size:var(--fs-2xl);line-height:1;margin-bottom:var(--sp-2)}
+.kpi .lab{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-3);flex:1}
+.kpi .src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* BLOC · numéro de section */
+.num{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.08em;
+  color:var(--ink-editorial);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · citation inline */
+.cite{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap}
+
+/* BLOC · encadré méthodologique */
+.note{border:1px solid var(--ink-rule);border-left:3px solid var(--ink-caution);
+  padding:var(--sp-5);margin:var(--sp-6) 0;background:var(--ink-paper);width:100%}
+.note .mono{color:var(--ink-caution);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · figure */
+.fig-block{margin:var(--sp-6) 0;width:100%}
+.fig-title{font-family:var(--font-display);font-size:var(--fs-md);margin-bottom:var(--sp-2)}
+.fig-sub{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-5)}
+.chart{width:100%;min-width:0}
+.chart svg{width:100%;height:auto}
+.fig-src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--ink-rule)}
+
+/* BLOC · débat · colonnes de hauteur égale */
+.debate{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:var(--sp-5);margin:var(--sp-6) 0;align-items:stretch}
+.pos{border-top:2px solid var(--ink-rule-strong);padding-top:var(--sp-4);min-width:0}
+.pos .mono{color:var(--ink-3);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · cartes métier · auto-fill et non auto-fit : avec cinq cartes,
+   la dernière rangée garde la largeur d'une carte au lieu de s'étirer. */
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.role{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  min-width:0;display:flex;flex-direction:column}
+.role .code{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  display:block;margin-bottom:var(--sp-2)}
+.role h3{font-size:var(--fs-md);margin-bottom:var(--sp-3)}
+.role .expo{height:6px;background:var(--ink-rule);margin:var(--sp-3) 0;position:relative;width:100%}
+.role .expo span{position:absolute;inset:0 auto 0 0;background:var(--ink-warm-4)}
+.role .desc{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:0}
+
+/* BLOC · agenda 90 jours */
+.agenda{list-style:none;counter-reset:step;margin:var(--sp-6) 0}
+.agenda li{counter-increment:step;padding-left:var(--sp-7);position:relative;margin-bottom:var(--sp-5)}
+.agenda li:last-child{margin-bottom:0}
+.agenda li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-editorial)}
+.agenda strong{display:block;margin-bottom:var(--sp-1)}
+.agenda span{color:var(--ink-2)}
+
+/* BLOC · table des sources */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--sp-6) 0;width:100%}
+.sources{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.sources th{text-align:left;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--ink-rule-strong);
+  padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;white-space:nowrap}
+.sources td{border-bottom:1px solid var(--ink-rule);padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;vertical-align:top}
+.sources td:last-child,.sources th:last-child{padding-right:0}
+.sources .tier{font-family:var(--font-mono);font-size:var(--fs-xs);white-space:nowrap}
+
+/* BLOC · disclosure éditoriale */
+.disclosure{border:1px solid var(--ink-rule-strong);padding:var(--sp-5);
+  margin:var(--sp-6) 0 0;background:var(--ink-paper-alt);width:100%}
+.disclosure .mono{display:block;margin-bottom:var(--sp-3);color:var(--ink-3)}
+
+/* BLOC · double appel à l'action · cartes de hauteur égale */
+.cta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  gap:var(--sp-4);margin:0;align-items:stretch}
+.cta a{display:flex;flex-direction:column;border:1px solid var(--ink-signal);
+  padding:var(--sp-5);min-width:0}
+.cta a:hover{background:var(--ink-signal-soft);border-color:var(--ink-signal)}
+.cta strong{font-family:var(--font-display);font-size:var(--fs-md);color:var(--ink-1);margin-bottom:var(--sp-2)}
+.cta span{font-size:var(--fs-sm);color:var(--ink-2)}
+
+/* BLOC · signature et pied de page */
+.sig{font-family:var(--font-display);font-size:var(--fs-md);margin-top:var(--sp-7)}
+footer{border-top:1px solid var(--ink-rule);padding:var(--sp-6) 0 var(--sp-8);
+  color:var(--ink-3);font-size:var(--fs-sm)}
+footer .ver{font-family:var(--font-mono);font-size:var(--fs-xs);margin-top:var(--sp-2)}
+
+/* ═══════════════════════════ 6 · RESPONSIVE ═══════════════════════
+   Aucune piste de grille en 1fr nu : minmax(min(100%,X),1fr) partout,
+   sinon un contenu long étire la piste et déborde horizontalement.   */
+@media (max-width:640px){
+  :root{--fs-3xl:32px;--fs-2xl:27px;--fs-xl:23px;--gutter:16px}
+  .masthead{padding:var(--sp-6) 0 var(--sp-5)}
+  .band{padding:var(--sp-6) 0}
+  .sec{padding-bottom:var(--sp-6)}
+  .sec > .wrap > .col{padding-top:var(--sp-6)}
+  .controls .col{gap:var(--sp-3)}
+}
+/* ═══ CORRECTIF #009 · libellés d'audience dans l'agenda · retractable ═══ */
+.agenda-label{display:block;color:var(--ink-3);margin-top:var(--sp-6)}
+.agenda-label:first-of-type{margin-top:var(--sp-5)}
+/* citations longues · autorise le retour à la ligne sous 560px, dessus intact */
+/* infographies statiques · #009 · image en bloc, largeur portée par la colonne */
+.infog{margin:var(--sp-6) 0;width:100%}
+.infog img{width:100%;height:auto;border:1px solid var(--ink-rule);box-shadow:var(--ink-shadow)}
+.infog figcaption{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);margin-top:var(--sp-3);letter-spacing:.04em}
+@media (max-width:560px){.cite{white-space:normal}}
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
+</style>
+</head>
+
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ═══════════ CONTRÔLES ═══════════ -->
+<div class="controls">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono" data-i18n="ui.series">Observatoire[s]·ia · Dispatch·iA</span>
+      <div class="ctrl-set">
+        <div class="ctrl-group" id="langSwitch" role="group" aria-label="Langue"></div>
+        <button class="ctrl" id="themeToggle" data-i18n="ui.theme">Thème</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ EN-TÊTE ═══════════ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono kicker" data-i18n="hero.kicker">Dispatch·iA #009 · Spécial rentrée · Édition du 8 septembre 2026</span>
+      <h1 data-i18n="hero.title">Rentrée 2026 · l'IA en Suisse entre orchestration et vigilance</h1>
+      <p class="standfirst" data-i18n="hero.standfirst">L'adoption n'est plus le sujet, l'arbitrage l'est. Les entreprises suisses savent ce qu'elles veulent de l'IA, mais leurs fondations data, leur organisation et leur politique de recrutement junior n'ont pas suivi. Cette rentrée se joue sur trois décisions : où déléguer, où superviser, qui embaucher.</p>
+      <div class="meta mono">
+        <span data-i18n="hero.author">Naully Nicolas</span>
+        <span data-i18n="hero.reading">9 min de lecture</span>
+        <span data-i18n="hero.scope">Périmètre · Suisse · signaux internationaux signalés comme tels</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════ TL;DR ═══════════ -->
+  <section class="sec sec--flush">
+    <div class="wrap"><div class="col">
+      <div class="tldr">
+        <span class="mono" data-i18n="tldr.label">En bref</span>
+        <ul>
+          <li data-i18n="tldr.1">82 % des entreprises suisses restent à un niveau faible ou intermédiaire de maturité Data & IA, alors que 47 % intègrent déjà l'IA dans leur planification long terme.</li>
+          <li data-i18n="tldr.2">90 % maintiennent l'IA agentique à autonomie zéro ou avec un humain dans la boucle. La friction algorithmique est assumée, pas subie.</li>
+          <li data-i18n="tldr.3">Aux États-Unis, l'emploi des 22-25 ans dans les métiers exposés est 19 % sous sa trajectoire de référence. En Suisse, la part des offres juniors a reculé de 32 % dans les secteurs exposés et le chômage des 15-24 ans est monté à 3,4 % en août, hausse que le SECO qualifie de saisonnière. Aucune série suisse ne croise encore âge et exposition.</li>
+        </ul>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §00 · REPÈRES ═══════════ -->
+  <section class="sec" id="s00">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s00.num">§00 · Repères</span>
+      <h2 data-i18n="s00.title">Les chiffres de la rentrée</h2>
+      <p data-i18n="s00.body">Quatre indicateurs pour cadrer la rentrée. Les trois premiers sont documentés, le quatrième ne l'est pas : c'est précisément le trou que ce numéro signale. Chaque valeur porte sa source et son tier, aucune n'est estimée.</p>
+      <div class="kpis">
+        <div class="kpi"><span class="fig">82 %</span><span class="lab" data-i18n="s00.kpi1">Entreprises suisses à maturité Data & IA faible ou intermédiaire · +4 pts vs 2025</span><span class="src">Colombus, Oracle & HEG-Genève, 2026 · T2/C2</span></div>
+        <div class="kpi"><span class="fig">−32 %</span><span class="lab" data-i18n="s00.kpi2">Recul de la part des offres d'emploi juniors en 2025 vs moyenne 2019-2022 · informatique, marketing, finance, administration · Suisse</span><span class="src">jobs.ch KI-Report, juin 2026 · T3/C3</span></div>
+        <div class="kpi"><span class="fig">n.d.</span><span class="lab" data-i18n="s00.kpi3">Emploi des 22-25 ans en Suisse dans les métiers exposés, par quintile d'exposition</span><span class="src" data-i18n="s00.kpi3src">OFS ESPA / SECO · aucune série croisant âge et exposition · n.d.</span></div>
+        <div class="kpi"><span class="fig">19 %</span><span class="lab" data-i18n="s00.kpi4">Écart d'emploi des 22-25 ans dans les métiers exposés vs leurs pairs peu exposés · États-Unis, nov. 2022 à juin 2026</span><span class="src">Brynjolfsson, Chandar & Chen, 2026 · T1/C2 · États-Unis</span></div>
+      </div>
+      <!-- CORRECTIF · figure class="infog" retiree · l'image assets/infographies/dispatch-009-01-knowing-doing-gap.png est absente du depot et rendait un cadre vide de 1200x1500. CSS .infog et cle i18n infog1.cap conserves : recoller le bloc <figure> d'origine a cet emplacement restitue l'etat anterieur. -->
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §01 · MESURE ═══════════ -->
+  <section class="sec" id="s01">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s01.num">§01 · Mesure</span>
+      <h2 data-i18n="s01.title">Des fondations qui reculent quand les ambitions montent</h2>
+      <p data-i18n="s01.body">L'Observatoire Data & IA en Suisse, enquête menée de janvier à avril 2026 auprès de plus de 100 organisations, livre un signal contre-intuitif : la part d'entreprises jugeant leurs données bonnes à excellentes recule à 51 %, soit dix points de moins qu'en 2025, alors même que la gouvernance formelle progresse, la part d'organisations sans gouvernance passant de 17 % en 2024 à 8 % en 2026 <span class="cite">Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2</span>. Les auteurs lisent ce recul comme une exigence accrue plutôt qu'une dégradation : à mesure que les cas d'usage deviennent autonomes et critiques, les limites de qualité et de traçabilité deviennent visibles. C'est la friction numérique qui se révèle. Sur l'IA agentique, la Suisse choisit la prudence : 69 % explorent ou expérimentent, 8 % ont atteint l'intégration, 3 % déploient des systèmes multi-agents à l'échelle. Le recul parallèle des assistants GenAI déployés à l'échelle, 46 % contre 75 % un an plus tôt, est présenté par la même source comme un recentrage sur la valeur démontrée. Le budget, souligne l'étude, n'est pas un prédicteur significatif du passage à l'échelle ; la maturité data l'est.</p>
+      <div class="fig-block">
+        <div class="fig-title" data-i18n="fig1.title">Figure 1 · L'IA agentique en Suisse, une autonomie proportionnée</div>
+        <div class="fig-sub" data-i18n="fig1.sub">Part des organisations, en %, panel de plus de 100 organisations suisses, enquête janvier à avril 2026</div>
+        <div class="chart" id="fig1" data-chart="bars"></div>
+        <div class="fig-src" data-i18n="fig1.src">Source · Colombus Consulting, Oracle & HEG-Genève, Observatoire Data & IA 2026 · n > 100 · T2/C2</div>
+      </div>
+      <div class="note">
+        <span class="mono" data-i18n="note.label">Note de lecture</span>
+        <p data-i18n="note.body">L'Observatoire Data & IA en Suisse est co-édité par un cabinet de conseil, un éditeur de logiciels et une haute école. Cette co-édition commerciale justifie un classement T2 et non T1. Le panel, supérieur à 100 organisations, n'est pas présenté comme représentatif de l'économie suisse. Les variations annuelles doivent être lues comme des tendances de panel, pas comme des mesures de population.</p>
+      </div>
+      <!-- CORRECTIF · figure class="infog" retiree · l'image assets/infographies/dispatch-009-02-agentique-autonomie.png est absente du depot et rendait un cadre vide de 1200x1500. CSS .infog et cle i18n infog2.cap conserves : recoller le bloc <figure> d'origine a cet emplacement restitue l'etat anterieur. -->
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §02 · DÉBAT ═══════════ -->
+  <section class="sec" id="s02">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s02.num">§02 · Débat</span>
+      <h2 data-i18n="s02.title">Les canaris chantent, le chômage ne bouge pas</h2>
+      <div class="debate">
+        <div class="pos">
+          <span class="mono" data-i18n="s02.posA.label">Position A · signal précoce sur les jeunes</span>
+          <p data-i18n="s02.posA.body">À partir de données de paie ADP couvrant des millions de salariés américains jusqu'en juin 2026, l'emploi des 22-25 ans dans les métiers exposés à l'IA s'établit 19 % sous le niveau qu'il aurait atteint en suivant celui de leurs pairs peu exposés. L'écart s'est creusé depuis août 2025, opère par réduction des embauches et non par licenciements, et se concentre dans les métiers où l'usage de l'IA substitue les tâches humaines. Aucun déplacement généralisé n'est observé <span class="cite">Brynjolfsson, Chandar & Chen, 2026 · T1/C2</span>. L'écho suisse existe, mais sur une source commerciale mono-source : sur 7,3 millions d'offres publiées sur jobs.ch, jobup.ch et JobScout24.ch, la part des postes juniors a reculé de 32 % en 2025 par rapport à la moyenne 2019-2022 dans les secteurs exposés, informatique, marketing, finance et administration, et 44 % des offres analysées relèvent de métiers exposés <span class="cite">jobs.ch KI-Report, juin 2026 · T3/C3</span>.</p>
+        </div>
+        <div class="pos">
+          <span class="mono" data-i18n="s02.posB.label">Position B · aucun effet visible sur le chômage</span>
+          <p data-i18n="s02.posB.body">En croisant l'exposition par métier avec l'enquête CPS, aucun impact clair n'apparaît sur le chômage des métiers exposés, y compris pour les 22-25 ans, quel que soit le seuil retenu <span class="cite">Anthropic Economic Research, 2026 · T3/C2</span>. La presse économique relaie le même constat sur les données d'août 2026 : 162 000 emplois créés aux États-Unis, chômage à 4,1 %, écart entre les 20-24 ans et l'ensemble proche d'un plus bas pluridécennal <span class="cite">The Economist, 4 septembre 2026 · T4/C3</span>. Le même dossier chiffre la création : environ un million d'emplois attribués à l'IA aux États-Unis, contre environ 200 000 suppressions depuis mi-2023, dont 320 000 emplois au-dessus de la tendance dans les métiers liés aux centres de données et 730 000 chez les ingénieurs et data scientists, deux estimations produites par le journal sur séries BLS. La contrepartie figure dans les mêmes données : depuis janvier 2023, l'emploi recule d'environ 10 % chez les agents de service client et d'environ 15 % chez les secrétaires, et le BLS projette 752 000 suppressions dans les fonctions administratives d'ici 2035. En Suisse, le SECO publie pour août 2026 un taux de chômage stable à 3,0 %, 3,1 % corrigé des variations saisonnières, et un taux de 3,4 % chez les 15-24 ans, en hausse de 0,6 point sur le mois, hausse qualifiée de saisonnière et liée aux fins de cursus <span class="cite">SECO, 7 septembre 2026 · T1/C1</span>. Le chômage au sens du BIT s'établit à 4,9 % au deuxième trimestre, contre 4,6 % un an plus tôt, pour une population en emploi en hausse de 0,8 % <span class="cite">OFS ESPA, 2026 · T1/C1</span>. Les offres d'emploi reculent de 2,4 % sur le trimestre, mais les professions de l'informatique et les métiers de bureau publient davantage d'annonces <span class="cite">Adecco et Université de Zurich, juillet 2026 · T2/C2</span>.</p>
+        </div>
+      </div>
+      <p data-i18n="s02.close">Les positions ne se contredisent pas : elles ne mesurent pas la même chose. Une part d'offres juniors sur des portails privés, un flux d'embauches sur un panel d'employeurs, un stock de chômeurs inscrits ou déclarés en enquête ménages. Un jeune non recruté dans un métier exposé peut être employé ailleurs, prolonger ses études ou sortir de la population active. Pour la Suisse, départager exigerait une série croisant âge, métier NP 2010 et exposition à fréquence trimestrielle. Elle n'existe pas : le SECO ventile par âge chaque mois, jobs.ch ventile par exposition, personne ne croise les deux. Aucun résultat américain n'est transposé ici.</p>
+      <!-- CORRECTIF · figure class="infog" retiree · l'image assets/infographies/dispatch-009-03-trois-mesures.png est absente du depot et rendait un cadre vide de 1200x1500. CSS .infog et cle i18n infog3.cap conserves : recoller le bloc <figure> d'origine a cet emplacement restitue l'etat anterieur. -->
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §03 · MÉTIERS ═══════════ -->
+  <section class="sec sec--flush" id="s03">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s03.num">§03 · Au niveau des métiers</span>
+      <h2 data-i18n="s03.title">Cinq rôles à suivre cette rentrée</h2>
+      <div class="roles">
+        <div class="role">
+          <span class="code">ISCO-08 2512 · NP 2010 n.d.</span>
+          <h3 data-i18n="role1.name">Développeur ou développeuse logiciel junior</h3>
+          <div class="expo"><span style="width:92%"></span></div>
+          <p class="desc" data-i18n="role1.desc">Quintile d'exposition le plus élevé selon Eloundou et al. (2024). Cas d'étude explicite des canaris américains, avec décrochage des effectifs 22-25 ans. En Suisse, les professions de l'informatique publient davantage d'annonces au 2e trimestre 2026 <span class="cite">Adecco et Université de Zurich, 2026 · T2/C2</span>, mais la part junior de ces annonces recule <span class="cite">jobs.ch, 2026 · T3/C3</span>. Effectif suisse par tranche d'âge : n.d.</p>
+        </div>
+        <div class="role">
+          <span class="code">ISCO-08 4222 · NP 2010 n.d.</span>
+          <h3 data-i18n="role2.name">Agent ou agente de service clientèle</h3>
+          <div class="expo"><span style="width:88%"></span></div>
+          <p class="desc" data-i18n="role2.desc">Deuxième cas d'étude des canaris. Tâches codifiées, usage substitutif dominant. Effectif suisse par tranche d'âge : n.d.</p>
+        </div>
+        <div class="role">
+          <span class="code">ISCO-08 4110 · CFC employé·e de commerce</span>
+          <h3 data-i18n="role3.name">Employé ou employée de commerce</h3>
+          <div class="expo"><span style="width:80%"></span></div>
+          <p class="desc" data-i18n="role3.desc">Apprentissage CFC le plus fréquent en Suisse. Tâches administratives fortement codifiées. Le SEFRI recense environ 74 000 places d'apprentissage en 2026, dont 68 % attribuées au printemps, offre inchangée pour 72 % des entreprises formatrices <span class="cite">SEFRI et gfs.bern, 2026 · T1/C2</span>. Première population à surveiller pour l'entrée en emploi post-CFC. Effectif par tranche d'âge : n.d.</p>
+        </div>
+        <div class="role">
+          <span class="code">ISCO-08 4311 · NP 2010 n.d.</span>
+          <h3 data-i18n="role4.name">Comptable ou aide-comptable</h3>
+          <div class="expo"><span style="width:74%"></span></div>
+          <p class="desc" data-i18n="role4.desc">Traitement de pièces et rapprochements, tâches à haute exposition. L'observatoire suisse note 15 % des usages GenAI sur les fonctions support, en hausse de 3 points. Effectif : n.d.</p>
+        </div>
+        <div class="role">
+          <span class="code">Rôle émergent · code n.d.</span>
+          <h3 data-i18n="role5.name">Référent ou référente IA métier</h3>
+          <div class="expo"><span style="width:20%"></span></div>
+          <p class="desc" data-i18n="role5.desc">Rôle translationnel identifié par l'observatoire suisse : relier technologie, métiers, adoption et gestion du risque. Rôle en création, pas en exposition. Effectif : n.d.</p>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §04 · AGENDA ═══════════ -->
+  <section class="sec" id="s04">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s04.num">§04 · Agenda 90 jours</span>
+      <h2 data-i18n="s04.title">Ce qui se décide maintenant</h2>
+      <span class="mono agenda-label" data-i18n="ag.codir">Direction · CODIR</span>
+      <ol class="agenda">
+        <li><strong data-i18n="ag1.t">Auditer le portefeuille avant d'ajouter des cas d'usage</strong><span data-i18n="ag1.b">57 % des initiatives IA partent des métiers. Sans arbitrage central, la fragmentation coûte plus que l'absence d'IA. Question à poser : qui, au CODIR, tient la liste des cas d'usage et leurs critères de passage à l'échelle ? Fonction porteuse : direction générale. Échéance : avant le budget 2027.</span></li>
+        <li><strong data-i18n="ag2.t">Fixer explicitement les niveaux d'autonomie acceptables</strong><span data-i18n="ag2.b">Le marché suisse s'aligne sur l'humain dans la boucle. Décider où automatiser, superviser, déléguer et conserver le contrôle est une décision de direction, pas d'IT, alors que la fonction Data & IA reste rattachée à l'IT dans près d'un cas sur deux. Fonction porteuse : CODIR, avec risque et conformité. Échéance : 90 jours.</span></li>
+        <li><strong data-i18n="ag3.t">Traiter le recrutement junior comme un indicateur avancé</strong><span data-i18n="ag3.b">Si le signal américain se confirme, couper les postes d'entrée assèche le vivier d'expertise tacite à cinq ans. Piste : suivre trimestre par trimestre le ratio embauches juniors sur seniors dans les fonctions exposées. Fonction porteuse : DRH. Échéance : premier relevé au T4 2026.</span></li>
+      </ol>
+      <span class="mono agenda-label" data-i18n="ag.public">Pouvoirs publics</span>
+      <ol class="agenda">
+        <li><strong data-i18n="ag4.t">Outiller la mesure</strong><span data-i18n="ag4.b">Le SECO ventile le chômage par âge chaque mois, l'ESPA de l'OFS mesure l'emploi par profession chaque trimestre, et un portail privé a montré en juin qu'une ventilation par exposition est possible sur 7,3 millions d'offres. Aucune série publique ne croise âge, métier NP 2010 et exposition IA. Un indicateur suisse d'entrée en emploi par exposition est constructible sans nouvelle enquête. Interlocuteurs : OFS, SECO.</span></li>
+        <li><strong data-i18n="ag5.t">Protéger le système dual sans le figer</strong><span data-i18n="ag5.b">Si l'IA réduit les tâches codifiées confiées aux apprentis et aux diplômés HES ou EPF, la supervision d'outils IA doit entrer dans les ordonnances de formation comme compétence certifiée, pas comme option. Interlocuteurs : SEFRI, organisations du monde du travail.</span></li>
+        <li><strong data-i18n="ag6.t">Auditer l'IA de l'administration</strong><span data-i18n="ag6.b">La Cour des comptes européenne publie une stratégie IA 2026-2030 en neuf actions : données adaptées à l'IA, capacité d'audit des systèmes fondés sur l'IA, formation de tous les agents <span class="cite">Cour des comptes européenne, 2026 · T1/C3</span>. Périmètre UE, transposé ici comme gabarit et non comme mesure. Le Contrôle fédéral des finances et les cours cantonales gagnent à publier leur équivalent avant que les usages ne les précèdent.</span></li>
+      </ol>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §05 · MÉTHODE ═══════════ -->
+  <section class="sec" id="s05">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s05.num">§05 · Méthode</span>
+      <h2 data-i18n="s05.title">Sources et niveaux de confiance</h2>
+      <p data-i18n="s05.body">Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse. La confiance, de C1 à C4, qualifie la transparence méthodologique. Les études publiées par des éditeurs de modèles sont classées T3 en tant que sources de première partie. Une valeur absente est notée n.d. et n'est jamais estimée. Aucun résultat obtenu sur un autre pays n'est transposé à la Suisse.</p>
+      <div class="table-scroll">
+        <table class="sources">
+          <thead><tr>
+            <th data-i18n="tbl.src">Source</th><th data-i18n="tbl.nat">Nature</th>
+            <th data-i18n="tbl.base">Base</th><th data-i18n="tbl.tier">Tier</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Colombus Consulting, Oracle & HEG-Genève, Observatoire Data & IA en Suisse, 2026</td><td data-i18n="tbl.r1n">Observatoire co-édité · conseil, éditeur, haute école</td><td>n > 100 organisations CH · janv.-avr. 2026</td><td class="tier">T2/C2</td></tr>
+            <tr><td>Brynjolfsson, Chandar & Chen, Canaries in the Coal Mine?, août 2026</td><td data-i18n="tbl.r2n">Working paper académique · données de paie privées</td><td>ADP · millions de salariés US · jusqu'à juin 2026</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Anthropic Economic Research, Labor market impacts of AI, nowcasting, 2026</td><td data-i18n="tbl.r3n">Note de recherche de première partie · éditeur de modèles</td><td>CPS · exposition Anthropic Economic Index · US</td><td class="tier">T3/C2</td></tr>
+            <tr><td>The Economist, The jobs apocalypse is postponed, 4 septembre 2026</td><td data-i18n="tbl.r4n">Presse économique · reprise de données BLS</td><td>BLS · août 2026 · US</td><td class="tier">T4/C3</td></tr>
+            <tr><td>Cour des comptes européenne, Stratégie en matière d'IA 2026-2030</td><td data-i18n="tbl.r5n">Stratégie institutionnelle · document programmatique</td><td>9 actions · périmètre UE</td><td class="tier">T1/C3</td></tr>
+            <tr><td>SECO, La situation sur le marché du travail en août 2026, 7 septembre 2026</td><td data-i18n="tbl.r7n">Statistique publique · chômage inscrit</td><td>Chômeurs inscrits aux ORP · août 2026 · CH</td><td class="tier">T1/C1</td></tr>
+            <tr><td>OFS, Enquête suisse sur la population active (ESPA), 2e trimestre 2026</td><td data-i18n="tbl.r8n">Statistique publique · enquête ménages</td><td>Enquête ménages · T2 2026 · CH</td><td class="tier">T1/C1</td></tr>
+            <tr><td>SEFRI et gfs.bern, Baromètre des transitions 2026, juin 2026</td><td data-i18n="tbl.r9n">Enquête institutionnelle mandatée</td><td>10 800 jeunes · 7 700 entreprises · fév.-avr. 2026 · CH</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Adecco Group et Stellenmarkt-Monitor Schweiz, Université de Zurich, Swiss Job Market Index T2 2026, juillet 2026</td><td data-i18n="tbl.r10n">Indice commercial et académique</td><td>Offres d'emploi presse et web · T2 2026 · CH</td><td class="tier">T2/C2</td></tr>
+            <tr><td>Jobcloud, jobs.ch KI-Report 2026, juin 2026</td><td data-i18n="tbl.r11n">Rapport commercial mono-source</td><td>7,3 M d'offres · 3 600 salariés · 850 entreprises · 2019-2025 · CH</td><td class="tier">T3/C3</td></tr>
+            <tr><td>OFS ESPA · SECO · emploi des jeunes par exposition IA, Suisse</td><td data-i18n="tbl.r6n">Statistique publique · série non disponible</td><td>n.d.</td><td class="tier">n.d.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="disclosure">
+        <span class="mono" data-i18n="disc.label">Indépendance éditoriale</span>
+        <p data-i18n="disc.body">Ce numéro ne fait l'objet d'aucun partenariat ni financement. Les sources citées n'ont ni relu ni commandité l'analyse.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ CLÔTURE ═══════════ -->
+  <section class="sec">
+    <div class="wrap"><div class="col">
+      <div class="cta">
+        <a href="contact.html?type=custom"><strong data-i18n="cta1.t">Dispatch sur mesure</strong><span data-i18n="cta1.b">Une analyse sur votre périmètre.</span></a>
+        <a href="contact.html?type=ops"><strong data-i18n="cta2.t">Mise en œuvre opérationnelle</strong><span data-i18n="cta2.b">Du diagnostic à la feuille de route.</span></a>
+      </div>
+      <p class="sig" data-i18n="sig">Naully</p>
+    </div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <p data-i18n="foot.body">Observatoire[s]·ia · publication indépendante.</p>
+      <p class="ver">Dispatch·iA #009 · v1.0 · 2026-09-08</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   ZONE B · CONFIGURATION ET CONTENU
+   Tout le corps du document se pilote ici. Aucune édition dispersée.
+   ═══════════════════════════════════════════════════════════════════ */
+
+const DISPATCH_CONFIG = {
+  number: '009',
+  slug: '09-rentree-2026-suisse',
+  date: '2026-09-08',
+  version: '1.0',
+  langs: ['fr','en'],
+  defaultLang: 'fr'
+};
+
+const LANGS = DISPATCH_CONFIG.langs;
+
+const PAGE_I18N = {
+  fr: {
+    "ui.series":"Observatoire[s]·ia · Dispatch·iA",
+    "ui.theme":"Thème",
+    "hero.kicker":"Dispatch·iA #009 · Spécial rentrée · Édition du 8 septembre 2026",
+    "hero.title":"Rentrée 2026 · l'IA en Suisse entre orchestration et vigilance",
+    "hero.standfirst":"L'adoption n'est plus le sujet, l'arbitrage l'est. Les entreprises suisses savent ce qu'elles veulent de l'IA, mais leurs fondations data, leur organisation et leur politique de recrutement junior n'ont pas suivi. Cette rentrée se joue sur trois décisions : où déléguer, où superviser, qui embaucher.",
+    "hero.author":"Naully Nicolas",
+    "hero.reading":"9 min de lecture",
+    "hero.scope":"Périmètre · Suisse · signaux internationaux signalés comme tels",
+    "tldr.label":"En bref",
+    "tldr.1":"82 % des entreprises suisses restent à un niveau faible ou intermédiaire de maturité Data & IA, alors que 47 % intègrent déjà l'IA dans leur planification long terme.",
+    "tldr.2":"90 % maintiennent l'IA agentique à autonomie zéro ou avec un humain dans la boucle. La friction algorithmique est assumée, pas subie.",
+    "tldr.3":"Aux États-Unis, l'emploi des 22-25 ans dans les métiers exposés est 19 % sous sa trajectoire de référence. En Suisse, la part des offres juniors a reculé de 32 % dans les secteurs exposés et le chômage des 15-24 ans est monté à 3,4 % en août, hausse que le SECO qualifie de saisonnière. Aucune série suisse ne croise encore âge et exposition.",
+    "s00.num":"§00 · Repères",
+    "s00.title":"Les chiffres de la rentrée",
+    "s00.body":"Quatre indicateurs pour cadrer la rentrée. Les trois premiers sont documentés, le quatrième ne l'est pas : c'est précisément le trou que ce numéro signale. Chaque valeur porte sa source et son tier, aucune n'est estimée.",
+    "s00.kpi1":"Entreprises suisses à maturité Data & IA faible ou intermédiaire · +4 pts vs 2025",
+    "s00.kpi2":"Recul de la part des offres d'emploi juniors en 2025 vs moyenne 2019-2022 · informatique, marketing, finance, administration · Suisse",
+    "s00.kpi3":"Emploi des 22-25 ans en Suisse dans les métiers exposés, par quintile d'exposition",
+    "s00.kpi3src":"OFS ESPA / SECO · aucune série croisant âge et exposition · n.d.",
+    "s00.kpi4":"Écart d'emploi des 22-25 ans dans les métiers exposés vs leurs pairs peu exposés · États-Unis, nov. 2022 à juin 2026",
+    "s01.num":"§01 · Mesure",
+    "s01.title":"Des fondations qui reculent quand les ambitions montent",
+    "s01.body":"L'Observatoire Data & IA en Suisse, enquête menée de janvier à avril 2026 auprès de plus de 100 organisations, livre un signal contre-intuitif : la part d'entreprises jugeant leurs données bonnes à excellentes recule à 51 %, soit dix points de moins qu'en 2025, alors même que la gouvernance formelle progresse, la part d'organisations sans gouvernance passant de 17 % en 2024 à 8 % en 2026 <span class=\"cite\">Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2</span>. Les auteurs lisent ce recul comme une exigence accrue plutôt qu'une dégradation : à mesure que les cas d'usage deviennent autonomes et critiques, les limites de qualité et de traçabilité deviennent visibles. C'est la friction numérique qui se révèle. Sur l'IA agentique, la Suisse choisit la prudence : 69 % explorent ou expérimentent, 8 % ont atteint l'intégration, 3 % déploient des systèmes multi-agents à l'échelle. Le recul parallèle des assistants GenAI déployés à l'échelle, 46 % contre 75 % un an plus tôt, est présenté par la même source comme un recentrage sur la valeur démontrée. Le budget, souligne l'étude, n'est pas un prédicteur significatif du passage à l'échelle ; la maturité data l'est.",
+    "fig1.title":"Figure 1 · L'IA agentique en Suisse, une autonomie proportionnée",
+    "fig1.sub":"Part des organisations, en %, panel de plus de 100 organisations suisses, enquête janvier à avril 2026",
+    "fig1.src":"Source · Colombus Consulting, Oracle & HEG-Genève, Observatoire Data & IA 2026 · n > 100 · T2/C2",
+    "fig1.d1":"Autonomie zéro ou humain dans la boucle",
+    "fig1.d2":"En exploration ou expérimentation",
+    "fig1.d3":"Intégration · agents spécialisés déployés",
+    "fig1.d4":"Systèmes multi-agents à l'échelle",
+    "note.label":"Note de lecture",
+    "note.body":"L'Observatoire Data & IA en Suisse est co-édité par un cabinet de conseil, un éditeur de logiciels et une haute école. Cette co-édition commerciale justifie un classement T2 et non T1. Le panel, supérieur à 100 organisations, n'est pas présenté comme représentatif de l'économie suisse. Les variations annuelles doivent être lues comme des tendances de panel, pas comme des mesures de population.",
+    "s02.num":"§02 · Débat",
+    "s02.title":"Les canaris chantent, le chômage ne bouge pas",
+    "s02.posA.label":"Position A · signal précoce sur les jeunes",
+    "s02.posA.body":"À partir de données de paie ADP couvrant des millions de salariés américains jusqu'en juin 2026, l'emploi des 22-25 ans dans les métiers exposés à l'IA s'établit 19 % sous le niveau qu'il aurait atteint en suivant celui de leurs pairs peu exposés. L'écart s'est creusé depuis août 2025, opère par réduction des embauches et non par licenciements, et se concentre dans les métiers où l'usage de l'IA substitue les tâches humaines. Aucun déplacement généralisé n'est observé <span class=\"cite\">Brynjolfsson, Chandar & Chen, 2026 · T1/C2</span>. L'écho suisse existe, mais sur une source commerciale mono-source : sur 7,3 millions d'offres publiées sur jobs.ch, jobup.ch et JobScout24.ch, la part des postes juniors a reculé de 32 % en 2025 par rapport à la moyenne 2019-2022 dans les secteurs exposés, informatique, marketing, finance et administration, et 44 % des offres analysées relèvent de métiers exposés <span class=\"cite\">jobs.ch KI-Report, juin 2026 · T3/C3</span>.",
+    "s02.posB.label":"Position B · aucun effet visible sur le chômage",
+    "s02.posB.body":"En croisant l'exposition par métier avec l'enquête CPS, aucun impact clair n'apparaît sur le chômage des métiers exposés, y compris pour les 22-25 ans, quel que soit le seuil retenu <span class=\"cite\">Anthropic Economic Research, 2026 · T3/C2</span>. La presse économique relaie le même constat sur les données d'août 2026 : 162 000 emplois créés aux États-Unis, chômage à 4,1 %, écart entre les 20-24 ans et l'ensemble proche d'un plus bas pluridécennal <span class=\"cite\">The Economist, 4 septembre 2026 · T4/C3</span>. Le même dossier chiffre la création : environ un million d'emplois attribués à l'IA aux États-Unis, contre environ 200 000 suppressions depuis mi-2023, dont 320 000 emplois au-dessus de la tendance dans les métiers liés aux centres de données et 730 000 chez les ingénieurs et data scientists, deux estimations produites par le journal sur séries BLS. La contrepartie figure dans les mêmes données : depuis janvier 2023, l'emploi recule d'environ 10 % chez les agents de service client et d'environ 15 % chez les secrétaires, et le BLS projette 752 000 suppressions dans les fonctions administratives d'ici 2035. En Suisse, le SECO publie pour août 2026 un taux de chômage stable à 3,0 %, 3,1 % corrigé des variations saisonnières, et un taux de 3,4 % chez les 15-24 ans, en hausse de 0,6 point sur le mois, hausse qualifiée de saisonnière et liée aux fins de cursus <span class=\"cite\">SECO, 7 septembre 2026 · T1/C1</span>. Le chômage au sens du BIT s'établit à 4,9 % au deuxième trimestre, contre 4,6 % un an plus tôt, pour une population en emploi en hausse de 0,8 % <span class=\"cite\">OFS ESPA, 2026 · T1/C1</span>. Les offres d'emploi reculent de 2,4 % sur le trimestre, mais les professions de l'informatique et les métiers de bureau publient davantage d'annonces <span class=\"cite\">Adecco et Université de Zurich, juillet 2026 · T2/C2</span>.",
+    "s02.close":"Les positions ne se contredisent pas : elles ne mesurent pas la même chose. Une part d'offres juniors sur des portails privés, un flux d'embauches sur un panel d'employeurs, un stock de chômeurs inscrits ou déclarés en enquête ménages. Un jeune non recruté dans un métier exposé peut être employé ailleurs, prolonger ses études ou sortir de la population active. Pour la Suisse, départager exigerait une série croisant âge, métier NP 2010 et exposition à fréquence trimestrielle. Elle n'existe pas : le SECO ventile par âge chaque mois, jobs.ch ventile par exposition, personne ne croise les deux. Aucun résultat américain n'est transposé ici.",
+    "s03.num":"§03 · Au niveau des métiers",
+    "s03.title":"Cinq rôles à suivre cette rentrée",
+    "role1.name":"Développeur ou développeuse logiciel junior",
+    "role1.desc":"Quintile d'exposition le plus élevé selon Eloundou et al. (2024). Cas d'étude explicite des canaris américains, avec décrochage des effectifs 22-25 ans. En Suisse, les professions de l'informatique publient davantage d'annonces au 2e trimestre 2026 <span class=\"cite\">Adecco et Université de Zurich, 2026 · T2/C2</span>, mais la part junior de ces annonces recule <span class=\"cite\">jobs.ch, 2026 · T3/C3</span>. Effectif suisse par tranche d'âge : n.d.",
+    "role2.name":"Agent ou agente de service clientèle",
+    "role2.desc":"Deuxième cas d'étude des canaris. Tâches codifiées, usage substitutif dominant. Effectif suisse par tranche d'âge : n.d.",
+    "role3.name":"Employé ou employée de commerce",
+    "role3.desc":"Apprentissage CFC le plus fréquent en Suisse. Tâches administratives fortement codifiées. Le SEFRI recense environ 74 000 places d'apprentissage en 2026, dont 68 % attribuées au printemps, offre inchangée pour 72 % des entreprises formatrices <span class=\"cite\">SEFRI et gfs.bern, 2026 · T1/C2</span>. Première population à surveiller pour l'entrée en emploi post-CFC. Effectif par tranche d'âge : n.d.",
+    "role4.name":"Comptable ou aide-comptable",
+    "role4.desc":"Traitement de pièces et rapprochements, tâches à haute exposition. L'observatoire suisse note 15 % des usages GenAI sur les fonctions support, en hausse de 3 points. Effectif : n.d.",
+    "role5.name":"Référent ou référente IA métier",
+    "role5.desc":"Rôle translationnel identifié par l'observatoire suisse : relier technologie, métiers, adoption et gestion du risque. Rôle en création, pas en exposition. Effectif : n.d.",
+    "s04.num":"§04 · Agenda 90 jours",
+    "s04.title":"Ce qui se décide maintenant",
+    "ag.codir":"Direction · CODIR",
+    "ag.public":"Pouvoirs publics",
+    "ag1.t":"Auditer le portefeuille avant d'ajouter des cas d'usage",
+    "ag1.b":"57 % des initiatives IA partent des métiers. Sans arbitrage central, la fragmentation coûte plus que l'absence d'IA. Question à poser : qui, au CODIR, tient la liste des cas d'usage et leurs critères de passage à l'échelle ? Fonction porteuse : direction générale. Échéance : avant le budget 2027.",
+    "ag2.t":"Fixer explicitement les niveaux d'autonomie acceptables",
+    "ag2.b":"Le marché suisse s'aligne sur l'humain dans la boucle. Décider où automatiser, superviser, déléguer et conserver le contrôle est une décision de direction, pas d'IT, alors que la fonction Data & IA reste rattachée à l'IT dans près d'un cas sur deux. Fonction porteuse : CODIR, avec risque et conformité. Échéance : 90 jours.",
+    "ag3.t":"Traiter le recrutement junior comme un indicateur avancé",
+    "ag3.b":"Si le signal américain se confirme, couper les postes d'entrée assèche le vivier d'expertise tacite à cinq ans. Piste : suivre trimestre par trimestre le ratio embauches juniors sur seniors dans les fonctions exposées. Fonction porteuse : DRH. Échéance : premier relevé au T4 2026.",
+    "ag4.t":"Outiller la mesure",
+    "ag4.b":"Le SECO ventile le chômage par âge chaque mois, l'ESPA de l'OFS mesure l'emploi par profession chaque trimestre, et un portail privé a montré en juin qu'une ventilation par exposition est possible sur 7,3 millions d'offres. Aucune série publique ne croise âge, métier NP 2010 et exposition IA. Un indicateur suisse d'entrée en emploi par exposition est constructible sans nouvelle enquête. Interlocuteurs : OFS, SECO.",
+    "ag5.t":"Protéger le système dual sans le figer",
+    "ag5.b":"Si l'IA réduit les tâches codifiées confiées aux apprentis et aux diplômés HES ou EPF, la supervision d'outils IA doit entrer dans les ordonnances de formation comme compétence certifiée, pas comme option. Interlocuteurs : SEFRI, organisations du monde du travail.",
+    "ag6.t":"Auditer l'IA de l'administration",
+    "ag6.b":"La Cour des comptes européenne publie une stratégie IA 2026-2030 en neuf actions : données adaptées à l'IA, capacité d'audit des systèmes fondés sur l'IA, formation de tous les agents <span class=\"cite\">Cour des comptes européenne, 2026 · T1/C3</span>. Périmètre UE, transposé ici comme gabarit et non comme mesure. Le Contrôle fédéral des finances et les cours cantonales gagnent à publier leur équivalent avant que les usages ne les précèdent.",
+    "s05.num":"§05 · Méthode",
+    "s05.title":"Sources et niveaux de confiance",
+    "s05.body":"Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse. La confiance, de C1 à C4, qualifie la transparence méthodologique. Les études publiées par des éditeurs de modèles sont classées T3 en tant que sources de première partie. Une valeur absente est notée n.d. et n'est jamais estimée. Aucun résultat obtenu sur un autre pays n'est transposé à la Suisse.",
+    "tbl.src":"Source",
+    "tbl.nat":"Nature",
+    "tbl.base":"Base",
+    "tbl.tier":"Tier",
+    "tbl.r1n":"Observatoire co-édité · conseil, éditeur, haute école",
+    "tbl.r2n":"Working paper académique · données de paie privées",
+    "tbl.r3n":"Note de recherche de première partie · éditeur de modèles",
+    "tbl.r4n":"Presse économique · reprise de données BLS",
+    "tbl.r5n":"Stratégie institutionnelle · document programmatique",
+    "tbl.r6n":"Statistique publique · série non disponible",
+    "disc.label":"Indépendance éditoriale",
+    "disc.body":"Ce numéro ne fait l'objet d'aucun partenariat ni financement. Les sources citées n'ont ni relu ni commandité l'analyse.",
+    "cta1.t":"Dispatch sur mesure",
+    "cta1.b":"Une analyse sur votre périmètre.",
+    "cta2.t":"Mise en œuvre opérationnelle",
+    "cta2.b":"Du diagnostic à la feuille de route.",
+    "sig":"Naully",
+    "foot.body":"Observatoire[s]·ia · publication indépendante.",
+    "tbl.r7n":"Statistique publique · chômage inscrit",
+    "tbl.r8n":"Statistique publique · enquête ménages",
+    "tbl.r9n":"Enquête institutionnelle mandatée",
+    "tbl.r10n":"Indice commercial et académique",
+    "tbl.r11n":"Rapport commercial mono-source",
+    "infog1.cap":"Infographie 1 · Le knowing-doing gap suisse, en quatre chiffres · Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2",
+    "infog2.cap":"Infographie 2 · IA agentique, la Suisse choisit l'autonomie proportionnée · Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2",
+    "infog3.cap":"Infographie 3 · Trois mesures, trois réponses · Brynjolfsson et al., 2026 · jobs.ch, 2026 · SECO, 2026 · série suisse croisée : n.d."
+  },
+  en: {
+    "ui.series":"Observatoire[s]·ia · Dispatch·iA",
+    "ui.theme":"Theme",
+    "hero.kicker":"Dispatch·iA #009 · Back-to-work special · Issue of 8 September 2026",
+    "hero.title":"Autumn 2026 · AI in Switzerland between orchestration and vigilance",
+    "hero.standfirst":"Adoption is no longer the question; arbitration is. Swiss companies know what they want from AI, but their data foundations, their organisation and their junior hiring policy have not caught up. This autumn turns on three decisions: where to delegate, where to supervise, whom to hire.",
+    "hero.author":"Naully Nicolas",
+    "hero.reading":"9 min read",
+    "hero.scope":"Scope · Switzerland · international signals flagged as such",
+    "tldr.label":"In brief",
+    "tldr.1":"82% of Swiss companies remain at a low or intermediate level of Data & AI maturity, while 47% already build AI into long-term planning.",
+    "tldr.2":"90% keep agentic AI at zero autonomy or with a human in the loop. Algorithmic friction is chosen, not endured.",
+    "tldr.3":"In the United States, employment of 22 to 25 year-olds in exposed occupations stands 19% below its reference path. In Switzerland, the share of junior job postings fell 32% in exposed sectors and unemployment among 15 to 24 year-olds rose to 3.4% in August, a rise SECO describes as seasonal. No Swiss series yet crosses age and exposure.",
+    "s00.num":"§00 · Benchmarks",
+    "s00.title":"The autumn figures",
+    "s00.body":"Four indicators to frame the season. The first three are documented, the fourth is not: that gap is precisely what this issue flags. Every value carries its source and tier; none is estimated.",
+    "s00.kpi1":"Swiss companies at low or intermediate Data & AI maturity · +4 pts vs 2025",
+    "s00.kpi2":"Drop in the share of junior job postings in 2025 vs the 2019-2022 average · IT, marketing, finance, administration · Switzerland",
+    "s00.kpi3":"Employment of 22 to 25 year-olds in Switzerland in exposed occupations, by exposure quintile",
+    "s00.kpi3src":"FSO SLFS / SECO · no series crossing age and exposure · n.d.",
+    "s00.kpi4":"Employment gap of 22 to 25 year-olds in exposed occupations vs less-exposed peers · United States, Nov. 2022 to June 2026",
+    "s01.num":"§01 · Measurement",
+    "s01.title":"Foundations that recede as ambitions rise",
+    "s01.body":"The Swiss Data & AI Observatory, surveyed from January to April 2026 among more than 100 organisations, delivers a counter-intuitive signal: the share of companies rating their data good to excellent falls to 51%, ten points below 2025, even as formal governance improves, with the share of organisations without any governance falling from 17% in 2024 to 8% in 2026 <span class=\"cite\">Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2</span>. The authors read this as rising requirements rather than deterioration: as use cases become autonomous and critical, the limits of quality and traceability become visible. This is digital friction surfacing. On agentic AI, Switzerland chooses caution: 69% are exploring or experimenting, 8% have reached integration, 3% run multi-agent systems at scale. The parallel drop in GenAI assistants deployed at scale, 46% against 75% a year earlier, is presented by the same source as a refocusing on demonstrated value. Budget, the study stresses, is not a significant predictor of scaling; data maturity is.",
+    "fig1.title":"Figure 1 · Agentic AI in Switzerland, proportionate autonomy",
+    "fig1.sub":"Share of organisations, in %, panel of more than 100 Swiss organisations, survey January to April 2026",
+    "fig1.src":"Source · Colombus Consulting, Oracle & HEG-Genève, Data & AI Observatory 2026 · n > 100 · T2/C2",
+    "fig1.d1":"Zero autonomy or human in the loop",
+    "fig1.d2":"Exploring or experimenting",
+    "fig1.d3":"Integration · specialised agents deployed",
+    "fig1.d4":"Multi-agent systems at scale",
+    "note.label":"Reading note",
+    "note.body":"The Swiss Data & AI Observatory is co-published by a consultancy, a software vendor and a university of applied sciences. This commercial co-publication warrants a T2 rather than T1 classification. The panel, above 100 organisations, is not presented as representative of the Swiss economy. Year-on-year changes should be read as panel trends, not population measures.",
+    "s02.num":"§02 · Debate",
+    "s02.title":"The canaries sing, unemployment stays put",
+    "s02.posA.label":"Position A · early signal on young workers",
+    "s02.posA.body":"Using ADP payroll data covering millions of US workers through June 2026, employment of 22 to 25 year-olds in AI-exposed occupations stands 19% below the level it would have reached had it tracked their less-exposed peers. The gap has widened since August 2025, operates through reduced hiring rather than separations, and is concentrated in occupations where AI usage substitutes for human tasks. No widespread displacement is observed <span class=\"cite\">Brynjolfsson, Chandar & Chen, 2026 · T1/C2</span>. A Swiss echo exists, but from a single commercial source: across 7.3 million postings on jobs.ch, jobup.ch and JobScout24.ch, the share of junior positions fell 32% in 2025 against the 2019-2022 average in exposed sectors, namely IT, marketing, finance and administration, and 44% of the postings analysed belong to exposed occupations <span class=\"cite\">jobs.ch KI-Report, June 2026 · T3/C3</span>.",
+    "s02.posB.label":"Position B · no visible effect on unemployment",
+    "s02.posB.body":"Crossing occupational exposure with the CPS survey, no clear impact appears on unemployment in exposed occupations, including for 22 to 25 year-olds, whatever the threshold used <span class=\"cite\">Anthropic Economic Research, 2026 · T3/C2</span>. The business press relays the same finding on August 2026 data: 162,000 jobs added in the United States, unemployment at 4.1%, and the gap between 20 to 24 year-olds and the overall rate near a multi-decade low <span class=\"cite\">The Economist, 4 September 2026 · T4/C3</span>. The same piece quantifies creation: around one million jobs attributed to AI in the United States against roughly 200,000 lay-offs since mid-2023, including 320,000 jobs above trend in data-centre occupations and 730,000 among engineers and data scientists, two estimates produced by the newspaper from BLS series. The counterpart appears in the same data: since January 2023 employment has fallen about 10% among customer-service agents and about 15% among secretaries, and the BLS projects 752,000 cuts in administrative occupations by 2035. In Switzerland, SECO reports for August 2026 a stable unemployment rate of 3.0%, 3.1% seasonally adjusted, and 3.4% among 15 to 24 year-olds, up 0.6 point on the month, a rise described as seasonal and tied to the end of the school year <span class=\"cite\">SECO, 7 September 2026 · T1/C1</span>. ILO-defined unemployment stands at 4.9% in the second quarter, against 4.6% a year earlier, with the employed population up 0.8% <span class=\"cite\">FSO SLFS, 2026 · T1/C1</span>. Job postings fell 2.4% over the quarter, yet IT and office occupations published more vacancies <span class=\"cite\">Adecco and University of Zurich, July 2026 · T2/C2</span>.",
+    "s02.close":"The positions do not contradict each other: they measure different things. A share of junior postings on private portals, a hiring flow on an employer panel, a stock of registered or survey-reported unemployed. A young person not hired into an exposed occupation may be employed elsewhere, extend their studies, or leave the labour force. For Switzerland, settling the question would require a quarterly series crossing age, NP 2010 occupation and exposure. It does not exist: SECO breaks down by age every month, jobs.ch breaks down by exposure, nobody crosses the two. No US result is transposed here.",
+    "s03.num":"§03 · At occupation level",
+    "s03.title":"Five roles to watch this autumn",
+    "role1.name":"Junior software developer",
+    "role1.desc":"Highest exposure quintile according to Eloundou et al. (2024). Explicit case study in the US canaries paper, with a drop in 22 to 25 year-old headcount. In Switzerland, IT occupations published more vacancies in Q2 2026 <span class=\"cite\">Adecco and University of Zurich, 2026 · T2/C2</span>, but the junior share of those postings is falling <span class=\"cite\">jobs.ch, 2026 · T3/C3</span>. Swiss headcount by age band: n.d.",
+    "role2.name":"Customer service agent",
+    "role2.desc":"Second case study in the canaries. Codified tasks, substitutive usage dominant. Swiss headcount by age band: n.d.",
+    "role3.name":"Commercial clerk (Kaufmann/Kauffrau)",
+    "role3.desc":"The most common Swiss apprenticeship. Highly codified administrative tasks. SERI counts about 74,000 apprenticeship places in 2026, 68% of them allocated by spring, with supply unchanged for 72% of training companies <span class=\"cite\">SERI and gfs.bern, 2026 · T1/C2</span>. First population to watch for post-diploma entry into employment. Headcount by age band: n.d.",
+    "role4.name":"Accountant or bookkeeping clerk",
+    "role4.desc":"Document processing and reconciliations, high-exposure tasks. The Swiss observatory notes 15% of GenAI usage in support functions, up 3 points. Headcount: n.d.",
+    "role5.name":"Business AI lead",
+    "role5.desc":"Translational role identified by the Swiss observatory: linking technology, business lines, adoption and risk management. A role being created, not exposed. Headcount: n.d.",
+    "s04.num":"§04 · 90-day agenda",
+    "s04.title":"What is being decided now",
+    "ag.codir":"Executive committee",
+    "ag.public":"Public authorities",
+    "ag1.t":"Audit the portfolio before adding use cases",
+    "ag1.b":"57% of AI initiatives originate in business lines. Without central arbitration, fragmentation costs more than the absence of AI. Question to ask: who on the executive committee holds the list of use cases and their scaling criteria? Owner: CEO. Deadline: before the 2027 budget.",
+    "ag2.t":"Set acceptable autonomy levels explicitly",
+    "ag2.b":"The Swiss market is converging on human in the loop. Deciding where to automate, supervise, delegate and retain human control is an executive decision, not an IT one, while the Data & AI function still reports to IT in nearly one case in two. Owner: executive committee, with risk and compliance. Deadline: 90 days.",
+    "ag3.t":"Treat junior hiring as a leading indicator",
+    "ag3.b":"If the US signal is confirmed, cutting entry-level roles drains the pool of tacit expertise five years out. Track the ratio of junior to senior hires in exposed functions quarter by quarter. Owner: CHRO. Deadline: first reading in Q4 2026.",
+    "ag4.t":"Build the measurement",
+    "ag4.b":"SECO breaks down unemployment by age every month, the FSO labour force survey measures employment by occupation every quarter, and a private portal showed in June that a breakdown by exposure is feasible on 7.3 million postings. No public series crosses age, NP 2010 occupation and AI exposure. A Swiss indicator of entry into employment by exposure can be built without a new survey. Counterparts: FSO, SECO.",
+    "ag5.t":"Protect the dual system without freezing it",
+    "ag5.b":"If AI reduces the codified tasks entrusted to apprentices and to UAS or ETH graduates, supervising AI tools must enter training ordinances as a certified competence, not an option. Counterparts: SERI, professional organisations.",
+    "ag6.t":"Audit the administration's AI",
+    "ag6.b":"The European Court of Auditors publishes a 2026-2030 AI strategy in nine actions: AI-ready data, capacity to audit AI-based systems, training for all staff <span class=\"cite\">European Court of Auditors, 2026 · T1/C3</span>. EU scope, transposed here as a template, not a measure. The Swiss Federal Audit Office and cantonal courts of audit would gain from publishing their equivalent before usage overtakes them.",
+    "s05.num":"§05 · Method",
+    "s05.title":"Sources and confidence levels",
+    "s05.body":"Sources are classified by nature, from T1 for primary academic and institutional work to T4 for the press. Confidence, from C1 to C4, qualifies methodological transparency. Studies published by model vendors are classified T3 as first-party sources. A missing value is marked n.d. and is never estimated. No result obtained on another country is transposed to Switzerland.",
+    "tbl.src":"Source",
+    "tbl.nat":"Nature",
+    "tbl.base":"Base",
+    "tbl.tier":"Tier",
+    "tbl.r1n":"Co-published observatory · consultancy, vendor, university",
+    "tbl.r2n":"Academic working paper · private payroll data",
+    "tbl.r3n":"First-party research note · model vendor",
+    "tbl.r4n":"Business press · BLS data relayed",
+    "tbl.r5n":"Institutional strategy · programmatic document",
+    "tbl.r6n":"Official statistics · series not available",
+    "disc.label":"Editorial independence",
+    "disc.body":"This issue has no partner and no funding. The sources cited neither reviewed nor commissioned the analysis.",
+    "cta1.t":"Custom dispatch",
+    "cta1.b":"An analysis on your perimeter.",
+    "cta2.t":"Operational implementation",
+    "cta2.b":"From diagnosis to roadmap.",
+    "sig":"Naully",
+    "foot.body":"Observatoire[s]·ia · independent publication.",
+    "tbl.r7n":"Public statistics · registered unemployment",
+    "tbl.r8n":"Public statistics · household survey",
+    "tbl.r9n":"Commissioned institutional survey",
+    "tbl.r10n":"Commercial and academic index",
+    "tbl.r11n":"Single-source commercial report",
+    "infog1.cap":"Infographic 1 · The Swiss knowing-doing gap in four figures · Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2",
+    "infog2.cap":"Infographic 2 · Agentic AI, Switzerland opts for proportionate autonomy · Colombus Consulting, Oracle & HEG-Genève, 2026 · T2/C2",
+    "infog3.cap":"Infographic 3 · Three measures, three answers · Brynjolfsson et al., 2026 · jobs.ch, 2026 · SECO, 2026 · crossed Swiss series: n.d."
+  }
+};
+
+/* Figure 1 · Observatoire Data & IA Suisse 2026, p.4 · part des organisations */
+const FIG1_DATA = [
+  { key:'fig1.d1', value:90 },
+  { key:'fig1.d2', value:69 },
+  { key:'fig1.d3', value:8 },
+  { key:'fig1.d4', value:3 }
+];
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOTEUR · ne pas modifier d'un numéro à l'autre
+   ═══════════════════════════════════════════════════════════════════ */
+let currentLang = DISPATCH_CONFIG.defaultLang;
+
+function t(key){
+  const dict = PAGE_I18N[currentLang] || PAGE_I18N[LANGS[0]];
+  return dict[key] != null ? dict[key] : key;
+}
+
+function applyI18n(lang){
+  if(!PAGE_I18N[lang]) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n')];
+    if(v == null) return;
+    if(/<[a-z][\s\S]*?>/i.test(v)) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n-aria')];
+    if(v != null) el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('#langSwitch .ctrl').forEach(b=>{
+    b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  });
+  try{ localStorage.setItem('dispatch-lang', lang); }catch(e){}
+  renderAllCharts();
+}
+
+function buildLangSwitch(){
+  const host = document.getElementById('langSwitch');
+  host.innerHTML = '';
+  LANGS.forEach(l=>{
+    const b = document.createElement('button');
+    b.className = 'ctrl'; b.dataset.lang = l; b.textContent = l.toUpperCase();
+    b.addEventListener('click', ()=>applyI18n(l));
+    host.appendChild(b);
+  });
+}
+
+function setTheme(mode){
+  document.documentElement.setAttribute('data-theme', mode);
+  try{ localStorage.setItem('dispatch-theme', mode); }catch(e){}
+  renderAllCharts();
+}
+
+/* Renderer barres horizontales · mesures en pixels prises sur la largeur
+   réelle du conteneur, donc toujours calées sur la colonne parente.
+   Se re-rend au redimensionnement, au changement de langue et de thème.
+   Sous 560px : libellé au-dessus de la barre, valeur alignée à droite. */
+function renderBars(mountId, data, opts){
+  const o = Object.assign({ unit:'%', max:null, color:'var(--ink-warm-4)' }, opts||{});
+  const el = document.getElementById(mountId);
+  if(!el || typeof d3 === 'undefined') return;
+  el.innerHTML = '';
+
+  const W = Math.max(240, el.clientWidth || 640);
+
+  /* CORRECTIF · gouttiere de libelles MESUREE sur les textes reels, jamais
+     estimee. Sonde SVG posee dans le conteneur, donc meme contexte de police.
+     L'ancien plafond en dur de 220px coupait les libelles longs a gauche.
+     Si la place manque malgre la mesure, bascule en libelle au-dessus. */
+  let labelNeed = 0;
+  try{
+    const probe = d3.select(el).append('svg')
+      .attr('aria-hidden','true')
+      .style('position','absolute').style('visibility','hidden')
+      .style('width','0').style('height','0').style('overflow','visible');
+    data.forEach(d=>{
+      const n = probe.append('text')
+        .style('font-family','var(--font-sans)').style('font-size','14px')
+        .text(t(d.key)).node();
+      labelNeed = Math.max(labelNeed, n.getComputedTextLength());
+    });
+    probe.remove();
+  }catch(e){ labelNeed = 0; }
+  labelNeed = labelNeed > 0 ? Math.ceil(labelNeed) + 12 : Math.min(220, Math.round(W * 0.32));
+
+  const stacked = W < 560 || labelNeed > W * 0.50;
+  const labelW = stacked ? 0 : labelNeed;
+  const valueW = 58;
+  const rowH = stacked ? 56 : 34;
+  const gap = 10;
+  const H = data.length * (rowH + gap) - gap;
+  const barMax = Math.max(20, W - labelW - valueW);
+  const max = o.max != null ? o.max : d3.max(data, d=>d.value);
+  const x = d3.scaleLinear().domain([0, max]).range([0, barMax]);
+
+  const svg = d3.select(el).append('svg')
+    .attr('width', W).attr('height', H)
+    .attr('viewBox', '0 0 ' + W + ' ' + H)
+    .attr('preserveAspectRatio','xMinYMin meet')
+    .attr('role','img');
+
+  const g = svg.selectAll('g').data(data).enter().append('g')
+    .attr('transform', (d,i)=>'translate(0,' + i*(rowH+gap) + ')');
+
+  g.append('text')
+    .attr('x', stacked ? 0 : labelW - 12)
+    .attr('y', stacked ? 14 : rowH/2 + 5)
+    .attr('text-anchor', stacked ? 'start' : 'end')
+    .attr('fill','var(--ink-2)')
+    .style('font-family','var(--font-sans)').style('font-size','14px')
+    .text(d=>t(d.key));
+
+  g.append('rect')
+    .attr('x', labelW).attr('y', stacked ? 28 : 8)
+    .attr('height', 18).attr('rx', 1)
+    .attr('fill', o.color)
+    .attr('width', 0)
+    .transition().duration(500)
+    .attr('width', d=>Math.max(1, x(d.value)));
+
+  g.append('text')
+    .attr('x', d=>Math.min(W, labelW + x(d.value) + 10))
+    .attr('y', stacked ? 42 : rowH/2 + 5)
+    .attr('fill','var(--ink-1)')
+    .style('font-family','var(--font-mono)').style('font-size','13px')
+    .text(d=>d.value + o.unit);
+}
+
+function renderAllCharts(){
+  renderBars('fig1', FIG1_DATA, { unit:' %', max:100 });
+}
+
+function initProgress(){
+  const bar = document.getElementById('progress');
+  const onScroll = ()=>{
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let lang = DISPATCH_CONFIG.defaultLang, theme = 'light';
+  try{
+    lang = localStorage.getItem('dispatch-lang') || lang;
+    theme = localStorage.getItem('dispatch-theme') || theme;
+  }catch(e){}
+  if(!PAGE_I18N[lang]) lang = DISPATCH_CONFIG.defaultLang;
+
+  document.documentElement.setAttribute('data-theme', theme);
+  buildLangSwitch();
+  applyI18n(lang);
+  initProgress();
+
+  document.getElementById('themeToggle').addEventListener('click', ()=>{
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  window.__d3Ready.then(renderAllCharts).catch(()=>{
+    document.querySelectorAll('[data-chart]').forEach(el=>{
+      el.innerHTML = '<p class="mono" style="color:var(--ink-3)">Graphique indisponible · d3 non chargé</p>';
+    });
+  });
+
+  let rt;
+  window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(renderAllCharts, 150); });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ZONE A · VALEURS LITTÉRALES · À ÉDITER À CHAQUE NUMÉRO
+     Sept lignes, et sept seulement. Ne pas déplacer ce bloc.
+     Le scraper LinkedIn n'exécute pas JavaScript : ces valeurs doivent
+     rester en dur dans le document, jamais injectées au chargement.
+     ═══════════════════════════════════════════════════════════════════ -->
+<title>Dispatch·iA #008 · L'adoption est acquise, la transformation ne l'est pas · Observatoire[s]·ia</title>
+<meta name="description" content="Spécial rentrée 2026, France. Adoption, productivité, emploi, jeunes diplômés, freins, cadre réglementaire : six rubriques et six pistes pour les CODIR et les pouvoirs publics.">
+<link rel="canonical" href="https://observatoire.naullynicolas.ch/briefings/08-rentree-2026-france.html">
+<meta property="og:title" content="Dispatch·iA #008 · L'adoption est acquise, la transformation ne l'est pas">
+<meta property="og:description" content="Spécial rentrée 2026, France. Six rubriques chiffrées et six pistes pour les comités de direction et les pouvoirs publics.">
+<meta property="og:url" content="https://observatoire.naullynicolas.ch/briefings/08-rentree-2026-france.html">
+<meta property="og:image" content="https://observatoire.naullynicolas.ch/assets/og/08-rentree-2026-france.png">
+<!-- ═══════════════════════════════ FIN ZONE A ═══════════════════════ -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Observatoire[s]·ia">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- RÈGLE DE PARITÉ TYPOGRAPHIQUE : toute famille présente dans ce lien
+     doit être déclarée dans --font-display / --font-sans / --font-mono,
+     et réciproquement. Vérifié par grep dans le script QA. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>window.__d3Ready=new Promise((res,rej)=>{window.__d3ReadyResolve=res;window.__d3ReadyReject=rej;});</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+        onload="window.__d3ReadyResolve()" onerror="window.__d3ReadyReject()"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   1 · COUCHE CANONIQUE · NOMENCLATURE ENCRE & ARDOISE
+   Ces noms font foi. Toute nouvelle règle CSS les utilise directement.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  /* Surfaces et encre */
+  --ink-paper:#FBF9F4;
+  --ink-paper-alt:#F3EFE7;
+  --ink-1:#1A1A1A;          /* texte principal */
+  --ink-2:#5B5B5B;          /* texte secondaire */
+  --ink-3:#8A8A8A;          /* texte tertiaire, légendes, tiers */
+  --ink-rule:#E5E0D8;       /* filets, bordures */
+  --ink-rule-strong:#C9C2B5;
+
+  /* Signal · INTERACTIF UNIQUEMENT · liens, boutons, focus, contrôles */
+  --ink-signal:#1B4D8F;
+  --ink-signal-soft:#DDE5F0;
+
+  /* Éditorial · accent de série Dispatch·iA · titres de rang, marqueurs */
+  --ink-editorial:#B8312F;
+  --ink-editorial-soft:#E8DCDA;
+
+  /* Statut · sémantique stricte, jamais décoratif */
+  --ink-positive:#2D6A4F;
+  --ink-caution:#BF6B04;
+
+  /* Rampe d'exposition · ANALYSE UNIQUEMENT · encodage de valeur
+     À RÉCONCILIER avec la rampe du site porteur lors de la propagation. */
+  --ink-warm-1:#F2E4DC;
+  --ink-warm-2:#E4BFAF;
+  --ink-warm-3:#D18F78;
+  --ink-warm-4:#C25E4C;
+  --ink-warm-5:#B8312F;
+
+  --ink-grid:#E5E0D8;
+  --ink-shadow:0 1px 2px rgba(26,26,26,.04),0 4px 12px rgba(26,26,26,.04);
+
+  /* Typographie · trois rôles, trois variables, rien d'autre */
+  --font-display:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  /* Échelle typographique · ratio 1.25, base 17px */
+  --fs-xs:12px; --fs-sm:14px; --fs-base:17px; --fs-md:19px;
+  --fs-lg:23px; --fs-xl:29px; --fs-2xl:36px; --fs-3xl:46px;
+
+  /* Rythme vertical et gouttières */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+
+  /* Largeurs */
+  --w-col:820px;      /* colonne de lecture */
+  --gutter:24px;      /* gouttière latérale, une seule fois dans l'arbre */
+}
+
+[data-theme="dark"]{
+  --ink-paper:#15140F;
+  --ink-paper-alt:#1F1D17;
+  --ink-1:#F2EEE6;
+  --ink-2:#B8B2A6;
+  --ink-3:#8A8479;
+  --ink-rule:#33302A;
+  --ink-rule-strong:#47433B;
+  --ink-signal:#7BA7DB;
+  --ink-signal-soft:#1E2A3A;
+  --ink-editorial:#E0564F;
+  --ink-editorial-soft:#3A2624;
+  --ink-positive:#5FAE89;
+  --ink-caution:#D98C2B;
+  --ink-warm-1:#3A2624;
+  --ink-warm-2:#5C3730;
+  --ink-warm-3:#8A4A3E;
+  --ink-warm-4:#B35047;
+  --ink-warm-5:#E0564F;
+  --ink-grid:#2A2823;
+  --ink-shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2 · COUCHE D'ALIAS HISTORIQUES · #001 à #006
+   Ne pas utiliser dans du code neuf. Se supprime en un bloc le jour où
+   aucun grep ne trouve plus ces noms dans les dispatchs publiés.
+   ═══════════════════════════════════════════════════════════════════ */
+:root,[data-theme="dark"]{
+  --bg:var(--ink-paper);      --bg-alt:var(--ink-paper-alt);
+  --tx:var(--ink-1);          --tx-sec:var(--ink-2);      --tx-mut:var(--ink-3);
+  --br:var(--ink-rule);       --br-strong:var(--ink-rule-strong);
+  --ac:var(--ink-editorial);  --ac-soft:var(--ink-editorial-soft);
+  --green:var(--ink-positive);--amber:var(--ink-caution);
+  --grid:var(--ink-grid);     --shadow:var(--ink-shadow);
+}
+
+/* ═══════════════════════════════ 3 · SOCLE ════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink-paper);color:var(--ink-1);
+  font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+  overflow-x:hidden;   /* jamais overflow:hidden seul : casserait le sticky */
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4 · SYSTÈME DE MISE EN PAGE · DEUX NIVEAUX, JAMAIS FUSIONNÉS
+   .wrap  pleine largeur, porte la gouttière · fond et filets pleine page
+   .col   colonne de lecture centrée · porte le contenu
+   Règle : .wrap et .col ne sont JAMAIS sur le même élément, et .wrap
+   n'est jamais imbriqué dans .wrap. Sinon la gouttière se cumule et la
+   colonne rétrécit à chaque niveau.
+   ═══════════════════════════════════════════════════════════════════ */
+.wrap{width:100%;padding-left:var(--gutter);padding-right:var(--gutter)}
+.col{width:100%;max-width:var(--w-col);margin-left:auto;margin-right:auto;min-width:0}
+
+/* Le premier et le dernier enfant d'une colonne ne créent jamais
+   d'espace mort : c'est le conteneur qui porte le rythme vertical. */
+.col > :first-child{margin-top:0}
+.col > :last-child{margin-bottom:0}
+
+/* Section · le filet et la respiration haute sont portés par la colonne,
+   pour que le trait s'arrête aux 820px et ne traverse pas l'écran. */
+.sec{padding-bottom:var(--sp-7)}
+.sec > .wrap > .col{padding-top:var(--sp-7);border-top:1px solid var(--ink-rule)}
+.sec--flush > .wrap > .col{border-top:none}
+.band .sec > .wrap > .col{border-top:none;padding-top:0}
+
+/* Bande pleine largeur · enfant direct de main, jamais de la colonne */
+.band{background:var(--ink-paper-alt);padding:var(--sp-7) 0}
+.band > .wrap > .col > :last-child{margin-bottom:0}
+
+a{color:var(--ink-signal);text-decoration:none;border-bottom:1px solid var(--ink-signal-soft)}
+a:hover{border-bottom-color:var(--ink-signal)}
+:focus-visible{outline:2px solid var(--ink-signal);outline-offset:2px}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:var(--fs-3xl)}
+h2{font-size:var(--fs-2xl);margin-bottom:var(--sp-4)}
+h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
+p{margin-bottom:var(--sp-4)}
+p:last-child{margin-bottom:0}
+
+/* Les médias remplacés sont en blocs : sinon la ligne de base laisse
+   un espace fantôme de 4 à 6px sous chaque svg. */
+svg,img,canvas{display:block;max-width:100%}
+
+.mono{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ink-editorial);z-index:100;transition:width .1s linear}
+
+/* ═══════════════════ 5 · BIBLIOTHÈQUE DE BLOCS ═══════════════════
+   Chaque bloc occupe 100 % de la colonne. Aucune largeur en dur, aucun
+   float, aucune marge latérale : la largeur vient toujours du parent.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* BLOC · contrôles langue et thème */
+.controls{position:sticky;top:0;z-index:50;background:var(--ink-paper);border-bottom:1px solid var(--ink-rule)}
+.controls .col{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
+  padding-top:var(--sp-3);padding-bottom:var(--sp-3);flex-wrap:wrap}
+.ctrl-set{display:flex;gap:var(--sp-4);flex-wrap:wrap}
+.ctrl-group{display:flex;gap:var(--sp-1)}
+.ctrl{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink-rule);color:var(--ink-2);
+  padding:var(--sp-2) var(--sp-3);cursor:pointer;border-radius:2px}
+.ctrl:hover{border-color:var(--ink-signal);color:var(--ink-signal)}
+.ctrl[aria-pressed="true"]{background:var(--ink-signal);border-color:var(--ink-signal);color:#fff}
+
+/* BLOC · en-tête de dispatch */
+.masthead{padding:var(--sp-8) 0 var(--sp-7);border-bottom:1px solid var(--ink-rule)}
+.masthead .kicker{color:var(--ink-editorial);display:block;margin-bottom:var(--sp-4)}
+.masthead h1{margin-bottom:var(--sp-4)}
+.masthead .standfirst{font-size:var(--fs-md);color:var(--ink-2);max-width:62ch}
+.masthead .meta{margin-top:var(--sp-5);color:var(--ink-3);display:flex;flex-wrap:wrap;gap:var(--sp-4)}
+
+/* BLOC · TL;DR · lecture non linéaire */
+.tldr{background:var(--ink-paper-alt);border-left:3px solid var(--ink-editorial);
+  padding:var(--sp-5);width:100%}
+.tldr .mono{color:var(--ink-3);margin-bottom:var(--sp-3);display:block}
+.tldr ul{list-style:none}
+.tldr li{padding-left:var(--sp-5);position:relative;margin-bottom:var(--sp-3)}
+.tldr li:last-child{margin-bottom:0}
+.tldr li::before{content:"·";position:absolute;left:var(--sp-2);color:var(--ink-editorial);font-weight:600}
+
+/* BLOC · grille KPI · auto-fit, les cartes remplissent la colonne */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.kpi{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  box-shadow:var(--ink-shadow);min-width:0;display:flex;flex-direction:column}
+.kpi .fig{font-family:var(--font-display);font-size:var(--fs-2xl);line-height:1;margin-bottom:var(--sp-2)}
+.kpi .lab{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-3);flex:1}
+.kpi .src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* BLOC · numéro de section */
+.num{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.08em;
+  color:var(--ink-editorial);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · citation inline */
+.cite{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap}
+
+/* BLOC · encadré méthodologique */
+.note{border:1px solid var(--ink-rule);border-left:3px solid var(--ink-caution);
+  padding:var(--sp-5);margin:var(--sp-6) 0;background:var(--ink-paper);width:100%}
+.note .mono{color:var(--ink-caution);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · figure */
+.fig-block{margin:var(--sp-6) 0;width:100%}
+.fig-title{font-family:var(--font-display);font-size:var(--fs-md);margin-bottom:var(--sp-2)}
+.fig-sub{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:var(--sp-5)}
+.chart{width:100%;min-width:0}
+.chart svg{width:100%;height:auto}
+.fig-src{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--ink-rule)}
+
+/* BLOC · débat · colonnes de hauteur égale */
+.debate{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:var(--sp-5);margin:var(--sp-6) 0;align-items:stretch}
+.pos{border-top:2px solid var(--ink-rule-strong);padding-top:var(--sp-4);min-width:0}
+.pos .mono{color:var(--ink-3);display:block;margin-bottom:var(--sp-3)}
+
+/* BLOC · cartes métier · auto-fill et non auto-fit : avec cinq cartes,
+   la dernière rangée garde la largeur d'une carte au lieu de s'étirer. */
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
+  gap:var(--sp-4);margin:var(--sp-6) 0}
+.role{border:1px solid var(--ink-rule);padding:var(--sp-5);background:var(--ink-paper);
+  min-width:0;display:flex;flex-direction:column}
+.role .code{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-3);
+  display:block;margin-bottom:var(--sp-2)}
+.role h3{font-size:var(--fs-md);margin-bottom:var(--sp-3)}
+.role .expo{height:6px;background:var(--ink-rule);margin:var(--sp-3) 0;position:relative;width:100%}
+.role .expo span{position:absolute;inset:0 auto 0 0;background:var(--ink-warm-4)}
+.role .desc{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:0}
+
+/* BLOC · agenda 90 jours */
+.agenda{list-style:none;counter-reset:step;margin:var(--sp-6) 0}
+.agenda li{counter-increment:step;padding-left:var(--sp-7);position:relative;margin-bottom:var(--sp-5)}
+.agenda li:last-child{margin-bottom:0}
+.agenda li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--ink-editorial)}
+.agenda strong{display:block;margin-bottom:var(--sp-1)}
+.agenda span{color:var(--ink-2)}
+
+/* BLOC · table des sources */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--sp-6) 0;width:100%}
+.sources{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.sources th{text-align:left;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--ink-rule-strong);
+  padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;white-space:nowrap}
+.sources td{border-bottom:1px solid var(--ink-rule);padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;vertical-align:top}
+.sources td:last-child,.sources th:last-child{padding-right:0}
+.sources .tier{font-family:var(--font-mono);font-size:var(--fs-xs);white-space:nowrap}
+
+/* BLOC · disclosure éditoriale */
+.disclosure{border:1px solid var(--ink-rule-strong);padding:var(--sp-5);
+  margin:var(--sp-6) 0 0;background:var(--ink-paper-alt);width:100%}
+.disclosure .mono{display:block;margin-bottom:var(--sp-3);color:var(--ink-3)}
+
+/* BLOC · double appel à l'action · cartes de hauteur égale */
+.cta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  gap:var(--sp-4);margin:0;align-items:stretch}
+.cta a{display:flex;flex-direction:column;border:1px solid var(--ink-signal);
+  padding:var(--sp-5);min-width:0}
+.cta a:hover{background:var(--ink-signal-soft);border-color:var(--ink-signal)}
+.cta strong{font-family:var(--font-display);font-size:var(--fs-md);color:var(--ink-1);margin-bottom:var(--sp-2)}
+.cta span{font-size:var(--fs-sm);color:var(--ink-2)}
+
+/* BLOC · signature et pied de page */
+.sig{font-family:var(--font-display);font-size:var(--fs-md);margin-top:var(--sp-7)}
+footer{border-top:1px solid var(--ink-rule);padding:var(--sp-6) 0 var(--sp-8);
+  color:var(--ink-3);font-size:var(--fs-sm)}
+footer .ver{font-family:var(--font-mono);font-size:var(--fs-xs);margin-top:var(--sp-2)}
+
+/* ═══════════════════════════ 6 · RESPONSIVE ═══════════════════════
+   Aucune piste de grille en 1fr nu : minmax(min(100%,X),1fr) partout,
+   sinon un contenu long étire la piste et déborde horizontalement.   */
+@media (max-width:640px){
+  :root{--fs-3xl:32px;--fs-2xl:27px;--fs-xl:23px;--gutter:16px}
+  .masthead{padding:var(--sp-6) 0 var(--sp-5)}
+  .band{padding:var(--sp-6) 0}
+  .sec{padding-bottom:var(--sp-6)}
+  .sec > .wrap > .col{padding-top:var(--sp-6)}
+  .controls .col{gap:var(--sp-3)}
+}
+/* ==================================================================== */
+/* ENCRE & ARDOISE · tokens · bloc additif · réversible                 */
+/* Une couleur, un sens : bleu = interactif, chaud = exposition,        */
+/* teal = emphase éditoriale, encres = structure.                       */
+/* ==================================================================== */
+:root{
+  --paper:#F4F4F1; --paper-2:#EBEBE6; --surface:#FFFFFF;
+  --rule:#D5D5CE; --rule-strong:#14181C;
+  --ink:#14181C; --ink-sec:#454C54; --ink-3:#5F6771; --muted:#666E77;
+  --ink-2:var(--ink-sec);
+  --signal:#1B4D8F; --signal-hover:#143C72; --on-signal:#FFFFFF;
+  --accent:#1F4B4E; --teal:#1F4B4E; --highlight:#F3E4D2;
+  --t1:#1B3A52; --t2:#3E6570; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#F3E4D2; --exp-2:#E7C09B; --exp-3:#D89765;
+  --exp-4:#BE6A3A; --exp-5:#8E3D1B;
+  --exp-on-1-4:#14181C; --exp-on-5:#FFFFFF; --risk:#8E3D1B;
+  --paper-rgb:244,244,241; --ink-rgb:20,24,28; --signal-rgb:27,77,143;
+  --shadow-1:0 1px 2px rgba(20,24,28,.06), 0 6px 18px rgba(20,24,28,.06);
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html[data-theme="dark"]{
+  --paper:#101418; --paper-2:#171C22; --surface:#1A2027;
+  --rule:#2E353D; --rule-strong:#E6E9EC;
+  --ink:#E6E9EC; --ink-sec:#B3BAC3; --ink-3:#8D959E; --muted:#8D959E;
+  --signal:#6FA8E0; --signal-hover:#8FBEEC; --on-signal:#101418;
+  --accent:#7FBDB8; --teal:#7FBDB8; --highlight:#2B2622;
+  --t1:#8FB6D4; --t2:#7FA8B2; --t3:#C9AC66; --t4:#D49186;
+  --exp-1:#2B2622; --exp-2:#4A382C; --exp-3:#7A523A;
+  --exp-4:#B0764A; --exp-5:#E3A468;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#14181C; --risk:#E3A468;
+  --paper-rgb:16,20,24; --ink-rgb:230,233,236; --signal-rgb:111,168,224;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+/* Emphase éditoriale · jamais bleue, critère 7 */
+.ds-eyebrow,.section-eyebrow,.frame-eyebrow,.debate-eyebrow,.rdr-eyebrow,
+.brief-eyebrow,.foot-col-title{ color:var(--accent); }
+h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
+.stat-num .unit,.stat-num .sign,.kpi-num .unit,.brief-stat-num .unit{ color:var(--accent); }
+.logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
+.mono{ font-size:max(11px, 0.78em); }
+
+body{ background:var(--paper); color:var(--ink); }
+</style>
+</head>
+
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ═══════════ CONTRÔLES ═══════════ -->
+<div class="controls">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono" data-i18n="ui.series">Observatoire[s]·ia · Dispatch·iA</span>
+      <div class="ctrl-set">
+        <div class="ctrl-group" id="langSwitch" role="group" aria-label="Langue"></div>
+        <button class="ctrl" id="themeToggle" data-i18n="ui.theme">Thème</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ EN-TÊTE ═══════════ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="col">
+      <span class="mono kicker" data-i18n="hero.kicker">Dispatch·iA #008 · Spécial rentrée · Édition du 8 septembre 2026</span>
+      <h1 data-i18n="hero.title">L'adoption est acquise, la transformation ne l'est pas</h1>
+      <p class="standfirst" data-i18n="hero.standfirst">Deux tiers des entreprises françaises utilisent l'IA générative. Un tiers en tire déjà un gain. La rentrée 2026 déplace la question : non plus qui utilise l'IA, mais ce qu'elle change réellement dans l'organisation du travail, et pour qui.</p>
+      <div class="meta mono">
+        <span data-i18n="hero.author">Naully Nicolas</span>
+        <span data-i18n="hero.reading">14 min de lecture</span>
+        <span data-i18n="hero.scope">Périmètre · France · entreprises de 20 salariés et plus · données février à juin 2026</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════ TL;DR ═══════════ -->
+  <section class="sec sec--flush">
+    <div class="wrap"><div class="col">
+      <div class="tldr">
+        <span class="mono" data-i18n="tldr.label">En bref</span>
+        <ul>
+          <li data-i18n="tldr.1">67 % des entreprises de 20 salariés et plus déclarent utiliser l'IA générative, mais l'usage reste majoritairement limité ou expérimental ; l'IA prédictive plafonne à un tiers (Banque de France, 2026 · T1).</li>
+          <li data-i18n="tldr.2">31 % des utilisatrices constatent un gain de productivité ; 60 % en anticipent un d'ici 2029. L'écart entre attente et constat est la donnée centrale de la rentrée.</li>
+          <li data-i18n="tldr.3">Le premier frein n'est pas le coût (9 %) mais l'absence de cas d'usage identifié (49 % des non-utilisatrices). C'est un déficit de gouvernance, pas de technologie.</li>
+          <li data-i18n="tldr.4">Aux États-Unis, l'emploi des 22-25 ans dans les métiers les plus exposés se situe 19 % sous sa trajectoire de référence (Brynjolfsson et al., 2026 · T2). Aucun équivalent français n'existe : c'est le chantier prioritaire des pouvoirs publics.</li>
+        </ul>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §00 · REPÈRES ═══════════ -->
+  <section class="sec" id="s00">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s00.num">§00 · Repères</span>
+      <h2 data-i18n="s00.title">Les chiffres d'entrée</h2>
+      <p data-i18n="s00.body">Quatre indicateurs tirés de l'enquête mensuelle de conjoncture de la Banque de France, conduite du 25 février au 3 avril 2026 auprès d'environ 7 000 entreprises, redressée par taille et secteur. Champ : industrie manufacturière, construction et services marchands non financiers, hors commerce. Chaque valeur porte sa source et son tier ; aucune n'est estimée.</p>
+      <div class="kpis">
+        <div class="kpi"><span class="fig">67 %</span><span class="lab" data-i18n="s00.kpi1">Entreprises de 20 salariés et plus déclarant utiliser l'IA générative</span><span class="src">Banque de France, 2026 · T1/C1</span></div>
+        <div class="kpi"><span class="fig">31 %</span><span class="lab" data-i18n="s00.kpi2">Utilisatrices d'IA générative constatant déjà un gain de productivité</span><span class="src">Banque de France, 2026 · T1/C1</span></div>
+        <div class="kpi"><span class="fig">49 %</span><span class="lab" data-i18n="s00.kpi3">Non-utilisatrices citant l'absence de cas d'usage comme premier frein</span><span class="src">Banque de France, 2026 · T1/C1</span></div>
+        <div class="kpi"><span class="fig">14 pts</span><span class="lab" data-i18n="s00.kpi4">Solde net d'opinion sur l'emploi à trois ans, en baisse, parmi les utilisatrices</span><span class="src">Banque de France, 2026 · T1/C1</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §01 · ADOPTION ═══════════ -->
+  <section class="sec" id="s01">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s01.num">§01 · Adoption</span>
+      <h2 data-i18n="s01.title">Le plateau des deux tiers</h2>
+      <p data-i18n="s01.body">Deux dynamiques de diffusion coexistent. L'IA générative, à faible coût d'entrée, est déjà présente dans 67 % des entreprises de 20 salariés et plus, avec un gradient de taille modéré : 64 % chez les 20-49 salariés, 83 % au-delà de 1 000. L'IA prédictive, qui exige des données structurées et des capacités d'intégration, n'atteint qu'un tiers des entreprises et son gradient est deux fois plus marqué, de 31 % à 60 % <span class="cite">Banque de France, 2026 · T1/C1</span>. Les usages se concentrent dans les fonctions support : relations commerciales (28,5 %) et gestion administrative (27,5 %) devancent largement les processus de production (14,2 %) et la R&D (7,1 %). La ressource humaine, à 5,5 %, est le domaine où l'IA est le moins déployée alors qu'elle est le plus souvent invoquée.</p>
+      <div class="fig-block">
+        <div class="fig-title" data-i18n="fig1.title">Figure 1 · Utilisation de l'IA générative par taille d'entreprise</div>
+        <div class="fig-sub" data-i18n="fig1.sub">En % des entreprises de la tranche, tous niveaux d'intensité confondus · France · février à avril 2026.</div>
+        <div class="chart" id="fig1" data-chart="bars"></div>
+        <div class="fig-src" data-i18n="fig1.src">Source · Banque de France, Bulletin 266/1, enquête mensuelle de conjoncture, 2026 · n ≈ 7 000 · T1/C1</div>
+      </div>
+      <div class="note">
+        <span class="mono" data-i18n="note1.label">Note de lecture</span>
+        <p data-i18n="note1.body">Le champ de l'enquête exclut les services financiers, l'immobilier, l'assurance, les services publics et le commerce, soit environ la moitié de l'économie française. Les taux ne sont donc pas transposables à l'ensemble du tissu productif. L'enquête TIC de l'Insee (Lefebvre, 2026 · T1) constitue le point de comparaison ; ses résultats détaillés ne sont pas repris ici.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §02 · PRODUCTIVITÉ ═══════════ -->
+  <section class="sec" id="s02">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s02.num">§02 · Productivité</span>
+      <h2 data-i18n="s02.title">Le paradoxe de Solow, version 2026</h2>
+      <p data-i18n="s02.body">Parmi les utilisatrices d'IA générative, 31 % déclarent avoir constaté un gain de productivité entre 2023 et 2026 ; seules 6 % le qualifient de significatif. À l'horizon 2029, 60 % des entreprises utilisant ou prévoyant d'utiliser l'IA anticipent un gain, dont 17 % un gain significatif <span class="cite">Banque de France, 2026 · T1/C1</span>. Rapporté à l'ensemble des entreprises interrogées et non aux seules utilisatrices, le constat tombe à 22 %, contre 9 % en solde net dans l'enquête comparable de la Fed d'Atlanta auprès de 6 000 dirigeants aux États-Unis, au Royaume-Uni, en Australie et en Allemagne <span class="cite">Yotzov et al., 2026 · T1/C2</span>. La France se situe donc plutôt au-dessus de ses pairs sur le constat, mais l'écart entre l'effet attendu et l'effet observé reste de l'ordre du simple au triple. Les auteurs de la Banque de France en tirent une hypothèse explicite : les gains resteront difficiles à observer dans le tissu productif pendant quelques années encore, le temps que l'organisation s'adapte, comme pour l'électricité et l'informatique <span class="cite">David, 1990</span>.</p>
+      <p data-i18n="s02.body2">Le signal de prix confirme cette lecture. Les entreprises anticipent davantage de hausses que de baisses de prix de vente (6 % en solde net), ce qui contredit l'idée d'un effet désinflationniste rapide et suggère que l'IA est perçue, à ce stade, comme un outil d'assistance plutôt que comme un substitut direct au travail.</p>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §03 · EMPLOI ═══════════ -->
+  <section class="sec" id="s03">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s03.num">§03 · Emploi</span>
+      <h2 data-i18n="s03.title">Réallocation plutôt que destruction</h2>
+      <p data-i18n="s03.body">Sur les effectifs, 21 % des entreprises utilisatrices ou candidates anticipent une baisse d'ici 2029, dont 19 % une baisse modérée. En solde net, le chiffre est de 14 points, ce que la Banque de France interprète comme un effet de réallocation réel mais contenu <span class="cite">Banque de France, 2026 · T1/C1</span>. Un tiers des entreprises prévoit en parallèle une hausse de ses investissements liés à l'IA. Ces trois signaux, gains attendus, effectifs légèrement en baisse, investissement en hausse, dessinent un scénario de transformation graduelle, cohérent avec le cadre de friction numérique et algorithmique que cet observatoire documente depuis le numéro #001 : les gains sont conditionnés par l'intégration aux systèmes existants, par la fiabilité des résultats et par les boucles de vérification humaine, non par la seule disponibilité de l'outil.</p>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §04 · DÉBAT · bande pleine largeur ═══════════ -->
+  <div class="band">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s04.num">§04 · Jeunes diplômés · Débat</span>
+      <h2 data-i18n="s04.title">Le signal des canaris</h2>
+      <p data-i18n="s04.intro">La rentrée est le moment où les primo-entrants arrivent sur le marché. Deux lectures des mêmes données américaines s'opposent, et aucune donnée française ne permet aujourd'hui de les départager.</p>
+      <div class="debate">
+        <div class="pos">
+          <span class="mono" data-i18n="s04.posA.label">Position A · le décrochage est engagé</span>
+          <p data-i18n="s04.posA.body">Sur données de paie ADP couvrant plusieurs millions de salariés américains jusqu'en juin 2026, l'emploi des 22-25 ans dans les métiers les plus exposés se situe 19 % sous la trajectoire qu'il aurait suivie s'il avait progressé au même rythme que celui des jeunes moins exposés. En niveau, il recule de 11 % depuis novembre 2022 quand il progresse de 10 % dans les quintiles les moins exposés. L'écart s'est creusé depuis août 2025, passe par une baisse des embauches plutôt que des ruptures, et se concentre dans les métiers où l'IA substitue les tâches plutôt qu'elle ne les complète. <span class="cite">Brynjolfsson et al., 2026 · T2/C2</span></p>
+        </div>
+        <div class="pos">
+          <span class="mono" data-i18n="s04.posB.label">Position B · l'apocalypse est reportée</span>
+          <p data-i18n="s04.posB.body">L'économie américaine a créé 162 000 emplois en août 2026, bien au-delà des attentes, avec un chômage à 4,1 %. L'écart entre le chômage des 20-24 ans et le taux global est proche de son plus bas niveau depuis plusieurs décennies. Les disruptions existent, environ 16 000 suppressions de postes liées à l'IA annoncées chaque mois selon Challenger, Gray &amp; Christmas, mais elles restent sectorielles et ne se lisent pas dans les agrégats. <span class="cite">The Economist, sept. 2026 · T4/C3</span>. Le même dossier chiffre l'autre versant : environ un million d'emplois attribués à l'IA aux États-Unis depuis mi-2023, portés par l'infrastructure et par une nouvelle classe de postes qualifiés, dont 320 000 emplois au-dessus de la tendance dans les métiers des centres de données et 730 000 chez les ingénieurs et data scientists <span class="cite">The Economist, sept. 2026 · T4/C3</span>. Aucune de ces séries n'a d'équivalent français : ni l'INSEE ni la DARES ne publient de ventilation de l'emploi créé par l'IA. Côté français, la mesure équivalente existe désormais. Sur les mouvements de main-d'œuvre de la Dares, les embauches en CDI des 21-29 ans de mars 2026 sont inférieures de 28,3 % à leur niveau de novembre 2022 dans les métiers les plus exposés à l'IA générative, contre 7,5 % dans les moins exposés, soit un écart de 20,8 points et de l'ordre de 75 000 CDI de moins par an. Les fins de contrat reculent aussi, de 23 % contre 6 %, mais plus tard et moins fort : le marché se fige plutôt qu'il ne détruit <span class="cite">LIFT HEC Paris, Policy Paper 2026-02, octobre 2026 · T1/C2</span>. Les auteurs précisent que le résultat est descriptif et ne neutralise ni le cycle, ni le télétravail, ni l'essor de l'apprentissage.</p>
+        </div>
+      </div>
+      <p data-i18n="s04.close">Les deux lectures ne sont pas contradictoires : l'une mesure un écart relatif au sein d'une classe d'âge par exposition, l'autre un niveau agrégé. Ce qui manque, c'est la donnée française : côté offre, 92 % des étudiants ont déjà utilisé l'IA générative et 43 % l'utilisent quotidiennement dans leurs études <span class="cite">Ipsos bva × EPITA, 2026 · T3/C3</span> ; côté demande, aucune série DARES ou France Travail ne croise aujourd'hui l'âge des recrutés et l'exposition du métier à l'IA. Sans cette série, la France ne saura pas si ses canaris chantent.</p>
+      <div class="note">
+        <span class="mono" data-i18n="note2.label">Transposition</span>
+        <p data-i18n="note2.body">Les résultats de Brynjolfsson et al. portent sur le marché du travail américain, sur un échantillon ADP plus sensible que les enquêtes nationales, et sont présentés par leurs auteurs comme des indicateurs descriptifs précoces, non comme des estimations causales. Ils sont classés T2 en raison de la nature privée de la source de données. Aucune valeur n'est transposée à la France dans ce numéro.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ §05 · FREINS ═══════════ -->
+  <section class="sec" id="s05">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s05.num">§05 · Freins</span>
+      <h2 data-i18n="s05.title">Le premier frein n'est pas le coût</h2>
+      <p data-i18n="s05.body">Chez les entreprises qui n'utilisent pas l'IA, 49 % citent l'absence de cas d'usage identifié, loin devant le manque de compétences techniques (24 %) et les contraintes financières (9 %). Chez celles qui l'utilisent, la hiérarchie s'inverse partiellement : les compétences passent en tête (33 %), suivies du manque de cas d'usage (29 %), des obstacles réglementaires (27 %) et de la fiabilité incertaine des résultats (24 %) <span class="cite">Banque de France, 2026 · T1/C1</span>. Le coût reste secondaire dans les deux populations. La lecture pour un comité de direction est directe : la difficulté n'est pas d'acheter un outil mais d'identifier, dans les processus métier, les applications qui créent de la valeur au-delà des fonctions support. C'est un problème de gouvernance des cas d'usage, et il se résout par des dispositifs organisationnels, pas par un budget.</p>
+      <div class="fig-block">
+        <div class="fig-title" data-i18n="fig2.title">Figure 2 · Obstacles cités par les entreprises n'utilisant pas l'IA</div>
+        <div class="fig-sub" data-i18n="fig2.sub">En % des entreprises de 20 salariés et plus non utilisatrices, choix multiple · France · février à avril 2026.</div>
+        <div class="chart" id="fig2" data-chart="bars"></div>
+        <div class="fig-src" data-i18n="fig2.src">Source · Banque de France, Bulletin 266/1, graphique 4b, 2026 · T1/C1</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §06 · CADRE ═══════════ -->
+  <section class="sec" id="s06">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s06.num">§06 · Cadre et souveraineté</span>
+      <h2 data-i18n="s06.title">L'année réglementaire</h2>
+      <p data-i18n="s06.body">Les obstacles réglementaires sont cités par 27 % des utilisatrices, ce qui en fait une friction organisationnelle mesurée et non un simple discours <span class="cite">Banque de France, 2026 · T1/C1</span>. La rentrée 2026 concentre trois textes ou rapports qui structurent cette friction en France. Le régime des systèmes à haut risque du règlement européen sur l'IA entre en application, et les fonctions RH figurent parmi ses cas d'usage explicitement visés. L'Autorité des marchés financiers a publié en février 2026 son rapport sur l'IA chez les acteurs des marchés financiers, qui pose des attentes de gouvernance, de traçabilité et de supervision humaine transposables à d'autres secteurs régulés <span class="cite">AMF, 2026 · T1/C2</span>. Enfin, le rapport de janvier 2026 sur l'IA générative et les défis de l'internet ouvert documente la dépendance des usages aux modèles et infrastructures d'un petit nombre d'acteurs non européens <span class="cite">Rapport internet ouvert, 2026 · T1/C2</span>, thème que la Banque de France reprend en citant l'étude Asterès pour le Cigref sur les hausses tarifaires du cloud et du logiciel <span class="cite">Asterès, 2026 · T3/C3</span>.</p>
+      <p data-i18n="s06.body2">Pour un comité de direction, ces trois textes convergent vers une même exigence : la capacité à documenter, pour chaque système déployé, qui décide, qui vérifie et qui répond. Cette exigence est précisément ce que la friction algorithmique désigne. Elle n'est pas un coût de conformité ajouté à la transformation ; elle en est la condition.</p>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §07 · MÉTIERS ═══════════ -->
+  <section class="sec sec--flush" id="s07">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s07.num">§07 · Au niveau des métiers</span>
+      <h2 data-i18n="s07.title">Cinq rôles d'entrée à surveiller</h2>
+      <p data-i18n="s07.body">Cinq métiers français qui concentrent, à la fois, un fort recrutement de primo-entrants et une position dans les quintiles supérieurs d'exposition. La barre encode le quintile d'exposition selon Eloundou et al. (2024), transposé de la nomenclature SOC vers ROME ; elle n'est pas un score français. Les effectifs par métier ne sont pas repris ici : n.d.</p>
+      <div class="roles">
+        <div class="role">
+          <span class="code">ROME M1607 · quintile 5</span>
+          <h3 data-i18n="role1.name">Secrétariat et assistanat administratif</h3>
+          <div class="expo"><span style="width:90%"></span></div>
+          <p class="desc" data-i18n="role1.desc">Rédaction, synthèse, tri et routage de courrier : tâches codifiées où l'usage de l'IA est substitutif. Domaine « gestion administrative », 27,5 % des usages déclarés.</p>
+        </div>
+        <div class="role">
+          <span class="code">ROME D1401 · quintile 5</span>
+          <h3 data-i18n="role2.name">Assistanat commercial et relation client</h3>
+          <div class="expo"><span style="width:90%"></span></div>
+          <p class="desc" data-i18n="role2.desc">Réponses clients, devis, suivi de commandes. Premier domaine d'usage déclaré en France (28,5 %). Rôle d'entrée classique en école de commerce.</p>
+        </div>
+        <div class="role">
+          <span class="code">ROME M1203 · quintile 4</span>
+          <h3 data-i18n="role3.name">Comptabilité et contrôle de gestion</h3>
+          <div class="expo"><span style="width:70%"></span></div>
+          <p class="desc" data-i18n="role3.desc">Saisie, rapprochements, préparation de clôture. Les tâches d'entrée sont les plus exposées ; la supervision et l'arbitrage le sont moins.</p>
+        </div>
+        <div class="role">
+          <span class="code">ROME M1805 · quintile 5</span>
+          <h3 data-i18n="role4.name">Études et développement informatique</h3>
+          <div class="expo"><span style="width:90%"></span></div>
+          <p class="desc" data-i18n="role4.desc">Le résultat américain se maintient en excluant les métiers informatiques, mais ce sont eux qui concentrent le décrochage le plus net des 22-25 ans.</p>
+        </div>
+        <div class="role">
+          <span class="code">ROME E1103 · quintile 4</span>
+          <h3 data-i18n="role5.name">Communication et création de contenu</h3>
+          <div class="expo"><span style="width:70%"></span></div>
+          <p class="desc" data-i18n="role5.desc">Production de textes et de visuels standardisés. Usage substitutif sur la production, complémentaire sur la stratégie éditoriale.</p>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §08 · PISTES CODIR ═══════════ -->
+  <section class="sec" id="s08">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s08.num">§08 · Trois pistes pour les comités de direction</span>
+      <h2 data-i18n="s08.title">Ce qui se décide avant décembre</h2>
+      <ol class="agenda">
+        <li><strong data-i18n="ag1.t">Mesurer l'intégration, plus l'adoption</strong><span data-i18n="ag1.b">Remplacer le nombre de licences par un indicateur unique : part des processus métier où l'IA est intégrée avec une boucle de vérification humaine documentée. Porteur : direction des opérations, avec la DSI. Échéance : première mesure au budget 2027.</span></li>
+        <li><strong data-i18n="ag2.t">Traiter le manque de cas d'usage comme un déficit de gouvernance</strong><span data-i18n="ag2.b">Un comité cas d'usage transverse, animé par les métiers et non par la technique, doté d'un budget d'expérimentation à 90 jours et d'un critère d'arrêt explicite pour chaque pilote. Porteur : direction générale. Échéance : constitution avant fin octobre.</span></li>
+        <li><strong data-i18n="ag3.t">Protéger le pipeline junior</strong><span data-i18n="ag3.b">Maintenir le volume de recrutement des 22-25 ans dans les fonctions exposées en redéfinissant le rôle d'entrée comme celui de superviseur d'outils. Le coût d'un pipeline interrompu se paie à cinq ans, quand la pyramide des compétences se creuse. Porteur : DRH. Échéance : plan de recrutement 2027.</span></li>
+      </ol>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §09 · PISTES POUVOIRS PUBLICS ═══════════ -->
+  <section class="sec" id="s09">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s09.num">§09 · Trois pistes pour les pouvoirs publics</span>
+      <h2 data-i18n="s09.title">Instrumenter avant de légiférer</h2>
+      <ol class="agenda">
+        <li><strong data-i18n="pp1.t">Construire un indicateur français des primo-entrants par exposition</strong><span data-i18n="pp1.b">Croiser les déclarations d'embauche et les séries DARES avec la nomenclature ROME et un score d'exposition, par tranche d'âge. C'est la seule façon de disposer d'un signal national plutôt que d'une transposition américaine. Porteur : DARES avec France Travail et l'Insee.</span></li>
+        <li><strong data-i18n="pp2.t">Financer le diagnostic de cas d'usage, pas l'outil</strong><span data-i18n="pp2.b">Puisque le coût n'est cité que par 9 % des non-utilisatrices, réorienter les dispositifs PME de France 2030 et des régions vers l'accompagnement à l'identification des applications métier. Porteur : Bpifrance et les Régions.</span></li>
+        <li><strong data-i18n="pp3.t">Harmoniser la statistique publique avec le chantier G7</strong><span data-i18n="pp3.b">Les banques centrales du G7 harmonisent en 2026 leurs enquêtes IA. Aligner le module IA de l'enquête TIC de l'Insee sur celui de la Banque de France, et publier les deux séries à cadence comparable, pour réduire la dépendance des décideurs aux études commerciales à source unique. Porteur : Insee et Banque de France.</span></li>
+      </ol>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ §10 · MÉTHODE ═══════════ -->
+  <section class="sec" id="s10">
+    <div class="wrap"><div class="col">
+      <span class="num" data-i18n="s10.num">§10 · Méthode</span>
+      <h2 data-i18n="s10.title">Sources et niveaux de confiance</h2>
+      <p data-i18n="s10.body">Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse. La confiance, de C1 à C4, qualifie la transparence méthodologique. Une valeur absente est notée n.d. et n'est jamais estimée. Les données américaines sont présentées pour ce qu'elles sont : un signal précoce sur un autre marché, sans transposition.</p>
+      <div class="table-scroll">
+        <table class="sources">
+          <thead><tr>
+            <th data-i18n="tbl.src">Source</th><th data-i18n="tbl.nat">Nature</th>
+            <th data-i18n="tbl.base">Base</th><th data-i18n="tbl.tier">Tier</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Genre, Parpais, Banque de France, Bulletin 266/1, 2026</td><td data-i18n="tbl.r1n">Enquête de conjoncture, banque centrale</td><td>n ≈ 7 000</td><td class="tier">T1/C1</td></tr>
+            <tr><td>Yotzov et al., Fed Atlanta WP 2026-3, 2026</td><td data-i18n="tbl.r2n">Document de travail, banque centrale</td><td>n = 6 000</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Brynjolfsson, Chandar, Chen, Stanford, août 2026</td><td data-i18n="tbl.r3n">Document de travail sur données de paie privées (ADP)</td><td data-i18n="tbl.r3b">plusieurs millions de salariés</td><td class="tier">T2/C2</td></tr>
+            <tr><td>Ipsos bva × EPITA, février 2026</td><td data-i18n="tbl.r4n">Sondage commandité, étudiants</td><td>n.d.</td><td class="tier">T3/C3</td></tr>
+            <tr><td>AMF, IA et acteurs des marchés financiers, février 2026</td><td data-i18n="tbl.r5n">Rapport de régulateur</td><td>n.d.</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Rapport IA générative et internet ouvert, janvier 2026</td><td data-i18n="tbl.r6n">Rapport institutionnel</td><td>n.d.</td><td class="tier">T1/C2</td></tr>
+            <tr><td>Asterès pour le Cigref, mai 2026</td><td data-i18n="tbl.r7n">Étude commanditée</td><td>n.d.</td><td class="tier">T3/C3</td></tr>
+            <tr><td>The Economist, 4 septembre 2026</td><td data-i18n="tbl.r8n">Presse, données BLS et Challenger</td><td>n.d.</td><td class="tier">T4/C3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="disclosure">
+        <span class="mono" data-i18n="disc.label">Indépendance éditoriale</span>
+        <p data-i18n="disc.body">Ce numéro ne fait l'objet d'aucun partenariat ni financement externe. Le contenu analytique est produit indépendamment de tout client de conseil de l'auteur.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ═══════════ CLÔTURE ═══════════ -->
+  <section class="sec">
+    <div class="wrap"><div class="col">
+      <div class="cta">
+        <a href="contact.html?type=custom"><strong data-i18n="cta1.t">Dispatch sur mesure</strong><span data-i18n="cta1.b">Une analyse sur votre périmètre, vos métiers, votre région.</span></a>
+        <a href="contact.html?type=ops"><strong data-i18n="cta2.t">Comité cas d'usage</strong><span data-i18n="cta2.b">Du diagnostic des freins à la feuille de route 90 jours.</span></a>
+      </div>
+      <p class="sig" data-i18n="sig">Naully</p>
+    </div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <p data-i18n="foot.body">Observatoire[s]·ia · publication indépendante.</p>
+      <p class="ver">Dispatch·iA #008 · v1.0 · 2026-09-08</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   ZONE B · CONFIGURATION ET CONTENU
+   Tout le corps du document se pilote ici. Aucune édition dispersée.
+   ═══════════════════════════════════════════════════════════════════ */
+
+const DISPATCH_CONFIG = {
+  number: '008',
+  slug: '08-rentree-2026-france',
+  date: '2026-09-08',
+  version: '1.0',
+  langs: ['fr','en'],        // étendre à ['fr','de','it','en'] sans toucher au moteur
+  defaultLang: 'fr'
+};
+
+const LANGS = DISPATCH_CONFIG.langs;
+
+/* Dictionnaires · une entrée par langue, jeux de clés strictement identiques.
+   Une valeur contenant du HTML inline est injectée via innerHTML,
+   la détection est automatique : ne pas échapper les balises voulues. */
+const PAGE_I18N = {
+  fr: {
+    'ui.series':'Observatoire[s]·ia · Dispatch·iA',
+    'ui.theme':'Thème',
+    'hero.kicker':'Dispatch·iA #008 · Spécial rentrée · Édition du 8 septembre 2026',
+    'hero.title':'L\'adoption est acquise, la transformation ne l\'est pas',
+    'hero.standfirst':'Deux tiers des entreprises françaises utilisent l\'IA générative. Un tiers en tire déjà un gain. La rentrée 2026 déplace la question : non plus qui utilise l\'IA, mais ce qu\'elle change réellement dans l\'organisation du travail, et pour qui.',
+    'hero.author':'Naully Nicolas',
+    'hero.reading':'14 min de lecture',
+    'hero.scope':'Périmètre · France · entreprises de 20 salariés et plus · données février à juin 2026',
+    'tldr.label':'En bref',
+    'tldr.1':'67 % des entreprises de 20 salariés et plus déclarent utiliser l\'IA générative, mais l\'usage reste majoritairement limité ou expérimental ; l\'IA prédictive plafonne à un tiers (Banque de France, 2026 · T1).',
+    'tldr.2':'31 % des utilisatrices constatent un gain de productivité ; 60 % en anticipent un d\'ici 2029. L\'écart entre attente et constat est la donnée centrale de la rentrée.',
+    'tldr.3':'Le premier frein n\'est pas le coût (9 %) mais l\'absence de cas d\'usage identifié (49 % des non-utilisatrices). C\'est un déficit de gouvernance, pas de technologie.',
+    'tldr.4':'Aux États-Unis, l\'emploi des 22-25 ans dans les métiers les plus exposés se situe 19 % sous sa trajectoire de référence (Brynjolfsson et al., 2026 · T2). Aucun équivalent français n\'existe : c\'est le chantier prioritaire des pouvoirs publics.',
+    's00.num':'§00 · Repères',
+    's00.title':'Les chiffres d\'entrée',
+    's00.body':'Quatre indicateurs tirés de l\'enquête mensuelle de conjoncture de la Banque de France, conduite du 25 février au 3 avril 2026 auprès d\'environ 7 000 entreprises, redressée par taille et secteur. Champ : industrie manufacturière, construction et services marchands non financiers, hors commerce. Chaque valeur porte sa source et son tier ; aucune n\'est estimée.',
+    's00.kpi1':'Entreprises de 20 salariés et plus déclarant utiliser l\'IA générative',
+    's00.kpi2':'Utilisatrices d\'IA générative constatant déjà un gain de productivité',
+    's00.kpi3':'Non-utilisatrices citant l\'absence de cas d\'usage comme premier frein',
+    's00.kpi4':'Solde net d\'opinion sur l\'emploi à trois ans, en baisse, parmi les utilisatrices',
+    's01.num':'§01 · Adoption',
+    's01.title':'Le plateau des deux tiers',
+    's01.body':'Deux dynamiques de diffusion coexistent. L\'IA générative, à faible coût d\'entrée, est déjà présente dans 67 % des entreprises de 20 salariés et plus, avec un gradient de taille modéré : 64 % chez les 20-49 salariés, 83 % au-delà de 1 000. L\'IA prédictive, qui exige des données structurées et des capacités d\'intégration, n\'atteint qu\'un tiers des entreprises et son gradient est deux fois plus marqué, de 31 % à 60 % <span class="cite">Banque de France, 2026 · T1/C1</span>. Les usages se concentrent dans les fonctions support : relations commerciales (28,5 %) et gestion administrative (27,5 %) devancent largement les processus de production (14,2 %) et la R&D (7,1 %). La ressource humaine, à 5,5 %, est le domaine où l\'IA est le moins déployée alors qu\'elle est le plus souvent invoquée.',
+    'fig1.title':'Figure 1 · Utilisation de l\'IA générative par taille d\'entreprise',
+    'fig1.sub':'En % des entreprises de la tranche, tous niveaux d\'intensité confondus · France · février à avril 2026.',
+    'fig1.src':'Source · Banque de France, Bulletin 266/1, enquête mensuelle de conjoncture, 2026 · n ≈ 7 000 · T1/C1',
+    'fig1.d1':'20 à 49 salariés',
+    'fig1.d2':'50 à 99 salariés',
+    'fig1.d3':'100 à 249 salariés',
+    'fig1.d4':'250 à 499 salariés',
+    'fig1.d5':'500 à 999 salariés',
+    'fig1.d6':'1 000 salariés et plus',
+    'note1.label':'Note de lecture',
+    'note1.body':'Le champ de l\'enquête exclut les services financiers, l\'immobilier, l\'assurance, les services publics et le commerce, soit environ la moitié de l\'économie française. Les taux ne sont donc pas transposables à l\'ensemble du tissu productif. L\'enquête TIC de l\'Insee (Lefebvre, 2026 · T1) constitue le point de comparaison ; ses résultats détaillés ne sont pas repris ici.',
+    's02.num':'§02 · Productivité',
+    's02.title':'Le paradoxe de Solow, version 2026',
+    's02.body':'Parmi les utilisatrices d\'IA générative, 31 % déclarent avoir constaté un gain de productivité entre 2023 et 2026 ; seules 6 % le qualifient de significatif. À l\'horizon 2029, 60 % des entreprises utilisant ou prévoyant d\'utiliser l\'IA anticipent un gain, dont 17 % un gain significatif <span class="cite">Banque de France, 2026 · T1/C1</span>. Rapporté à l\'ensemble des entreprises interrogées et non aux seules utilisatrices, le constat tombe à 22 %, contre 9 % en solde net dans l\'enquête comparable de la Fed d\'Atlanta auprès de 6 000 dirigeants aux États-Unis, au Royaume-Uni, en Australie et en Allemagne <span class="cite">Yotzov et al., 2026 · T1/C2</span>. La France se situe donc plutôt au-dessus de ses pairs sur le constat, mais l\'écart entre l\'effet attendu et l\'effet observé reste de l\'ordre du simple au triple. Les auteurs de la Banque de France en tirent une hypothèse explicite : les gains resteront difficiles à observer dans le tissu productif pendant quelques années encore, le temps que l\'organisation s\'adapte, comme pour l\'électricité et l\'informatique <span class="cite">David, 1990</span>.',
+    's02.body2':'Le signal de prix confirme cette lecture. Les entreprises anticipent davantage de hausses que de baisses de prix de vente (6 % en solde net), ce qui contredit l\'idée d\'un effet désinflationniste rapide et suggère que l\'IA est perçue, à ce stade, comme un outil d\'assistance plutôt que comme un substitut direct au travail.',
+    's03.num':'§03 · Emploi',
+    's03.title':'Réallocation plutôt que destruction',
+    's03.body':'Sur les effectifs, 21 % des entreprises utilisatrices ou candidates anticipent une baisse d\'ici 2029, dont 19 % une baisse modérée. En solde net, le chiffre est de 14 points, ce que la Banque de France interprète comme un effet de réallocation réel mais contenu <span class="cite">Banque de France, 2026 · T1/C1</span>. Un tiers des entreprises prévoit en parallèle une hausse de ses investissements liés à l\'IA. Ces trois signaux, gains attendus, effectifs légèrement en baisse, investissement en hausse, dessinent un scénario de transformation graduelle, cohérent avec le cadre de friction numérique et algorithmique que cet observatoire documente depuis le numéro #001 : les gains sont conditionnés par l\'intégration aux systèmes existants, par la fiabilité des résultats et par les boucles de vérification humaine, non par la seule disponibilité de l\'outil.',
+    's04.num':'§04 · Jeunes diplômés · Débat',
+    's04.title':'Le signal des canaris',
+    's04.intro':'La rentrée est le moment où les primo-entrants arrivent sur le marché. Deux lectures des mêmes données américaines s\'opposent, et aucune donnée française ne permet aujourd\'hui de les départager.',
+    's04.posA.label':'Position A · le décrochage est engagé',
+    's04.posA.body':'Sur données de paie ADP couvrant plusieurs millions de salariés américains jusqu\'en juin 2026, l\'emploi des 22-25 ans dans les métiers les plus exposés se situe 19 % sous la trajectoire qu\'il aurait suivie s\'il avait progressé au même rythme que celui des jeunes moins exposés. En niveau, il recule de 11 % depuis novembre 2022 quand il progresse de 10 % dans les quintiles les moins exposés. L\'écart s\'est creusé depuis août 2025, passe par une baisse des embauches plutôt que des ruptures, et se concentre dans les métiers où l\'IA substitue les tâches plutôt qu\'elle ne les complète. <span class="cite">Brynjolfsson et al., 2026 · T2/C2</span>',
+    's04.posB.label':'Position B · l\'apocalypse est reportée',
+    's04.posB.body':'L\'économie américaine a créé 162 000 emplois en août 2026, bien au-delà des attentes, avec un chômage à 4,1 %. L\'écart entre le chômage des 20-24 ans et le taux global est proche de son plus bas niveau depuis plusieurs décennies. Les disruptions existent, environ 16 000 suppressions de postes liées à l\'IA annoncées chaque mois selon Challenger, Gray &amp; Christmas, mais elles restent sectorielles et ne se lisent pas dans les agrégats. <span class="cite">The Economist, sept. 2026 · T4/C3</span>. Le même dossier chiffre l\'autre versant : environ un million d\'emplois attribués à l\'IA aux États-Unis depuis mi-2023, portés par l\'infrastructure et par une nouvelle classe de postes qualifiés, dont 320 000 emplois au-dessus de la tendance dans les métiers des centres de données et 730 000 chez les ingénieurs et data scientists <span class="cite">The Economist, sept. 2026 · T4/C3</span>. Aucune de ces séries n\'a d\'équivalent français : ni l\'INSEE ni la DARES ne publient de ventilation de l\'emploi créé par l\'IA. Côté français, la mesure équivalente existe désormais. Sur les mouvements de main-d\'œuvre de la Dares, les embauches en CDI des 21-29 ans de mars 2026 sont inférieures de 28,3 % à leur niveau de novembre 2022 dans les métiers les plus exposés à l\'IA générative, contre 7,5 % dans les moins exposés, soit un écart de 20,8 points et de l\'ordre de 75 000 CDI de moins par an. Les fins de contrat reculent aussi, de 23 % contre 6 %, mais plus tard et moins fort : le marché se fige plutôt qu\'il ne détruit <span class="cite">LIFT HEC Paris, Policy Paper 2026-02, octobre 2026 · T1/C2</span>. Les auteurs précisent que le résultat est descriptif et ne neutralise ni le cycle, ni le télétravail, ni l\'essor de l\'apprentissage.',
+    's04.close':'Les deux lectures ne sont pas contradictoires : l\'une mesure un écart relatif au sein d\'une classe d\'âge par exposition, l\'autre un niveau agrégé. Ce qui manque, c\'est la donnée française : côté offre, 92 % des étudiants ont déjà utilisé l\'IA générative et 43 % l\'utilisent quotidiennement dans leurs études <span class="cite">Ipsos bva × EPITA, 2026 · T3/C3</span> ; côté demande, aucune série DARES ou France Travail ne croise aujourd\'hui l\'âge des recrutés et l\'exposition du métier à l\'IA. Sans cette série, la France ne saura pas si ses canaris chantent.',
+    'note2.label':'Transposition',
+    'note2.body':'Les résultats de Brynjolfsson et al. portent sur le marché du travail américain, sur un échantillon ADP plus sensible que les enquêtes nationales, et sont présentés par leurs auteurs comme des indicateurs descriptifs précoces, non comme des estimations causales. Ils sont classés T2 en raison de la nature privée de la source de données. Aucune valeur n\'est transposée à la France dans ce numéro.',
+    's05.num':'§05 · Freins',
+    's05.title':'Le premier frein n\'est pas le coût',
+    's05.body':'Chez les entreprises qui n\'utilisent pas l\'IA, 49 % citent l\'absence de cas d\'usage identifié, loin devant le manque de compétences techniques (24 %) et les contraintes financières (9 %). Chez celles qui l\'utilisent, la hiérarchie s\'inverse partiellement : les compétences passent en tête (33 %), suivies du manque de cas d\'usage (29 %), des obstacles réglementaires (27 %) et de la fiabilité incertaine des résultats (24 %) <span class="cite">Banque de France, 2026 · T1/C1</span>. Le coût reste secondaire dans les deux populations. La lecture pour un comité de direction est directe : la difficulté n\'est pas d\'acheter un outil mais d\'identifier, dans les processus métier, les applications qui créent de la valeur au-delà des fonctions support. C\'est un problème de gouvernance des cas d\'usage, et il se résout par des dispositifs organisationnels, pas par un budget.',
+    'fig2.title':'Figure 2 · Obstacles cités par les entreprises n\'utilisant pas l\'IA',
+    'fig2.sub':'En % des entreprises de 20 salariés et plus non utilisatrices, choix multiple · France · février à avril 2026.',
+    'fig2.src':'Source · Banque de France, Bulletin 266/1, graphique 4b, 2026 · T1/C1',
+    'fig2.d1':'Manque de cas d\'usage',
+    'fig2.d2':'Compétences techniques insuffisantes',
+    'fig2.d3':'Aucun obstacle',
+    'fig2.d4':'Fiabilité incertaine des résultats',
+    'fig2.d5':'Incompatibilité technique',
+    'fig2.d6':'Obstacles réglementaires',
+    'fig2.d7':'Coûts',
+    's06.num':'§06 · Cadre et souveraineté',
+    's06.title':'L\'année réglementaire',
+    's06.body':'Les obstacles réglementaires sont cités par 27 % des utilisatrices, ce qui en fait une friction organisationnelle mesurée et non un simple discours <span class="cite">Banque de France, 2026 · T1/C1</span>. La rentrée 2026 concentre trois textes ou rapports qui structurent cette friction en France. Le régime des systèmes à haut risque du règlement européen sur l\'IA entre en application, et les fonctions RH figurent parmi ses cas d\'usage explicitement visés. L\'Autorité des marchés financiers a publié en février 2026 son rapport sur l\'IA chez les acteurs des marchés financiers, qui pose des attentes de gouvernance, de traçabilité et de supervision humaine transposables à d\'autres secteurs régulés <span class="cite">AMF, 2026 · T1/C2</span>. Enfin, le rapport de janvier 2026 sur l\'IA générative et les défis de l\'internet ouvert documente la dépendance des usages aux modèles et infrastructures d\'un petit nombre d\'acteurs non européens <span class="cite">Rapport internet ouvert, 2026 · T1/C2</span>, thème que la Banque de France reprend en citant l\'étude Asterès pour le Cigref sur les hausses tarifaires du cloud et du logiciel <span class="cite">Asterès, 2026 · T3/C3</span>.',
+    's06.body2':'Pour un comité de direction, ces trois textes convergent vers une même exigence : la capacité à documenter, pour chaque système déployé, qui décide, qui vérifie et qui répond. Cette exigence est précisément ce que la friction algorithmique désigne. Elle n\'est pas un coût de conformité ajouté à la transformation ; elle en est la condition.',
+    's07.num':'§07 · Au niveau des métiers',
+    's07.title':'Cinq rôles d\'entrée à surveiller',
+    's07.body':'Cinq métiers français qui concentrent, à la fois, un fort recrutement de primo-entrants et une position dans les quintiles supérieurs d\'exposition. La barre encode le quintile d\'exposition selon Eloundou et al. (2024), transposé de la nomenclature SOC vers ROME ; elle n\'est pas un score français. Les effectifs par métier ne sont pas repris ici : n.d.',
+    'role1.name':'Secrétariat et assistanat administratif','role1.desc':'Rédaction, synthèse, tri et routage de courrier : tâches codifiées où l\'usage de l\'IA est substitutif. Domaine « gestion administrative », 27,5 % des usages déclarés.',
+    'role2.name':'Assistanat commercial et relation client','role2.desc':'Réponses clients, devis, suivi de commandes. Premier domaine d\'usage déclaré en France (28,5 %). Rôle d\'entrée classique en école de commerce.',
+    'role3.name':'Comptabilité et contrôle de gestion','role3.desc':'Saisie, rapprochements, préparation de clôture. Les tâches d\'entrée sont les plus exposées ; la supervision et l\'arbitrage le sont moins.',
+    'role4.name':'Études et développement informatique','role4.desc':'Le résultat américain se maintient en excluant les métiers informatiques, mais ce sont eux qui concentrent le décrochage le plus net des 22-25 ans.',
+    'role5.name':'Communication et création de contenu','role5.desc':'Production de textes et de visuels standardisés. Usage substitutif sur la production, complémentaire sur la stratégie éditoriale.',
+    's08.num':'§08 · Trois pistes pour les comités de direction',
+    's08.title':'Ce qui se décide avant décembre',
+    'ag1.t':'Mesurer l\'intégration, plus l\'adoption','ag1.b':'Remplacer le nombre de licences par un indicateur unique : part des processus métier où l\'IA est intégrée avec une boucle de vérification humaine documentée. Porteur : direction des opérations, avec la DSI. Échéance : première mesure au budget 2027.',
+    'ag2.t':'Traiter le manque de cas d\'usage comme un déficit de gouvernance','ag2.b':'Un comité cas d\'usage transverse, animé par les métiers et non par la technique, doté d\'un budget d\'expérimentation à 90 jours et d\'un critère d\'arrêt explicite pour chaque pilote. Porteur : direction générale. Échéance : constitution avant fin octobre.',
+    'ag3.t':'Protéger le pipeline junior','ag3.b':'Maintenir le volume de recrutement des 22-25 ans dans les fonctions exposées en redéfinissant le rôle d\'entrée comme celui de superviseur d\'outils. Le coût d\'un pipeline interrompu se paie à cinq ans, quand la pyramide des compétences se creuse. Porteur : DRH. Échéance : plan de recrutement 2027.',
+    's09.num':'§09 · Trois pistes pour les pouvoirs publics',
+    's09.title':'Instrumenter avant de légiférer',
+    'pp1.t':'Construire un indicateur français des primo-entrants par exposition','pp1.b':'Croiser les déclarations d\'embauche et les séries DARES avec la nomenclature ROME et un score d\'exposition, par tranche d\'âge. C\'est la seule façon de disposer d\'un signal national plutôt que d\'une transposition américaine. Porteur : DARES avec France Travail et l\'Insee.',
+    'pp2.t':'Financer le diagnostic de cas d\'usage, pas l\'outil','pp2.b':'Puisque le coût n\'est cité que par 9 % des non-utilisatrices, réorienter les dispositifs PME de France 2030 et des régions vers l\'accompagnement à l\'identification des applications métier. Porteur : Bpifrance et les Régions.',
+    'pp3.t':'Harmoniser la statistique publique avec le chantier G7','pp3.b':'Les banques centrales du G7 harmonisent en 2026 leurs enquêtes IA. Aligner le module IA de l\'enquête TIC de l\'Insee sur celui de la Banque de France, et publier les deux séries à cadence comparable, pour réduire la dépendance des décideurs aux études commerciales à source unique. Porteur : Insee et Banque de France.',
+    's10.num':'§10 · Méthode',
+    's10.title':'Sources et niveaux de confiance',
+    's10.body':'Les sources sont classées par nature, de T1 pour les travaux académiques et institutionnels primaires à T4 pour la presse. La confiance, de C1 à C4, qualifie la transparence méthodologique. Une valeur absente est notée n.d. et n\'est jamais estimée. Les données américaines sont présentées pour ce qu\'elles sont : un signal précoce sur un autre marché, sans transposition.',
+    'tbl.src':'Source','tbl.nat':'Nature','tbl.base':'Base','tbl.tier':'Tier',
+    'tbl.r1n':'Enquête de conjoncture, banque centrale',
+    'tbl.r2n':'Document de travail, banque centrale',
+    'tbl.r3n':'Document de travail sur données de paie privées (ADP)','tbl.r3b':'plusieurs millions de salariés',
+    'tbl.r4n':'Sondage commandité, étudiants',
+    'tbl.r5n':'Rapport de régulateur',
+    'tbl.r6n':'Rapport institutionnel',
+    'tbl.r7n':'Étude commanditée',
+    'tbl.r8n':'Presse, données BLS et Challenger',
+    'disc.label':'Indépendance éditoriale',
+    'disc.body':'Ce numéro ne fait l\'objet d\'aucun partenariat ni financement externe. Le contenu analytique est produit indépendamment de tout client de conseil de l\'auteur.',
+    'cta1.t':'Dispatch sur mesure','cta1.b':'Une analyse sur votre périmètre, vos métiers, votre région.',
+    'cta2.t':'Comité cas d\'usage','cta2.b':'Du diagnostic des freins à la feuille de route 90 jours.',
+    'sig':'Naully',
+    'foot.body':'Observatoire[s]·ia · publication indépendante.'
+  },
+  en: {
+    'ui.series':'Observatoire[s]·ia · Dispatch·iA',
+    'ui.theme':'Theme',
+    'hero.kicker':'Dispatch·iA #008 · Back-to-work special · Issue of 8 September 2026',
+    'hero.title':'Adoption is done. Transformation is not.',
+    'hero.standfirst':'Two thirds of French firms use generative AI. One third already reports a gain. September 2026 shifts the question: no longer who uses AI, but what it actually changes in how work is organised, and for whom.',
+    'hero.author':'Naully Nicolas',
+    'hero.reading':'14 min read',
+    'hero.scope':'Scope · France · firms with 20+ employees · data February to June 2026',
+    'tldr.label':'In brief',
+    'tldr.1':'67% of firms with 20+ employees report using generative AI, but most use remains limited or experimental; predictive AI plateaus at one third (Banque de France, 2026 · T1).',
+    'tldr.2':'31% of users already see a productivity gain; 60% expect one by 2029. The gap between expectation and observation is the central figure of the season.',
+    'tldr.3':'The first barrier is not cost (9%) but the absence of an identified use case (49% of non-users). This is a governance deficit, not a technology deficit.',
+    'tldr.4':'In the US, employment of 22-25 year olds in the most exposed occupations stands 19% below its reference path (Brynjolfsson et al., 2026 · T2). No French equivalent exists: that is the first task for public authorities.',
+    's00.num':'§00 · Benchmarks',
+    's00.title':'Opening figures',
+    's00.body':'Four indicators from the Banque de France monthly business survey, run from 25 February to 3 April 2026 among roughly 7,000 firms, weighted by size and sector. Coverage: manufacturing, construction and non-financial market services, excluding retail. Every value carries its source and tier; none is estimated.',
+    's00.kpi1':'Firms with 20+ employees reporting use of generative AI',
+    's00.kpi2':'Generative AI users already observing a productivity gain',
+    's00.kpi3':'Non-users citing the lack of a use case as the main barrier',
+    's00.kpi4':'Net balance of opinion on headcount over three years, negative, among users',
+    's01.num':'§01 · Adoption',
+    's01.title':'The two-thirds plateau',
+    's01.body':'Two diffusion dynamics coexist. Generative AI, with its low entry cost, is already present in 67% of firms with 20+ employees, with a moderate size gradient: 64% among 20-49 employees, 83% above 1,000. Predictive AI, which requires structured data and integration capacity, reaches only one third of firms and its gradient is twice as steep, from 31% to 60% <span class="cite">Banque de France, 2026 · T1/C1</span>. Use concentrates in support functions: sales relations (28.5%) and administrative management (27.5%) far outweigh production processes (14.2%) and R&D (7.1%). Human resources, at 5.5%, is the domain where AI is least deployed while being most often invoked.',
+    'fig1.title':'Figure 1 · Generative AI use by firm size',
+    'fig1.sub':'% of firms in each size band, all intensity levels · France · February to April 2026.',
+    'fig1.src':'Source · Banque de France, Bulletin 266/1, monthly business survey, 2026 · n ≈ 7,000 · T1/C1',
+    'fig1.d1':'20 to 49 employees',
+    'fig1.d2':'50 to 99 employees',
+    'fig1.d3':'100 to 249 employees',
+    'fig1.d4':'250 to 499 employees',
+    'fig1.d5':'500 to 999 employees',
+    'fig1.d6':'1,000 employees and more',
+    'note1.label':'Reading note',
+    'note1.body':'The survey excludes financial services, real estate, insurance, public services and retail, about half of the French economy. Rates therefore cannot be extended to the whole productive fabric. The Insee ICT survey (Lefebvre, 2026 · T1) is the comparison point; its detailed results are not reproduced here.',
+    's02.num':'§02 · Productivity',
+    's02.title':'The Solow paradox, 2026 edition',
+    's02.body':'Among generative AI users, 31% report having observed a productivity gain between 2023 and 2026; only 6% call it significant. By 2029, 60% of firms using or planning to use AI expect a gain, 17% a significant one <span class="cite">Banque de France, 2026 · T1/C1</span>. Measured against all surveyed firms rather than users only, the observed share falls to 22%, against a 9% net balance in the comparable Atlanta Fed survey of 6,000 executives in the US, UK, Australia and Germany <span class="cite">Yotzov et al., 2026 · T1/C2</span>. France therefore sits somewhat above its peers on observed gains, but the gap between expected and observed effect remains roughly threefold. The Banque de France authors draw an explicit hypothesis: gains will remain hard to observe across the productive fabric for a few more years, until organisations adapt, as with electricity and computing <span class="cite">David, 1990</span>.',
+    's02.body2':'The price signal confirms this reading. Firms expect more price increases than decreases (6% net balance), which contradicts the idea of a rapid disinflationary effect and suggests AI is perceived, at this stage, as an assistance tool rather than a direct substitute for labour.',
+    's03.num':'§03 · Employment',
+    's03.title':'Reallocation rather than destruction',
+    's03.body':'On headcount, 21% of user or prospective firms expect a decrease by 2029, of which 19% a moderate one. The net balance is 14 points, which the Banque de France reads as a real but contained reallocation effect <span class="cite">Banque de France, 2026 · T1/C1</span>. One third of firms simultaneously plan to raise AI-related investment. These three signals, expected gains, slightly lower headcount, higher investment, describe a gradual transformation scenario, consistent with the digital and algorithmic friction framework this observatory has documented since issue #001: gains are conditioned by integration with existing systems, by result reliability and by human verification loops, not by tool availability alone.',
+    's04.num':'§04 · Young graduates · Debate',
+    's04.title':'The canary signal',
+    's04.intro':'September is when first-time entrants reach the market. Two readings of the same US data conflict, and no French data can currently settle them.',
+    's04.posA.label':'Position A · the divergence is under way',
+    's04.posA.body':'On ADP payroll data covering millions of US workers through June 2026, employment of 22-25 year olds in the most exposed occupations stands 19% below the path it would have followed had it kept pace with less exposed peers. In levels, it fell 11% since November 2022 while rising 10% in the least exposed quintiles. The gap has widened since August 2025, operates through reduced hiring rather than separations, and concentrates in occupations where AI substitutes for tasks rather than complementing them. <span class="cite">Brynjolfsson et al., 2026 · T2/C2</span>',
+    's04.posB.label':'Position B · the apocalypse is postponed',
+    's04.posB.body':'The US economy added 162,000 jobs in August 2026, well above expectations, with unemployment at 4.1%. The gap between unemployment among 20-24 year olds and the overall rate is close to a multi-decade low. Disruption exists, roughly 16,000 AI-related job cuts announced per month according to Challenger, Gray &amp; Christmas, but it remains sectoral and does not show in the aggregates. <span class="cite">The Economist, Sept. 2026 · T4/C3</span>. The same piece quantifies the other side: around one million jobs attributed to AI in the United States since mid-2023, driven by infrastructure and by a new class of skilled roles, including 320,000 jobs above trend in data-centre occupations and 730,000 among engineers and data scientists <span class="cite">The Economist, Sept. 2026 · T4/C3</span>. None of these series has a French equivalent: neither INSEE nor DARES publishes a breakdown of employment created by AI. The French equivalent now exists. On Dares labour-movement records, permanent hires of 21 to 29 year-olds in March 2026 stand 28.3% below their November 2022 level in the occupations most exposed to generative AI, against 7.5% in the least exposed, a gap of 20.8 points and some 75,000 fewer permanent contracts a year. Contract terminations fall too, 23% against 6%, but later and less sharply: the market freezes rather than sheds <span class="cite">LIFT HEC Paris, Policy Paper 2026-02, October 2026 · T1/C2</span>. The authors stress the result is descriptive and controls for neither the cycle, nor remote work, nor the expansion of apprenticeship.',
+    's04.close':'The two readings are not contradictory: one measures a relative gap within an age group by exposure, the other an aggregate level. What is missing is French data: on the supply side, 92% of students have already used generative AI and 43% use it daily in their studies <span class="cite">Ipsos bva × EPITA, 2026 · T3/C3</span>; on the demand side, no DARES or France Travail series currently crosses the age of new hires with the occupation\'s AI exposure. Without that series, France will not know whether its canaries are singing.',
+    'note2.label':'Transposition',
+    'note2.body':'The Brynjolfsson et al. results concern the US labour market, on an ADP sample more sensitive than national surveys, and are presented by their authors as early descriptive indicators, not causal estimates. They are classed T2 because the data source is private. No value is transposed to France in this issue.',
+    's05.num':'§05 · Barriers',
+    's05.title':'The first barrier is not cost',
+    's05.body':'Among firms not using AI, 49% cite the absence of an identified use case, far ahead of insufficient technical skills (24%) and financial constraints (9%). Among users, the ranking partly reverses: skills come first (33%), followed by lack of use cases (29%), regulatory obstacles (27%) and uncertain reliability of results (24%) <span class="cite">Banque de France, 2026 · T1/C1</span>. Cost remains secondary in both populations. The reading for an executive committee is direct: the difficulty is not buying a tool but identifying, within business processes, the applications that create value beyond support functions. That is a use-case governance problem, and it is solved by organisational mechanisms, not by budget.',
+    'fig2.title':'Figure 2 · Barriers cited by firms not using AI',
+    'fig2.sub':'% of non-user firms with 20+ employees, multiple choice · France · February to April 2026.',
+    'fig2.src':'Source · Banque de France, Bulletin 266/1, chart 4b, 2026 · T1/C1',
+    'fig2.d1':'Lack of use cases',
+    'fig2.d2':'Insufficient technical skills',
+    'fig2.d3':'No barrier',
+    'fig2.d4':'Uncertain reliability of results',
+    'fig2.d5':'Technical incompatibility',
+    'fig2.d6':'Regulatory obstacles',
+    'fig2.d7':'Costs',
+    's06.num':'§06 · Framework and sovereignty',
+    's06.title':'The regulatory year',
+    's06.body':'Regulatory obstacles are cited by 27% of users, which makes them a measured organisational friction rather than mere discourse <span class="cite">Banque de France, 2026 · T1/C1</span>. September 2026 concentrates three texts or reports that structure this friction in France. The high-risk regime of the EU AI Act enters into application, and HR functions are among its explicitly targeted use cases. The Autorité des marchés financiers published in February 2026 its report on AI among financial market participants, setting expectations of governance, traceability and human oversight that carry over to other regulated sectors <span class="cite">AMF, 2026 · T1/C2</span>. Finally, the January 2026 report on generative AI and the challenges of the open internet documents how uses depend on the models and infrastructure of a small number of non-European players <span class="cite">Open internet report, 2026 · T1/C2</span>, a theme the Banque de France picks up by citing the Asterès study for Cigref on cloud and software price increases <span class="cite">Asterès, 2026 · T3/C3</span>.',
+    's06.body2':'For an executive committee, these three texts converge on one requirement: the ability to document, for each deployed system, who decides, who verifies and who answers. That requirement is precisely what algorithmic friction designates. It is not a compliance cost added to transformation; it is its condition.',
+    's07.num':'§07 · At occupation level',
+    's07.title':'Five entry roles to watch',
+    's07.body':'Five French occupations combining strong hiring of first-time entrants with a position in the upper exposure quintiles. The bar encodes the exposure quintile from Eloundou et al. (2024), transposed from SOC to ROME; it is not a French score. Headcount per occupation is not reproduced here: n.d.',
+    'role1.name':'Secretarial and administrative support','role1.desc':'Drafting, summarising, sorting and routing mail: codified tasks where AI use is substitutive. Domain "administrative management", 27.5% of reported uses.',
+    'role2.name':'Sales support and customer relations','role2.desc':'Customer replies, quotes, order tracking. First reported domain of use in France (28.5%). Classic entry role for business school graduates.',
+    'role3.name':'Accounting and management control','role3.desc':'Data entry, reconciliations, closing preparation. Entry tasks are the most exposed; supervision and judgement less so.',
+    'role4.name':'Software analysis and development','role4.desc':'The US result holds when computer occupations are excluded, but they concentrate the sharpest divergence for 22-25 year olds.',
+    'role5.name':'Communication and content creation','role5.desc':'Production of standardised text and visuals. Substitutive use on production, complementary on editorial strategy.',
+    's08.num':'§08 · Three lines of thought for executive committees',
+    's08.title':'What gets decided before December',
+    'ag1.t':'Measure integration, not adoption','ag1.b':'Replace licence counts with a single indicator: share of business processes where AI is integrated with a documented human verification loop. Owner: operations, with IT. Deadline: first measurement in the 2027 budget.',
+    'ag2.t':'Treat the lack of use cases as a governance deficit','ag2.b':'A cross-functional use-case committee, led by business lines rather than IT, with a 90-day experimentation budget and an explicit stop criterion for each pilot. Owner: general management. Deadline: set up before end of October.',
+    'ag3.t':'Protect the junior pipeline','ag3.b':'Keep hiring volumes of 22-25 year olds in exposed functions by redefining the entry role as that of a tool supervisor. The cost of an interrupted pipeline comes due in five years, when the skills pyramid hollows out. Owner: HR director. Deadline: 2027 hiring plan.',
+    's09.num':'§09 · Three lines of thought for public authorities',
+    's09.title':'Instrument before legislating',
+    'pp1.t':'Build a French indicator of first-time entrants by exposure','pp1.b':'Cross hiring declarations and DARES series with the ROME nomenclature and an exposure score, by age band. It is the only way to have a national signal rather than a US transposition. Owner: DARES with France Travail and Insee.',
+    'pp2.t':'Fund use-case diagnosis, not tools','pp2.b':'Since cost is cited by only 9% of non-users, redirect France 2030 and regional SME schemes towards support in identifying business applications. Owner: Bpifrance and the Regions.',
+    'pp3.t':'Align public statistics with the G7 workstream','pp3.b':'G7 central banks are harmonising their AI surveys in 2026. Align the AI module of the Insee ICT survey with the Banque de France one, and publish both series at comparable cadence, to reduce decision-makers\' dependence on single-source commercial studies. Owner: Insee and Banque de France.',
+    's10.num':'§10 · Method',
+    's10.title':'Sources and confidence levels',
+    's10.body':'Sources are classified by nature, from T1 for primary academic and institutional work to T4 for the press. Confidence, from C1 to C4, qualifies methodological transparency. A missing value is marked n.d. and is never estimated. US data is presented for what it is: an early signal on another market, without transposition.',
+    'tbl.src':'Source','tbl.nat':'Nature','tbl.base':'Base','tbl.tier':'Tier',
+    'tbl.r1n':'Business survey, central bank',
+    'tbl.r2n':'Working paper, central bank',
+    'tbl.r3n':'Working paper on private payroll data (ADP)','tbl.r3b':'millions of workers',
+    'tbl.r4n':'Commissioned poll, students',
+    'tbl.r5n':'Regulator report',
+    'tbl.r6n':'Institutional report',
+    'tbl.r7n':'Commissioned study',
+    'tbl.r8n':'Press, BLS and Challenger data',
+    'disc.label':'Editorial independence',
+    'disc.body':'This issue has no partnership or external funding. Analytical content is produced independently of any consulting client of the author.',
+    'cta1.t':'Custom dispatch','cta1.b':'An analysis on your perimeter, your occupations, your region.',
+    'cta2.t':'Use-case committee','cta2.b':'From barrier diagnosis to a 90-day roadmap.',
+    'sig':'Naully',
+    'foot.body':'Observatoire[s]·ia · independent publication.'
+  }
+};
+
+/* Données de figure · les libellés sont des clés i18n, jamais du texte en dur.
+   C'est ce qui permet au graphique de se retraduire au changement de langue.
+   Source : Banque de France, Bulletin 266/1, 2026, graphique de première page
+   et graphique 4b. Valeurs brutes, non recalculées. */
+const FIG1_DATA = [
+  { key:'fig1.d1', value:64 },
+  { key:'fig1.d2', value:68 },
+  { key:'fig1.d3', value:75 },
+  { key:'fig1.d4', value:73 },
+  { key:'fig1.d5', value:84 },
+  { key:'fig1.d6', value:83 }
+];
+
+const FIG2_DATA = [
+  { key:'fig2.d1', value:49 },
+  { key:'fig2.d2', value:24 },
+  { key:'fig2.d3', value:20 },
+  { key:'fig2.d4', value:16 },
+  { key:'fig2.d5', value:14 },
+  { key:'fig2.d6', value:11 },
+  { key:'fig2.d7', value:9 }
+];
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOTEUR · ne pas modifier d'un numéro à l'autre
+   ═══════════════════════════════════════════════════════════════════ */
+let currentLang = DISPATCH_CONFIG.defaultLang;
+
+function t(key){
+  const dict = PAGE_I18N[currentLang] || PAGE_I18N[LANGS[0]];
+  return dict[key] != null ? dict[key] : key;
+}
+
+function applyI18n(lang){
+  if(!PAGE_I18N[lang]) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n')];
+    if(v == null) return;
+    if(/<[a-z][\s\S]*?>/i.test(v)) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+    const v = PAGE_I18N[lang][el.getAttribute('data-i18n-aria')];
+    if(v != null) el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('#langSwitch .ctrl').forEach(b=>{
+    b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  });
+  try{ localStorage.setItem('dispatch-lang', lang); }catch(e){}
+  renderAllCharts();
+}
+
+function buildLangSwitch(){
+  const host = document.getElementById('langSwitch');
+  host.innerHTML = '';
+  LANGS.forEach(l=>{
+    const b = document.createElement('button');
+    b.className = 'ctrl'; b.dataset.lang = l; b.textContent = l.toUpperCase();
+    b.addEventListener('click', ()=>applyI18n(l));
+    host.appendChild(b);
+  });
+}
+
+function setTheme(mode){
+  document.documentElement.setAttribute('data-theme', mode);
+  try{ localStorage.setItem('dispatch-theme', mode); }catch(e){}
+  renderAllCharts();
+}
+
+/* Renderer barres horizontales · mesures en pixels prises sur la largeur
+   réelle du conteneur, donc toujours calées sur la colonne parente.
+   Se re-rend au redimensionnement, au changement de langue et de thème.
+   Sous 560px : libellé au-dessus de la barre, valeur alignée à droite. */
+function renderBars(mountId, data, opts){
+  const o = Object.assign({ unit:'%', max:null, color:'var(--ink-warm-4)' }, opts||{});
+  const el = document.getElementById(mountId);
+  if(!el || typeof d3 === 'undefined') return;
+  el.innerHTML = '';
+
+  const W = Math.max(240, el.clientWidth || 640);
+
+  /* CORRECTIF · gouttiere de libelles MESUREE sur les textes reels, jamais
+     estimee. Sonde SVG posee dans le conteneur, donc meme contexte de police.
+     L'ancien plafond en dur de 220px coupait les libelles longs a gauche.
+     Si la place manque malgre la mesure, bascule en libelle au-dessus. */
+  let labelNeed = 0;
+  try{
+    const probe = d3.select(el).append('svg')
+      .attr('aria-hidden','true')
+      .style('position','absolute').style('visibility','hidden')
+      .style('width','0').style('height','0').style('overflow','visible');
+    data.forEach(d=>{
+      const n = probe.append('text')
+        .style('font-family','var(--font-sans)').style('font-size','14px')
+        .text(t(d.key)).node();
+      labelNeed = Math.max(labelNeed, n.getComputedTextLength());
+    });
+    probe.remove();
+  }catch(e){ labelNeed = 0; }
+  labelNeed = labelNeed > 0 ? Math.ceil(labelNeed) + 12 : Math.min(220, Math.round(W * 0.32));
+
+  const stacked = W < 560 || labelNeed > W * 0.50;
+  const labelW = stacked ? 0 : labelNeed;
+  const valueW = 58;
+  const rowH = stacked ? 56 : 34;
+  const gap = 10;
+  const H = data.length * (rowH + gap) - gap;
+  const barMax = Math.max(20, W - labelW - valueW);
+  const max = o.max != null ? o.max : d3.max(data, d=>d.value);
+  const x = d3.scaleLinear().domain([0, max]).range([0, barMax]);
+
+  const svg = d3.select(el).append('svg')
+    .attr('width', W).attr('height', H)
+    .attr('viewBox', '0 0 ' + W + ' ' + H)
+    .attr('preserveAspectRatio','xMinYMin meet')
+    .attr('role','img');
+
+  const g = svg.selectAll('g').data(data).enter().append('g')
+    .attr('transform', (d,i)=>'translate(0,' + i*(rowH+gap) + ')');
+
+  g.append('text')
+    .attr('x', stacked ? 0 : labelW - 12)
+    .attr('y', stacked ? 14 : rowH/2 + 5)
+    .attr('text-anchor', stacked ? 'start' : 'end')
+    .attr('fill','var(--ink-2)')
+    .style('font-family','var(--font-sans)').style('font-size','14px')
+    .text(d=>t(d.key));
+
+  g.append('rect')
+    .attr('x', labelW).attr('y', stacked ? 28 : 8)
+    .attr('height', 18).attr('rx', 1)
+    .attr('fill', o.color)
+    .attr('width', 0)
+    .transition().duration(500)
+    .attr('width', d=>Math.max(1, x(d.value)));
+
+  g.append('text')
+    .attr('x', d=>Math.min(W, labelW + x(d.value) + 10))
+    .attr('y', stacked ? 42 : rowH/2 + 5)
+    .attr('fill','var(--ink-1)')
+    .style('font-family','var(--font-mono)').style('font-size','13px')
+    .text(d=>d.value + o.unit);
+}
+
+function renderAllCharts(){
+  renderBars('fig1', FIG1_DATA, { unit:' %', max:100 });
+  renderBars('fig2', FIG2_DATA, { unit:' %', max:60 });
+}
+
+function initProgress(){
+  const bar = document.getElementById('progress');
+  const onScroll = ()=>{
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let lang = DISPATCH_CONFIG.defaultLang, theme = 'light';
+  try{
+    lang = localStorage.getItem('dispatch-lang') || lang;
+    theme = localStorage.getItem('dispatch-theme') || theme;
+  }catch(e){}
+  if(!PAGE_I18N[lang]) lang = DISPATCH_CONFIG.defaultLang;
+
+  document.documentElement.setAttribute('data-theme', theme);
+  buildLangSwitch();
+  applyI18n(lang);
+  initProgress();
+
+  document.getElementById('themeToggle').addEventListener('click', ()=>{
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  window.__d3Ready.then(renderAllCharts).catch(()=>{
+    document.querySelectorAll('[data-chart]').forEach(el=>{
+      el.innerHTML = '<p class="mono" style="color:var(--ink-3)">Graphique indisponible · d3 non chargé</p>';
+    });
+  });
+
+  let rt;
+  window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(renderAllCharts, 150); });
+});
+</script>
+</body>
+</html>
