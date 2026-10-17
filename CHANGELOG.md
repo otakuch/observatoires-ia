@@ -4,6 +4,33 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] · 2026-10-17
+
+### Changed · « Ciel & Marine » visual charter on the 13 main pages
+
+New additive layer `assets/ciel-marine.css`, injected at the end of each
+page `<head>` by `tools/inject_cm.py` between `CM:BEGIN` / `CM:END`
+markers. No markup, script or data rewritten: overrides by source order
+and tokens only. Removing the block (`--remove`) restores « Encre &
+ardoise » byte for byte.
+
+- Navy navigation, page headers and footer · sky pill CTAs
+- Single sans family (Figtree) · monospace kept for source labels
+- Key figures as floating cards, one colour per figure
+- Editorial emphasis in steel blue, interactive blue reserved to links
+- Light and dark themes, contrasts checked against WCAG 2.1 AA
+
+### Fixed · pages linked to the reference datasets
+
+Each page embeds its own copy of `window.VEILLE_DATA`. Copies had
+drifted: 108, 109 or 121 entries against 122 in `assets/data/veille.json`,
+so the home page missed the 13 latest publications and the Données page
+exported incomplete CSV and JSON files. New `tools/sync_data.py` copies
+the reference files into every page (no value changed, rest of each file
+checked identical) and updates the entry counts and sizes shown on
+`donnees.html` (veille.json was shown as 6 entries, ~3 KB).
+Run it after every data update; `--check` exits 1 on drift.
+
 ## [0.3.16] · 2026-05-08
 
 ### Removed · 9 sections including duplicate ARCHÉTYPES blocks

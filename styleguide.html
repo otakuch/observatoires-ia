@@ -342,6 +342,190 @@ h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
 .logo .bracket,.foot-bottom .bracket,.foot-bottom .dot{ color:var(--accent); }
 .mono{ font-size:max(11px, 0.78em); }
 </style>
+<style id="cielMarine">/* CM:BEGIN */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* ==================================================================== */
+/* CIEL & MARINE · couche de charte · v1.0 · 17 octobre 2026            */
+/* Source canonique : assets/ciel-marine.css                            */
+/* Injectée en fin de <head> par tools/inject_cm.py, entre marqueurs.   */
+/* Bloc purement additif : le retirer restitue Encre & ardoise à        */
+/* l'identique. Aucune donnée, aucun script, aucun balisage modifié :   */
+/* surcharge par ordre de source et par jetons uniquement.              */
+/*                                                                      */
+/* Une couleur, un sens (adapté) :                                      */
+/*   marine  = structure (navigation, en-têtes, pied de page)           */
+/*   bleu    = interactif, et rien d'autre (--signal)                   */
+/*   acier   = emphase éditoriale (--accent)                            */
+/*   orange  = exposition et risque, réservé à l'analyse (--exp-*)      */
+/* Contrastes vérifiés par calcul (WCAG 2.1), voir le rapport.          */
+/* ==================================================================== */
+
+/* --- 1 · Jetons · thème clair ---------------------------------------- */
+:root{
+  --cm-navy:#103454; --cm-navy-soft:#184864; --cm-band:#30709C;
+  --cm-sky:#43A5E4; --cm-on-sky:#0E2D49; --cm-sky-light:#89C4E9;
+  --cm-on-navy:#FFFFFF; --cm-on-navy-muted:#D9E4F2;
+  --cm-orange:#D97706; --cm-blue:#359BDB; --cm-green:#1F9134;
+  --cm-sans:"Figtree","Instrument Sans","Helvetica Neue",Arial,sans-serif;
+
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --surface:#FFFFFF;
+  --paper-rgb:255,255,255;
+  --rule:#E3EEF6; --rule-strong:#103454;
+  --ink:#1A1D21; --ink-sec:#5F6368; --ink-2:#5F6368; --ink-3:#647092; --muted:#647092;
+  --ink-rgb:26,29,33;
+  --signal:#1C77BA; --signal-hover:#155E94; --on-signal:#FFFFFF; --signal-rgb:28,119,186;
+  --accent:#30709C; --teal:#30709C;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  --on-exp:#1A1D21; --on-exp-5:#FFFFFF;
+  --risk:#A85A00; --highlight:#FFF3D6;
+  --t1:#103454; --t2:#30709C; --t3:#7D6430; --t4:#8C5049;
+  --r-1:4px; --r-2:8px;
+  --shadow-1:0 8px 24px rgba(16,52,84,.08);
+  --font-sans:var(--cm-sans); --font-serif:var(--cm-sans);
+}
+
+/* --- 2 · Jetons · thème sombre (dérivé du marine) --------------------- */
+html[data-theme="dark"]{
+  --cm-navy:#0F2A44; --cm-navy-soft:#133556;
+  --paper:#0B1E31; --paper-2:#0F2A44; --surface:#102B45;
+  --paper-rgb:11,30,49;
+  --rule:#1C3F60; --rule-strong:#EEF4FA;
+  --ink:#EEF4FA; --ink-sec:#B7C6D6; --ink-2:#B7C6D6; --ink-3:#93A6C0; --muted:#93A6C0;
+  --ink-rgb:238,244,250;
+  --signal:#6EB7E5; --signal-hover:#9DCDEF; --on-signal:#0B1E31; --signal-rgb:110,183,229;
+  --accent:#89C4E9; --teal:#89C4E9;
+  --cm-orange:#FFB04D; --cm-blue:#5BB1E8; --cm-green:#4CC266;
+  --risk:#FFB04D; --highlight:#3A2F1A;
+  --t1:#9FC4DE; --t2:#89C4E9; --t3:#C7AC72; --t4:#D49186;
+  --shadow-1:0 8px 24px rgba(0,0,0,.35);
+}
+
+/* --- 3 · Typographie : une famille sans, la chasse fixe gardée pour les sources --- */
+body, body *:not(.mono):not(.mono *):not(code):not(pre):not(kbd):not(.ds-badge){
+  font-family:var(--cm-sans) !important;
+}
+body{ background-image:none !important; }
+h1,h2,h3,.hero-title,.dash-title,.frame-title,.debate-title,.warning-title,
+.section-title,.ds-title,.dispatch-tease-title{ font-weight:600 !important; letter-spacing:-.015em; }
+h1 em,h2 em,h3 em,.hero-title em,.dash-title em,.frame-title em,.debate-title em,
+.section-title em,.warning-title em,.dispatch-tease-title em,.ds-title em{ font-style:normal !important; }
+.hero-pitch,.dash-lede{ font-style:normal !important; }
+/* Emphase éditoriale : acier partout, ciel sur les fonds marine (voir 5, 9, 10) */
+body em{ color:var(--accent) !important; }
+
+/* --- 4 · Navigation marine ---------------------------------------------- */
+.nav{ background:var(--cm-navy) !important; border-bottom:0 !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
+#siteNav .logo{ color:var(--cm-on-navy); font-weight:700; }
+#siteNav .logo .bracket,#siteNav .logo:hover .bracket{ color:var(--cm-sky); }
+#siteNav .logo .dot{ color:var(--cm-sky-light); }
+#siteNav .nav-links > a,#siteNav .nav-dropdown-toggle{ color:var(--cm-on-navy-muted); background:transparent; }
+#siteNav .nav-links > a:hover,#siteNav .nav-links > a.current,
+#siteNav .nav-dropdown-toggle:hover,#siteNav .nav-dropdown-toggle.current{ color:var(--cm-on-navy); }
+#siteNav .nav-links > a.current::after{ background:var(--cm-sky); height:2px; }
+#siteNav .nav-dropdown.current .nav-dropdown-toggle,#siteNav .nav-dropdown:hover .nav-dropdown-toggle{ color:var(--cm-on-navy); }
+#siteNav .nav-dropdown-menu{ background:var(--surface); border-color:var(--rule); box-shadow:var(--shadow-1); }
+#siteNav .nav-dropdown-menu a{ color:var(--ink-2); }
+#siteNav .nav-dropdown-menu a:hover,#siteNav .nav-dropdown-menu a.current{ color:var(--signal); background:var(--paper-2); }
+#siteNav .lang-toggle{ border-color:rgba(255,255,255,.28); color:var(--cm-on-navy-muted); }
+#siteNav .lang-toggle:hover{ border-color:var(--cm-sky); }
+#siteNav .lang-toggle span.active{ color:var(--cm-sky); }
+#siteNav .lang-toggle span:not(.active){ color:var(--cm-on-navy-muted); }
+#siteNav .menu-btn{ border-color:rgba(255,255,255,.28); }
+#siteNav .menu-btn span,#siteNav .menu-btn span::before,#siteNav .menu-btn span::after{ background:var(--cm-on-navy); }
+.nav a:focus-visible,.nav button:focus-visible{ outline:2px solid var(--cm-sky); outline-offset:3px; border-radius:6px; }
+
+/* --- 5 · En-têtes de page en bande marine pleine largeur --------------- */
+.hero,.dash-header{
+  background:var(--cm-navy); color:var(--cm-on-navy);
+  box-shadow:0 0 0 100vmax var(--cm-navy); clip-path:inset(0 -100vmax);
+  margin-bottom:56px !important; padding-bottom:64px !important;
+}
+.hero-title,.dash-title{ color:var(--cm-on-navy); font-size:clamp(36px,5.2vw,64px) !important; line-height:1.06 !important; }
+.hero-title em,.dash-title em,.hero-title .accent-bracket,.hero em,.dash-header em,
+.dispatch-tease-inner em,.debate-takeaway em,.reinvent-cta-block em,footer#siteFooter em{ color:var(--cm-sky) !important; }
+.hero-pitch,.dash-lede{ color:var(--cm-on-navy-muted) !important; }
+.hero-eyebrow,.dash-flag,.hero [class*="eyebrow"],.dash-header [class*="eyebrow"]{ color:var(--cm-sky-light) !important; }
+.hero-eyebrow::before{ background:var(--cm-sky); }
+.hero a:not(.btn),.dash-header a:not(.btn){ color:var(--cm-sky-light); }
+.hero .btn-primary,.dash-header .btn-primary{
+  background:var(--cm-sky); color:var(--cm-on-sky); border:0;
+  box-shadow:0 6px 16px rgba(67,165,228,.35); font-weight:600;
+}
+.hero .btn-primary:hover,.dash-header .btn-primary:hover{ background:#5CB4EA; color:var(--cm-on-sky); }
+.hero .btn-secondary,.dash-header .btn-secondary{
+  background:transparent; color:var(--cm-on-navy); border:1.5px solid var(--cm-sky-light);
+}
+.hero .btn-secondary:hover,.dash-header .btn-secondary:hover{ background:rgba(255,255,255,.08); color:var(--cm-on-navy); border-color:var(--cm-on-navy); }
+.hero :focus-visible,.dash-header :focus-visible{ outline:2px solid var(--cm-sky); outline-offset:3px; }
+
+/* --- 6 · Boutons ------------------------------------------------------- */
+.btn{ font-weight:600; }
+.btn-primary{ background:var(--signal); color:var(--on-signal); }
+.btn-primary:hover{ background:var(--signal-hover); color:var(--on-signal); }
+.btn-secondary{ border:1.5px solid var(--signal); color:var(--signal); }
+.btn-secondary:hover{ background:var(--signal); color:var(--on-signal); }
+.ds-cta{ border-radius:999px; text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; }
+.ds-cta--secondary{ border-color:var(--signal); color:var(--signal); }
+
+/* --- 7 · Chiffres clés : une couleur par chiffre, cartes flottantes ---- */
+.stats{ border:0 !important; }
+.stats-grid{ gap:20px; }
+.stat{ background:var(--surface); border:0 !important; border-radius:var(--r-2); box-shadow:var(--shadow-1); }
+.stat:nth-child(3n+1) .stat-num{ color:var(--cm-orange); }
+.stat:nth-child(3n+2) .stat-num{ color:var(--cm-blue); }
+.stat:nth-child(3n+3) .stat-num{ color:var(--cm-green); }
+.stat-num .unit,.stat-num .sign{ color:inherit; opacity:.75; }
+.kpi-row{ background:transparent !important; border:0 !important; gap:20px !important; }
+.kpi{ background:var(--surface) !important; border-radius:var(--r-2); box-shadow:var(--shadow-1); }
+
+/* --- 8 · Cartes et panneaux ------------------------------------------- */
+.frame-card,.warning-card,.debate-col,.ds-source-card,.ds-dispatch-card,.ds-job-card,
+.field-card,.brief-card,.dl-card,.obs-card,.card{ border-radius:var(--r-2); }
+.frame-card,.ds-source-card,.ds-dispatch-card,.field-card,.brief-card,.dl-card,.obs-card{ box-shadow:var(--shadow-1); border-color:var(--rule); }
+.ds-note{ border-left:0; border-radius:20px; background:var(--paper-2); }
+
+/* --- 9 · Blocs sombres : marine au lieu de l'encre ---------------------- */
+.dispatch-tease-inner,.debate-takeaway,.reinvent-cta-block{
+  background:var(--cm-navy) !important; color:var(--cm-on-navy) !important; border-radius:20px;
+}
+.dispatch-tease-inner::before{ display:none; }
+.debate-takeaway{ border-left:0 !important; }
+.dispatch-tease-inner *,.debate-takeaway *,.reinvent-cta-block h4,.reinvent-cta-block p{ color:inherit; }
+.dispatch-tease-lede,.reinvent-cta-block p{ color:var(--cm-on-navy-muted) !important; }
+.dispatch-tease-tag{ color:var(--cm-sky-light) !important; border-color:var(--cm-sky-light) !important; }
+.dispatch-tease-title em{ color:var(--cm-sky) !important; }
+.dispatch-tease-actions .btn-primary{ background:var(--cm-sky); color:var(--cm-on-sky); }
+.dispatch-tease-actions .btn-secondary{ color:var(--cm-on-navy); border-color:var(--cm-sky-light); }
+.reinvent-cta-block a{ color:var(--cm-sky-light) !important; border-bottom-color:var(--cm-sky-light) !important; }
+
+/* --- 10 · Pied de page marine ----------------------------------------- */
+footer#siteFooter{
+  background:var(--cm-navy) !important; color:var(--cm-on-navy-muted);
+  border-top:0; text-transform:none; letter-spacing:0; font-size:14px;
+}
+footer#siteFooter a{ color:var(--cm-on-navy); }
+footer#siteFooter a:hover{ color:var(--cm-sky-light); }
+footer#siteFooter .foot-brand{ color:var(--cm-on-navy) !important; font-weight:700; }
+footer#siteFooter .bracket{ color:var(--cm-sky) !important; }
+footer#siteFooter .dot{ color:var(--cm-sky-light) !important; }
+footer#siteFooter .foot-col-label{ color:var(--cm-sky-light); text-transform:uppercase; letter-spacing:.08em; font-size:12px; }
+footer#siteFooter .foot-tagline,footer#siteFooter .foot-update,footer#siteFooter .foot-license,
+footer#siteFooter .foot-version,footer#siteFooter .foot-bottom{ color:var(--cm-on-navy-muted); }
+footer#siteFooter strong{ color:var(--cm-on-navy); }
+footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
+
+/* --- 11 · Menu mobile --------------------------------------------------- */
+.mobile-menu{ background:var(--cm-navy) !important; }
+.mobile-menu a,.mobile-menu .close-btn{ color:var(--cm-on-navy) !important; }
+.mobile-menu .mobile-group-label{ color:var(--cm-sky-light) !important; }
+
+/* --- 12 · Divers -------------------------------------------------------- */
+::selection{ background:var(--cm-sky); color:var(--cm-on-sky); }
+@media (max-width:640px){
+  .hero,.dash-header{ margin-bottom:40px !important; padding-bottom:48px !important; }
+  .stats-grid,.kpi-row{ gap:12px !important; }
+}
+/* CM:END */</style>
 </head>
 <body>
 <div class="sg-wrap">
