@@ -5952,6 +5952,66 @@ a.dl-btn{ display:inline-flex; align-items:center; gap:6px; text-decoration:none
 .dl-btn.primary:hover{ background:var(--signal-hover) !important; border-color:var(--signal-hover) !important; }
 
 /* ==================================================================== */
+/* v1.2 · 18 octobre 2026 · pleine largeur sur ordinateur               */
+/* ==================================================================== */
+
+/* --- 20 · Textes et blocs sur toute la largeur du conteneur ----------- */
+/* Les plafonds de lecture (68ch, 62ch, 760 px) laissaient un vide à      */
+/* droite de chaque bloc. Le conteneur commun (--max-w, 1280 px) fixe     */
+/* seul la largeur ; tout ce qui est dedans l'occupe entièrement.         */
+:root,body{ --measure:none; }
+p,li,dd,dt,blockquote,figcaption,h1,h2,h3,h4,h5,h6,
+.manifesto-text,.stat-label,.kpi-label,.dl-desc,.field-card-excerpt,
+.section-title,.ds-title,.frame-title,.debate-title,.warning-title,.dash-title,.hero-title,
+.section-sub,.ds-lede,.dash-lede,.hero-pitch,.hero-lede,.frame-lede,.debate-lede,.warning-lede,
+.method-content p,.method-content li,.context-content p,.context-content h3,.reinvent-intro p,
+.rdr-sub,.rdr-deck,.caveat,.method-caveat,.method-source,
+.expgap-readline,.diff-summary-text,.cmp-dim-lede,.eu-lede,.eu-note,.eu-caveat,.eu-src,
+.pt-question,.pt-question-body,.pt-questions-lede,.brief-source-cited,.debate-takeaway p,
+.warning-footer,.frame-footer-text,.briefing-summary,
+.context-key-facts{ max-width:none !important; }
+/* Blocs autonomes (formulaire, blocs Europe) : conteneur commun, marges  */
+/* intérieures alignées sur le reste de la page.                          */
+.contact-form-section,.eu-block{ max-width:var(--max-w,1280px) !important; margin-left:auto !important; margin-right:auto !important;
+  padding-left:var(--cm-gutter) !important; padding-right:var(--cm-gutter) !important; box-sizing:border-box; }
+/* Bulles d'aide : elles gardent leur propre largeur */
+.rdr-tt p,.rdr-tt li,[role="tooltip"] p{ max-width:inherit !important; }
+.frame-footer,.debate-head,.cmp-dim-head,.pt-questions-head{ max-width:none !important; }
+.sg-wrap{ max-width:var(--max-w,1280px) !important; }
+/* Grilles « numéro de section | contenu » : le repère passe au-dessus et  */
+/* le contenu reprend toute la largeur, comme le manifeste et le contexte. */
+.method-grid{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.method-grid > :first-child{ position:static !important; }
+/* Grilles élargies : un nombre de colonnes qui remplit chaque rangée.    */
+@media (min-width:1100px){
+  div[style*="auto-fit"]:has(> :nth-child(6):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .field-grid:has(> :nth-child(3):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .cards-grid:has(> :nth-child(8):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
+}
+
+/* --- 21 · Contrastes résiduels relevés pendant l'audit des blocs ------- */
+/* Encadré « Posture de l'observatoire » : texte marine sur fond marine   */
+[data-theme="dark"] .debate-takeaway,[data-theme="dark"] .debate-takeaway p,
+[data-theme="dark"] .debate-takeaway strong{ color:#EEF4FA !important; }
+/* Europe · grappes de pays : voile blanc à 50 % sur fond sombre          */
+[data-theme="dark"] .eu-cluster{ background:rgba(255,255,255,.04) !important; }
+[data-theme="dark"] .eu-cluster p,[data-theme="dark"] .eu-c-geo{ color:#B7C6D6 !important; }
+.eu-layer.l2{ background:#8F4A00 !important; color:#FFFFFF !important; }
+/* Schéma JSON : bloc de code toujours sombre, couleurs lisibles          */
+.schema-pre{ background:#0B1E31 !important; color:#EEF4FA !important; }
+.schema-pre .com{ color:#93A6C0 !important; }
+/* Comparer · colonne UE et emphases des radars en thème sombre           */
+[data-theme="dark"] th.country-eu,[data-theme="dark"] th.country-eu *{ color:#89C4E9 !important; }
+[data-theme="dark"] .rdr-sub b,[data-theme="dark"] .rdr-sub strong{ color:#89C4E9 !important; }
+.schema-pre .key{ color:#FFD49A !important; }
+.schema-pre .str{ color:#B6E0C2 !important; }
+[data-theme="dark"] .eu-tl-date{ color:#B7C6D6 !important; }
+[data-theme="dark"] .eu-layer.l1{ background:#30709C !important; color:#FFFFFF !important; }
+/* Comparer : en-têtes de section doublement décalés (32 + 32 px)         */
+.diffusion-section > .section-head,.eumap-section > .section-head{ padding-left:0 !important; padding-right:0 !important; }
+.sg-wrap{ padding-left:var(--cm-gutter) !important; padding-right:var(--cm-gutter) !important; box-sizing:border-box; }
+
+/* ==================================================================== */
 /* CIEL & MARINE · couche des sous-pages · v1.0 · 18 octobre 2026       */
 /* Source canonique : assets/ciel-marine-sous-pages.css                 */
 /* Dépêches Dispatch·iA (briefings/) et matrices (infographies/).       */
@@ -6222,6 +6282,102 @@ html[data-theme="dark"] svg [fill="#003081" i],html[data-theme="dark"] svg [fill
   svg{ max-width:100%; height:auto; }
   .controls .wrap,.controls .col{ flex-wrap:wrap; gap:8px; }
 }
+
+/* --- 8 · Pleine largeur sur ordinateur (18 octobre 2026) --------------- */
+/* Les dépêches et briefings plafonnaient textes et blocs entre 680 et   */
+/* 1 000 px dans un conteneur de 1 280 px. Un seul conteneur, 1 280 px,  */
+/* et tout ce qu'il contient l'occupe entièrement.                       */
+:root,body{ --measure:none; --w-col:calc(var(--max-w,1280px) - 64px); --maxw:1280px; --gut:32px;
+  --pf-grid:1280px; --pf-wide:none; --pf-medium:none; --pf-prose:none; }
+p,li,dd,dt,blockquote,figcaption,h1,h2,h3,h4,h5,h6,
+.standfirst,.lede,.deck,.section-deck,.hero-deck,.hero-author,.hero-title,.cta-deck,
+.tldr-foot,.tldr-head,.indep-block,.source-body,.section-content,.sub,
+.brief-hero-title,.brief-hero-sub,.brief-quote,.brief-quote-author,.brief-checklist,
+.brief-twocol,.brief-roles-grid,.brief-roles-footer,.brief-critical-inner,
+.brief-critical-item,.brief-critical-source,.brief-critical-item-source,.brief-sources-item,
+.brief-source-cited,.brief-cta-head,.brief-cta-grid,.brief-cta-followup,
+[class^="brief-"][class$="-eyebrow"],[class^="brief-"][class*="-eyebrow "],
+[class^="brief-"][class$="-title"],[class^="brief-"][class$="-lede"],
+[class^="brief-"][class*="-grid"],[class^="brief-"][class$="-synthesis"],
+[class^="brief-"][class$="-sector"],[class^="brief-"][class$="-takeaway"],
+.brief-section-eyebrow,.brief-section-title,
+.frame-footer,.debate-head,.cmp-dim-head,.pt-questions-head,.honest-box,.brief-sources-list{ max-width:none !important; }
+/* Blocs plafonnés en style en ligne dans les dépêches */
+.wrap div[style*="max-width"],.wrap p[style*="max-width"],.wrap h2[style*="max-width"],
+.section-content div[style*="max-width"]{ max-width:none !important; }
+/* Conteneurs à 1 200 ou 680 px alignés sur le conteneur commun */
+.nav-inner,.foot-inner,.breadcrumb-inner,.dispatch-banner-inner,.sg-wrap{ max-width:var(--max-w,1280px) !important; }
+/* Rail « § 01 / rubrique » des dépêches : repère au-dessus, contenu sur  */
+/* toute la largeur, comme sur les pages principales.                     */
+.wrap > .section-head:has(> .section-num){ grid-template-columns:minmax(0,1fr) !important; gap:12px !important; margin-bottom:32px !important; }
+.wrap > .section-content{ margin-left:0 !important; }
+.section-num{ position:static !important; }
+/* Une seule famille de texte : le chapô « presse » du #005 était en Tinos */
+.lede,.lede p{ font-family:"Figtree",system-ui,sans-serif !important; }
+/* Grilles élargies : un nombre de colonnes qui remplit chaque rangée.    */
+@media (min-width:1100px){
+  .keyfigs:has(> :nth-child(8):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
+  .brief-bcgmap-grid:has(> :nth-child(6):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .brief-debate-grid:has(> :nth-child(4):last-child),
+  .brief-archetypes-grid:has(> :nth-child(4):last-child),
+  .brief-arch-grid:has(> :nth-child(4):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
+  .brief-chempirie-grid--2col:has(> :nth-child(9):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+}
+
+/* --- 9 · Dépêche #002 post-factum : jetons « pf » du prototype --------- */
+/* Ses couleurs propres (!important) l'emportaient sur la charte : en-tête */
+/* crème sous un titre blanc, logo et menu marine sur fond marine.        */
+:root,body{
+  --pf-paper:var(--paper-2); --pf-deep:var(--cm-navy); --pf-rule:var(--cm-navy);
+  --pf-ink:var(--ink); --pf-muted:var(--muted); --pf-mist:var(--br-strong);
+  --pf-teal:var(--ac); --pf-blue:var(--signal); --pf-signal:var(--ac);
+}
+body .brief-hero{ background:var(--cm-navy) !important; }
+body .brief-hero em,body .brief-hero .brief-hero-title em{ color:var(--cm-sky) !important; }
+body .brief-hero .brief-hero-sub{ color:var(--cm-on-navy-muted) !important; }
+body .brief-hero .brief-byline{ justify-content:center; }
+body .brief-hero .brief-byline,body .brief-hero .brief-byline *{ color:var(--cm-on-navy-muted) !important; }
+#siteNav .logo{ color:var(--cm-on-navy) !important; }
+#siteNav .nav-links > a,#siteNav .nav-dropdown-toggle{ color:var(--cm-on-navy-muted) !important; }
+#siteNav .nav-links > a.current,#siteNav .nav-links > a:hover{ color:var(--cm-sky-light) !important; }
+#siteNav .logo .bracket{ color:var(--cm-sky-light) !important; }
+body .brief-hero i{ color:var(--cm-sky) !important; }
+/* Bloc souveraineté : fond quasi noir et titre marine -> bande marine     */
+body .brief-sov,body .brief-sov-inner{ background:var(--cm-navy) !important; }
+body .brief-sov h2,body .brief-sov h3,body .brief-sov h4,body .brief-sov strong{ color:#FFFFFF !important; }
+body .brief-sov p,body .brief-sov li,body .brief-sov [class*="-eyebrow"]{ color:var(--cm-on-navy-muted) !important; }
+body .brief-sov em,body .brief-sov i{ color:var(--cm-sky-light) !important; }
+/* Pourcentages des segments BCG : orange trop clair sur blanc            */
+.brief-bcg-seg-pct{ color:var(--risk) !important; }
+[data-theme="dark"] .brief-bcg-seg-pct{ color:#FFB04D !important; }
+body .brief-sov-card-tag{ color:var(--cm-sky-light) !important; }
+footer .foot-col-label{ color:var(--cm-on-navy-muted) !important; }
+body footer .foot-license,body footer .foot-version,body footer .foot-bottom span{ color:var(--cm-on-navy-muted) !important; }
+/* Matrices : le contenu s'alignait 32 px à gauche du logo               */
+body > .wrap{ padding-left:var(--cm-gutter,32px); padding-right:var(--cm-gutter,32px); box-sizing:border-box; }
+/* Bandes pleine largeur : contenu aligné sur la marge commune (112 px à  */
+/* 1 440 px), sans double marge intérieure ni débord jusqu'au bord.       */
+.brief-sponsor-inner{ max-width:calc(var(--max-w,1280px) - 64px) !important; }
+.brief-tco{ padding-left:0 !important; padding-right:0 !important; }
+body > .brief-section.brief-sources,body > .brief-disclosure{ max-width:var(--max-w,1280px) !important; margin-left:auto !important; margin-right:auto !important; box-sizing:border-box; }
+.brief-cta-actions > .section-head{ padding-left:0 !important; padding-right:0 !important; }
+/* Couleurs écrites en style en ligne (barres, pastilles) : même table de */
+/* correspondance que pour les SVG (section 6).                           */
+[style*="background:#f56476" i]{ background:var(--cm-sky) !important; color:var(--cm-on-sky) !important; }
+[style*="background:#B8312F" i]{ background:var(--ac) !important; }
+[style*="background:#BF6B04" i]{ background:var(--amber) !important; }
+[style*="background:#2D6A4F" i]{ background:var(--green) !important; }
+[style*="background:#D03C2F" i]{ background:var(--exp-4) !important; }
+[style*="background:#003081" i],[style*="background:#1F3A3D" i],[style*="background:#062053" i]{ background:var(--cm-navy) !important; }
+[style*="background:#1A1A1A" i]{ background:var(--tx,var(--ink)) !important; }
+[style*="background:#5B5B5B" i]{ background:var(--tx-sec) !important; }
+[style*="background:#8A8A8A" i]{ background:var(--tx-mut,var(--muted)) !important; }
+[style*="background:#C9C2B5" i]{ background:var(--br-strong) !important; }
+[style*="color:#459dac" i]{ color:var(--ac) !important; }
+body footer .foot-update span{ color:var(--cm-on-navy-muted) !important; }
+.brief-role-pivot-label{ color:var(--cm-navy) !important; }
+[data-theme="dark"] .brief-role-pivot-label{ color:var(--cm-sky-light) !important; }
+[style*="background:#062053" i] [style*="color:#459dac" i]{ color:var(--cm-sky-light) !important; }
 /* CM:END */</style>
 </head>
 <body>
@@ -6874,7 +7030,7 @@ function renderFooter() {
           <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
+        <div class="foot-version mono">v0.6.1 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">

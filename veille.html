@@ -6210,6 +6210,66 @@ a.dl-btn{ display:inline-flex; align-items:center; gap:6px; text-decoration:none
 .dl-btn:hover{ background:var(--paper-2) !important; }
 .dl-btn.primary{ background:var(--signal) !important; color:var(--on-signal) !important; }
 .dl-btn.primary:hover{ background:var(--signal-hover) !important; border-color:var(--signal-hover) !important; }
+
+/* ==================================================================== */
+/* v1.2 · 18 octobre 2026 · pleine largeur sur ordinateur               */
+/* ==================================================================== */
+
+/* --- 20 · Textes et blocs sur toute la largeur du conteneur ----------- */
+/* Les plafonds de lecture (68ch, 62ch, 760 px) laissaient un vide à      */
+/* droite de chaque bloc. Le conteneur commun (--max-w, 1280 px) fixe     */
+/* seul la largeur ; tout ce qui est dedans l'occupe entièrement.         */
+:root,body{ --measure:none; }
+p,li,dd,dt,blockquote,figcaption,h1,h2,h3,h4,h5,h6,
+.manifesto-text,.stat-label,.kpi-label,.dl-desc,.field-card-excerpt,
+.section-title,.ds-title,.frame-title,.debate-title,.warning-title,.dash-title,.hero-title,
+.section-sub,.ds-lede,.dash-lede,.hero-pitch,.hero-lede,.frame-lede,.debate-lede,.warning-lede,
+.method-content p,.method-content li,.context-content p,.context-content h3,.reinvent-intro p,
+.rdr-sub,.rdr-deck,.caveat,.method-caveat,.method-source,
+.expgap-readline,.diff-summary-text,.cmp-dim-lede,.eu-lede,.eu-note,.eu-caveat,.eu-src,
+.pt-question,.pt-question-body,.pt-questions-lede,.brief-source-cited,.debate-takeaway p,
+.warning-footer,.frame-footer-text,.briefing-summary,
+.context-key-facts{ max-width:none !important; }
+/* Blocs autonomes (formulaire, blocs Europe) : conteneur commun, marges  */
+/* intérieures alignées sur le reste de la page.                          */
+.contact-form-section,.eu-block{ max-width:var(--max-w,1280px) !important; margin-left:auto !important; margin-right:auto !important;
+  padding-left:var(--cm-gutter) !important; padding-right:var(--cm-gutter) !important; box-sizing:border-box; }
+/* Bulles d'aide : elles gardent leur propre largeur */
+.rdr-tt p,.rdr-tt li,[role="tooltip"] p{ max-width:inherit !important; }
+.frame-footer,.debate-head,.cmp-dim-head,.pt-questions-head{ max-width:none !important; }
+.sg-wrap{ max-width:var(--max-w,1280px) !important; }
+/* Grilles « numéro de section | contenu » : le repère passe au-dessus et  */
+/* le contenu reprend toute la largeur, comme le manifeste et le contexte. */
+.method-grid{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.method-grid > :first-child{ position:static !important; }
+/* Grilles élargies : un nombre de colonnes qui remplit chaque rangée.    */
+@media (min-width:1100px){
+  div[style*="auto-fit"]:has(> :nth-child(6):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .field-grid:has(> :nth-child(3):last-child){ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .cards-grid:has(> :nth-child(8):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
+}
+
+/* --- 21 · Contrastes résiduels relevés pendant l'audit des blocs ------- */
+/* Encadré « Posture de l'observatoire » : texte marine sur fond marine   */
+[data-theme="dark"] .debate-takeaway,[data-theme="dark"] .debate-takeaway p,
+[data-theme="dark"] .debate-takeaway strong{ color:#EEF4FA !important; }
+/* Europe · grappes de pays : voile blanc à 50 % sur fond sombre          */
+[data-theme="dark"] .eu-cluster{ background:rgba(255,255,255,.04) !important; }
+[data-theme="dark"] .eu-cluster p,[data-theme="dark"] .eu-c-geo{ color:#B7C6D6 !important; }
+.eu-layer.l2{ background:#8F4A00 !important; color:#FFFFFF !important; }
+/* Schéma JSON : bloc de code toujours sombre, couleurs lisibles          */
+.schema-pre{ background:#0B1E31 !important; color:#EEF4FA !important; }
+.schema-pre .com{ color:#93A6C0 !important; }
+/* Comparer · colonne UE et emphases des radars en thème sombre           */
+[data-theme="dark"] th.country-eu,[data-theme="dark"] th.country-eu *{ color:#89C4E9 !important; }
+[data-theme="dark"] .rdr-sub b,[data-theme="dark"] .rdr-sub strong{ color:#89C4E9 !important; }
+.schema-pre .key{ color:#FFD49A !important; }
+.schema-pre .str{ color:#B6E0C2 !important; }
+[data-theme="dark"] .eu-tl-date{ color:#B7C6D6 !important; }
+[data-theme="dark"] .eu-layer.l1{ background:#30709C !important; color:#FFFFFF !important; }
+/* Comparer : en-têtes de section doublement décalés (32 + 32 px)         */
+.diffusion-section > .section-head,.eumap-section > .section-head{ padding-left:0 !important; padding-right:0 !important; }
+.sg-wrap{ padding-left:var(--cm-gutter) !important; padding-right:var(--cm-gutter) !important; box-sizing:border-box; }
 /* CM:END */</style>
 </head>
 <body>
@@ -6548,7 +6608,7 @@ function renderFooter() {
           <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
+        <div class="foot-version mono">v0.6.1 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">

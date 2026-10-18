@@ -64,7 +64,7 @@ def strip_block(s):
 CSS = """
 .fp{max-width:var(--max-w,1280px);margin:0 auto;padding:8px var(--cm-gutter,32px) 56px;box-sizing:border-box;color:var(--ink);}
 .fp *{box-sizing:border-box;}
-.fp-head{display:flex;flex-direction:column;gap:10px;max-width:62ch;margin-bottom:28px;}
+.fp-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
 .fp-eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
 .fp-title{margin:0;font-size:clamp(26px,3vw,34px);line-height:1.15;font-weight:600;letter-spacing:-.015em;}
 .fp-lede{margin:0;font-size:17px;line-height:1.6;color:var(--ink-2);}

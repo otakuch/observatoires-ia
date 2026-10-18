@@ -4,6 +4,34 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] · 2026-10-18
+
+### Changed · full-width text and blocks on desktop, block consistency
+
+- Reading caps removed: paragraphs, titles, ledes and boxes now fill the
+  common 1,280 px container instead of stopping at 68ch, 62ch or 680 to
+  1,000 px (main pages, dispatches, briefings, matrices, country sheets)
+- One text edge site-wide: every page now aligns text on the same left
+  and right margins at 1,440 px (112 / 1,328 px); dispatches #008 to #010,
+  #006, the matrices, the style guide and the post-factum #002 were off by
+  32 to 80 px
+- Section rails (« § 01 / rubrique », methodology numbering) moved above
+  the content, as the manifesto and context blocks already were
+- Grids rebalanced where widening left holes: #005 key figures (4 × 2),
+  #002 BCG map (3 × 2), debate and archetype grids (4), Switzerland and
+  France insight cards (3 × 2), home field notes (3), France sector cards
+- Dispatch #002 post-factum brought into the charter: navy header instead
+  of a cream block under white text, readable logo and menu, navy
+  sovereignty band
+- #005 press lede set in Figtree like the rest of the site (was Tinos)
+- Legacy inline colours in dispatches (coral, red, black bars) mapped to
+  the charter like the SVG colours
+- Contrast fixes found during the audit: debate takeaway and Europe
+  clusters in dark mode, JSON schema block on Données, EU column on
+  Comparer, BCG percentages, Europe layer chips, post-factum footer
+- Checked: no horizontal scroll at 390, 834, 1,440 and 1,920 px on the
+  28 pages, no script error, data files unchanged
+
 ## [0.6.0] · 2026-10-18
 
 ### Added · country sheet with map on the Switzerland and France pages

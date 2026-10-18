@@ -274,7 +274,7 @@ function renderFooter() {
           <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
+        <div class="foot-version mono">v0.6.1 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">
