@@ -5625,6 +5625,614 @@ h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
   gtag('js', new Date());
   gtag('config', 'G-Q52TZ7QT84');
 </script>
+<style id="cielMarine">/* CM:BEGIN */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* ==================================================================== */
+/* CIEL & MARINE · couche de charte · v1.1 · 18 octobre 2026            */
+/* Source canonique : assets/ciel-marine.css                            */
+/* Injectée en fin de <head> par tools/inject_cm.py, entre marqueurs.   */
+/* Bloc purement additif : le retirer restitue Encre & ardoise à        */
+/* l'identique. Aucune donnée, aucun script, aucun balisage modifié :   */
+/* surcharge par ordre de source et par jetons uniquement.              */
+/*                                                                      */
+/* Une couleur, un sens (adapté) :                                      */
+/*   marine  = structure (navigation, en-têtes, pied de page)           */
+/*   bleu    = interactif, et rien d'autre (--signal)                   */
+/*   acier   = emphase éditoriale (--accent)                            */
+/*   orange  = exposition et risque, réservé à l'analyse (--exp-*)      */
+/* Contrastes vérifiés par calcul (WCAG 2.1), voir le rapport.          */
+/* ==================================================================== */
+
+/* --- 1 · Jetons · thème clair ---------------------------------------- */
+:root{
+  --cm-navy:#103454; --cm-navy-soft:#184864; --cm-band:#30709C;
+  --cm-sky:#43A5E4; --cm-on-sky:#0E2D49; --cm-sky-light:#89C4E9;
+  --cm-on-navy:#FFFFFF; --cm-on-navy-muted:#D9E4F2;
+  --cm-orange:#D97706; --cm-blue:#359BDB; --cm-green:#1F9134;
+  --cm-sans:"Figtree","Instrument Sans","Helvetica Neue",Arial,sans-serif;
+
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --surface:#FFFFFF;
+  --paper-rgb:255,255,255;
+  --rule:#E3EEF6; --rule-strong:#103454;
+  --ink:#1A1D21; --ink-sec:#5F6368; --ink-2:#5F6368; --ink-3:#647092; --muted:#647092;
+  --ink-rgb:26,29,33;
+  --signal:#1C77BA; --signal-hover:#155E94; --on-signal:#FFFFFF; --signal-rgb:28,119,186;
+  --accent:#30709C; --teal:#30709C;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  --on-exp:#1A1D21; --on-exp-5:#FFFFFF;
+  --risk:#A85A00; --highlight:#FFF3D6;
+  --t1:#103454; --t2:#30709C; --t3:#7D6430; --t4:#8C5049;
+  --r-1:4px; --r-2:8px;
+  --shadow-1:0 8px 24px rgba(16,52,84,.08);
+  --font-sans:var(--cm-sans); --font-serif:var(--cm-sans);
+}
+
+/* --- 2 · Jetons · thème sombre (dérivé du marine) --------------------- */
+html[data-theme="dark"]{
+  --cm-navy:#0F2A44; --cm-navy-soft:#133556;
+  --paper:#0B1E31; --paper-2:#0F2A44; --surface:#102B45;
+  --paper-rgb:11,30,49;
+  --rule:#1C3F60; --rule-strong:#EEF4FA;
+  --ink:#EEF4FA; --ink-sec:#B7C6D6; --ink-2:#B7C6D6; --ink-3:#93A6C0; --muted:#93A6C0;
+  --ink-rgb:238,244,250;
+  --signal:#6EB7E5; --signal-hover:#9DCDEF; --on-signal:#0B1E31; --signal-rgb:110,183,229;
+  --accent:#89C4E9; --teal:#89C4E9;
+  --cm-orange:#FFB04D; --cm-blue:#5BB1E8; --cm-green:#4CC266;
+  --risk:#FFB04D; --highlight:#3A2F1A;
+  --t1:#9FC4DE; --t2:#89C4E9; --t3:#C7AC72; --t4:#D49186;
+  --shadow-1:0 8px 24px rgba(0,0,0,.35);
+}
+
+/* --- 3 · Typographie : une famille sans, la chasse fixe gardée pour les sources --- */
+body, body *:not(.mono):not(.mono *):not(code):not(pre):not(kbd):not(.ds-badge){
+  font-family:var(--cm-sans) !important;
+}
+body{ background-image:none !important; }
+h1,h2,h3,.hero-title,.dash-title,.frame-title,.debate-title,.warning-title,
+.section-title,.ds-title,.dispatch-tease-title{ font-weight:600 !important; letter-spacing:-.015em; }
+h1 em,h2 em,h3 em,.hero-title em,.dash-title em,.frame-title em,.debate-title em,
+.section-title em,.warning-title em,.dispatch-tease-title em,.ds-title em{ font-style:normal !important; }
+.hero-pitch,.dash-lede{ font-style:normal !important; }
+/* Emphase éditoriale : acier partout, ciel sur les fonds marine (voir 5, 9, 10) */
+body em{ color:var(--accent) !important; }
+
+/* --- 4 · Navigation marine ---------------------------------------------- */
+.nav{ background:var(--cm-navy) !important; border-bottom:0 !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
+#siteNav .logo{ color:var(--cm-on-navy); font-weight:700; }
+#siteNav .logo .bracket,#siteNav .logo:hover .bracket{ color:var(--cm-sky); }
+#siteNav .logo .dot{ color:var(--cm-sky-light); }
+#siteNav .nav-links > a,#siteNav .nav-dropdown-toggle{ color:var(--cm-on-navy-muted); background:transparent; }
+#siteNav .nav-links > a:hover,#siteNav .nav-links > a.current,
+#siteNav .nav-dropdown-toggle:hover,#siteNav .nav-dropdown-toggle.current{ color:var(--cm-on-navy); }
+#siteNav .nav-links > a.current::after{ background:var(--cm-sky); height:2px; }
+#siteNav .nav-dropdown.current .nav-dropdown-toggle,#siteNav .nav-dropdown:hover .nav-dropdown-toggle{ color:var(--cm-on-navy); }
+#siteNav .nav-dropdown-menu{ background:var(--surface); border-color:var(--rule); box-shadow:var(--shadow-1); }
+#siteNav .nav-dropdown-menu a{ color:var(--ink-2); }
+#siteNav .nav-dropdown-menu a:hover,#siteNav .nav-dropdown-menu a.current{ color:var(--signal); background:var(--paper-2); }
+#siteNav .lang-toggle{ border-color:rgba(255,255,255,.28); color:var(--cm-on-navy-muted); }
+#siteNav .lang-toggle:hover{ border-color:var(--cm-sky); }
+#siteNav .lang-toggle span.active{ color:var(--cm-sky); }
+#siteNav .lang-toggle span:not(.active){ color:var(--cm-on-navy-muted); }
+#siteNav .menu-btn{ border-color:rgba(255,255,255,.28); }
+#siteNav .menu-btn span,#siteNav .menu-btn span::before,#siteNav .menu-btn span::after{ background:var(--cm-on-navy); }
+.nav a:focus-visible,.nav button:focus-visible{ outline:2px solid var(--cm-sky); outline-offset:3px; border-radius:6px; }
+
+/* --- 5 · En-têtes de page en bande marine pleine largeur --------------- */
+.hero,.dash-header{
+  background:var(--cm-navy); color:var(--cm-on-navy);
+  box-shadow:0 0 0 100vmax var(--cm-navy); clip-path:inset(0 -100vmax);
+  margin-bottom:56px !important; padding-bottom:64px !important;
+}
+.hero-title,.dash-title{ color:var(--cm-on-navy); font-size:clamp(36px,5.2vw,64px) !important; line-height:1.06 !important; }
+.hero-title em,.dash-title em,.hero-title .accent-bracket,.hero em,.dash-header em,
+.dispatch-tease-inner em,.debate-takeaway em,.reinvent-cta-block em,footer#siteFooter em{ color:var(--cm-sky) !important; }
+.hero-pitch,.dash-lede{ color:var(--cm-on-navy-muted) !important; }
+.hero-eyebrow,.dash-flag,.hero [class*="eyebrow"],.dash-header [class*="eyebrow"]{ color:var(--cm-sky-light) !important; }
+.hero-eyebrow::before{ background:var(--cm-sky); }
+.hero a:not(.btn),.dash-header a:not(.btn){ color:var(--cm-sky-light); }
+.hero .btn-primary,.dash-header .btn-primary{
+  background:var(--cm-sky); color:var(--cm-on-sky); border:0;
+  box-shadow:0 6px 16px rgba(67,165,228,.35); font-weight:600;
+}
+.hero .btn-primary:hover,.dash-header .btn-primary:hover{ background:#5CB4EA; color:var(--cm-on-sky); }
+.hero .btn-secondary,.dash-header .btn-secondary{
+  background:transparent; color:var(--cm-on-navy); border:1.5px solid var(--cm-sky-light);
+}
+.hero .btn-secondary:hover,.dash-header .btn-secondary:hover{ background:rgba(255,255,255,.08); color:var(--cm-on-navy); border-color:var(--cm-on-navy); }
+.hero :focus-visible,.dash-header :focus-visible{ outline:2px solid var(--cm-sky); outline-offset:3px; }
+
+/* --- 6 · Boutons ------------------------------------------------------- */
+.btn{ font-weight:600; }
+.btn-primary{ background:var(--signal); color:var(--on-signal); }
+.btn-primary:hover{ background:var(--signal-hover); color:var(--on-signal); }
+.btn-secondary{ border:1.5px solid var(--signal); color:var(--signal); }
+.btn-secondary:hover{ background:var(--signal); color:var(--on-signal); }
+.ds-cta{ border-radius:999px; text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; }
+.ds-cta--secondary{ border-color:var(--signal); color:var(--signal); }
+
+/* --- 7 · Chiffres clés : une couleur par chiffre, cartes flottantes ---- */
+.stats{ border:0 !important; }
+.stats-grid{ gap:20px; }
+.stat{ background:var(--surface); border:0 !important; border-radius:var(--r-2); box-shadow:var(--shadow-1); }
+.stat:nth-child(3n+1) .stat-num{ color:var(--cm-orange); }
+.stat:nth-child(3n+2) .stat-num{ color:var(--cm-blue); }
+.stat:nth-child(3n+3) .stat-num{ color:var(--cm-green); }
+.stat-num .unit,.stat-num .sign{ color:inherit; opacity:.75; }
+.kpi-row{ background:transparent !important; border:0 !important; gap:20px !important; }
+.kpi{ background:var(--surface) !important; border-radius:var(--r-2); box-shadow:var(--shadow-1); }
+
+/* --- 8 · Cartes et panneaux ------------------------------------------- */
+.frame-card,.warning-card,.debate-col,.ds-source-card,.ds-dispatch-card,.ds-job-card,
+.field-card,.brief-card,.dl-card,.obs-card,.card{ border-radius:var(--r-2); }
+.frame-card,.ds-source-card,.ds-dispatch-card,.field-card,.brief-card,.dl-card,.obs-card{ box-shadow:var(--shadow-1); border-color:var(--rule); }
+.ds-note{ border-left:0; border-radius:20px; background:var(--paper-2); }
+
+/* --- 9 · Blocs sombres : marine au lieu de l'encre ---------------------- */
+.dispatch-tease-inner,.debate-takeaway,.reinvent-cta-block{
+  background:var(--cm-navy) !important; color:var(--cm-on-navy) !important; border-radius:20px;
+}
+.dispatch-tease-inner::before{ display:none; }
+.debate-takeaway{ border-left:0 !important; }
+.dispatch-tease-inner *,.debate-takeaway *,.reinvent-cta-block h4,.reinvent-cta-block p{ color:inherit; }
+.dispatch-tease-lede,.reinvent-cta-block p{ color:var(--cm-on-navy-muted) !important; }
+.dispatch-tease-tag{ color:var(--cm-sky-light) !important; border-color:var(--cm-sky-light) !important; }
+.dispatch-tease-title em{ color:var(--cm-sky) !important; }
+.dispatch-tease-actions .btn-primary{ background:var(--cm-sky); color:var(--cm-on-sky); }
+.dispatch-tease-actions .btn-secondary{ color:var(--cm-on-navy); border-color:var(--cm-sky-light); }
+.reinvent-cta-block a{ color:var(--cm-sky-light) !important; border-bottom-color:var(--cm-sky-light) !important; }
+
+/* --- 10 · Pied de page marine ----------------------------------------- */
+footer#siteFooter{
+  background:var(--cm-navy) !important; color:var(--cm-on-navy-muted);
+  border-top:0; text-transform:none; letter-spacing:0; font-size:14px;
+}
+footer#siteFooter a{ color:var(--cm-on-navy); }
+footer#siteFooter a:hover{ color:var(--cm-sky-light); }
+footer#siteFooter .foot-brand{ color:var(--cm-on-navy) !important; font-weight:700; }
+footer#siteFooter .bracket{ color:var(--cm-sky) !important; }
+footer#siteFooter .dot{ color:var(--cm-sky-light) !important; }
+footer#siteFooter .foot-col-label{ color:var(--cm-sky-light); text-transform:uppercase; letter-spacing:.08em; font-size:12px; }
+footer#siteFooter .foot-tagline,footer#siteFooter .foot-update,footer#siteFooter .foot-license,
+footer#siteFooter .foot-version,footer#siteFooter .foot-bottom{ color:var(--cm-on-navy-muted); }
+footer#siteFooter strong{ color:var(--cm-on-navy); }
+footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
+
+/* --- 11 · Menu mobile --------------------------------------------------- */
+.mobile-menu{ background:var(--cm-navy) !important; }
+.mobile-menu a,.mobile-menu .close-btn{ color:var(--cm-on-navy) !important; }
+.mobile-menu .mobile-group-label{ color:var(--cm-sky-light) !important; }
+
+/* --- 12 · Divers -------------------------------------------------------- */
+::selection{ background:var(--cm-sky); color:var(--cm-on-sky); }
+@media (max-width:640px){
+  .hero,.dash-header{ margin-bottom:40px !important; padding-bottom:48px !important; }
+  .stats-grid,.kpi-row{ gap:12px !important; }
+}
+
+/* ==================================================================== */
+/* v1.1 · 18 octobre 2026 · lecture, alignement, responsive, graphiques */
+/* ==================================================================== */
+
+/* --- 13 · Mesure de lecture ------------------------------------------- */
+/* --measure était appelé par les blocs ds-* sans être défini : les lignes  */
+/* couraient sur toute la largeur. 68 caractères, plafond et non largeur.   */
+:root{ --measure:68ch; --cm-gutter:32px; }
+@media (max-width:960px){ :root{ --cm-gutter:20px; } }
+p,li,dd,blockquote,
+.manifesto-text,.stat-label,.kpi-label,.dl-desc,.field-card-excerpt{ max-width:var(--measure); }
+/* Règles de page plus spécifiques (760 px, 100 %) : le plafond l'emporte  */
+.method-content p,.method-content li,.context-content p,.reinvent-intro p,
+.rdr-sub,.rdr-deck,.caveat,.method-caveat,.frame-lede,.debate-lede,.warning-lede,
+.expgap-readline,.diff-summary-text,.cmp-dim-lede,.eu-lede,.eu-note,.eu-caveat,
+.pt-question-body,.pt-questions-lede,.brief-source-cited,.debate-takeaway p,
+.warning-footer,.frame-footer-text{ max-width:var(--measure) !important; }
+/* Les intertitres restent sur une ligne et demie au plus */
+.section-title,.ds-title,.frame-title,.debate-title,.warning-title{ max-width:32ch; text-wrap:balance; }
+.dash-title,.hero-title{ max-width:22ch; text-wrap:balance; }
+.section-sub,.ds-lede,.dash-lede,.hero-pitch,.frame-lede,.debate-lede,.warning-lede{ max-width:62ch; text-wrap:pretty; }
+p,li{ text-wrap:pretty; }
+/* Blocs centrés : le plafond reste centré */
+[style*="text-align: center"] > p,[style*="text-align:center"] > p{ margin-left:auto; margin-right:auto; }
+/* Interlignage courant homogène */
+main p,section p,article p,.method-content p,.method-content li{ line-height:1.62; }
+
+/* --- 14 · Une seule marge gauche par largeur d'écran ------------------- */
+/* Blocs ds-* et appel final : le texte s'alignait 32 px plus à gauche que  */
+/* le reste de la page. Sous-titres imbriqués : 32 px plus à droite.        */
+section[style*="padding: var(--s-8) 24px"]{ padding-left:0 !important; padding-right:0 !important; }
+section[style*="padding: var(--s-8) 24px"] > div[style*="max-width: var(--max-w)"],
+.closing-cta-inner{ padding-left:var(--cm-gutter); padding-right:var(--cm-gutter); box-sizing:border-box; }
+.closing-cta{ padding-left:0 !important; padding-right:0 !important; }
+.expgap-section > .section-head,.reinvent-section > .section-head,
+.rdr-section > .section-head,.rdr-section .rdr-inner{ padding-left:0 !important; padding-right:0 !important; }
+/* Grilles « étiquette | texte » : l'étiquette passe au-dessus, une colonne */
+.manifesto{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.manifesto-tag{ position:static !important; }
+.manifesto-text{ font-size:clamp(19px,1.9vw,24px) !important; line-height:1.5 !important; max-width:38em; }
+.manifesto .manifesto-text + .manifesto-text{ margin-top:20px; }
+.context-grid{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.context-grid > :first-child{ position:static !important; }
+.context-content{ max-width:none; }
+.context-content h3{ max-width:28ch; }
+
+/* --- 15 · Cartes de veille --------------------------------------------- */
+/* Les cartes étaient forcées en display:block par le script : le titre     */
+/* tronqué débordait sur le résumé et la date se coupait en deux.           */
+.field-card{ display:flex !important; flex-direction:column; gap:10px; min-height:0 !important; }
+.field-card-meta{ flex-wrap:wrap; gap:4px 14px; font-size:11.5px; line-height:1.45; }
+.field-card-meta > span:first-child{ white-space:nowrap; }
+.field-card-title{ display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; line-height:1.25 !important; max-height:3.75em !important; min-height:0 !important; height:auto !important; padding:0 !important; flex:none; }
+.field-card-excerpt{ font-size:15px; }
+.field-card-link{ font-size:12.5px; }
+
+/* --- 16 · Tailles minimales de lecture --------------------------------- */
+.section-sub{ font-size:16px !important; line-height:1.55; text-transform:none; letter-spacing:0; }
+.stat-label,.kpi-label,.kf-label,.eu-kpi-lab,.card-org,.mml-text,.aitype-summary-jobs{ font-size:14px !important; line-height:1.5; }
+.caveat,.method-caveat,.form-note,.rdr-insight-text,.rdr-scalenote,.rdr-deck,.rdr-sub{ font-size:14px !important; line-height:1.55; }
+.method-source,.eu-src,.rdr-source,.eumap-meta,.eu-c-geo{ font-size:12.5px !important; line-height:1.55; }
+
+/* --- 17 · Graphiques : palette Ciel & Marine --------------------------- */
+/* Les scripts écrivent des couleurs Encre & ardoise en attribut SVG ;      */
+/* une règle CSS l'emporte sur un attribut de présentation.                 */
+svg [fill="#11110F"]{ fill:var(--ink); }
+svg [stroke="#11110F"]{ stroke:var(--ink); }
+/* Effet emploi (France, Suisse) : exposition = orange, recrutements :      */
+/* hausse = acier, baisse = brun d'exposition forte                         */
+#expgapChart [fill="#B5C0BA"],#expgapChart [fill="#B7C5C7"],.expgap-box-theoretical{ fill:var(--exp-3); background:var(--exp-3) !important; }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-band); }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#D03C2F"],.expgap-box-observed{ fill:var(--risk); background:var(--risk) !important; }
+/* Comparer : Suisse = ciel, France = marine, hausse = vert                 */
+body:has(.cmp-dim-head) #expgapChart [fill="#D03C2F"]{ fill:var(--cm-sky); }
+body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+body:has(.cmp-dim-head) #expgapChart [fill="#3A6B5F"]{ fill:var(--cm-green); }
+/* Radars : les deux séries devenaient deux bleus voisins.                 */
+/* Exposition technique = orange (exposition), adoption = marine.           */
+.rdr-fill-blue{ fill:var(--exp-4); }
+.rdr-stroke-blue{ stroke:var(--exp-4); }
+.rdr-dot-blue{ fill:var(--exp-4); }
+.rdr-fill-red{ fill:var(--cm-navy); }
+.rdr-stroke-red{ stroke:var(--cm-navy); }
+.rdr-dot-red{ fill:var(--cm-navy); }
+.rdr-legend [data-layer="blue"] i{ background:var(--exp-4) !important; }
+.rdr-legend [data-layer="red"] i{ background:var(--cm-navy) !important; }
+html[data-theme="dark"] .rdr-legend [data-layer="red"] i{ background:#103454 !important; box-shadow:0 0 0 1px #89C4E9; }
+.rdr-legend small{ font-size:11px !important; }
+/* Carte européenne : rampe séquentielle bleue, clair = faible            */
+.eumap-section [fill="#E8E2D2"],.eumap-section [style*="fill: rgb(232, 226, 210)"]{ fill:#EAF5FC !important; }
+.eumap-swatch[style*="#E8E2D2"]{ background:#EAF5FC !important; }
+.eumap-section [fill="#C9D6CC"],.eumap-section [style*="fill: rgb(201, 214, 204)"]{ fill:#A5CDE7 !important; }
+.eumap-swatch[style*="#C9D6CC"]{ background:#A5CDE7 !important; }
+.eumap-section [fill="#7FA28F"],.eumap-section [style*="fill: rgb(127, 162, 143)"]{ fill:#5E9FCB !important; }
+.eumap-swatch[style*="#7FA28F"]{ background:#5E9FCB !important; }
+.eumap-section [fill="#3A6B5F"],.eumap-section [style*="fill: rgb(58, 107, 95)"]{ fill:#30709C !important; }
+.eumap-swatch[style*="#3A6B5F"]{ background:#30709C !important; }
+.eumap-section [fill="#1F3A3D"],.eumap-section [style*="fill: rgb(31, 58, 61)"]{ fill:#103454 !important; }
+.eumap-swatch[style*="#1F3A3D"]{ background:#103454 !important; }
+
+/* Mode sombre : les graphiques restent des planches claires (choix v0.3),  */
+/* mais aux jetons Ciel & Marine et non plus sur le papier crème.           */
+html[data-theme="dark"] #expgapChart,
+html[data-theme="dark"] [id$="RadarStage"],
+html[data-theme="dark"] .matrix-mini{
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --ink:#1A1D21; --ink-2:#5F6368; --ink-sec:#5F6368;
+  --muted:#647092; --rule:#E3EEF6; --teal:#30709C; --accent:#30709C; --signal:#1C77BA;
+  --highlight:#FFF3D6; --risk:#A85A00; --cm-navy:#103454; --cm-sky:#43A5E4; --cm-sky-light:#89C4E9; --cm-green:#1F9134;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  background:#F4FAFD !important; border:1px solid #1C3F60 !important; border-radius:var(--r-2);
+}
+html[data-theme="dark"] .rdr-fill-red,html[data-theme="dark"] .rdr-dot-red{ fill:var(--cm-navy); }
+html[data-theme="dark"] .rdr-stroke-red{ stroke:var(--cm-navy); }
+html[data-theme="dark"] body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+
+/* --- 18 · Tablette et téléphone ---------------------------------------- */
+@media (max-width:960px){
+  .field-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:20px !important; }
+  .cross-link{ grid-template-columns:minmax(0,1fr) !important; gap:20px !important; }
+  .debate-grid,.warning-grid,.frame-grid{ gap:20px !important; }
+  table{ font-size:14px; }
+}
+@media (max-width:720px){
+  .field-grid{ grid-template-columns:minmax(0,1fr) !important; }
+  .cross-link[style*="text-align: center"]{ text-align:left !important; }
+  .cross-link[style*="text-align: center"] > *{ margin-left:0 !important; margin-right:0 !important; }
+  .cross-link[style*="text-align: center"] .cta-row{ justify-content:flex-start !important; }
+  .section-title,.ds-title{ font-size:clamp(26px,7vw,32px) !important; line-height:1.15 !important; }
+  .section-sub{ font-size:15px !important; }
+  .hero-pitch,.dash-lede{ font-size:17px !important; line-height:1.55 !important; }
+  .btn,.ds-cta,.dl-btn{ min-height:44px; }
+  .hero .btn,.dispatch-tease-actions .btn,.closing-cta .btn,.closing-cta .ds-cta{ width:100%; justify-content:center; }
+  /* Tableaux larges : défilement dans leur boîte, jamais la page */
+  .method-content table,.ds-table,.cmp-table,table{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .rdr-tt{ max-width:calc(100vw - 32px); }
+}
+@media (max-width:480px){
+  .stats-grid,.kpi-row{ grid-template-columns:minmax(0,1fr) !important; }
+  .dl-grid{ grid-template-columns:minmax(0,1fr) !important; }
+}
+
+/* --- 19 · Page Données : liste générée des jeux analytiques ----------- */
+.dl-grid--datasets{ margin-bottom:24px; }
+.dl-grid--datasets .dl-card{ display:flex; flex-direction:column; }
+.dl-grid--datasets .dl-desc{ flex:1; }
+a.dl-btn{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; }
+.dl-btn{ border-radius:999px !important; text-transform:none !important; letter-spacing:0 !important; font-weight:600;
+  font-size:14px; border:1.5px solid var(--signal) !important; color:var(--signal) !important; background:transparent !important; }
+.dl-btn:hover{ background:var(--paper-2) !important; }
+.dl-btn.primary{ background:var(--signal) !important; color:var(--on-signal) !important; }
+.dl-btn.primary:hover{ background:var(--signal-hover) !important; border-color:var(--signal-hover) !important; }
+
+/* ==================================================================== */
+/* CIEL & MARINE · couche des sous-pages · v1.0 · 18 octobre 2026       */
+/* Source canonique : assets/ciel-marine-sous-pages.css                 */
+/* Dépêches Dispatch·iA (briefings/) et matrices (infographies/).       */
+/* Injectée en fin de <head> par tools/inject_cm.py, entre marqueurs ;  */
+/* --remove restitue chaque page à l'octet près. Aucun texte, aucune    */
+/* donnée, aucun script modifié : jetons, typographie, couleurs SVG.    */
+/*                                                                      */
+/* Correspondances (gabarit Dispatch·iA -> Ciel & Marine) :             */
+/*   papier crème       -> blanc / bleu très pâle                       */
+/*   rouge éditorial    -> acier (emphase éditoriale du site)           */
+/*   bleu signal        -> bleu interactif du site                      */
+/*   rampe chaude       -> rampe d'exposition orange du site            */
+/*   en-têtes           -> bande marine, comme le site                  */
+/* ==================================================================== */
+
+/* --- 1 · Jetons · thème clair ---------------------------------------- */
+:root{
+  --cm-navy:#103454; --cm-navy-soft:#184864; --cm-band:#30709C;
+  --cm-sky:#43A5E4; --cm-on-sky:#0E2D49; --cm-sky-light:#89C4E9;
+  --cm-on-navy:#FFFFFF; --cm-on-navy-muted:#D9E4F2;
+  --cm-sans:"Figtree","Inter","Helvetica Neue",Arial,sans-serif;
+
+  /* gabarit Dispatch·iA (05 à 10) */
+  --bg:#FFFFFF; --bg-alt:#F4FAFD; --sf:#FFFFFF;
+  --tx:#1A1D21; --tx-sec:#5F6368; --tx-mut:#647092;
+  --br:#E3EEF6; --br-strong:#A5CDE7;
+  --ac:#30709C; --ac-soft:#EAF5FC;
+  --green:#227A35; --amber:#A85A00; --grid:#E3EEF6;
+  --shadow:0 8px 24px rgba(16,52,84,.08);
+  --ink-paper:#FFFFFF; --ink-paper-alt:#F4FAFD;
+  --ink-1:#1A1D21; --ink-2:#5F6368; --ink-3:#647092;
+  --ink-rule:#E3EEF6; --ink-rule-strong:#A5CDE7;
+  --ink-signal:#1C77BA; --ink-signal-soft:#EAF5FC;
+  --ink-editorial:#30709C; --ink-editorial-soft:#EAF5FC;
+  --ink-positive:#227A35; --ink-caution:#A85A00;
+  --ink-warm-1:#FFF1DD; --ink-warm-2:#FFD49A; --ink-warm-3:#FFAE4D; --ink-warm-4:#E67E00; --ink-warm-5:#8F4A00;
+  --ink-grid:#E3EEF6; --ink-shadow:0 8px 24px rgba(16,52,84,.08);
+  /* pont vers les jetons du site (dispatch-bridge) */
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --surface:#FFFFFF; --paper-rgb:255,255,255;
+  --rule:#E3EEF6; --rule-strong:#103454;
+  --ink:#1A1D21; --ink-sec:#5F6368; --ink-3:#647092; --muted:#647092; --ink-rgb:26,29,33;
+  --signal:#1C77BA; --signal-hover:#155E94; --on-signal:#FFFFFF; --signal-rgb:28,119,186;
+  --accent:#30709C; --teal:#30709C; --highlight:#FFF3D6;
+  --t1:#103454; --t2:#30709C; --t3:#7D6430; --t4:#8C5049;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  --exp-on-1-4:#1A1D21; --exp-on-5:#FFFFFF; --risk:#A85A00;
+  --shadow-1:0 8px 24px rgba(16,52,84,.08);
+  /* couleurs propres au #006 */
+  --sia-blue:#103454; --sia-coral:#43A5E4; --sia-cream:#F4FAFD;
+  /* matrices HBS (infographies/) : risque = orange, boosté = marine,  */
+  /* avec boost = ciel, stagnant = neutre                              */
+  --q-risk:#FFAE4D; --q-risk-deep:#A85A00;
+  --q-boost:#103454; --q-boost-deep:#0B2238;
+  --q-stagnant:#DCE6EF; --q-stagnant-deep:#647092;
+  --q-augmented:#89C4E9; --q-augmented-deep:#30709C;
+  --dot-label:#103454;
+}
+
+/* --- 2 · Jetons · thème sombre (dérivé du marine) --------------------- */
+[data-theme="dark"],html[data-theme="dark"]{
+  --bg:#0B1E31; --bg-alt:#0F2A44; --sf:#102B45;
+  --tx:#EEF4FA; --tx-sec:#B7C6D6; --tx-mut:#93A6C0;
+  --br:#1C3F60; --br-strong:#2A5A80;
+  --ac:#89C4E9; --ac-soft:#133556;
+  --green:#4CC266; --amber:#FFB04D; --grid:#1C3F60;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --ink-paper:#0B1E31; --ink-paper-alt:#0F2A44;
+  --ink-1:#EEF4FA; --ink-2:#B7C6D6; --ink-3:#93A6C0;
+  --ink-rule:#1C3F60; --ink-rule-strong:#2A5A80;
+  --ink-signal:#6EB7E5; --ink-signal-soft:#133556;
+  --ink-editorial:#89C4E9; --ink-editorial-soft:#133556;
+  --ink-positive:#4CC266; --ink-caution:#FFB04D;
+  --ink-warm-1:#3A2F1A; --ink-warm-2:#5C4220; --ink-warm-3:#8A5A1E; --ink-warm-4:#C77A1A; --ink-warm-5:#FFB04D;
+  --ink-grid:#1C3F60; --ink-shadow:0 8px 24px rgba(0,0,0,.35);
+  --paper:#0B1E31; --paper-2:#0F2A44; --surface:#102B45; --paper-rgb:11,30,49;
+  --rule:#1C3F60; --rule-strong:#EEF4FA;
+  --ink:#EEF4FA; --ink-sec:#B7C6D6; --ink-3:#93A6C0; --muted:#93A6C0; --ink-rgb:238,244,250;
+  --signal:#6EB7E5; --signal-hover:#9DCDEF; --on-signal:#0B1E31; --signal-rgb:110,183,229;
+  --accent:#89C4E9; --teal:#89C4E9; --highlight:#3A2F1A;
+  --t1:#9FC4DE; --t2:#89C4E9; --t3:#C7AC72; --t4:#D49186;
+  --exp-1:#3A2F1A; --exp-2:#5C4220; --exp-3:#8A5A1E; --exp-4:#C77A1A; --exp-5:#FFB04D;
+  --exp-on-1-4:#FFFFFF; --exp-on-5:#0B1E31; --risk:#FFB04D;
+  --shadow-1:0 8px 24px rgba(0,0,0,.35);
+  --sia-blue:#0F2A44; --sia-coral:#89C4E9; --sia-cream:#D9E4F2;
+  --dot-label:#D9E4F2;
+}
+html[data-theme="dark"] body,body[data-theme="dark"]{ background:var(--bg); }
+
+/* --- 3 · Typographie : Figtree sous les noms des anciennes familles ---- */
+/* Les gabarits appellent Fraunces (titres) et Inter (texte). Ces faces,  */
+/* déclarées après celles de Google Fonts, l'emportent : les titres et    */
+/* le texte passent en Figtree, la chasse fixe des sources reste intacte. */
+/* Fichiers auto-hébergés dans assets/fonts (licence SIL OFL 1.1).        */
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:100 349;font-display:swap;src:url(../assets/fonts/figtree-latin-300-normal.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:350 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-normal.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:550 649;font-display:swap;src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:650 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-700-normal.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:100 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-italic.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-italic.woff2) format("woff2");}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:550 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-600-italic.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 349;font-display:swap;src:url(../assets/fonts/figtree-latin-300-normal.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:350 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-normal.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:550 649;font-display:swap;src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:650 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-700-normal.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-italic.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:italic;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-italic.woff2) format("woff2");}
+@font-face{font-family:"Inter";font-style:italic;font-weight:550 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-600-italic.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:100 349;font-display:swap;src:url(../assets/fonts/figtree-latin-300-normal.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:350 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-normal.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:550 649;font-display:swap;src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:650 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-700-normal.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:italic;font-weight:100 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-italic.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:italic;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-italic.woff2) format("woff2");}
+@font-face{font-family:"Instrument Sans";font-style:italic;font-weight:550 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-600-italic.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:100 349;font-display:swap;src:url(../assets/fonts/figtree-latin-300-normal.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:350 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-normal.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:550 649;font-display:swap;src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:650 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-700-normal.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:italic;font-weight:100 449;font-display:swap;src:url(../assets/fonts/figtree-latin-400-italic.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:italic;font-weight:450 549;font-display:swap;src:url(../assets/fonts/figtree-latin-500-italic.woff2) format("woff2");}
+@font-face{font-family:"Figtree";font-style:italic;font-weight:550 1000;font-display:swap;src:url(../assets/fonts/figtree-latin-600-italic.woff2) format("woff2");}
+h1,h2,h3{ font-weight:600 !important; letter-spacing:-.015em; font-variation-settings:normal !important; }
+h1 em,h2 em,h3 em,[class*="title"] em,.standfirst em{ font-style:normal !important; color:var(--ac) !important; }
+.masthead h1 em,.hero h1 em,.hero [class*="title"] em,.masthead [class*="title"] em{ color:var(--cm-sky) !important; }
+p,li{ text-wrap:pretty; }
+::selection{ background:var(--cm-sky); color:var(--cm-on-sky); }
+
+/* --- 4 · En-têtes en bande marine, comme le site ------------------------ */
+/* Les jetons sont redéfinis dans la bande : tout ce qui s'y lit passe en clair. */
+.masthead,.hero,.dispatch-banner,body > header:has(.header-inner){
+  --tx:#FFFFFF; --tx-sec:#D9E4F2; --tx-mut:#B9CBE0; --br:rgba(255,255,255,.18); --br-strong:rgba(255,255,255,.32);
+  --ac:#43A5E4; --ac-soft:rgba(67,165,228,.16);
+  --ink-1:#FFFFFF; --ink-2:#D9E4F2; --ink-3:#B9CBE0; --ink-rule:rgba(255,255,255,.18);
+  --ink-editorial:#43A5E4; --ink-signal:#89C4E9;
+  --ink:#FFFFFF; --ink-sec:#D9E4F2; --muted:#B9CBE0; --rule:rgba(255,255,255,.18);
+  --signal:#89C4E9; --accent:#89C4E9; --sia-cream:#D9E4F2; --sia-coral:#43A5E4;
+  background:var(--cm-navy) !important; color:#FFFFFF;
+  border-color:transparent !important;
+}
+.masthead,.hero{ padding-bottom:clamp(32px,5vw,56px) !important; }
+.masthead a,.hero a,body > header:has(.header-inner) a{ color:#D9E4F2; }
+.masthead a:hover,.hero a:hover,body > header:has(.header-inner) a:hover{ color:#FFFFFF; }
+body > header:has(.header-inner) .brand,body > header:has(.header-inner) .brand span{ color:#FFFFFF !important; }
+/* Barre de contrôles (langue, thème) au-dessus de l'en-tête des 08 à 10 */
+.controls{ background:var(--cm-navy) !important; border-color:rgba(255,255,255,.12) !important;
+  --tx:#D9E4F2; --tx-sec:#D9E4F2; --tx-mut:#B9CBE0; --br:rgba(255,255,255,.28); --ink-1:#FFFFFF; --ink-2:#D9E4F2; --ink-3:#B9CBE0; }
+.controls .ctrl,.controls button{ color:#D9E4F2; border-color:rgba(255,255,255,.28); background:transparent; }
+.controls [aria-pressed="true"],.controls .active,.controls .on{ color:var(--cm-on-sky) !important; background:var(--cm-sky) !important; border-color:var(--cm-sky) !important; }
+/* Cartes et encadrés posés dans la bande */
+.hero .kpi,.masthead .kpi,.hero [class*="-card"],.masthead [class*="-card"]{
+  --tx:#1A1D21; --tx-sec:#5F6368; --tx-mut:#647092; --br:#E3EEF6; --ink-1:#1A1D21; --ink-2:#5F6368; --ink-3:#647092;
+  --ink:#1A1D21; --ink-sec:#5F6368; --muted:#647092; --ac:#30709C; color:#1A1D21;
+}
+.hero .indep-block,.masthead .indep-block{
+  background:rgba(255,255,255,.07) !important; border:1px solid rgba(255,255,255,.28) !important; color:#D9E4F2;
+}
+.hero .indep-block strong,.masthead .indep-block strong{ color:#FFFFFF !important; }
+.hero .indep-label,.masthead .indep-label{ color:var(--cm-sky-light) !important; }
+.hero .sia-mark,.masthead .sia-mark{ color:var(--cm-sky) !important; }
+.hero-author-info,.hero-author-info *{ color:#D9E4F2 !important; }
+.hero-author-info strong,.hero-author-info b,.hero-author-info > :first-child{ color:#FFFFFF !important; }
+.hero-author-mark{ background:var(--cm-sky) !important; color:var(--cm-on-sky) !important; border-color:var(--cm-sky) !important; }
+/* Barre de navigation interne du #006 */
+nav.nav:not(#siteNav){ background:var(--cm-navy) !important; border-color:rgba(255,255,255,.12) !important;
+  --tx:#FFFFFF; --tx-sec:#D9E4F2; --tx-mut:#B9CBE0; --ac:#43A5E4; --br:rgba(255,255,255,.28); color:#FFFFFF; }
+nav.nav:not(#siteNav) a{ color:#D9E4F2; }
+/* Contrôles des 08 à 10 : texte clair forcé */
+.controls,.controls .mono,.controls span{ color:#D9E4F2 !important; }
+/* Dépêches 01 à 04 : en-tête en bande marine, comme les pages du site */
+.brief-hero{
+  background:var(--cm-navy); color:#FFFFFF;
+  box-shadow:0 0 0 100vmax var(--cm-navy); clip-path:inset(0 -100vmax);
+  padding-bottom:48px !important; margin-bottom:48px !important;
+  --ink:#FFFFFF; --ink-2:#D9E4F2; --ink-sec:#D9E4F2; --ink-3:#B9CBE0; --muted:#B9CBE0; --rule:rgba(255,255,255,.18);
+  --signal:#89C4E9; --accent:#89C4E9;
+}
+.brief-hero-title,.brief-hero h1{ color:#FFFFFF !important; }
+.brief-hero-title em,.brief-hero em{ color:var(--cm-sky) !important; }
+.brief-hero-sub,.brief-byline,.brief-hero-meta,.brief-hero-meta *{ color:#D9E4F2 !important; }
+.brief-byline strong{ color:#FFFFFF !important; }
+.brief-byline,.brief-hero-meta{ border-color:rgba(255,255,255,.18) !important; }
+.brief-hero .meta-edition{ border-color:var(--cm-sky-light) !important; color:var(--cm-sky-light) !important; }
+.brief-hero .meta-num{ color:var(--cm-sky-light) !important; }
+.brief-action{ background:var(--cm-sky) !important; color:var(--cm-on-sky) !important; border:1.5px solid var(--cm-sky) !important; border-radius:999px; font-weight:600; }
+.brief-action--ghost{ background:transparent !important; color:#FFFFFF !important; border-color:var(--cm-sky-light) !important; }
+.brief-action:focus-visible{ outline:2px solid var(--cm-sky); outline-offset:3px; }
+/* Barre de progression de lecture */
+.progress,#progress,#prog{ background:var(--cm-sky) !important; }
+
+/* Pieds de page des dépêches et barre des matrices : marine */
+body > footer:not(.pdf-foot):not(#siteFooter),footer.foot,.site-footer,.site-nav{
+  --bg:#103454; --bg-alt:#103454; --sf:#103454;
+  --tx:#FFFFFF; --tx-sec:#D9E4F2; --tx-mut:#B9CBE0; --br:rgba(255,255,255,.18); --br-strong:rgba(255,255,255,.32);
+  --ac:#43A5E4; --ink-1:#FFFFFF; --ink-2:#D9E4F2; --ink-3:#B9CBE0; --ink-rule:rgba(255,255,255,.18);
+  --ink:#FFFFFF; --ink-sec:#D9E4F2; --muted:#B9CBE0; --rule:rgba(255,255,255,.18); --signal:#89C4E9; --accent:#89C4E9;
+  background:var(--cm-navy) !important; color:#D9E4F2; border-color:transparent !important;
+}
+body > footer:not(.pdf-foot):not(#siteFooter) a,footer.foot a,.site-footer a,.site-nav a{ color:#FFFFFF; }
+.site-nav .logo .bracket,.site-footer .foot-brand .bracket{ color:var(--cm-sky) !important; }
+.site-nav .logo{ color:#FFFFFF !important; }
+.site-nav .menu-btn span,.site-nav .menu-btn span::before,.site-nav .menu-btn span::after{ background:#FFFFFF !important; }
+
+/* Bandes sombres d'origine (encre) : marine, dans les deux thèmes */
+section.tldr,section.cta,.brief-sponsor-section{
+  --tx:#FFFFFF; --tx-sec:#D9E4F2; --tx-mut:#B9CBE0; --br:rgba(255,255,255,.18); --ac:#43A5E4;
+  --paper:#FFFFFF; --ink:#103454; --signal:#89C4E9; --accent:#89C4E9;
+  background:var(--cm-navy) !important; color:#FFFFFF;
+}
+.brief-sponsor-section .lede,.brief-sponsor-body,.brief-sponsor-sig-role{ color:#D9E4F2 !important; }
+.brief-sponsor-eyebrow{ color:var(--cm-sky-light) !important; }
+section.cta .cta-card{ background:rgba(255,255,255,.06) !important; border-color:rgba(255,255,255,.22) !important; }
+section.cta .cta-card-title{ color:var(--cm-sky-light) !important; }
+section.cta .cta-deck,section.cta p{ color:#D9E4F2 !important; }
+/* Pastilles sur fond ciel : texte marine foncé (le blanc tombait à 2,7:1) */
+.hb-coral,.hero .badge,.brief-sponsor-badge,.lang button[aria-pressed="true"],.ctrl[aria-pressed="true"]{
+  background:var(--cm-sky) !important; color:var(--cm-on-sky) !important;
+}
+.brief-sponsor-badge .dot{ color:var(--cm-on-sky) !important; }
+/* Étiquettes de série et encadrés posés dans les bandes marine */
+.dispatch-tag,.dispatch-tag *{ color:var(--tx) !important; }
+.hero .limites-strip,.masthead .limites-strip{ background:rgba(255,255,255,.08) !important; border-color:rgba(255,255,255,.24) !important; }
+.hero .limites-strip a,.hero .limites-strip-mark{ color:var(--cm-sky-light) !important; }
+body > footer :is(b,strong),footer.foot :is(b,strong),.site-footer :is(b,strong){ color:#FFFFFF !important; }
+
+.badge-alt{ background:var(--cm-sky) !important; color:var(--cm-on-sky) !important; }
+section.tldr .tldr-src,section.tldr .tldr-foot{ color:#B9CBE0 !important; }
+section.tldr .tldr-anchor{ color:var(--cm-sky-light) !important; }
+html[data-theme="dark"] .brief-kpi-conf.c1{ color:#4CC266 !important; border-color:#4CC266 !important; }
+
+/* Matrices : liste mobile et infobulle */
+.mobile-legend{ background:var(--bg-alt) !important; }
+.tt{ background:var(--cm-navy) !important; color:#FFFFFF; }
+
+/* --- 5 · Boutons et liens ---------------------------------------------- */
+a{ text-underline-offset:2px; }
+.cta a,.cta-card a,a.call-link,.btn-copy,[class*="cta"] a[href]{ border-radius:999px; }
+
+/* --- 6 · Graphiques : couleurs écrites en attribut par les scripts ------ */
+svg [fill="#B8312F" i]{ fill:var(--ac); }       svg [stroke="#B8312F" i]{ stroke:var(--ac); }
+svg [fill="#BF6B04" i]{ fill:var(--amber); }    svg [stroke="#BF6B04" i]{ stroke:var(--amber); }
+svg [fill="#2D6A4F" i]{ fill:var(--green); }    svg [stroke="#2D6A4F" i]{ stroke:var(--green); }
+svg [fill="#1A1A1A" i],svg [fill="#11110F" i]{ fill:var(--tx,var(--ink)); }
+svg [stroke="#1A1A1A" i],svg [stroke="#11110F" i]{ stroke:var(--tx,var(--ink)); }
+svg [fill="#5B5B5B" i]{ fill:var(--tx-sec); }   svg [fill="#8A8A8A" i],svg [fill="#7A7A7A" i]{ fill:var(--tx-mut,var(--muted)); }
+svg [stroke="#8A8A8A" i],svg [stroke="#7A7A7A" i]{ stroke:var(--tx-mut,var(--muted)); }
+svg [fill="#C9C2B5" i]{ fill:var(--br-strong); } svg [stroke="#C9C2B5" i]{ stroke:var(--br-strong); }
+svg [fill="#E5E0D8" i]{ fill:var(--br); }       svg [stroke="#E5E0D8" i]{ stroke:var(--br); }
+svg [fill="#003081" i]{ fill:var(--cm-navy); }  svg [stroke="#003081" i]{ stroke:var(--cm-navy); }
+svg [fill="#F56476" i]{ fill:var(--cm-sky); }   svg [stroke="#F56476" i]{ stroke:var(--cm-sky); }
+svg [fill="#2C5578" i]{ fill:var(--signal); }   svg [stroke="#2C5578" i]{ stroke:var(--signal); }
+svg [fill="#D03C2F" i]{ fill:var(--exp-4); }    svg [stroke="#D03C2F" i]{ stroke:var(--exp-4); }
+svg [fill="#1F3A3D" i]{ fill:var(--cm-navy); }  svg [stroke="#1F3A3D" i]{ stroke:var(--cm-navy); }
+html[data-theme="dark"] svg [fill="#003081" i],html[data-theme="dark"] svg [fill="#1F3A3D" i],
+[data-theme="dark"] svg [fill="#003081" i],[data-theme="dark"] svg [fill="#1F3A3D" i]{ fill:var(--cm-sky-light); }
+
+/* --- 7 · Lecture et responsive ----------------------------------------- */
+.table-scroll,[class*="table-wrap"]{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+@media (max-width:960px){
+  .cite{ white-space:normal !important; overflow-wrap:anywhere; }
+  .site-nav,.site-nav-inner,.site-footer{ margin-left:0 !important; margin-right:0 !important; width:auto !important; max-width:100% !important; box-sizing:border-box; }
+}
+@media (max-width:720px){
+  table{ display:block; max-width:100%; overflow-x:auto; }
+  svg{ max-width:100%; height:auto; }
+  .controls .wrap,.controls .col{ flex-wrap:wrap; gap:8px; }
+}
+/* CM:END */</style>
 </head>
 <body>
 
@@ -6304,10 +6912,10 @@ function renderFooter() {
       <div class="foot-col foot-col-meta">
         <div class="foot-update mono">
           <span data-i18n="foot.lastupdate">${t("foot.lastupdate")}</span>
-          <strong>24 mai 2026</strong>
+          <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.73 · build 2026.06.06</div>
+        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">

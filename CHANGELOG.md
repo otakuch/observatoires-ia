@@ -4,6 +4,121 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] · 2026-10-18
+
+### Added · country sheet with map on the Switzerland and France pages
+
+A « Le pays en un coup d'œil » section now opens both country pages, right
+under the navy header: a map with switchable layers, structural facts with
+source, date and tier, and an accessible table of the map data.
+
+- Switzerland: 26 cantons and lakes; layers official languages, FSO major
+  regions (NUTS 2), concern about AI from the University of Zurich survey
+  (7 May 2026: 49 % French-speaking, 37 % German-speaking, Ticino n.a. since
+  not covered; cantons assigned by majority language, noted on the map);
+  facts 26 cantons, 9,124,300 inhabitants end 2025 (FSO), main languages 2023
+  (FSO), 7 major regions, occupations mapped
+- France: 13 mainland regions plus 5 overseas tiles; layers regions and AI
+  exposure by region, which stays n.a. until a dated regional series exists;
+  facts 18 regions, 101 departments, 69.1 million inhabitants on 1 January
+  2026 (Insee, provisional), occupations mapped
+- Single source `assets/data/fiche-pays.json` (new dataset, CC BY 4.0
+  compilation) and `assets/geo/` (paths pre-projected and simplified);
+  occupation counts read from the métiers files
+- `tools/build_fiche_pays.py` writes the block between `FICHE-PAYS` markers,
+  checks the rest of each page is unchanged, `--check` / `--remove`
+- Works without script (French, first layer) and offline (inline data);
+  follows the site language through the `lang` attribute; labels hidden on
+  phones, data table always available; contrast AA in both themes
+- Map attribution shown under each map. Swiss boundaries: FSO GEOSTAT,
+  free use with attribution, commercial use on request (opendata.swiss
+  « terms_by_ask »). French boundaries: IGN Admin Express, Licence Ouverte
+
+## [0.5.1] · 2026-10-18
+
+### Changed · « Ciel & Marine » on the sub-pages
+
+The 12 dispatches of `briefings/`, the two matrices of `infographies/` and
+`templates/TEMPLATE-dispatch.html` now follow the charter. Same method as the
+main pages: one block between `CM:BEGIN` / `CM:END` markers at the end of
+`<head>`, nothing else changed (checked byte for byte against 0.5.0, scripts
+pass `node --check`), `--remove` restores every page.
+
+- New layer `assets/ciel-marine-sous-pages.css`. Pages built on the site
+  template (dispatches 01 to 04, template, matrices) receive both layers;
+  pages built on the Dispatch·iA kit (05 to 10, #004 sponsored) receive the
+  sub-page layer only, because their own `--measure` and layout tokens must
+  stay untouched
+- `tools/inject_cm.py` now discovers `briefings/`, `infographies/` and
+  `templates/` by itself and picks the family from the page header: a new
+  dispatch gets the charter on the next run
+- Dispatch·iA tokens mapped to the site: cream paper -> white and pale blue,
+  editorial red -> steel, signal blue -> interactive blue, warm ramp ->
+  exposure orange ramp, the #006 colours -> navy and sky; dark theme derived
+  from navy
+- Headers, controls bar, dark bands (TL;DR, call to action, partner word)
+  and footers in navy, with tokens redefined inside each band so every text
+  turns light; cards and KPI tiles placed in a band keep dark text
+- Figtree served from `assets/fonts/` (SIL OFL 1.1, licence included) under
+  the names the kits call (Fraunces, Inter, Instrument Sans): titles and body
+  switch, monospace source lines stay as they are
+- Chart colours written as SVG attributes by the dispatch scripts remapped
+- Footer of dispatches 01 to 04 and of both matrices now linked by
+  `tools/sync_data.py` (last update 1 October 2026, version from this file)
+- Contrast (WCAG AA, light theme, 1440 px), on the six dispatches measured
+  before and after: failing texts 261 -> 26, the rest mostly 10 px chart
+  labels; phone overflow removed on #008, #010 and both matrices
+
+## [0.5.0] · 2026-10-18
+
+### Changed · pages linked to every reference dataset
+
+`tools/sync_data.py` now derives every copied value and every count written
+in the text from `assets/data/` and from the `BRIEFINGS` catalog of
+`briefings.html`. Data files are untouched (checksums identical). Each
+replacement is anchored and must find the expected number of occurrences,
+otherwise the script stops without writing. `--check` exits 1 on drift.
+
+- Home · « Dernière dépêche » block now follows the catalog: #010
+  (16 September 2026) instead of #006 (May 2026), link included
+- Home · field report eyebrow follows the latest entry (October 2026, was
+  April 2026)
+- Footer on every page · last update = most recent data date (1 October
+  2026, was 24 May 2026) · version read from this CHANGELOG
+- Méthodologie · dataset descriptions corrected against the files:
+  indicators FR 15 -> 24, CH 10 -> 18, total 33 -> 42 · up to 18 sources per
+  indicator (was 14) · timeline 2022-2026 (was 2019-2026) · economists FR
+  12 -> 55, CH 18 -> 54, total 42 -> 70 (distinct names)
+- À propos · datasets sentence: 23 -> 42 indicators, 40 -> 104 milestones,
+  38 -> 70 economists, 27 -> 122 field reports
+- Données · new generated list of the 14 analytical datasets (entries,
+  size, compilation date, direct download); the page offered only 2 files
+- Offline fallbacks (exposure and diffusion charts) and the three radars
+  are now checked against their reference on every run
+
+### Changed · reading layout and responsive
+
+New sections 13 to 19 of `assets/ciel-marine.css` (still injected by
+`tools/inject_cm.py`, still removable as one block).
+
+- `--measure` (68ch) defined: it was used by the ds-* blocks but undefined,
+  so their paragraphs ran across the full width
+- One left text edge per screen width: ds-* blocks and closing call to
+  action were 32 px to the left, nested section heads 32 px to the right
+- « label | text » grids (manifesto, context) become one column, label above
+- Field report cards: title no longer overflows onto the summary, date no
+  longer breaks in two
+- Minimum reading sizes on phone: section subtitles 12 -> 16 px, labels and
+  notes 14 px, source lines 12.5 px
+- Tablet: field reports in two columns, cross links stacked; phone: centred
+  call to action left-aligned, full-width buttons, 44 px targets, wide
+  tables scroll inside their box
+- Charts and radars recoloured: exposure in orange, adoption in navy,
+  recruitment decline in dark orange, CH/FR in sky/navy; dark mode plates
+  move from cream paper to Ciel & Marine tokens; radar captions updated
+  (« en orange », « en bleu marine »)
+- `theme-color` set to navy
+
 ## [0.4.0] · 2026-10-17
 
 ### Changed · « Ciel & Marine » visual charter on the 13 main pages

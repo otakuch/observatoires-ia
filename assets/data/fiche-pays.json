@@ -1,0 +1,183 @@
+{
+  "$schema": "Fiche pays · faits structurels datés et sourcés, couches de carte",
+  "compiled_at": "2026-10-18",
+  "license": "CC BY 4.0 pour la compilation ; chaque fait conserve la licence de sa source",
+  "scope": "Faits structurels et couches cartographiques des pages Suisse et France",
+  "method_note": "Seules des valeurs datées et sourcées sont affichées. Une unité sans série datée est notée n.d., jamais estimée.",
+  "countries": [
+    {
+      "code": "CH",
+      "title": {
+        "fr": "La Suisse : 26 cantons, quatre langues nationales.",
+        "en": "Switzerland: 26 cantons, four national languages."
+      },
+      "lede": {
+        "fr": "Avant de lire l'exposition des métiers, situer le pays : son découpage, ses langues, ses grandes régions. La carte n'affiche que des valeurs datées et sourcées.",
+        "en": "Before reading occupational exposure, locate the country: its divisions, its languages, its main regions. The map only shows dated, sourced values."
+      },
+      "geo": "assets/geo/ch-cantons.json",
+      "geo_attribution": {
+        "fr": "Contours : OFS, GEOSTAT, limites généralisées 2026, via le paquet swiss-maps (Interactive Things), simplifiés.",
+        "en": "Boundaries: FSO, GEOSTAT, generalised boundaries 2026, via the swiss-maps package (Interactive Things), simplified."
+      },
+      "facts": [
+        {"value": "26", "label": {"fr": "cantons souverains", "en": "sovereign cantons"}, "source": {"fr": "Constitution fédérale, art. 1", "en": "Federal Constitution, art. 1"}, "tier": "T1", "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/fr"},
+        {"value": {"fr": "9 124 300", "en": "9,124,300"}, "label": {"fr": "habitants, population résidante permanente", "en": "inhabitants, permanent resident population"}, "source": {"fr": "OFS, fin 2025", "en": "FSO, end of 2025"}, "tier": "T1", "url": "https://swissinfo.ch/eng/demographics/population-the-proportion-of-seniors-exceeds-that-of-young-people-in-switzerland/91200057"},
+        {"value": "7", "label": {"fr": "grandes régions statistiques", "en": "major statistical regions"}, "source": {"fr": "OFS, NUTS 2", "en": "FSO, NUTS 2"}, "tier": "T1"},
+        {"value": "@metiers_ch", "label": {"fr": "métiers NP 2010 cartographiés", "en": "NP 2010 occupations mapped"}, "source": {"fr": "metiers-ia-ch.json", "en": "metiers-ia-ch.json"}, "tier": "", "accent": true}
+      ],
+      "languages": {
+        "items": [
+          {"value": {"fr": "61,4 %", "en": "61.4%"}, "label": {"fr": "allemand", "en": "German"}},
+          {"value": {"fr": "22,6 %", "en": "22.6%"}, "label": {"fr": "français", "en": "French"}},
+          {"value": {"fr": "7,7 %", "en": "7.7%"}, "label": {"fr": "italien", "en": "Italian"}},
+          {"value": {"fr": "0,5 %", "en": "0.5%"}, "label": {"fr": "romanche", "en": "Romansh"}}
+        ],
+        "title": {"fr": "Langues principales", "en": "Main languages"},
+        "source": {"fr": "OFS, relevé structurel 2023", "en": "FSO, structural survey 2023"},
+        "tier": "T1",
+        "url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/34788129/master"
+      },
+      "note": {
+        "fr": "Aucune exposition à l'IA n'est publiée au canton. Seule l'enquête de l'Université de Zurich distingue deux régions linguistiques ; le Tessin, non couvert, reste en n.d.",
+        "en": "No AI exposure figure is published by canton. Only the University of Zurich survey separates two language regions; Ticino, not covered, stays n.a."
+      },
+      "units": [
+        {"id": "1",  "abbr": "ZH", "name": {"fr": "Zurich", "en": "Zurich"}, "langues": "de", "regions": "zh", "enquete": "alem"},
+        {"id": "2",  "abbr": "BE", "name": {"fr": "Berne", "en": "Bern"}, "langues": "bil", "regions": "mit", "enquete": "alem"},
+        {"id": "3",  "abbr": "LU", "name": {"fr": "Lucerne", "en": "Lucerne"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "4",  "abbr": "UR", "name": {"fr": "Uri", "en": "Uri"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "5",  "abbr": "SZ", "name": {"fr": "Schwytz", "en": "Schwyz"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "6",  "abbr": "OW", "name": {"fr": "Obwald", "en": "Obwalden"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "7",  "abbr": "NW", "name": {"fr": "Nidwald", "en": "Nidwalden"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "8",  "abbr": "GL", "name": {"fr": "Glaris", "en": "Glarus"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "9",  "abbr": "ZG", "name": {"fr": "Zoug", "en": "Zug"}, "langues": "de", "regions": "cen", "enquete": "alem"},
+        {"id": "10", "abbr": "FR", "name": {"fr": "Fribourg", "en": "Fribourg"}, "langues": "bil", "regions": "mit", "enquete": "rom"},
+        {"id": "11", "abbr": "SO", "name": {"fr": "Soleure", "en": "Solothurn"}, "langues": "de", "regions": "mit", "enquete": "alem"},
+        {"id": "12", "abbr": "BS", "name": {"fr": "Bâle-Ville", "en": "Basel-City"}, "langues": "de", "regions": "nw", "enquete": "alem"},
+        {"id": "13", "abbr": "BL", "name": {"fr": "Bâle-Campagne", "en": "Basel-Country"}, "langues": "de", "regions": "nw", "enquete": "alem"},
+        {"id": "14", "abbr": "SH", "name": {"fr": "Schaffhouse", "en": "Schaffhausen"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "15", "abbr": "AR", "name": {"fr": "Appenzell Rhodes-Extérieures", "en": "Appenzell Ausserrhoden"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "16", "abbr": "AI", "name": {"fr": "Appenzell Rhodes-Intérieures", "en": "Appenzell Innerrhoden"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "17", "abbr": "SG", "name": {"fr": "Saint-Gall", "en": "St. Gallen"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "18", "abbr": "GR", "name": {"fr": "Grisons", "en": "Graubünden"}, "langues": "tri", "regions": "ori", "enquete": "alem"},
+        {"id": "19", "abbr": "AG", "name": {"fr": "Argovie", "en": "Aargau"}, "langues": "de", "regions": "nw", "enquete": "alem"},
+        {"id": "20", "abbr": "TG", "name": {"fr": "Thurgovie", "en": "Thurgau"}, "langues": "de", "regions": "ori", "enquete": "alem"},
+        {"id": "21", "abbr": "TI", "name": {"fr": "Tessin", "en": "Ticino"}, "langues": "it", "regions": "ti", "enquete": "nd"},
+        {"id": "22", "abbr": "VD", "name": {"fr": "Vaud", "en": "Vaud"}, "langues": "fr", "regions": "lem", "enquete": "rom"},
+        {"id": "23", "abbr": "VS", "name": {"fr": "Valais", "en": "Valais"}, "langues": "bil", "regions": "lem", "enquete": "rom"},
+        {"id": "24", "abbr": "NE", "name": {"fr": "Neuchâtel", "en": "Neuchâtel"}, "langues": "fr", "regions": "mit", "enquete": "rom"},
+        {"id": "25", "abbr": "GE", "name": {"fr": "Genève", "en": "Geneva"}, "langues": "fr", "regions": "lem", "enquete": "rom"},
+        {"id": "26", "abbr": "JU", "name": {"fr": "Jura", "en": "Jura"}, "langues": "fr", "regions": "mit", "enquete": "rom"}
+      ],
+      "layers": [
+        {
+          "id": "langues",
+          "label": {"fr": "Langues officielles", "en": "Official languages"},
+          "classes": {
+            "de":  {"color": "#30709C", "label": {"fr": "Allemand", "en": "German"}},
+            "fr":  {"color": "#89C4E9", "label": {"fr": "Français", "en": "French"}},
+            "it":  {"color": "#103454", "label": {"fr": "Italien", "en": "Italian"}},
+            "bil": {"color": "#C9DCEB", "label": {"fr": "Bilingue français-allemand", "en": "French-German bilingual"}},
+            "tri": {"color": "#5E9FCB", "label": {"fr": "Trilingue allemand, romanche, italien", "en": "Trilingual German, Romansh, Italian"}}
+          },
+          "source": {"fr": "Langue officielle du canton. Berne, Fribourg et Valais sont bilingues, les Grisons trilingues. Sources : Constitution fédérale et constitutions cantonales · T1.", "en": "Official language of the canton. Bern, Fribourg and Valais are bilingual, Graubünden trilingual. Sources: Federal and cantonal constitutions · T1."}
+        },
+        {
+          "id": "regions",
+          "label": {"fr": "Grandes régions OFS", "en": "FSO major regions"},
+          "classes": {
+            "lem": {"color": "#103454", "label": {"fr": "Région lémanique", "en": "Lake Geneva Region"}},
+            "mit": {"color": "#30709C", "label": {"fr": "Espace Mittelland", "en": "Espace Mittelland"}},
+            "nw":  {"color": "#5E9FCB", "label": {"fr": "Suisse du Nord-Ouest", "en": "Northwestern Switzerland"}},
+            "zh":  {"color": "#89C4E9", "label": {"fr": "Zurich", "en": "Zurich"}},
+            "ori": {"color": "#C9DCEB", "label": {"fr": "Suisse orientale", "en": "Eastern Switzerland"}},
+            "cen": {"color": "#A5CDE7", "label": {"fr": "Suisse centrale", "en": "Central Switzerland"}},
+            "ti":  {"color": "#647092", "label": {"fr": "Tessin", "en": "Ticino"}}
+          },
+          "source": {"fr": "Grandes régions statistiques de l'OFS (NUTS 2), agrégats de cantons · T1.", "en": "FSO major statistical regions (NUTS 2), groupings of cantons · T1."}
+        },
+        {
+          "id": "enquete",
+          "label": {"fr": "Inquiétude face à l'IA · UZH 2026", "en": "Concern about AI · UZH 2026"},
+          "classes": {
+            "rom":  {"color": "#E67E00", "value": 49, "label": {"fr": "Suisse romande · 49 % d'inquiets", "en": "French-speaking Switzerland · 49% concerned"}},
+            "alem": {"color": "#FFD49A", "value": 37, "label": {"fr": "Suisse alémanique · 37 % d'inquiets", "en": "German-speaking Switzerland · 37% concerned"}},
+            "nd":   {"color": "nd", "label": {"fr": "Tessin · n.d., non couvert par l'enquête", "en": "Ticino · n.a., not covered by the survey"}}
+          },
+          "source": {"fr": "Cortesi, Hasse, Müller-Daubermann, Gasser, Université de Zurich (IKMZ), 7 mai 2026 · enquête en ligne, n = 1 000, octobre 2025 · T1. Canton classé selon sa langue majoritaire ; l'enquête définit la région à la commune.", "en": "Cortesi, Hasse, Müller-Daubermann, Gasser, University of Zurich (IKMZ), 7 May 2026 · online survey, n = 1,000, October 2025 · T1. Cantons assigned by majority language; the survey defines regions by municipality."},
+          "url": "https://aidentities.ch/wp-content/uploads/2026/05/Loved.-Feared.-And-Here-to-Stay_2026-05-07.pdf"
+        }
+      ]
+    },
+    {
+      "code": "FR",
+      "title": {
+        "fr": "La France : 18 régions, 101 départements.",
+        "en": "France: 18 regions, 101 departments."
+      },
+      "lede": {
+        "fr": "Le découpage administratif d'abord, l'exposition ensuite. Une région sans série datée reste en n.d. : rien n'est estimé pour remplir la carte.",
+        "en": "Administrative divisions first, exposure second. A region without a dated series stays n.a.: nothing is estimated to fill the map."
+      },
+      "geo": "assets/geo/fr-regions.json",
+      "geo_attribution": {
+        "fr": "Contours : IGN, Admin Express COG, via france-geojson (Grégoire David), simplifiés · Licence Ouverte.",
+        "en": "Boundaries: IGN, Admin Express COG, via france-geojson (Grégoire David), simplified · Licence Ouverte."
+      },
+      "facts": [
+        {"value": "18", "label": {"fr": "régions, dont 13 en métropole et 5 en outre-mer", "en": "regions, 13 in mainland France and 5 overseas"}, "source": {"fr": "Insee, Code officiel géographique", "en": "Insee, Official Geographic Code"}, "tier": "T1"},
+        {"value": "101", "label": {"fr": "départements", "en": "departments"}, "source": {"fr": "Insee, Code officiel géographique", "en": "Insee, Official Geographic Code"}, "tier": "T1"},
+        {"value": {"fr": "69,1 millions", "en": "69.1 million"}, "label": {"fr": "d'habitants au 1er janvier 2026, estimation provisoire", "en": "inhabitants on 1 January 2026, provisional estimate"}, "source": {"fr": "Insee Première n° 2087, 13 janvier 2026", "en": "Insee Première no. 2087, 13 January 2026"}, "tier": "T1", "url": "https://www.insee.fr/fr/statistiques/8719824"},
+        {"value": "@metiers_fr", "label": {"fr": "métiers ROME cartographiés", "en": "ROME occupations mapped"}, "source": {"fr": "metiers-ia-fr.json", "en": "metiers-ia-fr.json"}, "tier": "", "accent": true}
+      ],
+      "note": {
+        "fr": "Couche régionale à documenter. Le tableau de bord transitions-ia.fr affiche des scores régionaux estimés : leur source et leur date doivent être établies avant de les reprendre ici.",
+        "en": "Regional layer to be documented. The transitions-ia.fr dashboard shows estimated regional scores: their source and date must be established before they are used here."
+      },
+      "overseas": [
+        {"fr": "Guadeloupe", "en": "Guadeloupe"},
+        {"fr": "Martinique", "en": "Martinique"},
+        {"fr": "Guyane", "en": "French Guiana"},
+        {"fr": "La Réunion", "en": "Réunion"},
+        {"fr": "Mayotte", "en": "Mayotte"}
+      ],
+      "units": [
+        {"id": "11", "abbr": "IDF",  "name": {"fr": "Île-de-France", "en": "Île-de-France"}, "regions": "a", "exposition": "nd"},
+        {"id": "24", "abbr": "CVL",  "name": {"fr": "Centre-Val de Loire", "en": "Centre-Val de Loire"}, "regions": "d", "exposition": "nd"},
+        {"id": "27", "abbr": "BFC",  "name": {"fr": "Bourgogne-Franche-Comté", "en": "Bourgogne-Franche-Comté"}, "regions": "c", "exposition": "nd"},
+        {"id": "28", "abbr": "NOR",  "name": {"fr": "Normandie", "en": "Normandy"}, "regions": "c", "exposition": "nd"},
+        {"id": "32", "abbr": "HDF",  "name": {"fr": "Hauts-de-France", "en": "Hauts-de-France"}, "regions": "b", "exposition": "nd"},
+        {"id": "44", "abbr": "GES",  "name": {"fr": "Grand Est", "en": "Grand Est"}, "regions": "d", "exposition": "nd"},
+        {"id": "52", "abbr": "PDL",  "name": {"fr": "Pays de la Loire", "en": "Pays de la Loire"}, "regions": "b", "exposition": "nd"},
+        {"id": "53", "abbr": "BRE",  "name": {"fr": "Bretagne", "en": "Brittany"}, "regions": "d", "exposition": "nd"},
+        {"id": "75", "abbr": "NAQ",  "name": {"fr": "Nouvelle-Aquitaine", "en": "Nouvelle-Aquitaine"}, "regions": "c", "exposition": "nd"},
+        {"id": "76", "abbr": "OCC",  "name": {"fr": "Occitanie", "en": "Occitanie"}, "regions": "b", "exposition": "nd"},
+        {"id": "84", "abbr": "ARA",  "name": {"fr": "Auvergne-Rhône-Alpes", "en": "Auvergne-Rhône-Alpes"}, "regions": "b", "exposition": "nd"},
+        {"id": "93", "abbr": "PACA", "name": {"fr": "Provence-Alpes-Côte d'Azur", "en": "Provence-Alpes-Côte d'Azur"}, "regions": "d", "exposition": "nd"},
+        {"id": "94", "abbr": "COR",  "name": {"fr": "Corse", "en": "Corsica"}, "regions": "c", "exposition": "nd"}
+      ],
+      "layers": [
+        {
+          "id": "regions",
+          "label": {"fr": "Régions", "en": "Regions"},
+          "classes": {
+            "a": {"color": "#103454", "label": {"fr": "13 régions métropolitaines, teintes alternées pour distinguer les voisines", "en": "13 mainland regions, alternating tints to separate neighbours"}},
+            "b": {"color": "#30709C", "label": null},
+            "c": {"color": "#5E9FCB", "label": null},
+            "d": {"color": "#89C4E9", "label": null}
+          },
+          "source": {"fr": "Découpage régional en vigueur depuis le 1er janvier 2016 · T1.", "en": "Regional divisions in force since 1 January 2016 · T1."}
+        },
+        {
+          "id": "exposition",
+          "label": {"fr": "Exposition à l'IA par région", "en": "AI exposure by region"},
+          "classes": {
+            "nd": {"color": "nd", "label": {"fr": "n.d. · pas de série régionale datée", "en": "n.a. · no dated regional series"}}
+          },
+          "source": {"fr": "Aucune série régionale datée et sourcée n'est intégrée aux données de l'observatoire à ce jour : la couche reste en n.d.", "en": "No dated, sourced regional series is part of the observatory's data yet: the layer stays n.a."}
+        }
+      ]
+    }
+  ]
+}

@@ -18,7 +18,7 @@ HEAD_INJECT = """<!-- Canonical & Social -->
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@naullyn">
-<meta name="theme-color" content="#D03C2F">
+<meta name="theme-color" content="#103454">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q52TZ7QT84"></script>
 <script>

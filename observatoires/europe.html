@@ -5877,7 +5877,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 <style id="cielMarine">/* CM:BEGIN */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 /* ==================================================================== */
-/* CIEL & MARINE · couche de charte · v1.0 · 17 octobre 2026            */
+/* CIEL & MARINE · couche de charte · v1.1 · 18 octobre 2026            */
 /* Source canonique : assets/ciel-marine.css                            */
 /* Injectée en fin de <head> par tools/inject_cm.py, entre marqueurs.   */
 /* Bloc purement additif : le retirer restitue Encre & ardoise à        */
@@ -6057,6 +6057,158 @@ footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
   .hero,.dash-header{ margin-bottom:40px !important; padding-bottom:48px !important; }
   .stats-grid,.kpi-row{ gap:12px !important; }
 }
+
+/* ==================================================================== */
+/* v1.1 · 18 octobre 2026 · lecture, alignement, responsive, graphiques */
+/* ==================================================================== */
+
+/* --- 13 · Mesure de lecture ------------------------------------------- */
+/* --measure était appelé par les blocs ds-* sans être défini : les lignes  */
+/* couraient sur toute la largeur. 68 caractères, plafond et non largeur.   */
+:root{ --measure:68ch; --cm-gutter:32px; }
+@media (max-width:960px){ :root{ --cm-gutter:20px; } }
+p,li,dd,blockquote,
+.manifesto-text,.stat-label,.kpi-label,.dl-desc,.field-card-excerpt{ max-width:var(--measure); }
+/* Règles de page plus spécifiques (760 px, 100 %) : le plafond l'emporte  */
+.method-content p,.method-content li,.context-content p,.reinvent-intro p,
+.rdr-sub,.rdr-deck,.caveat,.method-caveat,.frame-lede,.debate-lede,.warning-lede,
+.expgap-readline,.diff-summary-text,.cmp-dim-lede,.eu-lede,.eu-note,.eu-caveat,
+.pt-question-body,.pt-questions-lede,.brief-source-cited,.debate-takeaway p,
+.warning-footer,.frame-footer-text{ max-width:var(--measure) !important; }
+/* Les intertitres restent sur une ligne et demie au plus */
+.section-title,.ds-title,.frame-title,.debate-title,.warning-title{ max-width:32ch; text-wrap:balance; }
+.dash-title,.hero-title{ max-width:22ch; text-wrap:balance; }
+.section-sub,.ds-lede,.dash-lede,.hero-pitch,.frame-lede,.debate-lede,.warning-lede{ max-width:62ch; text-wrap:pretty; }
+p,li{ text-wrap:pretty; }
+/* Blocs centrés : le plafond reste centré */
+[style*="text-align: center"] > p,[style*="text-align:center"] > p{ margin-left:auto; margin-right:auto; }
+/* Interlignage courant homogène */
+main p,section p,article p,.method-content p,.method-content li{ line-height:1.62; }
+
+/* --- 14 · Une seule marge gauche par largeur d'écran ------------------- */
+/* Blocs ds-* et appel final : le texte s'alignait 32 px plus à gauche que  */
+/* le reste de la page. Sous-titres imbriqués : 32 px plus à droite.        */
+section[style*="padding: var(--s-8) 24px"]{ padding-left:0 !important; padding-right:0 !important; }
+section[style*="padding: var(--s-8) 24px"] > div[style*="max-width: var(--max-w)"],
+.closing-cta-inner{ padding-left:var(--cm-gutter); padding-right:var(--cm-gutter); box-sizing:border-box; }
+.closing-cta{ padding-left:0 !important; padding-right:0 !important; }
+.expgap-section > .section-head,.reinvent-section > .section-head,
+.rdr-section > .section-head,.rdr-section .rdr-inner{ padding-left:0 !important; padding-right:0 !important; }
+/* Grilles « étiquette | texte » : l'étiquette passe au-dessus, une colonne */
+.manifesto{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.manifesto-tag{ position:static !important; }
+.manifesto-text{ font-size:clamp(19px,1.9vw,24px) !important; line-height:1.5 !important; max-width:38em; }
+.manifesto .manifesto-text + .manifesto-text{ margin-top:20px; }
+.context-grid{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.context-grid > :first-child{ position:static !important; }
+.context-content{ max-width:none; }
+.context-content h3{ max-width:28ch; }
+
+/* --- 15 · Cartes de veille --------------------------------------------- */
+/* Les cartes étaient forcées en display:block par le script : le titre     */
+/* tronqué débordait sur le résumé et la date se coupait en deux.           */
+.field-card{ display:flex !important; flex-direction:column; gap:10px; min-height:0 !important; }
+.field-card-meta{ flex-wrap:wrap; gap:4px 14px; font-size:11.5px; line-height:1.45; }
+.field-card-meta > span:first-child{ white-space:nowrap; }
+.field-card-title{ display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; line-height:1.25 !important; max-height:3.75em !important; min-height:0 !important; height:auto !important; padding:0 !important; flex:none; }
+.field-card-excerpt{ font-size:15px; }
+.field-card-link{ font-size:12.5px; }
+
+/* --- 16 · Tailles minimales de lecture --------------------------------- */
+.section-sub{ font-size:16px !important; line-height:1.55; text-transform:none; letter-spacing:0; }
+.stat-label,.kpi-label,.kf-label,.eu-kpi-lab,.card-org,.mml-text,.aitype-summary-jobs{ font-size:14px !important; line-height:1.5; }
+.caveat,.method-caveat,.form-note,.rdr-insight-text,.rdr-scalenote,.rdr-deck,.rdr-sub{ font-size:14px !important; line-height:1.55; }
+.method-source,.eu-src,.rdr-source,.eumap-meta,.eu-c-geo{ font-size:12.5px !important; line-height:1.55; }
+
+/* --- 17 · Graphiques : palette Ciel & Marine --------------------------- */
+/* Les scripts écrivent des couleurs Encre & ardoise en attribut SVG ;      */
+/* une règle CSS l'emporte sur un attribut de présentation.                 */
+svg [fill="#11110F"]{ fill:var(--ink); }
+svg [stroke="#11110F"]{ stroke:var(--ink); }
+/* Effet emploi (France, Suisse) : exposition = orange, recrutements :      */
+/* hausse = acier, baisse = brun d'exposition forte                         */
+#expgapChart [fill="#B5C0BA"],#expgapChart [fill="#B7C5C7"],.expgap-box-theoretical{ fill:var(--exp-3); background:var(--exp-3) !important; }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-band); }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#D03C2F"],.expgap-box-observed{ fill:var(--risk); background:var(--risk) !important; }
+/* Comparer : Suisse = ciel, France = marine, hausse = vert                 */
+body:has(.cmp-dim-head) #expgapChart [fill="#D03C2F"]{ fill:var(--cm-sky); }
+body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+body:has(.cmp-dim-head) #expgapChart [fill="#3A6B5F"]{ fill:var(--cm-green); }
+/* Radars : les deux séries devenaient deux bleus voisins.                 */
+/* Exposition technique = orange (exposition), adoption = marine.           */
+.rdr-fill-blue{ fill:var(--exp-4); }
+.rdr-stroke-blue{ stroke:var(--exp-4); }
+.rdr-dot-blue{ fill:var(--exp-4); }
+.rdr-fill-red{ fill:var(--cm-navy); }
+.rdr-stroke-red{ stroke:var(--cm-navy); }
+.rdr-dot-red{ fill:var(--cm-navy); }
+.rdr-legend [data-layer="blue"] i{ background:var(--exp-4) !important; }
+.rdr-legend [data-layer="red"] i{ background:var(--cm-navy) !important; }
+html[data-theme="dark"] .rdr-legend [data-layer="red"] i{ background:#103454 !important; box-shadow:0 0 0 1px #89C4E9; }
+.rdr-legend small{ font-size:11px !important; }
+/* Carte européenne : rampe séquentielle bleue, clair = faible            */
+.eumap-section [fill="#E8E2D2"],.eumap-section [style*="fill: rgb(232, 226, 210)"]{ fill:#EAF5FC !important; }
+.eumap-swatch[style*="#E8E2D2"]{ background:#EAF5FC !important; }
+.eumap-section [fill="#C9D6CC"],.eumap-section [style*="fill: rgb(201, 214, 204)"]{ fill:#A5CDE7 !important; }
+.eumap-swatch[style*="#C9D6CC"]{ background:#A5CDE7 !important; }
+.eumap-section [fill="#7FA28F"],.eumap-section [style*="fill: rgb(127, 162, 143)"]{ fill:#5E9FCB !important; }
+.eumap-swatch[style*="#7FA28F"]{ background:#5E9FCB !important; }
+.eumap-section [fill="#3A6B5F"],.eumap-section [style*="fill: rgb(58, 107, 95)"]{ fill:#30709C !important; }
+.eumap-swatch[style*="#3A6B5F"]{ background:#30709C !important; }
+.eumap-section [fill="#1F3A3D"],.eumap-section [style*="fill: rgb(31, 58, 61)"]{ fill:#103454 !important; }
+.eumap-swatch[style*="#1F3A3D"]{ background:#103454 !important; }
+
+/* Mode sombre : les graphiques restent des planches claires (choix v0.3),  */
+/* mais aux jetons Ciel & Marine et non plus sur le papier crème.           */
+html[data-theme="dark"] #expgapChart,
+html[data-theme="dark"] [id$="RadarStage"],
+html[data-theme="dark"] .matrix-mini{
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --ink:#1A1D21; --ink-2:#5F6368; --ink-sec:#5F6368;
+  --muted:#647092; --rule:#E3EEF6; --teal:#30709C; --accent:#30709C; --signal:#1C77BA;
+  --highlight:#FFF3D6; --risk:#A85A00; --cm-navy:#103454; --cm-sky:#43A5E4; --cm-sky-light:#89C4E9; --cm-green:#1F9134;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  background:#F4FAFD !important; border:1px solid #1C3F60 !important; border-radius:var(--r-2);
+}
+html[data-theme="dark"] .rdr-fill-red,html[data-theme="dark"] .rdr-dot-red{ fill:var(--cm-navy); }
+html[data-theme="dark"] .rdr-stroke-red{ stroke:var(--cm-navy); }
+html[data-theme="dark"] body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+
+/* --- 18 · Tablette et téléphone ---------------------------------------- */
+@media (max-width:960px){
+  .field-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:20px !important; }
+  .cross-link{ grid-template-columns:minmax(0,1fr) !important; gap:20px !important; }
+  .debate-grid,.warning-grid,.frame-grid{ gap:20px !important; }
+  table{ font-size:14px; }
+}
+@media (max-width:720px){
+  .field-grid{ grid-template-columns:minmax(0,1fr) !important; }
+  .cross-link[style*="text-align: center"]{ text-align:left !important; }
+  .cross-link[style*="text-align: center"] > *{ margin-left:0 !important; margin-right:0 !important; }
+  .cross-link[style*="text-align: center"] .cta-row{ justify-content:flex-start !important; }
+  .section-title,.ds-title{ font-size:clamp(26px,7vw,32px) !important; line-height:1.15 !important; }
+  .section-sub{ font-size:15px !important; }
+  .hero-pitch,.dash-lede{ font-size:17px !important; line-height:1.55 !important; }
+  .btn,.ds-cta,.dl-btn{ min-height:44px; }
+  .hero .btn,.dispatch-tease-actions .btn,.closing-cta .btn,.closing-cta .ds-cta{ width:100%; justify-content:center; }
+  /* Tableaux larges : défilement dans leur boîte, jamais la page */
+  .method-content table,.ds-table,.cmp-table,table{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .rdr-tt{ max-width:calc(100vw - 32px); }
+}
+@media (max-width:480px){
+  .stats-grid,.kpi-row{ grid-template-columns:minmax(0,1fr) !important; }
+  .dl-grid{ grid-template-columns:minmax(0,1fr) !important; }
+}
+
+/* --- 19 · Page Données : liste générée des jeux analytiques ----------- */
+.dl-grid--datasets{ margin-bottom:24px; }
+.dl-grid--datasets .dl-card{ display:flex; flex-direction:column; }
+.dl-grid--datasets .dl-desc{ flex:1; }
+a.dl-btn{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; }
+.dl-btn{ border-radius:999px !important; text-transform:none !important; letter-spacing:0 !important; font-weight:600;
+  font-size:14px; border:1.5px solid var(--signal) !important; color:var(--signal) !important; background:transparent !important; }
+.dl-btn:hover{ background:var(--paper-2) !important; }
+.dl-btn.primary{ background:var(--signal) !important; color:var(--on-signal) !important; }
+.dl-btn.primary:hover{ background:var(--signal-hover) !important; border-color:var(--signal-hover) !important; }
 /* CM:END */</style>
 </head>
 <body>
@@ -6693,10 +6845,10 @@ function renderFooter() {
       <div class="foot-col foot-col-meta">
         <div class="foot-update mono">
           <span data-i18n="foot.lastupdate">${t("foot.lastupdate")}</span>
-          <strong>24 mai 2026</strong>
+          <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.73 · build 2026.06.06</div>
+        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">

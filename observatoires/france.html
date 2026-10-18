@@ -6179,7 +6179,7 @@ h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@naullyn">
-<meta name="theme-color" content="#D03C2F">
+<meta name="theme-color" content="#103454">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q52TZ7QT84"></script>
 <script>
@@ -6191,7 +6191,7 @@ h1 em,h2 em,h3 em,.hero-title em,.section-title em{ color:var(--accent); }
 <style id="cielMarine">/* CM:BEGIN */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 /* ==================================================================== */
-/* CIEL & MARINE · couche de charte · v1.0 · 17 octobre 2026            */
+/* CIEL & MARINE · couche de charte · v1.1 · 18 octobre 2026            */
 /* Source canonique : assets/ciel-marine.css                            */
 /* Injectée en fin de <head> par tools/inject_cm.py, entre marqueurs.   */
 /* Bloc purement additif : le retirer restitue Encre & ardoise à        */
@@ -6371,6 +6371,158 @@ footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
   .hero,.dash-header{ margin-bottom:40px !important; padding-bottom:48px !important; }
   .stats-grid,.kpi-row{ gap:12px !important; }
 }
+
+/* ==================================================================== */
+/* v1.1 · 18 octobre 2026 · lecture, alignement, responsive, graphiques */
+/* ==================================================================== */
+
+/* --- 13 · Mesure de lecture ------------------------------------------- */
+/* --measure était appelé par les blocs ds-* sans être défini : les lignes  */
+/* couraient sur toute la largeur. 68 caractères, plafond et non largeur.   */
+:root{ --measure:68ch; --cm-gutter:32px; }
+@media (max-width:960px){ :root{ --cm-gutter:20px; } }
+p,li,dd,blockquote,
+.manifesto-text,.stat-label,.kpi-label,.dl-desc,.field-card-excerpt{ max-width:var(--measure); }
+/* Règles de page plus spécifiques (760 px, 100 %) : le plafond l'emporte  */
+.method-content p,.method-content li,.context-content p,.reinvent-intro p,
+.rdr-sub,.rdr-deck,.caveat,.method-caveat,.frame-lede,.debate-lede,.warning-lede,
+.expgap-readline,.diff-summary-text,.cmp-dim-lede,.eu-lede,.eu-note,.eu-caveat,
+.pt-question-body,.pt-questions-lede,.brief-source-cited,.debate-takeaway p,
+.warning-footer,.frame-footer-text{ max-width:var(--measure) !important; }
+/* Les intertitres restent sur une ligne et demie au plus */
+.section-title,.ds-title,.frame-title,.debate-title,.warning-title{ max-width:32ch; text-wrap:balance; }
+.dash-title,.hero-title{ max-width:22ch; text-wrap:balance; }
+.section-sub,.ds-lede,.dash-lede,.hero-pitch,.frame-lede,.debate-lede,.warning-lede{ max-width:62ch; text-wrap:pretty; }
+p,li{ text-wrap:pretty; }
+/* Blocs centrés : le plafond reste centré */
+[style*="text-align: center"] > p,[style*="text-align:center"] > p{ margin-left:auto; margin-right:auto; }
+/* Interlignage courant homogène */
+main p,section p,article p,.method-content p,.method-content li{ line-height:1.62; }
+
+/* --- 14 · Une seule marge gauche par largeur d'écran ------------------- */
+/* Blocs ds-* et appel final : le texte s'alignait 32 px plus à gauche que  */
+/* le reste de la page. Sous-titres imbriqués : 32 px plus à droite.        */
+section[style*="padding: var(--s-8) 24px"]{ padding-left:0 !important; padding-right:0 !important; }
+section[style*="padding: var(--s-8) 24px"] > div[style*="max-width: var(--max-w)"],
+.closing-cta-inner{ padding-left:var(--cm-gutter); padding-right:var(--cm-gutter); box-sizing:border-box; }
+.closing-cta{ padding-left:0 !important; padding-right:0 !important; }
+.expgap-section > .section-head,.reinvent-section > .section-head,
+.rdr-section > .section-head,.rdr-section .rdr-inner{ padding-left:0 !important; padding-right:0 !important; }
+/* Grilles « étiquette | texte » : l'étiquette passe au-dessus, une colonne */
+.manifesto{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.manifesto-tag{ position:static !important; }
+.manifesto-text{ font-size:clamp(19px,1.9vw,24px) !important; line-height:1.5 !important; max-width:38em; }
+.manifesto .manifesto-text + .manifesto-text{ margin-top:20px; }
+.context-grid{ grid-template-columns:minmax(0,1fr) !important; gap:16px !important; }
+.context-grid > :first-child{ position:static !important; }
+.context-content{ max-width:none; }
+.context-content h3{ max-width:28ch; }
+
+/* --- 15 · Cartes de veille --------------------------------------------- */
+/* Les cartes étaient forcées en display:block par le script : le titre     */
+/* tronqué débordait sur le résumé et la date se coupait en deux.           */
+.field-card{ display:flex !important; flex-direction:column; gap:10px; min-height:0 !important; }
+.field-card-meta{ flex-wrap:wrap; gap:4px 14px; font-size:11.5px; line-height:1.45; }
+.field-card-meta > span:first-child{ white-space:nowrap; }
+.field-card-title{ display:-webkit-box !important; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; line-height:1.25 !important; max-height:3.75em !important; min-height:0 !important; height:auto !important; padding:0 !important; flex:none; }
+.field-card-excerpt{ font-size:15px; }
+.field-card-link{ font-size:12.5px; }
+
+/* --- 16 · Tailles minimales de lecture --------------------------------- */
+.section-sub{ font-size:16px !important; line-height:1.55; text-transform:none; letter-spacing:0; }
+.stat-label,.kpi-label,.kf-label,.eu-kpi-lab,.card-org,.mml-text,.aitype-summary-jobs{ font-size:14px !important; line-height:1.5; }
+.caveat,.method-caveat,.form-note,.rdr-insight-text,.rdr-scalenote,.rdr-deck,.rdr-sub{ font-size:14px !important; line-height:1.55; }
+.method-source,.eu-src,.rdr-source,.eumap-meta,.eu-c-geo{ font-size:12.5px !important; line-height:1.55; }
+
+/* --- 17 · Graphiques : palette Ciel & Marine --------------------------- */
+/* Les scripts écrivent des couleurs Encre & ardoise en attribut SVG ;      */
+/* une règle CSS l'emporte sur un attribut de présentation.                 */
+svg [fill="#11110F"]{ fill:var(--ink); }
+svg [stroke="#11110F"]{ stroke:var(--ink); }
+/* Effet emploi (France, Suisse) : exposition = orange, recrutements :      */
+/* hausse = acier, baisse = brun d'exposition forte                         */
+#expgapChart [fill="#B5C0BA"],#expgapChart [fill="#B7C5C7"],.expgap-box-theoretical{ fill:var(--exp-3); background:var(--exp-3) !important; }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-band); }
+body:not(:has(.cmp-dim-head)) #expgapChart [fill="#D03C2F"],.expgap-box-observed{ fill:var(--risk); background:var(--risk) !important; }
+/* Comparer : Suisse = ciel, France = marine, hausse = vert                 */
+body:has(.cmp-dim-head) #expgapChart [fill="#D03C2F"]{ fill:var(--cm-sky); }
+body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+body:has(.cmp-dim-head) #expgapChart [fill="#3A6B5F"]{ fill:var(--cm-green); }
+/* Radars : les deux séries devenaient deux bleus voisins.                 */
+/* Exposition technique = orange (exposition), adoption = marine.           */
+.rdr-fill-blue{ fill:var(--exp-4); }
+.rdr-stroke-blue{ stroke:var(--exp-4); }
+.rdr-dot-blue{ fill:var(--exp-4); }
+.rdr-fill-red{ fill:var(--cm-navy); }
+.rdr-stroke-red{ stroke:var(--cm-navy); }
+.rdr-dot-red{ fill:var(--cm-navy); }
+.rdr-legend [data-layer="blue"] i{ background:var(--exp-4) !important; }
+.rdr-legend [data-layer="red"] i{ background:var(--cm-navy) !important; }
+html[data-theme="dark"] .rdr-legend [data-layer="red"] i{ background:#103454 !important; box-shadow:0 0 0 1px #89C4E9; }
+.rdr-legend small{ font-size:11px !important; }
+/* Carte européenne : rampe séquentielle bleue, clair = faible            */
+.eumap-section [fill="#E8E2D2"],.eumap-section [style*="fill: rgb(232, 226, 210)"]{ fill:#EAF5FC !important; }
+.eumap-swatch[style*="#E8E2D2"]{ background:#EAF5FC !important; }
+.eumap-section [fill="#C9D6CC"],.eumap-section [style*="fill: rgb(201, 214, 204)"]{ fill:#A5CDE7 !important; }
+.eumap-swatch[style*="#C9D6CC"]{ background:#A5CDE7 !important; }
+.eumap-section [fill="#7FA28F"],.eumap-section [style*="fill: rgb(127, 162, 143)"]{ fill:#5E9FCB !important; }
+.eumap-swatch[style*="#7FA28F"]{ background:#5E9FCB !important; }
+.eumap-section [fill="#3A6B5F"],.eumap-section [style*="fill: rgb(58, 107, 95)"]{ fill:#30709C !important; }
+.eumap-swatch[style*="#3A6B5F"]{ background:#30709C !important; }
+.eumap-section [fill="#1F3A3D"],.eumap-section [style*="fill: rgb(31, 58, 61)"]{ fill:#103454 !important; }
+.eumap-swatch[style*="#1F3A3D"]{ background:#103454 !important; }
+
+/* Mode sombre : les graphiques restent des planches claires (choix v0.3),  */
+/* mais aux jetons Ciel & Marine et non plus sur le papier crème.           */
+html[data-theme="dark"] #expgapChart,
+html[data-theme="dark"] [id$="RadarStage"],
+html[data-theme="dark"] .matrix-mini{
+  --paper:#FFFFFF; --paper-2:#F4FAFD; --ink:#1A1D21; --ink-2:#5F6368; --ink-sec:#5F6368;
+  --muted:#647092; --rule:#E3EEF6; --teal:#30709C; --accent:#30709C; --signal:#1C77BA;
+  --highlight:#FFF3D6; --risk:#A85A00; --cm-navy:#103454; --cm-sky:#43A5E4; --cm-sky-light:#89C4E9; --cm-green:#1F9134;
+  --exp-1:#FFF1DD; --exp-2:#FFD49A; --exp-3:#FFAE4D; --exp-4:#E67E00; --exp-5:#8F4A00;
+  background:#F4FAFD !important; border:1px solid #1C3F60 !important; border-radius:var(--r-2);
+}
+html[data-theme="dark"] .rdr-fill-red,html[data-theme="dark"] .rdr-dot-red{ fill:var(--cm-navy); }
+html[data-theme="dark"] .rdr-stroke-red{ stroke:var(--cm-navy); }
+html[data-theme="dark"] body:has(.cmp-dim-head) #expgapChart [fill="#1F3A3D"]{ fill:var(--cm-navy); }
+
+/* --- 18 · Tablette et téléphone ---------------------------------------- */
+@media (max-width:960px){
+  .field-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:20px !important; }
+  .cross-link{ grid-template-columns:minmax(0,1fr) !important; gap:20px !important; }
+  .debate-grid,.warning-grid,.frame-grid{ gap:20px !important; }
+  table{ font-size:14px; }
+}
+@media (max-width:720px){
+  .field-grid{ grid-template-columns:minmax(0,1fr) !important; }
+  .cross-link[style*="text-align: center"]{ text-align:left !important; }
+  .cross-link[style*="text-align: center"] > *{ margin-left:0 !important; margin-right:0 !important; }
+  .cross-link[style*="text-align: center"] .cta-row{ justify-content:flex-start !important; }
+  .section-title,.ds-title{ font-size:clamp(26px,7vw,32px) !important; line-height:1.15 !important; }
+  .section-sub{ font-size:15px !important; }
+  .hero-pitch,.dash-lede{ font-size:17px !important; line-height:1.55 !important; }
+  .btn,.ds-cta,.dl-btn{ min-height:44px; }
+  .hero .btn,.dispatch-tease-actions .btn,.closing-cta .btn,.closing-cta .ds-cta{ width:100%; justify-content:center; }
+  /* Tableaux larges : défilement dans leur boîte, jamais la page */
+  .method-content table,.ds-table,.cmp-table,table{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .rdr-tt{ max-width:calc(100vw - 32px); }
+}
+@media (max-width:480px){
+  .stats-grid,.kpi-row{ grid-template-columns:minmax(0,1fr) !important; }
+  .dl-grid{ grid-template-columns:minmax(0,1fr) !important; }
+}
+
+/* --- 19 · Page Données : liste générée des jeux analytiques ----------- */
+.dl-grid--datasets{ margin-bottom:24px; }
+.dl-grid--datasets .dl-card{ display:flex; flex-direction:column; }
+.dl-grid--datasets .dl-desc{ flex:1; }
+a.dl-btn{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; }
+.dl-btn{ border-radius:999px !important; text-transform:none !important; letter-spacing:0 !important; font-weight:600;
+  font-size:14px; border:1.5px solid var(--signal) !important; color:var(--signal) !important; background:transparent !important; }
+.dl-btn:hover{ background:var(--paper-2) !important; }
+.dl-btn.primary{ background:var(--signal) !important; color:var(--on-signal) !important; }
+.dl-btn.primary:hover{ background:var(--signal-hover) !important; border-color:var(--signal-hover) !important; }
 /* CM:END */</style>
 </head>
 <body>
@@ -6393,6 +6545,106 @@ footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
     </a>
   </div>
 </section>
+<!-- FICHE-PAYS:BEGIN · généré par tools/build_fiche_pays.py depuis assets/data/fiche-pays.json, ne pas éditer à la main -->
+<section class="fp" id="fichePays" aria-labelledby="fpTitle" data-country="FR">
+<style>
+.fp{max-width:var(--max-w,1280px);margin:0 auto;padding:8px var(--cm-gutter,32px) 56px;box-sizing:border-box;color:var(--ink);}
+.fp *{box-sizing:border-box;}
+.fp-head{display:flex;flex-direction:column;gap:10px;max-width:62ch;margin-bottom:28px;}
+.fp-eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+.fp-title{margin:0;font-size:clamp(26px,3vw,34px);line-height:1.15;font-weight:600;letter-spacing:-.015em;}
+.fp-lede{margin:0;font-size:17px;line-height:1.6;color:var(--ink-2);}
+.fp-grid{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;}
+.fp-card{flex:999 1 560px;min-width:0;background:var(--surface);border-radius:12px;box-shadow:var(--shadow-1);padding:24px;display:flex;flex-direction:column;gap:16px;}
+.fp-layers{display:flex;flex-wrap:wrap;gap:8px;}
+.fp-layer{min-height:44px;padding:0 18px;border-radius:999px;border:0;font:600 14px var(--font-sans,inherit);cursor:pointer;background:var(--paper-2);color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule);}
+.fp-layer[aria-pressed="true"]{background:var(--signal);color:var(--on-signal);box-shadow:none;}
+.fp-layer:focus-visible{outline:2px solid var(--signal);outline-offset:3px;}
+.fp-mapwrap{display:flex;gap:20px;align-items:flex-start;}
+.fp-svg{flex:1 1 auto;min-width:0;width:100%;height:auto;display:block;}
+.fp-svg .fp-u{stroke:var(--surface);stroke-width:1.3;stroke-linejoin:round;transition:fill .25s;}
+.fp-svg .fp-lake{fill:#EAF5FC;stroke:#A5CDE7;stroke-width:.8;}
+.fp-svg text{font:700 12px var(--font-sans,sans-serif);text-anchor:middle;pointer-events:none;}
+.fp-drom{flex:0 0 170px;display:flex;flex-direction:column;gap:8px;}
+.fp-drom-h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.fp-drom-t{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:8px;background:#103454;color:#FFFFFF;font-size:14px;font-weight:600;}
+.fp-drom-t span{font-size:12.5px;font-weight:500;color:#D9E4F2;}
+.fp-drom-t.is-nd{background:repeating-linear-gradient(45deg,#EEF2F6 0 5px,#DCE3EB 5px 8px);color:#1A1D21;}
+.fp-drom-t.is-nd span{color:#647092;}
+.fp-drom-n{font-size:12.5px;line-height:1.5;color:var(--muted);}
+.fp-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0;padding:0;list-style:none;font-size:14px;color:var(--ink-2);}
+.fp-legend li{display:inline-flex;align-items:center;gap:8px;}
+.fp-sw{width:16px;height:16px;border-radius:4px;flex:none;}
+.fp-sw.is-nd{background:repeating-linear-gradient(45deg,#EEF2F6 0 4px,#B9C4D2 4px 6px);}
+.fp-src,.fp-attr{margin:0;font-size:13.5px;line-height:1.55;color:var(--muted);max-width:none !important;}
+.fp-src a{color:var(--signal);}
+.fp-table summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--signal);min-height:44px;display:flex;align-items:center;}
+.fp-table table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;display:table !important;}
+.fp-table th,.fp-table td{text-align:left;padding:8px 10px;border-top:1px solid var(--rule);}
+.fp-table th{font-weight:600;background:var(--paper-2);}
+.fp-facts{flex:1 1 300px;max-width:400px;display:flex;flex-direction:column;gap:14px;}
+.fp-fact{padding:20px 22px;border-radius:12px;background:var(--paper-2);}
+.fp-v{font-size:38px;line-height:1;font-weight:600;color:var(--cm-navy,#103454);}
+.fp-fact.is-accent .fp-v{color:var(--cm-orange,#D97706);}
+.fp-l{margin-top:6px;font-size:15px;font-weight:600;}
+.fp-s{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);}
+.fp-s a{color:inherit;}
+.fp-t{font-size:11.5px;font-weight:700;padding:2px 6px;border-radius:4px;box-shadow:inset 0 0 0 1px currentColor;color:var(--t1,#103454);}
+.fp-langs{margin-top:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;font-size:14px;}
+.fp-langs b{font-size:20px;color:var(--cm-navy,#103454);margin-right:4px;}
+.fp-note{padding:16px 18px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--rule);font-size:14px;line-height:1.55;color:var(--ink-2);}
+.fp-note b{color:var(--ink);}
+html[data-theme="dark"] .fp-v,html[data-theme="dark"] .fp-langs b{color:#D9E4F2;}
+html[data-theme="dark"] .fp-fact.is-accent .fp-v{color:var(--cm-orange);}
+@media (max-width:720px){
+  .fp{padding-bottom:40px;}
+  .fp-mapwrap{flex-direction:column;}
+  .fp-drom{flex-direction:row;flex-wrap:wrap;flex-basis:auto;}
+  .fp-drom-t{flex:1 1 120px;}
+  .fp-svg .fp-labels{display:none;}
+  .fp-facts{max-width:none;}
+  .fp-v{font-size:32px;}
+}
+</style>
+<div class="fp-head"><span class="fp-eyebrow" data-fp="eyebrow">Le pays en un coup d'œil</span><h2 class="fp-title" id="fpTitle" data-fp="title">La France : 18 régions, 101 départements.</h2><p class="fp-lede" data-fp="lede">Le découpage administratif d&#x27;abord, l&#x27;exposition ensuite. Une région sans série datée reste en n.d. : rien n&#x27;est estimé pour remplir la carte.</p></div>
+<div class="fp-grid">
+<div class="fp-card"><div class="fp-layers" role="group" aria-label="Couche de la carte"><button type="button" class="fp-layer" data-layer="regions" aria-pressed="true">Régions</button><button type="button" class="fp-layer" data-layer="exposition" aria-pressed="false">Exposition à l&#x27;IA par région</button></div><div class="fp-mapwrap"><svg class="fp-svg" viewBox="0 0 560 560" width="560" height="560" role="img" aria-label="Carte des 13 régions de France métropolitaine"><defs><pattern id="fpNd" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#EEF2F6"></rect><line x1="0" y1="0" x2="0" y2="8" stroke="#B9C4D2" stroke-width="3"></line></pattern></defs><g><path class="fp-u" data-u="11" d="M293.3,127.5 294.9,125.9 299.4,128.5 300.8,126.9 307.5,127.7 311.1,125.4 313.4,126.0 315.1,128.5 314.6,130.8 318.3,135.0 319.7,134.5 320.6,136.6 321.9,135.8 322.4,138.4 326.3,139.6 323.0,144.6 325.7,145.7 324.7,149.7 328.9,152.0 325.6,154.7 325.3,156.8 323.4,157.0 324.4,158.6 322.7,159.5 323.7,164.3 310.3,165.9 308.6,174.1 301.8,178.3 301.0,176.2 297.6,178.5 288.5,177.9 290.9,174.8 288.9,171.6 287.2,171.3 286.4,168.1 283.7,167.4 282.5,168.7 279.0,166.8 277.3,168.9 270.7,169.9 270.7,163.8 268.9,163.1 268.7,160.7 266.9,161.7 264.4,159.9 263.8,155.6 257.0,149.8 257.3,148.3 256.1,147.7 257.8,145.2 256.0,142.9 256.2,139.5 251.3,129.3 257.2,127.5 260.7,119.3 262.6,122.4 267.4,123.0 274.4,120.6 280.9,123.5 283.1,121.7 293.3,127.5Z" fill="#103454"><title>Île-de-France · 13 régions métropolitaines, teintes alternées pour distinguer les voisines</title></path><path class="fp-u" data-u="24" d="M303.2,209.1 305.9,215.1 303.9,221.5 307.8,224.8 309.3,235.4 311.2,237.7 310.6,248.0 309.6,249.7 307.0,249.2 299.5,253.8 297.9,252.4 294.6,257.1 292.7,256.9 294.1,262.8 284.6,264.8 282.0,269.7 274.9,270.3 270.8,268.7 265.0,269.2 264.2,267.9 262.3,268.1 261.6,271.4 259.9,269.8 258.5,271.5 254.9,271.2 254.0,269.4 250.1,273.6 247.9,270.8 242.8,272.6 241.3,271.7 242.5,269.2 240.4,268.2 240.3,265.3 231.7,260.3 230.9,258.7 232.1,255.0 223.9,243.9 223.5,240.1 218.8,238.6 220.1,240.9 209.9,242.4 208.9,235.8 205.6,235.9 204.4,234.9 205.3,233.8 204.6,232.6 200.8,232.1 199.9,230.0 200.8,223.5 204.7,218.4 204.1,217.0 206.1,211.9 205.4,209.6 206.4,206.2 211.9,208.3 212.8,207.8 211.4,205.2 214.5,205.6 220.6,202.2 219.3,200.6 226.5,193.8 225.8,191.0 229.1,188.4 228.1,185.8 228.9,184.1 227.3,183.2 227.5,181.4 229.0,181.3 229.3,178.1 231.5,177.3 227.3,174.8 228.5,173.8 226.3,168.0 232.9,163.7 232.4,159.8 233.5,157.2 229.2,154.0 228.0,149.4 230.2,146.9 239.1,144.8 239.2,143.0 246.5,144.5 248.7,142.9 248.1,140.6 251.5,138.7 251.8,135.1 254.6,135.9 254.9,138.5 256.2,139.5 256.0,142.9 257.8,145.2 256.1,147.7 257.3,148.3 257.0,149.8 263.8,155.6 264.4,159.9 266.9,161.7 268.7,160.7 268.9,163.1 270.7,163.8 270.7,169.9 277.3,168.9 279.0,166.8 282.5,168.7 283.7,167.4 286.4,168.1 287.2,171.3 290.3,173.1 290.2,176.8 288.5,177.9 289.7,178.4 297.6,178.5 301.0,176.2 301.8,178.3 306.1,176.5 309.5,178.1 313.2,186.8 308.7,190.8 309.3,196.6 303.1,198.0 302.9,199.9 306.7,204.2 306.2,206.4 307.6,208.3 303.2,209.1Z" fill="#89C4E9"><title>Centre-Val de Loire</title></path><path class="fp-u" data-u="27" d="M331.6,252.1 329.6,252.1 330.5,253.5 328.7,253.9 328.6,255.9 325.2,257.3 324.4,254.1 321.2,255.6 318.4,253.9 315.7,255.8 310.2,251.7 309.6,249.7 311.0,246.6 310.3,243.5 311.2,237.7 309.3,235.4 307.8,224.8 303.9,221.5 305.9,215.1 302.9,210.0 307.6,208.3 306.2,206.4 306.7,204.2 302.9,199.9 303.1,198.0 309.3,196.6 308.7,190.8 313.2,186.8 309.5,178.1 306.1,176.5 310.0,170.7 309.0,168.7 310.3,165.9 321.9,165.3 322.5,163.8 324.2,166.0 326.8,165.5 331.4,171.6 329.6,175.1 332.1,175.4 333.0,177.8 335.7,176.1 335.7,178.1 338.1,179.7 338.8,182.9 340.5,184.4 339.7,186.1 341.6,185.3 341.6,188.5 349.4,189.1 351.4,187.4 352.9,188.1 352.9,186.7 356.1,189.2 356.6,187.3 365.9,186.7 365.0,185.2 366.7,183.6 374.3,184.8 374.2,186.9 377.1,188.4 375.8,189.8 376.8,190.8 378.5,189.4 381.9,194.9 379.1,197.1 381.0,199.6 380.6,201.4 383.2,200.8 383.7,202.5 386.8,204.1 388.6,202.3 388.5,203.8 391.4,207.8 393.1,206.4 395.2,207.1 397.0,202.7 401.6,202.7 403.0,201.0 404.1,202.8 407.5,202.1 407.9,194.6 409.6,194.7 410.1,192.7 411.7,193.4 416.6,186.3 417.2,188.6 420.4,185.0 423.7,183.9 425.1,187.8 427.7,188.8 432.4,187.3 434.8,188.2 436.4,191.0 441.3,188.3 450.1,194.7 450.7,196.6 456.2,199.0 457.4,202.8 455.9,205.6 458.9,207.0 460.7,210.0 459.8,212.2 455.2,212.4 455.7,214.5 453.5,215.5 451.3,219.5 456.2,218.8 458.0,220.3 457.4,221.2 453.6,223.3 454.1,225.7 446.2,232.9 444.4,235.1 444.7,236.6 434.8,242.5 436.0,244.6 434.9,249.3 435.8,250.0 423.0,261.4 424.7,263.0 421.6,267.4 422.1,268.6 413.4,278.2 408.8,278.3 408.4,275.7 406.0,274.1 402.0,277.8 399.5,278.0 399.3,274.9 395.8,273.4 395.9,271.9 393.1,270.1 393.5,268.3 390.0,267.2 389.5,265.0 384.2,266.3 379.7,264.7 374.0,282.8 372.2,282.7 372.4,279.7 370.3,278.4 371.3,277.0 369.4,276.0 368.0,278.0 365.8,276.5 363.8,277.9 360.2,276.4 359.5,280.5 355.6,283.8 352.9,281.8 344.6,282.8 344.2,281.4 341.2,280.7 342.1,276.3 344.8,275.1 345.2,267.3 335.7,263.4 335.4,259.9 331.6,252.1Z" fill="#5E9FCB"><title>Bourgogne-Franche-Comté</title></path><path class="fp-u" data-u="28" d="M156.7,112.7 158.2,110.9 163.4,110.6 167.6,112.6 182.7,113.8 189.6,116.6 194.4,115.8 202.7,110.2 210.4,108.1 202.4,106.9 200.5,104.6 205.0,93.9 219.0,86.3 238.7,81.6 248.8,74.7 251.7,74.9 251.4,76.1 259.8,82.6 263.6,91.1 260.2,94.5 262.5,95.3 260.9,97.1 262.3,102.9 261.3,104.5 263.9,104.8 261.1,109.8 262.7,112.0 263.9,118.5 260.9,117.6 257.2,127.5 251.7,128.4 253.2,134.9 251.3,135.8 251.5,138.7 248.1,140.6 248.7,142.9 244.7,144.7 239.2,143.0 239.1,144.8 230.2,146.9 228.0,149.4 229.2,154.0 233.5,157.2 232.4,159.8 233.2,161.5 231.4,165.4 226.3,168.0 228.5,173.8 226.1,175.5 222.0,171.1 217.7,171.8 215.9,168.7 212.9,168.4 212.0,162.5 209.0,159.5 204.3,160.3 200.3,164.7 195.9,164.8 196.0,161.0 192.7,160.9 191.8,157.6 192.6,157.0 190.3,155.1 188.3,155.9 189.1,156.5 187.9,158.1 179.3,158.2 174.0,161.5 173.4,159.2 170.1,161.9 166.3,158.4 162.7,157.6 161.0,159.0 153.5,156.2 151.1,156.7 147.0,160.8 143.1,159.0 140.1,151.7 143.5,152.1 146.6,150.4 140.5,145.9 140.0,141.3 138.8,140.4 141.1,135.4 138.7,127.5 139.4,119.2 137.9,120.3 134.9,114.3 131.4,111.8 128.5,102.8 130.1,101.1 130.0,98.6 129.4,96.9 126.3,95.6 126.4,92.9 138.1,97.1 145.6,94.1 151.3,94.5 152.7,99.2 150.2,100.5 149.8,102.9 154.9,109.9 154.5,111.5 156.7,112.7Z" fill="#5E9FCB"><title>Normandie</title></path><path class="fp-u" data-u="32" d="M346.8,104.5 346.6,112.5 340.3,110.0 339.3,110.5 339.7,112.2 332.1,115.0 332.8,120.5 336.0,123.3 331.3,123.6 332.0,127.4 330.1,129.9 333.4,130.8 325.4,140.3 322.4,138.4 321.9,135.8 320.6,136.6 314.6,130.8 315.1,128.5 313.4,126.0 311.1,125.4 307.5,127.7 300.8,126.9 299.4,128.5 294.9,125.9 293.3,127.5 289.6,126.0 283.1,121.7 280.9,123.5 274.4,120.6 267.4,123.0 262.1,122.1 260.9,117.6 263.9,118.5 264.3,117.2 261.1,109.8 263.9,104.8 261.3,104.5 262.3,102.9 260.9,97.1 262.5,95.3 260.2,94.5 263.6,91.1 259.8,82.6 251.4,76.1 251.7,74.9 248.8,74.7 251.5,72.3 253.6,67.4 260.0,68.4 254.6,63.1 255.1,59.5 258.4,59.4 255.2,56.9 256.3,49.5 257.6,49.6 256.0,47.6 255.4,40.8 257.0,37.4 256.3,31.6 263.5,27.1 291.7,20.0 292.7,24.5 294.9,27.6 293.3,29.0 295.0,34.7 298.0,34.7 301.6,39.9 304.7,41.1 309.2,36.9 314.0,36.4 317.9,40.7 317.3,43.0 319.0,50.0 322.3,51.9 325.9,49.7 327.6,50.2 326.7,51.5 330.8,51.6 332.9,54.0 332.7,58.4 334.6,62.0 336.0,59.4 341.9,60.6 346.3,59.1 349.8,63.6 352.9,63.6 353.4,64.5 349.9,71.0 352.5,71.0 353.6,74.0 350.3,77.1 350.4,79.4 353.8,80.5 353.3,82.8 354.7,83.4 352.9,89.9 354.3,91.3 348.8,98.1 346.4,98.9 348.1,101.2 348.1,103.6 346.8,104.5Z" fill="#30709C"><title>Hauts-de-France</title></path><path class="fp-u" data-u="44" d="M353.8,80.5 364.1,81.1 370.1,78.4 370.4,74.5 373.3,70.9 377.6,70.1 378.2,71.0 374.4,79.8 378.0,83.0 376.6,85.7 376.8,89.3 382.0,89.0 385.4,90.8 388.2,94.6 391.9,94.5 394.3,96.7 393.6,98.9 398.0,100.0 399.4,105.1 410.6,101.6 414.1,105.0 417.9,105.4 418.3,107.6 428.4,104.4 439.3,109.3 438.8,110.3 440.5,111.1 439.8,113.3 445.4,119.9 446.1,123.0 449.6,123.6 450.6,122.2 449.7,120.4 453.4,119.8 457.0,121.6 457.7,125.7 459.5,124.2 466.1,125.5 472.1,121.9 473.9,122.6 475.2,126.5 479.1,128.8 485.0,128.2 487.7,129.9 490.2,128.6 501.1,133.5 497.7,137.4 496.1,141.9 491.4,144.8 485.3,153.5 485.5,157.3 482.8,163.6 483.2,167.3 477.0,178.8 476.8,183.6 478.6,186.7 476.2,191.6 475.9,199.1 474.7,201.1 477.5,206.9 474.4,209.6 475.1,210.9 473.7,212.9 471.7,212.1 472.3,213.3 471.2,214.9 464.8,216.1 462.0,214.9 462.6,212.4 460.5,211.8 458.9,207.0 455.9,205.6 457.4,202.8 457.1,200.1 450.7,196.6 450.1,194.7 441.3,188.3 436.4,191.0 434.8,188.2 432.4,187.3 427.7,188.8 425.1,187.8 423.7,183.9 420.4,185.0 417.2,188.6 416.6,186.3 411.7,193.4 410.1,192.7 409.6,194.7 407.9,194.6 407.5,202.1 404.1,202.8 403.0,201.0 401.6,202.7 397.0,202.7 395.2,207.1 393.1,206.4 391.4,207.8 388.5,203.8 388.6,202.3 386.8,204.1 383.7,202.5 383.2,200.8 380.6,201.4 381.0,199.6 379.1,197.1 381.9,194.9 378.5,189.4 376.8,190.8 375.8,189.8 377.1,188.4 374.2,186.9 374.3,184.8 366.7,183.6 365.0,185.2 365.9,186.7 356.6,187.3 356.1,189.2 352.9,186.7 352.9,188.1 351.4,187.4 349.4,189.1 341.6,188.5 341.6,185.3 339.7,186.1 340.5,184.4 338.8,182.9 338.1,179.7 335.7,178.1 335.7,176.1 333.0,177.8 332.1,175.4 329.6,175.1 331.3,173.1 330.5,172.5 331.1,170.7 326.8,165.5 324.2,166.0 324.0,163.1 322.9,162.5 322.7,159.5 324.4,158.6 323.4,157.0 325.3,156.8 325.6,154.7 328.9,152.0 324.7,149.7 325.7,145.7 323.0,144.6 324.7,143.2 324.3,141.8 326.3,141.1 327.9,136.4 333.4,130.8 330.1,129.9 332.0,127.4 331.3,123.6 336.0,123.3 332.8,120.5 332.1,115.0 339.7,112.2 339.3,110.5 340.3,110.0 346.6,112.5 346.8,104.5 348.1,103.6 348.1,101.2 346.4,98.9 348.8,98.1 354.3,91.3 352.9,89.9 354.7,83.4 353.3,82.8 353.8,80.5Z" fill="#89C4E9"><title>Grand Est</title></path><path class="fp-u" data-u="52" d="M107.7,216.0 108.7,213.2 112.8,213.9 114.7,211.2 118.6,212.2 118.5,210.8 120.7,210.1 121.5,203.9 129.3,200.9 137.0,200.7 138.4,197.8 143.9,195.5 144.0,194.1 152.1,197.2 155.5,187.0 160.3,185.5 157.4,171.2 159.5,167.7 158.1,162.0 158.9,157.6 161.0,159.0 162.7,157.6 166.3,158.4 170.1,161.9 173.4,159.2 174.0,161.5 179.3,158.2 187.9,158.1 189.1,156.5 188.3,155.9 190.3,155.1 192.6,157.0 191.8,157.6 192.7,160.9 196.0,161.0 196.3,164.9 200.3,164.7 204.3,160.3 209.0,159.5 212.0,162.5 212.9,168.4 215.9,168.7 217.7,171.8 222.0,171.1 224.6,174.6 231.5,177.3 229.3,178.1 229.0,181.3 227.5,181.4 227.3,183.2 228.9,184.1 228.1,185.8 229.1,188.4 225.8,191.0 226.5,193.8 219.3,200.6 220.6,202.2 214.5,205.6 211.4,205.2 212.8,207.8 211.9,208.3 206.4,206.2 205.4,209.6 206.1,211.9 204.1,217.0 204.7,218.4 200.8,223.5 199.9,230.0 197.6,230.3 196.3,233.7 194.8,233.3 193.2,235.8 191.4,235.0 192.3,233.3 191.1,232.9 179.7,234.3 177.3,235.4 177.1,237.7 175.3,239.1 168.9,238.4 165.1,240.0 167.4,242.3 167.3,244.9 171.8,248.3 171.2,251.1 175.3,259.0 175.8,263.7 174.2,265.0 175.3,267.5 174.4,269.9 178.1,271.5 174.1,275.2 170.3,275.9 167.0,274.0 163.5,275.5 162.5,274.9 163.6,272.6 162.4,272.7 156.4,275.6 153.7,275.3 153.5,278.0 148.4,273.9 144.0,273.9 142.6,271.0 131.2,265.7 129.6,259.7 119.1,248.5 118.6,244.6 125.0,237.2 122.3,233.7 115.9,231.7 118.1,229.8 117.4,223.7 113.2,226.1 110.7,223.9 108.0,224.8 105.4,223.5 105.8,221.1 103.7,218.7 107.7,216.0ZM113.1,254.3 111.9,255.4 109.6,253.4 110.6,253.0 113.1,254.3ZM118.8,243.4 114.6,240.8 113.5,238.0 116.2,238.3 116.0,240.0 118.5,241.4 118.8,243.4Z" fill="#30709C"><title>Pays de la Loire</title></path><path class="fp-u" data-u="53" d="M63.2,149.9 66.1,149.4 65.9,146.8 67.2,145.2 66.2,143.0 68.2,140.8 71.6,142.6 79.4,138.9 80.0,140.6 84.0,138.8 84.4,141.0 87.0,141.2 87.2,142.4 85.8,143.1 90.1,144.9 89.5,146.7 93.8,150.4 94.1,153.5 97.8,155.5 98.6,158.2 106.1,152.6 107.1,150.5 112.7,149.2 113.5,149.9 111.9,152.1 114.6,150.8 117.8,154.4 119.7,152.9 119.1,151.4 121.6,151.0 126.2,156.4 123.3,150.4 128.3,147.8 130.3,148.8 129.0,150.6 130.0,152.2 140.1,151.7 143.1,159.0 145.3,160.5 148.4,159.9 151.1,156.7 158.5,158.0 158.1,162.0 159.5,167.7 157.4,171.2 160.3,185.5 155.5,187.0 152.1,197.2 144.0,194.1 143.9,195.5 138.4,197.8 137.0,200.7 129.3,200.9 121.5,203.9 120.7,210.1 118.5,210.8 118.6,212.2 114.7,211.2 112.8,213.9 108.7,213.2 106.6,215.0 105.8,212.5 108.0,212.2 105.2,210.6 100.3,209.9 99.2,212.2 95.0,212.7 90.7,209.7 97.3,209.2 98.0,207.0 96.5,204.7 91.4,207.6 82.9,208.2 82.6,210.2 84.0,212.9 82.7,213.4 82.3,207.7 79.7,204.4 82.8,200.0 81.0,199.4 79.6,204.2 74.6,199.7 70.8,201.5 68.3,198.2 68.2,193.3 67.6,197.9 60.4,195.6 56.1,196.1 51.4,190.3 51.5,193.0 44.6,193.3 44.2,191.9 43.4,192.7 44.8,194.2 43.9,195.9 37.3,196.1 36.7,194.7 37.7,192.9 35.0,187.2 30.7,184.5 24.9,183.7 24.3,181.9 36.9,179.3 39.3,180.4 40.6,178.1 39.5,174.8 33.6,172.5 30.2,176.2 30.6,172.3 28.3,171.3 30.3,167.1 30.9,170.0 42.4,169.4 37.1,166.8 34.4,167.7 35.8,164.3 35.0,163.9 28.2,167.1 25.7,166.2 22.2,167.6 22.6,165.3 21.4,163.1 22.7,160.0 22.0,158.3 23.7,155.5 37.8,149.0 42.4,150.5 43.8,148.5 48.5,148.3 51.3,146.4 52.5,150.3 54.2,149.7 56.3,151.7 56.0,148.5 57.2,147.7 63.2,148.0 63.2,149.9ZM10.0,161.9 10.0,159.9 12.3,160.3 11.5,161.2 10.0,161.9ZM71.9,205.5 70.5,205.5 68.8,204.4 71.7,204.4 71.9,205.5ZM77.9,218.8 82.3,221.1 85.3,222.0 84.0,223.6 79.3,222.9 77.9,218.8Z" fill="#89C4E9"><title>Bretagne</title></path><path class="fp-u" data-u="75" d="M250.1,273.6 254.0,269.4 254.9,271.2 258.5,271.5 259.9,269.8 261.6,271.4 262.3,268.1 274.9,270.3 280.8,269.4 283.5,272.6 282.8,273.3 283.5,274.6 286.0,274.6 287.1,277.0 289.3,277.2 292.2,282.9 291.9,287.8 293.8,290.4 294.1,293.8 289.7,299.5 285.9,301.4 290.8,307.9 290.7,311.5 289.4,311.5 288.7,313.9 290.6,316.1 289.6,323.3 290.9,325.2 284.7,324.2 284.5,328.2 278.6,334.7 279.2,338.0 277.9,341.4 275.1,342.7 276.5,346.5 269.4,348.1 268.2,346.9 263.3,349.8 257.8,343.9 254.7,343.3 249.8,345.4 250.7,349.0 249.9,350.6 251.0,352.4 245.8,356.6 246.4,359.6 240.2,363.4 240.4,365.0 237.4,368.8 234.1,370.0 237.1,379.0 234.1,380.0 231.0,378.8 230.0,382.7 233.0,384.5 231.3,388.7 229.6,388.9 230.7,391.3 229.9,392.5 227.2,391.4 227.3,393.1 222.9,397.8 219.2,395.2 214.9,396.3 212.0,398.9 209.0,399.6 206.2,398.2 204.0,400.5 200.7,400.1 200.0,404.7 197.3,402.9 198.0,401.4 196.6,400.1 189.3,404.6 190.8,405.5 190.9,409.4 189.6,409.5 190.8,413.3 188.9,414.7 189.0,417.7 187.6,418.3 187.7,419.7 188.8,419.8 189.0,421.4 194.4,421.6 196.5,425.3 195.4,429.5 198.3,430.1 197.8,432.7 199.0,434.2 196.2,436.6 197.3,438.2 195.3,440.7 195.4,443.2 193.6,443.1 190.9,446.8 190.6,450.4 187.4,452.4 187.6,456.3 185.9,457.2 186.4,460.8 183.5,463.4 179.2,462.1 176.9,464.3 175.7,461.7 171.2,458.5 170.3,454.5 163.1,455.2 157.0,451.5 151.4,450.3 149.8,449.0 150.8,446.4 148.4,447.8 148.1,451.2 144.9,450.2 143.8,447.8 145.8,445.9 147.0,439.2 142.5,437.0 138.7,439.2 138.2,436.6 134.2,436.9 132.1,433.9 132.1,432.7 139.0,429.5 144.2,419.5 149.5,392.3 151.6,369.9 153.6,365.0 155.2,363.7 160.5,364.5 155.0,357.7 151.5,365.4 155.3,320.5 157.8,315.6 168.3,327.1 172.8,341.5 175.5,344.9 176.2,343.5 173.4,338.9 170.9,326.0 168.4,321.1 160.8,313.0 152.4,307.9 152.2,303.9 156.3,302.7 155.5,299.6 157.4,299.1 158.8,294.9 157.5,292.7 159.2,291.6 156.4,285.4 152.9,283.3 153.8,280.8 157.0,278.2 156.4,275.6 163.6,272.6 162.5,274.9 168.2,274.1 171.4,276.0 178.1,271.5 174.4,269.9 175.3,267.5 174.2,265.0 175.8,263.7 175.3,259.0 171.2,251.1 171.8,248.3 167.3,244.9 167.4,242.3 165.1,240.0 168.9,238.4 175.3,239.1 177.1,237.7 177.3,235.4 179.7,234.3 191.1,232.9 192.3,233.3 191.4,235.0 193.2,235.8 194.8,233.3 196.3,233.7 198.6,229.3 200.8,232.1 204.6,232.6 205.3,233.8 204.4,234.9 205.6,235.9 208.9,235.8 209.9,242.4 220.1,240.9 218.8,238.6 223.5,240.1 223.9,243.9 232.1,255.0 230.9,258.7 231.7,260.3 240.3,265.3 240.4,268.2 242.5,269.2 241.3,271.7 245.9,272.4 247.9,270.8 250.1,273.6ZM194.1,433.5 193.9,436.0 195.2,436.3 195.6,434.2 194.1,433.5ZM194.2,439.7 195.0,438.7 193.8,436.1 192.8,438.2 194.2,439.7ZM142.2,280.3 145.5,279.9 145.3,281.2 150.4,282.3 151.0,284.3 141.5,281.4 140.4,279.5 143.1,278.7 143.6,279.7 142.2,280.3ZM152.6,302.8 146.8,294.5 145.9,289.7 152.4,293.2 152.5,296.1 154.2,298.3 152.6,302.8Z" fill="#5E9FCB"><title>Nouvelle-Aquitaine</title></path><path class="fp-u" data-u="76" d="M263.7,475.5 255.0,471.1 252.5,471.4 252.4,473.3 251.0,473.9 248.0,467.9 240.7,468.2 238.7,464.9 232.0,463.9 224.0,460.1 222.2,461.4 221.7,464.3 222.6,469.3 214.0,469.3 211.2,467.5 208.7,470.1 207.5,467.9 204.4,466.8 195.7,469.1 192.1,463.6 186.4,460.8 185.9,457.2 187.6,456.3 187.4,452.4 190.6,450.4 190.9,446.8 193.6,443.1 195.4,443.2 195.3,440.7 197.3,438.2 196.2,436.6 199.0,434.2 197.8,432.7 198.3,430.1 195.4,429.5 196.5,425.3 194.4,421.6 189.0,421.4 188.8,419.8 187.7,419.7 187.6,418.3 189.0,417.7 188.9,414.7 190.8,413.3 189.6,409.5 190.9,409.4 190.8,405.5 189.3,404.6 196.6,400.1 198.0,401.4 197.3,402.9 200.0,404.7 200.7,400.1 204.0,400.5 206.2,398.2 209.0,399.6 212.0,398.9 214.9,396.3 219.2,395.2 222.9,397.8 227.3,393.1 227.2,391.4 229.9,392.5 230.7,391.3 229.6,388.9 231.3,388.7 233.0,384.5 230.0,382.7 231.0,378.8 234.1,380.0 237.1,379.0 234.1,370.0 237.4,368.8 240.4,365.0 240.2,363.4 246.4,359.6 245.8,356.6 251.0,352.4 249.9,350.6 250.7,349.0 249.8,345.4 254.7,343.3 258.7,344.4 263.3,349.8 268.2,346.9 269.4,348.1 273.9,347.0 275.6,350.5 275.0,352.5 277.7,355.8 277.0,360.6 277.8,365.1 279.2,366.3 279.3,364.8 282.3,363.6 289.4,364.4 292.2,360.5 293.8,354.1 298.5,349.1 300.1,350.3 300.1,353.4 303.3,352.4 304.0,356.3 306.0,357.5 305.7,360.3 307.8,364.7 312.3,351.8 313.6,350.9 315.1,353.0 317.1,351.7 317.4,349.3 321.7,347.2 323.3,348.0 326.0,355.9 330.1,355.0 330.3,352.4 331.5,352.1 333.1,354.9 335.8,354.4 339.5,358.1 341.3,366.2 347.8,377.5 347.1,382.2 349.9,381.1 354.8,385.0 357.6,381.0 359.5,380.7 359.9,383.8 361.2,383.9 362.1,380.9 363.8,381.1 368.8,384.1 371.8,389.2 371.3,393.7 376.1,398.4 376.3,399.9 373.9,402.5 368.9,406.3 369.8,407.5 367.9,413.7 368.4,415.8 363.2,415.3 361.0,419.5 362.8,420.2 361.8,421.5 354.1,426.0 353.7,428.1 349.9,426.5 350.4,424.2 349.0,423.1 345.7,423.2 332.8,431.7 327.2,438.2 321.1,438.2 315.0,443.9 310.0,454.8 309.7,469.9 310.3,476.8 313.5,478.7 314.8,482.9 311.6,483.4 309.9,480.9 306.5,480.4 302.6,481.7 301.0,483.8 296.4,484.6 296.3,488.0 292.9,487.1 291.5,488.4 281.1,482.8 272.5,487.2 271.1,486.8 269.2,481.9 261.7,479.9 261.9,476.8 263.7,475.5ZM271.1,480.8 270.1,482.0 272.1,482.2 271.1,480.8ZM194.2,439.7 192.8,438.2 193.8,436.1 195.0,438.7 194.2,439.7ZM193.9,436.0 194.9,432.8 195.6,434.2 195.2,436.3 193.9,436.0Z" fill="#30709C"><title>Occitanie</title></path><path class="fp-u" data-u="84" d="M374.0,282.8 379.7,264.7 384.2,266.3 389.5,265.0 390.0,267.2 393.5,268.3 393.1,270.1 395.9,271.9 395.8,273.4 399.3,274.9 399.5,278.0 402.0,277.8 406.0,274.1 408.4,275.7 408.8,278.3 414.4,277.8 421.3,269.9 425.2,272.5 422.7,277.0 423.5,278.8 418.1,280.6 417.6,281.7 418.6,282.2 417.3,285.1 423.6,284.7 429.1,280.7 430.2,278.5 427.7,277.4 430.1,272.6 433.3,274.0 437.8,270.6 448.0,271.2 447.8,274.4 450.7,277.1 448.5,281.3 448.2,284.8 452.0,285.7 451.0,289.4 453.9,289.5 457.4,296.3 453.5,300.4 449.1,301.0 448.7,306.9 453.3,311.1 455.8,311.5 454.9,314.2 455.7,318.7 462.5,323.9 459.9,328.1 460.8,332.0 458.2,334.5 454.5,334.6 451.9,336.7 451.8,338.4 447.2,337.2 442.1,339.9 437.7,339.9 436.6,340.9 436.8,342.7 432.3,342.0 431.1,339.4 427.4,339.9 427.9,342.0 426.4,345.0 430.8,345.7 431.0,348.5 432.1,348.9 432.0,353.4 423.6,353.1 421.0,355.5 420.0,354.4 417.0,356.2 418.2,357.4 412.6,359.6 411.2,364.3 405.7,364.4 404.1,370.1 406.6,372.4 404.3,374.3 399.8,372.9 399.2,375.3 400.4,375.8 397.5,376.5 398.1,379.5 404.8,381.4 405.4,384.0 407.0,384.5 407.0,389.0 405.9,390.3 407.1,391.4 403.3,389.2 403.6,390.8 400.4,393.0 396.2,390.9 396.2,388.5 395.1,387.8 387.8,386.9 388.4,382.7 385.9,384.3 384.3,382.7 375.7,387.0 374.9,383.0 373.3,381.8 369.2,381.6 369.2,384.7 363.8,381.1 362.1,380.9 361.8,383.3 359.9,383.8 359.5,380.7 355.9,382.4 354.8,385.0 349.9,381.1 347.1,382.2 347.8,377.5 341.3,366.2 339.5,358.1 335.8,354.4 333.1,354.9 331.5,352.1 330.3,352.4 330.1,355.0 326.0,355.9 323.3,348.0 321.7,347.2 317.4,349.3 317.1,351.7 315.1,353.0 313.6,350.9 312.3,351.8 307.8,364.7 305.7,360.3 306.0,357.5 304.0,356.3 303.3,352.4 300.1,353.4 300.1,350.3 298.5,349.1 293.8,354.1 292.2,360.5 289.4,364.4 285.1,364.9 283.6,363.4 280.0,364.2 279.2,366.3 277.8,365.1 277.0,360.6 277.7,355.8 275.0,352.5 275.6,350.5 273.9,347.0 276.5,346.5 275.1,342.7 277.9,341.4 279.2,338.0 278.6,334.7 284.5,328.2 284.7,324.2 290.9,325.2 289.6,323.3 290.6,316.1 288.7,313.9 289.4,311.5 290.7,311.5 290.8,307.9 285.9,301.4 289.7,299.5 294.1,293.8 293.8,290.4 291.9,287.8 292.2,282.9 289.3,277.2 287.1,277.0 286.0,274.6 283.5,274.6 282.8,273.3 283.5,272.6 282.1,271.5 282.1,268.0 285.2,264.5 291.4,264.4 294.1,262.8 292.7,256.9 294.6,257.1 297.9,252.4 299.5,253.8 307.0,249.2 309.6,249.7 310.2,251.7 315.7,255.8 318.4,253.9 321.2,255.6 324.4,254.1 325.2,257.3 328.6,255.9 328.7,253.9 330.5,253.5 329.6,252.1 331.6,252.1 335.4,259.9 335.7,263.4 345.2,267.3 344.8,275.1 342.1,276.3 341.2,280.7 346.4,283.1 352.9,281.8 355.6,283.8 359.5,280.5 360.2,276.4 363.8,277.9 365.8,276.5 368.0,278.0 369.4,276.0 371.3,277.0 370.3,278.4 372.4,279.7 372.2,282.7 374.0,282.8ZM379.1,377.4 377.4,380.5 378.0,382.9 381.3,383.3 384.0,379.7 381.7,376.6 379.1,377.4Z" fill="#30709C"><title>Auvergne-Rhône-Alpes</title></path><path class="fp-u" data-u="93" d="M453.8,364.2 453.2,368.6 450.4,370.9 453.4,375.7 451.8,376.7 451.6,379.9 455.5,384.2 456.0,386.6 461.6,388.2 466.1,391.7 468.3,391.4 468.9,392.9 480.9,389.9 480.3,392.1 482.0,395.7 480.2,397.6 479.8,400.6 474.0,406.6 475.3,410.6 473.3,412.5 464.7,415.8 463.3,418.2 461.5,417.7 460.2,422.8 454.8,423.5 451.7,429.8 445.9,431.0 445.1,434.3 440.4,437.9 444.6,438.5 441.7,444.1 439.4,442.7 437.2,444.6 433.8,444.7 432.5,445.4 432.4,448.0 426.6,446.5 424.8,447.9 424.7,451.2 423.2,450.6 423.5,448.6 420.1,448.6 416.0,446.1 415.8,448.1 412.6,450.1 412.1,447.0 407.7,445.0 406.1,442.7 404.2,444.0 401.6,441.4 394.6,441.2 395.8,439.6 394.0,433.6 383.5,435.1 380.9,429.9 379.6,429.5 377.1,431.0 376.5,432.7 377.5,433.4 375.9,435.1 366.8,433.4 365.8,431.9 366.7,429.7 364.3,428.4 353.7,428.1 354.1,426.0 361.8,421.5 362.8,420.2 361.0,419.5 363.2,415.3 368.4,415.8 367.9,413.7 369.8,407.5 368.9,406.3 376.3,399.9 374.3,395.7 371.3,393.7 371.8,389.2 369.3,385.6 369.2,381.6 374.9,383.0 375.7,387.0 384.3,382.7 385.9,384.3 388.4,382.7 387.8,386.9 395.1,387.8 396.2,388.5 396.2,390.9 398.1,391.1 398.8,392.8 402.0,392.1 403.6,390.8 403.3,389.2 407.1,391.4 405.9,390.3 407.0,389.0 407.0,384.5 405.4,384.0 404.8,381.4 398.1,379.5 397.5,376.5 400.4,375.8 399.2,375.3 399.8,372.9 404.3,374.3 406.6,372.4 404.1,370.1 405.7,364.4 411.2,364.3 412.6,359.6 418.2,357.4 417.0,356.2 418.1,355.4 420.0,354.4 421.0,355.5 423.6,353.1 432.0,353.4 432.1,348.9 431.0,348.5 430.8,345.7 426.4,345.0 428.5,338.9 435.5,342.9 436.8,342.7 436.6,340.9 437.7,339.9 441.6,339.2 443.7,344.6 446.3,344.9 446.6,350.8 450.7,353.7 456.0,354.3 455.7,357.0 458.6,362.8 455.2,362.4 453.8,364.2ZM382.6,423.0 382.3,427.6 384.0,427.9 384.7,431.3 387.1,431.3 390.4,428.5 389.5,426.4 387.4,428.2 385.9,424.6 383.8,424.8 382.6,423.0ZM434.9,451.9 436.2,450.3 436.9,450.4 436.2,451.8 434.9,451.9ZM433.5,453.1 433.0,452.1 434.4,452.0 433.5,453.1ZM427.9,451.6 426.6,453.6 425.0,452.6 426.3,452.7 427.9,451.6ZM377.4,380.5 379.1,377.4 381.7,376.6 384.0,379.7 381.3,383.3 378.0,382.9 377.4,380.5Z" fill="#89C4E9"><title>Provence-Alpes-Côte d&#x27;Azur</title></path><path class="fp-u" data-u="94" d="M544.6,508.6 543.6,524.4 540.0,527.1 540.3,528.5 542.8,527.8 537.6,536.0 538.6,537.9 537.4,540.0 532.8,538.4 533.0,536.0 530.8,534.6 525.1,532.7 521.1,528.1 521.8,526.0 526.2,522.8 517.8,519.7 519.5,518.2 518.7,516.9 521.4,515.3 521.3,512.4 522.1,512.1 521.3,510.2 515.2,511.5 514.6,508.7 517.1,507.4 516.7,505.7 519.8,502.9 513.8,497.8 513.2,493.5 518.0,491.3 515.6,489.5 515.2,487.5 512.9,487.6 515.0,483.9 516.7,484.0 517.1,478.7 520.4,475.7 521.5,476.4 522.4,474.2 529.8,472.0 534.0,467.1 537.5,466.9 540.2,470.1 541.3,468.9 541.9,463.4 540.9,461.8 542.6,452.4 546.5,453.4 547.5,463.7 545.8,470.2 548.8,475.9 550.0,491.2 549.6,500.6 544.6,508.6Z" fill="#5E9FCB"><title>Corse</title></path></g><g></g><g class="fp-labels" aria-hidden="true"><text data-ut="11" x="291.0" y="153.0" fill="#FFFFFF">IDF</text><text data-ut="24" x="261.4" y="208.7" fill="#103454">CVL</text><text data-ut="27" x="380.4" y="228.1" fill="#FFFFFF">BFC</text><text data-ut="28" x="198.8" y="127.9" fill="#FFFFFF">NOR</text><text data-ut="32" x="304.2" y="83.9" fill="#FFFFFF">HDF</text><text data-ut="44" x="409.8" y="146.5" fill="#103454">GES</text><text data-ut="52" x="155.6" y="220.5" fill="#FFFFFF">PDL</text><text data-ut="53" x="99.5" y="181.2" fill="#103454">BRE</text><text data-ut="75" x="201.6" y="350.7" fill="#FFFFFF">NAQ</text><text data-ut="76" x="275.7" y="420.7" fill="#FFFFFF">OCC</text><text data-ut="84" x="374.3" y="325.0" fill="#FFFFFF">ARA</text><text data-ut="93" x="427.2" y="398.7" fill="#103454">PACA</text><text data-ut="94" x="531.7" y="499.7" fill="#FFFFFF">COR</text></g></svg><div class="fp-drom"><span class="fp-drom-h" data-fp="ovh">Outre-mer</span><div class="fp-drom-t" data-o="0"><b>Guadeloupe</b><span>région d'outre-mer</span></div><div class="fp-drom-t" data-o="1"><b>Martinique</b><span>région d'outre-mer</span></div><div class="fp-drom-t" data-o="2"><b>Guyane</b><span>région d'outre-mer</span></div><div class="fp-drom-t" data-o="3"><b>La Réunion</b><span>région d'outre-mer</span></div><div class="fp-drom-t" data-o="4"><b>Mayotte</b><span>région d'outre-mer</span></div><span class="fp-drom-n" data-fp="ovn">Formes non représentées à l'échelle.</span></div></div><ul class="fp-legend"><li><span class="fp-sw" style="background:#103454"></span>13 régions métropolitaines, teintes alternées pour distinguer les voisines</li></ul><p class="fp-src">Découpage régional en vigueur depuis le 1er janvier 2016 · T1.</p><p class="fp-attr" data-fp="attr">Contours : IGN, Admin Express COG, via france-geojson (Grégoire David), simplifiés · Licence Ouverte.</p><details class="fp-table"><summary data-fp="tablesum">Voir les données de la carte</summary><div style="overflow-x:auto"><table><thead><tr><th data-th="unit">Région</th><th data-th="regions">Régions</th><th data-th="exposition">Exposition à l&#x27;IA par région</th></tr></thead><tbody><tr><td data-cell="0:name">Île-de-France</td><td data-cell="0:regions">13 régions métropolitaines, teintes alternées pour distinguer les voisines</td><td data-cell="0:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="1:name">Centre-Val de Loire</td><td data-cell="1:regions"></td><td data-cell="1:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="2:name">Bourgogne-Franche-Comté</td><td data-cell="2:regions"></td><td data-cell="2:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="3:name">Normandie</td><td data-cell="3:regions"></td><td data-cell="3:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="4:name">Hauts-de-France</td><td data-cell="4:regions"></td><td data-cell="4:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="5:name">Grand Est</td><td data-cell="5:regions"></td><td data-cell="5:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="6:name">Pays de la Loire</td><td data-cell="6:regions"></td><td data-cell="6:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="7:name">Bretagne</td><td data-cell="7:regions"></td><td data-cell="7:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="8:name">Nouvelle-Aquitaine</td><td data-cell="8:regions"></td><td data-cell="8:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="9:name">Occitanie</td><td data-cell="9:regions"></td><td data-cell="9:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="10:name">Auvergne-Rhône-Alpes</td><td data-cell="10:regions"></td><td data-cell="10:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="11:name">Provence-Alpes-Côte d&#x27;Azur</td><td data-cell="11:regions"></td><td data-cell="11:exposition">n.d. · pas de série régionale datée</td></tr><tr><td data-cell="12:name">Corse</td><td data-cell="12:regions"></td><td data-cell="12:exposition">n.d. · pas de série régionale datée</td></tr></tbody></table></div></details></div>
+<aside class="fp-facts"><div class="fp-fact"><div class="fp-v" data-fp="f0v">18</div><div class="fp-l" data-fp="f0l">régions, dont 13 en métropole et 5 en outre-mer</div><div class="fp-s"><span data-fp="f0s">Insee, Code officiel géographique</span> <span class="fp-t">T1</span></div></div><div class="fp-fact"><div class="fp-v" data-fp="f1v">101</div><div class="fp-l" data-fp="f1l">départements</div><div class="fp-s"><span data-fp="f1s">Insee, Code officiel géographique</span> <span class="fp-t">T1</span></div></div><div class="fp-fact"><div class="fp-v" data-fp="f2v">69,1 millions</div><div class="fp-l" data-fp="f2l">d&#x27;habitants au 1er janvier 2026, estimation provisoire</div><div class="fp-s"><a href="https://www.insee.fr/fr/statistiques/8719824" target="_blank" rel="noopener"><span data-fp="f2s">Insee Première n° 2087, 13 janvier 2026</span></a> <span class="fp-t">T1</span></div></div><div class="fp-fact is-accent"><div class="fp-v" data-fp="f3v">200</div><div class="fp-l" data-fp="f3l">métiers ROME cartographiés</div><div class="fp-s"><span data-fp="f3s">metiers-ia-fr.json</span></div></div><div class="fp-note" data-fp="note">Couche régionale à documenter. Le tableau de bord transitions-ia.fr affiche des scores régionaux estimés : leur source et leur date doivent être établies avant de les reprendre ici.</div></aside>
+</div>
+<script type="application/json" id="fpData">{"layers": [{"id": "regions", "label": {"fr": "Régions", "en": "Regions"}, "classes": {"a": {"color": "#103454", "label": {"fr": "13 régions métropolitaines, teintes alternées pour distinguer les voisines", "en": "13 mainland regions, alternating tints to separate neighbours"}}, "b": {"color": "#30709C", "label": null}, "c": {"color": "#5E9FCB", "label": null}, "d": {"color": "#89C4E9", "label": null}}, "source": {"fr": "Découpage régional en vigueur depuis le 1er janvier 2016 · T1.", "en": "Regional divisions in force since 1 January 2016 · T1."}}, {"id": "exposition", "label": {"fr": "Exposition à l'IA par région", "en": "AI exposure by region"}, "classes": {"nd": {"color": "nd", "label": {"fr": "n.d. · pas de série régionale datée", "en": "n.a. · no dated regional series"}}}, "source": {"fr": "Aucune série régionale datée et sourcée n'est intégrée aux données de l'observatoire à ce jour : la couche reste en n.d.", "en": "No dated, sourced regional series is part of the observatory's data yet: the layer stays n.a."}}], "units": [{"id": "11", "abbr": "IDF", "name": {"fr": "Île-de-France", "en": "Île-de-France"}, "regions": "a", "exposition": "nd"}, {"id": "24", "abbr": "CVL", "name": {"fr": "Centre-Val de Loire", "en": "Centre-Val de Loire"}, "regions": "d", "exposition": "nd"}, {"id": "27", "abbr": "BFC", "name": {"fr": "Bourgogne-Franche-Comté", "en": "Bourgogne-Franche-Comté"}, "regions": "c", "exposition": "nd"}, {"id": "28", "abbr": "NOR", "name": {"fr": "Normandie", "en": "Normandy"}, "regions": "c", "exposition": "nd"}, {"id": "32", "abbr": "HDF", "name": {"fr": "Hauts-de-France", "en": "Hauts-de-France"}, "regions": "b", "exposition": "nd"}, {"id": "44", "abbr": "GES", "name": {"fr": "Grand Est", "en": "Grand Est"}, "regions": "d", "exposition": "nd"}, {"id": "52", "abbr": "PDL", "name": {"fr": "Pays de la Loire", "en": "Pays de la Loire"}, "regions": "b", "exposition": "nd"}, {"id": "53", "abbr": "BRE", "name": {"fr": "Bretagne", "en": "Brittany"}, "regions": "d", "exposition": "nd"}, {"id": "75", "abbr": "NAQ", "name": {"fr": "Nouvelle-Aquitaine", "en": "Nouvelle-Aquitaine"}, "regions": "c", "exposition": "nd"}, {"id": "76", "abbr": "OCC", "name": {"fr": "Occitanie", "en": "Occitanie"}, "regions": "b", "exposition": "nd"}, {"id": "84", "abbr": "ARA", "name": {"fr": "Auvergne-Rhône-Alpes", "en": "Auvergne-Rhône-Alpes"}, "regions": "b", "exposition": "nd"}, {"id": "93", "abbr": "PACA", "name": {"fr": "Provence-Alpes-Côte d'Azur", "en": "Provence-Alpes-Côte d'Azur"}, "regions": "d", "exposition": "nd"}, {"id": "94", "abbr": "COR", "name": {"fr": "Corse", "en": "Corsica"}, "regions": "c", "exposition": "nd"}], "overseas": [{"fr": "Guadeloupe", "en": "Guadeloupe"}, {"fr": "Martinique", "en": "Martinique"}, {"fr": "Guyane", "en": "French Guiana"}, {"fr": "La Réunion", "en": "Réunion"}, {"fr": "Mayotte", "en": "Mayotte"}], "text": {"eyebrow": {"fr": "Le pays en un coup d'œil", "en": "The country at a glance"}, "title": {"fr": "La France : 18 régions, 101 départements.", "en": "France: 18 regions, 101 departments."}, "lede": {"fr": "Le découpage administratif d'abord, l'exposition ensuite. Une région sans série datée reste en n.d. : rien n'est estimé pour remplir la carte.", "en": "Administrative divisions first, exposure second. A region without a dated series stays n.a.: nothing is estimated to fill the map."}, "attr": {"fr": "Contours : IGN, Admin Express COG, via france-geojson (Grégoire David), simplifiés · Licence Ouverte.", "en": "Boundaries: IGN, Admin Express COG, via france-geojson (Grégoire David), simplified · Licence Ouverte."}, "note": {"fr": "Couche régionale à documenter. Le tableau de bord transitions-ia.fr affiche des scores régionaux estimés : leur source et leur date doivent être établies avant de les reprendre ici.", "en": "Regional layer to be documented. The transitions-ia.fr dashboard shows estimated regional scores: their source and date must be established before they are used here."}, "tablesum": {"fr": "Voir les données de la carte", "en": "Show the map data"}, "ovh": {"fr": "Outre-mer", "en": "Overseas"}, "ovn": {"fr": "Formes non représentées à l'échelle.", "en": "Shapes not drawn to scale."}, "f0v": {"fr": "18", "en": "18"}, "f0l": {"fr": "régions, dont 13 en métropole et 5 en outre-mer", "en": "regions, 13 in mainland France and 5 overseas"}, "f0s": {"fr": "Insee, Code officiel géographique", "en": "Insee, Official Geographic Code"}, "f1v": {"fr": "101", "en": "101"}, "f1l": {"fr": "départements", "en": "departments"}, "f1s": {"fr": "Insee, Code officiel géographique", "en": "Insee, Official Geographic Code"}, "f2v": {"fr": "69,1 millions", "en": "69.1 million"}, "f2l": {"fr": "d'habitants au 1er janvier 2026, estimation provisoire", "en": "inhabitants on 1 January 2026, provisional estimate"}, "f2s": {"fr": "Insee Première n° 2087, 13 janvier 2026", "en": "Insee Première no. 2087, 13 January 2026"}, "f3v": {"fr": "200", "en": "200"}, "f3l": {"fr": "métiers ROME cartographiés", "en": "ROME occupations mapped"}, "f3s": {"fr": "metiers-ia-fr.json", "en": "metiers-ia-fr.json"}}, "dark": ["#103454", "#30709C", "#5E9FCB", "#647092", "#E67E00"], "ui": {"fr": {"nd": "n.d.", "drom": "région d'outre-mer", "unit": "Région"}, "en": {"nd": "n.a.", "drom": "overseas region", "unit": "Region"}}}</script>
+<script>
+(function(){
+  var root=document.getElementById('fichePays'); if(!root) return;
+  var D=JSON.parse(document.getElementById('fpData').textContent);
+  var state={layer:D.layers[0].id};
+  function lang(){ var l=(document.documentElement.lang||'fr').slice(0,2); return l==='en'?'en':'fr'; }
+  function tr(v,l){ return (v&&typeof v==='object')?v[l]:v; }
+  function fillOf(c){ return c==='nd'?'url(#fpNd)':c; }
+  function render(){
+    var l=lang(), L=null;
+    D.layers.forEach(function(x){ if(x.id===state.layer) L=x; });
+    root.querySelectorAll('[data-fp]').forEach(function(el){ var v=D.text[el.getAttribute('data-fp')]; if(v) el.textContent=v[l]; });
+    root.querySelectorAll('.fp-layer').forEach(function(b){ var on=b.getAttribute('data-layer')===state.layer; b.setAttribute('aria-pressed',on?'true':'false'); D.layers.forEach(function(x){ if(x.id===b.getAttribute('data-layer')) b.textContent=x.label[l]; }); });
+    D.units.forEach(function(u){
+      var cls=L.classes[u[state.layer]], col=cls.color;
+      var p=root.querySelector('[data-u="'+u.id+'"]'); if(p){ p.setAttribute('fill',fillOf(col)); var tt=p.querySelector('title'); if(tt) tt.textContent=u.name[l]+' · '+(cls.label?cls.label[l]:'' ); }
+      var t=root.querySelector('[data-ut="'+u.id+'"]'); if(t) t.setAttribute('fill', D.dark.indexOf(col)>=0?'#FFFFFF':'#103454');
+    });
+    var lg=root.querySelector('.fp-legend'); lg.innerHTML='';
+    Object.keys(L.classes).forEach(function(k){ var c=L.classes[k]; if(!c.label) return; var li=document.createElement('li'); var sw=document.createElement('span'); sw.className='fp-sw'+(c.color==='nd'?' is-nd':''); if(c.color!=='nd') sw.style.background=c.color; li.appendChild(sw); li.appendChild(document.createTextNode(c.label[l])); lg.appendChild(li); });
+    var src=root.querySelector('.fp-src'); src.textContent=L.source[l]; if(L.url){ src.appendChild(document.createTextNode(' ')); var a=document.createElement('a'); a.href=L.url; a.target='_blank'; a.rel='noopener'; a.textContent=l==='en'?'Source':'Source'; src.appendChild(a); }
+    var nd=L.id==='exposition';
+    root.querySelectorAll('.fp-drom-t').forEach(function(t){ t.classList.toggle('is-nd',nd); var s=t.querySelector('span'); if(s) s.textContent=nd?D.ui[l].nd:D.ui[l].drom; var n=t.querySelector('b'); if(n) n.textContent=D.overseas[+t.getAttribute('data-o')][l]; });
+    root.querySelectorAll('[data-cell]').forEach(function(td){ var p=td.getAttribute('data-cell').split(':'); var u=D.units[+p[0]]; var LL=null; D.layers.forEach(function(x){ if(x.id===p[1]) LL=x; }); if(p[1]==='name'){ td.textContent=u.name[l]; } else { var c=LL.classes[u[p[1]]]; td.textContent=c.label?c.label[l]:''; } });
+    root.querySelectorAll('[data-th]').forEach(function(th){ var k=th.getAttribute('data-th'); if(k==='unit') th.textContent=D.ui[l].unit; else D.layers.forEach(function(x){ if(x.id===k) th.textContent=x.label[l]; }); });
+  }
+  root.querySelectorAll('.fp-layer').forEach(function(b){ b.addEventListener('click',function(){ state.layer=b.getAttribute('data-layer'); render(); }); });
+  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  render();
+})();
+</script>
+</section>
+<!-- FICHE-PAYS:END -->
 
 <!-- COUNTRY CONTEXT -->
 <section class="context-block">
@@ -6543,7 +6795,7 @@ footer#siteFooter .foot-bottom{ border-top-color:rgba(255,255,255,.14); }
   <div class="rdr-inner">
     <div class="rdr-eyebrow">🇫🇷 Observatoire · France · Radar exposition vs adoption</div>
     <h2 class="rdr-title">Exposition technique de l'IA <em>vs taux d'adoption</em>.</h2>
-    <p class="rdr-sub">22 catégories d'occupation, <b>deux indicateurs distincts à lire axe par axe</b>. En vert · l'exposition technique estimée par tâche (échelle 0–0,5, référence académique internationale). En rouge · le taux d'adoption observé ou estimé par catégorie (échelle 0–100 %). Les deux courbes ne se comparent pas directement · chacune est ramenée à son propre maximum.</p>
+    <p class="rdr-sub">22 catégories d'occupation, <b>deux indicateurs distincts à lire axe par axe</b>. En orange · l'exposition technique estimée par tâche (échelle 0–0,5, référence académique internationale). En bleu marine · le taux d'adoption observé ou estimé par catégorie (échelle 0–100 %). Les deux courbes ne se comparent pas directement · chacune est ramenée à son propre maximum.</p>
     <p class="rdr-sub" style="border-left: 3px solid var(--accent); padding-left: 14px; margin-top: -8px; font-size: 13px;"><strong>Avertissement méthodologique</strong> · les scores d'exposition affichés s'appuient sur des coefficients LLM-dérivés (Karger, Kuusela, Tetlock · FRB Chicago/SSRN 2026, n=894 occupations O*NET). L'étude Yin, Vu & Persico (NBER WP 35110, avril 2026) documente une instabilité de mesure de <strong>3,6×</strong> entre modèles d'IA différents sur des tâches identiques. À lire comme une fourchette indicative · le classement relatif entre métiers reste robuste, mais les niveaux absolus comportent une variance documentée.</p>
 
     <div class="rdr-grid" id="frRadarCard">
@@ -7394,10 +7646,10 @@ function renderFooter() {
       <div class="foot-col foot-col-meta">
         <div class="foot-update mono">
           <span data-i18n="foot.lastupdate">${t("foot.lastupdate")}</span>
-          <strong>24 mai 2026</strong>
+          <strong>18 octobre 2026</strong>
         </div>
         <div class="foot-license mono" data-i18n="foot.license">${t("foot.license")}</div>
-        <div class="foot-version mono">v0.3.73 · build 2026.06.06</div>
+        <div class="foot-version mono">v0.6.0 · build 2026.10.18</div>
       </div>
     </div>
     <div class="foot-bottom">
